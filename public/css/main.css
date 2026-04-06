@@ -1124,8 +1124,7 @@ input {
     .right-panel {
         width: 100%;
         min-width: 100%;
-        height: auto;
-        max-height: 120px;
+        height: 160px; /* fixed height layout for scrolling */
         flex: 0 0 auto;
         flex-direction: row;
         border-left: none;
@@ -1136,18 +1135,53 @@ input {
     }
 
     .panel-section {
-        flex: 1;
+        flex: 1 0 auto; /* Ensure it doesn't shrink aggressively */
+        width: 50vw; /* Take half screen width */
         min-width: 200px;
         border-bottom: none;
         border-right: 1px solid var(--border-subtle);
+        display: flex;
+        flex-direction: column;
     }
     
     .properties-content, .info-content {
         padding: 4px 8px;
+        overflow-y: auto; /* Allow internal vertical scrolling */
+        flex: 1; /* Take remaining height */
     }
     
     .shortcut-row {
         gap: 4px;
     }
+
+    /* Expand / Collapse Section functionality */
+    .toggleable-header {
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .toggleable-header .section-chevron {
+        transition: transform 0.2s ease;
+    }
+    
+    .toggleable-header.collapsed .section-chevron {
+        transform: rotate(-90deg);
+    }
+    
+    /* Classes applied to content containers that hide when collapsed */
+    .tool-buttons.collapsed,
+    .component-library-wrap.collapsed,
+    .properties-content.collapsed,
+    .info-content.collapsed,
+    .category-items.collapsed {
+        display: none !important;
+    }
+    
+    /* When a section collapses, let the parent flex container shrink */
+    .sidebar-section:has(> .toggleable-header.collapsed),
+    .panel-section:has(> .toggleable-header.collapsed) {
+        flex: 0 0 auto !important; 
+    }
 }
+
 

@@ -495,6 +495,19 @@ class App {
                 this.hideContextMenu();
             });
         });
+
+        // Mobile panel section collapsing
+        document.querySelectorAll('.toggleable-header').forEach(header => {
+            header.addEventListener('click', () => {
+                // Only collapse on mobile widths if you want, but works for desktop too
+                header.classList.toggle('collapsed');
+                const targetId = header.dataset.target;
+                if (targetId) {
+                    const target = document.getElementById(targetId);
+                    if (target) target.classList.toggle('collapsed');
+                }
+            });
+        });
     }
 
     // ── Keyboard ──

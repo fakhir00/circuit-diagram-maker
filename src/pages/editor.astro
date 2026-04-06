@@ -110,8 +110,9 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
         <!-- === LEFT SIDEBAR: Tools + Component Library === -->
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-section">
-                <div class="sidebar-section-header">
+                <div class="sidebar-section-header toggleable-header" data-target="tool-buttons">
                     <span>Tools</span>
+                    <svg class="section-chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </div>
                 <div id="tool-buttons" class="tool-buttons">
                     <button id="tool-select" class="tool-btn active" title="Select (V)" data-tool="select">
@@ -131,9 +132,10 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
 
             <!-- Component Library -->
             <div class="sidebar-section sidebar-section-grow">
-                <div class="sidebar-section-header">
+                <div class="sidebar-section-header toggleable-header" data-target="component-library-wrap">
                     <span>Components</span>
-                    <div class="view-toggle">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div class="view-toggle">
                         <button id="view-grid" class="view-btn active" title="Grid View">
                             <svg viewBox="0 0 16 16" width="14" height="14"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
                         </button>
@@ -141,13 +143,17 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
                             <svg viewBox="0 0 16 16" width="14" height="14"><rect x="1" y="2" width="14" height="3" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="3" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="3" rx="1" fill="currentColor"/></svg>
                         </button>
                     </div>
+                    <svg class="section-chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
                 </div>
-                <div class="search-container">
-                    <svg class="search-icon" viewBox="0 0 20 20" width="14" height="14"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                    <input type="text" id="component-search" class="search-input" placeholder="Search components..." spellcheck="false">
-                </div>
-                <div id="component-library" class="component-library">
-                    <!-- Populated by JavaScript -->
+                <div id="component-library-wrap" class="component-library-wrap">
+                    <div class="search-container">
+                        <svg class="search-icon" viewBox="0 0 20 20" width="14" height="14"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <input type="text" id="component-search" class="search-input" placeholder="Search components..." spellcheck="false">
+                    </div>
+                    <div id="component-library" class="component-library">
+                        <!-- Populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </aside>
@@ -169,9 +175,12 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
         <!-- === RIGHT PANEL: Properties + Layers === -->
         <aside id="right-panel" class="right-panel">
             <div class="panel-section" id="properties-section">
-                <div class="panel-section-header">
-                    <svg viewBox="0 0 20 20" width="14" height="14"><path d="M11 3a1 1 0 10-2 0v1a7 7 0 106 6h1a1 1 0 100-2h-1A7 7 0 0011 4V3z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-                    <span>Properties</span>
+                <div class="panel-section-header toggleable-header" data-target="properties-content">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <svg viewBox="0 0 20 20" width="14" height="14"><path d="M11 3a1 1 0 10-2 0v1a7 7 0 106 6h1a1 1 0 100-2h-1A7 7 0 0011 4V3z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                        <span>Properties</span>
+                    </div>
+                    <svg class="section-chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </div>
                 <div id="properties-content" class="properties-content">
                     <div class="empty-state">
@@ -182,11 +191,14 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
             </div>
 
             <div class="panel-section" id="info-section">
-                <div class="panel-section-header">
-                    <svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 9v4M10 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                    <span>Info</span>
+                <div class="panel-section-header toggleable-header" data-target="info-content-wrap">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 9v4M10 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <span>Info</span>
+                    </div>
+                    <svg class="section-chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </div>
-                <div class="info-content">
+                <div id="info-content-wrap" class="info-content">
                     <div class="info-shortcuts desktop-shortcuts">
                         <div class="shortcut-row"><kbd>V</kbd> Select</div>
                         <div class="shortcut-row"><kbd>W</kbd> Wire</div>
