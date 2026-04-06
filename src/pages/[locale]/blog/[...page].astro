@@ -51,10 +51,10 @@ const blogSchema = {
 
   <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h1 class="text-4xl font-extrabold tracking-tight text-white mb-4">Latest Updates</h1>
-      <p class="text-xl text-slate-400 mb-6">News, tutorials, and insights for circuit designers.</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white mb-4">{t('blog.title') || 'Latest Updates'}</h1>
+      <p class="text-xl text-slate-400 mb-6">{t('blog.subtitle') || 'News, tutorials, and insights for circuit designers.'}</p>
       <p class="text-sm text-slate-500 font-mono">
-        Showing {page.start + 1} - {page.end + 1} of {page.total} results
+        {t('blog.showing') || 'Showing'} {page.start + 1} - {page.end + 1} {t('blog.of') || 'of'} {page.total} {t('blog.results') || 'results'}
       </p>
     </div>
 
@@ -71,7 +71,7 @@ const blogSchema = {
           </h2>
           <p class="text-slate-400 flex-grow mb-6">{post.data.description}</p>
           <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="text-brand-primary font-medium hover:text-brand-accent transition-colors mt-auto inline-flex items-center gap-1">
-            Read article <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            {t('blog.read_more') || 'Read article'} <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
           </a>
         </article>
       ))}
@@ -81,13 +81,13 @@ const blogSchema = {
     {(page.url.prev || page.url.next) && (
       <nav class="flex justify-between items-center mt-16 pt-8 border-t border-white/5">
         {page.url.prev ? (
-          <a href={page.url.prev} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">&larr; Previous</a>
+          <a href={page.url.prev} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">&larr; {t('blog.previous') || 'Previous'}</a>
         ) : <div></div>}
         
-        <span class="text-slate-400">Page {page.currentPage} of {page.lastPage}</span>
+        <span class="text-slate-400">{t('blog.page') || 'Page'} {page.currentPage} {t('blog.of') || 'of'} {page.lastPage}</span>
         
         {page.url.next ? (
-          <a href={page.url.next} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">Next &rarr;</a>
+          <a href={page.url.next} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">{t('blog.next') || 'Next'} &rarr;</a>
         ) : <div></div>}
       </nav>
     )}
