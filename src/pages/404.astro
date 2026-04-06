@@ -1,6 +1,6 @@
 ---
-import BaseLayout from './layouts/BaseLayout.astro';
-import { getLocalizedPath, getLocaleFromUrl } from './theme/i18n';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocalizedPath, getLocaleFromUrl } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
