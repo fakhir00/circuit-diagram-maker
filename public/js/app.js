@@ -261,7 +261,157 @@ class App {
             this.showContextMenu(e.clientX, e.clientY);
         });
 
-        // Drag drop from sidebar
+        // --- Touch Events ---
+        let lastTouchX = 0, lastTouchY = 0;
+        let initialPinchDist = null;
+        let startZoom = null;
+        let touchTimer = null;
+        
+        c.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                const touch = e.touches[0];
+                lastTouchX = touch.clientX;
+                lastTouchY = touch.clientY;
+                
+                const rect = c.getBoundingClientRect();
+                const sx = touch.clientX - rect.left;
+                const sy = touch.clientY - rect.top;
+                const world = this.viewport.screenToWorld(sx, sy);
+                
+                // Long press for context menu
+                if (touchTimer) clearTimeout(touchTimer);
+                touchTimer = setTimeout(() => {
+                    const item = this.circuit.findItemAt(world.x, world.y);
+                    if (item) {
+                        this.renderer.selection.clear();
+                        this.renderer.selection.add(item.item.id);
+                        this.updateProperties();
+                    }
+                    this.showContextMenu(lastTouchX, lastTouchY);
+                    touchTimer = null;
+                }, 600);
+                
+                // Hide context menu if clicking somewhere else
+                this.hideContextMenu();
+                
+                const fakeEvent = { clientX: touch.clientX, clientY: touch.clientY, preventDefault: () => e.preventDefault(), target: c };
+                this.toolManager.onMouseDown(fakeEvent, world.x, world.y, sx, sy);
+            } else if (e.touches.length === 2) {
+                if (touchTimer) { clearTimeout(touchTimer); touchTimer = null; }
+                
+                // End any active tool action (e.g. dragging a component) since we are starting a pinch/pan
+                const fakeEvent = { clientX: lastTouchX, clientY: lastTouchY, preventDefault: () => {}, target: c };
+                this.toolManager.onMouseUp(fakeEvent, 0, 0, 0, 0); 
+                
+                const t1 = e.touches[0];
+                const t2 = e.touches[1];
+                const dx = t1.clientX - t2.clientX;
+                const dy = t1.clientY - t2.clientY;
+                initialPinchDist = Math.sqrt(dx*dx + dy*dy);
+                startZoom = this.viewport.zoom;
+                
+                const cx = (t1.clientX + t2.clientX) / 2;
+                const cy = (t1.clientY + t2.clientY) / 2;
+                const rect = c.getBoundingClientRect();
+                this.viewport.startPan(cx - rect.left, cy - rect.top);
+                this.canvasContainer.classList.add('panning');
+            }
+        }, { passive: false });
+
+        c.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent pull-to-refresh and scrolling
+            
+            if (e.touches.length === 1) {
+                if (touchTimer) {
+                    // Check if we moved far enough to cancel long press
+                    const touch = e.touches[0];
+                    const moveX = Math.abs(touch.clientX - lastTouchX);
+                    const moveY = Math.abs(touch.clientY - lastTouchY);
+                    if (moveX > 10 || moveY > 10) {
+                        clearTimeout(touchTimer);
+                        touchTimer = null;
+                    }
+                }
+                
+                if (!this.viewport.isPanning) {
+                    const touch = e.touches[0];
+                    lastTouchX = touch.clientX;
+                    lastTouchY = touch.clientY;
+                    
+                    const rect = c.getBoundingClientRect();
+                    const sx = touch.clientX - rect.left;
+                    const sy = touch.clientY - rect.top;
+                    const world = this.viewport.screenToWorld(sx, sy);
+                    
+                    const fakeEvent = { clientX: touch.clientX, clientY: touch.clientY, preventDefault: () => {}, target: c };
+                    this.toolManager.onMouseMove(fakeEvent, world.x, world.y, sx, sy);
+                    
+                    const gx = snapToGrid(world.x);
+                    const gy = snapToGrid(world.y);
+                    document.getElementById('coord-x').textContent = `X: ${gx}`;
+                    document.getElementById('coord-y').textContent = `Y: ${gy}`;
+                }
+            } else if (e.touches.length === 2) {
+                if (touchTimer) { clearTimeout(touchTimer); touchTimer = null; }
+                const t1 = e.touches[0];
+                const t2 = e.touches[1];
+                
+                // Pan
+                const cx = (t1.clientX + t2.clientX) / 2;
+                const cy = (t1.clientY + t2.clientY) / 2;
+                const rect = c.getBoundingClientRect();
+                if (this.viewport.isPanning) {
+                    this.viewport.updatePan(cx - rect.left, cy - rect.top);
+                }
+                
+                // Zoom
+                if (initialPinchDist) {
+                    const dx = t1.clientX - t2.clientX;
+                    const dy = t1.clientY - t2.clientY;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    const zoomRatio = dist / initialPinchDist;
+                    
+                    this.viewport.zoom = startZoom * zoomRatio;
+                    // Clamp zoom
+                    if (this.viewport.zoom < 0.1) this.viewport.zoom = 0.1;
+                    if (this.viewport.zoom > 5) this.viewport.zoom = 5;
+                    
+                    document.getElementById('zoom-level').textContent = this.viewport.getZoomPercent() + '%';
+                }
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', (e) => {
+            if (touchTimer) { clearTimeout(touchTimer); touchTimer = null; }
+            if (e.touches.length === 0) {
+                if (this.viewport.isPanning) {
+                    this.viewport.endPan();
+                    this.canvasContainer.classList.remove('panning');
+                    initialPinchDist = null;
+                } else {
+                    const rect = c.getBoundingClientRect();
+                    const sx = lastTouchX - rect.left;
+                    const sy = lastTouchY - rect.top;
+                    const world = this.viewport.screenToWorld(sx, sy);
+                    const fakeEvent = { clientX: lastTouchX, clientY: lastTouchY, preventDefault: () => {}, target: c };
+                    this.toolManager.onMouseUp(fakeEvent, world.x, world.y, sx, sy);
+                }
+            } else if (e.touches.length === 1 && this.viewport.isPanning) {
+                // 1 finger still down after a pinch, stop panning
+                this.viewport.endPan();
+                this.canvasContainer.classList.remove('panning');
+                initialPinchDist = null;
+                
+                // Setup the 1 finger context to prevent sudden jump
+                const touch = e.touches[0];
+                lastTouchX = touch.clientX;
+                lastTouchY = touch.clientY;
+                // Important: clear any active tools since we are interrupting
+                this.toolManager.onMouseUp({ clientX: lastTouchX, clientY: lastTouchY }, 0, 0, 0, 0);
+            }
+        });
+
+        // Drag drop from sidebar (Desktop)
         c.addEventListener('dragover', (e) => { e.preventDefault(); });
         c.addEventListener('drop', (e) => {
             e.preventDefault();
