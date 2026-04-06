@@ -1,17 +1,13 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ id }) => !id.startsWith('en/'));
-  return posts.map(post => {
-    const locale = post.id.split('/')[0];
-    const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
-    return {
-      params: { locale, slug },
-      props: { post },
-    };
-  });
+  const posts = await getCollection('blog', ({ id }) => id.startsWith('en/'));
+  return posts.map(post => ({
+    params: { slug: post.id.replace(/^en\//, '') },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;

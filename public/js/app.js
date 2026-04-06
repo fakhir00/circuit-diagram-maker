@@ -87,7 +87,7 @@ class App {
             header.className = 'category-header';
             header.innerHTML = `
                 <svg class="chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                <span>${cat.name}</span>
+                <span>${window.t('category.' + catId, cat.name)}</span>
                 <span style="margin-left:auto;font-size:10px;opacity:0.4">${cat.components.length}</span>
             `;
             header.addEventListener('click', () => {
@@ -791,31 +791,31 @@ class App {
     // ── Modals ──
 
     showHelpModal() {
-        document.getElementById('modal-title').textContent = 'Keyboard Shortcuts';
+        document.getElementById('modal-title').textContent = window.t('editor.modal.shortcuts.title', 'Keyboard Shortcuts');
         document.getElementById('modal-body').innerHTML = `
             <div class="shortcuts-grid">
-                <div class="shortcut-row"><kbd>V</kbd> Select Tool</div>
-                <div class="shortcut-row"><kbd>W</kbd> Wire Tool</div>
-                <div class="shortcut-row"><kbd>D</kbd> Delete Tool</div>
-                <div class="shortcut-row"><kbd>L</kbd> Label Tool</div>
-                <div class="shortcut-row"><kbd>R</kbd> Rotate CW</div>
-                <div class="shortcut-row"><kbd>Shift+R</kbd> Rotate CCW</div>
-                <div class="shortcut-row"><kbd>H</kbd> Flip Horizontal</div>
-                <div class="shortcut-row"><kbd>F</kbd> Flip Vertical</div>
-                <div class="shortcut-row"><kbd>Del</kbd> Delete Selected</div>
-                <div class="shortcut-row"><kbd>Esc</kbd> Cancel / Deselect</div>
-                <div class="shortcut-row"><kbd>Ctrl+Z</kbd> Undo</div>
-                <div class="shortcut-row"><kbd>Ctrl+Y</kbd> Redo</div>
-                <div class="shortcut-row"><kbd>Ctrl+S</kbd> Save</div>
-                <div class="shortcut-row"><kbd>Ctrl+C</kbd> Copy</div>
-                <div class="shortcut-row"><kbd>Ctrl+V</kbd> Paste</div>
-                <div class="shortcut-row"><kbd>Ctrl+D</kbd> Duplicate</div>
-                <div class="shortcut-row"><kbd>Ctrl+A</kbd> Select All</div>
-                <div class="shortcut-row"><kbd>Ctrl+0</kbd> Zoom to Fit</div>
-                <div class="shortcut-row"><kbd>Space</kbd> Pan (hold)</div>
-                <div class="shortcut-row"><kbd>Scroll</kbd> Zoom</div>
-                <div class="shortcut-row"><kbd>+/-</kbd> Zoom In/Out</div>
-                <div class="shortcut-row"><kbd>Middle Click</kbd> Pan</div>
+                <div class="shortcut-row"><kbd>V</kbd> ${window.t('editor.shortcut.select.tool', 'Select Tool')}</div>
+                <div class="shortcut-row"><kbd>W</kbd> ${window.t('editor.shortcut.wire.tool', 'Wire Tool')}</div>
+                <div class="shortcut-row"><kbd>D</kbd> ${window.t('editor.shortcut.delete.tool', 'Delete Tool')}</div>
+                <div class="shortcut-row"><kbd>L</kbd> ${window.t('editor.shortcut.label.tool', 'Label Tool')}</div>
+                <div class="shortcut-row"><kbd>R</kbd> ${window.t('editor.shortcut.rotate.cw', 'Rotate CW')}</div>
+                <div class="shortcut-row"><kbd>Shift+R</kbd> ${window.t('editor.shortcut.rotate.ccw', 'Rotate CCW')}</div>
+                <div class="shortcut-row"><kbd>H</kbd> ${window.t('editor.shortcut.flip.h', 'Flip Horizontal')}</div>
+                <div class="shortcut-row"><kbd>F</kbd> ${window.t('editor.shortcut.flip.v', 'Flip Vertical')}</div>
+                <div class="shortcut-row"><kbd>Del</kbd> ${window.t('editor.shortcut.delete.selected', 'Delete Selected')}</div>
+                <div class="shortcut-row"><kbd>Esc</kbd> ${window.t('editor.shortcut.cancel', 'Cancel / Deselect')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+Z</kbd> ${window.t('editor.shortcut.undo', 'Undo')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+Y</kbd> ${window.t('editor.shortcut.redo', 'Redo')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+S</kbd> ${window.t('editor.shortcut.save', 'Save')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+C</kbd> ${window.t('editor.shortcut.copy', 'Copy')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+V</kbd> ${window.t('editor.shortcut.paste', 'Paste')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+D</kbd> ${window.t('editor.shortcut.duplicate', 'Duplicate')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+A</kbd> ${window.t('editor.shortcut.select.all', 'Select All')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+0</kbd> ${window.t('editor.shortcut.zoom.fit', 'Zoom to Fit')}</div>
+                <div class="shortcut-row"><kbd>Space</kbd> ${window.t('editor.shortcut.pan.hold', 'Pan (hold)')}</div>
+                <div class="shortcut-row"><kbd>Scroll</kbd> ${window.t('editor.shortcut.zoom.scroll', 'Zoom')}</div>
+                <div class="shortcut-row"><kbd>+/-</kbd> ${window.t('editor.shortcut.zoom.inout', 'Zoom In/Out')}</div>
+                <div class="shortcut-row"><kbd>Middle Click</kbd> ${window.t('editor.shortcut.pan.middle', 'Pan')}</div>
             </div>`;
         document.getElementById('modal-overlay').classList.remove('hidden');
     }
