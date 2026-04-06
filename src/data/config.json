@@ -1,0 +1,24 @@
+{
+  "site": {
+    "name": "Circuit Diagram Maker",
+    "url": "https://circuit-diagram.org",
+    "description": "Create high-quality circuit diagrams with our professional, browser-based editor. Drag-and-drop components, wire routing, and export to SVG/PNG.",
+    "defaultLocale": "en"
+  },
+  "social": {
+    "twitter": "https://twitter.com/circuitdiagram",
+    "facebook": "https://facebook.com/circuitdiagram"
+  },
+  "nav": [
+    { "labelKey": "nav.home", "path": "/" },
+    { "labelKey": "nav.editor", "path": "/editor/" },
+    { "labelKey": "nav.components", "path": "/components" },
+    { "labelKey": "nav.docs", "path": "/docs" },
+    { "labelKey": "nav.about", "path": "/about-us" }
+  ],
+  "footer": [
+    { "labelKey": "footer.terms", "path": "/terms" },
+    { "labelKey": "footer.privacy", "path": "/privacy" },
+    { "labelKey": "footer.contact", "path": "/contact-us" }
+  ]
+}

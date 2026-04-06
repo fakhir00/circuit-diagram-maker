@@ -1,0 +1,24 @@
+{
+  "en": [
+    {
+      "question": "Is the editor completely free?",
+      "answer": "Yes! Circuit Diagram Maker is a free tool available directly in your browser without requiring a subscription.",
+      "display": true
+    },
+    {
+      "question": "Can I export my designs?",
+      "answer": "Absolutely. You can export high-resolution PNGs and universally scalable SVGs of any circuit.",
+      "display": true
+    },
+    {
+      "question": "Do I need to install anything?",
+      "answer": "No installation is required. Everything runs natively using HTML5 Canvas.",
+      "display": true
+    },
+    {
+      "question": "Hidden FAQ",
+      "answer": "This should not be displayed.",
+      "display": false
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLocaleFromUrl } from '../theme/i18n';
+import '../styles/global.css';
+import config from '../data/config.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  hideHeaderFooter?: boolean;
+}
+
+const { title, description, hideHeaderFooter = false } = Astro.props;
+const pathname = Astro.url.pathname;
+const locale = getLocaleFromUrl(pathname);
+const dir = locale === 'ar' ? 'rtl' : 'ltr';
+
+const finalTitle = title ? `${title} | ${config.site.name}` : config.site.name;
+const finalDescription = description || config.site.description;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={dir}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{finalTitle}</title>
+  <meta name="description" content={finalDescription} />
+  
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={finalTitle} />
+  <meta property="og:description" content={finalDescription} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content={config.site.name} />
+  <meta property="og:locale" content={locale === 'en' ? 'en_US' : locale} />
+  <meta property="og:type" content={pathname.includes('/blog/') ? 'article' : 'website'} />
+  <meta property="og:image" content={new URL('/og-image.png', canonicalURL)} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={config.site.name} />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={finalTitle} />
+  <meta name="twitter:description" content={finalDescription} />
+  <meta name="twitter:image" content={new URL('/og-image.png', canonicalURL)} />
+  
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- JSON-LD Combined Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${config.site.url}/#organization`,
+        "name": config.site.name,
+        "url": config.site.url,
+        "description": config.site.description,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${config.site.url}/logo.svg`,
+          "width": 112,
+          "height": 112
+        },
+        "sameAs": Object.values(config.social || {})
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${config.site.url}/#website`,
+        "url": config.site.url,
+        "name": config.site.name,
+        "publisher": { "@id": `${config.site.url}/#organization` },
+        "inLanguage": locale
+      },
+      (pathname === '/' || pathname === `/${locale}/`) && {
+        "@type": "WebSite",
+        "url": config.site.url,
+        "name": config.site.name,
+        "description": config.site.description
+      },
+      pathname.includes('/about-us') && {
+        "@type": "AboutPage",
+        "@id": `${canonicalURL}#webpage`,
+        "url": canonicalURL,
+        "name": finalTitle
+      },
+      pathname.includes('/contact-us') && {
+        "@type": "ContactPage",
+        "@id": `${canonicalURL}#webpage`,
+        "url": canonicalURL,
+        "name": finalTitle
+      }
+    ].filter(Boolean)
+  })} />
+</head>
+<body class="flex flex-col min-h-screen">
+  {!hideHeaderFooter && <Header locale={locale} config={config} />}
+  
+  <main class="flex-grow">
+    <slot />
+  </main>
+
+  {!hideHeaderFooter && <Footer locale={locale} config={config} />}
+</body>
+</html>

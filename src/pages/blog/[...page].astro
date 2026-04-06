@@ -1,0 +1,84 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocaleFromUrl, useTranslations } from '../../theme/i18n';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getCollection('blog', ({ data }) => {
+    return data.lang === 'en'; // Simple filter for the root blog
+  });
+  
+  posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  
+  return paginate(posts, { pageSize: 12 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
+
+// Blog Schema
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Circuit Diagram Maker Blog",
+  "description": "Tutorials, news and insights about circuit design and engineering.",
+  "url": new URL(Astro.url.pathname, Astro.site || 'https://circuit-diagram.org'),
+  "inLanguage": locale,
+  "itemListElement": page.data.map((post, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "url": new URL(`/blog/${post.id}`, Astro.site || 'https://circuit-diagram.org'),
+    "name": post.data.title
+  }))
+};
+---
+
+<BaseLayout title="Blog">
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+
+  <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold tracking-tight text-white mb-4">Latest Updates</h1>
+      <p class="text-xl text-slate-400 mb-6">News, tutorials, and insights for circuit designers.</p>
+      <p class="text-sm text-slate-500 font-mono">
+        Showing {page.start + 1} - {page.end + 1} of {page.total} results
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {page.data.map((post) => (
+        <article class="p-6 rounded-2xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-colors flex flex-col h-full">
+          <time datetime={post.data.date.toISOString()} class="text-sm text-slate-400 mb-2 block">
+            {post.data.date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <h2 class="text-xl font-bold text-white mb-3">
+            <a href={`/blog/${post.id}`} class="hover:text-brand-accent transition-colors">
+              {post.data.title}
+            </a>
+          </h2>
+          <p class="text-slate-400 flex-grow mb-6">{post.data.description}</p>
+          <a href={`/blog/${post.id}`} class="text-brand-primary font-medium hover:text-brand-accent transition-colors mt-auto inline-flex items-center gap-1">
+            Read article <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    {/* Pagination */}
+    {(page.url.prev || page.url.next) && (
+      <nav class="flex justify-between items-center mt-16 pt-8 border-t border-white/5">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">&larr; Previous</a>
+        ) : <div></div>}
+        
+        <span class="text-slate-400">Page {page.currentPage} of {page.lastPage}</span>
+        
+        {page.url.next ? (
+          <a href={page.url.next} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">Next &rarr;</a>
+        ) : <div></div>}
+      </nav>
+    )}
+  </div>
+</BaseLayout>

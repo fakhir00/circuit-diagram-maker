@@ -1,0 +1,12 @@
+{
+  "en": {
+    "nav.home": "Home",
+    "nav.editor": "Open Editor",
+    "nav.components": "Components",
+    "nav.docs": "Documentation",
+    "nav.about": "About Us",
+    "footer.contact": "Contact",
+    "footer.terms": "Terms of Service",
+    "footer.privacy": "Privacy Policy"
+  }
+}

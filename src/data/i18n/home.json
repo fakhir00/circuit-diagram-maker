@@ -1,0 +1,12 @@
+{
+  "en": {
+    "home.hero.title": "Design Circuits with Precision",
+    "home.hero.subtitle": "A professional browser-based tool for creating, simulating, and sharing high-quality electronic schemas effortlessly.",
+    "home.hero.cta": "Open Editor",
+    "home.hero.secondary": "Read Documentation",
+    "home.features.title": "Everything you need to build schemas",
+    "home.faq.title": "Frequently Asked Questions",
+    "home.how_it_works.title": "How Circuit Diagram Maker Works",
+    "home.data.title": "Feature Matrix"
+  }
+}

@@ -1,0 +1,24 @@
+# Circuit Diagram Maker
+
+Circuit Diagram Maker is a specialized, high-performance web application designed for creating, simulating, and sharing professional electronic circuit diagrams.
+
+- URL: https://circuit-diagram.org
+- Contact: support@circuit-diagram.org
+- Sitemap: https://circuit-diagram.org/sitemap-index.xml
+
+## AI Usage Policy
+We allow AI agents to crawl and index the content of this site for the purpose of providing summaries, search results, and coding assistance related to circuit design.
+
+## Directive
+Allow: *
+
+## Core Features
+1. **Interactive Canvas**: Built heavily around HTML5 canvas for high performance, drag-and-drop interactions, and immediate visual feedback.
+2. **Standard Libraries**: Contains over 40+ IEC and ANSI compliant symbols.
+3. **Smart Routing**: Our custom Manhattan routing ensures lines stay perfectly orthogonal.
+4. **File Operations**: Saves to local JSON schemas and exports to SVG and high-DPI PNGs.
+
+## Language Support
+The application features full localized landing pages across 18 distinct locales including Spanish, Hindi, Russian, and Arabic. 
+
+For more information or integrations, explore the main repository or the interactive editor at `/editor/`.

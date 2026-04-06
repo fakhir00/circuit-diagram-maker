@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, defaultLocale, useTranslations } from '../../theme/i18n';
+import ContactForm from '../../components/ContactForm.astro';
+
+export async function getStaticPaths() {
+  const otherLocales = locales.filter(l => l !== defaultLocale);
+  return otherLocales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const t = useTranslations(locale || defaultLocale);
+---
+
+<BaseLayout title={t('footer.contact')}>
+  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold tracking-tight text-white mb-8">{t('footer.contact')}</h1>
+    
+    <ContactForm email="support@circuit-diagram.org" />
+  </div>
+</BaseLayout>

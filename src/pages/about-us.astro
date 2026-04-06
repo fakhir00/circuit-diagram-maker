@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLocaleFromUrl, useTranslations } from '../theme/i18n';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t('nav.about')}>
+  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold tracking-tight text-white mb-8">{t('nav.about')}</h1>
+    <div class="prose prose-invert prose-blue max-w-none">
+      <p class="text-lg text-slate-300">
+        Circuit Diagram Maker is built by a team of enthusiastic engineers who believe that creating professional electronic schematics should be fast, accessible, and intuitive directly within your browser.
+      </p>
+      <h2 class="text-2xl font-semibold mt-12 mb-4">Our Mission</h2>
+      <p class="text-slate-300">
+        We aim to provide students, researchers, and professionals with a robust tool to draft, simulate, and export their circuit ideas without the bloat of traditional desktop software.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

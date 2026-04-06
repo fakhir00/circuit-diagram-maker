@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { locales, defaultLocale, getLocalizedPath } from '../theme/i18n';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+const staticPages = [
+  { path: '/', label: 'Home' },
+  { path: '/editor/', label: 'Editor' },
+  { path: '/about-us/', label: 'About Us' },
+  { path: '/contact-us/', label: 'Contact Us' },
+  { path: '/terms/', label: 'Terms of Service' },
+  { path: '/privacy/', label: 'Privacy Policy' },
+  { path: '/blog/', label: 'Blog' },
+];
+
+---
+
+<BaseLayout title="Sitemap">
+  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8 text-white">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-12">Sitemap</h1>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Static Pages Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">Main Pages</h2>
+        <ul class="space-y-3">
+          {staticPages.map(page => (
+            <li>
+              <a href={page.path} class="text-slate-300 hover:text-brand-accent transition-colors flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                {page.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Locales Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">Localized Versions</h2>
+        <div class="grid grid-cols-2 gap-3">
+          {locales.map(locale => (
+            <a href={getLocalizedPath('/', locale)} class="text-slate-400 hover:text-white transition-colors uppercase text-sm font-medium p-2 rounded bg-bg-surface border border-white/5 text-center">
+              {locale}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Blog Posts Section -->
+      <section class="md:col-span-2">
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">Latest Articles</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {posts.map(post => (
+            <a href={`/blog/${post.id}`} class="block p-4 rounded-xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-all group">
+              <h3 class="font-medium group-hover:text-brand-primary transition-colors">{post.data.title}</h3>
+              <p class="text-xs text-slate-500 mt-1">{post.data.date.toLocaleDateString()}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
