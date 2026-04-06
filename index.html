@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit Diagram Maker — Create High-Quality Circuit Diagrams</title>
+    <meta name="description" content="Create high-quality circuit diagrams with our professional, browser-based editor. Drag-and-drop components, wire routing, and export to SVG/PNG.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='4' fill='%230f1419'/><path d='M8 16h4l2-6 4 12 2-6h4' stroke='%233b82f6' stroke-width='2' fill='none'/></svg>">
+</head>
+<body>
+    <!-- ===== TOP TOOLBAR ===== -->
+    <header id="toolbar" class="toolbar">
+        <div class="toolbar-left">
+            <div class="toolbar-brand">
+                <svg class="brand-icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M4 12h3l2-5 3 10 2-5h3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="4" cy="12" r="1.5" fill="currentColor"/>
+                    <circle cx="17" cy="12" r="1.5" fill="currentColor"/>
+                </svg>
+                <span class="brand-name">Circuit Diagram Maker</span>
+            </div>
+            <div class="toolbar-divider"></div>
+            <div class="toolbar-group">
+                <button id="btn-new" class="toolbar-btn" title="New Circuit (Ctrl+N)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M4 2h8l4 4v12a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1zm7 1v4h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>New</span>
+                </button>
+                <button id="btn-open" class="toolbar-btn" title="Open Circuit (Ctrl+O)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M2 6h3l2-2h6l2 2h3v10H2V6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    <span>Open</span>
+                </button>
+                <button id="btn-save" class="toolbar-btn" title="Save Circuit (Ctrl+S)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M3 3h11l3 3v11a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm4 0v5h6V3m-3 8a2 2 0 100 4 2 2 0 000-4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    <span>Save</span>
+                </button>
+            </div>
+            <div class="toolbar-divider"></div>
+            <div class="toolbar-group">
+                <button id="btn-undo" class="toolbar-btn" title="Undo (Ctrl+Z)" disabled>
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M4 8l4-4M4 8l4 4M4 8h8a4 4 0 010 8H8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Undo</span>
+                </button>
+                <button id="btn-redo" class="toolbar-btn" title="Redo (Ctrl+Y)" disabled>
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M16 8l-4-4m4 4l-4 4m4-4H8a4 4 0 000 8h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Redo</span>
+                </button>
+            </div>
+            <div class="toolbar-divider"></div>
+            <div class="toolbar-group">
+                <div class="toolbar-dropdown" id="export-dropdown">
+                    <button id="btn-export" class="toolbar-btn" title="Export Diagram">
+                        <svg viewBox="0 0 20 20" width="16" height="16"><path d="M10 3v10m-4-4l4 4 4-4M3 14v2a1 1 0 001 1h12a1 1 0 001-1v-2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Export</span>
+                        <svg viewBox="0 0 10 6" width="8" height="6" class="dropdown-arrow"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="dropdown-menu" id="export-menu">
+                        <button id="btn-export-svg" class="dropdown-item">
+                            <svg viewBox="0 0 20 20" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 13l3-6 3 6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+                            Export as SVG
+                        </button>
+                        <button id="btn-export-png" class="dropdown-item">
+                            <svg viewBox="0 0 20 20" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M3 14l4-4 3 3 2-2 5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+                            Export as PNG
+                        </button>
+                        <button id="btn-export-json" class="dropdown-item">
+                            <svg viewBox="0 0 20 20" width="14" height="14"><path d="M6 3a3 3 0 00-3 3v2a2 2 0 010 4v2a3 3 0 003 3m8-14a3 3 0 013 3v2a2 2 0 000 4v2a3 3 0 01-3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            Export as JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar-center">
+            <input type="text" id="circuit-name" class="circuit-name-input" value="Untitled Circuit" spellcheck="false">
+        </div>
+        <div class="toolbar-right">
+            <div class="toolbar-group">
+                <button id="btn-zoom-out" class="toolbar-btn toolbar-btn-icon" title="Zoom Out (-)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 14l3 3M6 9h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <span id="zoom-level" class="zoom-display">100%</span>
+                <button id="btn-zoom-in" class="toolbar-btn toolbar-btn-icon" title="Zoom In (+)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 14l3 3M6 9h6M9 6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <button id="btn-zoom-fit" class="toolbar-btn toolbar-btn-icon" title="Zoom to Fit (Ctrl+0)">
+                    <svg viewBox="0 0 20 20" width="16" height="16"><path d="M3 7V4a1 1 0 011-1h3m6 0h3a1 1 0 011 1v3m0 6v3a1 1 0 01-1 1h-3m-6 0H4a1 1 0 01-1-1v-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+            <div class="toolbar-divider"></div>
+            <button id="btn-help" class="toolbar-btn toolbar-btn-icon" title="Keyboard Shortcuts">
+                <svg viewBox="0 0 20 20" width="16" height="16"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7a2 2 0 012-2 2 2 0 012 2c0 1.5-2 2-2 3m0 2v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div id="app-container" class="app-container">
+
+        <!-- === LEFT SIDEBAR: Tools + Component Library === -->
+        <aside id="sidebar" class="sidebar">
+            <!-- Tools Section -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-header">
+                    <span>Tools</span>
+                </div>
+                <div id="tool-buttons" class="tool-buttons">
+                    <button id="tool-select" class="tool-btn active" title="Select (V)" data-tool="select">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 4l7 18 2-7 7-2L4 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button id="tool-wire" class="tool-btn" title="Wire (W)" data-tool="wire">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h6v-6h4v12h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="12" r="2" fill="currentColor"/><circle cx="20" cy="18" r="2" fill="currentColor"/></svg>
+                    </button>
+                    <button id="tool-delete" class="tool-btn" title="Delete (D)" data-tool="delete">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </button>
+                    <button id="tool-label" class="tool-btn" title="Add Label (L)" data-tool="label">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 19h14M7 5l5 14M17 5l-5 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Component Library -->
+            <div class="sidebar-section sidebar-section-grow">
+                <div class="sidebar-section-header">
+                    <span>Components</span>
+                    <div class="view-toggle">
+                        <button id="view-grid" class="view-btn active" title="Grid View">
+                            <svg viewBox="0 0 16 16" width="14" height="14"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
+                        </button>
+                        <button id="view-list" class="view-btn" title="List View">
+                            <svg viewBox="0 0 16 16" width="14" height="14"><rect x="1" y="2" width="14" height="3" rx="1" fill="currentColor"/><rect x="1" y="7" width="14" height="3" rx="1" fill="currentColor"/><rect x="1" y="12" width="14" height="3" rx="1" fill="currentColor"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 20 20" width="14" height="14"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <input type="text" id="component-search" class="search-input" placeholder="Search components..." spellcheck="false">
+                </div>
+                <div id="component-library" class="component-library">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- === CANVAS AREA === -->
+        <main id="canvas-container" class="canvas-container">
+            <canvas id="circuit-canvas"></canvas>
+            <!-- Coordinate display -->
+            <div id="coord-display" class="coord-display">
+                <span id="coord-x">X: 0</span>
+                <span id="coord-y">Y: 0</span>
+            </div>
+            <!-- Status bar -->
+            <div id="status-bar" class="status-bar">
+                <span id="status-text">Ready</span>
+                <span id="component-count">Components: 0</span>
+                <span id="wire-count">Wires: 0</span>
+            </div>
+        </main>
+
+        <!-- === RIGHT PANEL: Properties + Layers === -->
+        <aside id="right-panel" class="right-panel">
+            <!-- Properties Inspector -->
+            <div class="panel-section" id="properties-section">
+                <div class="panel-section-header">
+                    <svg viewBox="0 0 20 20" width="14" height="14"><path d="M11 3a1 1 0 10-2 0v1a7 7 0 106 6h1a1 1 0 100-2h-1A7 7 0 0011 4V3z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                    <span>Properties</span>
+                </div>
+                <div id="properties-content" class="properties-content">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 48 48" width="40" height="40" opacity="0.3"><path d="M24 8l-2 8h-8l6 5-2 8 6-5 6 5-2-8 6-5h-8z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <p>Select a component to view its properties</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="panel-section" id="info-section">
+                <div class="panel-section-header">
+                    <svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 9v4M10 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <span>Info</span>
+                </div>
+                <div class="info-content">
+                    <div class="info-shortcuts">
+                        <div class="shortcut-row"><kbd>V</kbd> Select</div>
+                        <div class="shortcut-row"><kbd>W</kbd> Wire</div>
+                        <div class="shortcut-row"><kbd>R</kbd> Rotate</div>
+                        <div class="shortcut-row"><kbd>Del</kbd> Delete</div>
+                        <div class="shortcut-row"><kbd>Ctrl+Z</kbd> Undo</div>
+                        <div class="shortcut-row"><kbd>Ctrl+S</kbd> Save</div>
+                        <div class="shortcut-row"><kbd>Space</kbd> Pan</div>
+                        <div class="shortcut-row"><kbd>Scroll</kbd> Zoom</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ===== MODALS ===== -->
+    <!-- Help / Keyboard Shortcuts Modal -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="modal-content" class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Keyboard Shortcuts</h2>
+                <button id="modal-close" class="modal-close">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div id="context-menu" class="context-menu hidden">
+        <button class="context-item" data-action="cut">
+            <span>Cut</span><kbd>Ctrl+X</kbd>
+        </button>
+        <button class="context-item" data-action="copy">
+            <span>Copy</span><kbd>Ctrl+C</kbd>
+        </button>
+        <button class="context-item" data-action="paste">
+            <span>Paste</span><kbd>Ctrl+V</kbd>
+        </button>
+        <div class="context-divider"></div>
+        <button class="context-item" data-action="rotate-cw">
+            <span>Rotate CW</span><kbd>R</kbd>
+        </button>
+        <button class="context-item" data-action="rotate-ccw">
+            <span>Rotate CCW</span><kbd>Shift+R</kbd>
+        </button>
+        <button class="context-item" data-action="flip-h">
+            <span>Flip Horizontal</span><kbd>H</kbd>
+        </button>
+        <button class="context-item" data-action="flip-v">
+            <span>Flip Vertical</span><kbd>F</kbd>
+        </button>
+        <div class="context-divider"></div>
+        <button class="context-item" data-action="duplicate">
+            <span>Duplicate</span><kbd>Ctrl+D</kbd>
+        </button>
+        <button class="context-item context-item-danger" data-action="delete">
+            <span>Delete</span><kbd>Del</kbd>
+        </button>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- File input (hidden) -->
+    <input type="file" id="file-input" accept=".circuit,.json" style="display:none">
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
