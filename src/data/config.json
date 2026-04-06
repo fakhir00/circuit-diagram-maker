@@ -12,13 +12,13 @@
   "nav": [
     { "labelKey": "nav.home", "path": "/" },
     { "labelKey": "nav.editor", "path": "/editor/" },
-    { "labelKey": "nav.components", "path": "/components" },
-    { "labelKey": "nav.docs", "path": "/docs" },
-    { "labelKey": "nav.about", "path": "/about-us" }
+    { "labelKey": "nav.components", "path": "/components/" },
+    { "labelKey": "nav.docs", "path": "/docs/" },
+    { "labelKey": "nav.about", "path": "/about-us/" }
   ],
   "footer": [
-    { "labelKey": "footer.terms", "path": "/terms" },
-    { "labelKey": "footer.privacy", "path": "/privacy" },
-    { "labelKey": "footer.contact", "path": "/contact-us" }
+    { "labelKey": "footer.terms", "path": "/terms/" },
+    { "labelKey": "footer.privacy", "path": "/privacy/" },
+    { "labelKey": "footer.contact", "path": "/contact-us/" }
   ]
 }

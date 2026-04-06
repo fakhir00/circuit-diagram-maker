@@ -1,0 +1,8 @@
+---
+import DocumentationPage from '../components/pages/DocumentationPage.astro';
+import { getLocaleFromUrl } from '../theme/i18n';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+---
+
+<DocumentationPage locale={locale} />

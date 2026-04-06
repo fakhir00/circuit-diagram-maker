@@ -1,8 +1,8 @@
 ---
-import HomePage from '../components/pages/HomePage.astro';
+import ComponentsPage from '../components/pages/ComponentsPage.astro';
 import { getLocaleFromUrl } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
 
-<HomePage locale={locale} />
+<ComponentsPage locale={locale} />

@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../theme/i18n';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const categories = [
+  {
+    title: 'Passive Building Blocks',
+    items: ['Resistor', 'Capacitor', 'Inductor', 'Potentiometer'],
+    notes: 'Ideal for filters, timing networks, and biasing.'
+  },
+  {
+    title: 'Active & Control',
+    items: ['Op-amp', 'Comparator', 'Microcontroller', 'Logic gate'],
+    notes: 'Use for decision-making, amplification, and control loops.'
+  },
+  {
+    title: 'Power Path',
+    items: ['Battery', 'Regulator', 'MOSFET', 'Ground'],
+    notes: 'Map conversion stages and current-heavy sections clearly.'
+  },
+  {
+    title: 'Interfaces',
+    items: ['Connector', 'Sensor', 'Relay', 'Test point'],
+    notes: 'Useful for board edges, IO, and maintenance access.'
+  }
+];
+
+const tableRows = [
+  ['Resistor', 'Passive', 'Current limiting and pull networks', 'R1, R2'],
+  ['Capacitor', 'Passive', 'Decoupling and signal shaping', 'C1, C2'],
+  ['Diode', 'Protection', 'Reverse polarity and steering', 'D1, D2'],
+  ['N-MOSFET', 'Power', 'Load switching and converters', 'Q1'],
+  ['Op-amp', 'Analog', 'Gain stages and filtering', 'U1A, U1B'],
+  ['Microcontroller', 'Digital', 'Logic and sequencing', 'U2'],
+  ['Connector', 'Interface', 'External wiring and signals', 'J1']
+];
+---
+
+<BaseLayout title="Components" description="Component reference for circuit diagram symbols, categories, and schematic planning.">
+  <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_24%)]"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Component Library</p>
+        <h1 class="mt-4 text-5xl font-extrabold tracking-tight text-white">Browse the symbol system before you place parts</h1>
+        <p class="mt-6 text-xl leading-relaxed text-slate-400">
+          This page gives your team a shared vocabulary for naming, grouping, and reviewing symbols across analog, power, and control diagrams.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-panel py-24">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      {categories.map((category) => (
+        <article class="rounded-[1.75rem] border border-white/10 bg-bg-surface/70 p-6">
+          <h2 class="text-2xl font-semibold text-white">{category.title}</h2>
+          <p class="mt-3 text-sm leading-6 text-slate-400">{category.notes}</p>
+          <ul class="mt-6 space-y-3 text-slate-300">
+            {category.items.map((item) => (
+              <li class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-white/5 bg-bg-dark py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
+        <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-bg-panel">
+          <div class="border-b border-white/10 px-6 py-5">
+            <h2 class="text-2xl font-semibold text-white">Reference table</h2>
+            <p class="mt-2 text-slate-400">Use these naming conventions to keep schematic reviews consistent.</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-white/5 text-slate-300">
+                <tr>
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Symbol</th>
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Class</th>
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Typical use</th>
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Reference</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10 text-slate-300">
+                {tableRows.map((row) => (
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-white">{row[0]}</td>
+                    <td class="px-6 py-4">{row[1]}</td>
+                    <td class="px-6 py-4 text-slate-400">{row[2]}</td>
+                    <td class="px-6 py-4">{row[3]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(59,130,246,0.12),rgba(15,23,42,0.94))] p-6">
+          <h2 class="text-2xl font-semibold text-white">Mini diagram legend</h2>
+          <p class="mt-3 text-slate-400">A compact example of how symbol categories can be separated visually in one schematic block.</p>
+          <div class="mt-6 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#081120] p-4">
+            <svg class="h-auto w-full" viewBox="0 0 340 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="34" y="48" width="74" height="52" rx="12" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+              <rect x="134" y="38" width="76" height="74" rx="16" fill="#111827" stroke="#a78bfa" stroke-width="3" />
+              <rect x="236" y="48" width="74" height="52" rx="12" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <path d="M108 74H134" stroke="#93c5fd" stroke-width="4" />
+              <path d="M210 74H236" stroke="#67e8f9" stroke-width="4" />
+              <path d="M172 112V212" stroke="#f59e0b" stroke-width="4" />
+              <path d="M144 212H200" stroke="#f59e0b" stroke-width="4" />
+              <path d="M152 230H192" stroke="#f59e0b" stroke-width="4" />
+              <path d="M160 248H184" stroke="#f59e0b" stroke-width="4" />
+              <text x="71" y="78" text-anchor="middle" fill="#f8fafc" font-size="14" font-family="sans-serif">INPUT</text>
+              <text x="172" y="80" text-anchor="middle" fill="#f8fafc" font-size="14" font-family="sans-serif">CONTROL</text>
+              <text x="273" y="78" text-anchor="middle" fill="#f8fafc" font-size="14" font-family="sans-serif">OUTPUT</text>
+            </svg>
+          </div>
+          <div class="mt-6 rounded-3xl border border-white/10 bg-black/10 p-5">
+            <h3 class="text-lg font-semibold text-white">Next step</h3>
+            <p class="mt-2 text-slate-400">Once you know the symbol set, jump into the documentation flow for editor usage and export conventions.</p>
+            <a href={getLocalizedPath('/docs/', locale)} class="mt-4 inline-flex rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500">
+              Open documentation
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
