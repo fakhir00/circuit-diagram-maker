@@ -20,7 +20,7 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='4' fill='%230f1419'/><path d='M8 16h4l2-6 4 12 2-6h4' stroke='%233b82f6' stroke-width='2' fill='none'/></svg>">
 </head>
-<body>
+<body style="display: flex; flex-direction: column; height: 100vh;">
     <!-- ===== MAIN SITE HEADER ===== -->
     <Header locale={locale} config={config} />
 
@@ -112,7 +112,7 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
     </header>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <div id="app-container" class="app-container">
+    <div id="app-container" class="app-container" style="height: auto; flex: 1;">
 
         <!-- === LEFT SIDEBAR: Tools + Component Library === -->
         <aside id="sidebar" class="sidebar">
