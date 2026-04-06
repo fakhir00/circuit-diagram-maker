@@ -1,24 +1,54 @@
 {
   "en": [
     {
-      "question": "Is the editor completely free?",
-      "answer": "Yes! Circuit Diagram Maker is a free tool available directly in your browser without requiring a subscription.",
+      "question": "Is Circuit Diagram Maker completely free to use?",
+      "answer": "Yes! Circuit Diagram Maker is 100% free — no subscriptions, no premium tiers, and no hidden fees. Every feature, including SVG and PNG export, is available at no cost directly in your browser.",
       "display": true
     },
     {
-      "question": "Can I export my designs?",
-      "answer": "Absolutely. You can export high-resolution PNGs and universally scalable SVGs of any circuit.",
+      "question": "How do I create a circuit diagram online?",
+      "answer": "Open the Circuit Diagram Maker editor, drag components from the sidebar onto the canvas, connect them with wires using our smart Manhattan routing engine, and export your finished diagram as SVG or PNG. The entire process takes minutes, not hours.",
       "display": true
     },
     {
-      "question": "Do I need to install anything?",
-      "answer": "No installation is required. Everything runs natively using HTML5 Canvas.",
+      "question": "What file formats can I export from Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker supports three export formats: SVG (scalable vector graphics for crisp prints at any size), high-DPI PNG (raster images for presentations and reports), and JSON (for saving and reloading your projects later).",
       "display": true
     },
     {
-      "question": "Hidden FAQ",
-      "answer": "This should not be displayed.",
-      "display": false
+      "question": "Do I need to install any software to use Circuit Diagram Maker?",
+      "answer": "No installation is required. Circuit Diagram Maker runs entirely in your browser using HTML5 Canvas technology. It works on Chrome, Firefox, Safari, and Edge — on both desktop and tablet devices.",
+      "display": true
+    },
+    {
+      "question": "Can I use Circuit Diagram Maker for PCB layout design?",
+      "answer": "Circuit Diagram Maker is designed specifically for creating schematic diagrams — the logical representation of a circuit. While it doesn't do physical PCB layout, the exported SVGs can be used as references when designing PCBs in dedicated layout tools like KiCad or Eagle.",
+      "display": true
+    },
+    {
+      "question": "Does Circuit Diagram Maker work on mobile phones and tablets?",
+      "answer": "The editor works best on tablets and desktops with screens 768px or wider. Touch gestures are supported for panning and zooming on tablets. For the best experience creating circuit diagrams, we recommend using a device with a mouse or trackpad.",
+      "display": true
+    },
+    {
+      "question": "How many electronic components are available in Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker includes 40+ industry-standard electronic symbols covering passive components (resistors, capacitors, inductors), active components (op-amps, transistors, diodes), power elements (batteries, regulators, MOSFETs), ICs, connectors, sensors, and more.",
+      "display": true
+    },
+    {
+      "question": "Is Circuit Diagram Maker suitable for students and academic projects?",
+      "answer": "Absolutely. Circuit Diagram Maker is used by students worldwide for lab reports, thesis diagrams, and coursework. The exported SVG files are publication-quality and accepted by IEEE, academic journals, and university submission systems.",
+      "display": true
+    },
+    {
+      "question": "Can I save and reload my circuit diagrams?",
+      "answer": "Yes. Circuit Diagram Maker saves your work to your browser's local storage automatically. You can also export your project as a JSON file to back it up, share it with collaborators, or reload it on a different device.",
+      "display": true
+    },
+    {
+      "question": "How does the smart wire routing work in Circuit Diagram Maker?",
+      "answer": "Our Manhattan routing engine automatically keeps all wires perfectly horizontal or vertical (orthogonal), snapped to a 20px grid. This produces clean, professional-looking schematics that follow industry conventions for readability and consistency.",
+      "display": true
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "en": {
-    "home.hero.title": "Design Circuits with Precision",
-    "home.hero.subtitle": "A professional browser-based tool for creating, simulating, and sharing high-quality electronic schemas effortlessly.",
-    "home.hero.cta": "Open Editor",
+    "home.hero.title": "Free Circuit Diagram Maker",
+    "home.hero.subtitle": "Create, edit, and export professional circuit diagrams in seconds. Our browser-based circuit diagram maker lets you drag-and-drop 40+ standard symbols, auto-route wires, and export to SVG or PNG — completely free, no signup required.",
+    "home.hero.cta": "Open Circuit Diagram Editor",
     "home.hero.secondary": "Read Documentation",
-    "home.features.title": "Everything you need to build schemas",
-    "home.faq.title": "Frequently Asked Questions",
-    "home.how_it_works.title": "How Circuit Diagram Maker Works",
-    "home.data.title": "Feature Matrix"
+    "home.features.title": "Why Engineers Choose Our Circuit Diagram Maker",
+    "home.faq.title": "Frequently Asked Questions About Circuit Diagram Maker",
+    "home.how_it_works.title": "How to Create a Circuit Diagram in 3 Steps",
+    "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools"
   }
 }

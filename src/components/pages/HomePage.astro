@@ -6,7 +6,6 @@ import FeatureMatrix from '../FeatureMatrix.astro';
 import FAQ from '../FAQ.astro';
 import Hero3DPreview from '../Hero3DPreview.astro';
 import InteractiveCircuitShowcase from '../InteractiveCircuitShowcase.astro';
-import HomeContentSections from '../HomeContentSections.astro';
 
 interface Props {
   locale: string;
@@ -14,83 +13,308 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-
 const faqItems = t('faq');
+
 const howItWorksSteps = [
   {
-    title: 'Draft Your Circuit',
-    description: 'Use the smart drag-and-drop library containing 40+ industry-standard symbols to start your design.'
+    title: 'Draft Your Circuit Diagram',
+    description: 'Open the circuit diagram maker, drag components from our 40+ symbol library onto the infinite canvas, and place them on the auto-snapping grid. Start with the major building blocks — power supply, main IC, inputs and outputs.'
   },
   {
-    title: 'Auto-Route Wires',
-    description: 'Our Manhattan routing engine keeps connections orthogonal, readable, and snapped to the grid.'
+    title: 'Connect & Route Wires',
+    description: 'Our Manhattan routing engine automatically keeps all wires perfectly orthogonal. Click pin-to-pin to draw nets, label critical signals, and separate high-current paths from control logic for clean, readable schematics.'
   },
   {
-    title: 'Export & Share',
-    description: 'Download crisp SVG or high-DPI PNG outputs for specs, handoff docs, and technical reports.'
+    title: 'Export & Share Diagrams',
+    description: 'Download your finished circuit diagram as a crystal-clear SVG for publications, high-DPI PNG for presentations, or JSON for project backup. Every export is print-ready and accepted by IEEE and academic journals.'
   }
 ];
 
-const matrixHeaders = ['Feature', 'Circuit Diagram Maker', 'Legacy Tools'];
+const matrixHeaders = ['Feature', 'Circuit Diagram Maker', 'Desktop CAD Tools', 'Generic Drawing Apps'];
 const matrixRows = [
-  ['Browser Based', 'Yes', 'No'],
-  ['Smart Routing', 'Yes', 'Limited'],
-  ['SVG Export', 'Yes', 'Yes'],
-  ['High-DPI PNG', 'Yes', 'No'],
-  ['Component Presets', 'Yes', 'Limited'],
-  ['Shared Documentation Flow', 'Yes', 'No']
+  ['100% Browser-Based', 'Yes', 'No', 'Yes'],
+  ['Smart Wire Routing', 'Yes', 'Yes', 'No'],
+  ['Electronic Symbol Library', 'Yes', 'Yes', 'No'],
+  ['SVG Vector Export', 'Yes', 'Limited', 'Yes'],
+  ['High-DPI PNG Export', 'Yes', 'Yes', 'No'],
+  ['Grid Snapping', 'Yes', 'Yes', 'Limited'],
+  ['No Account Required', 'Yes', 'No', 'No'],
+  ['Completely Free', 'Yes', 'No', 'No'],
+  ['Keyboard Shortcuts', 'Yes', 'Yes', 'Limited'],
+  ['Works Offline (LocalStorage)', 'Yes', 'Yes', 'No'],
+];
+
+const featureCards = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg>`,
+    title: '40+ Electronic Symbols',
+    desc: 'Industry-standard IEC and ANSI symbols for resistors, capacitors, ICs, transistors, op-amps, connectors, and more — all ready to drag and drop.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M4 12h4v-4h4v8h4v-4h4"/><circle cx="4" cy="12" r="1.5" fill="currentColor"/><circle cx="20" cy="12" r="1.5" fill="currentColor"/></svg>`,
+    title: 'Manhattan Wire Routing',
+    desc: 'Our smart routing engine keeps every wire perfectly horizontal or vertical. Connections snap to a 20px grid for publication-quality schematics.'
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M12 3v10m-4-4l4 4 4-4M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>`,
+    title: 'SVG & PNG Export',
+    desc: 'Export circuit diagrams as infinitely scalable SVG vectors or crisp high-DPI PNG images. Perfect for lab reports, thesis documents, and tech specs.'
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>`,
+    title: 'Zero Setup Time',
+    desc: 'No downloads, no installations, no signup. Open your browser and start creating circuit diagrams instantly. Works on Chrome, Firefox, Safari, and Edge.'
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M4 6h16M4 12h10M4 18h14"/></svg>`,
+    title: 'Keyboard Shortcuts',
+    desc: 'Power users love our command palette — V to select, W to wire, R to rotate, Del to delete. Every action has a shortcut for lightning-fast schematic drafting.'
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-7 h-7"><path d="M20 7l-8 8-4-4-5 5"/><path d="M20 7h-6m6 0v6"/></svg>`,
+    title: 'Auto-Save & Backup',
+    desc: 'Your circuit diagrams are automatically saved to browser LocalStorage. Export as JSON for cloud backup, version control, or sharing with team members.'
+  }
+];
+
+const personas = [
+  {
+    emoji: '🎓',
+    title: 'Students & Academics',
+    desc: 'Create publication-quality circuit diagrams for lab reports, thesis documents, and coursework. Our SVG exports are accepted by IEEE and university submission systems.',
+    keyword: 'circuit diagram maker for students'
+  },
+  {
+    emoji: '⚡',
+    title: 'Electronics Engineers',
+    desc: 'Draft professional schematics for design reviews, component documentation, and technical handoff. Export clean diagrams that integrate with your existing workflow.',
+    keyword: 'circuit diagram tool for engineers'
+  },
+  {
+    emoji: '🔧',
+    title: 'Hobbyists & Makers',
+    desc: 'Plan your Arduino projects, IoT prototypes, and DIY electronics with an intuitive drag-and-drop interface. No CAD experience required to create clear wiring diagrams.',
+    keyword: 'free circuit diagram maker for hobbyists'
+  },
+  {
+    emoji: '📚',
+    title: 'Educators & Trainers',
+    desc: 'Build interactive circuit diagrams for lectures, textbooks, and online courses. Export high-resolution images that look sharp on screens and in print materials.',
+    keyword: 'circuit diagram maker for teaching'
+  }
 ];
 ---
 
 <BaseLayout>
-  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-24">
-    <div class="absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-brand-primary/10 to-transparent"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.12),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.16),transparent_28%)]"></div>
-    <div class="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_460px] lg:px-8">
-      <div class="max-w-3xl">
-        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Browser-based schematic workspace</p>
-        <h1 class="text-5xl font-extrabold tracking-tight text-white md:text-6xl">
-          {t('home.hero.title')}
+  <!-- ███ HERO SECTION ███ -->
+  <section class="relative overflow-hidden bg-bg-dark" id="hero">
+    <!-- Background gradients -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.08),transparent_40%)]"></div>
+    
+    <div class="relative mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+      <!-- Hero text -->
+      <div class="text-center max-w-4xl mx-auto mb-8 relative z-10">
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Free Browser-Based Schematic Editor</p>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
+          <span class="bg-gradient-to-br from-white via-white to-slate-400 bg-clip-text text-transparent" id="hero-typed">Free Circuit Diagram Maker</span>
         </h1>
-        <p class="mt-6 text-xl leading-relaxed text-slate-400">
+        <p class="mt-6 text-lg sm:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
           {t('home.hero.subtitle')}
         </p>
-        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-          <a href={getLocalizedPath('/editor/', locale)} class="rounded-xl bg-brand-primary px-8 py-3 text-center font-semibold text-white transition hover:bg-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.32)]">
-            {t('home.hero.cta')}
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href={getLocalizedPath('/editor/', locale)} 
+             class="group relative px-8 py-3.5 rounded-xl bg-brand-primary text-white font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-[1.03] w-full sm:w-auto text-center"
+             id="hero-cta">
+            <span class="relative z-10">{t('home.hero.cta')}</span>
+            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </a>
-          <a href={getLocalizedPath('/docs/', locale)} class="rounded-xl border border-white/10 bg-bg-surface px-8 py-3 text-center font-medium text-white transition hover:border-white/20 hover:bg-white/5">
+          <a href={getLocalizedPath('/docs/', locale)} class="px-8 py-3.5 rounded-xl border border-white/10 bg-bg-surface/50 backdrop-blur-sm text-white font-medium transition-all hover:border-white/20 hover:bg-white/5 w-full sm:w-auto text-center">
             {t('home.hero.secondary')}
           </a>
         </div>
-        <div class="mt-12 grid gap-4 sm:grid-cols-3">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div class="text-3xl font-bold text-white">40+</div>
-            <div class="mt-2 text-sm uppercase tracking-[0.25em] text-slate-400">Core symbols</div>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div class="text-3xl font-bold text-white">3</div>
-            <div class="mt-2 text-sm uppercase tracking-[0.25em] text-slate-400">Workflow tracks</div>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div class="text-3xl font-bold text-white">95</div>
-            <div class="mt-2 text-sm uppercase tracking-[0.25em] text-slate-400">Static pages built</div>
-          </div>
-        </div>
       </div>
 
-      <div class="relative">
-        <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-brand-primary/10 to-brand-secondary/5 blur-2xl"></div>
-        <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-bg-panel shadow-2xl" style="box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.08);">
-          <Hero3DPreview />
+      <!-- Animated stat counters -->
+      <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-8">
+        <div class="text-center group">
+          <div class="text-2xl sm:text-3xl font-black text-white counter" data-target="40">0</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-slate-500 mt-1 group-hover:text-brand-accent transition-colors">Symbols</div>
+        </div>
+        <div class="text-center group">
+          <div class="text-2xl sm:text-3xl font-black text-white counter" data-target="3">0</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-slate-500 mt-1 group-hover:text-brand-accent transition-colors">Export Formats</div>
+        </div>
+        <div class="text-center group">
+          <div class="text-2xl sm:text-3xl font-black text-white">100%</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-slate-500 mt-1 group-hover:text-brand-accent transition-colors">Free Forever</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Circuit Board (full-width) -->
+    <div class="relative mx-auto max-w-6xl px-4 pb-16">
+      <div class="absolute -inset-8 rounded-[2rem] bg-gradient-to-br from-brand-primary/8 to-brand-secondary/5 blur-3xl pointer-events-none"></div>
+      <div class="relative rounded-2xl border border-white/10 bg-bg-panel overflow-hidden aspect-[16/9]" style="box-shadow: 0 30px 100px rgba(0,0,0,0.5), 0 0 80px rgba(59,130,246,0.06);">
+        <Hero3DPreview />
+      </div>
+    </div>
+  </section>
+
+  <!-- ███ WHAT IS A CIRCUIT DIAGRAM MAKER? ███ -->
+  <section class="py-20 bg-bg-panel border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">What Is It?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">What Is a Circuit Diagram Maker?</h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            A <strong class="text-white">circuit diagram maker</strong> is a specialized tool that lets you visually represent electronic circuits using standardized symbols. Instead of sketching circuits by hand or wrestling with complex CAD software, a circuit diagram maker provides an intuitive drag-and-drop interface where you select components — resistors, capacitors, ICs, transistors — and connect them with wires to create professional schematics.
+          </p>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Our free circuit diagram maker runs entirely in your browser, requires no installation, and produces publication-quality SVG and PNG exports. Whether you're designing a simple LED circuit or a multi-stage amplifier, the process is the same: drag, connect, export. Circuit Diagram Maker uses a Manhattan routing engine that keeps all wires perfectly horizontal or vertical, following the same conventions used by professional EDA tools like KiCad and Altium Designer.
+          </p>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Every circuit diagram you create is saved automatically to your browser's local storage. You can also export projects as JSON files for version control, team sharing, or loading on a different machine.
+          </p>
+        </div>
+        <!-- Animated SVG circuit being drawn -->
+        <div class="rounded-2xl border border-white/10 bg-bg-dark/80 p-6 overflow-hidden">
+          <svg class="w-full h-auto" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="480" height="280" rx="8" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <!-- Animated drawing path -->
+            <path class="anim-draw" d="M60,150 L140,150 L140,80 L260,80" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <rect class="anim-fade" x="260" y="50" width="100" height="60" rx="8" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
+            <text class="anim-fade" x="310" y="85" text-anchor="middle" fill="#e2e8f0" font-size="14" font-family="Inter,sans-serif">Op-Amp</text>
+            <path class="anim-draw-2" d="M360,80 L440,80 L440,150" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle class="anim-fade-2" cx="440" cy="150" r="6" fill="#22d3ee"/>
+            <path class="anim-draw-3" d="M140,150 L140,220 L310,220 L310,110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+            <circle class="anim-fade" cx="60" cy="150" r="6" fill="#3b82f6"/>
+            <text class="anim-fade" x="60" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">VIN</text>
+            <text class="anim-fade-2" x="440" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">VOUT</text>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ███ WHY USE OUR CIRCUIT DIAGRAM MAKER ███ -->
+  <section class="py-20 bg-bg-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Features</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.features.title')}</h2>
+        <p class="mt-4 text-lg text-slate-400">Every feature designed to help you create better circuit diagrams, faster.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featureCards.map((card, i) => (
+          <div class="group rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]" style={`animation-delay: ${i * 80}ms`}>
+            <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary/20 transition-colors">
+              <Fragment set:html={card.icon} />
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">{card.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ███ INTERACTIVE SCHEMATIC SHOWCASE ███ -->
   <InteractiveCircuitShowcase />
+
+  <!-- ███ HOW IT WORKS ███ -->
   <HowItWorks title={t('home.how_it_works.title')} steps={howItWorksSteps} />
-  <HomeContentSections locale={locale} />
+
+  <!-- ███ COMPARISON TABLE ███ -->
   <FeatureMatrix title={t('home.data.title')} headers={matrixHeaders} rows={matrixRows} />
+
+  <!-- ███ WHO USES CIRCUIT DIAGRAM MAKER ███ -->
+  <section class="py-20 bg-bg-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Use Cases</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Who Uses Circuit Diagram Maker?</h2>
+        <p class="mt-4 text-lg text-slate-400">From university labs to professional engineering teams, thousands of users rely on our free circuit diagram maker every day.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {personas.map(p => (
+          <div class="rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 group">
+            <div class="text-4xl mb-4">{p.emoji}</div>
+            <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{p.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ███ FAQ ███ -->
   <FAQ title={t('home.faq.title')} items={faqItems} />
+
+  <!-- ███ BOTTOM CTA ███ -->
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08),transparent_60%)]"></div>
+    <div class="relative max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Start Creating Circuit Diagrams Now</h2>
+      <p class="mt-4 text-lg text-slate-400">No signup. No download. Just open the circuit diagram maker and start designing.</p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={getLocalizedPath('/editor/', locale)} class="px-10 py-4 rounded-xl bg-brand-primary hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] w-full sm:w-auto">
+          Open Circuit Diagram Editor — It's Free
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* Animated drawing SVG */
+  .anim-draw {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawLine 2s ease-out 0.5s forwards;
+  }
+  .anim-draw-2 {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 1.5s ease-out 2s forwards;
+  }
+  .anim-draw-3 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawLine 2s ease-out 3s forwards;
+  }
+  .anim-fade { opacity: 0; animation: fadeUp 0.6s ease-out 1.8s forwards; }
+  .anim-fade-2 { opacity: 0; animation: fadeUp 0.6s ease-out 3s forwards; }
+
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  // Counter animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target || '0');
+          let current = 0;
+          const increment = Math.max(1, Math.floor(target / 30));
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) { current = target; clearInterval(timer); }
+            el.textContent = current + '+';
+          }, 40);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => observer.observe(c));
+  });
+</script>

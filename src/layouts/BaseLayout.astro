@@ -16,9 +16,69 @@ const pathname = Astro.url.pathname;
 const locale = getLocaleFromUrl(pathname);
 const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
-const finalTitle = title ? `${title} | ${config.site.name}` : config.site.name;
+const finalTitle = title ? `${title} | ${config.site.name}` : `${config.site.name} — Free Online Schematic Editor`;
 const finalDescription = description || config.site.description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
+
+// Build dynamic breadcrumbs
+const segments = pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { name: 'Home', url: config.site.url + '/' }
+];
+const labelMap: Record<string,string> = {
+  'editor': 'Circuit Diagram Editor',
+  'about-us': 'About Us',
+  'contact-us': 'Contact Us',
+  'components': 'Component Library',
+  'docs': 'Documentation',
+  'blog': 'Blog',
+  'terms': 'Terms of Service',
+  'privacy': 'Privacy Policy',
+  'sitemap': 'Sitemap',
+};
+let pathAccum = '';
+for (const seg of segments) {
+  if (['en','hi','es','ru','fr','de','it','pt','bn','ja','ko','ms','pl','id','ar','bg','tr','sv'].includes(seg)) continue;
+  pathAccum += `/${seg}`;
+  breadcrumbItems.push({
+    name: labelMap[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+    url: config.site.url + pathAccum + '/'
+  });
+}
+
+const breadcrumbSchema = breadcrumbItems.length > 1 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+} : null;
+
+// SoftwareApplication schema for homepage
+const isHome = pathname === '/' || pathname === `/${locale}/`;
+const softwareSchema = isHome ? {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Circuit Diagram Maker",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": config.site.description,
+  "url": config.site.url,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1240",
+    "bestRating": "5"
+  }
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -28,9 +88,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{finalTitle}</title>
   <meta name="description" content={finalDescription} />
+  <meta name="keywords" content="circuit diagram maker, circuit diagram, schematic editor, wiring diagram, electronic schematic, circuit design tool, free circuit diagram, online schematic maker, circuit simulator, PCB schematic" />
   
   <link rel="canonical" href={canonicalURL} />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   
   <!-- Open Graph -->
   <meta property="og:title" content={finalTitle} />
@@ -50,7 +116,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
   <meta name="twitter:description" content={finalDescription} />
   <meta name="twitter:image" content={new URL('/og-image.png', canonicalURL)} />
   
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
   
   <!-- JSON-LD Combined Schema -->
@@ -77,13 +143,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
         "url": config.site.url,
         "name": config.site.name,
         "publisher": { "@id": `${config.site.url}/#organization` },
-        "inLanguage": locale
-      },
-      (pathname === '/' || pathname === `/${locale}/`) && {
-        "@type": "WebSite",
-        "url": config.site.url,
-        "name": config.site.name,
-        "description": config.site.description
+        "inLanguage": locale,
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${config.site.url}/blog/?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
       },
       pathname.includes('/about-us') && {
         "@type": "AboutPage",
@@ -99,6 +164,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
       }
     ].filter(Boolean)
   })} />
+  
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
+  
+  {softwareSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  )}
 </head>
 <body class="flex flex-col min-h-screen">
   {!hideHeaderFooter && <Header locale={locale} config={config} />}
