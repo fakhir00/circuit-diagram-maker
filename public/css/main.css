@@ -318,7 +318,7 @@ input {
 /* === APP CONTAINER === */
 .app-container {
     display: flex;
-    height: calc(100dvh - var(--toolbar-height));
+    height: calc(100svh - var(--toolbar-height));
     overflow: hidden;
 }
 
@@ -1061,7 +1061,7 @@ input {
     /* Transform panels into horizontal bars stacked vertically */
     .app-container {
         flex-direction: column;
-        height: calc(100dvh - var(--toolbar-height));
+        height: calc(100svh - var(--toolbar-height));
     }
 
     /* Tools & Component Library become a horizontal strip at the bottom */
@@ -1077,6 +1077,7 @@ input {
         border-right: none;
         border-top: 1px solid var(--border-subtle);
         order: 3; /* Move to bottom */
+        padding-bottom: env(safe-area-inset-bottom, 24px); /* Extra safety for bottom bezel/home bar */
     }
 
     .sidebar-section-grow {
