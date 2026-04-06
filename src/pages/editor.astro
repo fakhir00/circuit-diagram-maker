@@ -187,7 +187,7 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
                     <span>Info</span>
                 </div>
                 <div class="info-content">
-                    <div class="info-shortcuts">
+                    <div class="info-shortcuts desktop-shortcuts">
                         <div class="shortcut-row"><kbd>V</kbd> Select</div>
                         <div class="shortcut-row"><kbd>W</kbd> Wire</div>
                         <div class="shortcut-row"><kbd>R</kbd> Rotate</div>
@@ -196,6 +196,13 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
                         <div class="shortcut-row"><kbd>Ctrl+S</kbd> Save</div>
                         <div class="shortcut-row"><kbd>Space</kbd> Pan</div>
                         <div class="shortcut-row"><kbd>Scroll</kbd> Zoom</div>
+                    </div>
+                    <div class="info-shortcuts mobile-shortcuts hidden">
+                        <div class="shortcut-row"><kbd>Tap</kbd> Select / Place</div>
+                        <div class="shortcut-row"><kbd>1-Drag</kbd> Move / Wire</div>
+                        <div class="shortcut-row"><kbd>2-Drag</kbd> Pan Canvas</div>
+                        <div class="shortcut-row"><kbd>Pinch</kbd> Zoom In / Out</div>
+                        <div class="shortcut-row"><kbd>Hold</kbd> Context Menu</div>
                     </div>
                 </div>
             </div>
