@@ -318,7 +318,7 @@ input {
 /* === APP CONTAINER === */
 .app-container {
     display: flex;
-    height: calc(100vh - var(--toolbar-height));
+    height: calc(100dvh - var(--toolbar-height));
     overflow: hidden;
 }
 
@@ -1061,6 +1061,7 @@ input {
     /* Transform panels into horizontal bars stacked vertically */
     .app-container {
         flex-direction: column;
+        height: calc(100dvh - var(--toolbar-height));
     }
 
     /* Tools & Component Library become a horizontal strip at the bottom */
@@ -1069,6 +1070,8 @@ input {
         min-width: 100%;
         height: auto;
         min-height: auto;
+        max-height: 40dvh; /* Enforce max height so it never pushes offscreen */
+        overflow-y: auto; /* Scroll internally if tabs are too tall */
         flex: 0 0 auto;
         flex-direction: column;
         border-right: none;
@@ -1118,13 +1121,15 @@ input {
     .canvas-container {
         order: 1;
         flex: 1 1 0;
+        min-height: 25dvh; /* Ensure canvas is never crushed out of existence */
     }
 
     /* Properties & Info become a horizontal strip above the tools */
     .right-panel {
         width: 100%;
         min-width: 100%;
-        height: 160px; /* fixed height layout for scrolling */
+        height: 120px; /* tightly packed layout for scrolling */
+        max-height: 30dvh;
         flex: 0 0 auto;
         flex-direction: row;
         border-left: none;
