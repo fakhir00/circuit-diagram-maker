@@ -8,5 +8,175 @@
     "home.faq.title": "Frequently Asked Questions About Circuit Diagram Maker",
     "home.how_it_works.title": "How to Create a Circuit Diagram in 3 Steps",
     "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools"
+  },
+  "hi": {
+    "home.hero.title": "निःशुल्क सर्किट आरेख निर्माता",
+    "home.hero.subtitle": "सेकंडों में पेशेवर सर्किट आरेख बनाएं, संपादित करें और निर्यात करें। हमारा ब्राउज़र-आधारित सर्किट आरेख निर्माता आपको 40+ मानक प्रतीकों, ऑटो-रूट तारों को खींचने और छोड़ने और एसवीजी या पीएनजी में निर्यात करने की सुविधा देता है - पूरी तरह से मुफ़्त, कोई साइनअप आवश्यक नहीं है।",
+    "home.hero.cta": "ओपन सर्किट आरेख संपादक",
+    "home.hero.secondary": "दस्तावेज़ीकरण पढ़ें",
+    "home.features.title": "इंजीनियर हमारे सर्किट आरेख निर्माता को क्यों चुनते हैं?",
+    "home.faq.title": "सर्किट आरेख निर्माता के बारे में अक्सर पूछे जाने वाले प्रश्न",
+    "home.how_it_works.title": "3 चरणों में सर्किट आरेख कैसे बनाएं",
+    "home.data.title": "सर्किट आरेख निर्माता बनाम लीगेसी डेस्कटॉप उपकरण"
+  },
+  "es": {
+    "home.hero.title": "Creador de diagramas de circuitos gratuito",
+    "home.hero.subtitle": "Cree, edite y exporte diagramas de circuitos profesionales en segundos. Nuestro creador de diagramas de circuitos basado en navegador le permite arrastrar y soltar más de 40 símbolos estándar, enrutar automáticamente cables y exportarlos a SVG o PNG, completamente gratis y no es necesario registrarse.",
+    "home.hero.cta": "Editor de diagramas de circuito abierto",
+    "home.hero.secondary": "Leer documentación",
+    "home.features.title": "Por qué los ingenieros eligen nuestro creador de diagramas de circuitos",
+    "home.faq.title": "Preguntas frecuentes sobre el creador de diagramas de circuitos",
+    "home.how_it_works.title": "Cómo crear un diagrama de circuito en 3 pasos",
+    "home.data.title": "Creador de diagramas de circuito frente a herramientas de escritorio heredadas"
+  },
+  "ru": {
+    "home.hero.title": "Бесплатный конструктор принципиальных схем",
+    "home.hero.subtitle": "Создавайте, редактируйте и экспортируйте профессиональные принципиальные схемы за считанные секунды. Наш конструктор принципиальных схем на базе браузера позволяет перетаскивать более 40 стандартных символов, автоматически прокладывать провода и экспортировать их в SVG или PNG — совершенно бесплатно и без регистрации.",
+    "home.hero.cta": "Редактор схем открытых цепей",
+    "home.hero.secondary": "Читать документацию",
+    "home.features.title": "Почему инженеры выбирают наш конструктор принципиальных схем",
+    "home.faq.title": "Часто задаваемые вопросы о создателе принципиальных схем",
+    "home.how_it_works.title": "Как создать принципиальную схему за 3 шага",
+    "home.data.title": "Создатель принципиальных схем против устаревших настольных инструментов"
+  },
+  "fr": {
+    "home.hero.title": "Créateur de schémas de circuits gratuit",
+    "home.hero.subtitle": "Créez, modifiez et exportez des schémas de circuits professionnels en quelques secondes. Notre créateur de schémas de circuits basé sur un navigateur vous permet de glisser-déposer plus de 40 symboles standard, d'acheminer automatiquement les fils et d'exporter au format SVG ou PNG — entièrement gratuitement, aucune inscription requise.",
+    "home.hero.cta": "Éditeur de schéma de circuit ouvert",
+    "home.hero.secondary": "Lire la documentation",
+    "home.features.title": "Pourquoi les ingénieurs choisissent notre créateur de schémas de circuits",
+    "home.faq.title": "Foire aux questions sur le créateur de schémas de circuits",
+    "home.how_it_works.title": "Comment créer un schéma de circuit en 3 étapes",
+    "home.data.title": "Créateur de schémas de circuits et outils de bureau existants"
+  },
+  "de": {
+    "home.hero.title": "Kostenloser Schaltplan-Ersteller",
+    "home.hero.subtitle": "Erstellen, bearbeiten und exportieren Sie professionelle Schaltpläne in Sekundenschnelle. Mit unserem browserbasierten Schaltplan-Ersteller können Sie mehr als 40 Standardsymbole per Drag-and-Drop verschieben, Drähte automatisch verlegen und in SVG oder PNG exportieren – völlig kostenlos, keine Anmeldung erforderlich.",
+    "home.hero.cta": "Offener Schaltplan-Editor",
+    "home.hero.secondary": "Dokumentation lesen",
+    "home.features.title": "Warum Ingenieure sich für unseren Schaltplan-Ersteller entscheiden",
+    "home.faq.title": "Häufig gestellte Fragen zum Schaltplan-Maker",
+    "home.how_it_works.title": "So erstellen Sie einen Schaltplan in 3 Schritten",
+    "home.data.title": "Schaltplan-Ersteller im Vergleich zu älteren Desktop-Tools"
+  },
+  "it": {
+    "home.hero.title": "Creatore di schemi elettrici gratuito",
+    "home.hero.subtitle": "Crea, modifica ed esporta schemi elettrici professionali in pochi secondi. Il nostro creatore di schemi circuitali basato su browser ti consente di trascinare e rilasciare oltre 40 simboli standard, instradare automaticamente i cavi ed esportarli in SVG o PNG: in modo completamente gratuito, senza registrazione richiesta.",
+    "home.hero.cta": "Editor di schemi circuitali aperti",
+    "home.hero.secondary": "Leggi la documentazione",
+    "home.features.title": "Perché gli ingegneri scelgono il nostro creatore di schemi circuitali",
+    "home.faq.title": "Domande frequenti sul creatore di schemi circuitali",
+    "home.how_it_works.title": "Come creare uno schema elettrico in 3 passaggi",
+    "home.data.title": "Creatore di diagrammi circuitali e strumenti desktop legacy"
+  },
+  "pt": {
+    "home.hero.title": "Criador de diagrama de circuito gratuito",
+    "home.hero.subtitle": "Crie, edite e exporte diagramas de circuitos profissionais em segundos. Nosso criador de diagramas de circuitos baseado em navegador permite arrastar e soltar mais de 40 símbolos padrão, rotear fios automaticamente e exportar para SVG ou PNG - totalmente gratuito, sem necessidade de inscrição.",
+    "home.hero.cta": "Editor de diagrama de circuito aberto",
+    "home.hero.secondary": "Leia a documentação",
+    "home.features.title": "Por que os engenheiros escolhem nosso criador de diagramas de circuitos",
+    "home.faq.title": "Perguntas frequentes sobre o criador de diagramas de circuitos",
+    "home.how_it_works.title": "Como criar um diagrama de circuito em 3 etapas",
+    "home.data.title": "Criador de diagrama de circuito vs ferramentas de desktop herdadas"
+  },
+  "bn": {
+    "home.hero.title": "ফ্রি সার্কিট ডায়াগ্রাম মেকার",
+    "home.hero.subtitle": "সেকেন্ডের মধ্যে পেশাদার সার্কিট ডায়াগ্রাম তৈরি করুন, সম্পাদনা করুন এবং রপ্তানি করুন। আমাদের ব্রাউজার-ভিত্তিক সার্কিট ডায়াগ্রাম মেকার আপনাকে 40+ স্ট্যান্ডার্ড চিহ্ন, স্বয়ংক্রিয়-রুট ওয়্যার, এবং SVG বা PNG-এ রপ্তানি করতে দেয় - সম্পূর্ণ বিনামূল্যে, কোন সাইনআপের প্রয়োজন নেই।",
+    "home.hero.cta": "সার্কিট ডায়াগ্রাম এডিটর খুলুন",
+    "home.hero.secondary": "ডকুমেন্টেশন পড়ুন",
+    "home.features.title": "কেন প্রকৌশলীরা আমাদের সার্কিট ডায়াগ্রাম মেকার চয়ন করেন",
+    "home.faq.title": "Circuit Diagram Maker সম্পর্কিত প্রায়শ জিজ্ঞাস্য প্রশ্নাবলী",
+    "home.how_it_works.title": "কিভাবে 3টি ধাপে একটি সার্কিট ডায়াগ্রাম তৈরি করবেন",
+    "home.data.title": "সার্কিট ডায়াগ্রাম মেকার বনাম লিগ্যাসি ডেস্কটপ টুলস"
+  },
+  "ja": {
+    "home.hero.title": "無料の回路図メーカー",
+    "home.hero.subtitle": "プロフェッショナルな回路図を数秒で作成、編集、エクスポートします。当社のブラウザベースの回路図メーカーでは、40 以上の標準シンボルをドラッグ アンド ドロップし、ワイヤを自動配線し、SVG または PNG にエクスポートできます。完全に無料で、サインアップも必要ありません。",
+    "home.hero.cta": "開回路図エディタ",
+    "home.hero.secondary": "ドキュメントを読む",
+    "home.features.title": "エンジニアが当社の回路図メーカーを選ぶ理由",
+    "home.faq.title": "Circuit Diagram Maker に関するよくある質問",
+    "home.how_it_works.title": "3ステップで回路図を作成する方法",
+    "home.data.title": "回路図作成ツールと従来のデスクトップ ツール"
+  },
+  "ko": {
+    "home.hero.title": "무료 회로도 작성기",
+    "home.hero.subtitle": "몇 초 만에 전문적인 회로도를 생성, 편집 및 내보낼 수 있습니다. 당사의 브라우저 기반 회로도 작성 도구를 사용하면 40개 이상의 표준 기호를 끌어서 놓을 수 있고, 와이어를 자동으로 라우팅하고 SVG 또는 PNG로 내보낼 수 있습니다. 완전 무료이며 가입이 필요하지 않습니다.",
+    "home.hero.cta": "개방형 회로 다이어그램 편집기",
+    "home.hero.secondary": "문서 읽기",
+    "home.features.title": "엔지니어가 회로도 제작 도구를 선택하는 이유",
+    "home.faq.title": "회로도 작성기에 대해 자주 묻는 질문",
+    "home.how_it_works.title": "3단계로 회로도를 만드는 방법",
+    "home.data.title": "회로도 작성기 및 레거시 데스크탑 도구"
+  },
+  "ms": {
+    "home.hero.title": "Pembuat Gambarajah Litar Percuma",
+    "home.hero.subtitle": "Cipta, edit dan eksport gambar rajah litar profesional dalam beberapa saat. Pembuat rajah litar berasaskan penyemak imbas kami membolehkan anda seret dan lepas 40+ simbol standard, wayar laluan automatik dan eksport ke SVG atau PNG — percuma sepenuhnya, tiada pendaftaran diperlukan.",
+    "home.hero.cta": "Editor Gambarajah Litar Terbuka",
+    "home.hero.secondary": "Baca Dokumentasi",
+    "home.features.title": "Mengapa Jurutera Memilih Pembuat Rajah Litar Kami",
+    "home.faq.title": "Soalan Lazim Mengenai Pembuat Rajah Litar",
+    "home.how_it_works.title": "Cara Membuat Gambarajah Litar dalam 3 Langkah",
+    "home.data.title": "Pembuat Rajah Litar lwn Alat Desktop Legasi"
+  },
+  "pl": {
+    "home.hero.title": "Darmowy kreator schematów obwodów",
+    "home.hero.subtitle": "Twórz, edytuj i eksportuj profesjonalne schematy obwodów w ciągu kilku sekund. Nasz oparty na przeglądarce kreator schematów obwodów umożliwia przeciąganie i upuszczanie ponad 40 standardowych symboli, automatyczne wyznaczanie tras przewodów i eksportowanie do formatu SVG lub PNG — całkowicie bezpłatnie, bez konieczności rejestracji.",
+    "home.hero.cta": "Otwórz Edytor schematów obwodów",
+    "home.hero.secondary": "Przeczytaj dokumentację",
+    "home.features.title": "Dlaczego inżynierowie wybierają nasze narzędzie do tworzenia schematów obwodów",
+    "home.faq.title": "Często zadawane pytania dotyczące narzędzia do tworzenia schematów obwodów",
+    "home.how_it_works.title": "Jak utworzyć schemat obwodu w 3 krokach",
+    "home.data.title": "Kreator schematów obwodów a starsze narzędzia komputerowe"
+  },
+  "id": {
+    "home.hero.title": "Pembuat Diagram Sirkuit Gratis",
+    "home.hero.subtitle": "Buat, edit, dan ekspor diagram sirkuit profesional dalam hitungan detik. Pembuat diagram sirkuit berbasis browser kami memungkinkan Anda menarik dan melepas 40+ simbol standar, merutekan kabel secara otomatis, dan mengekspor ke SVG atau PNG — sepenuhnya gratis, tidak perlu mendaftar.",
+    "home.hero.cta": "Editor Diagram Sirkuit Terbuka",
+    "home.hero.secondary": "Baca Dokumentasi",
+    "home.features.title": "Mengapa Insinyur Memilih Pembuat Diagram Sirkuit Kami",
+    "home.faq.title": "Pertanyaan Yang Sering Diajukan Tentang Pembuat Diagram Sirkuit",
+    "home.how_it_works.title": "Cara Membuat Diagram Sirkuit dalam 3 Langkah",
+    "home.data.title": "Pembuat Diagram Sirkuit vs Alat Desktop Lama"
+  },
+  "ar": {
+    "home.hero.title": "صانع مخططات الدوائر المجانية",
+    "home.hero.subtitle": "قم بإنشاء وتحرير وتصدير مخططات الدوائر الاحترافية في ثوانٍ. يتيح لك صانع مخططات الدوائر المستند إلى المتصفح إمكانية سحب وإسقاط أكثر من 40 رمزًا قياسيًا وأسلاك التوجيه التلقائي والتصدير إلى SVG أو PNG - مجانًا تمامًا، ولا يلزم الاشتراك.",
+    "home.hero.cta": "محرر مخطط الدائرة المفتوحة",
+    "home.hero.secondary": "قراءة الوثائق",
+    "home.features.title": "لماذا يختار المهندسون صانع مخططات الدوائر لدينا",
+    "home.faq.title": "الأسئلة المتداولة حول صانع مخططات الدوائر",
+    "home.how_it_works.title": "كيفية إنشاء مخطط الدائرة في 3 خطوات",
+    "home.data.title": "صانع مخطط الدائرة مقابل أدوات سطح المكتب القديمة"
+  },
+  "bg": {
+    "home.hero.title": "Безплатна програма за създаване на електрически схеми",
+    "home.hero.subtitle": "Създавайте, редактирайте и експортирайте професионални електрически схеми за секунди. Нашият базиран на браузъра инструмент за създаване на схеми ви позволява да плъзгате и пускате над 40 стандартни символа, да насочвате автоматично кабели и да експортирате в SVG или PNG – напълно безплатно, не се изисква регистрация.",
+    "home.hero.cta": "Отворете редактора на електрически схеми",
+    "home.hero.secondary": "Прочетете документацията",
+    "home.features.title": "Защо инженерите избират нашия Създател на електрически схеми",
+    "home.faq.title": "Често задавани въпроси за Circuit Diagram Maker",
+    "home.how_it_works.title": "Как да създадете електрическа схема в 3 стъпки",
+    "home.data.title": "Създател на електрически схеми срещу наследени инструменти за настолен компютър"
+  },
+  "tr": {
+    "home.hero.title": "Ücretsiz Devre Şeması Oluşturucu",
+    "home.hero.subtitle": "Profesyonel devre şemalarını saniyeler içinde oluşturun, düzenleyin ve dışa aktarın. Tarayıcı tabanlı devre şeması oluşturucumuz, 40'tan fazla standart sembolü sürükleyip bırakmanıza, kabloları otomatik yönlendirmenize ve SVG veya PNG'ye aktarmanıza olanak tanır; tamamen ücretsizdir, kaydolmanıza gerek yoktur.",
+    "home.hero.cta": "Devre Şeması Düzenleyicisini Aç",
+    "home.hero.secondary": "Belgeleri Okuyun",
+    "home.features.title": "Mühendisler Neden Devre Şeması Oluşturucumuzu Seçiyor?",
+    "home.faq.title": "Devre Şeması Oluşturucu Hakkında Sıkça Sorulan Sorular",
+    "home.how_it_works.title": "3 Adımda Devre Şeması Nasıl Oluşturulur",
+    "home.data.title": "Devre Şeması Oluşturucu ve Eski Masaüstü Araçları Karşılaştırması"
+  },
+  "sv": {
+    "home.hero.title": "Gratis Kretsdiagram Maker",
+    "home.hero.subtitle": "Skapa, redigera och exportera professionella kretsscheman på några sekunder. Vår webbläsarbaserade skapare av kretsscheman låter dig dra och släppa 40+ standardsymboler, auto-routa ledningar och exportera till SVG eller PNG - helt gratis, ingen registrering krävs.",
+    "home.hero.cta": "Öppna Circuit Diagram Editor",
+    "home.hero.secondary": "Läs dokumentation",
+    "home.features.title": "Varför ingenjörer väljer vår kretsdiagrammakare",
+    "home.faq.title": "Vanliga frågor om Circuit Diagram Maker",
+    "home.how_it_works.title": "Hur man skapar ett kretsdiagram i 3 steg",
+    "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools"
   }
 }

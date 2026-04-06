@@ -50,5 +50,317 @@
       "answer": "Our Manhattan routing engine automatically keeps all wires perfectly horizontal or vertical (orthogonal), snapped to a 20px grid. This produces clean, professional-looking schematics that follow industry conventions for readability and consistency.",
       "display": true
     }
+  ],
+  "hi": [
+    {
+      "question": "क्या सर्किट डायग्राम मेकर का उपयोग पूरी तरह से मुफ़्त है?",
+      "answer": "हाँ! सर्किट डायग्राम मेकर 100% मुफ़्त है - कोई सदस्यता नहीं, कोई प्रीमियम स्तर नहीं, और कोई छिपी हुई फीस नहीं। एसवीजी और पीएनजी निर्यात सहित प्रत्येक सुविधा सीधे आपके ब्राउज़र में बिना किसी कीमत के उपलब्ध है।",
+      "display": true
+    },
+    {
+      "question": "मैं ऑनलाइन सर्किट आरेख कैसे बनाऊं?",
+      "answer": "सर्किट आरेख निर्माता संपादक खोलें, साइडबार से घटकों को कैनवास पर खींचें, उन्हें हमारे स्मार्ट मैनहट्टन रूटिंग इंजन का उपयोग करके तारों से कनेक्ट करें, और अपने तैयार आरेख को एसवीजी या पीएनजी के रूप में निर्यात करें। पूरी प्रक्रिया में घंटे नहीं बल्कि मिनट लगते हैं।",
+      "display": true
+    },
+    {
+      "question": "मैं सर्किट डायग्राम मेकर से कौन से फ़ाइल प्रारूप निर्यात कर सकता हूँ?",
+      "answer": "सर्किट आरेख निर्माता तीन निर्यात प्रारूपों का समर्थन करता है: एसवीजी (किसी भी आकार में कुरकुरा प्रिंट के लिए स्केलेबल वेक्टर ग्राफिक्स), उच्च-डीपीआई पीएनजी (प्रस्तुतियों और रिपोर्ट के लिए रेखापुंज छवियां), और जेएसओएन (बाद में आपकी परियोजनाओं को सहेजने और पुनः लोड करने के लिए)।",
+      "display": true
+    },
+    {
+      "question": "क्या मुझे सर्किट डायग्राम मेकर का उपयोग करने के लिए कोई सॉफ़्टवेयर इंस्टॉल करने की आवश्यकता है?",
+      "answer": "किसी इंस्टालेशन की आवश्यकता नहीं है. सर्किट डायग्राम मेकर पूरी तरह से HTML5 कैनवस तकनीक का उपयोग करके आपके ब्राउज़र में चलता है। यह क्रोम, फ़ायरफ़ॉक्स, सफारी और एज - डेस्कटॉप और टैबलेट दोनों डिवाइस पर काम करता है।",
+      "display": true
+    },
+    {
+      "question": "क्या मैं पीसीबी लेआउट डिज़ाइन के लिए सर्किट डायग्राम मेकर का उपयोग कर सकता हूँ?",
+      "answer": "सर्किट आरेख निर्माता विशेष रूप से योजनाबद्ध आरेख बनाने के लिए डिज़ाइन किया गया है - एक सर्किट का तार्किक प्रतिनिधित्व। हालांकि यह भौतिक पीसीबी लेआउट नहीं करता है, निर्यातित एसवीजी का उपयोग KiCad या ईगल जैसे समर्पित लेआउट टूल में पीसीबी डिजाइन करते समय संदर्भ के रूप में किया जा सकता है।",
+      "display": true
+    },
+    {
+      "question": "क्या सर्किट डायग्राम मेकर मोबाइल फोन और टैबलेट पर काम करता है?",
+      "answer": "संपादक 768px या अधिक चौड़ी स्क्रीन वाले टैबलेट और डेस्कटॉप पर सबसे अच्छा काम करता है। टेबलेट पर पैनिंग और ज़ूमिंग के लिए टच जेस्चर समर्थित हैं। सर्किट आरेख बनाने के सर्वोत्तम अनुभव के लिए, हम माउस या ट्रैकपैड वाले डिवाइस का उपयोग करने की सलाह देते हैं।",
+      "display": true
+    },
+    {
+      "question": "सर्किट डायग्राम मेकर में कितने इलेक्ट्रॉनिक घटक उपलब्ध हैं?",
+      "answer": "सर्किट आरेख निर्माता में निष्क्रिय घटकों (प्रतिरोधकों, कैपेसिटर, इंडक्टर्स), सक्रिय घटकों (ऑप-एम्प्स, ट्रांजिस्टर, डायोड), पावर तत्वों (बैटरी, नियामक, एमओएसएफईटी), आईसी, कनेक्टर्स, सेंसर और अधिक को कवर करने वाले 40+ उद्योग-मानक इलेक्ट्रॉनिक प्रतीक शामिल हैं।",
+      "display": true
+    },
+    {
+      "question": "क्या सर्किट डायग्राम मेकर छात्रों और शैक्षणिक परियोजनाओं के लिए उपयुक्त है?",
+      "answer": "बिल्कुल। सर्किट डायग्राम मेकर का उपयोग दुनिया भर के छात्रों द्वारा लैब रिपोर्ट, थीसिस डायग्राम और कोर्सवर्क के लिए किया जाता है। निर्यात की गई एसवीजी फाइलें प्रकाशन-गुणवत्ता वाली हैं और आईईईई, अकादमिक पत्रिकाओं और विश्वविद्यालय सबमिशन सिस्टम द्वारा स्वीकार की जाती हैं।",
+      "display": true
+    },
+    {
+      "question": "क्या मैं अपने सर्किट आरेखों को सहेज और पुनः लोड कर सकता हूँ?",
+      "answer": "हाँ। सर्किट डायग्राम मेकर आपके काम को आपके ब्राउज़र के स्थानीय स्टोरेज में स्वचालित रूप से सहेजता है। आप अपने प्रोजेक्ट को JSON फ़ाइल के रूप में निर्यात करके उसका बैकअप ले सकते हैं, सहयोगियों के साथ साझा कर सकते हैं, या किसी भिन्न डिवाइस पर पुनः लोड कर सकते हैं।",
+      "display": true
+    },
+    {
+      "question": "सर्किट डायग्राम मेकर में स्मार्ट वायर रूटिंग कैसे काम करती है?",
+      "answer": "हमारा मैनहट्टन रूटिंग इंजन स्वचालित रूप से सभी तारों को पूरी तरह से क्षैतिज या लंबवत (ऑर्थोगोनल) रखता है, जो 20px ग्रिड पर स्नैप किया जाता है। यह स्वच्छ, पेशेवर दिखने वाली योजनाएँ तैयार करता है जो पठनीयता और स्थिरता के लिए उद्योग परंपराओं का पालन करते हैं।",
+      "display": true
+    }
+  ],
+  "es": [
+    {
+      "question": "¿Es Circuit Diagram Maker de uso completamente gratuito?",
+      "answer": "¡Sí! Circuit Diagram Maker es 100% gratuito: sin suscripciones, sin niveles premium y sin tarifas ocultas. Todas las funciones, incluida la exportación de SVG y PNG, están disponibles sin costo alguno directamente en su navegador.",
+      "display": true
+    },
+    {
+      "question": "¿Cómo creo un diagrama de circuito en línea?",
+      "answer": "Abra el editor Circuit Diagram Maker, arrastre los componentes desde la barra lateral al lienzo, conéctelos con cables usando nuestro motor de enrutamiento inteligente Manhattan y exporte su diagrama terminado como SVG o PNG. Todo el proceso lleva minutos, no horas.",
+      "display": true
+    },
+    {
+      "question": "¿Qué formatos de archivo puedo exportar desde Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker admite tres formatos de exportación: SVG (gráficos vectoriales escalables para impresiones nítidas en cualquier tamaño), PNG de alto DPI (imágenes rasterizadas para presentaciones e informes) y JSON (para guardar y recargar sus proyectos más adelante).",
+      "display": true
+    },
+    {
+      "question": "¿Necesito instalar algún software para usar Circuit Diagram Maker?",
+      "answer": "No se requiere instalación. Circuit Diagram Maker se ejecuta completamente en su navegador utilizando la tecnología HTML5 Canvas. Funciona en Chrome, Firefox, Safari y Edge, tanto en dispositivos de escritorio como en tabletas.",
+      "display": true
+    },
+    {
+      "question": "¿Puedo utilizar Circuit Diagram Maker para diseñar PCB?",
+      "answer": "Circuit Diagram Maker está diseñado específicamente para crear diagramas esquemáticos: la representación lógica de un circuito. Si bien no realiza el diseño físico de PCB, los SVG exportados se pueden usar como referencia al diseñar PCB en herramientas de diseño dedicadas como KiCad o Eagle.",
+      "display": true
+    },
+    {
+      "question": "¿Funciona Circuit Diagram Maker en teléfonos móviles y tabletas?",
+      "answer": "El editor funciona mejor en tabletas y computadoras de escritorio con pantallas de 768 píxeles o más. Se admiten gestos táctiles para desplazarse y hacer zoom en tabletas. Para obtener la mejor experiencia al crear diagramas de circuitos, recomendamos utilizar un dispositivo con mouse o trackpad.",
+      "display": true
+    },
+    {
+      "question": "¿Cuántos componentes electrónicos hay disponibles en Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker incluye más de 40 símbolos electrónicos estándar de la industria que cubren componentes pasivos (resistencias, condensadores, inductores), componentes activos (amplificadores operacionales, transistores, diodos), elementos de potencia (baterías, reguladores, MOSFET), circuitos integrados, conectores, sensores y más.",
+      "display": true
+    },
+    {
+      "question": "¿Circuit Diagram Maker es adecuado para estudiantes y proyectos académicos?",
+      "answer": "Absolutamente. Estudiantes de todo el mundo utilizan Circuit Diagram Maker para informes de laboratorio, diagramas de tesis y trabajos de curso. Los archivos SVG exportados tienen calidad de publicación y son aceptados por IEEE, revistas académicas y sistemas de envío de universidades.",
+      "display": true
+    },
+    {
+      "question": "¿Puedo guardar y recargar mis diagramas de circuito?",
+      "answer": "Sí. Circuit Diagram Maker guarda automáticamente su trabajo en el almacenamiento local de su navegador. También puedes exportar tu proyecto como un archivo JSON para hacer una copia de seguridad, compartirlo con colaboradores o recargarlo en un dispositivo diferente.",
+      "display": true
+    },
+    {
+      "question": "¿Cómo funciona el enrutamiento de cables inteligente en Circuit Diagram Maker?",
+      "answer": "Nuestro motor de enrutamiento Manhattan mantiene automáticamente todos los cables perfectamente horizontales o verticales (ortogonales), ajustados a una cuadrícula de 20 píxeles. Esto produce esquemas limpios y de aspecto profesional que siguen las convenciones de la industria para lograr legibilidad y coherencia.",
+      "display": true
+    }
+  ],
+  "ru": [
+    {
+      "question": "Является ли Circuit Diagram Maker полностью бесплатным?",
+      "answer": "Да! Circuit Diagram Maker абсолютно бесплатен — без подписок, премиальных уровней и скрытых платежей. Все функции, включая экспорт SVG и PNG, доступны бесплатно прямо в вашем браузере.",
+      "display": true
+    },
+    {
+      "question": "Как создать принципиальную схему онлайн?",
+      "answer": "Откройте редактор Circuit Diagram Maker, перетащите компоненты с боковой панели на холст, соедините их проводами с помощью нашего интеллектуального механизма маршрутизации Manhattan и экспортируйте готовую схему в формате SVG или PNG. Весь процесс занимает минуты, а не часы.",
+      "display": true
+    },
+    {
+      "question": "Какие форматы файлов я могу экспортировать из Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker поддерживает три формата экспорта: SVG (масштабируемая векторная графика для получения четких отпечатков любого размера), PNG с высоким разрешением (растровые изображения для презентаций и отчетов) и JSON (для сохранения и перезагрузки проектов позже).",
+      "display": true
+    },
+    {
+      "question": "Нужно ли мне устанавливать какое-либо программное обеспечение для использования Circuit Diagram Maker?",
+      "answer": "Никакой установки не требуется. Создатель схематических диаграмм полностью работает в вашем браузере с использованием технологии HTML5 Canvas. Он работает в Chrome, Firefox, Safari и Edge — как на настольных компьютерах, так и на планшетах.",
+      "display": true
+    },
+    {
+      "question": "Могу ли я использовать Circuit Diagram Maker для проектирования печатной платы?",
+      "answer": "Circuit Diagram Maker разработан специально для создания принципиальных схем — логического представления схемы. Хотя он не занимается физической компоновкой печатных плат, экспортированные файлы SVG можно использовать в качестве справочных материалов при проектировании печатных плат в специальных инструментах компоновки, таких как KiCad или Eagle.",
+      "display": true
+    },
+    {
+      "question": "Работает ли Circuit Diagram Maker на мобильных телефонах и планшетах?",
+      "answer": "Редактор лучше всего работает на планшетах и ​​настольных компьютерах с экраном 768 пикселей или шире. На планшетах поддерживаются сенсорные жесты для панорамирования и масштабирования. Для удобства создания принципиальных схем мы рекомендуем использовать устройство с мышью или трекпадом.",
+      "display": true
+    },
+    {
+      "question": "Сколько электронных компонентов доступно в Circuit Diagram Maker?",
+      "answer": "В состав Circuit Diagram Maker входят более 40 стандартных электронных символов, охватывающих пассивные компоненты (резисторы, конденсаторы, катушки индуктивности), активные компоненты (операционные усилители, транзисторы, диоды), силовые элементы (батареи, регуляторы, МОП-транзисторы), микросхемы, разъемы, датчики и многое другое.",
+      "display": true
+    },
+    {
+      "question": "Подходит ли Circuit Diagram Maker для студентов и академических проектов?",
+      "answer": "Абсолютно. Circuit Diagram Maker используется студентами по всему миру для создания лабораторных отчетов, схем дипломных работ и курсовых работ. Экспортированные файлы SVG имеют качество публикации и принимаются IEEE, академическими журналами и системами подачи университетов.",
+      "display": true
+    },
+    {
+      "question": "Могу ли я сохранить и перезагрузить свои принципиальные схемы?",
+      "answer": "Да. Circuit Diagram Maker автоматически сохраняет вашу работу в локальном хранилище вашего браузера. Вы также можете экспортировать свой проект в виде файла JSON, чтобы создать его резервную копию, поделиться им с соавторами или перезагрузить его на другое устройство.",
+      "display": true
+    },
+    {
+      "question": "Как работает интеллектуальная прокладка проводов в Circuit Diagram Maker?",
+      "answer": "Наш механизм маршрутизации Манхэттена автоматически сохраняет все провода идеально горизонтальными или вертикальными (ортогональными) с привязкой к сетке размером 20 пикселей. Это позволяет создавать четкие, профессионально выглядящие схемы, соответствующие отраслевым стандартам в плане читабельности и единообразия.",
+      "display": true
+    }
+  ],
+  "fr": [
+    {
+      "question": "L'utilisation de Circuit Diagram Maker est-elle entièrement gratuite ?",
+      "answer": "Oui! Circuit Diagram Maker est 100 % gratuit : pas d'abonnement, pas de niveaux premium et pas de frais cachés. Chaque fonctionnalité, y compris l'exportation SVG et PNG, est disponible gratuitement directement dans votre navigateur.",
+      "display": true
+    },
+    {
+      "question": "Comment créer un schéma de circuit en ligne ?",
+      "answer": "Ouvrez l'éditeur Circuit Diagram Maker, faites glisser les composants de la barre latérale vers le canevas, connectez-les avec des fils à l'aide de notre moteur de routage intelligent Manhattan et exportez votre diagramme terminé au format SVG ou PNG. L’ensemble du processus prend quelques minutes et non des heures.",
+      "display": true
+    },
+    {
+      "question": "Quels formats de fichiers puis-je exporter à partir de Circuit Diagram Maker ?",
+      "answer": "Circuit Diagram Maker prend en charge trois formats d'exportation : SVG (graphiques vectoriels évolutifs pour des impressions nettes à n'importe quelle taille), PNG haute résolution (images raster pour les présentations et les rapports) et JSON (pour enregistrer et recharger vos projets ultérieurement).",
+      "display": true
+    },
+    {
+      "question": "Dois-je installer un logiciel pour utiliser Circuit Diagram Maker ?",
+      "answer": "Aucune installation n'est requise. Circuit Diagram Maker s'exécute entièrement dans votre navigateur à l'aide de la technologie HTML5 Canvas. Il fonctionne sur Chrome, Firefox, Safari et Edge, sur les ordinateurs de bureau et les tablettes.",
+      "display": true
+    },
+    {
+      "question": "Puis-je utiliser Circuit Diagram Maker pour la conception de circuits imprimés ?",
+      "answer": "Circuit Diagram Maker est spécialement conçu pour créer des diagrammes schématiques – la représentation logique d’un circuit. Bien qu'il ne réalise pas de disposition physique des PCB, les SVG exportés peuvent être utilisés comme références lors de la conception de PCB dans des outils de disposition dédiés comme KiCad ou Eagle.",
+      "display": true
+    },
+    {
+      "question": "Circuit Diagram Maker fonctionne-t-il sur les téléphones mobiles et les tablettes ?",
+      "answer": "L'éditeur fonctionne mieux sur les tablettes et les ordinateurs de bureau dotés d'écrans de 768 pixels ou plus. Les gestes tactiles sont pris en charge pour le panoramique et le zoom sur les tablettes. Pour une expérience optimale en matière de création de schémas de circuits, nous vous recommandons d'utiliser un appareil doté d'une souris ou d'un trackpad.",
+      "display": true
+    },
+    {
+      "question": "Combien de composants électroniques sont disponibles dans Circuit Diagram Maker ?",
+      "answer": "Circuit Diagram Maker comprend plus de 40 symboles électroniques standard couvrant les composants passifs (résistances, condensateurs, inductances), les composants actifs (amplis opérationnels, transistors, diodes), les éléments de puissance (batteries, régulateurs, MOSFET), les circuits intégrés, les connecteurs, les capteurs, etc.",
+      "display": true
+    },
+    {
+      "question": "Circuit Diagram Maker convient-il aux étudiants et aux projets académiques ?",
+      "answer": "Absolument. Circuit Diagram Maker est utilisé par les étudiants du monde entier pour les rapports de laboratoire, les diagrammes de thèse et les cours. Les fichiers SVG exportés sont de qualité publication et acceptés par l'IEEE, les revues universitaires et les systèmes de soumission universitaires.",
+      "display": true
+    },
+    {
+      "question": "Puis-je sauvegarder et recharger mes schémas de circuits ?",
+      "answer": "Oui. Circuit Diagram Maker enregistre automatiquement votre travail dans le stockage local de votre navigateur. Vous pouvez également exporter votre projet sous forme de fichier JSON pour le sauvegarder, le partager avec des collaborateurs ou le recharger sur un autre appareil.",
+      "display": true
+    },
+    {
+      "question": "Comment fonctionne le routage intelligent des fils dans Circuit Diagram Maker ?",
+      "answer": "Notre moteur de routage Manhattan maintient automatiquement tous les fils parfaitement horizontaux ou verticaux (orthogonaux), alignés sur une grille de 20 pixels. Cela produit des schémas clairs et d’aspect professionnel qui respectent les conventions de l’industrie en matière de lisibilité et de cohérence.",
+      "display": true
+    }
+  ],
+  "de": [
+    {
+      "question": "Ist die Nutzung von Circuit Diagram Maker völlig kostenlos?",
+      "answer": "Ja! Circuit Diagram Maker ist 100 % kostenlos – keine Abonnements, keine Premium-Stufen und keine versteckten Gebühren. Alle Funktionen, einschließlich SVG- und PNG-Export, sind kostenlos direkt in Ihrem Browser verfügbar.",
+      "display": true
+    },
+    {
+      "question": "Wie erstelle ich online einen Schaltplan?",
+      "answer": "Öffnen Sie den Circuit Diagram Maker-Editor, ziehen Sie Komponenten aus der Seitenleiste auf die Leinwand, verbinden Sie sie mithilfe unserer intelligenten Manhattan-Routing-Engine mit Drähten und exportieren Sie Ihr fertiges Diagramm als SVG oder PNG. Der gesamte Vorgang dauert Minuten, nicht Stunden.",
+      "display": true
+    },
+    {
+      "question": "Welche Dateiformate kann ich aus Circuit Diagram Maker exportieren?",
+      "answer": "Circuit Diagram Maker unterstützt drei Exportformate: SVG (skalierbare Vektorgrafiken für gestochen scharfe Ausdrucke in jeder Größe), PNG mit hoher DPI (Rasterbilder für Präsentationen und Berichte) und JSON (zum Speichern und späteren erneuten Laden Ihrer Projekte).",
+      "display": true
+    },
+    {
+      "question": "Muss ich Software installieren, um Circuit Diagram Maker zu verwenden?",
+      "answer": "Es ist keine Installation erforderlich. Circuit Diagram Maker läuft vollständig in Ihrem Browser und nutzt die HTML5-Canvas-Technologie. Es funktioniert auf Chrome, Firefox, Safari und Edge – sowohl auf Desktop- als auch auf Tablet-Geräten.",
+      "display": true
+    },
+    {
+      "question": "Kann ich Circuit Diagram Maker für das PCB-Layout-Design verwenden?",
+      "answer": "Circuit Diagram Maker wurde speziell für die Erstellung schematischer Diagramme – der logischen Darstellung einer Schaltung – entwickelt. Obwohl kein physisches PCB-Layout durchgeführt wird, können die exportierten SVGs als Referenz beim Design von PCBs in speziellen Layout-Tools wie KiCad oder Eagle verwendet werden.",
+      "display": true
+    },
+    {
+      "question": "Funktioniert Circuit Diagram Maker auf Mobiltelefonen und Tablets?",
+      "answer": "Der Editor funktioniert am besten auf Tablets und Desktops mit Bildschirmen von 768 Pixel oder mehr. Touch-Gesten werden zum Schwenken und Zoomen auf Tablets unterstützt. Für die beste Erfahrung beim Erstellen von Schaltplänen empfehlen wir die Verwendung eines Geräts mit einer Maus oder einem Trackpad.",
+      "display": true
+    },
+    {
+      "question": "Wie viele elektronische Komponenten sind im Circuit Diagram Maker verfügbar?",
+      "answer": "Circuit Diagram Maker umfasst mehr als 40 branchenübliche elektronische Symbole für passive Komponenten (Widerstände, Kondensatoren, Induktivitäten), aktive Komponenten (Operationsverstärker, Transistoren, Dioden), Leistungselemente (Batterien, Regler, MOSFETs), ICs, Anschlüsse, Sensoren und mehr.",
+      "display": true
+    },
+    {
+      "question": "Ist Circuit Diagram Maker für Studenten und akademische Projekte geeignet?",
+      "answer": "Absolut. Circuit Diagram Maker wird von Studenten weltweit für Laborberichte, Abschlussarbeitsdiagramme und Kursarbeiten verwendet. Die exportierten SVG-Dateien haben Publikationsqualität und werden von IEEE, Fachzeitschriften und universitären Einreichungssystemen akzeptiert.",
+      "display": true
+    },
+    {
+      "question": "Kann ich meine Schaltpläne speichern und wieder laden?",
+      "answer": "Ja. Circuit Diagram Maker speichert Ihre Arbeit automatisch im lokalen Speicher Ihres Browsers. Sie können Ihr Projekt auch als JSON-Datei exportieren, um es zu sichern, mit Kollegen zu teilen oder es auf einem anderen Gerät erneut zu laden.",
+      "display": true
+    },
+    {
+      "question": "Wie funktioniert die intelligente Kabelführung im Circuit Diagram Maker?",
+      "answer": "Unsere Manhattan-Routing-Engine hält alle Drähte automatisch perfekt horizontal oder vertikal (orthogonal) und orientiert sich an einem 20-Pixel-Raster. Dadurch entstehen saubere, professionell aussehende Schaltpläne, die hinsichtlich Lesbarkeit und Konsistenz den Branchenkonventionen entsprechen.",
+      "display": true
+    }
+  ],
+  "it": [
+    {
+      "question": "Circuit Diagram Maker è completamente gratuito?",
+      "answer": "SÌ! Circuit Diagram Maker è gratuito al 100%: nessun abbonamento, nessun livello premium e nessun costo nascosto. Ogni funzionalità, inclusa l'esportazione SVG e PNG, è disponibile gratuitamente direttamente nel tuo browser.",
+      "display": true
+    },
+    {
+      "question": "Come posso creare uno schema elettrico online?",
+      "answer": "Apri l'editor Circuit Diagram Maker, trascina i componenti dalla barra laterale sull'area di disegno, collegali con i cavi utilizzando il nostro motore di routing intelligente Manhattan ed esporta il diagramma finito come SVG o PNG. L'intero processo richiede minuti, non ore.",
+      "display": true
+    },
+    {
+      "question": "Quali formati di file posso esportare da Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker supporta tre formati di esportazione: SVG (grafica vettoriale scalabile per stampe nitide di qualsiasi dimensione), PNG ad alta DPI (immagini raster per presentazioni e report) e JSON (per salvare e ricaricare i tuoi progetti in un secondo momento).",
+      "display": true
+    },
+    {
+      "question": "È necessario installare qualche software per utilizzare Circuit Diagram Maker?",
+      "answer": "Non è richiesta alcuna installazione. Circuit Diagram Maker funziona interamente nel tuo browser utilizzando la tecnologia HTML5 Canvas. Funziona su Chrome, Firefox, Safari ed Edge, sia su dispositivi desktop che tablet.",
+      "display": true
+    },
+    {
+      "question": "Posso utilizzare Circuit Diagram Maker per la progettazione del layout PCB?",
+      "answer": "Circuit Diagram Maker è progettato specificamente per la creazione di diagrammi schematici, ovvero la rappresentazione logica di un circuito. Sebbene non esegua il layout fisico del PCB, gli SVG esportati possono essere utilizzati come riferimenti durante la progettazione di PCB in strumenti di layout dedicati come KiCad o Eagle.",
+      "display": true
+    },
+    {
+      "question": "Circuit Diagram Maker funziona su telefoni cellulari e tablet?",
+      "answer": "L'editor funziona meglio su tablet e desktop con schermi da 768 px o più larghi. I gesti tattili sono supportati per la panoramica e lo zoom sui tablet. Per un'esperienza ottimale nella creazione di schemi circuitali, ti consigliamo di utilizzare un dispositivo con mouse o trackpad.",
+      "display": true
+    },
+    {
+      "question": "Quanti componenti elettronici sono disponibili in Circuit Diagram Maker?",
+      "answer": "Circuit Diagram Maker include oltre 40 simboli elettronici standard del settore che coprono componenti passivi (resistori, condensatori, induttori), componenti attivi (amplificatori operazionali, transistor, diodi), elementi di potenza (batterie, regolatori, MOSFET), circuiti integrati, connettori, sensori e altro ancora.",
+      "display": true
+    },
+    {
+      "question": "Circuit Diagram Maker è adatto a studenti e progetti accademici?",
+      "answer": "Assolutamente. Circuit Diagram Maker viene utilizzato dagli studenti di tutto il mondo per rapporti di laboratorio, diagrammi di tesi e lavori di corso. I file SVG esportati sono di qualità di pubblicazione e accettati da IEEE, riviste accademiche e sistemi di invio universitari.",
+      "display": true
+    },
+    {
+      "question": "Posso salvare e ricaricare i miei schemi elettrici?",
+      "answer": "SÌ. Circuit Diagram Maker salva automaticamente il tuo lavoro nella memoria locale del tuo browser. Puoi anche esportare il tuo progetto come file JSON per eseguirne il backup, condividerlo con i collaboratori o ricaricarlo su un dispositivo diverso.",
+      "display": true
+    },
+    {
+      "question": "Come funziona l'instradamento intelligente dei cavi in ​​Circuit Diagram Maker?",
+      "answer": "Il nostro motore di instradamento Manhattan mantiene automaticamente tutti i cavi perfettamente orizzontali o verticali (ortogonali), agganciati a una griglia di 20px. Ciò produce schemi puliti e dall'aspetto professionale che seguono le convenzioni del settore per leggibilità e coerenza.",
+      "display": true
+    }
   ]
 }
