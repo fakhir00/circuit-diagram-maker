@@ -16,12 +16,14 @@ export function getLocaleFromUrl(pathname: string): string {
 import commonKeys from '../data/i18n/common.json';
 import homeKeys from '../data/i18n/home.json';
 import faqKeys from '../data/i18n/faq.json';
+import editorKeys from '../data/i18n/editor.json';
 
 // Merge dictionaries
 const dictionaries = {
   common: commonKeys as Record<string, any>,
   home: homeKeys as Record<string, any>,
-  faq: faqKeys as Record<string, any>
+  faq: faqKeys as Record<string, any>,
+  editor: editorKeys as Record<string, any>
 };
 
 export function useTranslations(locale: string) {
@@ -34,13 +36,15 @@ export function useTranslations(locale: string) {
     // Combine flat string keys
     const mergedLocaleDict = {
       ...(dictionaries.common[locale] || {}),
-      ...(dictionaries.home[locale] || {})
+      ...(dictionaries.home[locale] || {}),
+      ...(dictionaries.editor[locale] || {})
     };
     
     // Fallback to English
     const mergedEnDict = {
       ...(dictionaries.common[defaultLocale] || {}),
-      ...(dictionaries.home[defaultLocale] || {})
+      ...(dictionaries.home[defaultLocale] || {}),
+      ...(dictionaries.editor[defaultLocale] || {})
     };
 
     return mergedLocaleDict[key] || mergedEnDict[key] || key;

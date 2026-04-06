@@ -11,6 +11,8 @@ import { IO } from './io.js';
 import { CATEGORIES, categoryMap } from './components.js';
 import { snapToGrid, showToast } from './utils.js';
 
+window.t = (key, fallback) => (window.__I18N__ && window.__I18N__[key]) ? window.__I18N__[key] : fallback;
+
 class App {
     constructor() {
         this.canvas = document.getElementById('circuit-canvas');
@@ -63,7 +65,7 @@ class App {
             }
         }, 30000);
 
-        this.updateStatus('Ready — Select a component from the sidebar to begin');
+        this.updateStatus(window.t('status_ready', 'Ready'));
         console.log('%c⚡ CircuitForge loaded', 'color:#3b82f6;font-weight:bold;font-size:14px');
     }
 
@@ -127,7 +129,7 @@ class App {
                 item.addEventListener('click', () => {
                     this.toolManager.setTool('place');
                     this.toolManager.tools.place.setComponentType(comp.type);
-                    this.updateStatus(`Click on canvas to place ${comp.name}. Press R to rotate.`);
+                    this.updateStatus(window.t('placement', `Click on canvas to place component. Press R to rotate.`));
                     // Highlight active
                     document.querySelectorAll('.component-item').forEach(el => el.style.borderColor = '');
                     item.style.borderColor = 'rgba(59,130,246,0.5)';
@@ -597,7 +599,7 @@ class App {
         this.viewport.reset();
         this.updateStats();
         this.updateProperties();
-        showToast('New circuit created', 'info');
+        showToast(window.t('new_circuit', 'New circuit created'), 'info');
     }
 
     deleteSelected() {
@@ -773,9 +775,8 @@ class App {
     // ── UI Updates ──
 
     updateStats() {
-        const stats = this.circuit.getStats();
-        document.getElementById('component-count').textContent = `Components: ${stats.components}`;
-        document.getElementById('wire-count').textContent = `Wires: ${stats.wires}`;
+        document.getElementById('component-count').innerText = `${window.t('status_components', 'Components')}: ${this.circuit.components.length}`;
+        document.getElementById('wire-count').innerText = `${window.t('status_wires', 'Wires')}: ${this.circuit.wires.length}`;
     }
 
     updateStatus(text) {
