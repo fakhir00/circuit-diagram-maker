@@ -1,0 +1,895 @@
+---
+// Interactive 3D Circuit Board Preview Component
+// Renders a fully animated, interactive 3D circuit board visualization
+---
+
+<div class="preview-3d-wrapper" id="preview-3d">
+  <div class="preview-3d-scene" id="scene-3d">
+    <div class="circuit-board" id="circuit-board">
+      
+      <!-- PCB Surface with traces -->
+      <div class="pcb-surface">
+        <!-- Grid pattern overlay -->
+        <div class="pcb-grid"></div>
+        
+        <!-- Copper traces -->
+        <svg class="pcb-traces" viewBox="0 0 800 450" preserveAspectRatio="none">
+          <!-- Main bus traces -->
+          <path class="trace trace-1" d="M50,225 L200,225 L200,100 L400,100" />
+          <path class="trace trace-2" d="M50,300 L150,300 L150,350 L400,350" />
+          <path class="trace trace-3" d="M400,100 L600,100 L600,225 L750,225" />
+          <path class="trace trace-4" d="M400,350 L550,350 L550,225 L750,225" />
+          <path class="trace trace-5" d="M400,100 L400,350" />
+          <path class="trace trace-6" d="M250,225 L350,225 L350,150 L450,150" />
+          <path class="trace trace-7" d="M450,150 L450,300 L350,300 L350,225" />
+          
+          <!-- Signal path glow animations -->
+          <circle class="signal-dot signal-1" r="4" />
+          <circle class="signal-dot signal-2" r="4" />
+          <circle class="signal-dot signal-3" r="4" />
+          <circle class="signal-dot signal-4" r="4" />
+        </svg>
+        
+        <!-- Interactive 3D Components -->
+        <div class="component-3d ic-chip" id="comp-ic" data-label="ATmega328P" data-info="Microcontroller • 16MHz • 32KB Flash" style="left: 35%; top: 30%;">
+          <div class="chip-body">
+            <div class="chip-top">
+              <span class="chip-label">ATmega<br>328P</span>
+              <div class="chip-dot"></div>
+            </div>
+            <div class="chip-pins chip-pins-left"></div>
+            <div class="chip-pins chip-pins-right"></div>
+          </div>
+          <div class="component-glow"></div>
+        </div>
+
+        <div class="component-3d capacitor" id="comp-cap1" data-label="100µF" data-info="Electrolytic Capacitor • 25V" style="left: 15%; top: 40%;">
+          <div class="cap-body">
+            <div class="cap-stripe"></div>
+            <div class="cap-lead cap-lead-l"></div>
+            <div class="cap-lead cap-lead-r"></div>
+          </div>
+          <div class="component-glow"></div>
+        </div>
+
+        <div class="component-3d resistor" id="comp-r1" data-label="10kΩ" data-info="Carbon Film • ¼W • ±5%" style="left: 60%; top: 20%;">
+          <div class="res-body">
+            <div class="res-band" style="background: #8B4513;"></div>
+            <div class="res-band" style="background: #000;"></div>
+            <div class="res-band" style="background: #FF8C00;"></div>
+            <div class="res-band" style="background: #FFD700;"></div>
+            <div class="res-lead res-lead-l"></div>
+            <div class="res-lead res-lead-r"></div>
+          </div>
+          <div class="component-glow"></div>
+        </div>
+
+        <div class="component-3d led-comp" id="comp-led" data-label="LED" data-info="Blue LED • 3.3V • 20mA" style="left: 72%; top: 45%;">
+          <div class="led-body">
+            <div class="led-dome"></div>
+            <div class="led-base"></div>
+            <div class="led-lead led-lead-l"></div>
+            <div class="led-lead led-lead-r"></div>
+          </div>
+          <div class="led-glow-effect"></div>
+          <div class="component-glow"></div>
+        </div>
+
+        <div class="component-3d transistor" id="comp-q1" data-label="2N2222" data-info="NPN Transistor • 40V • 600mA" style="left: 50%; top: 60%;">
+          <div class="transistor-body">
+            <div class="transistor-flat"></div>
+            <span class="transistor-label">2N<br>2222</span>
+            <div class="transistor-leads">
+              <div class="t-lead"></div>
+              <div class="t-lead"></div>
+              <div class="t-lead"></div>
+            </div>
+          </div>
+          <div class="component-glow"></div>
+        </div>
+
+        <div class="component-3d crystal" id="comp-xtal" data-label="16MHz" data-info="Crystal Oscillator • 20pF Load" style="left: 25%; top: 65%;">
+          <div class="crystal-body">
+            <span class="crystal-label">16.000</span>
+            <div class="crystal-lead crystal-lead-l"></div>
+            <div class="crystal-lead crystal-lead-r"></div>
+          </div>
+          <div class="component-glow"></div>
+        </div>
+
+        <!-- Via holes -->
+        <div class="via" style="left: 30%; top: 50%;"></div>
+        <div class="via" style="left: 45%; top: 25%;"></div>
+        <div class="via" style="left: 65%; top: 70%;"></div>
+        <div class="via" style="left: 80%; top: 35%;"></div>
+        <div class="via" style="left: 20%; top: 15%;"></div>
+        <div class="via" style="left: 55%; top: 80%;"></div>
+
+        <!-- Solder points -->
+        <div class="solder-joint" style="left: 25%; top: 45%;"></div>
+        <div class="solder-joint" style="left: 50%; top: 22%;"></div>
+        <div class="solder-joint" style="left: 75%; top: 45%;"></div>
+        <div class="solder-joint" style="left: 40%; top: 70%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Component Info Tooltip -->
+  <div class="comp-tooltip" id="comp-tooltip">
+    <div class="tooltip-header">
+      <span class="tooltip-icon">⚡</span>
+      <span class="tooltip-title" id="tooltip-title"></span>
+    </div>
+    <p class="tooltip-info" id="tooltip-info"></p>
+  </div>
+
+  <!-- Floating interaction hints -->
+  <div class="interaction-hints" id="interaction-hints">
+    <div class="hint-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h3l2-5 3 10 2-5h3"/><circle cx="4" cy="12" r="1.5" fill="currentColor"/><circle cx="17" cy="12" r="1.5" fill="currentColor"/></svg>
+      <span>Hover components • Drag to rotate</span>
+    </div>
+  </div>
+
+  <!-- Ambient particles -->
+  <canvas id="particle-canvas" class="particle-canvas"></canvas>
+</div>
+
+<style>
+  /* ====== 3D PREVIEW WRAPPER ====== */
+  .preview-3d-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+  }
+  .preview-3d-wrapper:active {
+    cursor: grabbing;
+  }
+
+  /* Particle canvas */
+  .particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ====== 3D SCENE ====== */
+  .preview-3d-scene {
+    position: absolute;
+    inset: 0;
+    perspective: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .circuit-board {
+    width: 85%;
+    max-width: 700px;
+    aspect-ratio: 16/9;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(25deg) rotateY(-10deg) rotateZ(0deg);
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+  }
+
+  /* ====== PCB SURFACE ====== */
+  .pcb-surface {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #0d4a2a 0%, #0a3d23 30%, #07301c 100%);
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.08);
+    box-shadow: 
+      0 20px 60px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(59,130,246,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      0 0 80px rgba(59,130,246,0.05);
+    transform-style: preserve-3d;
+    overflow: hidden;
+  }
+
+  .pcb-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+
+  /* ====== PCB TRACES (Copper) ====== */
+  .pcb-traces {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .trace {
+    fill: none;
+    stroke: rgba(184, 134, 11, 0.5);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 2px rgba(184, 134, 11, 0.3));
+  }
+
+  /* Signal dots traveling along traces */
+  .signal-dot {
+    fill: #3b82f6;
+    filter: drop-shadow(0 0 6px rgba(59,130,246,0.8));
+    opacity: 0;
+  }
+
+  .signal-dot.signal-1 {
+    animation: signalFlow1 3s ease-in-out infinite 0s;
+  }
+  .signal-dot.signal-2 {
+    animation: signalFlow2 3.5s ease-in-out infinite 0.8s;
+  }
+  .signal-dot.signal-3 {
+    animation: signalFlow3 4s ease-in-out infinite 1.5s;
+  }
+  .signal-dot.signal-4 {
+    animation: signalFlow4 3s ease-in-out infinite 2.2s;
+  }
+
+  @keyframes signalFlow1 {
+    0%   { cx: 50;  cy: 225; opacity: 0; }
+    5%   { opacity: 1; }
+    25%  { cx: 200; cy: 225; }
+    50%  { cx: 200; cy: 100; }
+    75%  { cx: 400; cy: 100; }
+    95%  { opacity: 1; }
+    100% { cx: 400; cy: 100; opacity: 0; }
+  }
+  @keyframes signalFlow2 {
+    0%   { cx: 400; cy: 100; opacity: 0; }
+    5%   { opacity: 1; }
+    33%  { cx: 600; cy: 100; }
+    66%  { cx: 600; cy: 225; }
+    95%  { opacity: 1; }
+    100% { cx: 750; cy: 225; opacity: 0; }
+  }
+  @keyframes signalFlow3 {
+    0%   { cx: 50;  cy: 300; opacity: 0; }
+    5%   { opacity: 1; }
+    33%  { cx: 150; cy: 300; }
+    66%  { cx: 150; cy: 350; }
+    95%  { opacity: 1; }
+    100% { cx: 400; cy: 350; opacity: 0; }
+  }
+  @keyframes signalFlow4 {
+    0%   { cx: 400; cy: 350; opacity: 0; }
+    5%   { opacity: 1; }
+    33%  { cx: 550; cy: 350; }
+    66%  { cx: 550; cy: 225; }
+    95%  { opacity: 1; }
+    100% { cx: 750; cy: 225; opacity: 0; }
+  }
+
+  /* ====== 3D COMPONENTS ====== */
+  .component-3d {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateZ(8px);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+    z-index: 5;
+  }
+  .component-3d:hover {
+    transform: translateZ(24px) scale(1.12);
+    filter: brightness(1.3);
+    z-index: 10;
+  }
+  .component-3d:hover .component-glow {
+    opacity: 1;
+  }
+
+  .component-glow {
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* -- IC Chip -- */
+  .ic-chip .chip-body {
+    width: 90px;
+    height: 60px;
+    position: relative;
+  }
+  .chip-top {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f1729 100%);
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .chip-label {
+    color: rgba(255,255,255,0.7);
+    font-size: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+  }
+  .chip-dot {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .chip-pins-left,
+  .chip-pins-right {
+    position: absolute;
+    top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .chip-pins-left { left: -6px; }
+  .chip-pins-right { right: -6px; }
+  .chip-pins-left::before,
+  .chip-pins-left::after,
+  .chip-pins-right::before,
+  .chip-pins-right::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 2px;
+    background: linear-gradient(90deg, #b8860b, #daa520);
+    border-radius: 0.5px;
+  }
+
+  /* -- Capacitor -- */
+  .capacitor .cap-body {
+    width: 24px;
+    height: 36px;
+    position: relative;
+  }
+  .cap-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #1e3a5f 0%, #0d2137 100%);
+    border-radius: 12px 12px 4px 4px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .cap-stripe {
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    right: 2px;
+    height: 4px;
+    background: rgba(59,130,246,0.5);
+    border-radius: 2px;
+    z-index: 1;
+  }
+  .cap-lead {
+    position: absolute;
+    bottom: -8px;
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(180deg, #b8860b, #8b6d1a);
+  }
+  .cap-lead-l { left: 6px; }
+  .cap-lead-r { right: 6px; }
+
+  /* -- Resistor -- */
+  .resistor .res-body {
+    width: 46px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 0 6px;
+    background: linear-gradient(145deg, #e8dcc8, #c4b8a0);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  }
+  .res-band {
+    width: 4px;
+    height: 14px;
+    border-radius: 1px;
+    opacity: 0.9;
+  }
+  .res-lead {
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background: linear-gradient(90deg, #b8860b, #daa520);
+    transform: translateY(-50%);
+  }
+  .res-lead-l { left: -10px; }
+  .res-lead-r { right: -10px; }
+
+  /* -- LED -- */
+  .led-comp .led-body {
+    width: 20px;
+    height: 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .led-dome {
+    width: 18px;
+    height: 18px;
+    border-radius: 50% 50% 30% 30%;
+    background: radial-gradient(circle at 40% 35%, rgba(120,180,255,0.9), rgba(59,130,246,0.7) 50%, rgba(30,60,120,0.8));
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 8px rgba(59,130,246,0.4);
+    animation: ledPulse 2s ease-in-out infinite;
+  }
+  .led-base {
+    width: 20px;
+    height: 6px;
+    background: linear-gradient(180deg, #555, #333);
+    border-radius: 0 0 3px 3px;
+  }
+  .led-lead {
+    position: absolute;
+    bottom: -8px;
+    width: 1.5px;
+    height: 10px;
+    background: linear-gradient(180deg, #b8860b, #8b6d1a);
+  }
+  .led-lead-l { left: 5px; }
+  .led-lead-r { right: 5px; }
+  .led-glow-effect {
+    position: absolute;
+    top: -10px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: ledPulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes ledPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* -- Transistor -- */
+  .transistor .transistor-body {
+    width: 28px;
+    height: 34px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .transistor-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: 12px 12px 3px 3px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  }
+  .transistor-flat {
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px 2px 0 0;
+  }
+  .transistor-label {
+    position: relative;
+    z-index: 1;
+    color: rgba(255,255,255,0.5);
+    font-size: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    line-height: 1.3;
+    margin-top: 5px;
+  }
+  .transistor-leads {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+  }
+  .t-lead {
+    width: 2px;
+    height: 12px;
+    background: linear-gradient(180deg, #b8860b, #8b6d1a);
+  }
+
+  /* -- Crystal -- */
+  .crystal .crystal-body {
+    width: 34px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #c0c0c0, #909090);
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  }
+  .crystal-label {
+    color: #333;
+    font-size: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .crystal-lead {
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 2px;
+    background: linear-gradient(90deg, #b8860b, #daa520);
+    transform: translateY(-50%);
+  }
+  .crystal-lead-l { left: -8px; }
+  .crystal-lead-r { right: -8px; }
+
+  /* ====== VIA HOLES ====== */
+  .via {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0a0e14 40%, rgba(184,134,11,0.6) 60%, rgba(184,134,11,0.3) 100%);
+    border: 1.5px solid rgba(184,134,11,0.4);
+    transform: translate(-50%, -50%) translateZ(1px);
+    z-index: 3;
+  }
+
+  /* ====== SOLDER JOINTS ====== */
+  .solder-joint {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #e8e0d0, #b8860b 60%, #8b6d1a);
+    transform: translate(-50%, -50%) translateZ(2px);
+    z-index: 3;
+    box-shadow: 0 0 3px rgba(184,134,11,0.3);
+  }
+
+  /* ====== TOOLTIP ====== */
+  .comp-tooltip {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(15, 20, 30, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 10px;
+    padding: 10px 16px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    min-width: 200px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(59,130,246,0.1);
+  }
+  .comp-tooltip.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .tooltip-icon {
+    font-size: 12px;
+  }
+  .tooltip-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+  }
+  .tooltip-info {
+    font-size: 11px;
+    color: rgba(148,163,184,0.9);
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.2px;
+  }
+
+  /* ====== INTERACTION HINTS ====== */
+  .interaction-hints {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    animation: hintFadeIn 1s ease-out 1.5s forwards;
+    opacity: 0;
+  }
+  .hint-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(15, 20, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 20px;
+    font-size: 10px;
+    color: rgba(148,163,184,0.8);
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+  }
+  .hint-badge svg {
+    color: rgba(59,130,246,0.6);
+  }
+
+  @keyframes hintFadeIn {
+    to { opacity: 1; }
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .circuit-board {
+      width: 95%;
+      transform: rotateX(20deg) rotateY(-5deg);
+    }
+    .ic-chip .chip-body {
+      width: 60px;
+      height: 40px;
+    }
+    .chip-label {
+      font-size: 6px;
+    }
+    .comp-tooltip {
+      min-width: 160px;
+    }
+    .hint-badge span {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.getElementById('preview-3d');
+    const board = document.getElementById('circuit-board');
+    const tooltip = document.getElementById('comp-tooltip');
+    const tooltipTitle = document.getElementById('tooltip-title');
+    const tooltipInfo = document.getElementById('tooltip-info');
+    const hints = document.getElementById('interaction-hints');
+    const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+    if (!wrapper || !board || !tooltip || !tooltipTitle || !tooltipInfo || !canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // ===== Resize canvas =====
+    function resizeCanvas() {
+      const rect = wrapper!.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx!.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // ===== Particle system =====
+    interface Particle {
+      x: number; y: number; vx: number; vy: number;
+      size: number; alpha: number; hue: number; life: number; maxLife: number;
+    }
+    const particles: Particle[] = [];
+    const maxParticles = 40;
+
+    function spawnParticle() {
+      if (particles.length >= maxParticles) return;
+      const rect = wrapper!.getBoundingClientRect();
+      particles.push({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: -Math.random() * 0.4 - 0.1,
+        size: Math.random() * 2 + 0.5,
+        alpha: 0,
+        hue: 210 + Math.random() * 30,
+        life: 0,
+        maxLife: 200 + Math.random() * 200,
+      });
+    }
+
+    function animateParticles() {
+      const rect = wrapper!.getBoundingClientRect();
+      ctx!.clearRect(0, 0, rect.width, rect.height);
+
+      if (Math.random() < 0.15) spawnParticle();
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.life++;
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        const progress = p.life / p.maxLife;
+        p.alpha = progress < 0.2 ? progress * 5 : progress > 0.8 ? (1 - progress) * 5 : 1;
+        p.alpha *= 0.3;
+
+        ctx!.beginPath();
+        ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx!.fillStyle = `hsla(${p.hue}, 70%, 60%, ${p.alpha})`;
+        ctx!.fill();
+
+        if (p.life >= p.maxLife || p.y < -10) {
+          particles.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ===== 3D Rotation via mouse drag =====
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let rotX = 25;
+    let rotY = -10;
+    let targetRotX = 25;
+    let targetRotY = -10;
+
+    wrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      if (hints) hints.style.opacity = '0';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      targetRotY = -10 + dx * 0.3;
+      targetRotX = 25 - dy * 0.3;
+      targetRotX = Math.max(-30, Math.min(60, targetRotX));
+      targetRotY = Math.max(-60, Math.min(60, targetRotY));
+      startX = e.clientX;
+      startY = e.clientY;
+      // Apply immediately while dragging for responsiveness
+      targetRotY = -10 + (e.clientX - wrapper!.getBoundingClientRect().left - wrapper!.getBoundingClientRect().width / 2) * 0.04;
+      targetRotX = 25 - (e.clientY - wrapper!.getBoundingClientRect().top - wrapper!.getBoundingClientRect().height / 2) * 0.04;
+      targetRotX = Math.max(-15, Math.min(45, targetRotX));
+      targetRotY = Math.max(-35, Math.min(35, targetRotY));
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Passive mouse hover rotation (subtle)
+    wrapper.addEventListener('mousemove', (e) => {
+      if (isDragging) return;
+      const rect = wrapper!.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      targetRotY = -10 + x * 20;
+      targetRotX = 25 - y * 15;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (!isDragging) {
+        targetRotX = 25;
+        targetRotY = -10;
+      }
+      tooltip.classList.remove('visible');
+    });
+
+    // Smooth rotation animation
+    function animateRotation() {
+      rotX += (targetRotX - rotX) * 0.08;
+      rotY += (targetRotY - rotY) * 0.08;
+      board!.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      requestAnimationFrame(animateRotation);
+    }
+    animateRotation();
+
+    // ===== Component hover tooltips =====
+    const components = wrapper.querySelectorAll('.component-3d');
+    components.forEach((comp) => {
+      comp.addEventListener('mouseenter', () => {
+        const label = (comp as HTMLElement).dataset.label || '';
+        const info = (comp as HTMLElement).dataset.info || '';
+        tooltipTitle!.textContent = label;
+        tooltipInfo!.textContent = info;
+        tooltip.classList.add('visible');
+      });
+      comp.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible');
+      });
+    });
+
+    // ===== Touch support =====
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    wrapper.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+      if (hints) hints.style.opacity = '0';
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      const dx = touch.clientX - touchStartX;
+      const dy = touch.clientY - touchStartY;
+      targetRotY = Math.max(-35, Math.min(35, -10 + dx * 0.15));
+      targetRotX = Math.max(-15, Math.min(45, 25 - dy * 0.15));
+    }, { passive: true });
+
+    // ===== Auto idle animation =====
+    let idleTimer: ReturnType<typeof setTimeout>;
+    let idleAnimFrame: number;
+
+    function startIdleAnimation() {
+      let t = 0;
+      function animate() {
+        t += 0.005;
+        targetRotY = -10 + Math.sin(t) * 8;
+        targetRotX = 25 + Math.cos(t * 0.7) * 4;
+        idleAnimFrame = requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    function resetIdleTimer() {
+      clearTimeout(idleTimer);
+      if (idleAnimFrame) cancelAnimationFrame(idleAnimFrame);
+      idleTimer = setTimeout(startIdleAnimation, 5000);
+    }
+
+    wrapper.addEventListener('mousemove', resetIdleTimer);
+    wrapper.addEventListener('mousedown', resetIdleTimer);
+    wrapper.addEventListener('touchstart', resetIdleTimer, { passive: true });
+    resetIdleTimer();
+  });
+</script>
