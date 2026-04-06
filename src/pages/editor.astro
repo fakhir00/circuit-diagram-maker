@@ -1,6 +1,10 @@
 ---
 // Raw Astro page for the Diagram Editor to prevent Tailwind CSS clashes.
 import { getLocaleFromUrl } from '../theme/i18n';
+import Header from '../components/Header.astro';
+import config from '../data/config.json';
+import '../styles/global.css';
+
 const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
 <!DOCTYPE html>
@@ -17,6 +21,9 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='4' fill='%230f1419'/><path d='M8 16h4l2-6 4 12 2-6h4' stroke='%233b82f6' stroke-width='2' fill='none'/></svg>">
 </head>
 <body>
+    <!-- ===== MAIN SITE HEADER ===== -->
+    <Header locale={locale} config={config} />
+
     <!-- ===== TOP TOOLBAR ===== -->
     <header id="toolbar" class="toolbar">
         <div class="toolbar-left">
