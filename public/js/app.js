@@ -15,9 +15,14 @@ window.t = (key, fallback) => (window.__I18N__ && window.__I18N__[key]) ? window
 
 class App {
     constructor() {
+        this.editorConfig = window.__EDITOR_CONFIG__ || {};
+        this.activeMode = this.editorConfig.mode || window.__EDITOR_MODE__ || 'default';
+        this.storageKey = this.editorConfig.storageKey || `circuitforge_autosave_${this.activeMode}`;
+        this.defaultProjectName = this.editorConfig.defaultProjectName || 'Untitled Circuit';
         this.canvas = document.getElementById('circuit-canvas');
         this.canvasContainer = document.getElementById('canvas-container');
         this.circuit = new Circuit();
+        this.circuit.name = this.defaultProjectName;
         this.viewport = new Viewport(this.canvas);
         this.renderer = new Renderer(this.canvas, this.viewport, this.circuit);
         this.toolManager = new ToolManager(this);
@@ -43,7 +48,7 @@ class App {
         this.bindResizeEvent();
 
         // Try loading autosaved circuit
-        const raw = localStorage.getItem('circuitforge_autosave');
+        const raw = localStorage.getItem(this.storageKey);
         if (raw) {
             try {
                 const data = JSON.parse(raw);
@@ -51,17 +56,20 @@ class App {
                 this.circuit.components = restored.components;
                 this.circuit.wires = restored.wires;
                 this.circuit.labels = restored.labels;
-                this.circuit.name = restored.name;
+                this.circuit.name = restored.name || this.defaultProjectName;
                 document.getElementById('circuit-name').value = this.circuit.name;
                 this.history.clear();
                 this.updateStats();
             } catch (e) { /* ignore */ }
+        } else {
+            this.circuit.name = this.defaultProjectName;
+            document.getElementById('circuit-name').value = this.defaultProjectName;
         }
 
         // Auto-save every 30 seconds
         setInterval(() => {
             if (this.circuit.components.length > 0 || this.circuit.wires.length > 0) {
-                localStorage.setItem('circuitforge_autosave', JSON.stringify(this.circuit.serialize()));
+                localStorage.setItem(this.storageKey, JSON.stringify(this.circuit.serialize()));
             }
         }, 30000);
 
@@ -78,7 +86,7 @@ class App {
         const search = document.getElementById('component-search');
         search.addEventListener('input', () => this.filterComponents(search.value));
 
-        const activeMode = window.__EDITOR_MODE__ || 'default';
+        const activeMode = this.activeMode;
         const modeFilters = {
             logic: ['gates', 'sources', 'measurement'],
             arduino: ['arduino', 'passive', 'sources', 'semiconductors', 'measurement', 'misc'],
@@ -92,8 +100,8 @@ class App {
         };
 
         // If newly created and in a mode, set the default name
-        if (!localStorage.getItem('circuitforge_autosave') && modeNames[activeMode]) {
-            this.circuit.name = 'Untitled ' + modeNames[activeMode];
+        if (!localStorage.getItem(this.storageKey) && modeNames[activeMode]) {
+            this.circuit.name = this.defaultProjectName;
             const nameInput = document.getElementById('circuit-name');
             if (nameInput) nameInput.value = this.circuit.name;
         }
@@ -505,7 +513,7 @@ class App {
 
         // Circuit name
         document.getElementById('circuit-name').addEventListener('change', (e) => {
-            this.circuit.name = e.target.value || 'Untitled Circuit';
+            this.circuit.name = e.target.value || this.defaultProjectName;
         });
 
         // Help modal
@@ -617,8 +625,8 @@ class App {
             if (!confirm('Create a new circuit? Unsaved changes will be lost.')) return;
         }
         this.circuit.clear();
-        this.circuit.name = 'Untitled Circuit';
-        document.getElementById('circuit-name').value = 'Untitled Circuit';
+        this.circuit.name = this.defaultProjectName;
+        document.getElementById('circuit-name').value = this.defaultProjectName;
         this.renderer.selection.clear();
         this.history.clear();
         this.viewport.reset();

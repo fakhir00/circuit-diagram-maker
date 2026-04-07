@@ -12,17 +12,19 @@ export class IO {
     }
 
     get circuit() { return this.app.circuit; }
+    get storageKey() { return this.app.storageKey; }
+    get defaultProjectName() { return this.app.defaultProjectName; }
 
     // ── SAVE / LOAD JSON ──
 
     saveToLocalStorage() {
         const data = this.circuit.serialize();
-        localStorage.setItem('circuitforge_autosave', JSON.stringify(data));
+        localStorage.setItem(this.storageKey, JSON.stringify(data));
         showToast('Circuit saved', 'success');
     }
 
     loadFromLocalStorage() {
-        const raw = localStorage.getItem('circuitforge_autosave');
+        const raw = localStorage.getItem(this.storageKey);
         if (!raw) { showToast('No saved circuit found', 'error'); return false; }
         try {
             return this._loadJSON(raw);
@@ -65,7 +67,7 @@ export class IO {
         this.circuit.components = restored.components;
         this.circuit.wires = restored.wires;
         this.circuit.labels = restored.labels;
-        this.circuit.name = restored.name;
+        this.circuit.name = restored.name || this.defaultProjectName;
         document.getElementById('circuit-name').value = this.circuit.name;
         this.app.history.clear();
         this.app.renderer.selection.clear();

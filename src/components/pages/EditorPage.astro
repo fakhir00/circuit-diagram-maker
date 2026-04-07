@@ -28,6 +28,27 @@ const clientI18n = {
     status_components: t("editor.status.components"),
     status_wires: t("editor.status.wires")
 };
+
+const modeBrandNames = {
+    default: 'Circuit Diagram Maker',
+    logic: 'Logic Gate Diagram Tool',
+    arduino: 'Arduino Circuit Maker',
+    pcb: 'PCB Schematic Tool'
+};
+
+const modeProjectNames = {
+    default: 'Untitled Circuit',
+    logic: 'Untitled Logic Diagram',
+    arduino: 'Untitled Arduino Circuit',
+    pcb: 'Untitled PCB Schematic'
+};
+
+const editorConfig = {
+    mode: editorMode,
+    brandName: modeBrandNames[editorMode] || modeBrandNames.default,
+    defaultProjectName: modeProjectNames[editorMode] || modeProjectNames.default,
+    storageKey: `circuitforge_autosave_${editorMode}`
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +62,7 @@ const clientI18n = {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='4' fill='%230f1419'/><path d='M8 16h4l2-6 4 12 2-6h4' stroke='%233b82f6' stroke-width='2' fill='none'/></svg>">
-    <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)}; window.__EDITOR_MODE__ = "${editorMode}";`}></script>
+    <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)}; window.__EDITOR_MODE__ = "${editorMode}"; window.__EDITOR_CONFIG__ = ${JSON.stringify(editorConfig)};`}></script>
 </head>
 <body>
     <!-- ===== TOP TOOLBAR ===== -->
@@ -54,7 +75,7 @@ const clientI18n = {
                         <circle cx="4" cy="12" r="1.5" fill="currentColor"/>
                         <circle cx="17" cy="12" r="1.5" fill="currentColor"/>
                     </svg>
-                    <span class="brand-name">Circuit Diagram Maker</span>
+                    <span class="brand-name">{editorConfig.brandName}</span>
                 </a>
             </div>
             <div class="toolbar-divider"></div>
@@ -109,7 +130,7 @@ const clientI18n = {
             </div>
         </div>
         <div class="toolbar-center">
-            <input type="text" id="circuit-name" class="circuit-name-input" value={t('editor.canvas.untitled')} spellcheck="false">
+            <input type="text" id="circuit-name" class="circuit-name-input" value={editorConfig.defaultProjectName} spellcheck="false">
         </div>
         <div class="toolbar-right">
             <div class="toolbar-group">
