@@ -1,0 +1,45 @@
+---
+import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
+---
+
+<ToolLandingPage
+  title="Arduino Circuit Maker"
+  description="Plan Arduino-based circuits online with a browser-based circuit maker for sensors, LEDs, modules, power rails, and microcontroller schematics."
+  eyebrow="Microcontroller Design"
+  heroTitle="Arduino Circuit Maker for Quick Prototyping and Clear Schematics"
+  heroDescription="Create Arduino circuit diagrams online for sensors, shields, drivers, and interface modules using a clean drag-and-drop editor built for readable documentation."
+  primaryCtaLabel="Open Arduino Diagram Editor"
+  primaryCtaHref="/editor/"
+  secondaryCtaLabel="Read Documentation"
+  secondaryCtaHref="/docs/"
+  featureTitle="Document Arduino projects before you wire them"
+  featureIntro="Use the editor to sketch input pins, output devices, power rails, and module connections before moving to breadboard or PCB implementation."
+  features={[
+    {
+      title: 'Microcontroller-friendly layouts',
+      desc: 'Organize sensor inputs, digital outputs, pull resistors, and module headers around a clean Arduino-style schematic workflow.'
+    },
+    {
+      title: 'Better project planning',
+      desc: 'Map signal names, supply rails, and interface blocks before physical assembly so debugging becomes easier later.'
+    },
+    {
+      title: 'Shareable exports',
+      desc: 'Export Arduino circuit schematics for tutorials, maker documentation, student submissions, and project handoff.'
+    }
+  ]}
+  useCases={[
+    'Arduino Uno and Nano sensor interface planning',
+    'IoT prototypes with displays, relays, and communication modules',
+    'Maker project documentation for blogs and tutorials',
+    'Student electronics and embedded system assignments'
+  ]}
+  tableTitle="Arduino schematic planning checklist"
+  tableHeaders={['Block', 'Typical content', 'Why to document it']}
+  tableRows={[
+    ['Power', '5V, 3.3V, VIN, GND, regulators', 'Prevents rail confusion and missing return paths'],
+    ['Inputs', 'Sensors, buttons, analog sources', 'Helps assign pins and define signal names'],
+    ['Outputs', 'LEDs, relays, buzzers, drivers', 'Clarifies loads and control lines'],
+    ['Interfaces', 'I2C, SPI, UART modules', 'Makes communication wiring easier to review']
+  ]}
+/>

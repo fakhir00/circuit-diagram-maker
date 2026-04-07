@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heroTitle: string;
+  heroDescription: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
+  featureTitle: string;
+  featureIntro: string;
+  features: { title: string; desc: string }[];
+  useCases: string[];
+  tableTitle: string;
+  tableHeaders: string[];
+  tableRows: string[][];
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  heroTitle,
+  heroDescription,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  featureTitle,
+  featureIntro,
+  features,
+  useCases,
+  tableTitle,
+  tableHeaders,
+  tableRows
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_28%)]"></div>
+    <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{eyebrow}</p>
+      <h1 class="mx-auto mt-5 max-w-4xl text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+        {heroTitle}
+      </h1>
+      <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-400 sm:text-xl">
+        {heroDescription}
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href={primaryCtaHref} class="rounded-xl bg-brand-primary px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.18)]">
+          {primaryCtaLabel}
+        </a>
+        <a href={secondaryCtaHref} class="rounded-xl border border-white/10 px-8 py-3.5 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/5">
+          {secondaryCtaLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-panel py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{featureTitle}</h2>
+        <p class="mt-4 text-lg leading-8 text-slate-400">{featureIntro}</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => (
+          <article class="rounded-2xl border border-white/10 bg-bg-surface/70 p-6 transition-colors hover:border-brand-primary/25 hover:bg-bg-surface">
+            <h3 class="text-lg font-semibold text-white">{feature.title}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-400">{feature.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-white/5 bg-bg-dark py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_340px]">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-white">{tableTitle}</h2>
+          <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-bg-panel">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead class="bg-white/5 text-slate-300">
+                  <tr>
+                    {tableHeaders.map((header) => (
+                      <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">{header}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10 text-slate-300">
+                  {tableRows.map((row) => (
+                    <tr class="transition-colors hover:bg-white/5">
+                      {row.map((cell, index) => (
+                        <td class:list={['px-6 py-4', index === 0 ? 'font-semibold text-white' : 'text-slate-400']}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="rounded-2xl border border-white/10 bg-bg-surface/80 p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-accent">Best For</p>
+          <ul class="mt-5 space-y-3">
+            {useCases.map((item) => (
+              <li class="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm leading-6 text-slate-300">{item}</li>
+            ))}
+          </ul>
+          <div class="mt-8 rounded-2xl border border-brand-primary/20 bg-brand-primary/10 p-5">
+            <h3 class="text-lg font-semibold text-white">Start Designing</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-300">
+              Open the editor to build clean, export-ready schematics with grid snapping, symbol placement, and orthogonal wire routing.
+            </p>
+            <a href={primaryCtaHref} class="mt-5 inline-flex rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+              {primaryCtaLabel}
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

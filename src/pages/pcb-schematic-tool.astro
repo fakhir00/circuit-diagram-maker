@@ -1,0 +1,45 @@
+---
+import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
+---
+
+<ToolLandingPage
+  title="PCB Schematic Tool"
+  description="Use our PCB schematic tool to draft clean, reviewable circuit schematics before board layout. Create export-ready diagrams in your browser."
+  eyebrow="Schematic Planning"
+  heroTitle="PCB Schematic Tool for Clear Pre-Layout Circuit Design"
+  heroDescription="Draft PCB-ready schematics online with organized symbols, orthogonal wire routing, and export formats suited for review documents, planning, and engineering communication."
+  primaryCtaLabel="Open PCB Schematic Tool"
+  primaryCtaHref="/editor/"
+  secondaryCtaLabel="Open Component Library"
+  secondaryCtaHref="/components/"
+  featureTitle="Create the schematic before the board gets complicated"
+  featureIntro="A clean schematic is the fastest way to validate blocks, review signal paths, and document your design intent before PCB layout begins."
+  features={[
+    {
+      title: 'Readable circuit structure',
+      desc: 'Separate power, analog, digital, and interface sections so the schematic stays understandable during PCB planning and design review.'
+    },
+    {
+      title: 'Professional export output',
+      desc: 'Generate SVG and PNG schematics that are suitable for reports, specifications, and pre-layout design packages.'
+    },
+    {
+      title: 'Fast review cycles',
+      desc: 'Share clean diagrams with teammates, clients, or instructors before spending time on board-level implementation.'
+    }
+  ]}
+  useCases={[
+    'Pre-layout schematic reviews for PCB projects',
+    'Power, analog, and digital block documentation',
+    'Student PCB coursework and lab submissions',
+    'Internal engineering notes and client-facing design docs'
+  ]}
+  tableTitle="PCB schematic review essentials"
+  tableHeaders={['Area', 'What to verify', 'Result']}
+  tableRows={[
+    ['Power paths', 'Rail names, regulators, decoupling placement', 'Cleaner supply planning before layout'],
+    ['Signal blocks', 'Inputs, processing, outputs, connectors', 'Better functional separation'],
+    ['References', 'R/C/U/Q labels and values', 'Faster BOM and review discussions'],
+    ['Annotations', 'Net names, voltage levels, notes', 'Less ambiguity during PCB implementation']
+  ]}
+/>
