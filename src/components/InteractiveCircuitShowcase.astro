@@ -1,50 +1,6 @@
 ---
 const presets = [
   {
-    id: 'analog',
-    label: 'Analog Filter',
-    title: 'Two-stage active filter',
-    summary: 'Preview how op-amps, passive parts, and measurement nodes fit together before you open the editor.',
-    specs: [
-      ['Primary parts', '8'],
-      ['Estimated nets', '14'],
-      ['Signal class', 'Low-noise analog']
-    ],
-    metrics: [
-      { label: 'Noise headroom', value: '82 dB', strength: 82, accent: 'cyan' },
-      { label: 'Loop stability', value: '74%', strength: 74, accent: 'blue' },
-      { label: 'Probe access', value: '91%', strength: 91, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'Input RC shaping', detail: 'Bias cleanup and corner tuning', load: 28 },
-      { name: 'Active gain stage', detail: 'Dual op-amp response control', load: 46 },
-      { name: 'Output monitor', detail: 'Measurement node and trim path', load: 26 }
-    ],
-    checkpoints: ['Shield high-impedance nodes', 'Keep feedback loop short', 'Probe filter corner before export']
-  },
-  {
-    id: 'power',
-    label: 'Power Supply',
-    title: 'Buck regulator block',
-    summary: 'Map the high-current path, feedback loop, and decoupling strategy in a layout-friendly structure.',
-    specs: [
-      ['Primary parts', '10'],
-      ['Estimated nets', '18'],
-      ['Signal class', 'Power conversion']
-    ],
-    metrics: [
-      { label: 'Current density', value: '68%', strength: 68, accent: 'amber' },
-      { label: 'Ripple control', value: '79%', strength: 79, accent: 'rose' },
-      { label: 'Thermal margin', value: '63%', strength: 63, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'PWM switch node', detail: 'Fast edge energy loop', load: 37 },
-      { name: 'Inductor smoothing', detail: 'Current ripple containment', load: 41 },
-      { name: 'Feedback return', detail: 'Quiet sensing and compensation', load: 22 }
-    ],
-    checkpoints: ['Separate power and sense return', 'Tighten hot loop geometry', 'Place decoupling next to load']
-  },
-  {
     id: 'logic',
     label: 'Logic Control',
     title: 'Sensor and MCU interface',
@@ -89,28 +45,6 @@ const presets = [
     checkpoints: ['Verify bias point symmetry', 'Keep audio ground quiet', 'Separate line output from supply return']
   },
   {
-    id: 'iot',
-    label: 'IoT Node',
-    title: 'Wireless Sensor Module',
-    summary: 'Low-power design featuring ESP32/ARM controllers, I2C sensors, and battery management.',
-    specs: [
-      ['Primary parts', '14'],
-      ['Estimated nets', '22'],
-      ['Signal class', 'Digital Pulse']
-    ],
-    metrics: [
-      { label: 'Battery budget', value: '72%', strength: 72, accent: 'emerald' },
-      { label: 'RF activity', value: '66%', strength: 66, accent: 'rose' },
-      { label: 'Sensor readiness', value: '87%', strength: 87, accent: 'amber' }
-    ],
-    stages: [
-      { name: 'Power source', detail: 'Battery path and regulation', load: 29 },
-      { name: 'Controller core', detail: 'ESP32 logic and sleep flow', load: 44 },
-      { name: 'Edge links', detail: 'I2C sensing and RF handoff', load: 27 }
-    ],
-    checkpoints: ['Segment sleep and active rails', 'Annotate RF exclusion area', 'Review sensor pull-up sizing']
-  },
-  {
     id: 'gates',
     label: 'Logic Designer',
     title: 'Digital Logic Controller',
@@ -131,28 +65,6 @@ const presets = [
       { name: 'Signal output', detail: 'Buffer stage and edge trim', load: 23 }
     ],
     checkpoints: ['Minimize gate propagation delay', 'Verify CMOS logic thresholds', 'Buffer fan-out branches']
-  },
-  {
-    id: 'arduino',
-    label: 'Arduino Lab',
-    title: 'Standard Arduino Uno Shield',
-    summary: 'Create custom shields with Arduino header alignment, pin mappings, and peripheral integration.',
-    specs: [
-      ['Header pins', '28'],
-      ['Voltage rail', '5V/3.3V'],
-      ['Bus type', 'I2C / SPI']
-    ],
-    metrics: [
-      { label: 'Pin availability', value: '58%', strength: 58, accent: 'blue' },
-      { label: 'Power headroom', value: '77%', strength: 77, accent: 'amber' },
-      { label: 'Shield fit', value: '94%', strength: 94, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'Header mapping', detail: 'Pin assignment and grouping', load: 31 },
-      { name: 'Shield layout', detail: 'Component footprint and fit', load: 42 },
-      { name: 'Bus breakout', detail: 'I2C/SPI network routing', load: 27 }
-    ],
-    checkpoints: ['Verify shield height clearance', 'Keep I2C pull-ups on-module', 'Standardize pin 1 position']
   },
   {
     id: 'pcb_tool',
