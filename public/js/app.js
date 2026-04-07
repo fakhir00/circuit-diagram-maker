@@ -78,7 +78,32 @@ class App {
         const search = document.getElementById('component-search');
         search.addEventListener('input', () => this.filterComponents(search.value));
 
+        const activeMode = window.__EDITOR_MODE__ || 'default';
+        const modeFilters = {
+            logic: ['gates', 'sources', 'measurement'],
+            arduino: ['arduino', 'passive', 'sources', 'semiconductors', 'measurement', 'misc'],
+            pcb: ['pcb', 'passive', 'semiconductors', 'sources', 'misc']
+        };
+
+        const modeNames = {
+            logic: 'Logic Diagram',
+            arduino: 'Arduino Project',
+            pcb: 'PCB Schematic'
+        };
+
+        // If newly created and in a mode, set the default name
+        if (!localStorage.getItem('circuitforge_autosave') && modeNames[activeMode]) {
+            this.circuit.name = 'Untitled ' + modeNames[activeMode];
+            const nameInput = document.getElementById('circuit-name');
+            if (nameInput) nameInput.value = this.circuit.name;
+        }
+
         for (const [catId, cat] of categoryMap) {
+            // Filter categories based on mode
+            if (modeFilters[activeMode] && !modeFilters[activeMode].includes(catId)) {
+                continue;
+            }
+
             const section = document.createElement('div');
             section.className = 'component-category';
             section.dataset.category = catId;

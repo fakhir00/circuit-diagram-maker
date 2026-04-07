@@ -1,8 +1,22 @@
 ---
 import { useTranslations, getLocalizedPath } from '../../theme/i18n';
 
-const { locale = 'en' } = Astro.props;
+const { locale = 'en', editorMode = 'default' } = Astro.props as { locale: string, editorMode: 'default' | 'logic' | 'arduino' | 'pcb' };
 const t = useTranslations(locale);
+
+const modeTitles = {
+    default: "Circuit Diagram Maker — Editor",
+    logic: "Logic Gate Diagram Tool — Designer",
+    arduino: "Arduino Circuit Maker — Lab",
+    pcb: "PCB Schematic Tool — Layout"
+};
+
+const modeDescriptions = {
+    default: "Create high-quality circuit diagrams with our professional, browser-based editor. Drag-and-drop components, wire routing, and export to SVG/PNG.",
+    logic: "Design and simulate logic gate diagrams with NAND, NOR, and XOR gates. Export professional schematics for academic and professional use.",
+    arduino: "Plan your Arduino wiring diagrams with Uno and Mega boards, sensors, and peripherals. The ultimate pre-wiring documentation tool.",
+    pcb: "Draft professional PCB schematics with VIAs, surface-mount pads, and silk screen labels before you move to production."
+};
 
 const clientI18n = {
     placement: t("editor.app.placement"),
@@ -20,14 +34,14 @@ const clientI18n = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circuit Diagram Maker — Editor</title>
-    <meta name="description" content="Create high-quality circuit diagrams with our professional, browser-based editor. Drag-and-drop components, wire routing, and export to SVG/PNG.">
+    <title>{modeTitles[editorMode] || modeTitles.default}</title>
+    <meta name="description" content={modeDescriptions[editorMode] || modeDescriptions.default}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='4' fill='%230f1419'/><path d='M8 16h4l2-6 4 12 2-6h4' stroke='%233b82f6' stroke-width='2' fill='none'/></svg>">
-    <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)};`}></script>
+    <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)}; window.__EDITOR_MODE__ = "${editorMode}";`}></script>
 </head>
 <body>
     <!-- ===== TOP TOOLBAR ===== -->

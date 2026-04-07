@@ -10,6 +10,8 @@ const CATEGORIES = [
     { id: 'sources', name: 'Sources', icon: '⚡' },
     { id: 'semiconductors', name: 'Semiconductors', icon: '◇' },
     { id: 'gates', name: 'Logic Gates', icon: '⊞' },
+    { id: 'arduino', name: 'Arduino', icon: '♾' },
+    { id: 'pcb', name: 'PCB Layout', icon: '▣' },
     { id: 'switches', name: 'Switches', icon: '⊡' },
     { id: 'measurement', name: 'Measurement', icon: '◎' },
     { id: 'misc', name: 'Miscellaneous', icon: '⊕' },
@@ -724,6 +726,91 @@ const COMPONENTS = [
             ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
             ctx.fillStyle = ctx.strokeStyle;
             ctx.fill();
+        }
+    },
+
+    // ── ARDUINO ──
+    {
+        type: 'arduino_uno', name: 'Arduino Uno', category: 'arduino',
+        width: 140, height: 100,
+        terminals: [
+            { x: -50, y: -45, name: 'D0' }, { x: -40, y: -45, name: 'D1' }, { x: -30, y: -45, name: 'D2' },
+            { x: -20, y: -45, name: 'D3' }, { x: -10, y: -45, name: 'D4' }, { x: 0, y: -45, name: 'D5' },
+            { x: 20, y: 45, name: 'A0' }, { x: 30, y: 45, name: 'A1' }, { x: 40, y: 45, name: 'A2' },
+            { x: -60, y: 20, name: 'VIN' }, { x: -60, y: 30, name: '5V' }, { x: -60, y: 40, name: 'GND' }
+        ],
+        properties: { label: { label: 'Label', default: 'MCU1' } },
+        draw(ctx) {
+            ctx.strokeRect(-60, -45, 120, 90);
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.font = 'bold 10px Inter';
+            ctx.textAlign = 'center';
+            ctx.fillText('ARDUINO UNO', 0, 0);
+            // Header markers
+            ctx.strokeRect(-55, -42, 60, 8);
+            ctx.strokeRect(15, 34, 40, 8);
+            ctx.strokeRect(-58, 15, 8, 30);
+        }
+    },
+    {
+        type: 'disp_7seg', name: '7-Segment', category: 'arduino',
+        width: 40, height: 60,
+        terminals: [
+            { x: -15, y: -30, name: 'a' }, { x: 0, y: -30, name: 'b' }, { x: 15, y: -30, name: 'c' },
+            { x: -15, y: 30, name: 'e' }, { x: 0, y: 30, name: 'com' }, { x: 15, y: 30, name: 'g' }
+        ],
+        properties: { type: { label: 'Type', default: 'Common Cathode' } },
+        draw(ctx) {
+            ctx.strokeRect(-15, -25, 30, 50);
+            // Draw a basic "8" shape
+            ctx.lineWidth = 1;
+            ctx.strokeRect(-8, -20, 16, 18);
+            ctx.strokeRect(-8, 2, 16, 18);
+        }
+    },
+
+    // ── PCB ──
+    {
+        type: 'pcb_via', name: 'VIA', category: 'pcb',
+        width: 20, height: 20,
+        terminals: [{ x: 0, y: 0, name: 'P' }],
+        properties: { drill: { label: 'Drill (mm)', default: '0.3' }, size: { label: 'Size (mm)', default: '0.6' } },
+        draw(ctx) {
+            ctx.beginPath();
+            ctx.arc(0, 0, 8, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, 4, 0, Math.PI * 2);
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.fill();
+        }
+    },
+    {
+        type: 'pcb_pad_smt', name: 'SMT Pad', category: 'pcb',
+        width: 20, height: 12,
+        terminals: [{ x: 0, y: 0, name: 'P' }],
+        properties: { size: { label: 'Size', default: '1.2x0.8' } },
+        draw(ctx) {
+            ctx.strokeRect(-8, -4, 16, 8);
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.globalAlpha = 0.2;
+            ctx.fillRect(-8, -4, 16, 8);
+            ctx.globalAlpha = 1.0;
+        }
+    },
+    {
+        type: 'pcb_text', name: 'Silk Label', category: 'pcb',
+        width: 40, height: 20,
+        terminals: [{ x: 0, y: 0, name: 'T' }],
+        properties: { text: { label: 'Text', default: 'REF' } },
+        draw(ctx) {
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.font = '8px Monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(ctx.canvas.__label || 'SILK', 0, 0);
+            ctx.setLineDash([2, 2]);
+            ctx.strokeRect(-15, -8, 30, 16);
+            ctx.setLineDash([]);
         }
     },
 ];
