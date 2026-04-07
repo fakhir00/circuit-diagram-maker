@@ -1,700 +1,257 @@
 ---
-// Full-width immersive 3D Circuit Board Hero — professional-grade interactive visualization
+// Abstract "Living Schematic" 3D Hero — Professional-grade spatial visualization of electronic symbols
 ---
 
 <div class="hero-3d-container" id="hero-3d">
-  <!-- Ambient background effects -->
+  <!-- Ambient depth gradients -->
   <div class="hero-ambient">
     <div class="ambient-orb ambient-orb-1"></div>
     <div class="ambient-orb ambient-orb-2"></div>
-    <div class="ambient-orb ambient-orb-3"></div>
   </div>
 
-  <!-- 3D Scene -->
-  <div class="hero-3d-scene" id="hero-scene">
-    <div class="pcb-board" id="pcb-board">
-      <!-- PCB substrate -->
-      <div class="pcb-substrate">
-        <div class="pcb-silkscreen"></div>
+  <!-- Perspective Scene -->
+  <div class="hero-3d-scene">
+    <div class="constellation-root" id="scene-root">
+      
+      <!-- Deep Background: Blueprint Grid -->
+      <div class="layer blueprint-layer">
+        <div class="blueprint-grid"></div>
+      </div>
+
+      <!-- Midground: Vector Connection Flow -->
+      <svg class="layer connection-layer" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
         
-        <!-- Animated copper traces with flowing current -->
-        <svg class="pcb-traces-svg" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="traceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#b8860b;stop-opacity:0.3"/>
-              <stop offset="50%" style="stop-color:#daa520;stop-opacity:0.6"/>
-              <stop offset="100%" style="stop-color:#b8860b;stop-opacity:0.3"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="bigGlow">
-              <feGaussianBlur stdDeviation="6" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
+        <!-- Abstract Signal Paths -->
+        <g class="paths" id="signal-paths">
+          <!-- Hand-crafted abstract paths -->
+          <path d="M100,300 L250,300 L400,100 L600,100 L800,300" class="path-wire" />
+          <path d="M100,450 L300,450 L500,250 L800,250" class="path-wire" />
+          <path d="M150,150 L300,150 L450,350 L750,350 L900,150" class="path-wire" />
           
-          <!-- Main Power Bus (VCC) - TOP -->
-          <path class="trace-path trace-wide" d="M0,100 L80,100 L110,100 L220,100 L420,100" />
-          <path class="trace-path trace-thin" d="M420,100 L520,100" />
-          
-          <!-- Signal Input Path - MIDDLE -->
-          <path class="trace-path" d="M0,280 L120,280 L140,280 L420,280" />
-          
-          <!-- MCU Interconnects -->
-          <path class="trace-path trace-thin" d="M520,210 L780,210" /> <!-- Output to Resistor -->
-          <path class="trace-path trace-thin" d="M810,210 L880,210" /> <!-- Resistor to LED -->
-          <path class="trace-path trace-thin" d="M520,320 L550,320" /> <!-- MCU to Crystal L -->
-          <path class="trace-path trace-thin" d="M520,340 L550,340" /> <!-- MCU to Crystal R -->
-          
-          <!-- Control/PWM to MOSFET -->
-          <path class="trace-path trace-thin" d="M420,380 L120,380 L120,440" />
-          
-          <!-- Ground Bus - BOTTOM -->
-          <path class="trace-path trace-wide" d="M0,520 L1000,520" />
-          
-          <!-- Animated Current Dots (Working Logic Board) -->
-          <g filter="url(#glow)">
-            <circle class="current-dot cd-1" r="5"><animateMotion dur="1.2s" repeatCount="indefinite" path="M0,100 L420,100"/></circle>
-            <circle class="current-dot cd-2" r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="M0,280 L420,280"/></circle>
-            <circle class="current-dot cd-3" r="4"><animateMotion dur="0.9s" repeatCount="indefinite" path="M520,210 L880,210"/></circle>
-            <circle class="current-dot cd-4" r="3"><animateMotion dur="2.5s" repeatCount="indefinite" path="M1000,520 L0,520"/></circle>
+          <!-- Animated Signal Pulses -->
+          <g filter="url(#neonGlow)">
+             <circle r="3" class="pulse"><animateMotion dur="2.5s" repeatCount="indefinite" path="M100,300 L250,300 L400,100 L600,100 L800,300"/></circle>
+             <circle r="4" class="pulse pulse-blue"><animateMotion dur="4s" repeatCount="indefinite" path="M100,450 L300,450 L500,250 L800,250"/></circle>
+             <circle r="3" class="pulse pulse-cyan"><animateMotion dur="3s" repeatCount="indefinite" path="M150,150 L300,150 L450,350 L750,350 L900,150"/></circle>
           </g>
-        </svg>
+        </g>
+      </svg>
 
-        <!-- 3D Component: Voltage Regulator (POWER IN) -->
-        <div class="hw-component hw-vreg" style="left:8%;top:12%" data-name="LM7805 Regulator" data-spec="Converts the input rail into a stable 5V supply.">
-          <div class="mosfet-pkg">
-            <div class="mosfet-tab" style="background:linear-gradient(180deg,#4a4a5a,#2a2a35)"></div>
-            <div class="mosfet-body">
-              <span class="mosfet-label">7805</span>
-            </div>
-            <div class="mosfet-legs">
-              <div class="mosfet-leg"></div>
-              <div class="mosfet-leg"></div>
-              <div class="mosfet-leg"></div>
-            </div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
+      <!-- Foreground: Interactive Symbol Constellation -->
+      <div class="layer symbol-layer">
+        
+        <!-- Symbol: Operational Amplifier -->
+        <div class="symbol-node sym-opamp" style="--x:15%; --y:50%; --z:40px;">
+          <svg viewBox="0 0 100 100" class="sym-svg">
+             <path d="M20,20 L80,50 L20,80 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+             <path d="M25,35 L35,35 M30,30 L30,40" stroke="currentColor" stroke-width="2"/> <!-- + -->
+             <path d="M25,65 L35,65" stroke="currentColor" stroke-width="2"/> <!-- - -->
+             <circle cx="20" cy="35" r="4" fill="currentColor"/>
+             <circle cx="20" cy="65" r="4" fill="currentColor"/>
+             <circle cx="80" cy="50" r="4" fill="currentColor"/>
+          </svg>
+          <div class="sym-label text-blue-400">Signal Buffering</div>
         </div>
 
-        <!-- 3D Component: Electrolytic Capacitor (FILTER) -->
-        <div class="hw-component hw-elcap" style="left:22%;top:12%" data-name="470uF Capacitor" data-spec="Smooths the supply rail and reduces ripple.">
-          <div class="elcap-3d">
-            <div class="elcap-body">
-              <div class="elcap-stripe"></div>
-              <div class="elcap-label">470µF</div>
-            </div>
-            <div class="elcap-side"></div>
-            <div class="elcap-lead elcap-lead-l"></div>
-            <div class="elcap-lead elcap-lead-r"></div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
+        <!-- Symbol: Resistor (IEC) -->
+        <div class="symbol-node sym-resistor" style="--x:50%; --y:20%; --z:80px;">
+          <svg viewBox="0 0 100 40" class="sym-svg">
+            <rect x="25" y="10" width="50" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M0,20 L25,20 M75,20 L100,20" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <div class="sym-label text-cyan-400">Impedance Node</div>
         </div>
 
-        <!-- 3D Component: Op-Amp (INPUT CONDITIONING) -->
-        <div class="hw-component hw-opamp" style="left:12%;top:42%" data-name="LM358 Op-Amp" data-spec="Conditions the analog input before it reaches the MCU.">
-          <div class="opamp-pkg-3d">
-            <div class="opamp-body">
-              <span class="opamp-label">LM358</span>
-              <div class="ic-dot" style="top:4px;left:4px"></div>
-            </div>
-            <div class="ic-side ic-side-t"></div>
-            <div class="ic-side ic-side-b"></div>
-            <div class="ic-side ic-side-l"></div>
-            <div class="ic-side ic-side-r"></div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
+        <!-- Symbol: Logic Gate (AND) -->
+        <div class="symbol-node sym-gate" style="--x:80%; --y:45%; --z:60px;">
+           <svg viewBox="0 0 100 80" class="sym-svg">
+             <path d="M20,10 L50,10 A30,30 0 0 1 50,70 L20,70 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+             <path d="M0,25 L20,25 M0,55 L20,55 M75,40 L100,40" stroke="currentColor" stroke-width="2"/>
+           </svg>
+           <div class="sym-label text-indigo-400">Logic Junction</div>
         </div>
 
-        <!-- 3D Component: MCU IC (LOGIC CENTER) -->
-        <div class="hw-component hw-ic" style="left:42%;top:38%" data-name="ATmega328P" data-spec="Main controller that reads signals and drives outputs.">
-          <div class="ic-package-3d">
-            <div class="ic-face">
-              <div class="ic-dot"></div>
-              <span class="ic-text">ATmega<br/>328P</span>
-            </div>
-            <div class="ic-side ic-side-t"></div>
-            <div class="ic-side ic-side-b"></div>
-            <div class="ic-side ic-side-l"></div>
-            <div class="ic-side ic-side-r"></div>
-            <div class="ic-pins-row ic-pins-top"></div>
-            <div class="ic-pins-row ic-pins-bottom"></div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
+        <!-- Symbol: Capacitor (Polarized) -->
+        <div class="symbol-node sym-cap" style="--x:35%; --y:75%; --z:100px;">
+           <svg viewBox="0 0 60 100" class="sym-svg">
+             <path d="M10,40 L50,40 M10,60 L50,60" stroke="currentColor" stroke-width="3"/>
+             <path d="M30,0 L30,40 M30,60 L30,100" stroke="currentColor" stroke-width="2"/>
+             <path d="M40,25 L40,35 M35,30 L45,30" stroke="currentColor" stroke-width="1.5"/>
+           </svg>
+           <div class="sym-label text-emerald-400">Charge Storage</div>
         </div>
 
-        <!-- 3D Component: Crystal Oscillator (CLOCK) -->
-        <div class="hw-component hw-xtal" style="left:55%;top:50%" data-name="16MHz Crystal" data-spec="Provides the clock reference for precise MCU timing.">
-          <div class="xtal-pkg">
-            <div class="xtal-can">
-              <span class="xtal-freq">16.000</span>
-            </div>
-            <div class="xtal-pin xtal-pin-l"></div>
-            <div class="xtal-pin xtal-pin-r"></div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
-        </div>
+        <!-- Additional floating nodes -->
+        <div class="abstract-node" style="--x:70%; --y:15%; --z:120px;"></div>
+        <div class="abstract-node" style="--x:10%; --y:80%; --z:20px;"></div>
+        <div class="abstract-node" style="--x:85%; --y:75%; --z:90px;"></div>
 
-        <!-- 3D Component: Resistor array (CURRENT LIMIT) -->
-        <div class="hw-component hw-res" style="left:78%;top:36%" data-name="220 Ohm Resistor" data-spec="Limits current flowing into the status LED.">
-          <div class="res-pkg">
-            <div class="res-wire res-wire-l"></div>
-            <div class="res-barrel">
-              <div class="res-stripe" style="background:#8B4513"></div>
-              <div class="res-stripe" style="background:#FF0000"></div>
-              <div class="res-stripe" style="background:#8B4513"></div>
-              <div class="res-stripe" style="background:#FFD700"></div>
-            </div>
-            <div class="res-wire res-wire-r"></div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
-        </div>
-
-        <!-- 3D Component: RGB LED (STATUS OUTPUT) -->
-        <div class="hw-component hw-led" style="left:88%;top:36%" data-name="Status LED" data-spec="Indicates output or system activity at a glance.">
-          <div class="led-pkg">
-            <div class="led-lens"></div>
-            <div class="led-base-ring"></div>
-            <div class="led-legs">
-              <div class="led-leg"></div>
-              <div class="led-leg led-leg-short"></div>
-            </div>
-          </div>
-          <div class="led-emission"></div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
-        </div>
-
-        <!-- 3D Component: Power MOSFET (AUX CONTROL) -->
-        <div class="hw-component hw-mosfet" style="left:12%;top:75%" data-name="IRFZ44N MOSFET" data-spec="Switches the external load from the control path.">
-          <div class="mosfet-pkg">
-            <div class="mosfet-tab"></div>
-            <div class="mosfet-body">
-              <span class="mosfet-label">IRFZ<br/>44N</span>
-            </div>
-            <div class="mosfet-legs">
-              <div class="mosfet-leg"></div>
-              <div class="mosfet-leg"></div>
-              <div class="mosfet-leg"></div>
-            </div>
-          </div>
-          <div class="hw-glow"></div>
-          <div class="hw-shadow"></div>
-        </div>
-
-        <!-- Via holes scattered -->
-        <div class="via-hole" style="left:20%;top:25%"></div>
-        <div class="via-hole" style="left:35%;top:45%"></div>
-        <div class="via-hole" style="left:50%;top:35%"></div>
-        <div class="via-hole" style="left:65%;top:55%"></div>
-        <div class="via-hole" style="left:80%;top:48%"></div>
-        <div class="via-hole" style="left:45%;top:72%"></div>
-        <div class="via-hole" style="left:25%;top:70%"></div>
-        <div class="via-hole" style="left:75%;top:70%"></div>
-        <div class="via-hole" style="left:60%;top:15%"></div>
-        <div class="via-hole" style="left:10%;top:42%"></div>
-
-        <!-- Solder pads -->
-        <div class="solder-pad" style="left:18%;top:40%"></div>
-        <div class="solder-pad" style="left:62%;top:40%"></div>
-        <div class="solder-pad" style="left:40%;top:68%"></div>
-        <div class="solder-pad" style="left:78%;top:30%"></div>
       </div>
     </div>
   </div>
 
-  <!-- Component tooltip -->
-  <div class="hero-tooltip" id="hero-tooltip" role="status" aria-live="polite">
-    <div class="tooltip-head">
-      <span class="tooltip-name" id="tt-name"></span>
-    </div>
-    <p class="tooltip-spec" id="tt-spec"></p>
-  </div>
-
-  <!-- Floating particle canvas -->
-  <canvas id="hero-particles" class="hero-particle-canvas"></canvas>
-
-  <!-- Interaction hint -->
-  <div class="hero-hint" id="hero-hint">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9l-2 2-2-2M10 15l2-2 2 2"/></svg>
-    <span>Inspect components • Drag board</span>
+  <!-- Enhanced UI Hint -->
+  <div class="hero-hint">
+    <div class="hint-dot"></div>
+    <span>Interactive Galaxy • Drag to explore layers</span>
   </div>
 </div>
 
 <style>
-  /* ========== CONTAINER ========== */
+  /* ========== SCENE CONTAINER ========== */
   .hero-3d-container {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 520px;
+    min-height: 560px;
+    background: radial-gradient(circle at 50% 50%, #0a1120 0%, #020617 100%);
     overflow: hidden;
-    cursor: grab;
+    cursor: default;
     user-select: none;
-    background: radial-gradient(ellipse at 50% 40%, rgba(59,130,246,0.06) 0%, transparent 60%);
-  }
-  .hero-3d-container:active { cursor: grabbing; }
-
-  /* ========== AMBIENT ORBS ========== */
-  .hero-ambient { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-  .ambient-orb {
-    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
-    animation: orbFloat 12s ease-in-out infinite alternate;
-  }
-  .ambient-orb-1 { width: 300px; height: 300px; background: rgba(59,130,246,0.15); top: -10%; left: 10%; }
-  .ambient-orb-2 { width: 250px; height: 250px; background: rgba(6,182,212,0.12); bottom: -5%; right: 15%; animation-delay: -4s; }
-  .ambient-orb-3 { width: 200px; height: 200px; background: rgba(34,211,238,0.1); top: 40%; left: 60%; animation-delay: -8s; }
-  @keyframes orbFloat {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(30px, -20px) scale(1.15); }
   }
 
-  /* ========== 3D SCENE ========== */
+  .hero-ambient { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+  .ambient-orb { position: absolute; filter: blur(120px); border-radius: 50%; opacity: 0.2; }
+  .ambient-orb-1 { width: 400px; height: 400px; background: #3b82f6; top: -100px; left: -100px; }
+  .ambient-orb-2 { width: 400px; height: 400px; background: #06b6d4; bottom: -100px; right: -100px; }
+
+  /* ========== PERSPECTIVE ROOT ========== */
   .hero-3d-scene {
     position: absolute; inset: 0;
-    perspective: 1400px;
-    perspective-origin: 50% 45%;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 1;
-  }
-  .pcb-board {
-    width: 88%; max-width: 900px; aspect-ratio: 16/9;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(28deg) rotateY(-8deg);
-    transition: transform 0.08s linear;
-    will-change: transform;
-  }
-
-  /* ========== PCB SUBSTRATE ========== */
-  .pcb-substrate {
-    position: absolute; inset: 0;
-    background: linear-gradient(155deg, #0f172a 0%, #0a0e14 40%, #020617 100%);
-    border-radius: 12px;
-    border: 2px solid rgba(59,130,246,0.1);
-    transform-style: preserve-3d;
-    overflow: hidden;
-    box-shadow:
-      0 30px 80px rgba(0,0,0,0.6),
-      0 0 0 1px rgba(59,130,246,0.1),
-      inset 0 1px 0 rgba(255,255,255,0.02),
-      0 0 120px rgba(59,130,246,0.05);
-  }
-  .pcb-silkscreen {
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
-    background-size: 14px 14px;
-    pointer-events: none;
-  }
-
-  /* ========== TRACES ========== */
-  .pcb-traces-svg {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 1;
-  }
-  .trace-path {
-    fill: none; stroke: rgba(59,130,246,0.5); stroke-width: 4;
-    stroke-linecap: round; stroke-linejoin: round;
-    filter: drop-shadow(0 0 3px rgba(59,130,246,0.3));
-  }
-  .trace-thin { stroke-width: 2.5; stroke: rgba(59,130,246,0.4); }
-  .trace-wide { stroke-width: 6; stroke: rgba(59,130,246,0.3); }
-  .current-dot { fill: #3b82f6; opacity: 0.9; }
-  .cd-1 { fill: #60a5fa; }
-  .cd-2 { fill: #22d3ee; }
-  .cd-3 { fill: #818cf8; }
-  .cd-4 { fill: #34d399; }
-  .cd-5 { fill: #f59e0b; opacity: 0.5; }
-
-  /* ========== COMPONENTS (shared) ========== */
-  .hw-component {
-    position: absolute; transform-style: preserve-3d;
-    transform: translateZ(6px);
-    cursor: default; z-index: 5;
-    transition: filter 0.24s ease, box-shadow 0.24s ease;
-  }
-  .hw-component::after {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border-radius: 16px;
-    border: 1px solid rgba(148, 163, 184, 0);
-    box-shadow: 0 0 0 rgba(96, 165, 250, 0);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
-  }
-  .hw-component.is-active::after {
-    opacity: 1;
-    border-color: rgba(148, 163, 184, 0.22);
-    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08), 0 10px 24px rgba(59, 130, 246, 0.1);
-  }
-  .hw-glow {
-    position: absolute; inset: -12px;
-    background: radial-gradient(ellipse, rgba(96,165,250,0.14) 0%, transparent 72%);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.24s ease;
-    pointer-events: none;
-    z-index: -1;
-  }
-  .hw-component.is-active .hw-glow { opacity: 1; }
-  .hw-shadow {
-    position: absolute; bottom: -6px; left: 10%; width: 80%; height: 8px;
-    background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
-    border-radius: 50%; pointer-events: none;
-  }
-
-  /* IC Package 3D */
-  .ic-package-3d { width: 100px; height: 68px; position: relative; transform-style: preserve-3d; }
-  .ic-face {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    position: relative; z-index: 2; transform: translateZ(10px);
-  }
-  .ic-side { position: absolute; background: #0a0f1d; }
-  .ic-side-t, .ic-side-b { width: 100px; height: 10px; left: 0; }
-  .ic-side-l, .ic-side-r { width: 10px; height: 68px; top: 0; }
-  .ic-side-t { top: 0; transform: rotateX(90deg) translateZ(5px); }
-  .ic-side-b { bottom: 0; transform: rotateX(-90deg) translateZ(5px); }
-  .ic-side-l { left: 0; transform: rotateY(-90deg) translateZ(5px); }
-  .ic-side-r { right: 0; transform: rotateY(90deg) translateZ(5px); }
-
-  .ic-dot { position: absolute; top: 5px; left: 5px; width: 7px; height: 7px; border-radius: 50%; background: rgba(59,130,246,0.3); box-shadow: 0 0 8px rgba(59,130,246,0.5); }
-  .ic-text { color: rgba(255,255,255,0.7); font-size: 10px; font-family: 'JetBrains Mono', monospace; text-align: center; font-weight: 700; letter-spacing: 0.5px; }
-
-  /* Op-Amp 3D */
-  .opamp-pkg-3d { position: relative; width: 70px; height: 48px; transform-style: preserve-3d; }
-  .opamp-body {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #2d3748, #1a202c);
-    border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    position: relative; z-index: 2; transform: translateZ(8px);
-  }
-
-  /* Electrolytic Cap 3D */
-  .elcap-3d { width: 28px; height: 42px; position: relative; transform-style: preserve-3d; }
-  .elcap-body {
-    width: 100%; height: 100%;
-    background: linear-gradient(0deg, #1e3a8a, #3b82f6);
-    border-radius: 50% 50% 4px 4px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    transform: translateZ(15px);
+    perspective: 1200px;
     display: flex; align-items: center; justify-content: center;
     z-index: 2;
   }
-  .elcap-side {
+
+  .constellation-root {
+    width: 100%; height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }
+
+  .layer {
     position: absolute; inset: 0;
-    background: #172554;
-    border-radius: 50% 50% 4px 4px;
-    transform: translateZ(0);
-  }
-  .elcap-stripe { position: absolute; top: 5px; left: 3px; right: 3px; height: 5px; background: rgba(59,130,246,0.45); border-radius: 2px; }
-  .elcap-label { color: rgba(255,255,255,0.5); font-size: 5px; font-family: 'JetBrains Mono', monospace; text-align: center; line-height: 1.2; margin-top: 6px; }
-  .elcap-lead { position: absolute; bottom: -10px; width: 2px; height: 12px; background: linear-gradient(180deg, #b8860b, #8b6d1a); }
-  .elcap-lead-l { left: 7px; }
-  .elcap-lead-r { right: 7px; }
-
-  /* LED */
-  .hw-led .led-pkg { width: 18px; height: 28px; display: flex; flex-direction: column; align-items: center; position: relative; }
-  .led-lens {
-    width: 16px; height: 16px;
-    border-radius: 50% 50% 35% 35%;
-    background: radial-gradient(circle at 40% 35%, rgba(130,190,255,0.95), rgba(59,130,246,0.8) 50%, rgba(30,60,150,0.9));
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 10px rgba(59,130,246,0.5);
-    animation: ledBreathe 2.5s ease-in-out infinite;
-  }
-  .led-base-ring { width: 18px; height: 5px; background: linear-gradient(180deg, #555, #333); border-radius: 0 0 3px 3px; }
-  .led-legs { display: flex; gap: 6px; }
-  .led-leg { width: 1.5px; height: 10px; background: linear-gradient(180deg, #b8860b, #7a5c14); }
-  .led-leg-short { height: 7px; }
-  .led-emission {
-    position: absolute; top: -12px; left: -16px; width: 50px; height: 50px;
-    background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
-    border-radius: 50%; animation: ledBreathe 2.5s ease-in-out infinite; pointer-events: none;
-  }
-  @keyframes ledBreathe { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
-
-  /* Resistor */
-  .hw-res .res-pkg { display: flex; align-items: center; }
-  .res-wire { width: 12px; height: 2px; background: linear-gradient(90deg, #b8860b, #daa520); }
-  .res-barrel {
-    display: flex; align-items: center; gap: 3px; padding: 0 5px;
-    width: 50px; height: 16px; justify-content: center;
-    background: linear-gradient(145deg, #e8dcc8, #c4b8a0);
-    border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-  }
-  .res-stripe { width: 4px; height: 14px; border-radius: 1px; }
-
-  /* Crystal */
-  .hw-xtal .xtal-pkg { display: flex; align-items: center; position: relative; }
-  .xtal-can {
-    width: 38px; height: 16px;
-    background: linear-gradient(145deg, #c8c8c8, #999);
-    border-radius: 3px; border: 1px solid rgba(255,255,255,0.12);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-  }
-  .xtal-freq { font-size: 5.5px; font-family: 'JetBrains Mono', monospace; color: #333; font-weight: 600; }
-  .xtal-pin { width: 10px; height: 2px; background: linear-gradient(90deg, #b8860b, #daa520); }
-  .xtal-pin-l { margin-right: 0; }
-  .xtal-pin-r { margin-left: 0; }
-
-  /* MOSFET / Regulator (TO-220) */
-  .mosfet-pkg { display: flex; flex-direction: column; align-items: center; width: 30px; }
-  .mosfet-tab {
-    width: 28px; height: 4px;
-    background: linear-gradient(180deg, #6a6a7a, #3a3a45);
-    border-radius: 2px 2px 0 0;
-  }
-  .mosfet-body {
-    width: 26px; height: 26px;
-    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-    border-radius: 0 0 4px 4px;
-    border: 1px solid rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  }
-  .mosfet-label { color: rgba(255,255,255,0.45); font-size: 5px; font-family: 'JetBrains Mono', monospace; text-align: center; line-height: 1.2; }
-  .mosfet-legs { display: flex; gap: 3px; }
-  .mosfet-leg { width: 2px; height: 12px; background: linear-gradient(180deg, #b8860b, #8b6d1a); }
-
-  /* Vias & Solder Pads following the theme */
-  .via-hole {
-    position: absolute; width: 8px; height: 8px; border-radius: 50%;
-    background: radial-gradient(circle, #070d14 40%, rgba(59,130,246,0.2) 65%, rgba(59,130,246,0.1));
-    border: 1.5px solid rgba(59,130,246,0.15);
-    transform: translate(-50%, -50%) translateZ(1px); z-index: 2;
-  }
-  .solder-pad {
-    position: absolute; width: 7px; height: 7px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #1e293b, #0f172a 65%, #020617);
-    transform: translate(-50%, -50%) translateZ(2px); z-index: 2;
-    box-shadow: 0 0 4px rgba(59,130,246,0.1);
+    transform-style: preserve-3d;
   }
 
-  /* ========== TOOLTIP ========== */
-  .hero-tooltip {
+  /* ========== BLUEPRINT LAYER ========== */
+  .blueprint-layer { transform: translateZ(-150px); opacity: 0.15; }
+  .blueprint-grid {
+    width: 200%; height: 200%;
+    background-image: radial-gradient(rgba(59,130,246,0.3) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotateX(60deg);
+  }
+
+  /* ========== CONNECTION LAYER ========== */
+  .connection-layer { transform: translateZ(20px); width: 100%; height: 100%; }
+  .path-wire { 
+    fill: none; stroke: rgba(59,130,246,0.1); stroke-width: 1.5; 
+    stroke-dasharray: 4 6;
+  }
+  .pulse { fill: #fff; box-shadow: 0 0 10px #fff; }
+  .pulse-blue { fill: #3b82f6; }
+  .pulse-cyan { fill: #22d3ee; }
+
+  /* ========== SYMBOL NODES ========== */
+  .symbol-layer { transform: translateZ(50px); }
+  .symbol-node {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 30;
-    width: min(240px, calc(100% - 24px));
-    transform: translate3d(0, 8px, 0);
-    background: rgba(8, 12, 18, 0.92);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(148, 163, 184, 0.14);
-    border-radius: 14px;
-    padding: 10px 12px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.36);
-  }
-  .hero-tooltip.active { opacity: 1; transform: translate3d(0, 0, 0); }
-  .tooltip-head { display: flex; align-items: center; margin-bottom: 4px; }
-  .tooltip-name { font-size: 12px; font-weight: 700; color: #fff; font-family: 'Inter', sans-serif; letter-spacing: 0.01em; }
-  .tooltip-spec { font-size: 11px; line-height: 1.5; color: rgba(203,213,225,0.82); margin: 0; font-family: 'Inter', sans-serif; }
-
-  /* ========== PARTICLES ========== */
-  .hero-particle-canvas {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 2;
+    left: var(--x); top: var(--y);
+    transform: translate(-50%, -50%) translateZ(var(--z));
+    display: flex; flex-direction: column; align-items: center;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    filter: drop-shadow(0 0 4px rgba(59,130,246,0.1));
   }
 
-  /* ========== HINT ========== */
+  .symbol-node:hover {
+    color: #fff;
+    filter: drop-shadow(0 0 15px rgba(59,130,246,0.6));
+    transform: translate(-50%, -50%) translateZ(calc(var(--z) + 30px)) scale(1.1);
+  }
+
+  .sym-svg { width: 64px; height: 64px; margin-bottom: 12px; transition: transform 0.3s; }
+  .symbol-node:hover .sym-svg { transform: rotate(5deg); }
+  
+  .sym-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; font-family: 'Inter', sans-serif;
+    opacity: 0.4; transition: opacity 0.3s;
+  }
+  .symbol-node:hover .sym-label { opacity: 1; text-shadow: 0 0 8px currentColor; }
+
+  /* Abstract floating nodes */
+  .abstract-node {
+    position: absolute; width: 6px; height: 6px;
+    left: var(--x); top: var(--y);
+    transform: translate(-50%, -50%) translateZ(var(--z));
+    background: rgba(59,130,246,0.3); border-radius: 50%;
+    box-shadow: 0 0 12px rgba(59,130,246,0.2);
+    animation: nodFloating 6s ease-in-out infinite alternate;
+  }
+  @keyframes nodFloating { from { opacity: 0.2; } to { opacity: 0.6; } }
+
+  /* ========== UI HINT ========== */
   .hero-hint {
-    position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 20;
-    display: flex; align-items: center; gap: 6px;
-    padding: 5px 14px;
-    background: rgba(10,14,20,0.75); backdrop-filter: blur(12px);
-    border: 1px solid rgba(59,130,246,0.15); border-radius: 24px;
-    font-size: 10px; color: rgba(148,163,184,0.7); font-family: 'Inter', sans-serif;
-    opacity: 0; animation: fadeIn 0.6s ease-out 2s forwards;
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 18px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.05); border-radius: 30px;
+    z-index: 10;
   }
-  .hero-hint svg { color: rgba(59,130,246,0.5); }
-  @keyframes fadeIn { to { opacity: 1; } }
+  .hint-dot { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; animation: pulse 2s infinite; }
+  .hero-hint span { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
 
-  /* ========== RESPONSIVE ========== */
+  @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+
   @media (max-width: 768px) {
-    .hero-3d-container { min-height: 360px; }
-    .pcb-board { width: 96%; transform: rotateX(22deg) rotateY(-4deg); }
-    .hw-ic .ic-package { width: 66px; height: 44px; }
-    .ic-text { font-size: 6px; }
-    .hero-hint span { display: none; }
-    .hero-tooltip { width: min(210px, calc(100% - 20px)); }
+    .sym-svg { width: 48px; height: 48px; }
+    .hero-hint { display: none; }
+    .blueprint-grid { display: none; }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('hero-3d');
-    const board = document.getElementById('pcb-board');
-    const tooltip = document.getElementById('hero-tooltip');
-    const ttName = document.getElementById('tt-name');
-    const ttSpec = document.getElementById('tt-spec');
-    const hint = document.getElementById('hero-hint');
-    const canvas = document.getElementById('hero-particles') as HTMLCanvasElement;
-    if (!container || !board || !tooltip || !ttName || !ttSpec || !canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const root = document.getElementById('scene-root');
+    if (!container || !root) return;
 
-    // Canvas resize
-    const resize = () => {
-      const r = container.getBoundingClientRect();
-      canvas.width = r.width * devicePixelRatio;
-      canvas.height = r.height * devicePixelRatio;
-      canvas.style.width = r.width + 'px';
-      canvas.style.height = r.height + 'px';
-      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Particles
-    interface P { x:number; y:number; vx:number; vy:number; s:number; a:number; h:number; life:number; max:number; }
-    const ps: P[] = [];
-    const spawn = () => {
-      if (ps.length >= 50) return;
-      const r = container.getBoundingClientRect();
-      ps.push({ x: Math.random()*r.width, y: Math.random()*r.height, vx:(Math.random()-0.5)*0.25, vy:-Math.random()*0.35-0.08, s:Math.random()*1.8+0.4, a:0, h:210+Math.random()*30, life:0, max:250+Math.random()*250 });
-    };
-    const drawParticles = () => {
-      const r = container.getBoundingClientRect();
-      ctx.clearRect(0,0,r.width,r.height);
-      if (Math.random()<0.12) spawn();
-      for (let i=ps.length-1;i>=0;i--) {
-        const p=ps[i]; p.life++; p.x+=p.vx; p.y+=p.vy;
-        const pr=p.life/p.max;
-        p.a = (pr<0.15?pr/0.15:pr>0.85?(1-pr)/0.15:1)*0.25;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,Math.PI*2);
-        ctx.fillStyle=`hsla(${p.h},65%,58%,${p.a})`; ctx.fill();
-        if (p.life>=p.max||p.y<-10) ps.splice(i,1);
-      }
-      requestAnimationFrame(drawParticles);
-    };
-    drawParticles();
-
-    let activeComponent: HTMLElement | null = null;
-
-    const updateTooltipPosition = () => {
-      if (!activeComponent) return;
-      const containerRect = container.getBoundingClientRect();
-      const componentRect = activeComponent.getBoundingClientRect();
-      const tooltipRect = tooltip.getBoundingClientRect();
-
-      let left = componentRect.left - containerRect.left + componentRect.width / 2 - tooltipRect.width / 2;
-      let top = componentRect.top - containerRect.top - tooltipRect.height - 12;
-
-      left = Math.max(12, Math.min(left, containerRect.width - tooltipRect.width - 12));
-
-      if (top < 12) {
-        top = componentRect.bottom - containerRect.top + 12;
-      }
-
-      tooltip.style.left = `${left}px`;
-      tooltip.style.top = `${top}px`;
-    };
-
-    const showTooltip = (el: HTMLElement) => {
-      activeComponent?.classList.remove('is-active');
-      activeComponent = el;
-      activeComponent.classList.add('is-active');
-      ttName.textContent = el.dataset.name || '';
-      ttSpec.textContent = el.dataset.spec || '';
-      tooltip.classList.add('active');
-      updateTooltipPosition();
-    };
-
-    const hideTooltip = () => {
-      activeComponent?.classList.remove('is-active');
-      activeComponent = null;
-      tooltip.classList.remove('active');
-    };
-
-    // 3D rotation
-    let rotX = 28, rotY = -8, tRotX = 28, tRotY = -8;
-    let dragging = false;
-
-    container.addEventListener('mousedown', () => { dragging = true; if (hint) hint.style.opacity='0'; });
-    window.addEventListener('mouseup', () => { dragging = false; });
+    let rotX = 10, rotY = 0;
+    let tRotX = 10, tRotY = 0;
 
     container.addEventListener('mousemove', (e: MouseEvent) => {
-      const r = container.getBoundingClientRect();
-      const nx = (e.clientX - r.left) / r.width - 0.5;
-      const ny = (e.clientY - r.top) / r.height - 0.5;
-      if (dragging) {
-        tRotY = -8 + nx * 50;
-        tRotX = 28 - ny * 40;
-      } else {
-        tRotY = -8 + nx * 22;
-        tRotX = 28 - ny * 16;
-      }
-      tRotX = Math.max(-20, Math.min(50, tRotX));
-      tRotY = Math.max(-40, Math.min(40, tRotY));
+      const rect = container.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      tRotY = x * 20; // Max 10 deg either side
+      tRotX = 10 - (y * 15); // Shift perspective
     });
 
-    container.addEventListener('mouseleave', () => {
-      if (!dragging) { tRotX = 28; tRotY = -8; }
-      hideTooltip();
-    });
-
-    // Touch
-    container.addEventListener('touchstart', (e) => {
-      if (hint) hint.style.opacity='0';
-    }, { passive: true });
-    container.addEventListener('touchmove', (e) => {
-      const t = e.touches[0]; const r = container.getBoundingClientRect();
-      const nx = (t.clientX - r.left) / r.width - 0.5;
-      const ny = (t.clientY - r.top) / r.height - 0.5;
-      tRotY = Math.max(-35, Math.min(35, -8 + nx * 40));
-      tRotX = Math.max(-15, Math.min(45, 28 - ny * 30));
-    }, { passive: true });
-
-    // Smooth anim loop
+    // Inertia loop
     const loop = () => {
-      rotX += (tRotX - rotX) * 0.07;
-      rotY += (tRotY - rotY) * 0.07;
-      board.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-      if (activeComponent) updateTooltipPosition();
+      rotX += (tRotX - rotX) * 0.08;
+      rotY += (tRotY - rotY) * 0.08;
+      root.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
       requestAnimationFrame(loop);
     };
     loop();
 
-    // Tooltips
-    container.querySelectorAll('.hw-component').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        showTooltip(el as HTMLElement);
-      });
-      el.addEventListener('mouseleave', () => hideTooltip());
+    // Reset rotation on mobile
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 768) { tRotX = 0; tRotY = 0; }
+      else { tRotX = 10; tRotY = 0; }
     });
-
-    // Idle auto-rotate
-    let idleT: ReturnType<typeof setTimeout>;
-    let idleF: number;
-    const startIdle = () => {
-      let t = 0;
-      const anim = () => { t += 0.004; tRotY = -8 + Math.sin(t)*10; tRotX = 28 + Math.cos(t*0.7)*5; idleF = requestAnimationFrame(anim); };
-      anim();
-    };
-    const resetIdle = () => { clearTimeout(idleT); if (idleF) cancelAnimationFrame(idleF); idleT = setTimeout(startIdle, 6000); };
-    container.addEventListener('mousemove', resetIdle);
-    container.addEventListener('mousedown', resetIdle);
-    container.addEventListener('touchstart', resetIdle, { passive: true });
-    resetIdle();
   });
 </script>
