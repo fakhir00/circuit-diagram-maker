@@ -36,31 +36,30 @@
           </defs>
           
           <!-- Main Power Bus (VCC) - TOP -->
-          <path class="trace-path trace-wide" d="M0,80 L100,80 L100,150 L420,150" />
-          <path class="trace-path trace-thin" d="M110,150 L220,150" />
+          <path class="trace-path trace-wide" d="M0,100 L80,100 L110,100 L220,100 L420,100" />
+          <path class="trace-path trace-thin" d="M420,100 L520,100" />
           
           <!-- Signal Input Path - MIDDLE -->
-          <path class="trace-path" d="M0,320 L120,320 L120,450" />
-          <path class="trace-path" d="M190,450 L350,450 L420,450" />
+          <path class="trace-path" d="M0,280 L120,280 L140,280 L420,280" />
           
           <!-- MCU Interconnects -->
-          <path class="trace-path trace-thin" d="M520,380 L780,380" /> <!-- Output to Resistor -->
-          <path class="trace-path trace-thin" d="M810,380 L880,380" /> <!-- Resistor to LED -->
-          <path class="trace-path trace-thin" d="M520,530 L550,530" /> <!-- MCU to Crystal L -->
-          <path class="trace-path trace-thin" d="M520,550 L550,550" /> <!-- MCU to Crystal R -->
+          <path class="trace-path trace-thin" d="M520,210 L780,210" /> <!-- Output to Resistor -->
+          <path class="trace-path trace-thin" d="M810,210 L880,210" /> <!-- Resistor to LED -->
+          <path class="trace-path trace-thin" d="M520,320 L550,320" /> <!-- MCU to Crystal L -->
+          <path class="trace-path trace-thin" d="M520,340 L550,340" /> <!-- MCU to Crystal R -->
           
-          <!-- Control/PWM -->
-          <path class="trace-path trace-thin" d="M420,500 L200,500 L120,500 L120,780" />
+          <!-- Control/PWM to MOSFET -->
+          <path class="trace-path trace-thin" d="M420,380 L120,380 L120,440" />
           
           <!-- Ground Bus - BOTTOM -->
-          <path class="trace-path trace-wide" d="M0,540 L1000,540" />
+          <path class="trace-path trace-wide" d="M0,520 L1000,520" />
           
-          <!-- Animated Current Dots (Corrected Working Circuit) -->
+          <!-- Animated Current Dots (Working Logic Board) -->
           <g filter="url(#glow)">
-            <circle class="current-dot cd-1" r="5"><animateMotion dur="1s" repeatCount="indefinite" path="M0,80 L100,80 L100,150 L420,150"/></circle>
-            <circle class="current-dot cd-2" r="4"><animateMotion dur="1.5s" repeatCount="indefinite" path="M0,320 L120,320 L120,450 L190,450 L420,450"/></circle>
-            <circle class="current-dot cd-3" r="4"><animateMotion dur="0.8s" repeatCount="indefinite" path="M520,380 L780,380 L880,380"/></circle>
-            <circle class="current-dot cd-4" r="3"><animateMotion dur="2s" repeatCount="indefinite" path="M1000,540 L0,540"/></circle>
+            <circle class="current-dot cd-1" r="5"><animateMotion dur="1.2s" repeatCount="indefinite" path="M0,100 L420,100"/></circle>
+            <circle class="current-dot cd-2" r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="M0,280 L420,280"/></circle>
+            <circle class="current-dot cd-3" r="4"><animateMotion dur="0.9s" repeatCount="indefinite" path="M520,210 L880,210"/></circle>
+            <circle class="current-dot cd-4" r="3"><animateMotion dur="2.5s" repeatCount="indefinite" path="M1000,520 L0,520"/></circle>
           </g>
         </svg>
 
