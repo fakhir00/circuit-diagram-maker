@@ -1,5 +1,52 @@
 ---
-import EditorPage from '../components/pages/EditorPage.astro';
+import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
+
+const features = [
+  {
+    title: 'Arduino-focused workspace',
+    desc: 'Open a separate editor tuned for Arduino planning, with relevant boards, passive parts, power symbols, and common integration components.'
+  },
+  {
+    title: 'Pre-wiring documentation',
+    desc: 'Map sensors, headers, buses, and voltage rails before breadboarding so your project wiring is cleaner and easier to debug.'
+  },
+  {
+    title: 'Shareable project diagrams',
+    desc: 'Export schematics for tutorials, student projects, maker documentation, and handoff notes without using heavy desktop software.'
+  }
+];
+
+const useCases = [
+  'Arduino Uno and Mega planning before assembly',
+  'Sensor and module connection diagrams for maker tutorials',
+  'STEM classroom projects and reproducible build documentation'
+];
+
+const tableHeaders = ['Capability', 'What You Can Do', 'Best For'];
+
+const tableRows = [
+  ['Board planning', 'Lay out Arduino boards with connected peripherals and rails', 'Starter and intermediate Arduino projects'],
+  ['Pin mapping', 'Organize signal, I2C, SPI, UART, and power connections clearly', 'Module integration and teaching'],
+  ['Project export', 'Save and share diagrams in editable or presentation-ready formats', 'Guides, labs, and tutorials']
+];
 ---
 
-<EditorPage locale="en" editorMode="arduino" />
+<ToolLandingPage
+  title="Arduino Circuit Maker"
+  description="Use a dedicated Arduino circuit maker to plan boards, sensors, and module connections on a separate canvas built for Arduino workflows."
+  eyebrow="Arduino Design Space"
+  heroTitle="Arduino Circuit Maker for Fast Wiring and Project Planning"
+  heroDescription="Document Arduino-based circuits with a separate editor built for board layouts, pin mapping, sensor connections, and export-ready project diagrams."
+  primaryCtaLabel="Open Arduino Editor"
+  primaryCtaHref="/arduino-editor/"
+  secondaryCtaLabel="View Components"
+  secondaryCtaHref="/components/"
+  featureTitle="Made for Arduino project documentation"
+  featureIntro="Use this separate Arduino tool to sketch circuits before building, organize modules cleanly, and keep board-level documentation simple for teams and tutorials."
+  features={features}
+  useCases={useCases}
+  tableTitle="What makes the Arduino tool different?"
+  tableHeaders={tableHeaders}
+  tableRows={tableRows}
+  presetId="arduino"
+/>

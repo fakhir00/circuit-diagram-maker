@@ -1,5 +1,52 @@
 ---
-import EditorPage from '../components/pages/EditorPage.astro';
+import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
+
+const features = [
+  {
+    title: 'Gate-first component library',
+    desc: 'Start with AND, OR, NOT, NAND, NOR, XOR, XNOR, input sources, and output indicators arranged for fast digital logic drafting.'
+  },
+  {
+    title: 'Clean orthogonal wiring',
+    desc: 'Route readable logic paths with grid snapping and structured right-angle connections that keep Boolean flow easy to follow.'
+  },
+  {
+    title: 'Classroom and engineering ready',
+    desc: 'Export logic diagrams for homework, lab documents, design reviews, and technical documentation without extra cleanup.'
+  }
+];
+
+const useCases = [
+  'Truth table walkthroughs and Boolean simplification exercises',
+  'Combinational logic sketches for coursework and electronics labs',
+  'Gate-level documentation before moving into HDL or PCB work'
+];
+
+const tableHeaders = ['Capability', 'What You Can Do', 'Best For'];
+
+const tableRows = [
+  ['Logic gates', 'Place digital gates and basic signal endpoints quickly', 'Boolean circuit drafting'],
+  ['Visual flow', 'Keep inputs, logic stages, and outputs arranged clearly', 'Teaching and presentations'],
+  ['Export output', 'Download diagrams as SVG, PNG, or editable JSON', 'Reports and collaboration']
+];
 ---
 
-<EditorPage locale="en" editorMode="logic" />
+<ToolLandingPage
+  title="Logic Gate Diagram Tool"
+  description="Create clean digital logic schematics with a dedicated logic gate diagram tool. Draft gate networks, route signals clearly, and export professional diagrams."
+  eyebrow="Digital Logic Workspace"
+  heroTitle="Logic Gate Diagram Tool for Clear Digital Circuit Design"
+  heroDescription="Build readable gate-level schematics with a dedicated logic canvas for combinational circuits, classroom diagrams, and digital design documentation."
+  primaryCtaLabel="Open Logic Editor"
+  primaryCtaHref="/logic-editor/"
+  secondaryCtaLabel="Read Documentation"
+  secondaryCtaHref="/docs/"
+  featureTitle="Built for structured logic diagrams"
+  featureIntro="This landing page introduces a focused digital logic workflow with separate editing space, logic-specific component filtering, and export-ready schematic output."
+  features={features}
+  useCases={useCases}
+  tableTitle="Why use a separate logic gate editor?"
+  tableHeaders={tableHeaders}
+  tableRows={tableRows}
+  presetId="gates"
+/>
