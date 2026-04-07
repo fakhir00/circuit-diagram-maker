@@ -33,7 +33,7 @@ const blogSchema = {
 };
 ---
 
-<BaseLayout title="Blog — Circuit Diagram Maker Guides & Tutorials" description="Explore professional circuit design tutorials, electronic schematic guides, and the latest updates from Circuit Diagram Maker.">
+<BaseLayout title={`${t('nav.blog')} — ${t('brand.name')}`} description={t('blog.subtitle')}>
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
   <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">
@@ -42,14 +42,14 @@ const blogSchema = {
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-dark/50 to-bg-dark"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Engineering Blog</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6">Latest Updates & Guides</h1>
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('blog.eyebrow')}</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6">{t('blog.title')}</h1>
       <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-        News, tutorials, and deep-dives for professional circuit designers and hobbyists alike.
+        {t('blog.subtitle')}
       </p>
       <div class="flex items-center justify-center gap-4 text-xs font-mono text-slate-500 uppercase tracking-widest bg-white/5 w-fit mx-auto px-4 py-2 rounded-full border border-white/5 backdrop-blur-sm">
         <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
-        {page.total} Articles Published
+        {page.total} {t('blog.articles_published')}
       </div>
     </div>
   </section>
@@ -67,7 +67,7 @@ const blogSchema = {
                 {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
               </time>
               <span class="text-[10px] font-black uppercase tracking-tighter px-2 py-1 bg-brand-primary/10 text-brand-primary rounded border border-brand-primary/20">
-                5 min read
+                5 {t('blog.min_read')}
               </span>
             </div>
             
@@ -83,7 +83,7 @@ const blogSchema = {
             
             <div class="pt-6 border-t border-white/5 mt-auto">
               <a href={`/blog/${post.id.replace(/^en\//, '')}`} class="group/btn inline-flex items-center gap-2 text-sm font-bold text-white uppercase tracking-wider hover:text-brand-accent transition-colors">
-                Read Deep-Dive 
+                {t('blog.read_more')} 
                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
               </a>
             </div>
@@ -96,17 +96,17 @@ const blogSchema = {
     {(page.url.prev || page.url.next) && (
       <nav class="flex justify-between items-center mt-20 pt-10 border-t border-white/5">
         {page.url.prev ? (
-          <a href={page.url.prev} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">&larr; Newer</a>
+          <a href={page.url.prev} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">&larr; {t('blog.newer')}</a>
         ) : <div class="w-24"></div>}
         
         <div class="flex items-center gap-2">
-          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">Part</span>
+          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.part')}</span>
           <span class="px-3 py-1 rounded-md bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-bold text-sm">{page.currentPage}</span>
-          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">of {page.lastPage}</span>
+          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.of')} {page.lastPage}</span>
         </div>
         
         {page.url.next ? (
-          <a href={page.url.next} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">Older &rarr;</a>
+          <a href={page.url.next} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">{t('blog.older')} &rarr;</a>
         ) : <div class="w-24"></div>}
       </nav>
     )}

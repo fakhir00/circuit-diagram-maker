@@ -44,49 +44,81 @@ const blogSchema = {
 };
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title={`${t('nav.blog')} — ${t('brand.name')}`} description={t('blog.subtitle')}>
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
-  <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h1 class="text-4xl font-extrabold tracking-tight text-white mb-4">{t('blog.title') || 'Latest Updates'}</h1>
-      <p class="text-xl text-slate-400 mb-6">{t('blog.subtitle') || 'News, tutorials, and insights for circuit designers.'}</p>
-      <p class="text-sm text-slate-500 font-mono">
-        {t('blog.showing') || 'Showing'} {page.start + 1} - {page.end + 1} {t('blog.of') || 'of'} {page.total} {t('blog.results') || 'results'}
+  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">
+    {/* Blueprint Grid Background */}
+    <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.08)_1px,transparent_1px)] [background-size:32px_32px] opacity-40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-dark/50 to-bg-dark"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('blog.eyebrow')}</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6">{t('blog.title')}</h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+        {t('blog.subtitle')}
       </p>
+      <div class="flex items-center justify-center gap-4 text-xs font-mono text-slate-500 uppercase tracking-widest bg-white/5 w-fit mx-auto px-4 py-2 rounded-full border border-white/5 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+        {page.total} {t('blog.articles_published')}
+      </div>
     </div>
+  </section>
 
+  <div class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {page.data.map((post) => (
-        <article class="p-6 rounded-2xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-colors flex flex-col h-full">
-          <time datetime={post.data.date.toISOString()} class="text-sm text-slate-400 mb-2 block">
-            {post.data.date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
-          </time>
-          <h2 class="text-xl font-bold text-white mb-3">
-            <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="hover:text-brand-accent transition-colors">
-              {post.data.title}
-            </a>
-          </h2>
-          <p class="text-slate-400 flex-grow mb-6">{post.data.description}</p>
-          <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="text-brand-primary font-medium hover:text-brand-accent transition-colors mt-auto inline-flex items-center gap-1">
-            {t('blog.read_more') || 'Read article'} <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </a>
+        <article class="group relative p-8 rounded-3xl bg-bg-panel border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.12)] hover:-translate-y-1 overflow-hidden">
+          {/* Background Glow on Hover */}
+          <div class="absolute -inset-10 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none"></div>
+          
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="flex items-center justify-between mb-5">
+              <time datetime={post.data.date.toISOString()} class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
+              </time>
+              <span class="text-[10px] font-black uppercase tracking-tighter px-2 py-1 bg-brand-primary/10 text-brand-primary rounded border border-brand-primary/20">
+                5 {t('blog.min_read')}
+              </span>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-white mb-4 leading-snug group-hover:text-brand-primary transition-colors">
+              <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`}>
+                {post.data.title}
+              </a>
+            </h2>
+            
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-8 line-clamp-3">
+              {post.data.description}
+            </p>
+            
+            <div class="pt-6 border-t border-white/5 mt-auto">
+              <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="group/btn inline-flex items-center gap-2 text-sm font-bold text-white uppercase tracking-wider hover:text-brand-accent transition-colors">
+                {t('blog.read_more')} 
+                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+            </div>
+          </div>
         </article>
       ))}
     </div>
 
     {/* Pagination */}
     {(page.url.prev || page.url.next) && (
-      <nav class="flex justify-between items-center mt-16 pt-8 border-t border-white/5">
+      <nav class="flex justify-between items-center mt-20 pt-10 border-t border-white/5">
         {page.url.prev ? (
-          <a href={page.url.prev} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">&larr; {t('blog.previous') || 'Previous'}</a>
-        ) : <div></div>}
+          <a href={page.url.prev} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">&larr; {t('blog.newer')}</a>
+        ) : <div class="w-24"></div>}
         
-        <span class="text-slate-400">{t('blog.page') || 'Page'} {page.currentPage} {t('blog.of') || 'of'} {page.lastPage}</span>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.part')}</span>
+          <span class="px-3 py-1 rounded-md bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-bold text-sm">{page.currentPage}</span>
+          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.of')} {page.lastPage}</span>
+        </div>
         
         {page.url.next ? (
-          <a href={page.url.next} class="px-4 py-2 border border-white/10 rounded-md bg-bg-surface hover:bg-slate-800 text-white transition-colors">{t('blog.next') || 'Next'} &rarr;</a>
-        ) : <div></div>}
+          <a href={page.url.next} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">{t('blog.older')} &rarr;</a>
+        ) : <div class="w-24"></div>}
       </nav>
     )}
   </div>

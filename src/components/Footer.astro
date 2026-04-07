@@ -10,10 +10,7 @@ const { locale, config } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
-
-const year = new Date().getFullYear();
-const currentPath = Astro.url.pathname;
----
+import { locales } from '../theme/i18n';
 ---
 
 <footer class="bg-bg-panel border-t border-white/5 mt-auto">
@@ -43,12 +40,14 @@ const currentPath = Astro.url.pathname;
           </div>
           <div class="flex flex-col leading-none">
             <span class="font-black text-sm tracking-tight text-white group-hover:text-brand-primary transition-colors uppercase">
-              CIRCUIT<span class="text-slate-500">DIAGRAM</span><span class="ml-0.5 text-slate-600">MAKER</span>
+              {t('brand.name').split(' ').map((word: string, i: number) => (
+                <span class={i === 1 ? 'text-slate-500' : i === 2 ? 'ml-0.5 text-slate-600' : ''}>{word}</span>
+              ))}
             </span>
           </div>
         </a>
         <p class="text-slate-500 text-sm leading-relaxed mb-4">
-          {footerText.tagline}
+          {t('footer.tagline')}
         </p>
         <p class="text-slate-600 text-xs">
           &copy; {year} {config.site.name}. All rights reserved.
@@ -57,32 +56,32 @@ const currentPath = Astro.url.pathname;
 
       <!-- Product Links -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.product}</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.product')}</h3>
         <ul class="space-y-2.5">
           <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.editor')}</a></li>
           <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.components')}</a></li>
           <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.docs')}</a></li>
-          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.blogTutorials}</a></li>
+          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.blogTutorials')}</a></li>
         </ul>
       </div>
 
       <!-- Popular Articles -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.guides}</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.guides')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/blog/ultimate-guide-circuit-diagrams/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideUltimate}</a></li>
-          <li><a href={getLocalizedPath('/blog/circuit-diagram-symbols-explained/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideSymbols}</a></li>
-          <li><a href={getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideOnline}</a></li>
-          <li><a href={getLocalizedPath('/blog/circuit-diagram-for-beginners/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideBeginners}</a></li>
+          <li><a href={getLocalizedPath('/blog/ultimate-guide-circuit-diagrams/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideUltimate')}</a></li>
+          <li><a href={getLocalizedPath('/blog/circuit-diagram-symbols-explained/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideSymbols')}</a></li>
+          <li><a href={getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideOnline')}</a></li>
+          <li><a href={getLocalizedPath('/blog/circuit-diagram-for-beginners/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideBeginners')}</a></li>
         </ul>
       </div>
 
       <!-- Legal & Social -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.company}</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.company')}</h3>
         <ul class="space-y-2.5">
           <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.about')}</a></li>
-          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.contactSupport}</a></li>
+          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.contactSupport')}</a></li>
           {config.footer.map((item: any) => (
             <li><a href={getLocalizedPath(item.path, locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t(item.labelKey)}</a></li>
           ))}
@@ -107,7 +106,7 @@ const currentPath = Astro.url.pathname;
     <!-- Locale Switcher -->
     <div class="mt-10 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex flex-wrap gap-2">
-        {['en', 'es', 'hi', 'fr', 'de', 'ar'].map((l) => (
+        {locales.map((l) => (
           <a 
             href={getLocalizedPath(currentPath, l)} 
             class={`text-[10px] uppercase font-bold px-2 py-1 rounded border transition-all ${locale === l ? 'bg-brand-primary/10 border-brand-primary/50 text-brand-primary' : 'bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300'}`}
@@ -115,13 +114,13 @@ const currentPath = Astro.url.pathname;
             {l}
           </a>
         ))}
-        <a href={getLocalizedPath('/sitemap/', locale)} class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">{footerText.more}</a>
+        <a href={getLocalizedPath('/sitemap/', locale)} class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">{t('footer.more')}</a>
       </div>
       <div class="text-[10px] text-slate-600 uppercase font-bold tracking-widest leading-none flex items-center gap-2">
-        {footerText.status}: <span class="relative flex h-2 w-2">
+        {t('footer.status')}: <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span> <span class="text-emerald-500/80">{footerText.operational}</span>
+        </span> <span class="text-emerald-500/80">{t('footer.operational')}</span>
       </div>
     </div>
   </div>
