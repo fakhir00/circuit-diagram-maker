@@ -1,0 +1,315 @@
+---
+import BlogSchematicExplorer from './BlogSchematicExplorer.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface PostData {
+  title: string;
+  description: string;
+  date: Date;
+  author?: string;
+  image?: string;
+  tags?: string[];
+}
+
+interface Props {
+  post: {
+    data: PostData;
+  };
+  Content: any;
+  headings?: Heading[];
+  locale: string;
+}
+
+const { post, Content, headings = [], locale } = Astro.props;
+const articleHeadings = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
+const primaryTag = post.data.tags?.[0] || 'Engineering';
+---
+
+<article class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+  <header class="mx-auto max-w-4xl">
+    <div class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(9,14,24,0.92))] px-6 py-8 shadow-[0_20px_80px_rgba(0,0,0,0.28)] sm:px-8 sm:py-10">
+      <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+        <span class="rounded-full border border-brand-primary/20 bg-brand-primary/10 px-3 py-1 text-brand-accent">{primaryTag}</span>
+        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+        <time datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+        <span>{post.data.author || 'Circuit Diagram Maker Team'}</span>
+      </div>
+
+      <h1 class="mt-6 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+        {post.data.title}
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+        {post.data.description}
+      </p>
+
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div class="mt-6 flex flex-wrap gap-2">
+          {post.data.tags.slice(0, 5).map((tag) => (
+            <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-300">{tag}</span>
+          ))}
+        </div>
+      )}
+
+      {post.data.image && (
+        <div class="mt-8 overflow-hidden rounded-[1.5rem] border border-white/10 shadow-2xl">
+          <img src={post.data.image} alt={post.data.title} class="h-full w-full object-cover" />
+        </div>
+      )}
+    </div>
+  </header>
+
+  <div class="mx-auto mt-10 grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_300px]">
+    <div class="min-w-0 space-y-8">
+      <BlogSchematicExplorer title={post.data.title} tags={post.data.tags || []} />
+
+      <section class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(7,12,21,0.94))] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.22)] sm:p-8">
+        <div class="blog-article">
+          <Content />
+        </div>
+      </section>
+    </div>
+
+    <aside class="hidden xl:block">
+      <div class="sticky top-24 rounded-[1.5rem] border border-white/10 bg-bg-panel/90 p-5 shadow-[0_14px_40px_rgba(0,0,0,0.22)]">
+        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-brand-accent">On this page</p>
+        {articleHeadings.length > 0 ? (
+          <nav class="mt-5">
+            <ol class="space-y-2">
+              {articleHeadings.map((heading) => (
+                <li class:list={['rounded-xl transition', heading.depth === 3 ? 'ml-4' : '']}>
+                  <a
+                    href={`#${heading.slug}`}
+                    class:list={[
+                      'block rounded-xl border border-transparent px-3 py-2 text-sm leading-6 text-slate-300 transition hover:border-white/10 hover:bg-white/[0.04] hover:text-white',
+                      heading.depth === 2 ? 'font-semibold' : 'text-slate-400'
+                    ]}
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        ) : (
+          <p class="mt-4 text-sm leading-7 text-slate-400">Section anchors will appear here when the article includes subheadings.</p>
+        )}
+      </div>
+    </aside>
+  </div>
+</article>
+
+<style>
+  .blog-article {
+    color: rgb(203 213 225);
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  .blog-article > :first-child {
+    margin-top: 0;
+  }
+
+  .blog-article h1 {
+    display: none;
+  }
+
+  .blog-article h2,
+  .blog-article h3,
+  .blog-article h4,
+  .blog-article h5,
+  .blog-article h6 {
+    scroll-margin-top: 7rem;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-article h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.1rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid rgba(96, 165, 250, 0.9);
+    font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+    line-height: 1.15;
+    font-weight: 800;
+  }
+
+  .blog-article h3 {
+    margin-top: 2.2rem;
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.25;
+    font-weight: 750;
+  }
+
+  .blog-article h4,
+  .blog-article h5,
+  .blog-article h6 {
+    margin-top: 1.6rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .blog-article p,
+  .blog-article ul,
+  .blog-article ol,
+  .blog-article table,
+  .blog-article blockquote,
+  .blog-article pre {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-article p {
+    color: rgba(203, 213, 225, 0.95);
+  }
+
+  .blog-article ul,
+  .blog-article ol {
+    padding-left: 1.25rem;
+  }
+
+  .blog-article li {
+    margin: 0.6rem 0;
+    padding-left: 0.25rem;
+  }
+
+  .blog-article li::marker {
+    color: rgba(96, 165, 250, 0.92);
+  }
+
+  .blog-article strong {
+    color: white;
+    font-weight: 700;
+  }
+
+  .blog-article a {
+    color: rgb(125 211 252);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(125, 211, 252, 0.28);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .blog-article a:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .blog-article code {
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 0.5rem;
+    padding: 0.16rem 0.42rem;
+    color: rgb(165 243 252);
+    font-size: 0.92em;
+  }
+
+  .blog-article pre {
+    overflow-x: auto;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    background: linear-gradient(180deg, rgba(7, 12, 21, 0.98), rgba(15, 23, 42, 0.92));
+    border-radius: 1.1rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .blog-article pre code {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    color: rgb(226 232 240);
+  }
+
+  .blog-article blockquote {
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    background: linear-gradient(180deg, rgba(8, 47, 73, 0.35), rgba(8, 47, 73, 0.16));
+    border-left: 3px solid rgba(52, 211, 153, 0.7);
+    border-radius: 1rem;
+    padding: 1rem 1.1rem;
+    color: rgba(224, 242, 254, 0.92);
+  }
+
+  .blog-article blockquote p {
+    margin: 0;
+  }
+
+  .blog-article table {
+    width: 100%;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgba(99, 102, 241, 0.18);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(29, 26, 63, 0.72), rgba(15, 23, 42, 0.82));
+    font-size: 0.97rem;
+  }
+
+  .blog-article thead th {
+    background: rgba(79, 70, 229, 0.16);
+    color: rgb(224 231 255);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .blog-article th,
+  .blog-article td {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    padding: 0.95rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .blog-article tbody tr:last-child td,
+  .blog-article tbody tr:last-child th {
+    border-bottom: 0;
+  }
+
+  .blog-article tbody tr:nth-child(even) td,
+  .blog-article tbody tr:nth-child(even) th {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .blog-article hr {
+    margin: 2.4rem 0;
+    border: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+  }
+
+  .blog-article img {
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.24);
+  }
+
+  @media (max-width: 768px) {
+    .blog-article {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .blog-article h2 {
+      margin-top: 2.4rem;
+      font-size: 1.65rem;
+    }
+
+    .blog-article h3 {
+      font-size: 1.25rem;
+    }
+
+    .blog-article table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+</style>
