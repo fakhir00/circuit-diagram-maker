@@ -164,17 +164,21 @@ const presets = [
                 <svg class="h-full w-full text-brand-accent" viewBox="0 0 760 460" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="currentGlow">
-                      <feGaussianBlur stdDeviation="2" result="blur"/>
+                      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                    <filter id="wireGlow">
+                      <feGaussianBlur stdDeviation="1.5" result="blur"/>
                       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                     </filter>
                   </defs>
 
-                  <g data-diagram="analog" transform="translate(60, 50)">
-                    <path id="a1" d="M88 130H184" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-                    <path id="a2" d="M88 130V216H188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                  <g data-diagram="analog" transform="translate(68, 55)">
+                    <path id="a1" d="M88 130H184" stroke="currentColor" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <path id="a2" d="M88 130V216H188" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
                     
-                    <circle r="4" fill="#22d3ee" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M88 130H184" /></circle>
-                    <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M88 130V216H188" /></circle>
+                    <circle r="5" fill="#22d3ee" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M88 130H184" /></circle>
+                    <circle r="5" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M88 130V216H188" /></circle>
 
                     <rect x="184" y="92" width="116" height="80" rx="16" fill="#111827" stroke="#60a5fa" stroke-width="3" />
                     <text x="242" y="138" text-anchor="middle" fill="#e2e8f0" font-size="20" font-family="sans-serif" font-weight="bold">OP-AMP</text>
@@ -198,29 +202,29 @@ const presets = [
                     <text x="530" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VOUT</text>
                   </g>
 
-                  <g data-diagram="power" class="hidden" transform="translate(30, 40)">
-                    <path id="p1" d="M90 118H190" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" />
-                    <circle r="4" fill="#60a5fa" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M90 118H190" /></circle>
+                  <g data-diagram="power" class="hidden" transform="translate(35, 45)">
+                    <path id="p1" d="M90 118H190" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <circle r="5" fill="#60a5fa" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M90 118H190" /></circle>
 
                     <rect x="190" y="88" width="88" height="62" rx="14" fill="#111827" stroke="#f59e0b" stroke-width="3" />
                     <text x="234" y="126" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">PWM</text>
                     
-                    <path id="p2" d="M278 118H358" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
-                    <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M278 118H358" /></circle>
+                    <path id="p2" d="M278 118H358" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <circle r="5" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M278 118H358" /></circle>
 
-                    <path id="p3" d="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" stroke="#fde68a" stroke-width="4" stroke-linecap="round" />
-                    <circle r="3.5" fill="#fde68a" filter="url(#currentGlow)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" /></circle>
+                    <path id="p3" d="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" stroke="#fde68a" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <circle r="4" fill="#fde68a" filter="url(#currentGlow)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" /></circle>
 
-                    <path id="p4" d="M482 118H580" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
-                    <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M482 118H580" /></circle>
+                    <path id="p4" d="M482 118H580" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <circle r="5" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M482 118H580" /></circle>
 
                     <rect x="580" y="86" width="92" height="64" rx="14" fill="#111827" stroke="#22c55e" stroke-width="3" />
                     <text x="626" y="124" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">LOAD</text>
                     
-                    <path id="p5" d="M358 118V210H626V150" stroke="#fb7185" stroke-width="4" stroke-linecap="round" />
-                    <circle r="3.5" fill="#fb7185" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M358 118V210H626V150" /></circle>
+                    <path id="p5" d="M358 118V210H626V150" stroke="#fb7185" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
+                    <circle r="4" fill="#fb7185" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M358 118V210H626V150" /></circle>
 
-                    <path d="M430 118V256" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <path d="M430 118V256" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" filter="url(#wireGlow)" />
                     <path d="M402 256H458" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
                     <path d="M412 274H448" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
                     <path d="M420 292H440" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
@@ -371,13 +375,13 @@ const presets = [
             </div>
           </div>
 
-          <div class="flex flex-col justify-between gap-6">
-            <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/80 p-6">
+          <div class="flex flex-col gap-6 lg:min-w-[340px]">
+            <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/80 p-6 shadow-lg backdrop-blur-md">
               <p class="text-xs uppercase tracking-[0.3em] text-brand-accent">Preset Notes</p>
               <p id="showcase-summary" class="mt-4 text-base leading-7 text-slate-300">{presets[0].summary}</p>
             </div>
 
-            <div class="rounded-[1.5rem] border border-white/10 bg-bg-panel p-6">
+            <div class="flex-grow rounded-[1.5rem] border border-white/10 bg-[#0c1626] p-6 shadow-xl">
               <div class="mb-5 flex items-center justify-between">
                 <h4 class="text-lg font-semibold text-white">Quick reference table</h4>
                 <span class="text-xs uppercase tracking-[0.3em] text-slate-500">Auto-updates</span>
@@ -386,8 +390,8 @@ const presets = [
                 <tbody id="showcase-specs" class="divide-y divide-white/10 text-slate-300">
                   {presets[0].specs.map(([label, value]) => (
                     <tr>
-                      <th class="py-3 pr-4 font-medium text-slate-400">{label}</th>
-                      <td class="py-3 text-white">{value}</td>
+                      <th class="py-3 pr-4 font-mono text-[11px] uppercase tracking-wider text-slate-500">{label}</th>
+                      <td class="py-3 font-semibold text-brand-accent">{value}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -182,37 +182,56 @@ const personas = [
           <div class="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
           <svg class="w-full h-auto relative z-10" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <filter id="dotGlow">
-                <feGaussianBlur stdDeviation="1.5" result="blur"/>
+              <filter id="wireGlowHome">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="nodeGlowHome">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <rect x="10" y="10" width="480" height="280" rx="8" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <rect x="5" y="5" width="490" height="290" rx="12" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="1.5" stroke-dasharray="4 4"/>
             
-            <!-- Animated drawing paths -->
-            <path id="flow1" class="anim-draw" d="M60,150 L140,150 L140,80 L260,80" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <circle r="3" fill="#60a5fa" filter="url(#dotGlow)">
-              <animateMotion dur="2s" repeatCount="indefinite" path="M60,150 L140,150 L140,80 L260,80" />
+            <!-- Path 1: Source to Resistor -->
+            <path id="h-wire-1" class="anim-draw-high" d="M60,200 L60,100 L120,100" stroke="#3b82f6" stroke-width="3.5" stroke-linecap="round" filter="url(#wireGlowHome)"/>
+            <circle r="4" fill="#60a5fa" filter="url(#nodeGlowHome)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M60,200 L60,100 L120,100" />
             </circle>
 
-            <rect class="anim-fade" x="260" y="50" width="100" height="60" rx="8" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
-            <text class="anim-fade" x="310" y="85" text-anchor="middle" fill="#e2e8f0" font-size="14" font-family="Inter,sans-serif" font-weight="bold">Op-Amp</text>
-            
-            <path id="flow2" class="anim-draw-2" d="M360,80 L440,80 L440,150" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <circle r="3" fill="#22d3ee" filter="url(#dotGlow)">
-              <animateMotion dur="1.5s" repeatCount="indefinite" path="M360,80 L440,80 L440,150" />
-            </circle>
+            <!-- Component: Resistor -->
+            <g class="anim-fade-1">
+              <rect x="120" y="85" width="60" height="30" rx="3" fill="#111827" stroke="#60a5fa" stroke-width="2.5"/>
+              <text x="150" y="105" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">10K</text>
+            </g>
 
-            <circle class="anim-fade-2" cx="440" cy="150" r="6" fill="#22d3ee"/>
+            <!-- Path 2: Resistor to Transistor -->
+            <path id="h-wire-2" class="anim-draw-mid" d="M180,100 L240,100 L240,150" stroke="#22d3ee" stroke-width="3.5" stroke-linecap="round" filter="url(#wireGlowHome)"/>
             
-            <path id="flow3" class="anim-draw-3" d="M140,150 L140,220 L310,220 L310,110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" fill="none" opacity="0.6"/>
-            <circle r="2.5" fill="#f59e0b" filter="url(#dotGlow)">
-              <animateMotion dur="3s" repeatCount="indefinite" path="M140,150 L140,220 L310,220 L310,110" />
-            </circle>
+            <!-- Component: Transistor (Simplified NPN) -->
+            <g class="anim-fade-2">
+              <circle cx="270" cy="150" r="28" fill="#111827" stroke="#38bdf8" stroke-width="2.5"/>
+              <path d="M255,135 L270,150 L255,165" stroke="#38bdf8" stroke-width="2.5"/>
+              <path d="M270,123 V177" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+              <text x="305" y="155" fill="#94a3b8" font-size="10" font-family="monospace">Q1</text>
+            </g>
 
-            <circle class="anim-fade" cx="60" cy="150" r="6" fill="#3b82f6"/>
-            <text class="anim-fade" x="60" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif" font-weight="bold">VIN</text>
-            <text class="anim-fade-2" x="440" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif" font-weight="bold">VOUT</text>
+            <!-- Path 3: Transistor to Capacitor -->
+            <path id="h-wire-3" class="anim-draw-low" d="M270,178 L270,230 L380,230" stroke="#34d399" stroke-width="3.5" stroke-linecap="round" filter="url(#wireGlowHome)"/>
+            
+            <!-- Component: Capacitor -->
+            <g class="anim-fade-3">
+              <path d="M380,210 V250 M392,210 V250" stroke="#10b981" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M360,230 L380,230 M392,230 L430,230" stroke="#10b981" stroke-width="2.5"/>
+            </g>
+
+            <!-- Final Node -->
+            <circle class="anim-fade-3" cx="430" cy="230" r="6" fill="#10b981" filter="url(#nodeGlowHome)"/>
+
+            <!-- Terminals -->
+            <circle class="anim-fade-0" cx="60" cy="200" r="7" fill="#3b82f6" filter="url(#nodeGlowHome)"/>
+            <text class="anim-fade-0" x="60" y="225" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="bold">SOURCE</text>
+            <text class="anim-fade-3" x="430" y="210" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">OUTPUT</text>
           </svg>
         </div>
       </div>
@@ -292,29 +311,32 @@ const personas = [
 
 <style>
   /* Animated drawing SVG */
-  .anim-draw {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-    animation: drawLine 2s ease-out 0.5s forwards;
+  .anim-draw-high {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: drawLines 2.5s ease-out forwards;
   }
-  .anim-draw-2 {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: drawLine 1.5s ease-out 2s forwards;
-  }
-  .anim-draw-3 {
+  .anim-draw-mid {
     stroke-dasharray: 400;
     stroke-dashoffset: 400;
-    animation: drawLine 2s ease-out 3s forwards;
+    animation: drawLines 1.8s ease-out 1.2s forwards;
   }
-  .anim-fade { opacity: 0; animation: fadeUp 0.6s ease-out 1.8s forwards; }
-  .anim-fade-2 { opacity: 0; animation: fadeUp 0.6s ease-out 3s forwards; }
+  .anim-draw-low {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawLines 2s ease-out 2.5s forwards;
+  }
+  
+  .anim-fade-0 { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
+  .anim-fade-1 { opacity: 0; animation: fadeUp 0.6s ease-out 0.8s forwards; }
+  .anim-fade-2 { opacity: 0; animation: fadeUp 0.6s ease-out 2.2s forwards; }
+  .anim-fade-3 { opacity: 0; animation: fadeUp 0.6s ease-out 3.5s forwards; }
 
-  @keyframes drawLine {
+  @keyframes drawLines {
     to { stroke-dashoffset: 0; }
   }
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
