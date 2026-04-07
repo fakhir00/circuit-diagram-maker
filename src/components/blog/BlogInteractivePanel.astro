@@ -1,0 +1,203 @@
+---
+interface Props {
+  title: string;
+  tags?: string[];
+}
+
+const { title, tags = [] } = Astro.props;
+const normalizedTags = tags.map((tag) => tag.toLowerCase());
+
+const variants = {
+  reading: {
+    key: 'reading',
+    label: 'Reading flow',
+    title: 'How to inspect a schematic logically',
+    summary: 'Start with supply rails, trace the active path, then verify labels and outputs so the circuit becomes easier to understand block by block.',
+    rows: [
+      ['Step 1', 'Identify power and ground'],
+      ['Step 2', 'Follow the signal path'],
+      ['Step 3', 'Read values and labels'],
+      ['Step 4', 'Split the circuit into blocks']
+    ]
+  },
+  building: {
+    key: 'building',
+    label: 'Build flow',
+    title: 'How to draw a clean circuit diagram',
+    summary: 'Place sources first, arrange function blocks left to right, then connect and annotate only after the main topology is stable.',
+    rows: [
+      ['Start with', 'Input power and main ICs'],
+      ['Then place', 'Support parts and passives'],
+      ['Connect using', 'Orthogonal wire routing'],
+      ['Finish with', 'Labels, values, and notes']
+    ]
+  },
+  review: {
+    key: 'review',
+    label: 'Review pass',
+    title: 'What to verify before export',
+    summary: 'Check junctions, polarity, naming, and signal direction so the final schematic is readable for design review, teaching, or documentation.',
+    rows: [
+      ['Connections', 'No accidental crossings'],
+      ['Polarity', 'Correct diode and capacitor orientation'],
+      ['Labels', 'R1, C1, U1 and net names present'],
+      ['Output', 'Export-ready and readable']
+    ]
+  }
+};
+
+const initialKey = normalizedTags.includes('schematic-reading')
+  ? 'reading'
+  : normalizedTags.includes('inverter') || normalizedTags.includes('power-electronics')
+    ? 'building'
+    : normalizedTags.includes('tutorial')
+      ? 'building'
+      : 'review';
+---
+
+<section class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(9,14,24,0.94))] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.22)]" data-blog-panel>
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-accent">Interactive Article Panel</p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight text-white">Diagram + table companion</h2>
+        <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
+          Switch between reading, building, and review views for a quick technical summary of this article.
+        </p>
+      </div>
+      <div class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-slate-400">
+        {title}
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button type="button" class="blog-panel-tab rounded-full border px-4 py-2 text-sm font-semibold transition" data-blog-tab="reading">Read</button>
+      <button type="button" class="blog-panel-tab rounded-full border px-4 py-2 text-sm font-semibold transition" data-blog-tab="building">Draw</button>
+      <button type="button" class="blog-panel-tab rounded-full border px-4 py-2 text-sm font-semibold transition" data-blog-tab="review">Review</button>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)]">
+      <div class="rounded-[1.5rem] border border-white/10 bg-[#0c1321] p-5">
+        <div class="mb-4 border-b border-white/10 pb-4">
+          <p id="blog-panel-label" class="text-xs uppercase tracking-[0.28em] text-brand-accent">{variants[initialKey].label}</p>
+          <h3 id="blog-panel-title" class="mt-2 text-xl font-semibold text-white">{variants[initialKey].title}</h3>
+          <p id="blog-panel-summary" class="mt-3 text-sm leading-7 text-slate-400">{variants[initialKey].summary}</p>
+        </div>
+
+        <div class="overflow-hidden rounded-[1.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.72),rgba(2,6,23,0.95))]">
+          <svg class="h-full w-full" viewBox="0 0 760 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g data-blog-diagram="reading">
+              <rect x="58" y="108" width="136" height="74" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+              <text x="126" y="139" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">POWER</text>
+              <text x="126" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">find rails first</text>
+              <path d="M194 145H328" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+              <rect x="328" y="108" width="136" height="74" rx="18" fill="#111827" stroke="#22d3ee" stroke-width="3" />
+              <text x="396" y="139" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">SIGNAL</text>
+              <text x="396" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">trace the path</text>
+              <path d="M464 145H600" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
+              <rect x="600" y="108" width="102" height="74" rx="18" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <text x="651" y="139" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">LOAD</text>
+              <text x="651" y="159" text-anchor="middle" fill="#94a3b8" font-size="11">confirm output</text>
+            </g>
+
+            <g data-blog-diagram="building" class="hidden">
+              <rect x="66" y="96" width="140" height="86" rx="18" fill="#111827" stroke="#818cf8" stroke-width="3" />
+              <text x="136" y="131" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">SOURCE</text>
+              <text x="136" y="152" text-anchor="middle" fill="#94a3b8" font-size="11">battery or supply</text>
+              <path d="M206 139H336" stroke="#818cf8" stroke-width="4" stroke-linecap="round" />
+              <rect x="336" y="96" width="140" height="86" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+              <text x="406" y="131" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">CONTROL</text>
+              <text x="406" y="152" text-anchor="middle" fill="#94a3b8" font-size="11">logic or driver block</text>
+              <path d="M476 139H608" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+              <rect x="608" y="96" width="92" height="86" rx="18" fill="#111827" stroke="#f59e0b" stroke-width="3" />
+              <text x="654" y="131" text-anchor="middle" fill="#f8fafc" font-size="16" font-weight="700">OUT</text>
+              <text x="654" y="152" text-anchor="middle" fill="#94a3b8" font-size="11">label outputs</text>
+            </g>
+
+            <g data-blog-diagram="review" class="hidden">
+              <rect x="92" y="88" width="576" height="144" rx="24" fill="#111827" stroke="#334155" stroke-width="2" />
+              <path d="M144 128H616" stroke="#38bdf8" stroke-width="4" />
+              <path d="M144 168H548" stroke="#22d3ee" stroke-width="4" />
+              <path d="M144 208H592" stroke="#f59e0b" stroke-width="4" />
+              <circle cx="486" cy="128" r="14" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <circle cx="434" cy="168" r="14" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <circle cx="534" cy="208" r="14" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <text x="160" y="117" fill="#94a3b8" font-size="11">connections</text>
+              <text x="160" y="157" fill="#94a3b8" font-size="11">labels</text>
+              <text x="160" y="197" fill="#94a3b8" font-size="11">polarity</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="rounded-[1.5rem] border border-white/10 bg-bg-panel/90 p-5">
+        <div class="mb-5 flex items-center justify-between">
+          <h3 class="text-lg font-semibold text-white">Interactive reference table</h3>
+          <span class="text-[11px] uppercase tracking-[0.24em] text-slate-500">Updates live</span>
+        </div>
+        <table class="w-full text-left text-sm">
+          <tbody id="blog-panel-rows" class="divide-y divide-white/10 text-slate-300">
+            {variants[initialKey].rows.map(([left, right]) => (
+              <tr>
+                <th class="py-3 pr-4 font-medium text-slate-400">{left}</th>
+                <td class="py-3 text-white">{right}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ variants, initialKey }}>
+  const panelRoot = document.querySelector('[data-blog-panel]');
+
+  if (panelRoot) {
+    const tabs = panelRoot.querySelectorAll('[data-blog-tab]');
+    const diagrams = panelRoot.querySelectorAll('[data-blog-diagram]');
+    const label = panelRoot.querySelector('#blog-panel-label');
+    const title = panelRoot.querySelector('#blog-panel-title');
+    const summary = panelRoot.querySelector('#blog-panel-summary');
+    const rows = panelRoot.querySelector('#blog-panel-rows');
+
+    const renderRows = (items) => {
+      if (!rows) return;
+      rows.innerHTML = items.map(([left, right]) => `
+        <tr>
+          <th class="py-3 pr-4 font-medium text-slate-400">${left}</th>
+          <td class="py-3 text-white">${right}</td>
+        </tr>
+      `).join('');
+    };
+
+    const applyView = (key) => {
+      const active = variants[key] || variants.review;
+
+      tabs.forEach((tab) => {
+        const isActive = tab.getAttribute('data-blog-tab') === key;
+        tab.classList.toggle('border-brand-primary', isActive);
+        tab.classList.toggle('bg-brand-primary/10', isActive);
+        tab.classList.toggle('text-white', isActive);
+        tab.classList.toggle('border-white/10', !isActive);
+        tab.classList.toggle('text-slate-300', !isActive);
+        tab.setAttribute('aria-pressed', String(isActive));
+      });
+
+      diagrams.forEach((diagram) => {
+        diagram.classList.toggle('hidden', diagram.getAttribute('data-blog-diagram') !== key);
+      });
+
+      if (label) label.textContent = active.label;
+      if (title) title.textContent = active.title;
+      if (summary) summary.textContent = active.summary;
+      renderRows(active.rows);
+    };
+
+    applyView(initialKey);
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => applyView(tab.getAttribute('data-blog-tab')));
+    });
+  }
+</script>

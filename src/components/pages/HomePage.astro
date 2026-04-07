@@ -4,7 +4,6 @@ import { getLocalizedPath, useTranslations } from '../../theme/i18n';
 import HowItWorks from '../HowItWorks.astro';
 import FeatureMatrix from '../FeatureMatrix.astro';
 import FAQ from '../FAQ.astro';
-import Hero3DPreview from '../Hero3DPreview.astro';
 import InteractiveCircuitShowcase from '../InteractiveCircuitShowcase.astro';
 
 interface Props {
@@ -151,13 +150,6 @@ const personas = [
       </div>
     </div>
 
-    <!-- 3D Circuit Board (full-width) -->
-    <div class="relative mx-auto max-w-6xl px-4 pb-16">
-      <div class="absolute -inset-8 rounded-[2rem] bg-gradient-to-br from-brand-primary/8 to-brand-secondary/5 blur-3xl pointer-events-none"></div>
-      <div class="relative rounded-2xl border border-white/10 bg-bg-panel overflow-hidden aspect-[4/5] sm:aspect-[16/9]" style="box-shadow: 0 30px 100px rgba(0,0,0,0.5), 0 0 80px rgba(59,130,246,0.06);">
-        <Hero3DPreview />
-      </div>
-    </div>
   </section>
 
   <!-- ███ WHAT IS A CIRCUIT DIAGRAM MAKER? ███ -->
