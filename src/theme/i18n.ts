@@ -18,6 +18,9 @@ import homeKeys from '../data/i18n/home.json';
 import faqKeys from '../data/i18n/faq.json';
 import editorKeys from '../data/i18n/editor.json';
 import toolsKeys from '../data/i18n/tools.json';
+import aboutKeys from '../data/i18n/about.json';
+import contactKeys from '../data/i18n/contact.json';
+import legalKeys from '../data/i18n/legal.json';
 
 // Merge dictionaries
 const dictionaries = {
@@ -25,7 +28,10 @@ const dictionaries = {
   home: homeKeys as Record<string, any>,
   faq: faqKeys as Record<string, any>,
   editor: editorKeys as Record<string, any>,
-  tools: toolsKeys as Record<string, any>
+  tools: toolsKeys as Record<string, any>,
+  about: aboutKeys as Record<string, any>,
+  contact: contactKeys as Record<string, any>,
+  legal: legalKeys as Record<string, any>
 };
 
 export function useTranslations(locale: string) {
@@ -34,13 +40,22 @@ export function useTranslations(locale: string) {
     if (key === 'faq') {
        return dictionaries.faq[locale] || dictionaries.faq[defaultLocale] || [];
     }
+    if (key.includes('.steps') || key.includes('.cards') || key.includes('.rows') || key.includes('.headers') || key.includes('.personas') || key.includes('.timeline') || key.includes('.values')) {
+       // Support for array lookups in specific namespaces
+       const [ns] = key.split('.');
+       const dict = (dictionaries as any)[ns]?.[locale] || (dictionaries as any)[ns]?.[defaultLocale] || {};
+       return dict[key] || [];
+    }
 
     // Combine flat string keys
     const mergedLocaleDict = {
       ...(dictionaries.common[locale] || {}),
       ...(dictionaries.home[locale] || {}),
       ...(dictionaries.editor[locale] || {}),
-      ...(dictionaries.tools[locale] || {})
+      ...(dictionaries.tools[locale] || {}),
+      ...(dictionaries.about[locale] || {}),
+      ...(dictionaries.contact[locale] || {}),
+      ...(dictionaries.legal[locale] || {})
     };
     
     // Fallback to English
@@ -48,7 +63,10 @@ export function useTranslations(locale: string) {
       ...(dictionaries.common[defaultLocale] || {}),
       ...(dictionaries.home[defaultLocale] || {}),
       ...(dictionaries.editor[defaultLocale] || {}),
-      ...(dictionaries.tools[defaultLocale] || {})
+      ...(dictionaries.tools[defaultLocale] || {}),
+      ...(dictionaries.about[defaultLocale] || {}),
+      ...(dictionaries.contact[defaultLocale] || {}),
+      ...(dictionaries.legal[defaultLocale] || {})
     };
 
     return mergedLocaleDict[key] || mergedEnDict[key] || key;

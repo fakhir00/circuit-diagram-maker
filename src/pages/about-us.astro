@@ -2,33 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i18n';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+const { locale } = Astro.props;
 const t = useTranslations(locale);
 
-const timeline = [
-  { year: '2023', title: 'Idea Born', desc: 'Frustrated by bloated desktop CAD tools, our founding engineers began prototyping a browser-based circuit diagram maker.' },
-  { year: '2024', title: 'First Public Beta', desc: 'Circuit Diagram Maker launched with 20 symbols, basic wire routing, and PNG export. Thousands of students adopted it within weeks.' },
-  { year: '2025', title: 'SVG Export & 40+ Symbols', desc: 'We added Manhattan routing, SVG vector export, keyboard shortcuts, and expanded the component library to 40+ symbols.' },
-  { year: '2026', title: 'Global Reach', desc: 'Circuit Diagram Maker now serves users in 180+ countries with localization in 18 languages and a thriving community.' },
-];
-
-const values = [
-  { icon: '🚀', title: 'Speed Over Complexity', desc: 'A circuit diagram maker should load in seconds, not minutes. We prioritize startup speed and workflow efficiency above all else.' },
-  { icon: '🎯', title: 'Precision By Default', desc: 'Every wire snaps to a 20px grid. Every connection is orthogonal. Our circuit diagram maker enforces clean schematics by design.' },
-  { icon: '🌍', title: 'Accessible to Everyone', desc: 'Free forever, no signup, no paywall. We believe professional circuit diagram tools should be available to every student and hobbyist worldwide.' },
-  { icon: '🔓', title: 'Your Data, Your Machine', desc: 'All circuit diagrams are stored locally in your browser. We never upload, analyze, or monetize your designs.' },
-];
+const timeline = t('about.timeline');
+const values = t('about.values');
 ---
 
-<BaseLayout title="About Circuit Diagram Maker — Our Mission & Team" description="Learn about the team behind Circuit Diagram Maker, our mission to democratize electronic schematic design, and why we built a free browser-based circuit diagram tool.">
+<BaseLayout title={t('about.meta.title')} description={t('about.meta.description')}>
   <!-- Hero -->
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.1),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.08),transparent_40%)]"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">About Us</p>
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">About Circuit Diagram Maker</h1>
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('about.hero.badge')}</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{t('about.hero.title')}</h1>
       <p class="mt-6 text-xl text-slate-400 leading-relaxed max-w-3xl">
-        We're a team of electronics engineers and software developers who believe that creating professional circuit diagrams should be fast, free, and accessible to everyone — without downloading desktop software or creating an account.
+        {t('about.hero.subtitle')}
       </p>
     </div>
   </section>
@@ -36,16 +25,16 @@ const values = [
   <!-- Our Story -->
   <section class="py-20 bg-bg-panel">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white mb-6">Why We Built This Circuit Diagram Maker</h2>
+      <h2 class="text-3xl font-bold text-white mb-6">{t('about.story.title')}</h2>
       <div class="space-y-4 text-slate-300 leading-relaxed text-lg">
         <p>
-          Every electronics engineer knows the frustration: you need to sketch a quick circuit diagram for a lab report, a design review, or a project proposal. Your options? Fire up a 2GB desktop application that takes five minutes to load, hand-draw something illegible on a napkin, or fight with a generic drawing tool that doesn't understand the difference between a resistor and a rectangle.
+          {t('about.story.p1')}
         </p>
         <p>
-          <strong class="text-white">Circuit Diagram Maker</strong> was born from that frustration. We set out to build the fastest, simplest, most accessible circuit diagram tool on the web — one that loads instantly, provides real electronic symbols, routes wires intelligently, and exports publication-quality diagrams without charging a cent.
+          <strong class="text-white">{t('home.hero.title')}</strong> {t('about.story.p2')}
         </p>
         <p>
-          Our circuit diagram maker handles everything from simple LED circuits to multi-stage amplifier designs, buck converter schematics, and microcontroller interfaces. It's the tool we wished existed when we were students, and now it's free for every student, educator, hobbyist, and engineer on the planet.
+          {t('about.story.p3')}
         </p>
       </div>
     </div>
@@ -54,10 +43,10 @@ const values = [
   <!-- Timeline -->
   <section class="py-20 bg-bg-dark border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white mb-12">Our Journey</h2>
+      <h2 class="text-3xl font-bold text-white mb-12">{t('about.timeline.title')}</h2>
       <div class="space-y-8 relative">
         <div class="absolute left-[18px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-brand-primary/40 via-brand-secondary/30 to-transparent"></div>
-        {timeline.map(item => (
+        {timeline.map((item: any) => (
           <div class="relative pl-12 group">
             <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-brand-primary/15 border-2 border-brand-primary/40 flex items-center justify-center group-hover:bg-brand-primary/25 transition-colors">
               <div class="w-2.5 h-2.5 rounded-full bg-brand-primary"></div>
@@ -76,9 +65,9 @@ const values = [
   <!-- Values -->
   <section class="py-20 bg-bg-panel border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white mb-12 text-center">Our Design Principles</h2>
+      <h2 class="text-3xl font-bold text-white mb-12 text-center">{t('about.principles.title')}</h2>
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {values.map(v => (
+        {values.map((v: any) => (
           <div class="rounded-2xl border border-white/10 bg-bg-dark/50 p-6 hover:border-brand-primary/20 transition-colors group">
             <div class="text-3xl mb-3">{v.icon}</div>
             <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{v.title}</h3>
@@ -94,20 +83,20 @@ const values = [
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
         <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <div class="text-3xl font-black text-white">40+</div>
-          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">Electronic Symbols</div>
+          <div class="text-3xl font-black text-white">{t('about.stats.symbols.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('home.stats.symbols')}</div>
         </div>
         <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <div class="text-3xl font-black text-white">18</div>
-          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">Languages</div>
+          <div class="text-3xl font-black text-white">{t('about.stats.languages.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('about.stats.languages.label')}</div>
         </div>
         <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <div class="text-3xl font-black text-white">180+</div>
-          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">Countries</div>
+          <div class="text-3xl font-black text-white">{t('about.stats.countries.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('about.stats.countries.label')}</div>
         </div>
         <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <div class="text-3xl font-black text-white">0</div>
-          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">Cost (Free Forever)</div>
+          <div class="text-3xl font-black text-white">{t('about.stats.cost.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('home.stats.free')}</div>
         </div>
       </div>
     </div>
@@ -116,11 +105,12 @@ const values = [
   <!-- CTA -->
   <section class="py-16 bg-bg-panel border-t border-white/5">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold text-white">Ready to Create Your First Circuit Diagram?</h2>
-      <p class="mt-3 text-slate-400">Open the circuit diagram maker and start designing — completely free, no account needed.</p>
+      <h2 class="text-2xl font-bold text-white">{t('about.cta.title')}</h2>
+      <p class="mt-3 text-slate-400">{t('about.cta.desc')}</p>
       <a href={getLocalizedPath('/editor/', locale)} class="inline-flex mt-6 px-8 py-3 rounded-xl bg-brand-primary hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-        Open Circuit Diagram Editor
+        {t('common.open_editor')}
       </a>
     </div>
   </section>
+</BaseLayout>
 </BaseLayout>

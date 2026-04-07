@@ -1,0 +1,37 @@
+{
+  "en": {
+    "about.meta.title": "About Circuit Diagram Maker — Our Mission & Team",
+    "about.meta.description": "Learn about the team behind Circuit Diagram Maker, our mission to democratize electronic schematic design, and why we built a free browser-based circuit diagram tool.",
+    "about.hero.badge": "About Us",
+    "about.hero.title": "About Circuit Diagram Maker",
+    "about.hero.subtitle": "We're a team of electronics engineers and software developers who believe that creating professional circuit diagrams should be fast, free, and accessible to everyone — without downloading desktop software or creating an account.",
+    "about.story.title": "Why We Built This Circuit Diagram Maker",
+    "about.story.p1": "Every electronics engineer knows the frustration: you need to sketch a quick circuit diagram for a lab report, a design review, or a project proposal. Your options? Fire up a 2GB desktop application that takes five minutes to load, hand-draw something illegible on a napkin, or fight with a generic drawing tool that doesn't understand the difference between a resistor and a rectangle.",
+    "about.story.p2": "was born from that frustration. We set out to build the fastest, simplest, most accessible circuit diagram tool on the web — one that loads instantly, provides real electronic symbols, routes wires intelligently, and exports publication-quality diagrams without charging a cent.",
+    "about.story.p3": "Our circuit diagram maker handles everything from simple LED circuits to multi-stage amplifier designs, buck converter schematics, and microcontroller interfaces. It's the tool we wished existed when we were students, and now it's free for every student, educator, hobbyist, and engineer on the planet.",
+    "about.timeline.title": "Our Journey",
+    "about.timeline": [
+      { "year": "2023", "title": "Idea Born", "desc": "Frustrated by bloated desktop CAD tools, our founding engineers began prototyping a browser-based circuit diagram maker." },
+      { "year": "2024", "title": "First Public Beta", "desc": "Circuit Diagram Maker launched with 20 symbols, basic wire routing, and PNG export. Thousands of students adopted it within weeks." },
+      { "year": "2025", "title": "SVG Export & 40+ Symbols", "desc": "We added Manhattan routing, SVG vector export, keyboard shortcuts, and expanded the component library to 40+ symbols." },
+      { "year": "2026", "title": "Global Reach", "desc": "Circuit Diagram Maker now serves users in 180+ countries with localization in 18 languages and a thriving community." }
+    ],
+    "about.principles.title": "Our Design Principles",
+    "about.values": [
+      { "icon": "🚀", "title": "Speed Over Complexity", "desc": "A circuit diagram maker should load in seconds, not minutes. We prioritize startup speed and workflow efficiency above all else." },
+      { "icon": "🎯", "title": "Precision By Default", "desc": "Every wire snaps to a 20px grid. Every connection is orthogonal. Our circuit diagram maker enforces clean schematics by design." },
+      { "icon": "🌍", "title": "Accessible to Everyone", "desc": "Free forever, no signup, no paywall. We believe professional circuit diagram tools should be available to every student and hobbyist worldwide." },
+      { "icon": "🔓", "title": "Your Data, Your Machine", "desc": "All circuit diagrams are stored locally in your browser. We never upload, analyze, or monetize your designs." }
+    ],
+    "about.stats.languages.label": "Languages",
+    "about.stats.countries.label": "Countries",
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Ready to Create Your First Circuit Diagram?",
+    "about.cta.desc": "Open the circuit diagram maker and start designing — completely free, no account needed."
+  },
+  "hi": {}, "es": {}, "ru": {}, "fr": {}, "de": {}, "it": {}, "pt": {},
+  "bn": {}, "ja": {}, "ko": {}, "ms": {}, "pl": {}, "id": {}, "ar": {}, "bg": {}, "tr": {}, "sv": {}
+}

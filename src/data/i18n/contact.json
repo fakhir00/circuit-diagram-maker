@@ -1,0 +1,26 @@
+{
+  "en": {
+    "contact.meta.title": "Contact Us — Circuit Diagram Maker Support",
+    "contact.meta.description": "Get help with Circuit Diagram Maker. Contact our support team for technical issues, feature requests, or general questions about our free circuit diagram tool.",
+    "contact.hero.badge": "Support",
+    "contact.hero.title": "Contact Circuit Diagram Maker Support",
+    "contact.hero.subtitle": "Have a question about Circuit Diagram Maker? Found a bug in the editor? Want to request a new component symbol? Our team typically responds within 24 hours on business days. Before reaching out, check our common support questions below.",
+    "contact.form.title": "Send Us a Message",
+    "contact.sidebar.email.title": "📧 Email Support",
+    "contact.sidebar.email.desc": "For technical issues and feature requests:",
+    "contact.sidebar.time.title": "⏱️ Response Time",
+    "contact.sidebar.time.desc": "We typically respond within",
+    "contact.sidebar.time.strong": "24 hours",
+    "contact.sidebar.time.context": "on business days (Monday–Friday). For urgent issues with the circuit diagram maker, include 'URGENT' in your subject line.",
+    "contact.sidebar.features.title": "💡 Feature Requests",
+    "contact.sidebar.features.desc": "We love hearing from users! If you have an idea for a new component, export format, or editor feature, let us know — the best Circuit Diagram Maker features were suggested by our community.",
+    "contact.faq.title": "Common Support Questions",
+    "contact.support_faqs": [
+      { "q": "My circuit diagram didn't save — how do I recover it?", "a": "Circuit Diagram Maker uses browser local storage. If you cleared your browser data, the diagram may be lost. We recommend exporting important projects as JSON files for backup. To prevent data loss, use the Export as JSON feature after every significant editing session." },
+      { "q": "Can I import diagrams from other tools into Circuit Diagram Maker?", "a": "Currently, Circuit Diagram Maker supports importing its own JSON format. You can share JSON files between devices and collaborators. Import support for additional formats is on our development roadmap." },
+      { "q": "The editor loads slowly on my device — what can I do?", "a": "For best performance, use a modern browser (Chrome, Firefox, Edge) with hardware acceleration enabled. Close unused browser tabs to free up memory. Circuit Diagram Maker works best on devices with 4GB+ RAM." }
+    ]
+  },
+  "hi": {}, "es": {}, "ru": {}, "fr": {}, "de": {}, "it": {}, "pt": {},
+  "bn": {}, "ja": {}, "ko": {}, "ms": {}, "pl": {}, "id": {}, "ar": {}, "bg": {}, "tr": {}, "sv": {}
+}

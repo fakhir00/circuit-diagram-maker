@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLocaleFromUrl } from '../theme/i18n';
+import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i18n';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 const lastUpdated = "2026-04-01";
 ---
 
-<BaseLayout title="Privacy Policy — Circuit Diagram Maker" description="Read the privacy policy for Circuit Diagram Maker. Learn how we handle your data, what information we collect, and your rights under GDPR and CCPA.">
+<BaseLayout title={t('legal.privacy.meta.title')} description={t('legal.privacy.meta.description')}>
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-20">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.08),transparent_40%)]"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Legal</p>
-      <h1 class="text-4xl font-extrabold tracking-tight text-white">Privacy Policy</h1>
-      <p class="mt-3 text-slate-400">Last updated: {lastUpdated}</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('legal.privacy.hero.badge')}</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white">{t('legal.privacy.hero.title')}</h1>
+      <p class="mt-3 text-slate-400">{t('legal.privacy.hero.updated')}: {lastUpdated}</p>
     </div>
   </section>
 
@@ -21,67 +22,72 @@ const lastUpdated = "2026-04-01";
       <div class="prose prose-invert prose-blue max-w-none text-slate-300 space-y-8">
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">1. Introduction</h2>
-          <p>This privacy policy explains how <strong>Circuit Diagram Maker</strong> ("we", "us", "our") collects, uses, and protects information when you use our free, browser-based circuit diagram maker at circuit-diagram.org. We are committed to protecting your privacy and being transparent about our data practices.</p>
+           <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s1.title')}</h2>
+           <p>{t('legal.privacy.s1.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">2. Information We Collect</h2>
-          <p>Circuit Diagram Maker is designed with privacy-first principles. Here's what we do and don't collect:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s2.title')}</h2>
+          <p>{t('legal.privacy.s2.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li><strong class="text-white">Circuit diagrams and designs:</strong> All diagrams you create in the circuit diagram maker are stored exclusively in your browser's local storage. We never upload, access, or store your circuit schematics on our servers.</li>
-            <li><strong class="text-white">Analytics data:</strong> We use privacy-respecting analytics to understand how users interact with our circuit diagram maker. This includes page views, session duration, and general geographic region (country-level). No personally identifiable information is collected.</li>
-            <li><strong class="text-white">Contact form data:</strong> If you submit our contact form, we collect your name, email address, and message content solely to respond to your inquiry.</li>
+            <li><strong class="text-white">{t('legal.privacy.s2.l1.title')}</strong> {t('legal.privacy.s2.l1.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s2.l2.title')}</strong> {t('legal.privacy.s2.l2.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s2.l3.title')}</strong> {t('legal.privacy.s2.l3.desc')}</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">3. How We Use Your Information</h2>
-          <p>Any data collected is used exclusively to:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s3.title')}</h2>
+          <p>{t('legal.privacy.s3.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li>Improve the performance and usability of Circuit Diagram Maker</li>
-            <li>Monitor website uptime, error rates, and page load speeds</li>
-            <li>Respond to support inquiries submitted through our contact form</li>
-            <li>Understand which features of the circuit diagram maker are most used to guide development priorities</li>
+            <li>{t('legal.privacy.s3.l1')}</li>
+            <li>{t('legal.privacy.s3.l2')}</li>
+            <li>{t('legal.privacy.s3.l3')}</li>
+            <li>{t('legal.privacy.s3.l4')}</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">4. Cookies & Local Storage</h2>
-          <p>Circuit Diagram Maker uses browser local storage to save your circuit diagrams, editor preferences, and session state. This data remains entirely on your device and is never transmitted to our servers. We may use essential cookies for basic analytics functionality.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s4.title')}</h2>
+          <p>{t('legal.privacy.s4.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">5. Third-Party Services</h2>
-          <p>We use the following third-party services:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s5.title')}</h2>
+          <p>{t('legal.privacy.s5.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li><strong class="text-white">Google Fonts:</strong> We load the Inter and JetBrains Mono typefaces from Google's CDN. Google's privacy policy applies to font loading requests.</li>
-            <li><strong class="text-white">Analytics:</strong> We use privacy-respecting analytics tools that do not use cookies and comply with GDPR without requiring user consent.</li>
+            <li><strong class="text-white">{t('legal.privacy.s5.l1.title')}</strong> {t('legal.privacy.s5.l1.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s5.l2.title')}</strong> {t('legal.privacy.s5.l2.desc')}</li>
           </ul>
-          <p class="mt-3">We do not sell, rent, or share your personal information with any third parties for marketing purposes.</p>
+          <p class="mt-3">{t('legal.privacy.s5.p2')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">6. Data Security</h2>
-          <p>Our website is served over HTTPS to ensure encrypted data transmission. Since circuit diagrams are stored locally in your browser, your designs are never exposed to network-level security risks. We follow industry best practices for securing our web infrastructure.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s6.title')}</h2>
+          <p>{t('legal.privacy.s6.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">7. Your Rights (GDPR & CCPA)</h2>
-          <p>If you are located in the European Economic Area, United Kingdom, or California, you have the right to:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s7.title')}</h2>
+          <p>{t('legal.privacy.s7.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li>Access any personal data we hold about you</li>
-            <li>Request deletion of your personal data</li>
-            <li>Object to processing of your personal data</li>
-            <li>Request portability of your personal data</li>
+            <li>{t('legal.privacy.s7.l1')}</li>
+            <li>{t('legal.privacy.s7.l2')}</li>
+            <li>{t('legal.privacy.s7.l3')}</li>
+            <li>{t('legal.privacy.s7.l4')}</li>
           </ul>
-          <p class="mt-3">To exercise any of these rights, please contact us at <a href="mailto:privacy@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">privacy@circuit-diagram.org</a>.</p>
+          <p class="mt-3">{t('legal.privacy.s7.p2')} <a href="mailto:privacy@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">privacy@circuit-diagram.org</a>.</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">8. Changes to This Policy</h2>
-          <p>We may update this privacy policy from time to time. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this privacy policy periodically to stay informed about how Circuit Diagram Maker protects your information.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s8.title')}</h2>
+          <p>{t('legal.privacy.s8.p1')}</p>
         </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
 
       </div>
     </div>

@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLocaleFromUrl } from '../theme/i18n';
+import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i18n';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 const lastUpdated = "2026-04-01";
 ---
 
-<BaseLayout title="Terms of Service — Circuit Diagram Maker" description="Read the terms of service for Circuit Diagram Maker. Understand the usage license, intellectual property rights, and disclaimers for our free circuit diagram tool.">
+<BaseLayout title={t('legal.terms.meta.title')} description={t('legal.terms.meta.description')}>
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-20">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_40%)]"></div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Legal</p>
-      <h1 class="text-4xl font-extrabold tracking-tight text-white">Terms of Service</h1>
-      <p class="mt-3 text-slate-400">Last updated: {lastUpdated}</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('legal.terms.hero.badge')}</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white">{t('legal.terms.hero.title')}</h1>
+      <p class="mt-3 text-slate-400">{t('legal.terms.hero.updated')}: {lastUpdated}</p>
     </div>
   </section>
 
@@ -21,56 +22,61 @@ const lastUpdated = "2026-04-01";
       <div class="prose prose-invert prose-blue max-w-none text-slate-300 space-y-8">
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">1. Acceptance of Terms</h2>
-          <p>By accessing and using <strong>Circuit Diagram Maker</strong> at circuit-diagram.org, you accept and agree to be bound by these terms of service. If you do not agree to these terms, please do not use our circuit diagram maker. These terms apply to all visitors, users, and others who access the service.</p>
+           <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s1.title')}</h2>
+           <p>{t('legal.terms.s1.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">2. Use License</h2>
-          <p>Circuit Diagram Maker grants you a non-exclusive, non-transferable, revocable license to use the circuit diagram editor for personal and commercial purposes. You may:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s2.title')}</h2>
+          <p>{t('legal.terms.s2.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li>Create unlimited circuit diagrams using the editor</li>
-            <li>Export diagrams in SVG, PNG, and JSON formats</li>
-            <li>Use exported circuit diagrams in academic papers, technical documentation, presentations, and publications</li>
-            <li>Share exported files with colleagues, students, and collaborators</li>
+            <li>{t('legal.terms.s2.l1')}</li>
+            <li>{t('legal.terms.s2.l2')}</li>
+            <li>{t('legal.terms.s2.l3')}</li>
+            <li>{t('legal.terms.s2.l4')}</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">3. Restrictions</h2>
-          <p>When using Circuit Diagram Maker, you agree not to:</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s3.title')}</h2>
+          <p>{t('legal.terms.s3.p1')}</p>
           <ul class="list-disc list-inside space-y-2 mt-3">
-            <li>Attempt to reverse-engineer, decompile, or extract the source code of the circuit diagram maker</li>
-            <li>Use automated tools to scrape, crawl, or extract data from the website</li>
-            <li>Misrepresent Circuit Diagram Maker or its features in any public communication</li>
-            <li>Use the service for any unlawful purpose or to create harmful or misleading content</li>
+            <li>{t('legal.terms.s3.l1')}</li>
+            <li>{t('legal.terms.s3.l2')}</li>
+            <li>{t('legal.terms.s3.l3')}</li>
+            <li>{t('legal.terms.s3.l4')}</li>
           </ul>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">4. Intellectual Property</h2>
-          <p>The Circuit Diagram Maker software, including its design, code, graphics, icons, and electronic symbol library, is the intellectual property of Circuit Diagram Maker and is protected by applicable copyright laws. <strong class="text-white">The circuit diagrams you create are yours</strong> — you retain full ownership and copyright of all designs you produce using our tool.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s4.title')}</h2>
+          <p>{t('legal.terms.s4.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">5. Disclaimer of Warranties</h2>
-          <p>Circuit Diagram Maker is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. We do not warrant that the circuit diagram maker will be uninterrupted, error-free, or free of viruses or other harmful components. Circuit diagrams created with this tool are for reference purposes — always verify critical circuits with proper simulation and testing before physical implementation.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s5.title')}</h2>
+          <p>{t('legal.terms.s5.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">6. Limitation of Liability</h2>
-          <p>In no event shall Circuit Diagram Maker, its directors, employees, partners, or suppliers be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the circuit diagram maker, including but not limited to errors in circuit designs, data loss, or inability to access the service.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s6.title')}</h2>
+          <p>{t('legal.terms.s6.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">7. Governing Law</h2>
-          <p>These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law provisions. Any disputes arising from the use of Circuit Diagram Maker shall be resolved through binding arbitration in accordance with applicable arbitration rules.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s7.title')}</h2>
+          <p>{t('legal.terms.s7.p1')}</p>
         </div>
 
         <div>
-          <h2 class="text-2xl font-semibold text-white">8. Contact Information</h2>
-          <p>If you have any questions about these terms of service, please contact us at <a href="mailto:legal@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">legal@circuit-diagram.org</a> or through our <a href="/contact-us/" class="text-brand-primary hover:text-brand-accent">contact page</a>.</p>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s8.title')}</h2>
+          <p>{t('legal.terms.s8.p1')} <a href="mailto:legal@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">legal@circuit-diagram.org</a> or {t('legal.terms.s8.p2')} <a href={getLocalizedPath('/contact-us/', locale)} class="text-brand-primary hover:text-brand-accent">{t('contact.hero.badge')}</a>.</p>
         </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
 
       </div>
     </div>
