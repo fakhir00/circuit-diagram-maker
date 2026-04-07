@@ -32,6 +32,28 @@ const presets = [
       ['Estimated nets', '16'],
       ['Signal class', 'Mixed signal']
     ]
+  },
+  {
+    id: 'audio',
+    label: 'Audio Amp',
+    title: 'Class-A Preamplifier',
+    summary: 'Design high-fidelity signal paths with DC blocking capacitors and precision gain stages.',
+    specs: [
+      ['Primary parts', '7'],
+      ['Estimated nets', '11'],
+      ['Signal class', 'Hi-Fi Audio']
+    ]
+  },
+  {
+    id: 'iot',
+    label: 'IoT Node',
+    title: 'Wireless Sensor Module',
+    summary: 'Low-power design featuring ESP32/ARM controllers, I2C sensors, and battery management.',
+    specs: [
+      ['Primary parts', '14'],
+      ['Estimated nets', '22'],
+      ['Signal class', 'Digital Pulse']
+    ]
   }
 ];
 ---
@@ -177,6 +199,55 @@ const presets = [
                   <path d="M134 262H226" stroke="#f59e0b" stroke-width="4" />
                   <path d="M146 280H214" stroke="#f59e0b" stroke-width="4" />
                   <path d="M158 298H202" stroke="#f59e0b" stroke-width="4" />
+                </g>
+
+                <g data-diagram="audio" class="hidden">
+                  <!-- Input Stage -->
+                  <path id="au1" d="M80 200H180" stroke="#a855f7" stroke-width="4" />
+                  <circle r="4" fill="#a855f7" filter="url(#currentGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M80 200H180" /></circle>
+                  <rect x="180" y="170" width="40" height="60" rx="4" fill="#111827" stroke="#a855f7" stroke-width="3" /> <!-- Cap -->
+                  
+                  <path id="au2" d="M220 200H320" stroke="#a855f7" stroke-width="4" />
+                  <circle r="4" fill="#a855f7" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M220 200H320" /></circle>
+                  
+                  <!-- Transistor Gain -->
+                  <circle cx="350" cy="200" r="30" fill="#0f172a" stroke="#ec4899" stroke-width="3" />
+                  <path d="M335 185 L350 200 L335 215" stroke="#ec4899" stroke-width="3" />
+                  
+                  <path id="au3" d="M380 200H480" stroke="#ec4899" stroke-width="4" />
+                  <circle r="4" fill="#ec4899" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M380 200H480" /></circle>
+                  
+                  <!-- DC Filter -->
+                  <rect x="480" y="170" width="40" height="60" rx="4" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+                  <path id="au4" d="M520 200H620" stroke="#38bdf8" stroke-width="4" />
+                  <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M520 200H620" /></circle>
+                  
+                  <text x="80" y="180" fill="#94a3b8" font-size="14">AUDIO IN</text>
+                  <text x="620" y="180" fill="#94a3b8" font-size="14">LINE OUT</text>
+                </g>
+
+                <g data-diagram="iot" class="hidden">
+                  <!-- Battery -->
+                  <rect x="60" y="180" width="40" height="80" rx="4" fill="#111827" stroke="#22c55e" stroke-width="3" />
+                  <path id="iot1" d="M100 220H200" stroke="#22c55e" stroke-width="4" />
+                  <circle r="4" fill="#22c55e" filter="url(#currentGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M100 220H200" /></circle>
+                  
+                  <!-- Core MCU -->
+                  <rect x="200" y="150" width="140" height="140" rx="20" fill="#111827" stroke="#3b82f6" stroke-width="3" />
+                  <text x="270" y="210" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="bold">ESP32</text>
+                  <text x="270" y="235" text-anchor="middle" fill="#60a5fa" font-size="10">LOW POWER</text>
+                  
+                  <!-- Sensor I2C -->
+                  <path id="iot2" d="M140 80V150" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4 4" />
+                  <circle r="3" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M140 80V150" /></circle>
+                  <rect x="100" y="30" width="80" height="50" rx="8" fill="#111827" stroke="#f59e0b" stroke-width="2" />
+                  <text x="140" y="60" text-anchor="middle" fill="#94a3b8" font-size="12">SENSOR</text>
+                  
+                  <!-- RF Link -->
+                  <path id="iot3" d="M340 220H440" stroke="#ef4444" stroke-width="4" stroke-dasharray="8 4" />
+                  <circle r="4" fill="#ef4444" filter="url(#currentGlow)"><animateMotion dur="0.5s" repeatCount="indefinite" path="M340 220H440" /></circle>
+                  <path d="M440 200V240M440 220 L480 180M440 220 L480 260" stroke="#ef4444" stroke-width="3" stroke-linecap="round" />
+                  <text x="470" y="160" fill="#ef4444" font-size="14" font-weight="bold">RF OUT</text>
                 </g>
               </svg>
             </div>

@@ -30,6 +30,14 @@ const guideSections = [
     title: 'Advanced Tips for Circuit Diagram Maker',
     body: 'Use Ctrl+D to duplicate common blocks. Organize complex diagrams by placing power supply sections on the left, control logic in the center, and outputs on the right. Keep signal flow left-to-right and top-to-bottom for maximum readability.',
   },
+  {
+    title: 'Professional LaTeX & Academic Export',
+    body: 'For the highest quality in academic papers, export your circuit diagram as an SVG. Our SVG output uses standard XML paths that integrate perfectly with the LaTeX svg package or can be converted to PDF for use with graphicx. This ensures your schematics stay crisp at any zoom level.',
+  },
+  {
+    title: 'Collaborative JSON Workflows',
+    body: 'Use the JSON export to share "live" circuit diagrams with teammates. Unlike a static image, a JSON file allows others to load your schematic into their own browser, edit connections, and export their own versions. Perfect for team design reviews and collaborative lab work.',
+  },
 ];
 
 const shortcutRows = [
@@ -113,19 +121,70 @@ const shortcutRows = [
     </div>
   </section>
 
+  <!-- Design Rule Check (DRC) Section -->
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.05),transparent_60%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-white">Manual Design Rule Check (DRC)</h2>
+        <p class="mt-4 text-slate-400">Before you export or share your circuit diagram, run through this technical checklist to ensure professional results.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="p-5 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <h3 class="font-bold text-brand-primary mb-3 text-sm uppercase tracking-wider">Connectivity Check</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> No floating pins (all pins connected to a net or GND).</li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> No overlapping wires that aren't joined by a junction dot.</li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Power and Ground symbols used on every page.</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <h3 class="font-bold text-brand-primary mb-3 text-sm uppercase tracking-wider">Labeling & Text</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Reference designators are unique (no two R1s).</li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Component values are legible and not overlapped by wires.</li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Critical nets are named (VCC, GND, CLK, DATA).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Best Practices -->
-  <section class="py-16 bg-bg-panel border-t border-white/5">
+  <section class="py-20 bg-bg-panel border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-white mb-6">Circuit Diagram Best Practices</h2>
-      <div class="space-y-4 text-slate-400 leading-relaxed">
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">Schematic Design Standards</h2>
+      <div class="space-y-6 text-slate-400 leading-relaxed bg-bg-dark/50 p-8 rounded-3xl border border-white/5">
         <p>To create clear, professional circuit diagrams with Circuit Diagram Maker, follow these industry-standard conventions:</p>
-        <ul class="list-disc list-inside space-y-3 mt-4">
-          <li><strong class="text-white">Signal flow direction:</strong> Place inputs on the left, processing in the center, and outputs on the right. Signal should flow left-to-right in your circuit diagram.</li>
-          <li><strong class="text-white">Power rails:</strong> Place VCC/VDD at the top of the schematic and GND at the bottom. This follows the conventional voltage-high-to-low reading direction.</li>
-          <li><strong class="text-white">Reference designators:</strong> Use standard prefixes — R for resistors, C for capacitors, U for ICs, Q for transistors, D for diodes, J for connectors.</li>
-          <li><strong class="text-white">Consistent spacing:</strong> Circuit Diagram Maker's 20px grid ensures uniform spacing. Avoid cramming components — white space improves readability.</li>
-          <li><strong class="text-white">Net naming:</strong> Label all critical signals (CLK, RESET, SDA, SCL). This makes circuit diagrams self-documenting and easier to review.</li>
-        </ul>
+        <div class="grid gap-6">
+          <div class="flex gap-4">
+            <div class="mt-1 text-brand-accent">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Signal Flow Direction</h4>
+              <p class="text-sm">Place inputs on the left, processing in the center, and outputs on the right. Standard circuit diagrams flow from left-to-right.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="mt-1 text-brand-accent">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Voltage Potential Hierarchy</h4>
+              <p class="text-sm">Place VCC/VDD at the top of the schematic and GND at the bottom. This follows the conventional high-to-low voltage orientation.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="mt-1 text-brand-accent">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Reference Designators</h4>
+              <p class="text-sm">Use standard prefixes: R (resistor), C (capacitor), U (IC), Q (transistor), D (diode), J (connector), L (inductor).</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
