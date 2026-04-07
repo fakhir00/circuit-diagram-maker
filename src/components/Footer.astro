@@ -20,15 +20,28 @@ const currentPath = Astro.url.pathname;
 
       <!-- Brand & Tagline -->
       <div class="lg:col-span-1">
-        <a href={getLocalizedPath('/', locale)} class="flex items-center gap-2 mb-4">
-          <svg class="text-brand-primary w-5 h-5 filter drop-shadow-[0_0_6px_rgba(59,130,246,0.4)]" viewBox="0 0 24 24" fill="none">
-            <path d="M4 12h3l2-5 3 10 2-5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="4" cy="12" r="1.5" fill="currentColor"/>
-            <circle cx="17" cy="12" r="1.5" fill="currentColor"/>
-          </svg>
-          <span class="font-bold text-base tracking-tight bg-gradient-to-br from-white to-slate-400 bg-clip-text text-transparent">
-            {config.site.name}
-          </span>
+        <a href={getLocalizedPath('/', locale)} class="flex items-center gap-3 mb-6 group">
+          <div class="relative flex items-center justify-center">
+            <svg class="w-7 h-7 transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110" viewBox="0 0 40 40" fill="none">
+              <defs>
+                <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:var(--color-brand-primary);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:var(--color-brand-secondary);stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M20,2 L36,11 L36,29 L20,38 L4,29 L4,11 Z" 
+                    fill="none" stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linejoin="round"
+                    class="opacity-40 group-hover:opacity-100 transition-opacity" />
+              <circle cx="20" cy="20" r="5" fill="url(#logoGradFooter)" />
+              <path d="M10,14 L20,20 L30,14 M20,20 L20,32" 
+                    stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-black text-sm tracking-tight text-white group-hover:text-brand-primary transition-colors uppercase">
+              CIRCUIT<span class="text-slate-600">DIAGRAM</span>
+            </span>
+          </div>
         </a>
         <p class="text-slate-500 text-sm leading-relaxed mb-4">
           The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.

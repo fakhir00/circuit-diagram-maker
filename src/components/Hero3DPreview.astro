@@ -65,15 +65,17 @@
 
         <!-- 3D Component: MCU IC -->
         <div class="hw-component hw-ic" style="left:42%;top:18%" data-name="ATmega328P" data-spec="Microcontroller • 16MHz • 32KB Flash • 23 GPIO">
-          <div class="ic-package">
+          <div class="ic-package-3d">
             <div class="ic-face">
               <div class="ic-dot"></div>
               <span class="ic-text">ATmega<br/>328P</span>
             </div>
+            <div class="ic-side ic-side-t"></div>
+            <div class="ic-side ic-side-b"></div>
+            <div class="ic-side ic-side-l"></div>
+            <div class="ic-side ic-side-r"></div>
             <div class="ic-pins-row ic-pins-top"></div>
             <div class="ic-pins-row ic-pins-bottom"></div>
-            <div class="ic-pins-col ic-pins-left"></div>
-            <div class="ic-pins-col ic-pins-right"></div>
           </div>
           <div class="hw-glow"></div>
           <div class="hw-shadow"></div>
@@ -81,13 +83,15 @@
 
         <!-- 3D Component: Op-Amp -->
         <div class="hw-component hw-opamp" style="left:15%;top:32%" data-name="LM358 Op-Amp" data-spec="Dual Op-Amp • ±16V • Unity Gain Stable">
-          <div class="opamp-pkg">
+          <div class="opamp-pkg-3d">
             <div class="opamp-body">
               <span class="opamp-label">LM358</span>
               <div class="ic-dot" style="top:4px;left:4px"></div>
             </div>
-            <div class="ic-pins-col ic-pins-left" style="height:36px"></div>
-            <div class="ic-pins-col ic-pins-right" style="height:36px"></div>
+            <div class="ic-side ic-side-t"></div>
+            <div class="ic-side ic-side-b"></div>
+            <div class="ic-side ic-side-l"></div>
+            <div class="ic-side ic-side-r"></div>
           </div>
           <div class="hw-glow"></div>
           <div class="hw-shadow"></div>
@@ -95,9 +99,12 @@
 
         <!-- 3D Component: Electrolytic Capacitor -->
         <div class="hw-component hw-elcap" style="left:72%;top:38%" data-name="470µF Capacitor" data-spec="Electrolytic • 25V • 105°C • Low ESR">
-          <div class="elcap-body">
-            <div class="elcap-stripe"></div>
-            <div class="elcap-label">470µF<br/>25V</div>
+          <div class="elcap-3d">
+            <div class="elcap-body">
+              <div class="elcap-stripe"></div>
+              <div class="elcap-label">470µF<br/>25V</div>
+            </div>
+            <div class="elcap-side"></div>
             <div class="elcap-lead elcap-lead-l"></div>
             <div class="elcap-lead elcap-lead-r"></div>
           </div>
@@ -331,52 +338,54 @@
     border-radius: 50%; pointer-events: none;
   }
 
-  /* IC Package */
-  .hw-ic .ic-package { width: 100px; height: 68px; position: relative; }
+  /* IC Package 3D */
+  .ic-package-3d { width: 100px; height: 68px; position: relative; transform-style: preserve-3d; }
   .ic-face {
     width: 100%; height: 100%;
-    background: linear-gradient(145deg, #1a1a2e, #16213e, #0f1729);
-    border-radius: 5px; border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
-    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    position: relative; z-index: 2; transform: translateZ(10px);
   }
-  .ic-dot { position: absolute; top: 5px; left: 5px; width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.12); }
-  .ic-text { color: rgba(255,255,255,0.65); font-size: 9px; font-family: 'JetBrains Mono', monospace; text-align: center; line-height: 1.3; letter-spacing: 0.5px; }
-  .ic-pins-row, .ic-pins-col { position: absolute; display: flex; gap: 5px; }
-  .ic-pins-row { left: 12px; right: 12px; flex-direction: row; }
-  .ic-pins-col { top: 10px; bottom: 10px; flex-direction: column; }
-  .ic-pins-top { top: -5px; }
-  .ic-pins-bottom { bottom: -5px; }
-  .ic-pins-left { left: -5px; }
-  .ic-pins-right { right: -5px; }
-  .ic-pins-row::before, .ic-pins-row::after,
-  .ic-pins-col::before, .ic-pins-col::after {
-    content: ''; display: block; background: linear-gradient(90deg, #b8860b, #daa520); border-radius: 0.5px;
-  }
-  .ic-pins-row::before, .ic-pins-row::after { width: 2px; height: 5px; }
-  .ic-pins-col::before, .ic-pins-col::after { width: 5px; height: 2px; }
+  .ic-side { position: absolute; background: #0a0f1d; }
+  .ic-side-t, .ic-side-b { width: 100px; height: 10px; left: 0; }
+  .ic-side-l, .ic-side-r { width: 10px; height: 68px; top: 0; }
+  .ic-side-t { top: 0; transform: rotateX(90deg) translateZ(5px); }
+  .ic-side-b { bottom: 0; transform: rotateX(-90deg) translateZ(5px); }
+  .ic-side-l { left: 0; transform: rotateY(-90deg) translateZ(5px); }
+  .ic-side-r { right: 0; transform: rotateY(90deg) translateZ(5px); }
 
-  /* Op-Amp */
-  .hw-opamp .opamp-pkg { position: relative; width: 70px; height: 48px; }
+  .ic-dot { position: absolute; top: 5px; left: 5px; width: 7px; height: 7px; border-radius: 50%; background: rgba(59,130,246,0.3); box-shadow: 0 0 8px rgba(59,130,246,0.5); }
+  .ic-text { color: rgba(255,255,255,0.7); font-size: 10px; font-family: 'JetBrains Mono', monospace; text-align: center; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* Op-Amp 3D */
+  .opamp-pkg-3d { position: relative; width: 70px; height: 48px; transform-style: preserve-3d; }
   .opamp-body {
     width: 100%; height: 100%;
-    background: linear-gradient(145deg, #1e1e30, #151528);
-    border-radius: 4px; border: 1px solid rgba(255,255,255,0.07);
+    background: linear-gradient(135deg, #2d3748, #1a202c);
+    border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    position: relative; z-index: 2; transform: translateZ(8px);
   }
-  .opamp-label { color: rgba(255,255,255,0.55); font-size: 8px; font-family: 'JetBrains Mono', monospace; }
 
-  /* Electrolytic Cap */
-  .hw-elcap .elcap-body {
-    width: 28px; height: 42px; position: relative;
-    background: linear-gradient(180deg, #1e3a5f, #0d2137);
-    border-radius: 14px 14px 5px 5px;
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+  /* Electrolytic Cap 3D */
+  .elcap-3d { width: 28px; height: 42px; position: relative; transform-style: preserve-3d; }
+  .elcap-body {
+    width: 100%; height: 100%;
+    background: linear-gradient(0deg, #1e3a8a, #3b82f6);
+    border-radius: 50% 50% 4px 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transform: translateZ(15px);
     display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .elcap-side {
+    position: absolute; inset: 0;
+    background: #172554;
+    border-radius: 50% 50% 4px 4px;
+    transform: translateZ(0);
   }
   .elcap-stripe { position: absolute; top: 5px; left: 3px; right: 3px; height: 5px; background: rgba(59,130,246,0.45); border-radius: 2px; }
   .elcap-label { color: rgba(255,255,255,0.5); font-size: 5px; font-family: 'JetBrains Mono', monospace; text-align: center; line-height: 1.2; margin-top: 6px; }

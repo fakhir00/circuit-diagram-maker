@@ -8,9 +8,14 @@ category: "Reference"
 tags: ["symbols", "reference", "components", "electronics"]
 ---
 
+import InteractiveTable from '../../../components/InteractiveTable.astro';
+import InteractiveDiagram from '../../../components/InteractiveDiagram.astro';
+
 # Circuit Diagram Symbols Explained — Complete Reference Guide
 
 Understanding circuit diagram symbols is the first step to reading and creating electronic schematics. Every component in a circuit diagram is represented by a standardized symbol that conveys its function, not its physical appearance. This guide covers the most common symbols you'll encounter and use in **Circuit Diagram Maker**.
+
+<InteractiveDiagram title="Standard Operational Amplifier Configuration" type="opamp" />
 
 ## Why Standardized Symbols Matter
 
@@ -26,6 +31,15 @@ Circuit diagram symbols follow international standards — primarily **IEC 60617
 ### Resistor
 The resistor symbol appears as a zigzag line (ANSI) or a simple rectangle (IEC). Resistors limit current flow and are the most common component in any circuit diagram. Reference designator: **R** (e.g., R1, R2, R_PULL).
 
+<InteractiveTable 
+  title="Passive Component Specifications" 
+  specs={[
+    { label: "Resistor (R)", value: "Resistance (Ω)", detail: "Limits electrical current flow according to Ohm's Law (V=IR)." },
+    { label: "Capacitor (C)", value: "Capacitance (F)", detail: "Stores electrical energy in an electric field. Common in filters." },
+    { label: "Inductor (L)", value: "Inductance (H)", detail: "Stores energy in a magnetic field. Used in power conversion." }
+  ]} 
+/>
+
 ### Capacitor
 Capacitors are shown as two parallel lines (non-polarized) or with a curved line indicating the negative terminal (polarized/electrolytic). They store energy and filter signals. Reference designator: **C** (e.g., C1, C_BYPASS).
 
@@ -33,6 +47,8 @@ Capacitors are shown as two parallel lines (non-polarized) or with a curved line
 An inductor appears as a series of loops or bumps. Inductors store energy in magnetic fields and are used in power supplies, filters, and RF circuits. Reference designator: **L** (e.g., L1, L_CHOKE).
 
 ## Semiconductor Symbols
+
+<InteractiveDiagram title="Bipolar Junction Transistor (NPN)" type="transistor" />
 
 ### Diode
 A triangle pointing toward a vertical bar represents a diode. Current flows from anode (triangle base) to cathode (bar). Variations include Zener diodes (angled bar ends) and Schottky diodes (curved bar ends). Reference designator: **D**.
@@ -56,6 +72,8 @@ Microcontrollers appear as rectangles with labeled pins for GPIO, power, ground,
 
 ### Logic Gates
 AND, OR, NOT, NAND, NOR, and XOR gates each have distinctive shapes that indicate their boolean function. These symbols are essential for digital circuit diagrams.
+
+<InteractiveDiagram title="Standard 2-Input AND Gate" type="logic" />
 
 ## Power and Ground Symbols
 
