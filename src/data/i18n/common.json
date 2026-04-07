@@ -12,7 +12,22 @@
     "nav.more_tools": "More Tools",
     "nav.logic_gates": "Logic Gate Tool",
     "nav.arduino": "Arduino Maker",
-    "nav.pcb": "PCB Schematic Tool"
+    "nav.pcb": "PCB Schematic Tool",
+    "brand.name": "Circuit Diagram Maker",
+    "brand.tagline": "Free Online PCB Schematic Tool",
+    "footer.tagline": "The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.",
+    "footer.product": "Product",
+    "footer.guides": "Popular Guides",
+    "footer.company": "Company",
+    "footer.blogTutorials": "Blog & Tutorials",
+    "footer.contactSupport": "Contact Support",
+    "footer.guideUltimate": "Ultimate Guide to Circuit Diagrams",
+    "footer.guideSymbols": "Circuit Diagram Symbols Explained",
+    "footer.guideOnline": "How to Make a Circuit Diagram Online",
+    "footer.guideBeginners": "Circuit Diagrams for Beginners",
+    "footer.more": "More",
+    "footer.status": "Status",
+    "footer.operational": "Operational"
   },
   "hi": {
     "nav.home": "घर",

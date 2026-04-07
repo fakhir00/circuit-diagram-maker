@@ -63,7 +63,7 @@ class App {
             }
         }, 30000);
 
-        this.updateStatus('Ready — Select a component from the sidebar to begin');
+        this.updateStatus(window.t('editor.app.ready_instruction'));
         console.log('%c⚡ CircuitForge loaded', 'color:#3b82f6;font-weight:bold;font-size:14px');
     }
 
@@ -85,7 +85,7 @@ class App {
             header.className = 'category-header';
             header.innerHTML = `
                 <svg class="chevron" viewBox="0 0 10 6" width="10" height="6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                <span>${cat.name}</span>
+                <span>${window.t('category.' + catId, cat.name)}</span>
                 <span style="margin-left:auto;font-size:10px;opacity:0.4">${cat.components.length}</span>
             `;
             header.addEventListener('click', () => {
@@ -101,7 +101,8 @@ class App {
                 item.className = `component-item${this.viewMode === 'list' ? ' list-view' : ''}`;
                 item.dataset.type = comp.type;
                 item.draggable = true;
-                item.title = comp.name;
+                const translatedName = window.t('component.' + comp.type, comp.name);
+                item.title = translatedName;
 
                 // Draw preview
                 const previewCanvas = document.createElement('canvas');
@@ -118,7 +119,7 @@ class App {
 
                 const name = document.createElement('span');
                 name.className = 'component-name';
-                name.textContent = comp.name;
+                name.textContent = translatedName;
 
                 item.appendChild(previewCanvas);
                 item.appendChild(name);
@@ -127,7 +128,8 @@ class App {
                 item.addEventListener('click', () => {
                     this.toolManager.setTool('place');
                     this.toolManager.tools.place.setComponentType(comp.type);
-                    this.updateStatus(`Click on canvas to place ${comp.name}. Press R to rotate.`);
+                    const msg = window.t('editor.app.placement', 'Click on canvas to place {name}. Press R to rotate.').replace('{name}', translatedName);
+                    this.updateStatus(msg);
                     // Highlight active
                     document.querySelectorAll('.component-item').forEach(el => el.style.borderColor = '');
                     item.style.borderColor = 'rgba(59,130,246,0.5)';
@@ -424,17 +426,17 @@ class App {
 
     newCircuit() {
         if (this.circuit.components.length > 0 || this.circuit.wires.length > 0) {
-            if (!confirm('Create a new circuit? Unsaved changes will be lost.')) return;
+            if (!confirm(window.t('editor.app.confirm_new'))) return;
         }
         this.circuit.clear();
-        this.circuit.name = 'Untitled Circuit';
-        document.getElementById('circuit-name').value = 'Untitled Circuit';
+        this.circuit.name = window.t('editor.canvas.untitled');
+        document.getElementById('circuit-name').value = this.circuit.name;
         this.renderer.selection.clear();
         this.history.clear();
         this.viewport.reset();
         this.updateStats();
         this.updateProperties();
-        showToast('New circuit created', 'info');
+        showToast(window.t('editor.status.ready'), 'info');
     }
 
     deleteSelected() {
@@ -488,7 +490,7 @@ class App {
             if (label) items.push({ type: 'label', data: label.serialize() });
         }
         this._clipboard = JSON.stringify(items);
-        if (items.length > 0) showToast(`Copied ${items.length} item(s)`, 'info');
+        if (items.length > 0) showToast(window.t('editor.status.copied', 'Copied {count} item(s)').replace('{count}', items.length), 'info');
     }
 
     pasteClipboard() {
@@ -549,26 +551,26 @@ class App {
             container.innerHTML = `
                 <div class="empty-state">
                     <svg viewBox="0 0 48 48" width="40" height="40" opacity="0.3"><path d="M24 8l-2 8h-8l6 5-2 8 6-5 6 5-2-8 6-5h-8z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-                    <p>Select a component to view its properties</p>
+                    <p>${window.t('editor.panel.properties.empty')}</p>
                 </div>`;
             return;
         }
 
         if (this.renderer.selection.size > 1) {
-            container.innerHTML = `<div class="empty-state"><p>${this.renderer.selection.size} items selected</p></div>`;
+            container.innerHTML = `<div class="empty-state"><p>${window.t('editor.status.items_selected', '{count} items selected').replace('{count}', this.renderer.selection.size)}</p></div>`;
             return;
         }
 
         const id = [...this.renderer.selection][0];
         const comp = this.circuit.components.find(c => c.id === id);
         if (!comp) {
-            container.innerHTML = `<div class="empty-state"><p>Wire or label selected</p></div>`;
+            container.innerHTML = `<div class="empty-state"><p>${window.t('editor.status.wire_selected')}</p></div>`;
             return;
         }
 
         const def = comp.getDef();
         let html = `<div class="property-group">
-            <div class="property-group-title">${def ? def.name : comp.type}</div>
+            <div class="property-group-title">${window.t('component.' + comp.type, def ? def.name : comp.type)}</div>
             <div class="property-row">
                 <span class="property-label">X</span>
                 <input class="property-input" type="number" value="${comp.x}" data-prop="x" step="20">
@@ -585,7 +587,7 @@ class App {
         if (def && def.properties) {
             for (const [key, prop] of Object.entries(def.properties)) {
                 html += `<div class="property-row">
-                    <span class="property-label">${prop.label || key}</span>
+                    <span class="property-label">${window.t('property.' + key, prop.label || key)}</span>
                     <input class="property-input" type="text" value="${comp.properties[key] || ''}" data-custom-prop="${key}">
                 </div>`;
             }
@@ -630,28 +632,28 @@ class App {
         document.getElementById('modal-title').textContent = 'Keyboard Shortcuts';
         document.getElementById('modal-body').innerHTML = `
             <div class="shortcuts-grid">
-                <div class="shortcut-row"><kbd>V</kbd> Select Tool</div>
-                <div class="shortcut-row"><kbd>W</kbd> Wire Tool</div>
-                <div class="shortcut-row"><kbd>D</kbd> Delete Tool</div>
-                <div class="shortcut-row"><kbd>L</kbd> Label Tool</div>
-                <div class="shortcut-row"><kbd>R</kbd> Rotate CW</div>
-                <div class="shortcut-row"><kbd>Shift+R</kbd> Rotate CCW</div>
-                <div class="shortcut-row"><kbd>H</kbd> Flip Horizontal</div>
-                <div class="shortcut-row"><kbd>F</kbd> Flip Vertical</div>
-                <div class="shortcut-row"><kbd>Del</kbd> Delete Selected</div>
-                <div class="shortcut-row"><kbd>Esc</kbd> Cancel / Deselect</div>
-                <div class="shortcut-row"><kbd>Ctrl+Z</kbd> Undo</div>
-                <div class="shortcut-row"><kbd>Ctrl+Y</kbd> Redo</div>
-                <div class="shortcut-row"><kbd>Ctrl+S</kbd> Save</div>
-                <div class="shortcut-row"><kbd>Ctrl+C</kbd> Copy</div>
-                <div class="shortcut-row"><kbd>Ctrl+V</kbd> Paste</div>
-                <div class="shortcut-row"><kbd>Ctrl+D</kbd> Duplicate</div>
-                <div class="shortcut-row"><kbd>Ctrl+A</kbd> Select All</div>
-                <div class="shortcut-row"><kbd>Ctrl+0</kbd> Zoom to Fit</div>
-                <div class="shortcut-row"><kbd>Space</kbd> Pan (hold)</div>
-                <div class="shortcut-row"><kbd>Scroll</kbd> Zoom</div>
-                <div class="shortcut-row"><kbd>+/-</kbd> Zoom In/Out</div>
-                <div class="shortcut-row"><kbd>Middle Click</kbd> Pan</div>
+                <div class="shortcut-row"><kbd>V</kbd> ${window.t('editor.shortcut.select')}</div>
+                <div class="shortcut-row"><kbd>W</kbd> ${window.t('editor.shortcut.wire')}</div>
+                <div class="shortcut-row"><kbd>D</kbd> ${window.t('editor.shortcut.delete')}</div>
+                <div class="shortcut-row"><kbd>L</kbd> ${window.t('editor.shortcut.label')}</div>
+                <div class="shortcut-row"><kbd>R</kbd> ${window.t('editor.shortcut.rotate_cw')}</div>
+                <div class="shortcut-row"><kbd>Shift+R</kbd> ${window.t('editor.shortcut.rotate_ccw')}</div>
+                <div class="shortcut-row"><kbd>H</kbd> ${window.t('editor.shortcut.flip_h')}</div>
+                <div class="shortcut-row"><kbd>F</kbd> ${window.t('editor.shortcut.flip_v')}</div>
+                <div class="shortcut-row"><kbd>Del</kbd> ${window.t('editor.shortcut.delete_selected')}</div>
+                <div class="shortcut-row"><kbd>Esc</kbd> ${window.t('editor.shortcut.cancel')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+Z</kbd> ${window.t('editor.shortcut.undo')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+Y</kbd> ${window.t('editor.shortcut.redo')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+S</kbd> ${window.t('editor.shortcut.save')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+C</kbd> ${window.t('editor.shortcut.copy')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+V</kbd> ${window.t('editor.shortcut.paste')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+D</kbd> ${window.t('editor.shortcut.duplicate')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+A</kbd> ${window.t('editor.shortcut.select_all', 'Select All')}</div>
+                <div class="shortcut-row"><kbd>Ctrl+0</kbd> ${window.t('editor.shortcut.zoom_fit')}</div>
+                <div class="shortcut-row"><kbd>Space</kbd> ${window.t('editor.shortcut.pan_hold')}</div>
+                <div class="shortcut-row"><kbd>Scroll</kbd> ${window.t('editor.shortcut.zoom')}</div>
+                <div class="shortcut-row"><kbd>+/-</kbd> ${window.t('editor.shortcut.zoom_in_out')}</div>
+                <div class="shortcut-row"><kbd>Middle Click</kbd> ${window.t('editor.shortcut.middle_click')}</div>
             </div>`;
         document.getElementById('modal-overlay').classList.remove('hidden');
     }

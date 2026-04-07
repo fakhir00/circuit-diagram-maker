@@ -17,13 +17,15 @@ import commonKeys from '../data/i18n/common.json';
 import homeKeys from '../data/i18n/home.json';
 import faqKeys from '../data/i18n/faq.json';
 import editorKeys from '../data/i18n/editor.json';
+import toolsKeys from '../data/i18n/tools.json';
 
 // Merge dictionaries
 const dictionaries = {
   common: commonKeys as Record<string, any>,
   home: homeKeys as Record<string, any>,
   faq: faqKeys as Record<string, any>,
-  editor: editorKeys as Record<string, any>
+  editor: editorKeys as Record<string, any>,
+  tools: toolsKeys as Record<string, any>
 };
 
 export function useTranslations(locale: string) {
@@ -37,14 +39,16 @@ export function useTranslations(locale: string) {
     const mergedLocaleDict = {
       ...(dictionaries.common[locale] || {}),
       ...(dictionaries.home[locale] || {}),
-      ...(dictionaries.editor[locale] || {})
+      ...(dictionaries.editor[locale] || {}),
+      ...(dictionaries.tools[locale] || {})
     };
     
     // Fallback to English
     const mergedEnDict = {
       ...(dictionaries.common[defaultLocale] || {}),
       ...(dictionaries.home[defaultLocale] || {}),
-      ...(dictionaries.editor[defaultLocale] || {})
+      ...(dictionaries.editor[defaultLocale] || {}),
+      ...(dictionaries.tools[defaultLocale] || {})
     };
 
     return mergedLocaleDict[key] || mergedEnDict[key] || key;

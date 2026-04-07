@@ -1,55 +1,52 @@
 ---
 import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
-import { getLocaleFromUrl, getLocalizedPath } from '../theme/i18n';
+import { getLocaleFromUrl, getLocalizedPath, useTranslations } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
 
 const features = [
-  {
-    title: 'Separate PCB schematic canvas',
-    desc: 'Open a focused workspace for schematic capture before layout, with PCB-oriented parts, nets, and documentation flow.'
-  },
-  {
-    title: 'Layout-friendly planning',
-    desc: 'Organize symbols and connectivity in a way that is easier to translate into board layout, review, and manufacturing preparation.'
-  },
-  {
-    title: 'Professional export formats',
-    desc: 'Create polished schematic references for fabrication packages, design reviews, and engineering documentation.'
-  }
+  { title: t('pcb.features.1.title'), desc: t('pcb.features.1.desc') },
+  { title: t('pcb.features.2.title'), desc: t('pcb.features.2.desc') },
+  { title: t('pcb.features.3.title'), desc: t('pcb.features.3.desc') }
 ];
 
 const useCases = [
-  'Pre-layout schematic drafting for custom PCB projects',
-  'Team reviews before PCB routing and manufacturing handoff',
-  'Documentation for embedded systems and production boards'
+  t('pcb.use_case.1'),
+  t('pcb.use_case.2'),
+  t('pcb.use_case.3')
 ];
 
-const tableHeaders = ['Capability', 'What You Can Do', 'Best For'];
+const tableHeaders = [
+  t('pcb.table.header.1'),
+  t('pcb.table.header.2'),
+  t('pcb.table.header.3')
+];
 
 const tableRows = [
-  ['PCB symbols', 'Work with a filtered set of schematic elements relevant to board design', 'Custom board planning'],
-  ['Workflow separation', 'Keep PCB drafting isolated from general circuit or Arduino work', 'Dedicated engineering pipelines'],
-  ['Output formats', 'Export board-prep schematics as SVG, PNG, or JSON', 'Review, archive, and iteration']
+  [t('pcb.table.row.1.col.1'), t('pcb.table.row.1.col.2'), t('pcb.table.row.1.col.3')],
+  [t('pcb.table.row.2.col.1'), t('pcb.table.row.2.col.2'), t('pcb.table.row.2.col.3')],
+  [t('pcb.table.row.3.col.1'), t('pcb.table.row.3.col.2'), t('pcb.table.row.3.col.3')]
 ];
 ---
 
 <ToolLandingPage
-  title="PCB Schematic Tool"
-  description="Draft professional board schematics with a dedicated PCB schematic tool built for separate canvas workflows, schematic planning, and export-ready output."
-  eyebrow="PCB Drafting Workspace"
-  heroTitle="PCB Schematic Tool for Cleaner Board-Level Planning"
-  heroDescription="Use a separate PCB-focused editor to capture schematics, organize nets, and prepare clear documentation before board layout and production."
-  primaryCtaLabel="Open PCB Editor"
+  title={t('pcb.title')}
+  description={t('pcb.description')}
+  eyebrow={t('pcb.eyebrow')}
+  heroTitle={t('pcb.hero.title')}
+  heroDescription={t('pcb.hero.description')}
+  primaryCtaLabel={t('pcb.cta.primary')}
   primaryCtaHref={getLocalizedPath('/pcb-editor/', locale)}
-  secondaryCtaLabel="Read Docs"
+  secondaryCtaLabel={t('pcb.cta.secondary')}
   secondaryCtaHref={getLocalizedPath('/docs/', locale)}
-  featureTitle="Designed for board-level schematic work"
-  featureIntro="This tool gives PCB projects their own landing page and their own editor flow, helping you keep schematic capture isolated, organized, and easier to review."
+  featureTitle={t('pcb.feature_title')}
+  featureIntro={t('pcb.feature_intro')}
   features={features}
   useCases={useCases}
-  tableTitle="Why use the PCB schematic tool?"
+  tableTitle={t('pcb.table.title')}
   tableHeaders={tableHeaders}
   tableRows={tableRows}
   presetId="pcb_tool"
+  t={t}
 />

@@ -5,17 +5,17 @@ const { locale = 'en', editorMode = 'default' } = Astro.props as { locale: strin
 const t = useTranslations(locale);
 
 const modeTitles = {
-    default: "Circuit Diagram Maker — Editor",
-    logic: "Logic Gate Diagram Tool — Designer",
-    arduino: "Arduino Circuit Maker — Lab",
-    pcb: "PCB Schematic Tool — Layout"
+    default: t("editor.mode.default.title"),
+    logic: t("editor.mode.logic.title"),
+    arduino: t("editor.mode.arduino.title"),
+    pcb: t("editor.mode.pcb.title")
 };
 
 const modeDescriptions = {
-    default: "Create high-quality circuit diagrams with our professional, browser-based editor. Drag-and-drop components, wire routing, and export to SVG/PNG.",
-    logic: "Design and simulate logic gate diagrams with NAND, NOR, and XOR gates. Export professional schematics for academic and professional use.",
-    arduino: "Plan your Arduino wiring diagrams with Uno and Mega boards, sensors, and peripherals. The ultimate pre-wiring documentation tool.",
-    pcb: "Draft professional PCB schematics with VIAs, surface-mount pads, and silk screen labels before you move to production."
+    default: t("editor.mode.default.desc"),
+    logic: t("editor.mode.logic.desc"),
+    arduino: t("editor.mode.arduino.desc"),
+    pcb: t("editor.mode.pcb.desc")
 };
 
 const clientI18n = {
@@ -30,17 +30,17 @@ const clientI18n = {
 };
 
 const modeBrandNames = {
-    default: 'Circuit Diagram Maker',
-    logic: 'Logic Gate Diagram Tool',
-    arduino: 'Arduino Circuit Maker',
-    pcb: 'PCB Schematic Tool'
+    default: t("nav.brand.default"),
+    logic: t("nav.brand.logic"),
+    arduino: t("nav.brand.arduino"),
+    pcb: t("nav.brand.pcb")
 };
 
 const modeProjectNames = {
-    default: 'Untitled Circuit',
-    logic: 'Untitled Logic Diagram',
-    arduino: 'Untitled Arduino Circuit',
-    pcb: 'Untitled PCB Schematic'
+    default: t("editor.canvas.untitled"),
+    logic: t("editor.canvas.untitled.logic"),
+    arduino: t("editor.canvas.untitled.arduino"),
+    pcb: t("editor.canvas.untitled.pcb")
 };
 
 const editorConfig = {
@@ -51,7 +51,7 @@ const editorConfig = {
 };
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

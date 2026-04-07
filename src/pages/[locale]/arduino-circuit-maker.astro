@@ -1,5 +1,5 @@
 ---
-import { locales, defaultLocale } from '../../theme/i18n';
+import { locales, defaultLocale, useTranslations } from '../../theme/i18n';
 import ToolLandingPage from '../../components/pages/ToolLandingPage.astro';
 
 export async function getStaticPaths() {
@@ -10,53 +10,50 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const activeLocale = locale || defaultLocale;
+const t = useTranslations(activeLocale);
 
 const features = [
-  {
-    title: 'Arduino-focused workspace',
-    desc: 'Open a separate editor tuned for Arduino planning, with relevant boards, passive parts, power symbols, and common integration components.'
-  },
-  {
-    title: 'Pre-wiring documentation',
-    desc: 'Map sensors, headers, buses, and voltage rails before breadboarding so your project wiring is cleaner and easier to debug.'
-  },
-  {
-    title: 'Shareable project diagrams',
-    desc: 'Export schematics for tutorials, student projects, maker documentation, and handoff notes without using heavy desktop software.'
-  }
+  { title: t('arduino.features.1.title'), desc: t('arduino.features.1.desc') },
+  { title: t('arduino.features.2.title'), desc: t('arduino.features.2.desc') },
+  { title: t('arduino.features.3.title'), desc: t('arduino.features.3.desc') }
 ];
 
 const useCases = [
-  'Arduino Uno and Mega planning before assembly',
-  'Sensor and module connection diagrams for maker tutorials',
-  'STEM classroom projects and reproducible build documentation'
+  t('arduino.use_case.1'),
+  t('arduino.use_case.2'),
+  t('arduino.use_case.3')
 ];
 
-const tableHeaders = ['Capability', 'What You Can Do', 'Best For'];
+const tableHeaders = [
+  t('arduino.table.header.1'),
+  t('arduino.table.header.2'),
+  t('arduino.table.header.3')
+];
 
 const tableRows = [
-  ['Board planning', 'Lay out Arduino boards with connected peripherals and rails', 'Starter and intermediate Arduino projects'],
-  ['Pin mapping', 'Organize signal, I2C, SPI, UART, and power connections clearly', 'Module integration and teaching'],
-  ['Project export', 'Save and share diagrams in editable or presentation-ready formats', 'Guides, labs, and tutorials']
+  [t('arduino.table.row.1.col.1'), t('arduino.table.row.1.col.2'), t('arduino.table.row.1.col.3')],
+  [t('arduino.table.row.2.col.1'), t('arduino.table.row.2.col.2'), t('arduino.table.row.2.col.3')],
+  [t('arduino.table.row.3.col.1'), t('arduino.table.row.3.col.2'), t('arduino.table.row.3.col.3')]
 ];
 ---
 
 <ToolLandingPage
-  title="Arduino Circuit Maker"
-  description="Use a dedicated Arduino circuit maker to plan boards, sensors, and module connections on a separate canvas built for Arduino workflows."
-  eyebrow="Arduino Design Space"
-  heroTitle="Arduino Circuit Maker for Fast Wiring and Project Planning"
-  heroDescription="Document Arduino-based circuits with a separate editor built for board layouts, pin mapping, sensor connections, and export-ready project diagrams."
-  primaryCtaLabel="Open Arduino Editor"
+  title={t('arduino.title')}
+  description={t('arduino.description')}
+  eyebrow={t('arduino.eyebrow')}
+  heroTitle={t('arduino.hero.title')}
+  heroDescription={t('arduino.hero.description')}
+  primaryCtaLabel={t('arduino.cta.primary')}
   primaryCtaHref={`/${activeLocale}/arduino-editor/`}
-  secondaryCtaLabel="View Components"
+  secondaryCtaLabel={t('arduino.cta.secondary')}
   secondaryCtaHref={`/${activeLocale}/components/`}
-  featureTitle="Made for Arduino project documentation"
-  featureIntro="Use this separate Arduino tool to sketch circuits before building, organize modules cleanly, and keep board-level documentation simple for teams and tutorials."
+  featureTitle={t('arduino.feature_title')}
+  featureIntro={t('arduino.feature_intro')}
   features={features}
   useCases={useCases}
-  tableTitle="What makes the Arduino tool different?"
+  tableTitle={t('arduino.table.title')}
   tableHeaders={tableHeaders}
   tableRows={tableRows}
   presetId="arduino"
+  t={t}
 />

@@ -1,5 +1,5 @@
 ---
-import { locales, defaultLocale } from '../../theme/i18n';
+import { locales, defaultLocale, useTranslations } from '../../theme/i18n';
 import ToolLandingPage from '../../components/pages/ToolLandingPage.astro';
 
 export async function getStaticPaths() {
@@ -10,53 +10,50 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const activeLocale = locale || defaultLocale;
+const t = useTranslations(activeLocale);
 
 const features = [
-  {
-    title: 'Gate-first component library',
-    desc: 'Start with AND, OR, NOT, NAND, NOR, XOR, XNOR, input sources, and output indicators arranged for fast digital logic drafting.'
-  },
-  {
-    title: 'Clean orthogonal wiring',
-    desc: 'Route readable logic paths with grid snapping and structured right-angle connections that keep Boolean flow easy to follow.'
-  },
-  {
-    title: 'Classroom and engineering ready',
-    desc: 'Export logic diagrams for homework, lab documents, design reviews, and technical documentation without extra cleanup.'
-  }
+  { title: t('logic.features.1.title'), desc: t('logic.features.1.desc') },
+  { title: t('logic.features.2.title'), desc: t('logic.features.2.desc') },
+  { title: t('logic.features.3.title'), desc: t('logic.features.3.desc') }
 ];
 
 const useCases = [
-  'Truth table walkthroughs and Boolean simplification exercises',
-  'Combinational logic sketches for coursework and electronics labs',
-  'Gate-level documentation before moving into HDL or PCB work'
+  t('logic.use_case.1'),
+  t('logic.use_case.2'),
+  t('logic.use_case.3')
 ];
 
-const tableHeaders = ['Capability', 'What You Can Do', 'Best For'];
+const tableHeaders = [
+  t('logic.table.header.1'),
+  t('logic.table.header.2'),
+  t('logic.table.header.3')
+];
 
 const tableRows = [
-  ['Logic gates', 'Place digital gates and basic signal endpoints quickly', 'Boolean circuit drafting'],
-  ['Visual flow', 'Keep inputs, logic stages, and outputs arranged clearly', 'Teaching and presentations'],
-  ['Export output', 'Download diagrams as SVG, PNG, or editable JSON', 'Reports and collaboration']
+  [t('logic.table.row.1.col.1'), t('logic.table.row.1.col.2'), t('logic.table.row.1.col.3')],
+  [t('logic.table.row.2.col.1'), t('logic.table.row.2.col.2'), t('logic.table.row.2.col.3')],
+  [t('logic.table.row.3.col.1'), t('logic.table.row.3.col.2'), t('logic.table.row.3.col.3')]
 ];
 ---
 
 <ToolLandingPage
-  title="Logic Gate Diagram Tool"
-  description="Create clean digital logic schematics with a dedicated logic gate diagram tool. Draft gate networks, route signals clearly, and export professional diagrams."
-  eyebrow="Digital Logic Workspace"
-  heroTitle="Logic Gate Diagram Tool for Clear Digital Circuit Design"
-  heroDescription="Build readable gate-level schematics with a dedicated logic canvas for combinational circuits, classroom diagrams, and digital design documentation."
-  primaryCtaLabel="Open Logic Editor"
+  title={t('logic.title')}
+  description={t('logic.description')}
+  eyebrow={t('logic.eyebrow')}
+  heroTitle={t('logic.hero.title')}
+  heroDescription={t('logic.hero.description')}
+  primaryCtaLabel={t('logic.cta.primary')}
   primaryCtaHref={`/${activeLocale}/logic-editor/`}
-  secondaryCtaLabel="Read Documentation"
+  secondaryCtaLabel={t('logic.cta.secondary')}
   secondaryCtaHref={`/${activeLocale}/docs/`}
-  featureTitle="Built for structured logic diagrams"
-  featureIntro="This landing page introduces a focused digital logic workflow with separate editing space, logic-specific component filtering, and export-ready schematic output."
+  featureTitle={t('logic.feature_title')}
+  featureIntro={t('logic.feature_intro')}
   features={features}
   useCases={useCases}
-  tableTitle="Why use a separate logic gate editor?"
+  tableTitle={t('logic.table.title')}
   tableHeaders={tableHeaders}
   tableRows={tableRows}
   presetId="gates"
+  t={t}
 />
