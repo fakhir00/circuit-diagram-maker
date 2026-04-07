@@ -9,7 +9,18 @@ const presets = [
       ['Primary parts', '8'],
       ['Estimated nets', '14'],
       ['Signal class', 'Low-noise analog']
-    ]
+    ],
+    metrics: [
+      { label: 'Noise headroom', value: '82 dB', strength: 82, accent: 'cyan' },
+      { label: 'Loop stability', value: '74%', strength: 74, accent: 'blue' },
+      { label: 'Probe access', value: '91%', strength: 91, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'Input RC shaping', detail: 'Bias cleanup and corner tuning', load: 28 },
+      { name: 'Active gain stage', detail: 'Dual op-amp response control', load: 46 },
+      { name: 'Output monitor', detail: 'Measurement node and trim path', load: 26 }
+    ],
+    checkpoints: ['Shield high-impedance nodes', 'Keep feedback loop short', 'Probe filter corner before export']
   },
   {
     id: 'power',
@@ -20,7 +31,18 @@ const presets = [
       ['Primary parts', '10'],
       ['Estimated nets', '18'],
       ['Signal class', 'Power conversion']
-    ]
+    ],
+    metrics: [
+      { label: 'Current density', value: '68%', strength: 68, accent: 'amber' },
+      { label: 'Ripple control', value: '79%', strength: 79, accent: 'rose' },
+      { label: 'Thermal margin', value: '63%', strength: 63, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'PWM switch node', detail: 'Fast edge energy loop', load: 37 },
+      { name: 'Inductor smoothing', detail: 'Current ripple containment', load: 41 },
+      { name: 'Feedback return', detail: 'Quiet sensing and compensation', load: 22 }
+    ],
+    checkpoints: ['Separate power and sense return', 'Tighten hot loop geometry', 'Place decoupling next to load']
   },
   {
     id: 'logic',
@@ -31,7 +53,18 @@ const presets = [
       ['Primary parts', '12'],
       ['Estimated nets', '16'],
       ['Signal class', 'Mixed signal']
-    ]
+    ],
+    metrics: [
+      { label: 'Bus utilization', value: '57%', strength: 57, accent: 'violet' },
+      { label: 'Pin fan-out', value: '71%', strength: 71, accent: 'cyan' },
+      { label: 'Protection cover', value: '88%', strength: 88, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'Sensor ingress', detail: 'ESD and pull network', load: 24 },
+      { name: 'MCU processing', detail: 'Core logic and timing', load: 49 },
+      { name: 'Peripheral links', detail: 'UART and GPIO breakout', load: 27 }
+    ],
+    checkpoints: ['Reserve spare GPIO labels', 'Flag mixed-voltage crossings', 'Document pull-up defaults']
   },
   {
     id: 'audio',
@@ -42,7 +75,18 @@ const presets = [
       ['Primary parts', '7'],
       ['Estimated nets', '11'],
       ['Signal class', 'Hi-Fi Audio']
-    ]
+    ],
+    metrics: [
+      { label: 'Gain balance', value: '76%', strength: 76, accent: 'fuchsia' },
+      { label: 'DC isolation', value: '84%', strength: 84, accent: 'cyan' },
+      { label: 'Output clarity', value: '73%', strength: 73, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'Input coupling', detail: 'DC block and source trim', load: 21 },
+      { name: 'Transistor gain', detail: 'Bias and amplification core', load: 53 },
+      { name: 'Line conditioning', detail: 'Output cap and line handoff', load: 26 }
+    ],
+    checkpoints: ['Verify bias point symmetry', 'Keep audio ground quiet', 'Separate line output from supply return']
   },
   {
     id: 'iot',
@@ -53,7 +97,18 @@ const presets = [
       ['Primary parts', '14'],
       ['Estimated nets', '22'],
       ['Signal class', 'Digital Pulse']
-    ]
+    ],
+    metrics: [
+      { label: 'Battery budget', value: '72%', strength: 72, accent: 'emerald' },
+      { label: 'RF activity', value: '66%', strength: 66, accent: 'rose' },
+      { label: 'Sensor readiness', value: '87%', strength: 87, accent: 'amber' }
+    ],
+    stages: [
+      { name: 'Power source', detail: 'Battery path and regulation', load: 29 },
+      { name: 'Controller core', detail: 'ESP32 logic and sleep flow', load: 44 },
+      { name: 'Edge links', detail: 'I2C sensing and RF handoff', load: 27 }
+    ],
+    checkpoints: ['Segment sleep and active rails', 'Annotate RF exclusion area', 'Review sensor pull-up sizing']
   }
 ];
 ---
@@ -69,20 +124,20 @@ const presets = [
     </div>
 
     <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]" data-showcase-root>
-      <aside class="rounded-3xl border border-white/10 bg-bg-panel p-4">
-        <div class="space-y-3">
+      <aside class="rounded-3xl border border-white/10 bg-bg-panel p-3 lg:p-4">
+        <div class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide snap-x">
           {presets.map((preset, index) => (
-            <button
-              type="button"
-              class={`showcase-tab w-full rounded-2xl border px-4 py-4 text-left transition ${
-                index === 0
-                  ? 'border-brand-primary bg-brand-primary/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.16)]'
-                  : 'border-white/10 bg-white/0 text-slate-300 hover:border-white/20 hover:bg-white/5'
-              }`}
-              data-preset-button
-              data-preset={preset.id}
-              aria-pressed={index === 0 ? 'true' : 'false'}
-            >
+              <button
+                type="button"
+                class={`showcase-tab shrink-0 w-[240px] lg:w-full rounded-2xl border px-4 py-4 text-left transition snap-start ${
+                  index === 0
+                    ? 'border-brand-primary bg-brand-primary/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.16)]'
+                    : 'border-white/10 bg-white/0 text-slate-300 hover:border-white/20 hover:bg-white/5'
+                }`}
+                data-preset-button
+                data-preset={preset.id}
+                aria-pressed={index === 0 ? 'true' : 'false'}
+              >
               <span class="block text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent/90">{preset.label}</span>
               <span class="mt-2 block text-lg font-semibold">{preset.title}</span>
               <span class="mt-2 block text-sm leading-6 text-slate-400">{preset.summary}</span>
@@ -93,86 +148,87 @@ const presets = [
 
       <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-bg-panel via-bg-panel to-bg-surface p-6 shadow-2xl">
         <div class="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_340px]">
-          <div class="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0b1220] p-4">
-            <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-              <div>
-                <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Diagram Canvas</p>
-                <h3 id="showcase-title" class="mt-2 text-xl font-semibold text-white">{presets[0].title}</h3>
+          <div class="flex flex-col gap-6">
+            <div class="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0b1220] p-4">
+              <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Diagram Canvas</p>
+                  <h3 id="showcase-title" class="mt-2 text-xl font-semibold text-white">{presets[0].title}</h3>
+                </div>
+                <div class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-emerald-300">
+                  Live preset
+                </div>
               </div>
-              <div class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-emerald-300">
-                Live preset
-              </div>
-            </div>
 
-            <div class="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.8),rgba(2,6,23,0.95))]">
-              <svg class="h-full w-full text-brand-accent" viewBox="0 0 760 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <filter id="currentGlow">
-                    <feGaussianBlur stdDeviation="2" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
+              <div class="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.8),rgba(2,6,23,0.95))]">
+                <svg class="h-full w-full text-brand-accent" viewBox="0 0 760 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="currentGlow">
+                      <feGaussianBlur stdDeviation="2" result="blur"/>
+                      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                  </defs>
 
-                <g data-diagram="analog">
-                  <path id="a1" d="M88 130H184" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-                  <path id="a2" d="M88 130V216H188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  
-                  <circle r="4" fill="#22d3ee" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M88 130H184" /></circle>
-                  <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M88 130V216H188" /></circle>
+                  <g data-diagram="analog">
+                    <path id="a1" d="M88 130H184" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                    <path id="a2" d="M88 130V216H188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    
+                    <circle r="4" fill="#22d3ee" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M88 130H184" /></circle>
+                    <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M88 130V216H188" /></circle>
 
-                  <rect x="184" y="92" width="116" height="80" rx="16" fill="#111827" stroke="#60a5fa" stroke-width="3" />
-                  <text x="242" y="138" text-anchor="middle" fill="#e2e8f0" font-size="20" font-family="sans-serif" font-weight="bold">OP-AMP</text>
-                  
-                  <path id="a3" d="M300 132H396" stroke="#67e8f9" stroke-width="4" stroke-linecap="round" />
-                  <circle r="4" fill="#67e8f9" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M300 132H396" /></circle>
+                    <rect x="184" y="92" width="116" height="80" rx="16" fill="#111827" stroke="#60a5fa" stroke-width="3" />
+                    <text x="242" y="138" text-anchor="middle" fill="#e2e8f0" font-size="20" font-family="sans-serif" font-weight="bold">OP-AMP</text>
+                    
+                    <path id="a3" d="M300 132H396" stroke="#67e8f9" stroke-width="4" stroke-linecap="round" />
+                    <circle r="4" fill="#67e8f9" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M300 132H396" /></circle>
 
-                  <circle cx="430" cy="132" r="28" fill="#0f172a" stroke="#22d3ee" stroke-width="3" />
-                  <path d="M430 104V160" stroke="#22d3ee" stroke-width="3" />
-                  <path d="M402 132H458" stroke="#22d3ee" stroke-width="3" />
-                  
-                  <path id="a4" d="M430 160V224H242V172" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M430 160V224H242V172" /></circle>
+                    <circle cx="430" cy="132" r="28" fill="#0f172a" stroke="#22d3ee" stroke-width="3" />
+                    <path d="M430 104V160" stroke="#22d3ee" stroke-width="3" />
+                    <path d="M402 132H458" stroke="#22d3ee" stroke-width="3" />
+                    
+                    <path id="a4" d="M430 160V224H242V172" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M430 160V224H242V172" /></circle>
 
-                  <path id="a5" d="M122 130V76H520V132" stroke="#1d4ed8" stroke-width="4" stroke-dasharray="10 10" />
-                  <circle r="3.5" fill="#1d4ed8" filter="url(#currentGlow)"><animateMotion dur="5s" repeatCount="indefinite" path="M122 130V76H520V132" /></circle>
+                    <path id="a5" d="M122 130V76H520V132" stroke="#1d4ed8" stroke-width="4" stroke-dasharray="10 10" />
+                    <circle r="3.5" fill="#1d4ed8" filter="url(#currentGlow)"><animateMotion dur="5s" repeatCount="indefinite" path="M122 130V76H520V132" /></circle>
 
-                  <circle cx="88" cy="130" r="8" fill="#22d3ee" />
-                  <circle cx="520" cy="132" r="8" fill="#22d3ee" />
-                  <text x="92" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VIN</text>
-                  <text x="530" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VOUT</text>
-                </g>
+                    <circle cx="88" cy="130" r="8" fill="#22d3ee" />
+                    <circle cx="520" cy="132" r="8" fill="#22d3ee" />
+                    <text x="92" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VIN</text>
+                    <text x="530" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VOUT</text>
+                  </g>
 
-                <g data-diagram="power" class="hidden">
-                  <path id="p1" d="M90 118H190" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" />
-                  <circle r="4" fill="#60a5fa" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M90 118H190" /></circle>
+                  <g data-diagram="power" class="hidden">
+                    <path id="p1" d="M90 118H190" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" />
+                    <circle r="4" fill="#60a5fa" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M90 118H190" /></circle>
 
-                  <rect x="190" y="88" width="88" height="62" rx="14" fill="#111827" stroke="#f59e0b" stroke-width="3" />
-                  <text x="234" y="126" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">PWM</text>
-                  
-                  <path id="p2" d="M278 118H358" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
-                  <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M278 118H358" /></circle>
+                    <rect x="190" y="88" width="88" height="62" rx="14" fill="#111827" stroke="#f59e0b" stroke-width="3" />
+                    <text x="234" y="126" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">PWM</text>
+                    
+                    <path id="p2" d="M278 118H358" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
+                    <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M278 118H358" /></circle>
 
-                  <path id="p3" d="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" stroke="#fde68a" stroke-width="4" stroke-linecap="round" />
-                  <circle r="3.5" fill="#fde68a" filter="url(#currentGlow)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" /></circle>
+                    <path id="p3" d="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" stroke="#fde68a" stroke-width="4" stroke-linecap="round" />
+                    <circle r="3.5" fill="#fde68a" filter="url(#currentGlow)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M358 118c18-32 44-32 62 0c18 32 44 32 62 0" /></circle>
 
-                  <path id="p4" d="M482 118H580" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
-                  <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M482 118H580" /></circle>
+                    <path id="p4" d="M482 118H580" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
+                    <circle r="4" fill="#f59e0b" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M482 118H580" /></circle>
 
-                  <rect x="580" y="86" width="92" height="64" rx="14" fill="#111827" stroke="#22c55e" stroke-width="3" />
-                  <text x="626" y="124" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">LOAD</text>
-                  
-                  <path id="p5" d="M358 118V210H626V150" stroke="#fb7185" stroke-width="4" stroke-linecap="round" />
-                  <circle r="3.5" fill="#fb7185" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M358 118V210H626V150" /></circle>
+                    <rect x="580" y="86" width="92" height="64" rx="14" fill="#111827" stroke="#22c55e" stroke-width="3" />
+                    <text x="626" y="124" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">LOAD</text>
+                    
+                    <path id="p5" d="M358 118V210H626V150" stroke="#fb7185" stroke-width="4" stroke-linecap="round" />
+                    <circle r="3.5" fill="#fb7185" filter="url(#currentGlow)"><animateMotion dur="2.5s" repeatCount="indefinite" path="M358 118V210H626V150" /></circle>
 
-                  <path d="M430 118V256" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  <path d="M402 256H458" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  <path d="M412 274H448" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  <path d="M420 292H440" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-                  <text x="86" y="96" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VIN</text>
-                  <text x="596" y="70" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">3.3V</text>
-                </g>
+                    <path d="M430 118V256" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <path d="M402 256H458" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <path d="M412 274H448" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <path d="M420 292H440" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+                    <text x="86" y="96" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VIN</text>
+                    <text x="596" y="70" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">3.3V</text>
+                  </g>
 
-                <g data-diagram="logic" class="hidden">
+                  <g data-diagram="logic" class="hidden">
                   <rect x="118" y="94" width="124" height="80" rx="18" fill="#111827" stroke="#a78bfa" stroke-width="3" />
                   <text x="180" y="128" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">SENSOR</text>
                   <path id="l1" d="M242 118H336" stroke="#c084fc" stroke-width="4" stroke-linecap="round" />
@@ -199,9 +255,9 @@ const presets = [
                   <path d="M134 262H226" stroke="#f59e0b" stroke-width="4" />
                   <path d="M146 280H214" stroke="#f59e0b" stroke-width="4" />
                   <path d="M158 298H202" stroke="#f59e0b" stroke-width="4" />
-                </g>
+                  </g>
 
-                <g data-diagram="audio" class="hidden">
+                  <g data-diagram="audio" class="hidden">
                   <!-- Input Stage -->
                   <path id="au1" d="M80 200H180" stroke="#a855f7" stroke-width="4" />
                   <circle r="4" fill="#a855f7" filter="url(#currentGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M80 200H180" /></circle>
@@ -224,9 +280,9 @@ const presets = [
                   
                   <text x="80" y="180" fill="#94a3b8" font-size="14">AUDIO IN</text>
                   <text x="620" y="180" fill="#94a3b8" font-size="14">LINE OUT</text>
-                </g>
+                  </g>
 
-                <g data-diagram="iot" class="hidden">
+                  <g data-diagram="iot" class="hidden">
                   <!-- Battery -->
                   <rect x="60" y="180" width="40" height="80" rx="4" fill="#111827" stroke="#22c55e" stroke-width="3" />
                   <path id="iot1" d="M100 220H200" stroke="#22c55e" stroke-width="4" />
@@ -248,8 +304,70 @@ const presets = [
                   <circle r="4" fill="#ef4444" filter="url(#currentGlow)"><animateMotion dur="0.5s" repeatCount="indefinite" path="M340 220H440" /></circle>
                   <path d="M440 200V240M440 220 L480 180M440 220 L480 260" stroke="#ef4444" stroke-width="3" stroke-linecap="round" />
                   <text x="470" y="160" fill="#ef4444" font-size="14" font-weight="bold">RF OUT</text>
-                </g>
-              </svg>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+              <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/70 p-6">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-brand-accent">Schematic breakdown</p>
+                    <h4 class="mt-2 text-lg font-semibold text-white">Critical path allocation</h4>
+                  </div>
+                  <div class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-slate-400">
+                    Auto-profiled
+                  </div>
+                </div>
+                <div id="showcase-stages" class="mt-6 space-y-4">
+                  {presets[0].stages.map((stage) => (
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                      <div class="flex items-start justify-between gap-4">
+                        <div>
+                          <p class="text-sm font-semibold text-white">{stage.name}</p>
+                          <p class="mt-1 text-sm text-slate-400">{stage.detail}</p>
+                        </div>
+                        <span class="text-sm font-semibold text-brand-accent">{stage.load}%</span>
+                      </div>
+                      <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                        <div class="h-full rounded-full bg-gradient-to-r from-brand-primary via-cyan-400 to-emerald-400" style={`width: ${stage.load}%`}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/70 p-6">
+                  <p class="text-xs uppercase tracking-[0.3em] text-brand-accent">Operating metrics</p>
+                  <div id="showcase-metrics" class="mt-5 space-y-4">
+                    {presets[0].metrics.map((metric) => (
+                      <div>
+                        <div class="mb-2 flex items-center justify-between gap-3 text-sm">
+                          <span class="text-slate-300">{metric.label}</span>
+                          <span class="font-semibold text-white">{metric.value}</span>
+                        </div>
+                        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+                          <div class={`metric-bar h-full rounded-full metric-${metric.accent}`} style={`width: ${metric.strength}%`}></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/70 p-6">
+                  <div class="flex items-center justify-between gap-4">
+                    <p class="text-xs uppercase tracking-[0.3em] text-brand-accent">Design checkpoints</p>
+                    <span class="text-[11px] uppercase tracking-[0.24em] text-slate-500">Review cues</span>
+                  </div>
+                  <div id="showcase-checkpoints" class="mt-5 flex flex-wrap gap-3">
+                    {presets[0].checkpoints.map((item) => (
+                      <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-300">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -290,6 +408,9 @@ const presets = [
     const title = document.getElementById('showcase-title');
     const summary = document.getElementById('showcase-summary');
     const specs = document.getElementById('showcase-specs');
+    const metrics = document.getElementById('showcase-metrics');
+    const stages = document.getElementById('showcase-stages');
+    const checkpoints = document.getElementById('showcase-checkpoints');
     const diagrams = root.querySelectorAll('[data-diagram]');
 
     const renderSpecs = (rows) => {
@@ -299,6 +420,46 @@ const presets = [
           <th class="py-3 pr-4 font-medium text-slate-400">${label}</th>
           <td class="py-3 text-white">${value}</td>
         </tr>
+      `).join('');
+    };
+
+    const renderMetrics = (rows) => {
+      if (!metrics) return;
+      metrics.innerHTML = rows.map((metric) => `
+        <div>
+          <div class="mb-2 flex items-center justify-between gap-3 text-sm">
+            <span class="text-slate-300">${metric.label}</span>
+            <span class="font-semibold text-white">${metric.value}</span>
+          </div>
+          <div class="h-2 overflow-hidden rounded-full bg-white/10">
+            <div class="metric-bar h-full rounded-full metric-${metric.accent}" style="width: ${metric.strength}%"></div>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    const renderStages = (rows) => {
+      if (!stages) return;
+      stages.innerHTML = rows.map((stage) => `
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-white">${stage.name}</p>
+              <p class="mt-1 text-sm text-slate-400">${stage.detail}</p>
+            </div>
+            <span class="text-sm font-semibold text-brand-accent">${stage.load}%</span>
+          </div>
+          <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+            <div class="h-full rounded-full bg-gradient-to-r from-brand-primary via-cyan-400 to-emerald-400" style="width: ${stage.load}%"></div>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    const renderCheckpoints = (rows) => {
+      if (!checkpoints) return;
+      checkpoints.innerHTML = rows.map((item) => `
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-slate-300">${item}</span>
       `).join('');
     };
 
@@ -323,6 +484,9 @@ const presets = [
       if (title) title.textContent = activePreset.title;
       if (summary) summary.textContent = activePreset.summary;
       renderSpecs(activePreset.specs);
+      renderMetrics(activePreset.metrics);
+      renderStages(activePreset.stages);
+      renderCheckpoints(activePreset.checkpoints);
     };
 
     buttons.forEach((button) => {
@@ -332,3 +496,37 @@ const presets = [
     });
   }
 </script>
+
+<style>
+  .metric-bar {
+    box-shadow: 0 0 18px rgba(96, 165, 250, 0.22);
+  }
+
+  .metric-cyan {
+    background: linear-gradient(90deg, rgba(34, 211, 238, 0.72), rgba(103, 232, 249, 1));
+  }
+
+  .metric-blue {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.72), rgba(96, 165, 250, 1));
+  }
+
+  .metric-emerald {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.72), rgba(52, 211, 153, 1));
+  }
+
+  .metric-amber {
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.72), rgba(251, 191, 36, 1));
+  }
+
+  .metric-rose {
+    background: linear-gradient(90deg, rgba(244, 63, 94, 0.72), rgba(251, 113, 133, 1));
+  }
+
+  .metric-violet {
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.72), rgba(196, 181, 253, 1));
+  }
+
+  .metric-fuchsia {
+    background: linear-gradient(90deg, rgba(217, 70, 239, 0.72), rgba(244, 114, 182, 1));
+  }
+</style>

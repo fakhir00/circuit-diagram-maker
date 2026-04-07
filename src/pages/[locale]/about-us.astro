@@ -12,16 +12,50 @@ const t = useTranslations(locale);
 ---
 
 <BaseLayout title={t('nav.about')}>
-  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-bold tracking-tight text-white mb-8">{t('nav.about')}</h1>
-    <div class="prose prose-invert prose-blue max-w-none">
-      <p class="text-lg text-slate-300">
-        Circuit Diagram Maker is built by a team of enthusiastic engineers who believe that creating professional electronic schematics should be fast, accessible, and intuitive directly within your browser.
-      </p>
-      <h2 class="text-2xl font-semibold mt-12 mb-4">Our Mission</h2>
-      <p class="text-slate-300">
-        We aim to provide students, researchers, and professionals with a robust tool to draft, simulate, and export their circuit ideas without the bloat of traditional desktop software.
+  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">
+    <!-- Blueprint Grid Background -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.08)_1px,transparent_1px)] [background-size:32px_32px] opacity-40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-dark/50 to-bg-dark"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Our Mission</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 underline decoration-brand-primary/30 decoration-8 underline-offset-8">{t('nav.about')}</h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        Building the future of accessible electronic design, one node at a time.
       </p>
     </div>
-  </div>
+  </section>
+
+  <section class="bg-bg-panel py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-invert prose-blue max-w-none">
+        <div class="p-8 rounded-3xl border border-white/10 bg-bg-dark/50 backdrop-blur-sm mb-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+          <p class="text-xl text-slate-300 leading-relaxed font-medium">
+            Circuit Diagram Maker is built by a global team of engineers who believe that professional electronic schematic design should be fast, accessible, and intuitive directly within your browser.
+          </p>
+        </div>
+        
+        <div class="grid gap-12 md:grid-cols-2 mt-16">
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-primary/20 text-brand-primary text-sm">01</span>
+              The Vision
+            </h2>
+            <p class="text-slate-400 leading-relaxed">
+              We aim to provide students, researchers, and professionals with a robust tool to draft, simulate, and export their circuit ideas without the bloat of traditional desktop software.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-primary/20 text-brand-primary text-sm">02</span>
+              Open Standards
+            </h2>
+            <p class="text-slate-400 leading-relaxed">
+              By using web technologies and standard SVG formats, we ensure your circuit diagrams are infinitely scalable and compatible with everything from LaTeX to professional CAD suites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

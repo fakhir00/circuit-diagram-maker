@@ -6,30 +6,41 @@ interface Props {
 const { email } = Astro.props;
 ---
 
-<div class="bg-bg-panel border border-white/5 rounded-2xl p-8 relative overflow-hidden">
-  <div class="absolute inset-0 bg-brand-primary/2 h-px -top-px"></div>
-  <form class="space-y-6" id="contact-form">
-    <div>
-      <label for="name" class="block text-sm font-medium text-slate-300">Name</label>
-      <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md bg-bg-surface/50 border-white/10 text-white focus:border-brand-primary focus:ring-brand-primary transition-all placeholder-slate-600" placeholder="Your Name" />
+<div class="bg-bg-dark/40 border border-white/10 rounded-3xl p-8 backdrop-blur-md relative shadow-2xl overflow-hidden group/form">
+  <!-- Decorative corner glow -->
+  <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-primary/10 blur-[80px] rounded-full group-hover/form:bg-brand-primary/20 transition-colors duration-700"></div>
+  
+  <form class="space-y-6 relative z-10" id="contact-form">
+    <div class="grid gap-6 sm:grid-cols-2">
+      <div>
+        <label for="name" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Full Name</label>
+        <input type="text" id="name" name="name" required class="block w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 transition-all outline-none" placeholder="Nikola Tesla" />
+      </div>
+      <div>
+        <label for="email" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Email Address</label>
+        <input type="email" id="email" name="email" required class="block w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 transition-all outline-none" placeholder="nikola@wardenclyffe.io" />
+      </div>
     </div>
+    
     <div>
-      <label for="email" class="block text-sm font-medium text-slate-300">Email</label>
-      <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md bg-bg-surface/50 border-white/10 text-white focus:border-brand-primary focus:ring-brand-primary transition-all placeholder-slate-600" placeholder="your@email.com" />
-    </div>
-    <div>
-      <label for="message" class="block text-sm font-medium text-slate-300">Message</label>
-      <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md bg-bg-surface/50 border-white/10 text-white focus:border-brand-primary focus:ring-brand-primary transition-all placeholder-slate-600" placeholder="How can we help?"></textarea>
+      <label for="message" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Technical Details / Message</label>
+      <textarea id="message" name="message" rows="5" required class="block w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-600 focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 transition-all outline-none resize-none" placeholder="Describe your circuit design challenge or feature request..."></textarea>
     </div>
     
     <div id="form-status" class="hidden text-sm font-medium p-4 rounded-xl border transition-all duration-300"></div>
 
-    <button type="submit" id="submit-btn" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.2)] text-sm font-bold text-white bg-brand-primary hover:bg-blue-600 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed">
-      Send Message
+    <button type="submit" id="submit-btn" class="group/submit relative w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-black uppercase tracking-widest text-sm hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden">
+      <span class="relative z-10 flex items-center gap-2">
+        Establish Contact
+        <svg class="w-4 h-4 transform group-hover/submit:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </span>
+      <div class="absolute inset-0 bg-white/20 translate-y-full group-hover/submit:translate-y-0 transition-transform duration-300"></div>
     </button>
   </form>
-  <div class="mt-8 border-t border-white/5 pt-6 text-center text-sm text-slate-400">
-    Or reach us directly at <a href={`mailto:${email}`} class="text-brand-primary hover:text-brand-accent transition-colors font-medium">{email}</a>
+  
+  <div class="mt-10 border-t border-white/5 pt-6 text-center">
+    <p class="text-xs font-bold text-slate-600 uppercase tracking-widest">Alternatively</p>
+    <a href={`mailto:${email}`} class="mt-2 inline-block text-slate-400 hover:text-brand-primary transition-colors font-medium text-sm border-b border-dashed border-white/20 hover:border-brand-primary/50">{email}</a>
   </div>
 </div>
 
