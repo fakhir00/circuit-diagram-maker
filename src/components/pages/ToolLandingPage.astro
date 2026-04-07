@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InteractiveToolPreview from '../InteractiveToolPreview.astro';
 
 interface Props {
   title: string;
@@ -18,6 +19,7 @@ interface Props {
   tableTitle: string;
   tableHeaders: string[];
   tableRows: string[][];
+  presetId?: string;
 }
 
 const {
@@ -36,12 +38,13 @@ const {
   useCases,
   tableTitle,
   tableHeaders,
-  tableRows
+  tableRows,
+  presetId
 } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
+  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_28%)]"></div>
     <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
       <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{eyebrow}</p>
@@ -61,6 +64,14 @@ const {
       </div>
     </div>
   </section>
+
+  {presetId && (
+    <section class="bg-bg-dark border-y border-white/5 py-12">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <InteractiveToolPreview presetId={presetId} />
+      </div>
+    </section>
+  )}
 
   <section class="bg-bg-panel py-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

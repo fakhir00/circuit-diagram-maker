@@ -1,94 +1,10 @@
 ---
-const presets = [
-  {
-    id: 'logic',
-    label: 'Logic Control',
-    title: 'Sensor and MCU interface',
-    summary: 'Plan input protection, pull resistors, and connector strategy for digital control systems.',
-    specs: [
-      ['Primary parts', '12'],
-      ['Estimated nets', '16'],
-      ['Signal class', 'Mixed signal']
-    ],
-    metrics: [
-      { label: 'Bus utilization', value: '57%', strength: 57, accent: 'violet' },
-      { label: 'Pin fan-out', value: '71%', strength: 71, accent: 'cyan' },
-      { label: 'Protection cover', value: '88%', strength: 88, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'Sensor ingress', detail: 'ESD and pull network', load: 24 },
-      { name: 'MCU processing', detail: 'Core logic and timing', load: 49 },
-      { name: 'Peripheral links', detail: 'UART and GPIO breakout', load: 27 }
-    ],
-    checkpoints: ['Reserve spare GPIO labels', 'Flag mixed-voltage crossings', 'Document pull-up defaults']
-  },
-  {
-    id: 'audio',
-    label: 'Audio Amp',
-    title: 'Class-A Preamplifier',
-    summary: 'Design high-fidelity signal paths with DC blocking capacitors and precision gain stages.',
-    specs: [
-      ['Primary parts', '7'],
-      ['Estimated nets', '11'],
-      ['Signal class', 'Hi-Fi Audio']
-    ],
-    metrics: [
-      { label: 'Gain balance', value: '76%', strength: 76, accent: 'fuchsia' },
-      { label: 'DC isolation', value: '84%', strength: 84, accent: 'cyan' },
-      { label: 'Output clarity', value: '73%', strength: 73, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'Input coupling', detail: 'DC block and source trim', load: 21 },
-      { name: 'Transistor gain', detail: 'Bias and amplification core', load: 53 },
-      { name: 'Line conditioning', detail: 'Output cap and line handoff', load: 26 }
-    ],
-    checkpoints: ['Verify bias point symmetry', 'Keep audio ground quiet', 'Separate line output from supply return']
-  },
-  {
-    id: 'gates',
-    label: 'Logic Designer',
-    title: 'Digital Logic Controller',
-    summary: 'Design binary logic CMOS circuits with AND, OR, and XOR gates for specialized digital handshakes.',
-    specs: [
-      ['Primary gates', '7'],
-      ['Logic depth', '4-layer'],
-      ['Signal class', 'Digital CMOS']
-    ],
-    metrics: [
-      { label: 'Logic stability', value: '72%', strength: 72, accent: 'violet' },
-      { label: 'Timing margin', value: '85%', strength: 85, accent: 'cyan' },
-      { label: 'Fan-out efficiency', value: '64%', strength: 64, accent: 'emerald' }
-    ],
-    stages: [
-      { name: 'Binary ingress', detail: 'Input levels and pull-downs', load: 21 },
-      { name: 'Condition logic', detail: 'Branching and XOR gates', load: 56 },
-      { name: 'Signal output', detail: 'Buffer stage and edge trim', load: 23 }
-    ],
-    checkpoints: ['Minimize gate propagation delay', 'Verify CMOS logic thresholds', 'Buffer fan-out branches']
-  },
-  {
-    id: 'pcb_tool',
-    label: 'PCB Drafting',
-    title: 'Multi-layer Schematic',
-    summary: 'Design manufacturing-ready PCBs with multi-layer trace routing, VIAs, and thermal pad relief.',
-    specs: [
-      ['Layer count', '4-Layer'],
-      ['Trace width', '6 mil'],
-      ['Clearance', '0.15 mm']
-    ],
-    metrics: [
-      { label: 'Signal Integrity', value: '91%', strength: 91, accent: 'cyan' },
-      { label: 'Thermal relief', value: '82%', strength: 82, accent: 'emerald' },
-      { label: 'EMI shielding', value: '67%', strength: 67, accent: 'rose' }
-    ],
-    stages: [
-      { name: 'Trace routing', detail: 'Automatic differential routing', load: 46 },
-      { name: 'Layer stacking', detail: 'Ground plane and isolation', load: 38 },
-      { name: 'Gerber prep', detail: 'VIA drill path optimization', load: 16 }
-    ],
-    checkpoints: ['Keep differential pairs matched', 'Balance ground plane coverage', 'Minimize high-speed VIA hops']
-  }
-];
+import { toolPresets } from '../data/toolPresets';
+import DiagramCanvas from './DiagramCanvas.astro';
+
+// Filter for the tools the user decided to keep on the home showcase
+const showcaseIds = ['logic', 'audio', 'gates', 'pcb_tool'];
+const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
 ---
 
 <section class="border-t border-white/5 bg-bg-dark py-24">
@@ -140,7 +56,10 @@ const presets = [
               </div>
 
               <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/5 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_40%),#020617]">
-                <svg class="h-full w-full text-brand-accent" viewBox="0 0 760 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div id="diagram-container">
+                  <DiagramCanvas presetId={presets[0].id} />
+                </div>
+              </div>
                   <defs>
                     <filter id="currentGlow">
                       <feGaussianBlur stdDeviation="3.5" result="blur"/>
