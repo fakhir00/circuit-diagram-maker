@@ -8,7 +8,11 @@
     "nav.about": "About Us",
     "footer.contact": "Contact",
     "footer.terms": "Terms of Service",
-    "footer.privacy": "Privacy Policy"
+    "footer.privacy": "Privacy Policy",
+    "nav.more_tools": "More Tools",
+    "nav.logic_gates": "Logic Gate Tool",
+    "nav.arduino": "Arduino Maker",
+    "nav.pcb": "PCB Schematic Tool"
   },
   "hi": {
     "nav.home": "घर",
@@ -19,7 +23,11 @@
     "nav.about": "हमारे बारे में",
     "footer.contact": "संपर्क",
     "footer.terms": "सेवा की शर्तें",
-    "footer.privacy": "गोपनीयता नीति"
+    "footer.privacy": "गोपनीयता नीति",
+    "nav.more_tools": "और अधिक उपकरण",
+    "nav.logic_gates": "लॉजिक गेट टूल",
+    "nav.arduino": "अरुडिनो मेकर",
+    "nav.pcb": "पीसीबी लेआउट"
   },
   "es": {
     "nav.home": "Hogar",
@@ -30,7 +38,11 @@
     "nav.about": "Sobre nosotros",
     "footer.contact": "Contacto",
     "footer.terms": "Términos de servicio",
-    "footer.privacy": "política de privacidad"
+    "footer.privacy": "política de privacidad",
+    "nav.more_tools": "Más herramientas",
+    "nav.logic_gates": "Puertas lógicas",
+    "nav.arduino": "Creador Arduino",
+    "nav.pcb": "Esquema PCB"
   },
   "ru": {
     "nav.home": "Дом",
@@ -41,7 +53,11 @@
     "nav.about": "О нас",
     "footer.contact": "Контакт",
     "footer.terms": "Условия использования",
-    "footer.privacy": "политика конфиденциальности"
+    "footer.privacy": "политика конфиденциальности",
+    "nav.more_tools": "Больше инструментов",
+    "nav.logic_gates": "Логические вентили",
+    "nav.arduino": "Arduino Maker",
+    "nav.pcb": "Схема печатной платы"
   },
   "fr": {
     "nav.home": "Maison",
@@ -52,7 +68,11 @@
     "nav.about": "À propos de nous",
     "footer.contact": "Contact",
     "footer.terms": "Conditions d'utilisation",
-    "footer.privacy": "politique de confidentialité"
+    "footer.privacy": "politique de confidentialité",
+    "nav.more_tools": "Plus d'outils",
+    "nav.logic_gates": "Portes logiques",
+    "nav.arduino": "Créateur Arduino",
+    "nav.pcb": "Schéma PCB"
   },
   "de": {
     "nav.home": "Heim",
@@ -63,7 +83,11 @@
     "nav.about": "Über uns",
     "footer.contact": "Kontakt",
     "footer.terms": "Nutzungsbedingungen",
-    "footer.privacy": "Datenschutzrichtlinie"
+    "footer.privacy": "Datenschutzrichtlinie",
+    "nav.more_tools": "Mehr Tools",
+    "nav.logic_gates": "Logikgatter-Tool",
+    "nav.arduino": "Arduino-Ersteller",
+    "nav.pcb": "PCB-Schaltplan"
   },
   "it": {
     "nav.home": "Casa",
@@ -74,7 +98,11 @@
     "nav.about": "Chi siamo",
     "footer.contact": "Contatto",
     "footer.terms": "Termini di servizio",
-    "footer.privacy": "politica sulla riservatezza"
+    "footer.privacy": "politica sulla riservatezza",
+    "nav.more_tools": "Altri strumenti",
+    "nav.logic_gates": "Strumento porte logiche",
+    "nav.arduino": "Arduino Maker",
+    "nav.pcb": "Schema PCB"
   },
   "pt": {
     "nav.home": "Lar",
@@ -85,7 +113,11 @@
     "nav.about": "Sobre nós",
     "footer.contact": "Contato",
     "footer.terms": "Termos de Serviço",
-    "footer.privacy": "política de Privacidade"
+    "footer.privacy": "política de Privacidade",
+    "nav.more_tools": "Mais ferramentas",
+    "nav.logic_gates": "Portas Lógicas",
+    "nav.arduino": "Criador Arduino",
+    "nav.pcb": "Esquema PCB"
   },
   "bn": {
     "nav.home": "বাড়ি",
@@ -96,7 +128,11 @@
     "nav.about": "আমাদের সম্পর্কে",
     "footer.contact": "যোগাযোগ",
     "footer.terms": "পরিষেবার শর্তাবলী",
-    "footer.privacy": "গোপনীয়তা নীতি"
+    "footer.privacy": "গোপনীয়তা নীতি",
+    "nav.more_tools": "আরও সরঞ্জাম",
+    "nav.logic_gates": "লজিক গেট সরঞ্জাম",
+    "nav.arduino": "আরডুইনো মেকার",
+    "nav.pcb": "পিসিবি স্কিম্যাটিক"
   },
   "ja": {
     "nav.home": "家",
@@ -107,7 +143,11 @@
     "nav.about": "私たちについて",
     "footer.contact": "接触",
     "footer.terms": "利用規約",
-    "footer.privacy": "プライバシーポリシー"
+    "footer.privacy": "プライバシーポリシー",
+    "nav.more_tools": "他のツール",
+    "nav.logic_gates": "ロジックゲートツール",
+    "nav.arduino": "Arduinoメーカー",
+    "nav.pcb": "PCB回路図"
   },
   "ko": {
     "nav.home": "집",
@@ -118,7 +158,11 @@
     "nav.about": "회사 소개",
     "footer.contact": "연락하다",
     "footer.terms": "서비스 약관",
-    "footer.privacy": "개인 정보 보호 정책"
+    "footer.privacy": "개인 정보 보호 정책",
+    "nav.more_tools": "더 많은 도구",
+    "nav.logic_gates": "논리 게이트 도구",
+    "nav.arduino": "아두이노 메이커",
+    "nav.pcb": "PCB 회로도"
   },
   "ms": {
     "nav.home": "Rumah",
@@ -129,7 +173,11 @@
     "nav.about": "Tentang Kami",
     "footer.contact": "Kenalan",
     "footer.terms": "Syarat Perkhidmatan",
-    "footer.privacy": "Dasar Privasi"
+    "footer.privacy": "Dasar Privasi",
+    "nav.more_tools": "Lagi Alatan",
+    "nav.logic_gates": "Alat Get Logik",
+    "nav.arduino": "Pembuat Arduino",
+    "nav.pcb": "Skematik PCB"
   },
   "pl": {
     "nav.home": "Dom",
@@ -140,7 +188,11 @@
     "nav.about": "O nas",
     "footer.contact": "Kontakt",
     "footer.terms": "Warunki świadczenia usług",
-    "footer.privacy": "Polityka prywatności"
+    "footer.privacy": "Polityka prywatności",
+    "nav.more_tools": "Więcej narzędzi",
+    "nav.logic_gates": "Bramki logiczne",
+    "nav.arduino": "Kreator Arduino",
+    "nav.pcb": "Schemat PCB"
   },
   "id": {
     "nav.home": "Rumah",
@@ -151,7 +203,11 @@
     "nav.about": "Tentang Kami",
     "footer.contact": "Kontak",
     "footer.terms": "Ketentuan Layanan",
-    "footer.privacy": "Kebijakan Privasi"
+    "footer.privacy": "Kebijakan Privasi",
+    "nav.more_tools": "Alat Lainnya",
+    "nav.logic_gates": "Alat Gerbang Logika",
+    "nav.arduino": "Pembuat Arduino",
+    "nav.pcb": "Skematik PCB"
   },
   "ar": {
     "nav.home": "بيت",
@@ -162,7 +218,11 @@
     "nav.about": "معلومات عنا",
     "footer.contact": "اتصال",
     "footer.terms": "شروط الخدمة",
-    "footer.privacy": "سياسة الخصوصية"
+    "footer.privacy": "سياسة الخصوصية",
+    "nav.more_tools": "المزيد من الأدوات",
+    "nav.logic_gates": "بوابات منطقية",
+    "nav.arduino": "صانع أردوينو",
+    "nav.pcb": "مخطط PCB"
   },
   "bg": {
     "nav.home": "Начало",
@@ -173,7 +233,11 @@
     "nav.about": "За нас",
     "footer.contact": "Контакт",
     "footer.terms": "Условия за ползване",
-    "footer.privacy": "Политика за поверителност"
+    "footer.privacy": "Политика за поверителност",
+    "nav.more_tools": "Още инструменти",
+    "nav.logic_gates": "Логически елементи",
+    "nav.arduino": "Arduino Maker",
+    "nav.pcb": "PCB схема"
   },
   "tr": {
     "nav.home": "Ev",
@@ -184,7 +248,11 @@
     "nav.about": "Hakkımızda",
     "footer.contact": "Temas etmek",
     "footer.terms": "Hizmet Şartları",
-    "footer.privacy": "Gizlilik Politikası"
+    "footer.privacy": "Gizlilik Politikası",
+    "nav.more_tools": "Daha Fazla Araç",
+    "nav.logic_gates": "Mantık Kapısı Aracı",
+    "nav.arduino": "Arduino Yapıcı",
+    "nav.pcb": "PCB Şeması"
   },
   "sv": {
     "nav.home": "Hem",

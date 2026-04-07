@@ -15,6 +15,15 @@
     { "labelKey": "nav.components", "path": "/components/" },
     { "labelKey": "nav.docs", "path": "/docs/" },
     { "labelKey": "nav.blog", "path": "/blog/" },
+    {
+      "labelKey": "nav.more_tools",
+      "path": "#",
+      "children": [
+        { "labelKey": "nav.logic_gates", "path": "/logic-gate-diagram-tool/" },
+        { "labelKey": "nav.arduino", "path": "/arduino-circuit-maker/" },
+        { "labelKey": "nav.pcb", "path": "/pcb-schematic-tool/" }
+      ]
+    },
     { "labelKey": "nav.about", "path": "/about-us/" }
   ],
   "footer": [
