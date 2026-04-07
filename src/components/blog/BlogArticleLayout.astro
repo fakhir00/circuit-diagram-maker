@@ -107,31 +107,31 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
 </article>
 
 <style>
-  .blog-article {
+  :global(.blog-article) {
     color: rgb(203 213 225);
     font-size: 1.05rem;
     line-height: 1.9;
   }
 
-  .blog-article > :first-child {
+  :global(.blog-article > :first-child) {
     margin-top: 0;
   }
 
-  .blog-article h1 {
+  :global(.blog-article h1) {
     display: none;
   }
 
-  .blog-article h2,
-  .blog-article h3,
-  .blog-article h4,
-  .blog-article h5,
-  .blog-article h6 {
+  :global(.blog-article h2),
+  :global(.blog-article h3),
+  :global(.blog-article h4),
+  :global(.blog-article h5),
+  :global(.blog-article h6) {
     scroll-margin-top: 7rem;
     color: white;
     letter-spacing: -0.02em;
   }
 
-  .blog-article h2 {
+  :global(.blog-article h2) {
     margin-top: 3rem;
     margin-bottom: 1.1rem;
     padding-left: 0.9rem;
@@ -141,7 +141,7 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     font-weight: 800;
   }
 
-  .blog-article h3 {
+  :global(.blog-article h3) {
     margin-top: 2.2rem;
     margin-bottom: 0.85rem;
     font-size: clamp(1.35rem, 2vw, 1.7rem);
@@ -149,9 +149,9 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     font-weight: 750;
   }
 
-  .blog-article h4,
-  .blog-article h5,
-  .blog-article h6 {
+  :global(.blog-article h4),
+  :global(.blog-article h5),
+  :global(.blog-article h6) {
     margin-top: 1.6rem;
     margin-bottom: 0.7rem;
     font-size: 1.05rem;
@@ -159,52 +159,52 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     font-weight: 700;
   }
 
-  .blog-article p,
-  .blog-article ul,
-  .blog-article ol,
-  .blog-article table,
-  .blog-article blockquote,
-  .blog-article pre {
+  :global(.blog-article p),
+  :global(.blog-article ul),
+  :global(.blog-article ol),
+  :global(.blog-article table),
+  :global(.blog-article blockquote),
+  :global(.blog-article pre) {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
-  .blog-article p {
+  :global(.blog-article p) {
     color: rgba(203, 213, 225, 0.95);
   }
 
-  .blog-article ul,
-  .blog-article ol {
+  :global(.blog-article ul),
+  :global(.blog-article ol) {
     padding-left: 1.25rem;
   }
 
-  .blog-article li {
+  :global(.blog-article li) {
     margin: 0.6rem 0;
     padding-left: 0.25rem;
   }
 
-  .blog-article li::marker {
+  :global(.blog-article li::marker) {
     color: rgba(96, 165, 250, 0.92);
   }
 
-  .blog-article strong {
+  :global(.blog-article strong) {
     color: white;
     font-weight: 700;
   }
 
-  .blog-article a {
+  :global(.blog-article a) {
     color: rgb(125 211 252);
     text-decoration: none;
     border-bottom: 1px solid rgba(125, 211, 252, 0.28);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
 
-  .blog-article a:hover {
+  :global(.blog-article a:hover) {
     color: white;
     border-color: rgba(255, 255, 255, 0.4);
   }
 
-  .blog-article code {
+  :global(.blog-article code) {
     border: 1px solid rgba(148, 163, 184, 0.14);
     background: rgba(15, 23, 42, 0.8);
     border-radius: 0.5rem;
@@ -213,7 +213,7 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     font-size: 0.92em;
   }
 
-  .blog-article pre {
+  :global(.blog-article pre) {
     overflow-x: auto;
     border: 1px solid rgba(148, 163, 184, 0.14);
     background: linear-gradient(180deg, rgba(7, 12, 21, 0.98), rgba(15, 23, 42, 0.92));
@@ -221,14 +221,14 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     padding: 1rem 1.1rem;
   }
 
-  .blog-article pre code {
+  :global(.blog-article pre code) {
     border: 0;
     background: transparent;
     padding: 0;
     color: rgb(226 232 240);
   }
 
-  .blog-article blockquote {
+  :global(.blog-article blockquote) {
     border: 1px solid rgba(34, 211, 238, 0.2);
     background: linear-gradient(180deg, rgba(8, 47, 73, 0.35), rgba(8, 47, 73, 0.16));
     border-left: 3px solid rgba(52, 211, 153, 0.7);
@@ -237,11 +237,11 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     color: rgba(224, 242, 254, 0.92);
   }
 
-  .blog-article blockquote p {
+  :global(.blog-article blockquote p) {
     margin: 0;
   }
 
-  .blog-article table {
+  :global(.blog-article table) {
     width: 100%;
     overflow: hidden;
     border-collapse: separate;
@@ -252,7 +252,7 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     font-size: 0.97rem;
   }
 
-  .blog-article thead th {
+  :global(.blog-article thead th) {
     background: rgba(79, 70, 229, 0.16);
     color: rgb(224 231 255);
     font-size: 0.78rem;
@@ -261,52 +261,52 @@ const primaryTag = post.data.tags?.[0] || 'Engineering';
     text-transform: uppercase;
   }
 
-  .blog-article th,
-  .blog-article td {
+  :global(.blog-article th),
+  :global(.blog-article td) {
     border-bottom: 1px solid rgba(148, 163, 184, 0.12);
     padding: 0.95rem 1rem;
     text-align: left;
     vertical-align: top;
   }
 
-  .blog-article tbody tr:last-child td,
-  .blog-article tbody tr:last-child th {
+  :global(.blog-article tbody tr:last-child td),
+  :global(.blog-article tbody tr:last-child th) {
     border-bottom: 0;
   }
 
-  .blog-article tbody tr:nth-child(even) td,
-  .blog-article tbody tr:nth-child(even) th {
+  :global(.blog-article tbody tr:nth-child(even) td),
+  :global(.blog-article tbody tr:nth-child(even) th) {
     background: rgba(255, 255, 255, 0.02);
   }
 
-  .blog-article hr {
+  :global(.blog-article hr) {
     margin: 2.4rem 0;
     border: 0;
     border-top: 1px solid rgba(148, 163, 184, 0.14);
   }
 
-  .blog-article img {
+  :global(.blog-article img) {
     border: 1px solid rgba(148, 163, 184, 0.12);
     border-radius: 1.25rem;
     box-shadow: 0 12px 40px rgba(0,0,0,0.24);
   }
 
   @media (max-width: 768px) {
-    .blog-article {
+    :global(.blog-article) {
       font-size: 1rem;
       line-height: 1.8;
     }
 
-    .blog-article h2 {
+    :global(.blog-article h2) {
       margin-top: 2.4rem;
       font-size: 1.65rem;
     }
 
-    .blog-article h3 {
+    :global(.blog-article h3) {
       font-size: 1.25rem;
     }
 
-    .blog-article table {
+    :global(.blog-article table) {
       display: block;
       overflow-x: auto;
       white-space: nowrap;
