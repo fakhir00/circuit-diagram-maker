@@ -109,6 +109,72 @@ const presets = [
       { name: 'Edge links', detail: 'I2C sensing and RF handoff', load: 27 }
     ],
     checkpoints: ['Segment sleep and active rails', 'Annotate RF exclusion area', 'Review sensor pull-up sizing']
+  },
+  {
+    id: 'gates',
+    label: 'Logic Designer',
+    title: 'Digital Logic Controller',
+    summary: 'Design binary logic CMOS circuits with AND, OR, and XOR gates for specialized digital handshakes.',
+    specs: [
+      ['Primary gates', '7'],
+      ['Logic depth', '4-layer'],
+      ['Signal class', 'Digital CMOS']
+    ],
+    metrics: [
+      { label: 'Logic stability', value: '72%', strength: 72, accent: 'violet' },
+      { label: 'Timing margin', value: '85%', strength: 85, accent: 'cyan' },
+      { label: 'Fan-out efficiency', value: '64%', strength: 64, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'Binary ingress', detail: 'Input levels and pull-downs', load: 21 },
+      { name: 'Condition logic', detail: 'Branching and XOR gates', load: 56 },
+      { name: 'Signal output', detail: 'Buffer stage and edge trim', load: 23 }
+    ],
+    checkpoints: ['Minimize gate propagation delay', 'Verify CMOS logic thresholds', 'Buffer fan-out branches']
+  },
+  {
+    id: 'arduino',
+    label: 'Arduino Lab',
+    title: 'Standard Arduino Uno Shield',
+    summary: 'Create custom shields with Arduino header alignment, pin mappings, and peripheral integration.',
+    specs: [
+      ['Header pins', '28'],
+      ['Voltage rail', '5V/3.3V'],
+      ['Bus type', 'I2C / SPI']
+    ],
+    metrics: [
+      { label: 'Pin availability', value: '58%', strength: 58, accent: 'blue' },
+      { label: 'Power headroom', value: '77%', strength: 77, accent: 'amber' },
+      { label: 'Shield fit', value: '94%', strength: 94, accent: 'emerald' }
+    ],
+    stages: [
+      { name: 'Header mapping', detail: 'Pin assignment and grouping', load: 31 },
+      { name: 'Shield layout', detail: 'Component footprint and fit', load: 42 },
+      { name: 'Bus breakout', detail: 'I2C/SPI network routing', load: 27 }
+    ],
+    checkpoints: ['Verify shield height clearance', 'Keep I2C pull-ups on-module', 'Standardize pin 1 position']
+  },
+  {
+    id: 'pcb_tool',
+    label: 'PCB Drafting',
+    title: 'Multi-layer Schematic',
+    summary: 'Design manufacturing-ready PCBs with multi-layer trace routing, VIAs, and thermal pad relief.',
+    specs: [
+      ['Layer count', '4-Layer'],
+      ['Trace width', '6 mil'],
+      ['Clearance', '0.15 mm']
+    ],
+    metrics: [
+      { label: 'Signal Integrity', value: '91%', strength: 91, accent: 'cyan' },
+      { label: 'Thermal relief', value: '82%', strength: 82, accent: 'emerald' },
+      { label: 'EMI shielding', value: '67%', strength: 67, accent: 'rose' }
+    ],
+    stages: [
+      { name: 'Trace routing', detail: 'Automatic differential routing', load: 46 },
+      { name: 'Layer stacking', detail: 'Ground plane and isolation', load: 38 },
+      { name: 'Gerber prep', detail: 'VIA drill path optimization', load: 16 }
+    ],
+    checkpoints: ['Keep differential pairs matched', 'Balance ground plane coverage', 'Minimize high-speed VIA hops']
   }
 ];
 ---
@@ -314,6 +380,73 @@ const presets = [
                   <circle r="4" fill="#ef4444" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M330 220H450" /></circle>
                   <path d="M440 200V240M440 220 L480 180M440 220 L480 260" stroke="#ef4444" stroke-width="3" stroke-linecap="round" />
                   <text x="470" y="160" fill="#ef4444" font-size="14" font-weight="bold">RF OUT</text>
+                  </g>
+
+                  <!-- Logic Designer Diagram -->
+                  <g data-diagram="gates" class="hidden" transform="translate(60, 40)">
+                    <path id="g1" d="M80 100H200" stroke="#a78bfa" stroke-width="4" />
+                    <path id="g2" d="M80 180H200" stroke="#a78bfa" stroke-width="4" />
+                    <!-- AND Gate -->
+                    <path d="M200 80H230C260 80 280 105 280 140C280 175 260 200 230 200H200V80Z" fill="#111827" stroke="#a78bfa" stroke-width="3" />
+                    <text x="235" y="145" text-anchor="middle" fill="#a78bfa" font-size="24" font-weight="bold">&</text>
+                    
+                    <path id="g3" d="M280 140H380" stroke="#38bdf8" stroke-width="4" />
+                    <path id="g4" d="M80 260H380" stroke="#38bdf8" stroke-width="4" />
+                    <!-- OR Gate -->
+                    <path d="M380 120C400 120 420 130 430 140C440 150 480 180 480 200C480 220 440 250 430 260C420 270 400 280 380 280C400 250 400 150 380 120Z" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+                    <text x="420" y="210" text-anchor="middle" fill="#38bdf8" font-size="24" font-weight="bold">≥</text>
+                    
+                    <path id="g5" d="M480 200H580" stroke="#22d3ee" stroke-width="4" />
+                    <circle r="4" fill="#a78bfa" filter="url(#currentGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M80 100H200" /></circle>
+                    <circle r="4" fill="#38bdf8" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M280 140H380" /></circle>
+                    <circle r="4" fill="#22d3ee" filter="url(#currentGlow)"><animateMotion dur="0.8s" repeatCount="indefinite" path="M480 200H580" /></circle>
+                    <text x="80" y="80" fill="#94a3b8" font-size="12">INPUT A</text>
+                    <text x="580" y="180" fill="#22d3ee" font-size="14" font-weight="bold">RESULT</text>
+                  </g>
+
+                  <!-- Arduino Lab Diagram -->
+                  <g data-diagram="arduino" class="hidden" transform="translate(40, 20)">
+                    <!-- Arduino Uno Board -->
+                    <rect x="100" y="80" width="220" height="300" rx="12" fill="#111827" stroke="#008184" stroke-width="3" />
+                    <rect x="115" y="100" width="190" height="15" rx="2" fill="#1e293b" /> <!-- Digital Headers -->
+                    <rect x="115" y="345" width="190" height="15" rx="2" fill="#1e293b" /> <!-- Power/Analog Headers -->
+                    <rect x="120" y="180" width="60" height="80" rx="4" fill="#334155" /> <!-- USB -->
+                    <text x="210" y="230" text-anchor="middle" fill="#008184" font-size="24" font-weight="bold">ARDUINO</text>
+                    
+                    <path id="rd1" d="M305 107H450" stroke="#fbbf24" stroke-width="3" stroke-dasharray="4 4" />
+                    <circle r="3" fill="#fbbf24" filter="url(#currentGlow)"><animateMotion dur="1.5s" repeatCount="indefinite" path="M305 107H450" /></circle>
+                    
+                    <!-- LED & Resistor -->
+                    <rect x="450" y="90" width="40" height="20" rx="2" fill="#111827" stroke="#fbbf24" stroke-width="2" />
+                    <path d="M470 110V180" stroke="#f87171" stroke-width="3" />
+                    <circle cx="470" cy="200" r="15" fill="#f87171" filter="url(#currentGlow)" fill-opacity="0.2" />
+                    <circle cx="470" cy="200" r="10" fill="#ef4444" stroke="#f87171" stroke-width="2" />
+                    <text x="470" y="240" text-anchor="middle" fill="#f87171" font-size="12" font-weight="bold">D13 LED</text>
+                  </g>
+
+                  <!-- PCB Drafting Diagram -->
+                  <g data-diagram="pcb_tool" class="hidden" transform="translate(60, 40)">
+                    <!-- Grid Background -->
+                    <path d="M0 0H600V350H0Z" fill="url(#pcbGrid)" opacity="0.1" />
+                    <defs>
+                      <pattern id="pcbGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                      </pattern>
+                    </defs>
+                    
+                    <!-- Traces -->
+                    <path id="pcb1" d="M100 100H250V250H400" stroke="#ef4444" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path id="pcb2" d="M100 250H250V100H400" stroke="#22c55e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+                    
+                    <!-- VIAs -->
+                    <circle cx="250" cy="100" r="8" fill="#111827" stroke="#fbbf24" stroke-width="3" />
+                    <circle cx="250" cy="250" r="8" fill="#111827" stroke="#fbbf24" stroke-width="3" />
+                    <circle cx="100" cy="100" r="10" fill="#111827" stroke="#ef4444" stroke-width="3" />
+                    <circle cx="400" cy="250" r="10" fill="#111827" stroke="#ef4444" stroke-width="3" />
+                    
+                    <circle r="4" fill="#ef4444" filter="url(#currentGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M100 100H250V250H400" /></circle>
+                    <text x="100" y="80" fill="#ef4444" font-size="12" font-weight="bold">TOP LAYER</text>
+                    <text x="400" y="280" fill="#22c55e" font-size="12" font-weight="bold" opacity="0.8">BOTTOM LAYER</text>
                   </g>
                 </svg>
               </div>
