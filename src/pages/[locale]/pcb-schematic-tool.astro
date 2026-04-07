@@ -1,8 +1,15 @@
 ---
-import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
-import { getLocaleFromUrl, getLocalizedPath } from '../theme/i18n';
+import { locales, defaultLocale } from '../../theme/i18n';
+import ToolLandingPage from '../../components/pages/ToolLandingPage.astro';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+export async function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const activeLocale = locale || defaultLocale;
 
 const features = [
   {
@@ -41,9 +48,9 @@ const tableRows = [
   heroTitle="PCB Schematic Tool for Cleaner Board-Level Planning"
   heroDescription="Use a separate PCB-focused editor to capture schematics, organize nets, and prepare clear documentation before board layout and production."
   primaryCtaLabel="Open PCB Editor"
-  primaryCtaHref={getLocalizedPath('/pcb-editor/', locale)}
+  primaryCtaHref={`/${activeLocale}/pcb-editor/`}
   secondaryCtaLabel="Read Docs"
-  secondaryCtaHref={getLocalizedPath('/docs/', locale)}
+  secondaryCtaHref={`/${activeLocale}/docs/`}
   featureTitle="Designed for board-level schematic work"
   featureIntro="This tool gives PCB projects their own landing page and their own editor flow, helping you keep schematic capture isolated, organized, and easier to review."
   features={features}

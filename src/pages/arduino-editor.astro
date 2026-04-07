@@ -1,5 +1,8 @@
 ---
 import EditorPage from '../components/pages/EditorPage.astro';
+import { getLocaleFromUrl } from '../theme/i18n';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
 
-<EditorPage locale="en" editorMode="arduino" />
+<EditorPage locale={locale} editorMode="arduino" />

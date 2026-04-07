@@ -10,6 +10,293 @@ const { locale, config } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
+
+const footerText = {
+  en: {
+    tagline: 'The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.',
+    product: 'Product',
+    guides: 'Popular Guides',
+    company: 'Company',
+    blogTutorials: 'Blog & Tutorials',
+    contactSupport: 'Contact Support',
+    guideUltimate: 'Ultimate Guide to Circuit Diagrams',
+    guideSymbols: 'Circuit Diagram Symbols Explained',
+    guideOnline: 'How to Make a Circuit Diagram Online',
+    guideBeginners: 'Circuit Diagrams for Beginners',
+    more: 'More',
+    status: 'Status',
+    operational: 'Operational'
+  },
+  hi: {
+    tagline: 'छात्रों, इंजीनियरों, शौकिया निर्माताओं और शिक्षकों के लिए निःशुल्क सर्किट डायग्राम मेकर। अपने ब्राउज़र में पेशेवर स्कीमैटिक बनाएं।',
+    product: 'उत्पाद',
+    guides: 'लोकप्रिय मार्गदर्शिकाएँ',
+    company: 'कंपनी',
+    blogTutorials: 'ब्लॉग और ट्यूटोरियल',
+    contactSupport: 'सहायता से संपर्क करें',
+    guideUltimate: 'सर्किट डायग्राम की अंतिम मार्गदर्शिका',
+    guideSymbols: 'सर्किट डायग्राम प्रतीकों की व्याख्या',
+    guideOnline: 'ऑनलाइन सर्किट डायग्राम कैसे बनाएं',
+    guideBeginners: 'शुरुआती लोगों के लिए सर्किट डायग्राम',
+    more: 'और',
+    status: 'स्थिति',
+    operational: 'संचालित'
+  },
+  es: {
+    tagline: 'El creador gratuito de diagramas de circuitos para estudiantes, ingenieros, aficionados y educadores. Cree esquemas profesionales en su navegador.',
+    product: 'Producto',
+    guides: 'Guías populares',
+    company: 'Empresa',
+    blogTutorials: 'Blog y tutoriales',
+    contactSupport: 'Contactar soporte',
+    guideUltimate: 'Guía definitiva de diagramas de circuitos',
+    guideSymbols: 'Símbolos de diagramas de circuitos explicados',
+    guideOnline: 'Cómo hacer un diagrama de circuito en línea',
+    guideBeginners: 'Diagramas de circuitos para principiantes',
+    more: 'Más',
+    status: 'Estado',
+    operational: 'Operativo'
+  },
+  ru: {
+    tagline: 'Бесплатный конструктор принципиальных схем для студентов, инженеров, любителей и преподавателей. Создавайте профессиональные схемы прямо в браузере.',
+    product: 'Продукт',
+    guides: 'Популярные руководства',
+    company: 'Компания',
+    blogTutorials: 'Блог и руководства',
+    contactSupport: 'Связаться с поддержкой',
+    guideUltimate: 'Полное руководство по принципиальным схемам',
+    guideSymbols: 'Обозначения на схемах',
+    guideOnline: 'Как создать схему онлайн',
+    guideBeginners: 'Схемы для начинающих',
+    more: 'Ещё',
+    status: 'Статус',
+    operational: 'Работает'
+  },
+  fr: {
+    tagline: 'Le créateur gratuit de schémas de circuits pour les étudiants, ingénieurs, amateurs et formateurs. Créez des schémas professionnels dans votre navigateur.',
+    product: 'Produit',
+    guides: 'Guides populaires',
+    company: 'Entreprise',
+    blogTutorials: 'Blog et tutoriels',
+    contactSupport: 'Contacter le support',
+    guideUltimate: 'Guide ultime des schémas de circuits',
+    guideSymbols: 'Symboles de schémas de circuits expliqués',
+    guideOnline: 'Comment créer un schéma de circuit en ligne',
+    guideBeginners: 'Schémas de circuits pour débutants',
+    more: 'Plus',
+    status: 'Statut',
+    operational: 'Opérationnel'
+  },
+  de: {
+    tagline: 'Der kostenlose Schaltplan-Editor für Studierende, Ingenieure, Hobbybastler und Lehrkräfte. Erstellen Sie professionelle Schaltpläne direkt im Browser.',
+    product: 'Produkt',
+    guides: 'Beliebte Anleitungen',
+    company: 'Unternehmen',
+    blogTutorials: 'Blog und Anleitungen',
+    contactSupport: 'Support kontaktieren',
+    guideUltimate: 'Ultimativer Leitfaden für Schaltpläne',
+    guideSymbols: 'Schaltplansymbole erklärt',
+    guideOnline: 'Wie man online einen Schaltplan erstellt',
+    guideBeginners: 'Schaltpläne für Anfänger',
+    more: 'Mehr',
+    status: 'Status',
+    operational: 'Betriebsbereit'
+  },
+  it: {
+    tagline: 'Il creatore gratuito di schemi elettrici per studenti, ingegneri, hobbisti e docenti. Crea schemi professionali direttamente nel browser.',
+    product: 'Prodotto',
+    guides: 'Guide popolari',
+    company: 'Azienda',
+    blogTutorials: 'Blog e tutorial',
+    contactSupport: 'Contatta il supporto',
+    guideUltimate: 'Guida completa agli schemi elettrici',
+    guideSymbols: 'Simboli degli schemi elettrici spiegati',
+    guideOnline: 'Come creare uno schema elettrico online',
+    guideBeginners: 'Schemi elettrici per principianti',
+    more: 'Altro',
+    status: 'Stato',
+    operational: 'Operativo'
+  },
+  pt: {
+    tagline: 'O criador gratuito de diagramas de circuitos para estudantes, engenheiros, hobbyistas e educadores. Crie esquemas profissionais no seu navegador.',
+    product: 'Produto',
+    guides: 'Guias populares',
+    company: 'Empresa',
+    blogTutorials: 'Blog e tutoriais',
+    contactSupport: 'Falar com o suporte',
+    guideUltimate: 'Guia definitivo de diagramas de circuitos',
+    guideSymbols: 'Símbolos de diagramas de circuitos explicados',
+    guideOnline: 'Como fazer um diagrama de circuito online',
+    guideBeginners: 'Diagramas de circuitos para iniciantes',
+    more: 'Mais',
+    status: 'Status',
+    operational: 'Operacional'
+  },
+  bn: {
+    tagline: 'শিক্ষার্থী, ইঞ্জিনিয়ার, শৌখিন নির্মাতা এবং শিক্ষকদের জন্য বিনামূল্যের সার্কিট ডায়াগ্রাম মেকার। ব্রাউজারেই পেশাদার স্কিম্যাটিক তৈরি করুন।',
+    product: 'পণ্য',
+    guides: 'জনপ্রিয় গাইড',
+    company: 'কোম্পানি',
+    blogTutorials: 'ব্লগ ও টিউটোরিয়াল',
+    contactSupport: 'সাপোর্টে যোগাযোগ',
+    guideUltimate: 'সার্কিট ডায়াগ্রামের পূর্ণাঙ্গ গাইড',
+    guideSymbols: 'সার্কিট ডায়াগ্রাম প্রতীক ব্যাখ্যা',
+    guideOnline: 'অনলাইনে কীভাবে সার্কিট ডায়াগ্রাম তৈরি করবেন',
+    guideBeginners: 'নতুনদের জন্য সার্কিট ডায়াগ্রাম',
+    more: 'আরও',
+    status: 'অবস্থা',
+    operational: 'চালু'
+  },
+  ja: {
+    tagline: '学生、エンジニア、ホビイスト、教育者のための無料回路図メーカー。ブラウザ上でプロ仕様の回路図を作成できます。',
+    product: '製品',
+    guides: '人気ガイド',
+    company: '会社',
+    blogTutorials: 'ブログとチュートリアル',
+    contactSupport: 'サポートに連絡',
+    guideUltimate: '回路図の完全ガイド',
+    guideSymbols: '回路図記号の解説',
+    guideOnline: 'オンラインで回路図を作る方法',
+    guideBeginners: '初心者向け回路図',
+    more: 'その他',
+    status: '状態',
+    operational: '稼働中'
+  },
+  ko: {
+    tagline: '학생, 엔지니어, 취미 제작자, 교육자를 위한 무료 회로도 제작기입니다. 브라우저에서 전문적인 회로도를 만드세요.',
+    product: '제품',
+    guides: '인기 가이드',
+    company: '회사',
+    blogTutorials: '블로그 및 튜토리얼',
+    contactSupport: '지원 문의',
+    guideUltimate: '회로도 완벽 가이드',
+    guideSymbols: '회로도 기호 설명',
+    guideOnline: '온라인으로 회로도 만드는 방법',
+    guideBeginners: '초보자를 위한 회로도',
+    more: '더보기',
+    status: '상태',
+    operational: '정상 운영'
+  },
+  ms: {
+    tagline: 'Pembuat gambar rajah litar percuma untuk pelajar, jurutera, penggemar, dan pendidik. Cipta skematik profesional terus dalam penyemak imbas anda.',
+    product: 'Produk',
+    guides: 'Panduan popular',
+    company: 'Syarikat',
+    blogTutorials: 'Blog dan tutorial',
+    contactSupport: 'Hubungi sokongan',
+    guideUltimate: 'Panduan lengkap gambar rajah litar',
+    guideSymbols: 'Simbol gambar rajah litar diterangkan',
+    guideOnline: 'Cara membuat gambar rajah litar dalam talian',
+    guideBeginners: 'Gambar rajah litar untuk pemula',
+    more: 'Lagi',
+    status: 'Status',
+    operational: 'Beroperasi'
+  },
+  pl: {
+    tagline: 'Darmowy kreator schematów obwodów dla studentów, inżynierów, hobbystów i nauczycieli. Twórz profesjonalne schematy w przeglądarce.',
+    product: 'Produkt',
+    guides: 'Popularne poradniki',
+    company: 'Firma',
+    blogTutorials: 'Blog i poradniki',
+    contactSupport: 'Skontaktuj się ze wsparciem',
+    guideUltimate: 'Kompletny przewodnik po schematach obwodów',
+    guideSymbols: 'Symbole schematów obwodów wyjaśnione',
+    guideOnline: 'Jak zrobić schemat obwodu online',
+    guideBeginners: 'Schematy obwodów dla początkujących',
+    more: 'Więcej',
+    status: 'Status',
+    operational: 'Działa'
+  },
+  id: {
+    tagline: 'Pembuat diagram sirkuit gratis untuk pelajar, insinyur, hobiis, dan pendidik. Buat skematik profesional langsung di browser Anda.',
+    product: 'Produk',
+    guides: 'Panduan populer',
+    company: 'Perusahaan',
+    blogTutorials: 'Blog dan tutorial',
+    contactSupport: 'Hubungi dukungan',
+    guideUltimate: 'Panduan lengkap diagram sirkuit',
+    guideSymbols: 'Simbol diagram sirkuit dijelaskan',
+    guideOnline: 'Cara membuat diagram sirkuit online',
+    guideBeginners: 'Diagram sirkuit untuk pemula',
+    more: 'Lainnya',
+    status: 'Status',
+    operational: 'Beroperasi'
+  },
+  ar: {
+    tagline: 'صانع مخططات دوائر مجاني للطلاب والمهندسين والهواة والمعلمين. أنشئ مخططات احترافية مباشرة من المتصفح.',
+    product: 'المنتج',
+    guides: 'أدلة شائعة',
+    company: 'الشركة',
+    blogTutorials: 'المدونة والدروس',
+    contactSupport: 'اتصل بالدعم',
+    guideUltimate: 'الدليل الكامل لمخططات الدوائر',
+    guideSymbols: 'شرح رموز مخططات الدوائر',
+    guideOnline: 'كيفية إنشاء مخطط دائرة عبر الإنترنت',
+    guideBeginners: 'مخططات الدوائر للمبتدئين',
+    more: 'المزيد',
+    status: 'الحالة',
+    operational: 'يعمل'
+  },
+  bg: {
+    tagline: 'Безплатен инструмент за електрически схеми за студенти, инженери, любители и преподаватели. Създавайте професионални схеми в браузъра си.',
+    product: 'Продукт',
+    guides: 'Популярни ръководства',
+    company: 'Компания',
+    blogTutorials: 'Блог и уроци',
+    contactSupport: 'Свържете се с поддръжката',
+    guideUltimate: 'Пълно ръководство за електрически схеми',
+    guideSymbols: 'Символите в електрическите схеми обяснени',
+    guideOnline: 'Как да направите електрическа схема онлайн',
+    guideBeginners: 'Електрически схеми за начинаещи',
+    more: 'Още',
+    status: 'Състояние',
+    operational: 'Работи'
+  },
+  tr: {
+    tagline: 'Öğrenciler, mühendisler, hobi meraklıları ve eğitmenler için ücretsiz devre şeması aracı. Tarayıcınızda profesyonel şemalar oluşturun.',
+    product: 'Ürün',
+    guides: 'Popüler rehberler',
+    company: 'Şirket',
+    blogTutorials: 'Blog ve eğitimler',
+    contactSupport: 'Destek ile iletişime geçin',
+    guideUltimate: 'Devre şemaları için kapsamlı rehber',
+    guideSymbols: 'Devre şeması sembolleri açıklandı',
+    guideOnline: 'Çevrimiçi devre şeması nasıl yapılır',
+    guideBeginners: 'Yeni başlayanlar için devre şemaları',
+    more: 'Daha fazla',
+    status: 'Durum',
+    operational: 'Çalışıyor'
+  },
+  sv: {
+    tagline: 'Gratis kretsdiagramverktyg för studenter, ingenjörer, hobbyister och utbildare. Skapa professionella scheman direkt i din webbläsare.',
+    product: 'Produkt',
+    guides: 'Populära guider',
+    company: 'Företag',
+    blogTutorials: 'Blogg och guider',
+    contactSupport: 'Kontakta support',
+    guideUltimate: 'Den ultimata guiden till kretsdiagram',
+    guideSymbols: 'Kretsdiagramsymboler förklarade',
+    guideOnline: 'Hur man gör ett kretsdiagram online',
+    guideBeginners: 'Kretsdiagram för nybörjare',
+    more: 'Mer',
+    status: 'Status',
+    operational: 'I drift'
+  }
+}[locale] || {
+  tagline: 'The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.',
+  product: 'Product',
+  guides: 'Popular Guides',
+  company: 'Company',
+  blogTutorials: 'Blog & Tutorials',
+  contactSupport: 'Contact Support',
+  guideUltimate: 'Ultimate Guide to Circuit Diagrams',
+  guideSymbols: 'Circuit Diagram Symbols Explained',
+  guideOnline: 'How to Make a Circuit Diagram Online',
+  guideBeginners: 'Circuit Diagrams for Beginners',
+  more: 'More',
+  status: 'Status',
+  operational: 'Operational'
+};
 ---
 
 <footer class="bg-bg-panel border-t border-white/5 mt-auto">
@@ -44,7 +331,7 @@ const currentPath = Astro.url.pathname;
           </div>
         </a>
         <p class="text-slate-500 text-sm leading-relaxed mb-4">
-          The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.
+          {footerText.tagline}
         </p>
         <p class="text-slate-600 text-xs">
           &copy; {year} {config.site.name}. All rights reserved.
@@ -53,32 +340,32 @@ const currentPath = Astro.url.pathname;
 
       <!-- Product Links -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">Product</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.product}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Open Circuit Diagram Editor</a></li>
-          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Component Library</a></li>
-          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Documentation</a></li>
-          <li><a href="/blog/" class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Blog & Tutorials</a></li>
+          <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.editor')}</a></li>
+          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.components')}</a></li>
+          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.docs')}</a></li>
+          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.blogTutorials}</a></li>
         </ul>
       </div>
 
       <!-- Popular Articles -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">Popular Guides</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.guides}</h3>
         <ul class="space-y-2.5">
-          <li><a href="/blog/ultimate-guide-circuit-diagrams/" class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Ultimate Guide to Circuit Diagrams</a></li>
-          <li><a href="/blog/circuit-diagram-symbols-explained/" class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Circuit Diagram Symbols Explained</a></li>
-          <li><a href="/blog/how-to-make-circuit-diagram-online/" class="text-sm text-slate-400 hover:text-brand-primary transition-colors">How to Make a Circuit Diagram Online</a></li>
-          <li><a href="/blog/circuit-diagram-for-beginners/" class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Circuit Diagrams for Beginners</a></li>
+          <li><a href={getLocalizedPath('/blog/ultimate-guide-circuit-diagrams/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideUltimate}</a></li>
+          <li><a href={getLocalizedPath('/blog/circuit-diagram-symbols-explained/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideSymbols}</a></li>
+          <li><a href={getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideOnline}</a></li>
+          <li><a href={getLocalizedPath('/blog/circuit-diagram-for-beginners/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.guideBeginners}</a></li>
         </ul>
       </div>
 
       <!-- Legal & Social -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">Company</h3>
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{footerText.company}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">About Us</a></li>
-          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Contact Support</a></li>
+          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.about')}</a></li>
+          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{footerText.contactSupport}</a></li>
           {config.footer.map((item: any) => (
             <li><a href={getLocalizedPath(item.path, locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t(item.labelKey)}</a></li>
           ))}
@@ -111,13 +398,13 @@ const currentPath = Astro.url.pathname;
             {l}
           </a>
         ))}
-        <a href="/sitemap/" class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">More</a>
+        <a href={getLocalizedPath('/sitemap/', locale)} class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">{footerText.more}</a>
       </div>
       <div class="text-[10px] text-slate-600 uppercase font-bold tracking-widest leading-none flex items-center gap-2">
-        Status: <span class="relative flex h-2 w-2">
+        {footerText.status}: <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span> <span class="text-emerald-500/80">Operational</span>
+        </span> <span class="text-emerald-500/80">{footerText.operational}</span>
       </div>
     </div>
   </div>

@@ -1,8 +1,15 @@
 ---
-import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
-import { getLocaleFromUrl, getLocalizedPath } from '../theme/i18n';
+import { locales, defaultLocale } from '../../theme/i18n';
+import ToolLandingPage from '../../components/pages/ToolLandingPage.astro';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+export async function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const activeLocale = locale || defaultLocale;
 
 const features = [
   {
@@ -41,9 +48,9 @@ const tableRows = [
   heroTitle="Arduino Circuit Maker for Fast Wiring and Project Planning"
   heroDescription="Document Arduino-based circuits with a separate editor built for board layouts, pin mapping, sensor connections, and export-ready project diagrams."
   primaryCtaLabel="Open Arduino Editor"
-  primaryCtaHref={getLocalizedPath('/arduino-editor/', locale)}
+  primaryCtaHref={`/${activeLocale}/arduino-editor/`}
   secondaryCtaLabel="View Components"
-  secondaryCtaHref={getLocalizedPath('/components/', locale)}
+  secondaryCtaHref={`/${activeLocale}/components/`}
   featureTitle="Made for Arduino project documentation"
   featureIntro="Use this separate Arduino tool to sketch circuits before building, organize modules cleanly, and keep board-level documentation simple for teams and tutorials."
   features={features}

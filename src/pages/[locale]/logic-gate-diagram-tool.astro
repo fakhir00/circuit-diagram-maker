@@ -1,8 +1,15 @@
 ---
-import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
-import { getLocaleFromUrl, getLocalizedPath } from '../theme/i18n';
+import { locales, defaultLocale } from '../../theme/i18n';
+import ToolLandingPage from '../../components/pages/ToolLandingPage.astro';
 
-const locale = getLocaleFromUrl(Astro.url.pathname);
+export async function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const activeLocale = locale || defaultLocale;
 
 const features = [
   {
@@ -41,9 +48,9 @@ const tableRows = [
   heroTitle="Logic Gate Diagram Tool for Clear Digital Circuit Design"
   heroDescription="Build readable gate-level schematics with a dedicated logic canvas for combinational circuits, classroom diagrams, and digital design documentation."
   primaryCtaLabel="Open Logic Editor"
-  primaryCtaHref={getLocalizedPath('/logic-editor/', locale)}
+  primaryCtaHref={`/${activeLocale}/logic-editor/`}
   secondaryCtaLabel="Read Documentation"
-  secondaryCtaHref={getLocalizedPath('/docs/', locale)}
+  secondaryCtaHref={`/${activeLocale}/docs/`}
   featureTitle="Built for structured logic diagrams"
   featureIntro="This landing page introduces a focused digital logic workflow with separate editing space, logic-specific component filtering, and export-ready schematic output."
   features={features}
