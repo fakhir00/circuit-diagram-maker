@@ -172,6 +172,8 @@ const softwareSchema = isHome ? {
   {softwareSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
   )}
+
+  <slot name="head" />
 </head>
 <body class="flex flex-col min-h-screen">
   {!hideHeaderFooter && <Header locale={locale} config={config} />}
