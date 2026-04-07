@@ -7,19 +7,17 @@ import { getLocaleFromUrl, useTranslations } from '../../../theme/i18n';
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection('blog', ({ id }) => !id.startsWith('en/'));
   
-  const postsByLocale = {};
+  const postsByLocale: Record<string, any[]> = {};
   for (const post of posts) {
     const loc = post.id.split('/')[0];
     if (!postsByLocale[loc]) postsByLocale[loc] = [];
     postsByLocale[loc].push(post);
   }
 
-  const results = [];
-  for (const [loc, localePosts] of Object.entries(postsByLocale)) {
+  return Object.entries(postsByLocale).flatMap(([loc, localePosts]) => {
     localePosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-    results.push(...paginate(localePosts, { params: { locale: loc }, pageSize: 12 }));
-  }
-  return results;
+    return paginate(localePosts, { params: { locale: loc }, pageSize: 12 });
+  });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
