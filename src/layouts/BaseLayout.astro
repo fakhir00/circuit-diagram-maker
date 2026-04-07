@@ -91,7 +91,9 @@ const softwareSchema = isHome ? {
   <meta name="keywords" content="circuit diagram maker, circuit diagram, schematic editor, wiring diagram, electronic schematic, circuit design tool, free circuit diagram, online schematic maker, circuit simulator, PCB schematic" />
   
   <link rel="canonical" href={canonicalURL} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/logo.svg" />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -132,8 +134,8 @@ const softwareSchema = isHome ? {
         "logo": {
           "@type": "ImageObject",
           "url": `${config.site.url}/logo.svg`,
-          "width": 112,
-          "height": 112
+          "width": 128,
+          "height": 128
         },
         "sameAs": Object.values(config.social || {})
       },
