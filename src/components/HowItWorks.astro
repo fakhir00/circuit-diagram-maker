@@ -22,19 +22,24 @@ const { title, steps } = Astro.props;
       <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-12">
+    <div class="grid md:grid-cols-3 gap-12 relative">
+      <!-- Animated background path for the flow -->
+      <svg class="hidden md:block absolute top-[32px] left-[15%] w-[70%] h-[120px] pointer-events-none" viewBox="0 0 800 120" fill="none">
+        <path d="M0,40 Q200,10 400,40 T800,40" stroke="rgba(59,130,246,0.15)" stroke-width="2" stroke-dasharray="8 8" class="flow-path-anim" />
+        <circle r="4" fill="#22d3ee" class="flow-dot-anim">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M0,40 Q200,10 400,40 T800,40" />
+        </circle>
+      </svg>
+
       {steps.map((step, index) => (
-        <div class="flex flex-col items-center text-center group">
+        <div class="flex flex-col items-center text-center group z-10">
           <div class="relative mb-6">
-            <div class="w-16 h-16 rounded-2xl bg-bg-panel border border-white/10 flex items-center justify-center text-brand-primary transition-all duration-300 group-hover:border-brand-primary group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-              <span class="text-2xl font-bold">{index + 1}</span>
+            <div class="w-16 h-16 rounded-2xl bg-bg-panel border border-white/10 flex items-center justify-center text-brand-primary transition-all duration-500 group-hover:border-brand-primary group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] group-hover:scale-110">
+              <span class="text-2xl font-black">{index + 1}</span>
             </div>
-            {index < steps.length - 1 && (
-              <div class="hidden md:block absolute top-8 left-20 w-full h-[2px] bg-gradient-to-r from-brand-primary/20 to-transparent pointer-events-none"></div>
-            )}
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-brand-primary transition-colors">{step.title}</h3>
-          <p class="text-slate-400 leading-relaxed max-w-sm">
+          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors tracking-tight">{step.title}</h3>
+          <p class="text-slate-400 leading-relaxed max-w-sm text-sm">
             {step.description}
           </p>
         </div>
@@ -42,3 +47,15 @@ const { title, steps } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .flow-path-anim {
+    animation: dashOffset 20s linear infinite;
+  }
+  @keyframes dashOffset {
+    to { stroke-dashoffset: -200; }
+  }
+  .flow-dot-anim {
+    filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));
+  }
+</style>

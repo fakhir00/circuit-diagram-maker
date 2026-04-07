@@ -178,19 +178,41 @@ const personas = [
           </p>
         </div>
         <!-- Animated SVG circuit being drawn -->
-        <div class="rounded-2xl border border-white/10 bg-bg-dark/80 p-6 overflow-hidden">
-          <svg class="w-full h-auto" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="rounded-2xl border border-white/10 bg-bg-dark/80 p-6 overflow-hidden relative group">
+          <div class="absolute inset-0 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+          <svg class="w-full h-auto relative z-10" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="dotGlow">
+                <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
             <rect x="10" y="10" width="480" height="280" rx="8" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-            <!-- Animated drawing path -->
-            <path class="anim-draw" d="M60,150 L140,150 L140,80 L260,80" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" fill="none"/>
+            
+            <!-- Animated drawing paths -->
+            <path id="flow1" class="anim-draw" d="M60,150 L140,150 L140,80 L260,80" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle r="3" fill="#60a5fa" filter="url(#dotGlow)">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M60,150 L140,150 L140,80 L260,80" />
+            </circle>
+
             <rect class="anim-fade" x="260" y="50" width="100" height="60" rx="8" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
-            <text class="anim-fade" x="310" y="85" text-anchor="middle" fill="#e2e8f0" font-size="14" font-family="Inter,sans-serif">Op-Amp</text>
-            <path class="anim-draw-2" d="M360,80 L440,80 L440,150" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <text class="anim-fade" x="310" y="85" text-anchor="middle" fill="#e2e8f0" font-size="14" font-family="Inter,sans-serif" font-weight="bold">Op-Amp</text>
+            
+            <path id="flow2" class="anim-draw-2" d="M360,80 L440,80 L440,150" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle r="3" fill="#22d3ee" filter="url(#dotGlow)">
+              <animateMotion dur="1.5s" repeatCount="indefinite" path="M360,80 L440,80 L440,150" />
+            </circle>
+
             <circle class="anim-fade-2" cx="440" cy="150" r="6" fill="#22d3ee"/>
-            <path class="anim-draw-3" d="M140,150 L140,220 L310,220 L310,110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+            
+            <path id="flow3" class="anim-draw-3" d="M140,150 L140,220 L310,220 L310,110" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4" fill="none" opacity="0.6"/>
+            <circle r="2.5" fill="#f59e0b" filter="url(#dotGlow)">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M140,150 L140,220 L310,220 L310,110" />
+            </circle>
+
             <circle class="anim-fade" cx="60" cy="150" r="6" fill="#3b82f6"/>
-            <text class="anim-fade" x="60" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">VIN</text>
-            <text class="anim-fade-2" x="440" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">VOUT</text>
+            <text class="anim-fade" x="60" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif" font-weight="bold">VIN</text>
+            <text class="anim-fade-2" x="440" y="135" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif" font-weight="bold">VOUT</text>
           </svg>
         </div>
       </div>
