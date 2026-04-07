@@ -1,0 +1,257 @@
+---
+interface Props {
+  title: string;
+  tags?: string[];
+}
+
+const { title, tags = [] } = Astro.props;
+const normalizedTags = tags.map((tag) => tag.toLowerCase());
+
+const variants = {
+  tutorial: {
+    label: 'Build Sequence',
+    title: 'Stepwise drafting flow',
+    summary: 'Map the article into a clean draw-review-export sequence so readers can follow the schematic process without losing context.',
+    specs: [
+      ['Planning phase', 'Layout and signal flow'],
+      ['Draft phase', 'Symbols, nets, labels'],
+      ['Finish phase', 'Export, review, share']
+    ],
+    diagram: 'tutorial'
+  },
+  comparison: {
+    label: 'Design Tradeoffs',
+    title: 'Tool and workflow comparison',
+    summary: 'Show where speed, precision, and export quality change across browser tools, desktop CAD, and general drawing apps.',
+    specs: [
+      ['Fastest setup', 'Browser editor'],
+      ['Deepest stack', 'Desktop CAD'],
+      ['Weakest semantics', 'Drawing apps']
+    ],
+    diagram: 'comparison'
+  },
+  symbols: {
+    label: 'Symbol Reading',
+    title: 'Symbol-to-function breakdown',
+    summary: 'Pair each symbol family with its circuit role so readers can interpret component intent, not just appearance.',
+    specs: [
+      ['Passive group', 'Bias, timing, filtering'],
+      ['Active group', 'Gain, switching, control'],
+      ['I/O group', 'Power, ports, test nodes']
+    ],
+    diagram: 'symbols'
+  },
+  practice: {
+    label: 'Review Checklist',
+    title: 'Readable schematic structure',
+    summary: 'Turn the article into a review flow covering hierarchy, spacing, labels, and path clarity before publishing a schematic.',
+    specs: [
+      ['Readability', 'Consistent left-to-right flow'],
+      ['Safety', 'Net labels and separation'],
+      ['Delivery', 'Print and export readiness']
+    ],
+    diagram: 'practice'
+  }
+};
+
+const initialVariant = normalizedTags.includes('tutorial') || normalizedTags.includes('how-to')
+  ? variants.tutorial
+  : normalizedTags.includes('alternatives')
+    ? variants.comparison
+    : normalizedTags.includes('symbols')
+      ? variants.symbols
+      : variants.practice;
+---
+
+<section class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-bg-panel via-bg-panel to-bg-surface p-6 shadow-[0_20px_80px_rgba(0,0,0,0.28)]" data-blog-explorer>
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-brand-accent">Interactive Schematic Module</p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight text-white">Technical breakdown for this article</h2>
+        <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
+          Switch the view to explore the same topic through drawing flow, review logic, and export prep.
+        </p>
+      </div>
+      <div class="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-emerald-300">
+        Live article aid
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button type="button" class="blog-explorer-tab rounded-full border border-brand-primary bg-brand-primary/10 px-4 py-2 text-sm font-semibold text-white transition" data-explorer-tab="tutorial" aria-pressed="true">Draft flow</button>
+      <button type="button" class="blog-explorer-tab rounded-full border border-white/10 bg-white/0 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-white/20 hover:bg-white/5" data-explorer-tab="comparison" aria-pressed="false">Compare paths</button>
+      <button type="button" class="blog-explorer-tab rounded-full border border-white/10 bg-white/0 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-white/20 hover:bg-white/5" data-explorer-tab="symbols" aria-pressed="false">Decode symbols</button>
+      <button type="button" class="blog-explorer-tab rounded-full border border-white/10 bg-white/0 px-4 py-2 text-sm font-semibold text-slate-300 transition hover:border-white/20 hover:bg-white/5" data-explorer-tab="practice" aria-pressed="false">Review checklist</button>
+    </div>
+
+    <div class="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+      <div class="rounded-[1.5rem] border border-white/10 bg-[#0b1220] p-5">
+        <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
+          <div>
+            <p id="explorer-label" class="text-xs uppercase tracking-[0.3em] text-brand-accent">{initialVariant.label}</p>
+            <h3 id="explorer-title" class="mt-2 text-xl font-semibold text-white">{initialVariant.title}</h3>
+          </div>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-slate-400">
+            {title}
+          </span>
+        </div>
+
+        <p id="explorer-summary" class="text-sm leading-7 text-slate-400">{initialVariant.summary}</p>
+
+        <div class="mt-5 overflow-hidden rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.14),transparent_35%),linear-gradient(180deg,rgba(15,23,42,0.84),rgba(2,6,23,0.96))]">
+          <svg class="h-full w-full" viewBox="0 0 760 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="blogGlow">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
+            <g data-explorer-diagram="tutorial">
+              <rect x="58" y="116" width="140" height="82" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+              <text x="128" y="150" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">LAYOUT</text>
+              <text x="128" y="173" text-anchor="middle" fill="#94a3b8" font-size="12">component blocks</text>
+              <path d="M198 156H316" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+              <circle r="4" fill="#38bdf8" filter="url(#blogGlow)"><animateMotion dur="1.2s" repeatCount="indefinite" path="M198 156H316" /></circle>
+              <rect x="316" y="116" width="140" height="82" rx="18" fill="#111827" stroke="#22d3ee" stroke-width="3" />
+              <text x="386" y="150" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">ROUTE</text>
+              <text x="386" y="173" text-anchor="middle" fill="#94a3b8" font-size="12">orthogonal net paths</text>
+              <path d="M456 156H576" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
+              <circle r="4" fill="#22d3ee" filter="url(#blogGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M456 156H576" /></circle>
+              <rect x="576" y="116" width="126" height="82" rx="18" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <text x="639" y="150" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">EXPORT</text>
+              <text x="639" y="173" text-anchor="middle" fill="#94a3b8" font-size="12">SVG PNG JSON</text>
+              <path d="M386 198V268H639V198" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 8" />
+            </g>
+
+            <g data-explorer-diagram="comparison" class="hidden">
+              <path d="M88 256V104" stroke="#334155" stroke-width="2" />
+              <path d="M88 256H676" stroke="#334155" stroke-width="2" />
+              <rect x="132" y="156" width="88" height="100" rx="14" fill="#111827" stroke="#22d3ee" stroke-width="3" />
+              <rect x="304" y="112" width="88" height="144" rx="14" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+              <rect x="476" y="186" width="88" height="70" rx="14" fill="#111827" stroke="#f97316" stroke-width="3" />
+              <text x="176" y="283" text-anchor="middle" fill="#cbd5e1" font-size="13">Browser</text>
+              <text x="348" y="283" text-anchor="middle" fill="#cbd5e1" font-size="13">Desktop CAD</text>
+              <text x="520" y="283" text-anchor="middle" fill="#cbd5e1" font-size="13">Drawing App</text>
+              <path d="M176 156L348 112L520 186" stroke="#fb7185" stroke-width="3" stroke-dasharray="7 6" />
+            </g>
+
+            <g data-explorer-diagram="symbols" class="hidden">
+              <rect x="74" y="88" width="176" height="176" rx="20" fill="#111827" stroke="#a78bfa" stroke-width="3" />
+              <circle cx="162" cy="150" r="34" fill="#0f172a" stroke="#a78bfa" stroke-width="3" />
+              <path d="M162 116V184M128 150H196" stroke="#a78bfa" stroke-width="3" />
+              <text x="162" y="228" text-anchor="middle" fill="#cbd5e1" font-size="14">Active device</text>
+              <rect x="292" y="88" width="176" height="176" rx="20" fill="#111827" stroke="#22d3ee" stroke-width="3" />
+              <path d="M330 150H430" stroke="#22d3ee" stroke-width="4" />
+              <rect x="352" y="132" width="56" height="36" rx="8" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+              <text x="380" y="228" text-anchor="middle" fill="#cbd5e1" font-size="14">Passive network</text>
+              <rect x="510" y="88" width="176" height="176" rx="20" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <path d="M556 126V224" stroke="#34d399" stroke-width="3" />
+              <path d="M556 126H638V224H556" stroke="#34d399" stroke-width="3" />
+              <text x="598" y="228" text-anchor="middle" fill="#cbd5e1" font-size="14">I/O and rails</text>
+            </g>
+
+            <g data-explorer-diagram="practice" class="hidden">
+              <rect x="104" y="82" width="548" height="196" rx="24" fill="#0f172a" stroke="#334155" stroke-width="2" />
+              <path d="M148 138H416" stroke="#38bdf8" stroke-width="4" />
+              <path d="M148 194H584" stroke="#22d3ee" stroke-width="4" />
+              <path d="M148 250H488" stroke="#f59e0b" stroke-width="4" />
+              <circle cx="440" cy="138" r="18" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <circle cx="608" cy="194" r="18" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <circle cx="512" cy="250" r="18" fill="#111827" stroke="#34d399" stroke-width="3" />
+              <text x="182" y="122" fill="#94a3b8" font-size="12">signal flow</text>
+              <text x="182" y="178" fill="#94a3b8" font-size="12">label clarity</text>
+              <text x="182" y="234" fill="#94a3b8" font-size="12">export review</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/75 p-6">
+          <div class="mb-5 flex items-center justify-between">
+            <h3 class="text-lg font-semibold text-white">Quick reference table</h3>
+            <span class="text-[11px] uppercase tracking-[0.24em] text-slate-500">Auto-updates</span>
+          </div>
+          <table class="w-full text-left text-sm">
+            <tbody id="explorer-specs" class="divide-y divide-white/10 text-slate-300">
+              {initialVariant.specs.map(([label, value]) => (
+                <tr>
+                  <th class="py-3 pr-4 font-medium text-slate-400">{label}</th>
+                  <td class="py-3 text-white">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rounded-[1.5rem] border border-white/10 bg-bg-surface/75 p-6">
+          <p class="text-xs uppercase tracking-[0.3em] text-brand-accent">Article intent</p>
+          <p class="mt-4 text-sm leading-7 text-slate-400">
+            This module turns the article into a visual checklist, helping readers connect the narrative explanation to a schematic workflow.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {tags.slice(0, 4).map((tag) => (
+              <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ variants, initialDiagram: initialVariant.diagram }}>
+  const root = document.querySelector('[data-blog-explorer]');
+
+  if (root) {
+    const tabs = root.querySelectorAll('[data-explorer-tab]');
+    const diagrams = root.querySelectorAll('[data-explorer-diagram]');
+    const label = root.querySelector('#explorer-label');
+    const title = root.querySelector('#explorer-title');
+    const summary = root.querySelector('#explorer-summary');
+    const specs = root.querySelector('#explorer-specs');
+
+    const renderSpecs = (rows) => {
+      if (!specs) return;
+      specs.innerHTML = rows.map(([left, right]) => `
+        <tr>
+          <th class="py-3 pr-4 font-medium text-slate-400">${left}</th>
+          <td class="py-3 text-white">${right}</td>
+        </tr>
+      `).join('');
+    };
+
+    const applyVariant = (key) => {
+      const active = variants[key] || variants.practice;
+
+      tabs.forEach((tab) => {
+        const isActive = tab.getAttribute('data-explorer-tab') === key;
+        tab.setAttribute('aria-pressed', String(isActive));
+        tab.classList.toggle('border-brand-primary', isActive);
+        tab.classList.toggle('bg-brand-primary/10', isActive);
+        tab.classList.toggle('text-white', isActive);
+        tab.classList.toggle('border-white/10', !isActive);
+        tab.classList.toggle('text-slate-300', !isActive);
+      });
+
+      diagrams.forEach((diagram) => {
+        diagram.classList.toggle('hidden', diagram.getAttribute('data-explorer-diagram') !== active.diagram);
+      });
+
+      if (label) label.textContent = active.label;
+      if (title) title.textContent = active.title;
+      if (summary) summary.textContent = active.summary;
+      renderSpecs(active.specs);
+    };
+
+    applyVariant(initialDiagram);
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        applyVariant(tab.getAttribute('data-explorer-tab'));
+      });
+    });
+  }
+</script>
