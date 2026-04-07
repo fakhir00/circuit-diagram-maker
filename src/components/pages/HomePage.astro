@@ -220,17 +220,18 @@ const personas = [
   </section>
 
   <!-- ███ WHY USE OUR CIRCUIT DIAGRAM MAKER ███ -->
-  <section class="py-20 bg-bg-dark border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative group/section">
+    <a href={getLocalizedPath('/editor/', locale)} class="absolute inset-0 z-10 block cursor-default" aria-label="Open circuit diagram editor"></a>
+    <div class="relative z-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none group-hover/section:bg-brand-primary/[0.02] transition-colors duration-500 rounded-[3rem]">
+      <div class="text-center max-w-3xl mx-auto mb-14 pt-8">
         <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Features</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.features.title')}</h2>
-        <p class="mt-4 text-lg text-slate-400">Every feature designed to help you create better circuit diagrams, faster.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight group-hover/section:text-brand-primary transition-colors">{t('home.features.title')}</h2>
+        <p class="mt-4 text-lg text-slate-400">Every feature designed to help you create better circuit diagrams, faster. <span class="text-brand-primary underline underline-offset-4 decoration-1 pointer-events-auto cursor-pointer">Try the Editor &rarr;</span></p>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-8">
         {featureCards.map((card, i) => (
-          <div class="group rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]" style={`animation-delay: ${i * 80}ms`}>
-            <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary/20 transition-colors">
+          <div class="group/card rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 group-hover/section:border-brand-primary/20 pointer-events-auto cursor-pointer hover:border-brand-primary/40 hover:bg-bg-surface/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]" style={`animation-delay: ${i * 80}ms`}>
+            <div class="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4 group-hover/card:bg-brand-primary/20 transition-colors">
               <Fragment set:html={card.icon} />
             </div>
             <h3 class="text-lg font-semibold text-white mb-2">{card.title}</h3>
@@ -251,18 +252,19 @@ const personas = [
   <FeatureMatrix title={t('home.data.title')} headers={matrixHeaders} rows={matrixRows} />
 
   <!-- ███ WHO USES CIRCUIT DIAGRAM MAKER ███ -->
-  <section class="py-20 bg-bg-dark border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative group/who">
+    <a href={getLocalizedPath('/editor/', locale)} class="absolute inset-0 z-10 block cursor-default" aria-label="Open circuit diagram editor"></a>
+    <div class="relative z-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none group-hover/who:bg-brand-primary/[0.02] transition-colors duration-500 rounded-[3rem]">
+      <div class="text-center max-w-3xl mx-auto mb-14 pt-8">
         <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Use Cases</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Who Uses Circuit Diagram Maker?</h2>
-        <p class="mt-4 text-lg text-slate-400">From university labs to professional engineering teams, thousands of users rely on our free circuit diagram maker every day.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight group-hover/who:text-brand-primary transition-colors">Who Uses Circuit Diagram Maker?</h2>
+        <p class="mt-4 text-lg text-slate-400">From university labs to professional engineering teams, thousands of users rely on our free circuit diagram maker every day. <span class="text-brand-primary underline underline-offset-4 decoration-1 pointer-events-auto cursor-pointer">Launch Editor &rarr;</span></p>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 pb-8">
         {personas.map(p => (
-          <div class="rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 group">
+          <div class="rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 group-hover/who:border-brand-primary/20 pointer-events-auto cursor-pointer hover:border-brand-primary/40 hover:bg-bg-surface/50 group/card">
             <div class="text-4xl mb-4">{p.emoji}</div>
-            <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{p.title}</h3>
+            <h3 class="text-lg font-semibold text-white mb-2 group-hover/card:text-brand-primary transition-colors">{p.title}</h3>
             <p class="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
           </div>
         ))}

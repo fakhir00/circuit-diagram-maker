@@ -169,7 +169,7 @@ const presets = [
                     </filter>
                   </defs>
 
-                  <g data-diagram="analog">
+                  <g data-diagram="analog" transform="translate(60, 50)">
                     <path id="a1" d="M88 130H184" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
                     <path id="a2" d="M88 130V216H188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
                     
@@ -198,7 +198,7 @@ const presets = [
                     <text x="530" y="112" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">VOUT</text>
                   </g>
 
-                  <g data-diagram="power" class="hidden">
+                  <g data-diagram="power" class="hidden" transform="translate(30, 40)">
                     <path id="p1" d="M90 118H190" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" />
                     <circle r="4" fill="#60a5fa" filter="url(#currentGlow)"><animateMotion dur="1s" repeatCount="indefinite" path="M90 118H190" /></circle>
 
@@ -228,7 +228,7 @@ const presets = [
                     <text x="596" y="70" fill="#cbd5e1" font-size="16" font-family="sans-serif" font-weight="bold">3.3V</text>
                   </g>
 
-                  <g data-diagram="logic" class="hidden">
+                  <g data-diagram="logic" class="hidden" transform="translate(30, 40)">
                   <rect x="118" y="94" width="124" height="80" rx="18" fill="#111827" stroke="#a78bfa" stroke-width="3" />
                   <text x="180" y="128" text-anchor="middle" fill="#f8fafc" font-size="18" font-family="sans-serif" font-weight="bold">SENSOR</text>
                   <path id="l1" d="M242 118H336" stroke="#c084fc" stroke-width="4" stroke-linecap="round" />
@@ -257,7 +257,7 @@ const presets = [
                   <path d="M158 298H202" stroke="#f59e0b" stroke-width="4" />
                   </g>
 
-                  <g data-diagram="audio" class="hidden">
+                  <g data-diagram="audio" class="hidden" transform="translate(30, 0)">
                   <!-- Input Stage -->
                   <path id="au1" d="M80 200H180" stroke="#a855f7" stroke-width="4" />
                   <circle r="4" fill="#a855f7" filter="url(#currentGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M80 200H180" /></circle>
@@ -282,7 +282,7 @@ const presets = [
                   <text x="620" y="180" fill="#94a3b8" font-size="14">LINE OUT</text>
                   </g>
 
-                  <g data-diagram="iot" class="hidden">
+                  <g data-diagram="iot" class="hidden" transform="translate(110, 0)">
                   <!-- Battery -->
                   <rect x="60" y="180" width="40" height="80" rx="4" fill="#111827" stroke="#22c55e" stroke-width="3" />
                   <path id="iot1" d="M100 220H200" stroke="#22c55e" stroke-width="4" />
