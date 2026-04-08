@@ -58,10 +58,10 @@ import { locales } from '../theme/i18n';
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.product')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.editor')}</a></li>
-          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.components')}</a></li>
-          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.docs')}</a></li>
-          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.blogTutorials')}</a></li>
+          <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Open Editor</a></li>
+          <li><a href={getLocalizedPath('/logic-gate-diagram-tool/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">logic gate diagram tool</a></li>
+          <li><a href={getLocalizedPath('/arduino-circuit-maker/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">arduino-circuit-maker</a></li>
+          <li><a href={getLocalizedPath('/pcb-schematic-tool/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">pcb-schematic-tool</a></li>
         </ul>
       </div>
 
@@ -69,10 +69,9 @@ import { locales } from '../theme/i18n';
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.guides')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/blog/ultimate-guide-circuit-diagrams/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideUltimate')}</a></li>
-          <li><a href={getLocalizedPath('/blog/circuit-diagram-symbols-explained/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideSymbols')}</a></li>
-          <li><a href={getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideOnline')}</a></li>
-          <li><a href={getLocalizedPath('/blog/circuit-diagram-for-beginners/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.guideBeginners')}</a></li>
+          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Components</a></li>
+          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Documentation</a></li>
+          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Blog & Tutorials</a></li>
         </ul>
       </div>
 
@@ -80,11 +79,10 @@ import { locales } from '../theme/i18n';
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.company')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.about')}</a></li>
-          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.contactSupport')}</a></li>
-          {config.footer.map((item: any) => (
-            <li><a href={getLocalizedPath(item.path, locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t(item.labelKey)}</a></li>
-          ))}
+          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">About Us</a></li>
+          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Contact Support</a></li>
+          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Terms of Service</a></li>
+          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Privacy Policy</a></li>
         </ul>
 
         <!-- Social Icons -->
