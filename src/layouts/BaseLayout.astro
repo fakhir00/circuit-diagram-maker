@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLocaleFromUrl } from '../theme/i18n';
+import { resolveSeoMetadata } from '../utils/seo';
 import '../styles/global.css';
 import config from '../data/config.json';
 
@@ -15,9 +16,9 @@ const { title, description, hideHeaderFooter = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const locale = getLocaleFromUrl(pathname);
 const dir = locale === 'ar' ? 'rtl' : 'ltr';
-
-const finalTitle = title ? `${title} | ${config.site.name}` : `${config.site.name} — Free Online Schematic Editor`;
-const finalDescription = description || config.site.description;
+const seo = resolveSeoMetadata({ pathname, title, description });
+const finalTitle = seo.title;
+const finalDescription = seo.description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
 
 // Build dynamic breadcrumbs

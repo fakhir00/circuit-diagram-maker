@@ -1,5 +1,6 @@
 ---
 import { useTranslations, getLocalizedPath } from '../../theme/i18n';
+import { resolveSeoMetadata } from '../../utils/seo';
 
 const { locale = 'en', editorMode = 'default' } = Astro.props as { locale: string, editorMode: 'default' | 'logic' | 'arduino' | 'pcb' };
 const t = useTranslations(locale);
@@ -49,14 +50,19 @@ const editorConfig = {
     defaultProjectName: modeProjectNames[editorMode] || modeProjectNames.default,
     storageKey: `circuitforge_autosave_${editorMode}`
 };
+const seo = resolveSeoMetadata({
+    pathname: Astro.url.pathname,
+    title: modeTitles[editorMode] || modeTitles.default,
+    description: modeDescriptions[editorMode] || modeDescriptions.default
+});
 ---
 <!DOCTYPE html>
 <html lang={locale}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{modeTitles[editorMode] || modeTitles.default}</title>
-    <meta name="description" content={modeDescriptions[editorMode] || modeDescriptions.default}>
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
