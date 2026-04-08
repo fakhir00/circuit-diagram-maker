@@ -38,161 +38,298 @@ const localePrefix = isEnglishLocale ? '' : `/${locale}`;
 const homePath = `${localePrefix}/`;
 const blogPath = `${localePrefix}/blog/`;
 const structurePreview = sectionHeadings.slice(0, 6);
+const keyTakeaways = structurePreview.slice(0, 4);
+const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
 ---
 
-<article class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-  <header class="mx-auto max-w-6xl">
-    <div class="rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_45%),linear-gradient(180deg,rgba(15,23,42,0.95),rgba(7,12,21,0.94))] px-6 py-8 shadow-[0_24px_90px_rgba(0,0,0,0.32)] sm:px-8 sm:py-10 lg:px-12">
-      <nav aria-label="Breadcrumb" class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
-        <a href={homePath} class="hover:text-slate-200 transition-colors">Home</a>
-        <span class="mx-2 text-slate-600">/</span>
-        <a href={blogPath} class="hover:text-slate-200 transition-colors">Blog</a>
-        <span class="mx-2 text-slate-600">/</span>
-        <span class="text-slate-300">Article</span>
-      </nav>
+<article class="blog-shell">
+  <header class="blog-hero">
+    <nav aria-label="Breadcrumb" class="blog-breadcrumbs">
+      <a href={homePath}>Home</a>
+      <span>/</span>
+      <a href={blogPath}>Blog</a>
+      <span>/</span>
+      <span aria-current="page">Article</span>
+    </nav>
 
-      <div class="mt-5 flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
-        <span class="rounded-full border border-brand-primary/25 bg-brand-primary/10 px-3 py-1 text-brand-accent">{primaryTag}</span>
-        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
-        <time datetime={post.data.date.toISOString()}>
-          {post.data.date.toLocaleDateString(normalizedLocale, { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
-        <span>{readMinutes} min read</span>
-        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
-        <span>{post.data.author || 'Circuit Diagram Maker Team'}</span>
-      </div>
-
-      <h1 class="mt-6 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.08]">
-        {post.data.title}
-      </h1>
-
-      <p class="mt-6 max-w-4xl text-lg leading-8 text-slate-300 sm:text-xl">
-        {post.data.description}
-      </p>
-
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-          <p class="text-[10px] uppercase tracking-[0.25em] text-slate-500">Primary Topic</p>
-          <p class="mt-2 text-sm font-semibold text-white">{primaryTag}</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-          <p class="text-[10px] uppercase tracking-[0.25em] text-slate-500">Article Sections</p>
-          <p class="mt-2 text-sm font-semibold text-white">{sectionHeadings.length || 'Structured guide'}</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-          <p class="text-[10px] uppercase tracking-[0.25em] text-slate-500">Read Time</p>
-          <p class="mt-2 text-sm font-semibold text-white">{readMinutes} minutes</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-          <p class="text-[10px] uppercase tracking-[0.25em] text-slate-500">Format</p>
-          <p class="mt-2 text-sm font-semibold text-white">Technical article</p>
-        </div>
-      </div>
-
-      {post.data.tags && post.data.tags.length > 0 && (
-        <div class="mt-6 flex flex-wrap gap-2">
-          {post.data.tags.slice(0, 6).map((tag) => (
-            <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-slate-300">{tag}</span>
-          ))}
-        </div>
-      )}
-
-      {post.data.image && (
-        <div class="mt-8 overflow-hidden rounded-[1.5rem] border border-white/10 shadow-2xl">
-          <img src={post.data.image} alt={post.data.title} class="h-full w-full object-cover" />
-        </div>
-      )}
+    <div class="blog-kicker-row">
+      <span class="blog-kicker">{primaryTag}</span>
+      <span class="blog-meta-dot"></span>
+      <time datetime={post.data.date.toISOString()}>{publishedDate}</time>
+      <span class="blog-meta-dot"></span>
+      <span>{readMinutes} min read</span>
+      <span class="blog-meta-dot"></span>
+      <span>{post.data.author || 'Circuit Diagram Maker Team'}</span>
     </div>
+
+    <div class="blog-hero-grid">
+      <div>
+        <h1 class="blog-title">{post.data.title}</h1>
+        <p class="blog-description">{post.data.description}</p>
+
+        {post.data.tags && post.data.tags.length > 0 && (
+          <div class="blog-tag-list">
+            {post.data.tags.slice(0, 6).map((tag) => (
+              <span class="blog-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <aside class="blog-summary-card" aria-label="Article overview">
+        <p class="blog-summary-label">Article Snapshot</p>
+        <dl class="blog-summary-grid">
+          <div>
+            <dt>Sections</dt>
+            <dd>{sectionHeadings.length || 'Structured guide'}</dd>
+          </div>
+          <div>
+            <dt>Reading time</dt>
+            <dd>{readMinutes} minutes</dd>
+          </div>
+          <div>
+            <dt>Topic</dt>
+            <dd>{primaryTag}</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Article + section explainers</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+
+    {post.data.image && (
+      <figure class="blog-hero-media">
+        <img src={post.data.image} alt={post.data.title} loading="eager" />
+      </figure>
+    )}
   </header>
 
-  <div class="mx-auto mt-10 grid max-w-7xl gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
-    <div class="min-w-0 space-y-8">
-      <section class="rounded-[1.7rem] border border-white/10 bg-[linear-gradient(180deg,rgba(9,14,24,0.9),rgba(15,23,42,0.92))] p-6 shadow-[0_16px_50px_rgba(0,0,0,0.22)] sm:p-7">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+  <div class="blog-grid">
+    <main class="blog-main">
+      <section class="blog-map-card" aria-labelledby="article-map-title">
+        <div class="blog-map-head">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-brand-accent">Article Structure</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-tight text-white">Professional reading map</h2>
+            <p class="blog-section-label">Reading Map</p>
+            <h2 id="article-map-title">What this article covers</h2>
           </div>
-          <span class="text-[11px] uppercase tracking-[0.24em] text-slate-500">H1 + H2/H3 hierarchy</span>
+          <p class="blog-map-copy">Use the section map to jump into the topic quickly, then read the in-line explainers beneath each heading for diagrams and reference tables.</p>
         </div>
 
-        <div class="mt-6 grid gap-3 sm:grid-cols-2">
-          {structurePreview.length > 0 ? structurePreview.map((heading, index) => (
-            <a href={`#${heading.slug}`} class="group rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-brand-primary/30 hover:bg-brand-primary/5">
-              <p class="text-[10px] uppercase tracking-[0.24em] text-slate-500">Section {index + 1}</p>
-              <p class="mt-2 text-sm font-semibold leading-6 text-slate-200 group-hover:text-white">{heading.text}</p>
+        <div class="blog-map-grid">
+          {keyTakeaways.length > 0 ? keyTakeaways.map((heading, index) => (
+            <a href={`#${heading.slug}`} class="blog-map-item">
+              <span>0{index + 1}</span>
+              <strong>{heading.text}</strong>
             </a>
           )) : (
-            <div class="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-slate-300 sm:col-span-2">
-              Structured section headings will appear here when the article includes `##` headings.
+            <div class="blog-map-empty">
+              Add `##` headings to show a section map here.
             </div>
           )}
         </div>
       </section>
 
-      <section class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(7,12,21,0.94))] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.22)] sm:p-8">
+      <section class="blog-body-card">
         <div class="blog-article" data-blog-article>
           <Content />
         </div>
       </section>
-    </div>
+    </main>
 
-    <aside class="hidden xl:block">
-      <div class="sticky top-24 space-y-5">
-        <div class="rounded-[1.5rem] border border-white/10 bg-bg-panel/90 p-5 shadow-[0_14px_40px_rgba(0,0,0,0.22)]">
-          <p class="text-xs font-semibold uppercase tracking-[0.28em] text-brand-accent">On This Page</p>
+    <aside class="blog-sidebar" aria-label="Article sidebar">
+      <div class="blog-sidebar-stack">
+        <section class="blog-sidebar-card">
+          <p class="blog-section-label">On This Page</p>
           {articleHeadings.length > 0 ? (
-            <nav class="mt-5">
-              <ol class="space-y-2">
+            <nav class="blog-toc" aria-label="Table of contents">
+              <ol>
                 {articleHeadings.map((heading) => (
-                  <li class:list={['rounded-xl transition', heading.depth === 3 ? 'ml-4' : '']}>
-                    <a
-                      href={`#${heading.slug}`}
-                      class:list={[
-                        'block rounded-xl border border-transparent px-3 py-2 text-sm leading-6 text-slate-300 transition hover:border-white/10 hover:bg-white/[0.04] hover:text-white',
-                        heading.depth === 2 ? 'font-semibold' : 'text-slate-400'
-                      ]}
-                    >
-                      {heading.text}
-                    </a>
+                  <li class:list={[heading.depth === 3 ? 'is-subheading' : '']}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
                   </li>
                 ))}
               </ol>
             </nav>
           ) : (
-            <p class="mt-4 text-sm leading-7 text-slate-400">Section anchors appear automatically when the article includes subheadings.</p>
+            <p class="blog-sidebar-empty">Headings appear here automatically when the article includes subheadings.</p>
           )}
-        </div>
+        </section>
 
-        <div class="rounded-[1.5rem] border border-white/10 bg-bg-panel/90 p-5 shadow-[0_14px_40px_rgba(0,0,0,0.22)]">
-          <p class="text-xs font-semibold uppercase tracking-[0.28em] text-brand-accent">Delivery Checklist</p>
-          <table class="mt-4 w-full text-left text-sm">
-            <tbody class="divide-y divide-white/10">
+        <section class="blog-sidebar-card">
+          <p class="blog-section-label">Article Standards</p>
+          <table class="blog-sidebar-table">
+            <tbody>
               <tr>
-                <th class="py-2 pr-3 font-medium text-slate-400">Heading depth</th>
-                <td class="py-2 text-white">H1 with structured H2/H3</td>
+                <th>Hierarchy</th>
+                <td>Single page H1 with structured H2/H3 sections</td>
               </tr>
               <tr>
-                <th class="py-2 pr-3 font-medium text-slate-400">Reader support</th>
-                <td class="py-2 text-white">TOC + summary map</td>
+                <th>Support</th>
+                <td>Sticky TOC plus per-heading explainer cards</td>
               </tr>
               <tr>
-                <th class="py-2 pr-3 font-medium text-slate-400">Technical style</th>
-                <td class="py-2 text-white">Diagram/table/image-ready</td>
+                <th>Format</th>
+                <td>Readable prose, responsive tables, wrapped diagrams</td>
               </tr>
             </tbody>
           </table>
-        </div>
+        </section>
       </div>
     </aside>
   </div>
 </article>
 
-<script is:inline>
+<script define:vars={{ locale }}>
   (() => {
     const articleRoot = document.querySelector('[data-blog-article]');
     if (!articleRoot) return;
+
+    const localeCode = String(locale || 'en').toLowerCase();
+    const lang = localeCode.startsWith('es')
+      ? 'es'
+      : localeCode.startsWith('ru')
+        ? 'ru'
+        : localeCode.startsWith('hi')
+          ? 'hi'
+          : 'en';
+
+    const i18n = {
+      en: {
+        explainer: 'Section explainer',
+        tabs: { diagram: 'Diagram', table: 'Table' },
+        diagramTitle: 'Section flow',
+        tableTitle: 'Quick reference',
+        rows: {
+          focus: 'Section focus',
+          key: 'Key point',
+          watch: 'What to watch',
+          apply: 'How to use it',
+          risk: 'Common pitfall'
+        },
+        nodes: {
+          idea: 'Core idea',
+          meaning: 'Meaning',
+          usage: 'Usage',
+          start: 'Start',
+          process: 'Process',
+          verify: 'Verify',
+          compare: 'Compare',
+          difference: 'Difference',
+          bestFit: 'Best fit',
+          path: 'Path',
+          control: 'Control',
+          result: 'Result',
+          check: 'Check',
+          fix: 'Fix',
+          outcome: 'Outcome'
+        }
+      },
+      es: {
+        explainer: 'Explicador de seccion',
+        tabs: { diagram: 'Diagrama', table: 'Tabla' },
+        diagramTitle: 'Flujo de la seccion',
+        tableTitle: 'Referencia rapida',
+        rows: {
+          focus: 'Enfoque',
+          key: 'Punto clave',
+          watch: 'Que revisar',
+          apply: 'Como usarlo',
+          risk: 'Error comun'
+        },
+        nodes: {
+          idea: 'Idea central',
+          meaning: 'Significado',
+          usage: 'Uso',
+          start: 'Inicio',
+          process: 'Proceso',
+          verify: 'Verificar',
+          compare: 'Comparar',
+          difference: 'Diferencia',
+          bestFit: 'Mejor uso',
+          path: 'Ruta',
+          control: 'Control',
+          result: 'Resultado',
+          check: 'Revisar',
+          fix: 'Corregir',
+          outcome: 'Resultado'
+        }
+      },
+      ru: {
+        explainer: 'Poyasnenie razdela',
+        tabs: { diagram: 'Skhema', table: 'Tablitsa' },
+        diagramTitle: 'Logika razdela',
+        tableTitle: 'Bystraya spravka',
+        rows: {
+          focus: 'Tema razdela',
+          key: 'Glavnaya mysl',
+          watch: 'Na chto smotret',
+          apply: 'Kak primenit',
+          risk: 'Chastaya oshibka'
+        },
+        nodes: {
+          idea: 'Ideya',
+          meaning: 'Smysl',
+          usage: 'Primenenie',
+          start: 'Start',
+          process: 'Protsess',
+          verify: 'Proverka',
+          compare: 'Sravnenie',
+          difference: 'Raznitsa',
+          bestFit: 'Luchshiy variant',
+          path: 'Put',
+          control: 'Upravlenie',
+          result: 'Rezultat',
+          check: 'Proverit',
+          fix: 'Ispravit',
+          outcome: 'Itog'
+        }
+      },
+      hi: {
+        explainer: 'Section guide',
+        tabs: { diagram: 'Diagram', table: 'Table' },
+        diagramTitle: 'Section flow',
+        tableTitle: 'Quick reference',
+        rows: {
+          focus: 'Section focus',
+          key: 'Key point',
+          watch: 'What to watch',
+          apply: 'How to use it',
+          risk: 'Common pitfall'
+        },
+        nodes: {
+          idea: 'Core idea',
+          meaning: 'Meaning',
+          usage: 'Usage',
+          start: 'Start',
+          process: 'Process',
+          verify: 'Verify',
+          compare: 'Compare',
+          difference: 'Difference',
+          bestFit: 'Best fit',
+          path: 'Path',
+          control: 'Control',
+          result: 'Result',
+          check: 'Check',
+          fix: 'Fix',
+          outcome: 'Outcome'
+        }
+      }
+    };
+
+    const copy = i18n[lang] || i18n.en;
+
+    const escapeHtml = (value) => String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
 
     const normalizeHeadingHierarchy = () => {
       articleRoot.querySelectorAll('h1').forEach((heading) => {
@@ -203,14 +340,654 @@ const structurePreview = sectionHeadings.slice(0, 6);
       });
     };
 
+    const tidyText = (value) => String(value || '').replace(/\s+/g, ' ').trim();
+
+    const shorten = (value, maxLength = 108) => {
+      const text = tidyText(value);
+      if (text.length <= maxLength) return text;
+      const sliced = text.slice(0, maxLength);
+      const lastSpace = sliced.lastIndexOf(' ');
+      return `${sliced.slice(0, lastSpace > 40 ? lastSpace : maxLength).trim()}...`;
+    };
+
+    const firstSentence = (value) => {
+      const text = tidyText(value);
+      if (!text) return '';
+      const match = text.match(/.+?[.!?](?:\s|$)/);
+      return shorten(match ? match[0] : text, 145);
+    };
+
+    const collectSectionText = (heading) => {
+      const stopTags = heading.tagName === 'H2' ? ['H2'] : ['H2', 'H3'];
+      const parts = [];
+      let cursor = heading.nextElementSibling;
+
+      while (cursor && !stopTags.includes(cursor.tagName) && parts.join(' ').length < 900) {
+        if (['P', 'UL', 'OL', 'BLOCKQUOTE', 'TABLE'].includes(cursor.tagName)) {
+          parts.push(tidyText(cursor.textContent || ''));
+        }
+        cursor = cursor.nextElementSibling;
+      }
+
+      return tidyText(parts.join(' '));
+    };
+
+    const collectListItems = (heading) => {
+      const stopTags = heading.tagName === 'H2' ? ['H2'] : ['H2', 'H3'];
+      const items = [];
+      let cursor = heading.nextElementSibling;
+
+      while (cursor && !stopTags.includes(cursor.tagName) && items.length < 4) {
+        if (cursor.tagName === 'UL' || cursor.tagName === 'OL') {
+          cursor.querySelectorAll('li').forEach((item) => {
+            if (items.length < 4) {
+              items.push(shorten(item.textContent || '', 80));
+            }
+          });
+        }
+        cursor = cursor.nextElementSibling;
+      }
+
+      return items;
+    };
+
+    const pickKeyword = (headingText, sectionText) => {
+      const text = `${headingText} ${sectionText}`.toLowerCase();
+
+      if (/(step|how to|draw|build|create|read|workflow|practice|process|guide|best practice)/.test(text)) return 'workflow';
+      if (/(vs|versus|difference|compare|distinguish|n-channel|p-channel)/.test(text)) return 'comparison';
+      if (/(mistake|avoid|wrong|review|check|final thought|troubleshoot|problem)/.test(text)) return 'review';
+      if (/(application|applications|use case|used in|where used|typical uses|common uses)/.test(text)) return 'application';
+      if (/(power|ground|rail|supply|noise|emi|signal|current|voltage|filter|analog|digital)/.test(text)) return 'path';
+      if (/(symbol|terminal|gate|drain|source|emitter|collector|base|resistor|capacitor|diode|transistor|mosfet|jfet|led|component)/.test(text)) return 'symbol';
+      return 'concept';
+    };
+
+    const buildRows = (kind, headingText, sectionText, listItems) => {
+      const corePoint = firstSentence(sectionText) || shorten(headingText, 130);
+      const bulletSummary = listItems.length > 0 ? listItems.join(' | ') : '';
+      const fallbackApply = bulletSummary || 'Use the section notes and surrounding labels to confirm the diagram intent.';
+
+      if (kind === 'workflow') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.watch, listItems[0] || 'Follow the order shown in the section before moving to the next block.'],
+          [copy.rows.apply, fallbackApply]
+        ];
+      }
+
+      if (kind === 'comparison') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.watch, listItems[0] || 'Look for the difference in labels, arrow direction, or surrounding context.'],
+          [copy.rows.apply, listItems[1] || 'Choose the interpretation that matches the surrounding circuit role.']
+        ];
+      }
+
+      if (kind === 'review') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.risk, listItems[0] || 'Readers usually get stuck when labels or context are missing.'],
+          [copy.rows.apply, listItems[1] || 'Use designators, values, and nearby nets to confirm meaning.']
+        ];
+      }
+
+      if (kind === 'application') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.watch, listItems[0] || 'Match the component or method to the part of the circuit it is helping.'],
+          [copy.rows.apply, listItems[1] || 'Use the surrounding circuit goal to decide whether this application fits.']
+        ];
+      }
+
+      if (kind === 'path') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.watch, listItems[0] || 'Trace the entry path, filtered path, and protected block.'],
+          [copy.rows.apply, listItems[1] || 'Read the section from source to destination rather than one isolated symbol at a time.']
+        ];
+      }
+
+      if (kind === 'symbol') {
+        return [
+          [copy.rows.focus, headingText],
+          [copy.rows.key, corePoint],
+          [copy.rows.watch, listItems[0] || 'Check reference labels and terminal names first.'],
+          [copy.rows.apply, listItems[1] || 'Use the surrounding circuit role to distinguish similar-looking parts.']
+        ];
+      }
+
+      return [
+        [copy.rows.focus, headingText],
+        [copy.rows.key, corePoint],
+        [copy.rows.watch, listItems[0] || 'Identify the part, path, or behavior the section is explaining.'],
+        [copy.rows.apply, listItems[1] || fallbackApply]
+      ];
+    };
+
+    const buildDiagramStages = (kind, headingText, sectionText, listItems) => {
+      const core = firstSentence(sectionText) || shorten(headingText, 120);
+      const support = listItems[0] || shorten(sectionText, 88);
+      const result = listItems[1] || 'Use the surrounding labels and circuit context to confirm the takeaway.';
+
+      if (kind === 'workflow') {
+        return [
+          { label: copy.nodes.start, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.process, value: shorten(core, 92), tone: 'cyan' },
+          { label: copy.nodes.verify, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      if (kind === 'comparison') {
+        return [
+          { label: copy.nodes.compare, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.difference, value: shorten(core, 92), tone: 'amber' },
+          { label: copy.nodes.bestFit, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      if (kind === 'review') {
+        return [
+          { label: copy.nodes.check, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.fix, value: shorten(support, 92), tone: 'amber' },
+          { label: copy.nodes.outcome, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      if (kind === 'application') {
+        return [
+          { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.usage, value: shorten(core, 92), tone: 'cyan' },
+          { label: copy.nodes.result, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      if (kind === 'path') {
+        return [
+          { label: copy.nodes.path, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.control, value: shorten(core, 92), tone: 'cyan' },
+          { label: copy.nodes.result, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      if (kind === 'symbol') {
+        return [
+          { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
+          { label: copy.nodes.meaning, value: shorten(core, 92), tone: 'cyan' },
+          { label: copy.nodes.usage, value: shorten(result, 88), tone: 'green' }
+        ];
+      }
+
+      return [
+        { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
+        { label: copy.nodes.meaning, value: shorten(core, 92), tone: 'cyan' },
+        { label: copy.nodes.usage, value: shorten(result, 88), tone: 'green' }
+      ];
+    };
+
+    const renderRows = (rows) => rows.map(([label, value]) => `
+      <tr>
+        <th>${escapeHtml(label)}</th>
+        <td>${escapeHtml(value)}</td>
+      </tr>
+    `).join('');
+
+    const renderStages = (stages) => stages.map((stage, index) => `
+      <div class="blog-explainer-stage blog-explainer-stage--${escapeHtml(stage.tone)}">
+        <span>${escapeHtml(stage.label)}</span>
+        <strong>${escapeHtml(stage.value)}</strong>
+      </div>
+      ${index < stages.length - 1 ? '<div class="blog-explainer-link" aria-hidden="true"></div>' : ''}
+    `).join('');
+
+    const buildExplainerCard = (heading, index) => {
+      const headingText = tidyText(heading.textContent || `Section ${index + 1}`);
+      const sectionText = collectSectionText(heading);
+      const listItems = collectListItems(heading);
+      const kind = pickKeyword(headingText, sectionText);
+      const rows = buildRows(kind, headingText, sectionText, listItems);
+      const stages = buildDiagramStages(kind, headingText, sectionText, listItems);
+      const intro = firstSentence(sectionText) || rows[1][1];
+      const headingLevel = heading.tagName === 'H2' ? 'major' : 'minor';
+
+      const wrapper = document.createElement('section');
+      wrapper.className = `blog-explainer blog-explainer--${headingLevel}`;
+      wrapper.setAttribute('data-blog-explainer', '');
+
+      wrapper.innerHTML = `
+        <div class="blog-explainer-head">
+          <p>${escapeHtml(copy.explainer)}</p>
+          <h4>${escapeHtml(headingText)}</h4>
+          <p class="blog-explainer-intro">${escapeHtml(intro)}</p>
+        </div>
+
+        <div class="blog-explainer-tabs" role="tablist" aria-label="${escapeHtml(headingText)} helper tabs">
+          <button type="button" class="is-active" data-explainer-tab="diagram" aria-selected="true">${escapeHtml(copy.tabs.diagram)}</button>
+          <button type="button" data-explainer-tab="table" aria-selected="false">${escapeHtml(copy.tabs.table)}</button>
+        </div>
+
+        <div class="blog-explainer-panel" data-explainer-panel="diagram">
+          <div class="blog-explainer-panel-card">
+            <div class="blog-explainer-panel-head">
+              <span>${escapeHtml(copy.diagramTitle)}</span>
+              <strong>${escapeHtml(headingText)}</strong>
+            </div>
+            <div class="blog-explainer-flow">
+              ${renderStages(stages)}
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-explainer-panel hidden" data-explainer-panel="table">
+          <div class="blog-explainer-panel-card">
+            <div class="blog-explainer-panel-head">
+              <span>${escapeHtml(copy.tableTitle)}</span>
+              <strong>${escapeHtml(headingText)}</strong>
+            </div>
+            <div class="blog-explainer-table-wrap">
+              <table class="blog-explainer-table">
+                <tbody>
+                  ${renderRows(rows)}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+
+      heading.insertAdjacentElement('afterend', wrapper);
+    };
+
+    const activateTab = (root, key) => {
+      root.querySelectorAll('[data-explainer-tab]').forEach((button) => {
+        const active = button.getAttribute('data-explainer-tab') === key;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+
+      root.querySelectorAll('[data-explainer-panel]').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.getAttribute('data-explainer-panel') !== key);
+      });
+    };
+
     normalizeHeadingHierarchy();
+
+    const headings = Array.from(articleRoot.children).filter((node) => {
+      return node instanceof HTMLElement && (node.tagName === 'H2' || node.tagName === 'H3');
+    });
+
+    headings.forEach((heading, index) => {
+      if (heading.nextElementSibling?.hasAttribute('data-blog-explainer')) return;
+      buildExplainerCard(heading, index);
+    });
+
+    articleRoot.querySelectorAll('[data-blog-explainer]').forEach((explainer) => {
+      explainer.querySelectorAll('[data-explainer-tab]').forEach((button) => {
+        button.addEventListener('click', () => {
+          activateTab(explainer, button.getAttribute('data-explainer-tab') || 'diagram');
+        });
+      });
+      activateTab(explainer, 'diagram');
+    });
   })();
 </script>
 
 <style>
+  .blog-shell {
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 3.5rem 0 5rem;
+  }
+
+  .blog-hero {
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 2rem;
+    padding: 2rem;
+    background:
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 32%),
+      radial-gradient(circle at right, rgba(16, 185, 129, 0.1), transparent 28%),
+      linear-gradient(180deg, rgba(8, 15, 28, 0.96), rgba(12, 20, 36, 0.98));
+    box-shadow: 0 24px 80px rgba(2, 6, 23, 0.34);
+  }
+
+  .blog-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.82);
+  }
+
+  .blog-breadcrumbs a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-breadcrumbs a:hover {
+    color: white;
+  }
+
+  .blog-kicker-row {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(203, 213, 225, 0.88);
+  }
+
+  .blog-kicker {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(56, 189, 248, 0.26);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    background: rgba(14, 165, 233, 0.12);
+    color: rgb(125 211 252);
+  }
+
+  .blog-meta-dot {
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: rgba(100, 116, 139, 0.9);
+  }
+
+  .blog-hero-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+    align-items: start;
+  }
+
+  .blog-title {
+    margin: 0;
+    font-size: clamp(2.4rem, 5vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: white;
+    font-weight: 900;
+    max-width: 14ch;
+  }
+
+  .blog-description {
+    margin: 1.25rem 0 0;
+    max-width: 62ch;
+    font-size: clamp(1.05rem, 1.5vw, 1.24rem);
+    line-height: 1.8;
+    color: rgba(203, 213, 225, 0.92);
+  }
+
+  .blog-tag-list {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .blog-tag {
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, 0.9);
+  }
+
+  .blog-summary-card,
+  .blog-map-card,
+  .blog-body-card,
+  .blog-sidebar-card {
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(10, 17, 31, 0.95), rgba(15, 23, 42, 0.96));
+    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.24);
+  }
+
+  .blog-summary-card {
+    padding: 1.25rem;
+  }
+
+  .blog-summary-label,
+  .blog-section-label {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgb(103 232 249);
+  }
+
+  .blog-summary-grid {
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-summary-grid div {
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.9rem;
+  }
+
+  .blog-summary-grid dt {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(148, 163, 184, 0.88);
+  }
+
+  .blog-summary-grid dd {
+    margin: 0.45rem 0 0;
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    font-weight: 700;
+  }
+
+  .blog-hero-media {
+    margin: 1.6rem 0 0;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .blog-hero-media img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .blog-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    margin-top: 1.5rem;
+    align-items: start;
+  }
+
+  .blog-main {
+    display: grid;
+    gap: 1.5rem;
+    min-width: 0;
+  }
+
+  .blog-map-card,
+  .blog-body-card,
+  .blog-sidebar-card {
+    padding: 1.35rem;
+  }
+
+  .blog-map-head {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(240px, 1fr);
+    align-items: start;
+  }
+
+  .blog-map-head h2 {
+    margin: 0.35rem 0 0;
+    font-size: clamp(1.55rem, 2vw, 2rem);
+    line-height: 1.1;
+    color: white;
+    letter-spacing: -0.03em;
+  }
+
+  .blog-map-copy {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.8;
+    color: rgba(148, 163, 184, 0.95);
+  }
+
+  .blog-map-grid {
+    margin-top: 1.2rem;
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-map-item,
+  .blog-map-empty {
+    border-radius: 1.1rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+  }
+
+  .blog-map-item {
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+
+  .blog-map-item:hover {
+    border-color: rgba(56, 189, 248, 0.28);
+    background: rgba(14, 165, 233, 0.06);
+    transform: translateY(-1px);
+  }
+
+  .blog-map-item span {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(103, 232, 249, 0.92);
+  }
+
+  .blog-map-item strong {
+    display: block;
+    margin-top: 0.6rem;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .blog-map-empty {
+    color: rgba(148, 163, 184, 0.95);
+    font-size: 0.94rem;
+  }
+
+  .blog-sidebar {
+    min-width: 0;
+  }
+
+  .blog-sidebar-stack {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .blog-toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .blog-toc li.is-subheading {
+    margin-left: 0.85rem;
+  }
+
+  .blog-toc a {
+    display: block;
+    padding: 0.72rem 0.8rem;
+    border-radius: 0.9rem;
+    text-decoration: none;
+    color: rgba(203, 213, 225, 0.9);
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    line-height: 1.5;
+  }
+
+  .blog-toc a:hover {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+  }
+
+  .blog-sidebar-empty {
+    margin: 1rem 0 0;
+    color: rgba(148, 163, 184, 0.95);
+    line-height: 1.7;
+  }
+
+  .blog-sidebar-table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+
+  .blog-sidebar-table th,
+  .blog-sidebar-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.78rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    line-height: 1.55;
+    font-size: 0.92rem;
+  }
+
+  .blog-sidebar-table th {
+    color: rgba(148, 163, 184, 0.95);
+    width: 34%;
+    padding-right: 0.8rem;
+    font-weight: 600;
+  }
+
+  .blog-sidebar-table td {
+    color: white;
+  }
+
+  .blog-sidebar-table tr:last-child th,
+  .blog-sidebar-table tr:last-child td {
+    border-bottom: 0;
+  }
+
   :global(.blog-article) {
     color: rgb(203 213 225);
-    font-size: 1.05rem;
+    font-size: 1.06rem;
     line-height: 1.9;
   }
 
@@ -218,49 +995,48 @@ const structurePreview = sectionHeadings.slice(0, 6);
     margin-top: 0;
   }
 
-  :global(.blog-article h1) {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
-    line-height: 1.2;
-    color: white;
-    font-weight: 800;
-  }
-
+  :global(.blog-article h1),
   :global(.blog-article h2),
   :global(.blog-article h3),
   :global(.blog-article h4),
   :global(.blog-article h5),
   :global(.blog-article h6) {
-    scroll-margin-top: 7rem;
     color: white;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    scroll-margin-top: 6.5rem;
+    text-wrap: balance;
+  }
+
+  :global(.blog-article h1) {
+    margin-top: 2.8rem;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    line-height: 1.12;
+    font-weight: 850;
   }
 
   :global(.blog-article h2) {
     margin-top: 3rem;
-    margin-bottom: 1.1rem;
-    padding-left: 0.9rem;
-    border-left: 3px solid rgba(96, 165, 250, 0.9);
-    font-size: clamp(1.9rem, 2.6vw, 2.4rem);
-    line-height: 1.15;
-    font-weight: 800;
+    margin-bottom: 0.95rem;
+    font-size: clamp(1.85rem, 2.6vw, 2.45rem);
+    line-height: 1.1;
+    font-weight: 850;
   }
 
   :global(.blog-article h3) {
-    margin-top: 2.2rem;
-    margin-bottom: 0.85rem;
-    font-size: clamp(1.35rem, 2vw, 1.7rem);
-    line-height: 1.25;
-    font-weight: 750;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.32rem, 1.9vw, 1.7rem);
+    line-height: 1.22;
+    font-weight: 760;
   }
 
   :global(.blog-article h4),
   :global(.blog-article h5),
   :global(.blog-article h6) {
-    margin-top: 1.6rem;
-    margin-bottom: 0.7rem;
-    font-size: 1.05rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.65rem;
+    font-size: 1.08rem;
     line-height: 1.4;
     font-weight: 700;
   }
@@ -270,77 +1046,77 @@ const structurePreview = sectionHeadings.slice(0, 6);
   :global(.blog-article ol),
   :global(.blog-article table),
   :global(.blog-article blockquote),
-  :global(.blog-article pre) {
+  :global(.blog-article pre),
+  :global(.blog-article figure) {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
   :global(.blog-article p) {
-    color: rgba(203, 213, 225, 0.95);
+    color: rgba(203, 213, 225, 0.96);
   }
 
   :global(.blog-article ul),
   :global(.blog-article ol) {
-    padding-left: 1.25rem;
+    padding-left: 1.3rem;
   }
 
   :global(.blog-article li) {
-    margin: 0.6rem 0;
-    padding-left: 0.25rem;
+    margin: 0.45rem 0;
+    padding-left: 0.2rem;
   }
 
   :global(.blog-article li::marker) {
-    color: rgba(96, 165, 250, 0.92);
+    color: rgb(56 189 248);
   }
 
   :global(.blog-article strong) {
     color: white;
-    font-weight: 700;
+    font-weight: 750;
   }
 
   :global(.blog-article a) {
     color: rgb(125 211 252);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(125, 211, 252, 0.28);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
   :global(.blog-article a:hover) {
     color: white;
-    border-color: rgba(255, 255, 255, 0.4);
   }
 
   :global(.blog-article code) {
-    border: 1px solid rgba(148, 163, 184, 0.14);
-    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.16);
     border-radius: 0.5rem;
-    padding: 0.16rem 0.42rem;
-    color: rgb(165 243 252);
-    font-size: 0.92em;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 0.18rem 0.45rem;
+    font-size: 0.9em;
+    color: rgb(191 219 254);
+    word-break: break-word;
   }
 
   :global(.blog-article pre) {
     overflow-x: auto;
-    border: 1px solid rgba(148, 163, 184, 0.14);
-    background: linear-gradient(180deg, rgba(7, 12, 21, 0.98), rgba(15, 23, 42, 0.92));
-    border-radius: 1.1rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 1rem;
+    background: rgba(2, 6, 23, 0.92);
     padding: 1rem 1.1rem;
   }
 
   :global(.blog-article pre code) {
     border: 0;
-    background: transparent;
     padding: 0;
-    color: rgb(226 232 240);
+    background: transparent;
+    color: rgba(226, 232, 240, 0.98);
   }
 
   :global(.blog-article blockquote) {
-    border: 1px solid rgba(34, 211, 238, 0.2);
-    background: linear-gradient(180deg, rgba(8, 47, 73, 0.35), rgba(8, 47, 73, 0.16));
-    border-left: 3px solid rgba(52, 211, 153, 0.7);
-    border-radius: 1rem;
-    padding: 1rem 1.1rem;
-    color: rgba(224, 242, 254, 0.92);
+    border-left: 3px solid rgba(56, 189, 248, 0.85);
+    border-radius: 0 1rem 1rem 0;
+    background: rgba(14, 165, 233, 0.08);
+    padding: 1rem 1rem 1rem 1.1rem;
+    color: rgba(226, 232, 240, 0.94);
   }
 
   :global(.blog-article blockquote p) {
@@ -352,70 +1128,322 @@ const structurePreview = sectionHeadings.slice(0, 6);
     overflow: hidden;
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid rgba(99, 102, 241, 0.18);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 1rem;
-    background: linear-gradient(180deg, rgba(29, 26, 63, 0.72), rgba(15, 23, 42, 0.82));
-    font-size: 0.97rem;
+    background: rgba(15, 23, 42, 0.78);
+    display: block;
+    overflow-x: auto;
   }
 
   :global(.blog-article thead th) {
-    background: rgba(79, 70, 229, 0.16);
-    color: rgb(224 231 255);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   :global(.blog-article th),
   :global(.blog-article td) {
-    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-    padding: 0.95rem 1rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
     text-align: left;
     vertical-align: top;
+    min-width: 180px;
   }
 
-  :global(.blog-article tbody tr:last-child td),
-  :global(.blog-article tbody tr:last-child th) {
+  :global(.blog-article tbody tr:last-child th),
+  :global(.blog-article tbody tr:last-child td) {
     border-bottom: 0;
   }
 
   :global(.blog-article tbody tr:nth-child(even) td),
   :global(.blog-article tbody tr:nth-child(even) th) {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.025);
   }
 
   :global(.blog-article hr) {
-    margin: 2.4rem 0;
+    margin: 2rem 0;
     border: 0;
     border-top: 1px solid rgba(148, 163, 184, 0.14);
   }
 
   :global(.blog-article img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.2rem;
     border: 1px solid rgba(148, 163, 184, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  :global(.blog-article .blog-explainer) {
+    margin: 1rem 0 1.7rem;
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 1.25rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.24);
+    background:
+      linear-gradient(180deg, rgba(7, 13, 25, 0.98), rgba(10, 17, 31, 0.98)),
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent 40%);
+    padding: 1rem;
+  }
+
+  :global(.blog-article .blog-explainer--minor) {
+    border-color: rgba(71, 85, 105, 0.34);
+    background: linear-gradient(180deg, rgba(9, 14, 24, 0.98), rgba(11, 18, 31, 0.98));
+  }
+
+  :global(.blog-article .blog-explainer-head p:first-child) {
+    margin: 0;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgb(103 232 249);
+  }
+
+  :global(.blog-article .blog-explainer-head h4) {
+    margin: 0.45rem 0 0;
+    color: white;
+    font-size: 1.02rem;
+    line-height: 1.35;
+    font-weight: 780;
+  }
+
+  :global(.blog-article .blog-explainer-intro) {
+    margin: 0.45rem 0 0;
+    color: rgba(148, 163, 184, 0.96);
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  :global(.blog-article .blog-explainer-tabs) {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.85rem;
+  }
+
+  :global(.blog-article .blog-explainer-tabs button) {
+    appearance: none;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(203, 213, 225, 0.95);
+    padding: 0.42rem 0.82rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  :global(.blog-article .blog-explainer-tabs button.is-active) {
+    border-color: rgba(56, 189, 248, 0.38);
+    background: rgba(14, 165, 233, 0.12);
+    color: white;
+  }
+
+  :global(.blog-article .blog-explainer-panel.hidden) {
+    display: none;
+  }
+
+  :global(.blog-article .blog-explainer-panel-card) {
+    margin-top: 0.9rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(8, 15, 28, 0.82));
+    padding: 1rem;
+  }
+
+  :global(.blog-article .blog-explainer-panel-head) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    align-items: baseline;
+  }
+
+  :global(.blog-article .blog-explainer-panel-head span) {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.82);
+  }
+
+  :global(.blog-article .blog-explainer-panel-head strong) {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: white;
+    overflow-wrap: anywhere;
+  }
+
+  :global(.blog-article .blog-explainer-flow) {
+    margin-top: 0.95rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  :global(.blog-article .blog-explainer-stage) {
+    min-width: 0;
+    border-radius: 1rem;
+    padding: 0.95rem;
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  :global(.blog-article .blog-explainer-stage span) {
+    display: block;
+    margin: 0;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(191, 219, 254, 0.9);
+  }
+
+  :global(.blog-article .blog-explainer-stage strong) {
+    display: block;
+    margin-top: 0.55rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: white;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  :global(.blog-article .blog-explainer-stage--blue) {
+    border-color: rgba(56, 189, 248, 0.42);
+    box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.08);
+  }
+
+  :global(.blog-article .blog-explainer-stage--cyan) {
+    border-color: rgba(34, 211, 238, 0.42);
+    box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.08);
+  }
+
+  :global(.blog-article .blog-explainer-stage--amber) {
+    border-color: rgba(251, 191, 36, 0.34);
+    box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.08);
+  }
+
+  :global(.blog-article .blog-explainer-stage--green) {
+    border-color: rgba(52, 211, 153, 0.38);
+    box-shadow: inset 0 0 0 1px rgba(52, 211, 153, 0.08);
+  }
+
+  :global(.blog-article .blog-explainer-link) {
+    width: 1.9rem;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.45), rgba(52, 211, 153, 0.4));
+    border-radius: 999px;
+  }
+
+  :global(.blog-article .blog-explainer-table-wrap) {
+    margin-top: 0.95rem;
+    overflow-x: auto;
+  }
+
+  :global(.blog-article .blog-explainer-table) {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 420px;
+  }
+
+  :global(.blog-article .blog-explainer-table th),
+  :global(.blog-article .blog-explainer-table td) {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.82rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  :global(.blog-article .blog-explainer-table th) {
+    width: 32%;
+    padding-right: 1rem;
+    color: rgba(148, 163, 184, 0.96);
+    font-weight: 600;
+  }
+
+  :global(.blog-article .blog-explainer-table td) {
+    color: white;
+    overflow-wrap: anywhere;
+  }
+
+  :global(.blog-article .blog-explainer-table tr:last-child th),
+  :global(.blog-article .blog-explainer-table tr:last-child td) {
+    border-bottom: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .blog-hero-grid,
+    .blog-grid,
+    .blog-map-head {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-sidebar {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
+    .blog-shell {
+      width: min(100% - 1rem, 100%);
+      padding-top: 2rem;
+      padding-bottom: 3.2rem;
+    }
+
+    .blog-hero,
+    .blog-map-card,
+    .blog-body-card {
+      border-radius: 1.35rem;
+      padding: 1.15rem;
+    }
+
+    .blog-title {
+      max-width: none;
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    .blog-summary-grid,
+    .blog-map-grid {
+      grid-template-columns: 1fr;
+    }
+
     :global(.blog-article) {
       font-size: 1rem;
-      line-height: 1.8;
+      line-height: 1.82;
     }
 
     :global(.blog-article h2) {
-      margin-top: 2.4rem;
-      font-size: 1.65rem;
+      font-size: clamp(1.55rem, 8vw, 2.05rem);
     }
 
     :global(.blog-article h3) {
-      font-size: 1.25rem;
+      font-size: clamp(1.2rem, 6vw, 1.45rem);
     }
 
-    :global(.blog-article table) {
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
+    :global(.blog-article .blog-explainer) {
+      padding: 0.85rem;
+    }
+
+    :global(.blog-article .blog-explainer-flow) {
+      grid-template-columns: 1fr;
+    }
+
+    :global(.blog-article .blog-explainer-link) {
+      width: 2px;
+      height: 1.25rem;
+      justify-self: center;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.45), rgba(52, 211, 153, 0.4));
     }
   }
 </style>
