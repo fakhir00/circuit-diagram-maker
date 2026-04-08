@@ -21,6 +21,124 @@
       { "q": "The editor loads slowly on my device — what can I do?", "a": "For best performance, use a modern browser (Chrome, Firefox, Edge) with hardware acceleration enabled. Close unused browser tabs to free up memory. Circuit Diagram Maker works best on devices with 4GB+ RAM." }
     ]
   },
-  "hi": {}, "es": {}, "ru": {}, "fr": {}, "de": {}, "it": {}, "pt": {},
-  "bn": {}, "ja": {}, "ko": {}, "ms": {}, "pl": {}, "id": {}, "ar": {}, "bg": {}, "tr": {}, "sv": {}
+  "hi": {
+    "contact.hero.badge": "सहायता",
+    "contact.hero.title": "सर्किट आरेख निर्माता सहायता से संपर्क करें",
+    "contact.hero.subtitle": "सर्किट आरेख निर्माता के बारे में कोई प्रश्न है? संपादक में कोई बग मिला? हमारी टीम आमतौर पर 24 घंटों के भीतर जवाब देती है।",
+    "contact.form.title": "हमें संदेश भेजें",
+    "contact.sidebar.email.title": "📧 ईमेल सहायता",
+    "contact.sidebar.time.title": "⏱️ प्रतिक्रिया समय",
+    "contact.sidebar.time.strong": "24 घंटे",
+    "contact.sidebar.features.title": "💡 सुविधा अनुरोध",
+    "contact.faq.title": "सामान्य सहायता प्रश्न"
+  },
+  "es": {
+    "contact.hero.badge": "Soporte",
+    "contact.hero.title": "Contactar con Soporte",
+    "contact.hero.subtitle": "¿Tienes alguna pregunta sobre Circuit Diagram Maker? ¿Encontraste un error? Nuestro equipo suele responder en 24 horas.",
+    "contact.form.title": "Envíanos un mensaje",
+    "contact.sidebar.email.title": "📧 Soporte por email",
+    "contact.sidebar.time.title": "⏱️ Tiempo de respuesta",
+    "contact.sidebar.time.strong": "24 horas",
+    "contact.sidebar.features.title": "💡 Sugerencias",
+    "contact.faq.title": "Preguntas comunes"
+  },
+  "ru": {
+    "contact.hero.badge": "Поддержка",
+    "contact.hero.title": "Связаться с поддержкой",
+    "contact.hero.subtitle": "Есть вопросы по конструктору схем? Нашли баг? Наша команда обычно отвечает в течение 24 часов.",
+    "contact.form.title": "Отправить сообщение",
+    "contact.sidebar.email.title": "📧 Email поддержка",
+    "contact.sidebar.time.title": "⏱️ Время ответа",
+    "contact.sidebar.time.strong": "24 часа",
+    "contact.sidebar.features.title": "💡 Пожелания",
+    "contact.faq.title": "Частые вопросы"
+  },
+  "fr": {
+    "contact.hero.badge": "Support",
+    "contact.hero.title": "Contacter le support",
+    "contact.hero.subtitle": "Une question sur Circuit Diagram Maker ? Un bug ? Notre équipe répond généralement sous 24 heures.",
+    "contact.form.title": "Envoyez-nous un message",
+    "contact.sidebar.email.title": "📧 Support par email",
+    "contact.sidebar.time.title": "⏱️ Temps de réponse",
+    "contact.sidebar.time.strong": "24 heures",
+    "contact.sidebar.features.title": "💡 Suggestions",
+    "contact.faq.title": "Questions fréquentes"
+  },
+  "de": {
+    "contact.hero.badge": "Support",
+    "contact.hero.title": "Circuit Diagram Maker Support kontaktieren",
+    "contact.hero.subtitle": "Haben Sie eine Frage zum Schaltplan-Ersteller? Einen Bug gefunden? Unser Team antwortet in der Regel innerhalb von 24 Stunden.",
+    "contact.form.title": "Senden Sie uns eine Nachricht",
+    "contact.sidebar.email.title": "📧 E-Mail Support",
+    "contact.sidebar.time.title": "⏱️ Reaktionszeit",
+    "contact.sidebar.time.strong": "24 Stunden",
+    "contact.sidebar.features.title": "💡 Funktionswünsche",
+    "contact.faq.title": "Häufige Fragen"
+  },
+  "it": {
+    "contact.hero.badge": "Supporto",
+    "contact.hero.title": "Contatta il supporto di Circuit Diagram Maker",
+    "contact.hero.subtitle": "Hai una domanda sul creatore di schemi? Hai trovato un bug? Il nostro team risponde solitamente entro 24 ore.",
+    "contact.form.title": "Inviaci un messaggio",
+    "contact.sidebar.email.title": "📧 Supporto via Email",
+    "contact.sidebar.time.title": "⏱️ Tempi di risposta",
+    "contact.sidebar.time.strong": "24 ore",
+    "contact.sidebar.features.title": "💡 Richieste di funzionalità",
+    "contact.faq.title": "Domande comuni"
+  },
+  "pt": {
+    "contact.hero.badge": "Suporte",
+    "contact.hero.title": "Contactar o Suporte do Circuit Diagram Maker",
+    "contact.hero.subtitle": "Tem uma dúvida sobre o criador de diagramas? Encontrou um erro? A nossa equipa costuma responder em 24 horas.",
+    "contact.form.title": "Envie-nos uma mensagem",
+    "contact.sidebar.email.title": "📧 Suporte por Email",
+    "contact.sidebar.time.title": "⏱️ Tempo de resposta",
+    "contact.sidebar.time.strong": "24 horas",
+    "contact.sidebar.features.title": "💡 Pedidos de funcionalidades",
+    "contact.faq.title": "Dúvidas frequentes"
+  },
+  "ja": {
+    "contact.hero.badge": "サポート",
+    "contact.hero.title": "回路図メーカーサポートに連絡",
+    "contact.hero.subtitle": "使い方の質問、バグ報告、新機能のリクエストなど。通常24時間以内に回答いたします。",
+    "contact.form.title": "メッセージを送信",
+    "contact.sidebar.email.title": "📧 メールサポート",
+    "contact.sidebar.time.title": "⏱️ 応答時間",
+    "contact.sidebar.time.strong": "24時間以内",
+    "contact.sidebar.features.title": "💡 機能リクエスト",
+    "contact.faq.title": "よくある質問"
+  },
+  "bn": {
+    "contact.hero.badge": "সহায়তা",
+    "contact.hero.title": "সার্কিট ডায়াগ্রাম মেকার সাপোর্ট"
+  },
+  "ms": {
+    "contact.hero.badge": "Sokongan",
+    "contact.hero.title": "Hubungi Sokongan Pembuat Gambarajah Litar"
+  },
+  "pl": {
+    "contact.hero.badge": "Wsparcie",
+    "contact.hero.title": "Kontakt z pomocą techniczną"
+  },
+  "id": {
+    "contact.hero.badge": "Dukungan",
+    "contact.hero.title": "Hubungi Dukungan Pembuat Diagram Sirkuit"
+  },
+  "ar": {
+    "contact.hero.badge": "الدعم",
+    "contact.hero.title": "الاتصال بالدعم الفني"
+  },
+  "bg": {
+    "contact.hero.badge": "Поддръжка",
+    "contact.hero.title": "Контакт с поддръжката"
+  },
+  "tr": {
+    "contact.hero.badge": "Destek",
+    "contact.hero.title": "Devre Şeması Oluşturucu Desteği ile İletişime Geçin"
+  },
+  "sv": {
+    "contact.hero.badge": "Support",
+    "contact.hero.title": "Kontakta Circuit Diagram Maker Support"
+  }
 }

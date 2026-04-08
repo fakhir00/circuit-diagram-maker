@@ -32,6 +32,152 @@
     "about.cta.title": "Ready to Create Your First Circuit Diagram?",
     "about.cta.desc": "Open the circuit diagram maker and start designing — completely free, no account needed."
   },
-  "hi": {}, "es": {}, "ru": {}, "fr": {}, "de": {}, "it": {}, "pt": {},
-  "bn": {}, "ja": {}, "ko": {}, "ms": {}, "pl": {}, "id": {}, "ar": {}, "bg": {}, "tr": {}, "sv": {}
+  "hi": {
+    "about.hero.badge": "हमारे बारे में",
+    "about.hero.title": "सर्किट आरेख निर्माता के बारे में",
+    "about.hero.subtitle": "हम इलेक्ट्रॉनिक्स इंजीनियरों और सॉफ्टवेयर डेवलपर्स की एक टीम हैं जो मानते हैं कि पेशेवर सर्किट आरेख बनाना तेज़, मुफ़्त और सभी के लिए सुलभ होना चाहिए।",
+    "about.story.title": "हमने यह सर्किट आरेख निर्माता क्यों बनाया",
+    "about.story.p1": "प्रत्येक इलेक्ट्रॉनिक्स इंजीनियर निराशा जानता है: आपको लैब रिपोर्ट या डिज़ाइन समीक्षा के लिए एक त्वरित सर्किट आरेख की आवश्यकता होती है। आपके विकल्प? एक भारी डेस्कटॉप एप्लिकेशन या हाथ से बना धुंधला चित्र।",
+    "about.story.p2": "उस निराशा से पैदा हुआ था। हमने वेब पर सबसे तेज़, सरल सर्किट आरेख उपकरण बनाने का लक्ष्य रखा है।",
+    "about.timeline.title": "हमारी यात्रा",
+    "about.principles.title": "हमारे डिजाइन सिद्धांत",
+    "about.cta.title": "अपना पहला सर्किट आरेख बनाने के लिए तैयार हैं?",
+    "about.cta.desc": "सर्किट आरेख निर्माता खोलें और डिजाइन करना शुरू करें — पूरी तरह से मुफ़्त।"
+  },
+  "es": {
+    "about.hero.badge": "Sobre nosotros",
+    "about.hero.title": "Sobre Circuit Diagram Maker",
+    "about.hero.subtitle": "Somos un equipo de ingenieros electrónicos y desarrolladores que creen que crear diagramas profesionales debe ser rápido, gratuito y accesible para todos.",
+    "about.story.title": "¿Por qué creamos esta herramienta?",
+    "about.story.p1": "Todo ingeniero conoce la frustración de necesitar un esquema rápido para un informe y tener que usar software pesado o dibujos a mano.",
+    "about.story.p2": "nació de esa frustración. Queríamos construir la herramienta más rápida y sencilla de la web.",
+    "about.timeline.title": "Nuestra trayectoria",
+    "about.principles.title": "Nuestros principios de diseño",
+    "about.cta.title": "¿Listo para crear tu primer diagrama?",
+    "about.cta.desc": "Abre el creador de diagramas y empieza a diseñar — totalmente gratis."
+  },
+  "ru": {
+    "about.hero.badge": "О нас",
+    "about.hero.title": "О проекте Circuit Diagram Maker",
+    "about.hero.subtitle": "Мы — команда инженеров и разработчиков, которые верят, что создание профессиональных схем должно быть быстрым, бесплатным и доступным для всех.",
+    "about.story.title": "Почему мы создали этот инструмент",
+    "about.story.p1": "Каждый инженер знает это чувство: когда нужно быстро набросать схему для отчета, а под рукой только тяжелые CAD-системы.",
+    "about.story.p2": "родился из этого желания упростить жизнь. Мы создали самый быстрый инструмент в вебе.",
+    "about.timeline.title": "Наш путь",
+    "about.principles.title": "Наши принципы",
+    "about.cta.title": "Готовы создать свою первую схему?",
+    "about.cta.desc": "Откройте конструктор и начните проектировать — совершенно бесплатно."
+  },
+  "fr": {
+    "about.hero.badge": "À propos",
+    "about.hero.title": "À propos de Circuit Diagram Maker",
+    "about.hero.subtitle": "Nous sommes une équipe d'ingénieurs et de développeurs convaincus que la création de schémas professionnels doit être rapide, gratuite et accessible à tous.",
+    "about.story.title": "Pourquoi nous avons créé cet outil",
+    "about.story.p1": "Tout ingénieur connaît la frustration de devoir dessiner un schéma rapide pour un rapport et de n'avoir que des logiciels lourds à disposition.",
+    "about.story.p2": "est né de cette frustration. Nous avons voulu créer l'outil le plus simple et rapide du web.",
+    "about.timeline.title": "Notre parcours",
+    "about.principles.title": "Nos principes de design",
+    "about.cta.title": "Prêt à créer votre premier schéma ?",
+    "about.cta.desc": "Ouvrez le créateur de schémas et commencez à concevoir — c'est gratuit."
+  },
+  "de": {
+    "about.hero.badge": "Über uns",
+    "about.hero.title": "Über Circuit Diagram Maker",
+    "about.hero.subtitle": "Wir sind ein Team von Elektroingenieuren und Softwareentwicklern, die davon überzeugt sind, dass professionelle Schaltpläne schnell, kostenlos und für jeden zugänglich sein sollten.",
+    "about.story.title": "Warum wir dieses Tool entwickelt haben",
+    "about.story.p1": "Jeder Ingenieur kennt den Frust: Man braucht schnell einen Schaltplan für einen Bericht, hat aber nur komplexe CAD-Anwendungen zur Auswahl.",
+    "about.story.p2": "entstand aus diesem Frust. Wir wollten das schnellste und einfachste Tool im Web entwickeln.",
+    "about.timeline.title": "Unsere Reise",
+    "about.principles.title": "Unsere Design-Prinzipien",
+    "about.cta.title": "Bereit für Ihren ersten Schaltplan?",
+    "about.cta.desc": "Öffnen Sie den Schaltplan-Ersteller und legen Sie los — völlig kostenlos."
+  },
+  "it": {
+    "about.hero.badge": "Chi siamo",
+    "about.hero.title": "Informazioni su Circuit Diagram Maker",
+    "about.hero.subtitle": "Siamo un team di ingegneri elettronici e sviluppatori che credono che la creazione di schemi professionali debba essere veloce, gratuita e accessibile a tutti.",
+    "about.story.title": "Perché abbiamo creato questo strumento",
+    "about.story.p1": "Ogni ingegnere conosce la frustrazione di dover disegnare uno schema veloce e avere solo software pesanti a disposizione.",
+    "about.story.p2": "è nato da questa frustrazione. Volevamo costruire lo strumento più veloce e semplice del web.",
+    "about.timeline.title": "Il nostro viaggio",
+    "about.principles.title": "I nostri principi di progettazione",
+    "about.cta.title": "Pronto a creare il tuo primo schema?",
+    "about.cta.desc": "Apri il creatore di diagrammi e inizia a progettare — completamente gratis."
+  },
+  "pt": {
+    "about.hero.badge": "Sobre nós",
+    "about.hero.title": "Sobre o Circuit Diagram Maker",
+    "about.hero.subtitle": "Somos uma equipa de engenheiros e desenvolvedores que acreditam que a criação de esquemas profissionais deve ser rápida, gratuita e acessível a todos.",
+    "about.story.title": "Porque criámos esta ferramenta",
+    "about.story.p1": "Todos os engenheiros conhecem a frustração de precisar de um esquema rápido e ter apenas softwares pesados à disposição.",
+    "about.story.p2": "nasceu desta frustração. Queríamos construir a ferramenta mais rápida e simples da web.",
+    "about.timeline.title": "A nossa jornada",
+    "about.principles.title": "Os nossos princípios de design",
+    "about.cta.title": "Pronto para criar o seu primeiro diagrama?",
+    "about.cta.desc": "Abra o criador de diagramas e comece a desenhar — totalmente grátis."
+  },
+  "ja": {
+    "about.hero.badge": "私たちについて",
+    "about.hero.title": "回路図メーカーについて",
+    "about.hero.subtitle": "私たちは、プロフェッショナルな回路図作成が、高速で無料、かつ誰でも利用できるべきだと信じているエンジニアと開発者のチームです。",
+    "about.story.title": "なぜこのツールを作ったのか",
+    "about.story.p1": "エンジニアなら誰でも、レポート用にクイックな回路図が必要なのに、重いCADソフトしかないという不満を知っています。",
+    "about.story.p2": "はその不満から生まれました。ウェブ上で最も速く、シンプルなツールを目指しています。",
+    "about.timeline.title": "私たちの歩み",
+    "about.principles.title": "私たちの設計原則",
+    "about.cta.title": "最初の回路図を作成する準備はできましたか？",
+    "about.cta.desc": "回路図メーカーを開いてデザインを開始しましょう。完全に無料です。"
+  },
+  "ko": {
+    "about.hero.badge": "회사 소개",
+    "about.hero.title": "회로도 제작소 소개",
+    "about.hero.subtitle": "우리는 전문적인 회로도 작성이 빠르고 무료이며 누구에게나 접근 가능해야 한다고 믿는 엔지니어와 개발자들로 구성된 팀입니다.",
+    "about.story.title": "우리가 이 도구를 만든 이유",
+    "about.story.p1": "모든 엔지니어는 보고서용 회로도가 급히 필요한데 무거운 CAD 프로그램만 있을 때의 답답함을 알고 있습니다.",
+    "about.story.p2": "는 그 답답함에서 탄생했습니다. 웹에서 가장 빠르고 간단한 도구를 만드는 것이 목표입니다.",
+    "about.timeline.title": "우리의 여정",
+    "about.principles.title": "우리의 설계 원칙",
+    "about.cta.title": "첫 번째 회로도를 만들 준비가 되셨나요?",
+    "about.cta.desc": "회로도 제작소를 열고 디자인을 시작하세요 — 완전히 무료입니다."
+  },
+  "bn": {
+    "about.hero.badge": "আমাদের সম্পর্কে",
+    "about.hero.title": "সার্কিট ডায়াগ্রাম মেকার সম্পর্কে",
+    "about.hero.subtitle": "আমরা ইলেকট্রনিক্স ইঞ্জিনিয়ার এবং সফটওয়্যার ডেভেলপারদের একটি দল যারা বিশ্বাস করি যে পেশাদার সার্কিট ডায়াগ্রাম তৈরি দ্রুত, বিনামূল্যে এবং সবার জন্য অ্যাক্সেসযোগ্য হওয়া উচিত।"
+  },
+  "ms": {
+    "about.hero.badge": "Tentang Kami",
+    "about.hero.title": "Mengenai Pembuat Gambarajah Litar",
+    "about.hero.subtitle": "Kami adalah pasukan jurutera elektronik dan pembangun perisian yang percaya bahawa mencipta gambarajah litar profesional haruslah pantas, percuma dan boleh diakses oleh semua."
+  },
+  "pl": {
+    "about.hero.badge": "O nas",
+    "about.hero.title": "O Circuit Diagram Maker",
+    "about.hero.subtitle": "Jesteśmy zespołem inżynierów elektroników i programistów, którzy wierzą, że tworzenie profesjonalnych schematów powinno być szybkie, bezpłatne i dostępne dla każdego."
+  },
+  "id": {
+    "about.hero.badge": "Tentang Kami",
+    "about.hero.title": "Tentang Pembuat Diagram Sirkuit",
+    "about.hero.subtitle": "Kami adalah tim insinyur elektronik dan pengembang perangkat lunak yang percaya bahwa membuat diagram sirkuit profesional harus cepat, gratis, dan dapat diakses oleh semua orang."
+  },
+  "ar": {
+    "about.hero.badge": "حول المشروع",
+    "about.hero.title": "حول صانع مخططات الدوائر",
+    "about.hero.subtitle": "نحن فريق من مهندسي الإلكترونيات ومطوري البرمجيات الذين يؤمنون بأن إنشاء مخططات الدوائر الاحترافية يجب أن يكون سريعًا ومجانيًا ومتاحًا للجميع."
+  },
+  "bg": {
+    "about.hero.badge": "За нас",
+    "about.hero.title": "За Circuit Diagram Maker",
+    "about.hero.subtitle": "Ние сме екип от инженери по електроника и софтуерни разработчици, които вярват, че създаването на професионални електрически схеми трябва да бъде бързо, безплатно и достъпно за всеки."
+  },
+  "tr": {
+    "about.hero.badge": "Hakkımızda",
+    "about.hero.title": "Devre Şeması Oluşturucu Hakkında",
+    "about.hero.subtitle": "Profesyonel devre şeması oluşturmanın hızlı, ücretsiz ve herkes için erişilebilir olması gerektiğine inanan bir elektronik mühendisleri ve yazılım geliştiricileri ekibiyiz."
+  },
+  "sv": {
+    "about.hero.badge": "Om oss",
+    "about.hero.title": "Om Circuit Diagram Maker",
+    "about.hero.subtitle": "Vi är ett team av elektronikingenjörer och mjukvaruutvecklare som anser att det ska vara snabbt, gratis och tillgängligt för alla att skapa professionella kretsscheman."
+  }
 }

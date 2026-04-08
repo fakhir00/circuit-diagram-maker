@@ -72,6 +72,90 @@
     "legal.terms.s8.p1": "If you have any questions about these terms of service, please contact us at",
     "legal.terms.s8.p2": "or through our"
   },
-  "hi": {}, "es": {}, "ru": {}, "fr": {}, "de": {}, "it": {}, "pt": {},
-  "bn": {}, "ja": {}, "ko": {}, "ms": {}, "pl": {}, "id": {}, "ar": {}, "bg": {}, "tr": {}, "sv": {}
+  "hi": {
+    "legal.privacy.hero.title": "गोपनीयता नीति",
+    "legal.privacy.hero.updated": "अंतिम अपडेट",
+    "legal.terms.hero.title": "सेवा की शर्तें",
+    "legal.terms.hero.updated": "अंतिम अपडेट"
+  },
+  "es": {
+    "legal.privacy.hero.title": "Política de privacidad",
+    "legal.privacy.hero.updated": "Última actualización",
+    "legal.terms.hero.title": "Términos de servicio",
+    "legal.terms.hero.updated": "Última actualización"
+  },
+  "ru": {
+    "legal.privacy.hero.title": "Политика конфиденциальности",
+    "legal.privacy.hero.updated": "Последнее обновление",
+    "legal.terms.hero.title": "Условия использования",
+    "legal.terms.hero.updated": "Последнее обновление"
+  },
+  "fr": {
+    "legal.privacy.hero.title": "Politique de confidentialité",
+    "legal.privacy.hero.updated": "Dernière mise à jour",
+    "legal.terms.hero.title": "Conditions d'utilisation",
+    "legal.terms.hero.updated": "Dernière mise à jour"
+  },
+  "de": {
+    "legal.privacy.hero.title": "Datenschutzerklärung",
+    "legal.privacy.hero.updated": "Zuletzt aktualisiert",
+    "legal.terms.hero.title": "Nutzungsbedingungen",
+    "legal.terms.hero.updated": "Zuletzt aktualisiert"
+  },
+  "it": {
+    "legal.privacy.hero.title": "Informativa sulla privacy",
+    "legal.privacy.hero.updated": "Ultimo aggiornamento",
+    "legal.terms.hero.title": "Termini di servizio",
+    "legal.terms.hero.updated": "Ultimo aggiornamento"
+  },
+  "pt": {
+    "legal.privacy.hero.title": "Política de Privacidade",
+    "legal.privacy.hero.updated": "Última atualização",
+    "legal.terms.hero.title": "Termos de Serviço",
+    "legal.terms.hero.updated": "Última atualização"
+  },
+  "ja": {
+    "legal.privacy.hero.title": "プライバシーポリシー",
+    "legal.privacy.hero.updated": "最終更新日",
+    "legal.terms.hero.title": "利用規約",
+    "legal.terms.hero.updated": "最終更新日"
+  },
+  "ko": {
+    "legal.privacy.hero.title": "개인정보 처리방침",
+    "legal.privacy.hero.updated": "최종 업데이트",
+    "legal.terms.hero.title": "서비스 이용약관",
+    "legal.terms.hero.updated": "최종 업데이트"
+  },
+  "bn": {
+    "legal.privacy.hero.title": "গোপনীয়তা নীতি",
+    "legal.terms.hero.title": "পরিষেবার শর্তাবলী"
+  },
+  "ms": {
+    "legal.privacy.hero.title": "Dasar Privasi",
+    "legal.terms.hero.title": "Syarat Perkhidmatan"
+  },
+  "pl": {
+    "legal.privacy.hero.title": "Polityka prywatności",
+    "legal.terms.hero.title": "Regulamin"
+  },
+  "id": {
+    "legal.privacy.hero.title": "Kebijakan Privasi",
+    "legal.terms.hero.title": "Ketentuan Layanan"
+  },
+  "ar": {
+    "legal.privacy.hero.title": "سياسة الخصوصية",
+    "legal.terms.hero.title": "شروط الخدمة"
+  },
+  "bg": {
+    "legal.privacy.hero.title": "Политика за поверителност",
+    "legal.terms.hero.title": "Условия за ползване"
+  },
+  "tr": {
+    "legal.privacy.hero.title": "Gizlilik Politikası",
+    "legal.terms.hero.title": "Hizmet Şartları"
+  },
+  "sv": {
+    "legal.privacy.hero.title": "Integritetspolicy",
+    "legal.terms.hero.title": "Användarvillkor"
+  }
 }
