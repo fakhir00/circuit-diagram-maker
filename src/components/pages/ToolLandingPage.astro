@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import InteractiveToolPreview from '../InteractiveToolPreview.astro';
 
 interface Props {
+  locale: string;
   title: string;
   description: string;
   eyebrow: string;
@@ -25,6 +26,7 @@ interface Props {
 
 const {
   title,
+  locale,
   description,
   eyebrow,
   heroTitle,
@@ -71,7 +73,7 @@ const {
   {presetId && (
     <section class="bg-bg-dark border-y border-white/5 py-12">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <InteractiveToolPreview presetId={presetId} />
+        <InteractiveToolPreview presetId={presetId} locale={locale} ctaHref={primaryCtaHref} ctaLabel={primaryCtaLabel} />
       </div>
     </section>
   )}

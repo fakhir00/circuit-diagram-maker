@@ -31,6 +31,7 @@ const tableRows = [
 ---
 
 <ToolLandingPage
+  locale={locale}
   title={t('arduino.title')}
   description={t('arduino.description')}
   eyebrow={t('arduino.eyebrow')}
@@ -39,7 +40,7 @@ const tableRows = [
   primaryCtaLabel={t('arduino.cta.primary')}
   primaryCtaHref={getLocalizedPath('/arduino-editor/', locale)}
   secondaryCtaLabel={t('arduino.cta.secondary')}
-  secondaryCtaHref={getLocalizedPath('/components/', locale)}
+  secondaryCtaHref={getLocalizedPath('/arduino-editor/', locale)}
   featureTitle={t('arduino.feature_title')}
   featureIntro={t('arduino.feature_intro')}
   features={features}

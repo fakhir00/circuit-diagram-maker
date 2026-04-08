@@ -31,6 +31,7 @@ const tableRows = [
 ---
 
 <ToolLandingPage
+  locale={locale}
   title={t('pcb.title')}
   description={t('pcb.description')}
   eyebrow={t('pcb.eyebrow')}
@@ -39,7 +40,7 @@ const tableRows = [
   primaryCtaLabel={t('pcb.cta.primary')}
   primaryCtaHref={getLocalizedPath('/pcb-editor/', locale)}
   secondaryCtaLabel={t('pcb.cta.secondary')}
-  secondaryCtaHref={getLocalizedPath('/docs/', locale)}
+  secondaryCtaHref={getLocalizedPath('/pcb-editor/', locale)}
   featureTitle={t('pcb.feature_title')}
   featureIntro={t('pcb.feature_intro')}
   features={features}

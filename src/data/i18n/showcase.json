@@ -15,6 +15,18 @@
     "showcase.quick_specs.title": "Quick Reference Specs",
     "showcase.quick_specs.status": "Auto-updates",
     "showcase.cta": "Open in Editor",
+    "showcase.tool_preview.badge": "Live Technical Preview",
+    "showcase.tool_preview.active": "Active Diagram",
+    "showcase.tool_preview.path.badge": "Path Analysis",
+    "showcase.tool_preview.path.title": "Critical stage mapping",
+    "showcase.tool_preview.metrics.badge": "Performance Metrics",
+    "showcase.tool_preview.review.badge": "Technical Review",
+    "showcase.tool_preview.profile.badge": "Tool Profile",
+    "showcase.tool_preview.quick_specs.title": "Quick Reference Specs",
+    "showcase.tool_preview.quick_specs.status": "Verified",
+    "showcase.tool_preview.cta.title": "Ready to Design?",
+    "showcase.tool_preview.cta.body": "Open the editor with pre-loaded symbols for this toolkit. No registration required.",
+    "showcase.tool_preview.cta.button": "Launch Editor",
     "showcase.presets.logic": {
       "label": "Logic Control",
       "title": "Sensor and MCU interface",
@@ -258,6 +270,67 @@
         "Balance ground plane coverage",
         "Minimize high-speed via hops"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Arduino Lab",
+      "title": "Standard Arduino Uno Shield",
+      "summary": "Create custom shields with Arduino header alignment, pin mappings, and peripheral integration.",
+      "specs": [
+        [
+          "Header pins",
+          "28"
+        ],
+        [
+          "Voltage rail",
+          "5V/3.3V"
+        ],
+        [
+          "Bus type",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Pin availability",
+          "value": "58%",
+          "strength": 58,
+          "accent": "blue"
+        },
+        {
+          "label": "Power headroom",
+          "value": "77%",
+          "strength": 77,
+          "accent": "amber"
+        },
+        {
+          "label": "Shield fit",
+          "value": "94%",
+          "strength": 94,
+          "accent": "emerald"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Header mapping",
+          "detail": "Pin assignment and grouping",
+          "load": 31
+        },
+        {
+          "name": "Shield layout",
+          "detail": "Component footprint and fit",
+          "load": 42
+        },
+        {
+          "name": "Bus breakout",
+          "detail": "I2C/SPI network routing",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verify shield height clearance",
+        "Keep I2C pull-ups on-module",
+        "Standardize pin 1 position"
+      ]
     }
   },
   "hi": {
@@ -276,6 +349,18 @@
     "showcase.quick_specs.title": "त्वरित संदर्भ विवरण",
     "showcase.quick_specs.status": "स्वतः अद्यतन",
     "showcase.cta": "संपादक में खोलें",
+    "showcase.tool_preview.badge": "लाइव तकनीकी पूर्वावलोकन",
+    "showcase.tool_preview.active": "सक्रिय आरेख",
+    "showcase.tool_preview.path.badge": "पथ विश्लेषण",
+    "showcase.tool_preview.path.title": "महत्वपूर्ण चरण मानचित्रण",
+    "showcase.tool_preview.metrics.badge": "प्रदर्शन मेट्रिक्स",
+    "showcase.tool_preview.review.badge": "तकनीकी समीक्षा",
+    "showcase.tool_preview.profile.badge": "टूल प्रोफ़ाइल",
+    "showcase.tool_preview.quick_specs.title": "त्वरित संदर्भ विवरण",
+    "showcase.tool_preview.quick_specs.status": "सत्यापित",
+    "showcase.tool_preview.cta.title": "डिज़ाइन करने के लिए तैयार हैं?",
+    "showcase.tool_preview.cta.body": "इस टूलकिट के लिए पहले से लोड किए गए प्रतीकों वाला संपादक खोलें। पंजीकरण की आवश्यकता नहीं है.",
+    "showcase.tool_preview.cta.button": "संपादक लॉन्च करें",
     "showcase.presets.logic": {
       "label": "तर्क नियंत्रण",
       "title": "सेंसर और एमसीयू इंटरफ़ेस",
@@ -519,6 +604,67 @@
         "ग्राउंड प्लेन कवरेज को संतुलित करें",
         "हॉप्स के माध्यम से उच्च गति को कम करें"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "अरुडिनो लैब",
+      "title": "मानक Arduino Uno शील्ड",
+      "summary": "Arduino हेडर संरेखण, पिन मैपिंग और परिधीय एकीकरण के साथ कस्टम शील्ड बनाएं।",
+      "specs": [
+        [
+          "हेडर पिन",
+          "28"
+        ],
+        [
+          "वोल्टेज रेल",
+          "5V/3.3V"
+        ],
+        [
+          "बस का प्रकार",
+          "I2C/एसपीआई"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "पिन उपलब्धता",
+          "value": "58%",
+          "strength": 58,
+          "accent": "नीला"
+        },
+        {
+          "label": "पावर हेडरूम",
+          "value": "77%",
+          "strength": 77,
+          "accent": "अम्बर"
+        },
+        {
+          "label": "शील्ड फिट",
+          "value": "94%",
+          "strength": 94,
+          "accent": "पन्ना"
+        }
+      ],
+      "stages": [
+        {
+          "name": "हेडर मैपिंग",
+          "detail": "पिन असाइनमेंट और ग्रुपिंग",
+          "load": 31
+        },
+        {
+          "name": "ढाल लेआउट",
+          "detail": "घटक पदचिह्न और फिट",
+          "load": 42
+        },
+        {
+          "name": "बस ब्रेकआउट",
+          "detail": "I2C/SPI नेटवर्क रूटिंग",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "शील्ड ऊंचाई क्लीयरेंस सत्यापित करें",
+        "I2C पुल-अप को मॉड्यूल पर रखें",
+        "पिन 1 स्थिति को मानकीकृत करें"
+      ]
     }
   },
   "es": {
@@ -537,6 +683,18 @@
     "showcase.quick_specs.title": "Especificaciones de referencia rápida",
     "showcase.quick_specs.status": "Actualizaciones automáticas",
     "showcase.cta": "Abrir en el editor",
+    "showcase.tool_preview.badge": "Vista previa técnica en vivo",
+    "showcase.tool_preview.active": "Diagrama activo",
+    "showcase.tool_preview.path.badge": "Análisis de ruta",
+    "showcase.tool_preview.path.title": "Mapeo de etapas críticas",
+    "showcase.tool_preview.metrics.badge": "Métricas de rendimiento",
+    "showcase.tool_preview.review.badge": "Revisión técnica",
+    "showcase.tool_preview.profile.badge": "Perfil de herramienta",
+    "showcase.tool_preview.quick_specs.title": "Especificaciones de referencia rápida",
+    "showcase.tool_preview.quick_specs.status": "Verificado",
+    "showcase.tool_preview.cta.title": "¿Listo para diseñar?",
+    "showcase.tool_preview.cta.body": "Abra el editor con símbolos precargados para este kit de herramientas. No es necesario registrarse.",
+    "showcase.tool_preview.cta.button": "Lanzar editor",
     "showcase.presets.logic": {
       "label": "Control lógico",
       "title": "Interfaz de sensor y MCU",
@@ -780,6 +938,67 @@
         "Equilibrar la cobertura del plano de tierra",
         "Minimizar la alta velocidad mediante saltos"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Laboratorio Arduino",
+      "title": "Escudo Arduino Uno estándar",
+      "summary": "Cree escudos personalizados con alineación de encabezados Arduino, asignaciones de pines e integración de periféricos.",
+      "specs": [
+        [
+          "Pines de encabezado",
+          "28"
+        ],
+        [
+          "Carril de voltaje",
+          "5V/3.3V"
+        ],
+        [
+          "Tipo de autobús",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Disponibilidad de pines",
+          "value": "58%",
+          "strength": 58,
+          "accent": "azul"
+        },
+        {
+          "label": "Espacio libre de potencia",
+          "value": "77%",
+          "strength": 77,
+          "accent": "ámbar"
+        },
+        {
+          "label": "Ajuste del escudo",
+          "value": "94%",
+          "strength": 94,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Mapeo de encabezado",
+          "detail": "Asignación y agrupación de pines",
+          "load": 31
+        },
+        {
+          "name": "Diseño de escudo",
+          "detail": "Huella y ajuste de los componentes",
+          "load": 42
+        },
+        {
+          "name": "fuga de autobús",
+          "detail": "Enrutamiento de red I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verifique el espacio libre de altura del escudo",
+        "Mantenga los pull-ups I2C en el módulo",
+        "Estandarizar la posición del pin 1"
+      ]
     }
   },
   "ru": {
@@ -798,6 +1017,18 @@
     "showcase.quick_specs.title": "Краткий справочник по характеристикам",
     "showcase.quick_specs.status": "Автообновления",
     "showcase.cta": "Открыть в редакторе",
+    "showcase.tool_preview.badge": "Технический обзор в реальном времени",
+    "showcase.tool_preview.active": "Активная диаграмма",
+    "showcase.tool_preview.path.badge": "Анализ пути",
+    "showcase.tool_preview.path.title": "Картирование критических стадий",
+    "showcase.tool_preview.metrics.badge": "Показатели производительности",
+    "showcase.tool_preview.review.badge": "Технический обзор",
+    "showcase.tool_preview.profile.badge": "Профиль инструмента",
+    "showcase.tool_preview.quick_specs.title": "Краткий справочник по характеристикам",
+    "showcase.tool_preview.quick_specs.status": "Проверено",
+    "showcase.tool_preview.cta.title": "Готовы проектировать?",
+    "showcase.tool_preview.cta.body": "Откройте редактор с предварительно загруженными символами для этого набора инструментов. Никакой регистрации не требуется.",
+    "showcase.tool_preview.cta.button": "Запустить редактор",
     "showcase.presets.logic": {
       "label": "Логическое управление",
       "title": "Интерфейс датчика и MCU",
@@ -1041,6 +1272,67 @@
         "Баланс покрытия наземной плоскости",
         "Минимизируйте высокую скорость через прыжки"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Лаборатория Ардуино",
+      "title": "Стандартный шилд Arduino Uno",
+      "summary": "Создавайте собственные экраны с выравниванием разъемов Arduino, сопоставлением контактов и интеграцией периферийных устройств.",
+      "specs": [
+        [
+          "Контакты заголовка",
+          "28"
+        ],
+        [
+          "Шина напряжения",
+          "5 В/3,3 В"
+        ],
+        [
+          "Тип автобуса",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Наличие контактов",
+          "value": "58%",
+          "strength": 58,
+          "accent": "синий"
+        },
+        {
+          "label": "Запас мощности",
+          "value": "77%",
+          "strength": 77,
+          "accent": "янтарь"
+        },
+        {
+          "label": "Щит подходит",
+          "value": "94%",
+          "strength": 94,
+          "accent": "изумруд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Сопоставление заголовков",
+          "detail": "Назначение и группировка контактов",
+          "load": 31
+        },
+        {
+          "name": "Расположение щита",
+          "detail": "Размер и посадка компонентов",
+          "load": 42
+        },
+        {
+          "name": "Прорыв автобуса",
+          "detail": "Сетевая маршрутизация I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Проверьте зазор по высоте щита",
+        "Держите подтяжки I2C на модуле",
+        "Стандартизировать положение контакта 1"
+      ]
     }
   },
   "fr": {
@@ -1059,6 +1351,18 @@
     "showcase.quick_specs.title": "Spécifications de référence rapide",
     "showcase.quick_specs.status": "Mises à jour automatiques",
     "showcase.cta": "Ouvrir dans l'éditeur",
+    "showcase.tool_preview.badge": "Aperçu technique en direct",
+    "showcase.tool_preview.active": "Diagramme actif",
+    "showcase.tool_preview.path.badge": "Analyse du chemin",
+    "showcase.tool_preview.path.title": "Cartographie des étapes critiques",
+    "showcase.tool_preview.metrics.badge": "Mesures de performances",
+    "showcase.tool_preview.review.badge": "Examen technique",
+    "showcase.tool_preview.profile.badge": "Profil d'outil",
+    "showcase.tool_preview.quick_specs.title": "Spécifications de référence rapide",
+    "showcase.tool_preview.quick_specs.status": "Vérifié",
+    "showcase.tool_preview.cta.title": "Prêt à concevoir ?",
+    "showcase.tool_preview.cta.body": "Ouvrez l'éditeur avec les symboles préchargés pour cette boîte à outils. Aucune inscription requise.",
+    "showcase.tool_preview.cta.button": "Lancer l'éditeur",
     "showcase.presets.logic": {
       "label": "Contrôle logique",
       "title": "Interface capteur et MCU",
@@ -1302,6 +1606,67 @@
         "Équilibrer la couverture du plan de sol",
         "Minimiser la vitesse élevée via les sauts"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Laboratoire Arduino",
+      "title": "Bouclier Arduino Uno standard",
+      "summary": "Créez des boucliers personnalisés avec l'alignement des en-têtes Arduino, le mappage des broches et l'intégration des périphériques.",
+      "specs": [
+        [
+          "Broches d'en-tête",
+          "28"
+        ],
+        [
+          "Rail de tension",
+          "5V/3,3V"
+        ],
+        [
+          "Type d'autobus",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Disponibilité des épingles",
+          "value": "58%",
+          "strength": 58,
+          "accent": "bleu"
+        },
+        {
+          "label": "Marge de puissance",
+          "value": "77%",
+          "strength": 77,
+          "accent": "ambre"
+        },
+        {
+          "label": "Ajustement du bouclier",
+          "value": "94%",
+          "strength": 94,
+          "accent": "émeraude"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Mappage d'en-tête",
+          "detail": "Attribution et regroupement des broches",
+          "load": 31
+        },
+        {
+          "name": "Disposition du bouclier",
+          "detail": "Empreinte et ajustement des composants",
+          "load": 42
+        },
+        {
+          "name": "Évasion de bus",
+          "detail": "Routage réseau I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Vérifier le dégagement en hauteur du bouclier",
+        "Gardez les pull-ups I2C sur le module",
+        "Standardiser la position de la broche 1"
+      ]
     }
   },
   "de": {
@@ -1320,6 +1685,18 @@
     "showcase.quick_specs.title": "Kurzreferenzspezifikationen",
     "showcase.quick_specs.status": "Automatische Updates",
     "showcase.cta": "Im Editor öffnen",
+    "showcase.tool_preview.badge": "Technische Live-Vorschau",
+    "showcase.tool_preview.active": "Aktives Diagramm",
+    "showcase.tool_preview.path.badge": "Pfadanalyse",
+    "showcase.tool_preview.path.title": "Kartierung kritischer Phasen",
+    "showcase.tool_preview.metrics.badge": "Leistungskennzahlen",
+    "showcase.tool_preview.review.badge": "Technische Überprüfung",
+    "showcase.tool_preview.profile.badge": "Werkzeugprofil",
+    "showcase.tool_preview.quick_specs.title": "Kurzreferenzspezifikationen",
+    "showcase.tool_preview.quick_specs.status": "Verifiziert",
+    "showcase.tool_preview.cta.title": "Bereit zum Entwerfen?",
+    "showcase.tool_preview.cta.body": "Öffnen Sie den Editor mit vorinstallierten Symbolen für dieses Toolkit. Keine Anmeldung erforderlich.",
+    "showcase.tool_preview.cta.button": "Editor starten",
     "showcase.presets.logic": {
       "label": "Logiksteuerung",
       "title": "Sensor- und MCU-Schnittstelle",
@@ -1563,6 +1940,67 @@
         "Ausgleichen der Bodenebenenabdeckung",
         "Minimieren Sie Hochgeschwindigkeits-Via-Hops"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Arduino-Labor",
+      "title": "Standard-Arduino-Uno-Shield",
+      "summary": "Erstellen Sie benutzerdefinierte Shields mit Arduino-Header-Ausrichtung, Pin-Zuordnung und Peripherieintegration.",
+      "specs": [
+        [
+          "Header-Pins",
+          "28"
+        ],
+        [
+          "Spannungsschiene",
+          "5V/3,3V"
+        ],
+        [
+          "Bustyp",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Pin-Verfügbarkeit",
+          "value": "58%",
+          "strength": 58,
+          "accent": "blau"
+        },
+        {
+          "label": "Leistungsreserve",
+          "value": "77%",
+          "strength": 77,
+          "accent": "Bernstein"
+        },
+        {
+          "label": "Passform des Schildes",
+          "value": "94%",
+          "strength": 94,
+          "accent": "Smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Header-Mapping",
+          "detail": "Pinbelegung und Gruppierung",
+          "load": 31
+        },
+        {
+          "name": "Schildlayout",
+          "detail": "Platzbedarf und Passform der Komponenten",
+          "load": 42
+        },
+        {
+          "name": "Busausbruch",
+          "detail": "I2C/SPI-Netzwerkrouting",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Überprüfen Sie den Höhenabstand der Abschirmung",
+        "Behalten Sie I2C-Pullups im Modul bei",
+        "Position von Pin 1 standardisieren"
+      ]
     }
   },
   "it": {
@@ -1581,6 +2019,18 @@
     "showcase.quick_specs.title": "Specifiche di riferimento rapido",
     "showcase.quick_specs.status": "Aggiornamenti automatici",
     "showcase.cta": "Apri nell'editor",
+    "showcase.tool_preview.badge": "Anteprima tecnica dal vivo",
+    "showcase.tool_preview.active": "Diagramma attivo",
+    "showcase.tool_preview.path.badge": "Analisi del percorso",
+    "showcase.tool_preview.path.title": "Mappatura delle fasi critiche",
+    "showcase.tool_preview.metrics.badge": "Metriche delle prestazioni",
+    "showcase.tool_preview.review.badge": "Revisione tecnica",
+    "showcase.tool_preview.profile.badge": "Profilo dello strumento",
+    "showcase.tool_preview.quick_specs.title": "Specifiche di riferimento rapido",
+    "showcase.tool_preview.quick_specs.status": "Verificato",
+    "showcase.tool_preview.cta.title": "Pronto a progettare?",
+    "showcase.tool_preview.cta.body": "Apri l'editor con i simboli precaricati per questo toolkit. Nessuna registrazione richiesta.",
+    "showcase.tool_preview.cta.button": "Avvia l'editor",
     "showcase.presets.logic": {
       "label": "Controllo logico",
       "title": "Sensore e interfaccia MCU",
@@ -1824,6 +2274,67 @@
         "Bilanciare la copertura del piano terra",
         "Ridurre al minimo l'alta velocità tramite hop"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Laboratorio Arduino",
+      "title": "Scudo Arduino Uno standard",
+      "summary": "Crea scudi personalizzati con l'allineamento dell'intestazione Arduino, la mappatura dei pin e l'integrazione delle periferiche.",
+      "specs": [
+        [
+          "Perni dell'intestazione",
+          "28"
+        ],
+        [
+          "Guida di tensione",
+          "5 V/3,3 V"
+        ],
+        [
+          "Tipo di autobus",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Disponibilità dei perni",
+          "value": "58%",
+          "strength": 58,
+          "accent": "blu"
+        },
+        {
+          "label": "Spazio di potenza",
+          "value": "77%",
+          "strength": 77,
+          "accent": "ambra"
+        },
+        {
+          "label": "Vestibilità dello scudo",
+          "value": "94%",
+          "strength": 94,
+          "accent": "smeraldo"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Mappatura dell'intestazione",
+          "detail": "Assegnazione e raggruppamento dei pin",
+          "load": 31
+        },
+        {
+          "name": "Disposizione dello scudo",
+          "detail": "Ingombro e adattamento dei componenti",
+          "load": 42
+        },
+        {
+          "name": "Evasione dell'autobus",
+          "detail": "Instradamento di rete I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verificare la distanza in altezza dello schermo",
+        "Mantieni i pull-up I2C sul modulo",
+        "Standardizzare la posizione del pin 1"
+      ]
     }
   },
   "pt": {
@@ -1842,6 +2353,18 @@
     "showcase.quick_specs.title": "Especificações de referência rápida",
     "showcase.quick_specs.status": "Atualizações automáticas",
     "showcase.cta": "Abrir no Editor",
+    "showcase.tool_preview.badge": "Visualização técnica ao vivo",
+    "showcase.tool_preview.active": "Diagrama Ativo",
+    "showcase.tool_preview.path.badge": "Análise de caminho",
+    "showcase.tool_preview.path.title": "Mapeamento de estágio crítico",
+    "showcase.tool_preview.metrics.badge": "Métricas de desempenho",
+    "showcase.tool_preview.review.badge": "Revisão Técnica",
+    "showcase.tool_preview.profile.badge": "Perfil da ferramenta",
+    "showcase.tool_preview.quick_specs.title": "Especificações de referência rápida",
+    "showcase.tool_preview.quick_specs.status": "Verificado",
+    "showcase.tool_preview.cta.title": "Pronto para projetar?",
+    "showcase.tool_preview.cta.body": "Abra o editor com símbolos pré-carregados para este kit de ferramentas. Não é necessário registro.",
+    "showcase.tool_preview.cta.button": "Iniciar Editor",
     "showcase.presets.logic": {
       "label": "Controle Lógico",
       "title": "Interface de sensor e MCU",
@@ -2085,6 +2608,67 @@
         "Equilibre a cobertura do plano terrestre",
         "Minimize a alta velocidade por meio de saltos"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Laboratório Arduino",
+      "title": "Escudo Arduino Uno padrão",
+      "summary": "Crie escudos personalizados com alinhamento de cabeçalho Arduino, mapeamentos de pinos e integração periférica.",
+      "specs": [
+        [
+          "Pinos de cabeçalho",
+          "28"
+        ],
+        [
+          "Trilho de tensão",
+          "5V/3,3V"
+        ],
+        [
+          "Tipo de ônibus",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Disponibilidade de alfinetes",
+          "value": "58%",
+          "strength": 58,
+          "accent": "azul"
+        },
+        {
+          "label": "Espaço de potência",
+          "value": "77%",
+          "strength": 77,
+          "accent": "âmbar"
+        },
+        {
+          "label": "Ajuste do escudo",
+          "value": "94%",
+          "strength": 94,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Mapeamento de cabeçalho",
+          "detail": "Atribuição e agrupamento de pinos",
+          "load": 31
+        },
+        {
+          "name": "Layout do escudo",
+          "detail": "Pegada e ajuste do componente",
+          "load": 42
+        },
+        {
+          "name": "Fuga do ônibus",
+          "detail": "Roteamento de rede I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verifique a folga de altura da blindagem",
+        "Mantenha pull-ups I2C no módulo",
+        "Padronize a posição do pino 1"
+      ]
     }
   },
   "bn": {
@@ -2103,6 +2687,18 @@
     "showcase.quick_specs.title": "দ্রুত রেফারেন্স স্পেসিফিকেশন",
     "showcase.quick_specs.status": "স্বয়ংক্রিয় আপডেট",
     "showcase.cta": "এডিটরে খুলুন",
+    "showcase.tool_preview.badge": "লাইভ প্রযুক্তিগত পূর্বরূপ",
+    "showcase.tool_preview.active": "সক্রিয় চিত্র",
+    "showcase.tool_preview.path.badge": "পথ বিশ্লেষণ",
+    "showcase.tool_preview.path.title": "ক্রিটিক্যাল স্টেজ ম্যাপিং",
+    "showcase.tool_preview.metrics.badge": "কর্মক্ষমতা মেট্রিক্স",
+    "showcase.tool_preview.review.badge": "প্রযুক্তিগত পর্যালোচনা",
+    "showcase.tool_preview.profile.badge": "টুল প্রোফাইল",
+    "showcase.tool_preview.quick_specs.title": "দ্রুত রেফারেন্স স্পেসিফিকেশন",
+    "showcase.tool_preview.quick_specs.status": "যাচাই করা হয়েছে",
+    "showcase.tool_preview.cta.title": "ডিজাইন করতে প্রস্তুত?",
+    "showcase.tool_preview.cta.body": "এই টুলকিটের জন্য প্রি-লোড করা চিহ্ন সহ সম্পাদক খুলুন। কোন নিবন্ধন প্রয়োজন.",
+    "showcase.tool_preview.cta.button": "এডিটর চালু করুন",
     "showcase.presets.logic": {
       "label": "লজিক কন্ট্রোল",
       "title": "সেন্সর এবং MCU ইন্টারফেস",
@@ -2346,6 +2942,67 @@
         "স্থল সমতল কভারেজ ভারসাম্য",
         "হপসের মাধ্যমে উচ্চ-গতি হ্রাস করুন"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "আরডুইনো ল্যাব",
+      "title": "স্ট্যান্ডার্ড আরডুইনো ইউনো শিল্ড",
+      "summary": "Arduino হেডার অ্যালাইনমেন্ট, পিন ম্যাপিং এবং পেরিফেরাল ইন্টিগ্রেশন সহ কাস্টম শিল্ড তৈরি করুন।",
+      "specs": [
+        [
+          "হেডার পিন",
+          "28"
+        ],
+        [
+          "ভোল্টেজ রেল",
+          "5V/3.3V"
+        ],
+        [
+          "বাসের ধরন",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "পিন প্রাপ্যতা",
+          "value": "58%",
+          "strength": 58,
+          "accent": "নীল"
+        },
+        {
+          "label": "পাওয়ার হেডরুম",
+          "value": "77%",
+          "strength": 77,
+          "accent": "অ্যাম্বার"
+        },
+        {
+          "label": "শিল্ড ফিট",
+          "value": "94%",
+          "strength": 94,
+          "accent": "পান্না"
+        }
+      ],
+      "stages": [
+        {
+          "name": "হেডার ম্যাপিং",
+          "detail": "পিন অ্যাসাইনমেন্ট এবং গ্রুপিং",
+          "load": 31
+        },
+        {
+          "name": "শিল্ড লেআউট",
+          "detail": "উপাদান পদচিহ্ন এবং মাপসই",
+          "load": 42
+        },
+        {
+          "name": "বাস ব্রেকআউট",
+          "detail": "I2C/SPI নেটওয়ার্ক রাউটিং",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "ঢাল উচ্চতা ক্লিয়ারেন্স যাচাই করুন",
+        "I2C পুল আপ মডিউল অন রাখুন",
+        "স্ট্যান্ডার্ডাইজ পিন 1 অবস্থান"
+      ]
     }
   },
   "ja": {
@@ -2364,6 +3021,18 @@
     "showcase.quick_specs.title": "クイックリファレンス仕様",
     "showcase.quick_specs.status": "自動更新",
     "showcase.cta": "エディタで開く",
+    "showcase.tool_preview.badge": "ライブテクニカルプレビュー",
+    "showcase.tool_preview.active": "アクティブなダイアグラム",
+    "showcase.tool_preview.path.badge": "パス分析",
+    "showcase.tool_preview.path.title": "クリティカルステージのマッピング",
+    "showcase.tool_preview.metrics.badge": "パフォーマンス指標",
+    "showcase.tool_preview.review.badge": "テクニカルレビュー",
+    "showcase.tool_preview.profile.badge": "ツールプロファイル",
+    "showcase.tool_preview.quick_specs.title": "クイックリファレンス仕様",
+    "showcase.tool_preview.quick_specs.status": "確認済み",
+    "showcase.tool_preview.cta.title": "デザインする準備はできましたか?",
+    "showcase.tool_preview.cta.body": "このツールキットのプリロードされたシンボルを含むエディターを開きます。登録は必要ありません。",
+    "showcase.tool_preview.cta.button": "エディターを起動する",
     "showcase.presets.logic": {
       "label": "ロジック制御",
       "title": "センサーとMCUインターフェース",
@@ -2607,6 +3276,67 @@
         "グランドプレーンのカバレッジのバランスを取る",
         "ホップ経由の高速性を最小限に抑える"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Arduino ラボ",
+      "title": "標準Arduino Unoシールド",
+      "summary": "Arduino ヘッダーの位置合わせ、ピン マッピング、周辺機器の統合を使用してカスタム シールドを作成します。",
+      "specs": [
+        [
+          "ヘッダーピン",
+          "28"
+        ],
+        [
+          "電圧レール",
+          "5V/3.3V"
+        ],
+        [
+          "バスの種類",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "ピンの利用可能性",
+          "value": "58%",
+          "strength": 58,
+          "accent": "青"
+        },
+        {
+          "label": "パワーヘッドルーム",
+          "value": "77%",
+          "strength": 77,
+          "accent": "琥珀"
+        },
+        {
+          "label": "シールドフィット",
+          "value": "94%",
+          "strength": 94,
+          "accent": "エメラルド"
+        }
+      ],
+      "stages": [
+        {
+          "name": "ヘッダーマッピング",
+          "detail": "ピンの割り当てとグループ化",
+          "load": 31
+        },
+        {
+          "name": "シールドレイアウト",
+          "detail": "コンポーネントの設置面積と適合性",
+          "load": 42
+        },
+        {
+          "name": "バスブレイクアウト",
+          "detail": "I2C/SPIネットワークルーティング",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "シールドの高さのクリアランスを確認する",
+        "I2C プルアップをモジュール上に維持する",
+        "1番ピンの位置を標準化"
+      ]
     }
   },
   "ko": {
@@ -2625,6 +3355,18 @@
     "showcase.quick_specs.title": "빠른 참조 사양",
     "showcase.quick_specs.status": "자동 업데이트",
     "showcase.cta": "편집기에서 열기",
+    "showcase.tool_preview.badge": "실시간 기술 미리보기",
+    "showcase.tool_preview.active": "활성 다이어그램",
+    "showcase.tool_preview.path.badge": "경로 분석",
+    "showcase.tool_preview.path.title": "중요 단계 매핑",
+    "showcase.tool_preview.metrics.badge": "성능 지표",
+    "showcase.tool_preview.review.badge": "기술 검토",
+    "showcase.tool_preview.profile.badge": "도구 프로필",
+    "showcase.tool_preview.quick_specs.title": "빠른 참조 사양",
+    "showcase.tool_preview.quick_specs.status": "확인됨",
+    "showcase.tool_preview.cta.title": "디자인할 준비가 되셨나요?",
+    "showcase.tool_preview.cta.body": "이 툴킷에 대해 사전 로드된 기호가 있는 편집기를 엽니다. 등록이 필요하지 않습니다.",
+    "showcase.tool_preview.cta.button": "편집기 실행",
     "showcase.presets.logic": {
       "label": "로직 제어",
       "title": "센서 및 MCU 인터페이스",
@@ -2868,6 +3610,67 @@
         "밸런스 접지면 적용 범위",
         "홉을 통해 고속을 최소화"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "아두이노 연구실",
+      "title": "표준 Arduino Uno 실드",
+      "summary": "Arduino 헤더 정렬, 핀 매핑 및 주변 장치 통합을 통해 맞춤형 쉴드를 만드세요.",
+      "specs": [
+        [
+          "헤더 핀",
+          "28"
+        ],
+        [
+          "전압 레일",
+          "5V/3.3V"
+        ],
+        [
+          "버스 종류",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "핀 가용성",
+          "value": "58%",
+          "strength": 58,
+          "accent": "파란색"
+        },
+        {
+          "label": "파워 헤드룸",
+          "value": "77%",
+          "strength": 77,
+          "accent": "호박색"
+        },
+        {
+          "label": "쉴드핏",
+          "value": "94%",
+          "strength": 94,
+          "accent": "에메랄드"
+        }
+      ],
+      "stages": [
+        {
+          "name": "헤더 매핑",
+          "detail": "핀 할당 및 그룹화",
+          "load": 31
+        },
+        {
+          "name": "쉴드 레이아웃",
+          "detail": "구성 요소 설치 공간 및 맞춤",
+          "load": 42
+        },
+        {
+          "name": "버스 브레이크아웃",
+          "detail": "I2C/SPI 네트워크 라우팅",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "쉴드 높이 간격 확인",
+        "I2C 풀업을 모듈에 유지",
+        "핀 1 위치 표준화"
+      ]
     }
   },
   "ms": {
@@ -2886,6 +3689,18 @@
     "showcase.quick_specs.title": "Spesifikasi Rujukan Pantas",
     "showcase.quick_specs.status": "Kemas kini automatik",
     "showcase.cta": "Buka dalam Editor",
+    "showcase.tool_preview.badge": "Pratonton Teknikal Langsung",
+    "showcase.tool_preview.active": "Rajah Aktif",
+    "showcase.tool_preview.path.badge": "Analisis Laluan",
+    "showcase.tool_preview.path.title": "Pemetaan peringkat kritikal",
+    "showcase.tool_preview.metrics.badge": "Metrik Prestasi",
+    "showcase.tool_preview.review.badge": "Kajian Teknikal",
+    "showcase.tool_preview.profile.badge": "Profil Alat",
+    "showcase.tool_preview.quick_specs.title": "Spesifikasi Rujukan Pantas",
+    "showcase.tool_preview.quick_specs.status": "Disahkan",
+    "showcase.tool_preview.cta.title": "Bersedia untuk Merekabentuk?",
+    "showcase.tool_preview.cta.body": "Buka editor dengan simbol pramuat untuk kit alat ini. Tiada pendaftaran diperlukan.",
+    "showcase.tool_preview.cta.button": "Lancarkan Editor",
     "showcase.presets.logic": {
       "label": "Kawalan Logik",
       "title": "Sensor dan antara muka MCU",
@@ -3129,6 +3944,67 @@
         "Mengimbangi liputan satah darat",
         "Minimumkan kelajuan tinggi melalui hop"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Makmal Arduino",
+      "title": "Perisai Arduino Uno Standard",
+      "summary": "Cipta perisai tersuai dengan penjajaran pengepala Arduino, pemetaan pin dan penyepaduan persisian.",
+      "specs": [
+        [
+          "Pin pengepala",
+          "28"
+        ],
+        [
+          "Rel voltan",
+          "5V/3.3V"
+        ],
+        [
+          "Jenis bas",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Ketersediaan pin",
+          "value": "58%",
+          "strength": 58,
+          "accent": "biru"
+        },
+        {
+          "label": "Ruang kepala kuasa",
+          "value": "77%",
+          "strength": 77,
+          "accent": "ambar"
+        },
+        {
+          "label": "sesuai dengan perisai",
+          "value": "94%",
+          "strength": 94,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Pemetaan tajuk",
+          "detail": "Pin tugasan dan pengumpulan",
+          "load": 31
+        },
+        {
+          "name": "Susun atur perisai",
+          "detail": "Jejak komponen dan sesuai",
+          "load": 42
+        },
+        {
+          "name": "Pemecahan bas",
+          "detail": "Penghalaan rangkaian I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Sahkan kelegaan ketinggian perisai",
+        "Simpan tarik-up I2C pada modul",
+        "Seragamkan kedudukan pin 1"
+      ]
     }
   },
   "pl": {
@@ -3147,6 +4023,18 @@
     "showcase.quick_specs.title": "Skrócona specyfikacja referencyjna",
     "showcase.quick_specs.status": "Automatyczne aktualizacje",
     "showcase.cta": "Otwórz w Edytorze",
+    "showcase.tool_preview.badge": "Podgląd techniczny na żywo",
+    "showcase.tool_preview.active": "Aktywny diagram",
+    "showcase.tool_preview.path.badge": "Analiza ścieżki",
+    "showcase.tool_preview.path.title": "Mapowanie etapu krytycznego",
+    "showcase.tool_preview.metrics.badge": "Metryki wydajności",
+    "showcase.tool_preview.review.badge": "Przegląd techniczny",
+    "showcase.tool_preview.profile.badge": "Profil narzędzia",
+    "showcase.tool_preview.quick_specs.title": "Skrócona specyfikacja referencyjna",
+    "showcase.tool_preview.quick_specs.status": "Zweryfikowano",
+    "showcase.tool_preview.cta.title": "Gotowy do projektowania?",
+    "showcase.tool_preview.cta.body": "Otwórz edytor z fabrycznie załadowanymi symbolami dla tego zestawu narzędzi. Nie wymaga rejestracji.",
+    "showcase.tool_preview.cta.button": "Uruchom Edytor",
     "showcase.presets.logic": {
       "label": "Sterowanie logiczne",
       "title": "Interfejs czujnika i MCU",
@@ -3390,6 +4278,67 @@
         "Zrównoważyć pokrycie płaszczyzny podłoża",
         "Zminimalizuj dużą prędkość poprzez przeskoki"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Laboratorium Arduino",
+      "title": "Standardowa nakładka Arduino Uno",
+      "summary": "Twórz niestandardowe osłony dzięki wyrównaniu nagłówków Arduino, mapowaniu pinów i integracji urządzeń peryferyjnych.",
+      "specs": [
+        [
+          "Kołki nagłówka",
+          "28"
+        ],
+        [
+          "Szyna napięciowa",
+          "5 V/3,3 V"
+        ],
+        [
+          "Typ autobusu",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Dostępność pinów",
+          "value": "58%",
+          "strength": 58,
+          "accent": "niebieski"
+        },
+        {
+          "label": "Rezerwa mocy",
+          "value": "77%",
+          "strength": 77,
+          "accent": "bursztyn"
+        },
+        {
+          "label": "Dopasowanie tarczy",
+          "value": "94%",
+          "strength": 94,
+          "accent": "szmaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Mapowanie nagłówka",
+          "detail": "Przypisywanie pinów i grupowanie",
+          "load": 31
+        },
+        {
+          "name": "Układ tarczy",
+          "detail": "Wymiary i dopasowanie komponentów",
+          "load": 42
+        },
+        {
+          "name": "Ucieczka z autobusu",
+          "detail": "Routing sieciowy I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Sprawdź prześwit wysokości osłony",
+        "Zachowaj podciągnięcia I2C w module",
+        "Standaryzacja pozycji pinu 1"
+      ]
     }
   },
   "id": {
@@ -3408,6 +4357,18 @@
     "showcase.quick_specs.title": "Spesifikasi Referensi Cepat",
     "showcase.quick_specs.status": "Pembaruan otomatis",
     "showcase.cta": "Buka di Editor",
+    "showcase.tool_preview.badge": "Pratinjau Teknis Langsung",
+    "showcase.tool_preview.active": "Diagram Aktif",
+    "showcase.tool_preview.path.badge": "Analisis Jalur",
+    "showcase.tool_preview.path.title": "Pemetaan tahap kritis",
+    "showcase.tool_preview.metrics.badge": "Metrik Kinerja",
+    "showcase.tool_preview.review.badge": "Tinjauan Teknis",
+    "showcase.tool_preview.profile.badge": "Profil Alat",
+    "showcase.tool_preview.quick_specs.title": "Spesifikasi Referensi Cepat",
+    "showcase.tool_preview.quick_specs.status": "Terverifikasi",
+    "showcase.tool_preview.cta.title": "Siap Mendesain?",
+    "showcase.tool_preview.cta.body": "Buka editor dengan simbol yang dimuat sebelumnya untuk perangkat ini. Tidak diperlukan registrasi.",
+    "showcase.tool_preview.cta.button": "Luncurkan Editor",
     "showcase.presets.logic": {
       "label": "Kontrol Logika",
       "title": "Antarmuka Sensor dan MCU",
@@ -3651,6 +4612,67 @@
         "Seimbangkan cakupan bidang tanah",
         "Minimalkan kecepatan tinggi melalui hop"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "laboratorium arduino",
+      "title": "Perisai Arduino Uno Standar",
+      "summary": "Buat pelindung khusus dengan penyelarasan header Arduino, pemetaan pin, dan integrasi periferal.",
+      "specs": [
+        [
+          "Pin tajuk",
+          "28"
+        ],
+        [
+          "Rel tegangan",
+          "5V/3.3V"
+        ],
+        [
+          "Jenis bus",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Ketersediaan pin",
+          "value": "58%",
+          "strength": 58,
+          "accent": "biru"
+        },
+        {
+          "label": "Ruang kepala listrik",
+          "value": "77%",
+          "strength": 77,
+          "accent": "kuning"
+        },
+        {
+          "label": "Perisai cocok",
+          "value": "94%",
+          "strength": 94,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Pemetaan tajuk",
+          "detail": "Penugasan dan pengelompokan pin",
+          "load": 31
+        },
+        {
+          "name": "Tata letak perisai",
+          "detail": "Jejak dan kesesuaian komponen",
+          "load": 42
+        },
+        {
+          "name": "Pelarian bus",
+          "detail": "Perutean jaringan I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verifikasi jarak bebas ketinggian pelindung",
+        "Pertahankan pull-up I2C pada modul",
+        "Standarisasi posisi pin 1"
+      ]
     }
   },
   "ar": {
@@ -3669,6 +4691,18 @@
     "showcase.quick_specs.title": "المواصفات المرجعية السريعة",
     "showcase.quick_specs.status": "التحديثات التلقائية",
     "showcase.cta": "افتح في المحرر",
+    "showcase.tool_preview.badge": "المعاينة الفنية المباشرة",
+    "showcase.tool_preview.active": "الرسم البياني النشط",
+    "showcase.tool_preview.path.badge": "تحليل المسار",
+    "showcase.tool_preview.path.title": "رسم خرائط المرحلة الحرجة",
+    "showcase.tool_preview.metrics.badge": "مقاييس الأداء",
+    "showcase.tool_preview.review.badge": "المراجعة الفنية",
+    "showcase.tool_preview.profile.badge": "ملف تعريف الأداة",
+    "showcase.tool_preview.quick_specs.title": "المواصفات المرجعية السريعة",
+    "showcase.tool_preview.quick_specs.status": "تم التحقق منه",
+    "showcase.tool_preview.cta.title": "جاهز للتصميم؟",
+    "showcase.tool_preview.cta.body": "افتح المحرر باستخدام الرموز المحملة مسبقًا لمجموعة الأدوات هذه. لا يتطلب التسجيل.",
+    "showcase.tool_preview.cta.button": "إطلاق المحرر",
     "showcase.presets.logic": {
       "label": "التحكم المنطقي",
       "title": "واجهة الاستشعار وMCU",
@@ -3912,6 +4946,67 @@
         "موازنة تغطية الطائرة الأرضية",
         "تقليل السرعة العالية عبر القفزات"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "مختبر اردوينو",
+      "title": "درع اردوينو أونو القياسي",
+      "summary": "أنشئ دروعًا مخصصة باستخدام محاذاة رأس Arduino وتعيينات الدبوس والتكامل الطرفي.",
+      "specs": [
+        [
+          "دبابيس الرأس",
+          "28"
+        ],
+        [
+          "السكك الحديدية الجهد",
+          "5 فولت/3.3 فولت"
+        ],
+        [
+          "نوع الحافلة",
+          "I2C/SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "توفر الدبوس",
+          "value": "58%",
+          "strength": 58,
+          "accent": "أزرق"
+        },
+        {
+          "label": "إرتفاع الطاقة",
+          "value": "77%",
+          "strength": 77,
+          "accent": "العنبر"
+        },
+        {
+          "label": "درع مناسب",
+          "value": "94%",
+          "strength": 94,
+          "accent": "الزمرد"
+        }
+      ],
+      "stages": [
+        {
+          "name": "تعيين الرأس",
+          "detail": "دبوس التعيين والتجميع",
+          "load": 31
+        },
+        {
+          "name": "تخطيط الدرع",
+          "detail": "بصمة المكون وملاءمته",
+          "load": 42
+        },
+        {
+          "name": "اندلاع الحافلة",
+          "detail": "توجيه شبكة I2C/SPI",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "التحقق من خلوص ارتفاع الدرع",
+        "احتفظ بعمليات السحب I2C على الوحدة",
+        "توحيد موقف دبوس 1"
+      ]
     }
   },
   "bg": {
@@ -3930,6 +5025,18 @@
     "showcase.quick_specs.title": "Бързи справочни спецификации",
     "showcase.quick_specs.status": "Автоматични актуализации",
     "showcase.cta": "Отворете в Редактор",
+    "showcase.tool_preview.badge": "Техническа визуализация на живо",
+    "showcase.tool_preview.active": "Активна диаграма",
+    "showcase.tool_preview.path.badge": "Анализ на пътя",
+    "showcase.tool_preview.path.title": "Картографиране на критичния етап",
+    "showcase.tool_preview.metrics.badge": "Показатели за ефективност",
+    "showcase.tool_preview.review.badge": "Технически преглед",
+    "showcase.tool_preview.profile.badge": "Профил на инструмента",
+    "showcase.tool_preview.quick_specs.title": "Бързи справочни спецификации",
+    "showcase.tool_preview.quick_specs.status": "Проверен",
+    "showcase.tool_preview.cta.title": "Готови ли сте за проектиране?",
+    "showcase.tool_preview.cta.body": "Отворете редактора с предварително заредени символи за този инструментариум. Не се изисква регистрация.",
+    "showcase.tool_preview.cta.button": "Стартирайте редактора",
     "showcase.presets.logic": {
       "label": "Логически контрол",
       "title": "Сензор и MCU интерфейс",
@@ -3956,7 +5063,7 @@
           "accent": "виолетово"
         },
         {
-          "label": "Pin fan-out",
+          "label": "Пин разклонение",
           "value": "71%",
           "strength": 71,
           "accent": "циан"
@@ -4048,7 +5155,7 @@
       ],
       "checkpoints": [
         "Проверете симетрията на точката на отклонение",
-        "Keep audio ground quiet",
+        "Поддържайте звуковата земя тиха",
         "Отделен изход на линия от връщане на захранване"
       ]
     },
@@ -4173,6 +5280,67 @@
         "Баланс покритие на земната равнина",
         "Минимизирайте високата скорост чрез прескачане"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Лаборатория Ардуино",
+      "title": "Стандартен Arduino Uno Shield",
+      "summary": "Създавайте персонализирани щитове с подравняване на заглавката на Arduino, картографиране на щифтове и периферна интеграция.",
+      "specs": [
+        [
+          "Щифтове за заглавка",
+          "28"
+        ],
+        [
+          "Релса за напрежение",
+          "5V/3.3V"
+        ],
+        [
+          "Тип автобус",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Наличност на ПИН",
+          "value": "58%",
+          "strength": 58,
+          "accent": "синьо"
+        },
+        {
+          "label": "Мощност над главата",
+          "value": "77%",
+          "strength": 77,
+          "accent": "кехлибар"
+        },
+        {
+          "label": "Прилягане на щита",
+          "value": "94%",
+          "strength": 94,
+          "accent": "смарагд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Картографиране на заглавката",
+          "detail": "Присвояване и групиране на щифтове",
+          "load": 31
+        },
+        {
+          "name": "Оформление на щита",
+          "detail": "Отпечатък на компонентите и прилягане",
+          "load": 42
+        },
+        {
+          "name": "Пробив на автобус",
+          "detail": "I2C/SPI мрежово маршрутизиране",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Проверете височината на щита",
+        "Поддържайте I2C издърпвания на модула",
+        "Стандартизирайте позицията на щифт 1"
+      ]
     }
   },
   "tr": {
@@ -4191,6 +5359,18 @@
     "showcase.quick_specs.title": "Hızlı Referans Özellikleri",
     "showcase.quick_specs.status": "Otomatik güncellemeler",
     "showcase.cta": "Editörde Aç",
+    "showcase.tool_preview.badge": "Canlı Teknik Önizleme",
+    "showcase.tool_preview.active": "Aktif Diyagram",
+    "showcase.tool_preview.path.badge": "Yol Analizi",
+    "showcase.tool_preview.path.title": "Kritik aşama haritalaması",
+    "showcase.tool_preview.metrics.badge": "Performans Metrikleri",
+    "showcase.tool_preview.review.badge": "Teknik İnceleme",
+    "showcase.tool_preview.profile.badge": "Takım Profili",
+    "showcase.tool_preview.quick_specs.title": "Hızlı Referans Özellikleri",
+    "showcase.tool_preview.quick_specs.status": "Doğrulandı",
+    "showcase.tool_preview.cta.title": "Tasarıma Hazır mısınız?",
+    "showcase.tool_preview.cta.body": "Bu araç seti için önceden yüklenmiş sembollerin bulunduğu düzenleyiciyi açın. Kayıt gerekli değildir.",
+    "showcase.tool_preview.cta.button": "Düzenleyiciyi Başlat",
     "showcase.presets.logic": {
       "label": "Mantık Kontrolü",
       "title": "Sensör ve MCU arayüzü",
@@ -4434,12 +5614,73 @@
         "Yer düzlemi kapsamını dengeleyin",
         "Atlamalar yoluyla yüksek hızı en aza indirin"
       ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Arduino Laboratuvarı",
+      "title": "Standart Arduino Uno Kalkanı",
+      "summary": "Arduino başlık hizalaması, pin eşlemeleri ve çevre birimi entegrasyonuyla özel kalkanlar oluşturun.",
+      "specs": [
+        [
+          "Başlık pinleri",
+          "28"
+        ],
+        [
+          "Gerilim rayı",
+          "5V/3.3V"
+        ],
+        [
+          "Otobüs tipi",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Pin kullanılabilirliği",
+          "value": "58%",
+          "strength": 58,
+          "accent": "mavi"
+        },
+        {
+          "label": "Güç payı",
+          "value": "77%",
+          "strength": 77,
+          "accent": "kehribar"
+        },
+        {
+          "label": "Kalkan uyumu",
+          "value": "94%",
+          "strength": 94,
+          "accent": "zümrüt"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Başlık eşleme",
+          "detail": "Pin ataması ve gruplandırma",
+          "load": 31
+        },
+        {
+          "name": "Kalkan düzeni",
+          "detail": "Bileşen kaplama alanı ve uyumu",
+          "load": 42
+        },
+        {
+          "name": "Otobüs kaçışı",
+          "detail": "I2C/SPI ağ yönlendirmesi",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Kalkan yükseklik açıklığını doğrulayın",
+        "I2C pull-up'larını modülde tutun",
+        "Pim 1 konumunu standartlaştırın"
+      ]
     }
   },
   "sv": {
     "showcase.badge": "Interaktiv förhandsvisning",
-    "showcase.title": "Explore a live schematic breakdown before you draw",
-    "showcase.description": "Switch between common circuit patterns to compare structure, complexity, and export readiness directly on the homepage.",
+    "showcase.title": "Utforska en schematisk uppdelning i realtid innan du ritar",
+    "showcase.description": "Växla mellan vanliga kretsmönster för att jämföra struktur, komplexitet och exportberedskap direkt på hemsidan.",
     "showcase.canvas.label": "Diagram Canvas",
     "showcase.live_preset": "Live förinställning",
     "showcase.breakdown.badge": "Schematisk uppdelning",
@@ -4452,6 +5693,18 @@
     "showcase.quick_specs.title": "Snabbreferens specifikationer",
     "showcase.quick_specs.status": "Automatiska uppdateringar",
     "showcase.cta": "Öppna i Editor",
+    "showcase.tool_preview.badge": "Live teknisk förhandsvisning",
+    "showcase.tool_preview.active": "Aktivt diagram",
+    "showcase.tool_preview.path.badge": "Väganalys",
+    "showcase.tool_preview.path.title": "Kritisk scenkartläggning",
+    "showcase.tool_preview.metrics.badge": "Prestandamått",
+    "showcase.tool_preview.review.badge": "Teknisk granskning",
+    "showcase.tool_preview.profile.badge": "Verktygsprofil",
+    "showcase.tool_preview.quick_specs.title": "Snabbreferens specifikationer",
+    "showcase.tool_preview.quick_specs.status": "Verifierad",
+    "showcase.tool_preview.cta.title": "Redo att designa?",
+    "showcase.tool_preview.cta.body": "Öppna redigeraren med förinstallerade symboler för denna verktygslåda. Ingen registrering krävs.",
+    "showcase.tool_preview.cta.button": "Starta Editor",
     "showcase.presets.logic": {
       "label": "Logisk kontroll",
       "title": "Sensor och MCU-gränssnitt",
@@ -4564,12 +5817,12 @@
         },
         {
           "name": "Linjekonditionering",
-          "detail": "Output cap and line handoff",
+          "detail": "Utgångslock och linjehandoff",
           "load": 26
         }
       ],
       "checkpoints": [
-        "Verify bias point symmetry",
+        "Verifiera biaspunktssymmetri",
         "Håll ljudet tyst",
         "Separat linjeutgång från matningsretur"
       ]
@@ -4615,7 +5868,7 @@
       "stages": [
         {
           "name": "Binärt inträde",
-          "detail": "Input levels and pull-downs",
+          "detail": "Ingångsnivåer och rullgardiner",
           "load": 21
         },
         {
@@ -4625,13 +5878,13 @@
         },
         {
           "name": "Signalutgång",
-          "detail": "Buffer stage and edge trim",
+          "detail": "Buffertsteg och kanttrim",
           "load": 23
         }
       ],
       "checkpoints": [
         "Minimera grindens utbredningsfördröjning",
-        "Verify CMOS logic thresholds",
+        "Verifiera CMOS logiska trösklar",
         "Buffert fan-out grenar"
       ]
     },
@@ -4681,19 +5934,80 @@
         },
         {
           "name": "Lager stapling",
-          "detail": "Ground plane and isolation",
+          "detail": "Markplan och isolering",
           "load": 38
         },
         {
           "name": "Gerber prep",
-          "detail": "Via drill path optimization",
+          "detail": "Via borrvägsoptimering",
           "load": 16
         }
       ],
       "checkpoints": [
-        "Keep differential pairs matched",
-        "Balance ground plane coverage",
-        "Minimize high-speed via hops"
+        "Håll differentialpar matchade",
+        "Balansera jordplanets täckning",
+        "Minimera hög hastighet via hopp"
+      ]
+    },
+    "showcase.presets.arduino": {
+      "label": "Arduino Lab",
+      "title": "Standard Arduino Uno Shield",
+      "summary": "Skapa anpassade sköldar med Arduino-huvudinriktning, stiftmappningar och periferintegration.",
+      "specs": [
+        [
+          "Rubrikstift",
+          "28"
+        ],
+        [
+          "Spänningsskena",
+          "5V/3,3V"
+        ],
+        [
+          "Busstyp",
+          "I2C / SPI"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Pin-tillgänglighet",
+          "value": "58%",
+          "strength": 58,
+          "accent": "blått"
+        },
+        {
+          "label": "Krafthöjd",
+          "value": "77%",
+          "strength": 77,
+          "accent": "bärnsten"
+        },
+        {
+          "label": "Sköldpassning",
+          "value": "94%",
+          "strength": 94,
+          "accent": "smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Header mappning",
+          "detail": "Pin-tilldelning och gruppering",
+          "load": 31
+        },
+        {
+          "name": "Shield layout",
+          "detail": "Komponentfotavtryck och passform",
+          "load": 42
+        },
+        {
+          "name": "Bussavbrott",
+          "detail": "I2C/SPI nätverksrouting",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Verifiera avståndet till sköldens höjd",
+        "Behåll I2C pull-ups på modulen",
+        "Standardisera stift 1-position"
       ]
     }
   }

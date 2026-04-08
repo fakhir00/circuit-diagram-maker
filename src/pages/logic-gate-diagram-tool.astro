@@ -31,6 +31,7 @@ const tableRows = [
 ---
 
 <ToolLandingPage
+  locale={locale}
   title={t('logic.title')}
   description={t('logic.description')}
   eyebrow={t('logic.eyebrow')}
@@ -39,7 +40,7 @@ const tableRows = [
   primaryCtaLabel={t('logic.cta.primary')}
   primaryCtaHref={getLocalizedPath('/logic-editor/', locale)}
   secondaryCtaLabel={t('logic.cta.secondary')}
-  secondaryCtaHref={getLocalizedPath('/docs/', locale)}
+  secondaryCtaHref={getLocalizedPath('/logic-editor/', locale)}
   featureTitle={t('logic.feature_title')}
   featureIntro={t('logic.feature_intro')}
   features={features}
