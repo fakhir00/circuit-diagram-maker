@@ -9,8 +9,6 @@ interface Props {
 const { locale, config } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
-const currentPath = Astro.url.pathname;
-import { locales } from '../theme/i18n';
 ---
 
 <footer class="bg-bg-panel border-t border-white/5 mt-auto">
@@ -101,17 +99,9 @@ import { locales } from '../theme/i18n';
       </div>
     </div>
 
-    <!-- Locale Switcher -->
+    <!-- Footer Meta -->
     <div class="mt-10 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex flex-wrap gap-2">
-        {locales.map((l) => (
-          <a 
-            href={getLocalizedPath(currentPath, l)} 
-            class={`text-[10px] uppercase font-bold px-2 py-1 rounded border transition-all ${locale === l ? 'bg-brand-primary/10 border-brand-primary/50 text-brand-primary' : 'bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300'}`}
-          >
-            {l}
-          </a>
-        ))}
         <a href={getLocalizedPath('/sitemap/', locale)} class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">{t('footer.more')}</a>
       </div>
       <div class="text-[10px] text-slate-600 uppercase font-bold tracking-widest leading-none flex items-center gap-2">
