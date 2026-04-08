@@ -338,10 +338,12 @@ input {
     display: flex;
     flex-direction: column;
     padding: 8px;
+    min-height: 0;
 }
 
 .sidebar-section-grow {
     flex: 1;
+    min-height: 0;
     overflow: hidden;
 }
 
@@ -362,10 +364,29 @@ input {
 .tool-buttons {
     display: flex;
     gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 2px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tool-buttons::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tool-buttons::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+    border-radius: 999px;
+}
+
+.tool-buttons::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .tool-btn {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -433,6 +454,13 @@ input {
     margin-bottom: 8px;
 }
 
+.component-library-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
 .search-icon {
     position: absolute;
     left: 18px;
@@ -465,6 +493,7 @@ input {
 /* Component Library */
 .component-library {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding: 0 8px 8px;
 }
@@ -1189,5 +1218,4 @@ input {
         flex: 0 0 auto !important; 
     }
 }
-
 
