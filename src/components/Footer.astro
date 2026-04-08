@@ -70,6 +70,7 @@ const year = new Date().getFullYear();
           <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Components</a></li>
           <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Documentation</a></li>
           <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Blog & Tutorials</a></li>
+          <li><a href={getLocalizedPath('/sitemap/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Sitemap</a></li>
         </ul>
       </div>
 
@@ -100,10 +101,7 @@ const year = new Date().getFullYear();
     </div>
 
     <!-- Footer Meta -->
-    <div class="mt-10 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
-      <div class="flex flex-wrap gap-2">
-        <a href={getLocalizedPath('/sitemap/', locale)} class="text-[10px] uppercase font-bold px-2 py-1 rounded border bg-transparent border-white/5 text-slate-500 hover:border-white/20 hover:text-slate-300">{t('footer.more')}</a>
-      </div>
+    <div class="mt-10 pt-6 border-t border-white/5 flex flex-wrap items-center justify-end gap-4">
       <div class="text-[10px] text-slate-600 uppercase font-bold tracking-widest leading-none flex items-center gap-2">
         {t('footer.status')}: <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

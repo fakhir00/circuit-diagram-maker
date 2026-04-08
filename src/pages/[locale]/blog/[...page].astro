@@ -68,38 +68,38 @@ const blogSchema = {
   <div class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {page.data.map((post) => (
-        <article class="group relative p-8 rounded-3xl bg-bg-panel border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.12)] hover:-translate-y-1 overflow-hidden">
-          {/* Background Glow on Hover */}
-          <div class="absolute -inset-10 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none"></div>
-          
-          <div class="relative z-10 flex flex-col h-full">
-            <div class="flex items-center justify-between mb-5">
-              <time datetime={post.data.date.toISOString()} class="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
-              </time>
-              <span class="text-[10px] font-black uppercase tracking-tighter px-2 py-1 bg-brand-primary/10 text-brand-primary rounded border border-brand-primary/20">
-                5 {t('blog.min_read')}
-              </span>
-            </div>
+        <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded-3xl">
+          <article class="relative p-8 rounded-3xl bg-bg-panel border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.12)] hover:-translate-y-1 overflow-hidden">
+            {/* Background Glow on Hover */}
+            <div class="absolute -inset-10 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none"></div>
             
-            <h2 class="text-2xl font-bold text-white mb-4 leading-snug group-hover:text-brand-primary transition-colors">
-              <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`}>
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex items-center justify-between mb-5">
+                <time datetime={post.data.date.toISOString()} class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                  {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
+                </time>
+                <span class="text-[10px] font-black uppercase tracking-tighter px-2 py-1 bg-brand-primary/10 text-brand-primary rounded border border-brand-primary/20">
+                  5 {t('blog.min_read')}
+                </span>
+              </div>
+              
+              <h2 class="text-2xl font-bold text-white mb-4 leading-snug group-hover:text-brand-primary transition-colors">
                 {post.data.title}
-              </a>
-            </h2>
-            
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-8 line-clamp-3">
-              {post.data.description}
-            </p>
-            
-            <div class="pt-6 border-t border-white/5 mt-auto">
-              <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="group/btn inline-flex items-center gap-2 text-sm font-bold text-white uppercase tracking-wider hover:text-brand-accent transition-colors">
-                {t('blog.read_more')} 
-                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              </a>
+              </h2>
+              
+              <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-8 line-clamp-3">
+                {post.data.description}
+              </p>
+              
+              <div class="pt-6 border-t border-white/5 mt-auto">
+                <span class="group/btn inline-flex items-center gap-2 text-sm font-bold text-white uppercase tracking-wider group-hover:text-brand-accent transition-colors">
+                  {t('blog.read_more')} 
+                  <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </a>
       ))}
     </div>
 
