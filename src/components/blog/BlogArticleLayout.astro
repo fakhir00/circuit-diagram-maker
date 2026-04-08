@@ -1,6 +1,4 @@
 ---
-import BlogSchematicExplorer from './BlogSchematicExplorer.astro';
-
 interface Heading {
   depth: number;
   slug: string;
@@ -133,8 +131,6 @@ const structurePreview = sectionHeadings.slice(0, 6);
         </div>
       </section>
 
-      <BlogSchematicExplorer title={post.data.title} tags={post.data.tags || []} />
-
       <section class="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.94),rgba(7,12,21,0.94))] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.22)] sm:p-8">
         <div class="blog-article" data-blog-article>
           <Content />
@@ -218,18 +214,315 @@ const structurePreview = sectionHeadings.slice(0, 6);
       });
     };
 
+    const toShortTitle = (value, maxLen = 42) => {
+      const normalized = (value || '').trim();
+      return escapeHtml((normalized.length > maxLen ? `${normalized.slice(0, maxLen)}...` : normalized).toUpperCase());
+    };
+
+    const collectContextText = (heading) => {
+      let text = heading.textContent || '';
+      let cursor = heading.nextElementSibling;
+      let blocks = 0;
+      while (cursor && cursor.tagName !== 'H2' && cursor.tagName !== 'H3' && blocks < 3) {
+        text += ` ${cursor.textContent || ''}`;
+        blocks += 1;
+        cursor = cursor.nextElementSibling;
+      }
+      return text;
+    };
+
+    const resolveCompanionModel = (headingTitle, heading) => {
+      const text = headingTitle.toLowerCase();
+      const foldedText = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const keywordText = `${text} ${foldedText}`;
+      const isMajorSection = heading.tagName === 'H2';
+      const baseRows = [
+        ['Anchor', heading.id ? `#${heading.id}` : 'Inline section'],
+        ['Section level', isMajorSection ? 'Primary' : 'Supporting']
+      ];
+
+      if (/(power|ground|gnd|vcc|vdd|voltage|current|supply|battery|rail|polarity|decoupling|potencia|tierra|voltaje|alimentacion|bateria|masa|alimentation|tension|masse|batterie|питан|земл|напряж|батар|мощн|शक्ति|वोल्ट|बैटरी|ग्राउंड|पावर|जमीन)/.test(keywordText)) {
+        return {
+          key: 'power',
+          eyebrow: 'Power And Rail Analysis',
+          summary: 'This section focuses on supply integrity, return paths, polarity, and stable power distribution.',
+          visualMeta: 'Use this as a rail checklist before final review.',
+          rows: [
+            ['Focus', 'Power architecture'],
+            ['Validate', 'Source, rail labels, return path'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(wire|wiring|route|routing|connect|connection|junction|path|net|trace|cable|conexion|ruta|enrut|trayectoria|conex|провод|соедин|маршрут|цепь|путь|कनेक्ट|कनेक्शन|तार|मार्ग|रूट)/.test(keywordText)) {
+        return {
+          key: 'routing',
+          eyebrow: 'Connection Topology',
+          summary: 'This section explains net flow, wire clarity, and orthogonal routing decisions.',
+          visualMeta: 'Use this to verify wiring logic and crossings.',
+          rows: [
+            ['Focus', 'Net connectivity'],
+            ['Validate', 'Junctions, crossings, and path direction'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(symbol|component|resistor|capacitor|inductor|diode|led|transistor|mosfet|op-amp|microcontroller|gate|ic|simbolo|simbol|componente|resistencia|condensador|diodo|microcontrolador|puerta|символ|компонент|резистор|конденс|диод|транзистор|микроконтроллер|логическ|प्रतीक|घटक|रेसिस्ट|कैपेसिटर|डायोड|ट्रांजिस्टर|माइक्रोकंट्रोलर|लॉजिक)/.test(keywordText)) {
+        return {
+          key: 'symbols',
+          eyebrow: 'Component Semantics',
+          summary: 'This section maps symbols to functional meaning so readers interpret intent, not only shape.',
+          visualMeta: 'Confirm each symbol family matches the expected function.',
+          rows: [
+            ['Focus', 'Symbol interpretation'],
+            ['Validate', 'Part role and naming consistency'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(label|annotation|designator|reference|naming|value|pinout|etiqueta|anotacion|referencia|valor|marcado|обознач|маркиров|метк|значен|подпис|लेबल|संदर्भ|मान|नाम|पिन)/.test(keywordText)) {
+        return {
+          key: 'labeling',
+          eyebrow: 'Label Integrity',
+          summary: 'This section targets reference designators, readable net names, and consistent value annotations.',
+          visualMeta: 'Check labels before handoff to avoid review friction.',
+          rows: [
+            ['Focus', 'Documentation quality'],
+            ['Validate', 'Designators, values, and net names'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(export|svg|png|json|download|format|share|publish|output|exportar|descarga|formato|compart|salida|экспорт|формат|выгруз|выход|публика|निर्यात|डाउनलोड|फॉर्मेट|आउटपुट|साझा)/.test(keywordText)) {
+        return {
+          key: 'export',
+          eyebrow: 'Output And Delivery',
+          summary: 'This section captures export strategy for handoff, publishing, and long-term maintainability.',
+          visualMeta: 'Match output format to where the diagram will be consumed.',
+          rows: [
+            ['Focus', 'Export workflow'],
+            ['Validate', 'Format, readability, and reusability'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(mistake|avoid|review|checklist|verify|quality|debug|troubleshoot|best practice|context|conclusion|final|thought|error|errores|evitar|revision|verificar|calidad|depurar|заключ|провер|качест|ошиб|итог|вывод|गलती|बच|समीक्षा|जांच|सत्याप|गुणवत्त|अंतिम|निष्कर्ष)/.test(keywordText)) {
+        return {
+          key: 'review',
+          eyebrow: 'Review And QA',
+          summary: 'This section is review-focused: catch readability and correctness issues before publishing.',
+          visualMeta: 'Run these checks as a final technical quality pass.',
+          rows: [
+            ['Focus', 'Quality control'],
+            ['Validate', 'Completeness, clarity, and consistency'],
+            ...baseRows
+          ]
+        };
+      }
+
+      if (/(step|guide|workflow|process|create|make|build|start|open|paso|guia|proceso|crear|constru|inicio|abrir|шаг|руковод|процесс|созд|сбор|начал|откры|कदम|मार्गदर्श|प्रक्रिया|बन|शुरू|खोल)/.test(keywordText)) {
+        return {
+          key: 'workflow',
+          eyebrow: 'Execution Workflow',
+          summary: 'This section describes a procedural flow from setup through validation and delivery.',
+          visualMeta: 'Use this sequence while implementing or teaching the section.',
+          rows: [
+            ['Focus', 'Stepwise execution'],
+            ['Validate', 'Order, dependencies, and outcomes'],
+            ...baseRows
+          ]
+        };
+      }
+
+      const fallbackKeys = ['workflow', 'review', 'routing', 'labeling'];
+      const fallbackIndex = Math.abs(Array.from(keywordText).reduce((acc, ch) => acc + ch.charCodeAt(0), 0)) % fallbackKeys.length;
+      const fallbackKey = fallbackKeys[fallbackIndex];
+
+      const fallbackModels = {
+        workflow: {
+          key: 'workflow',
+          eyebrow: 'Context-Derived Workflow',
+          summary: 'This section is interpreted as a procedural block with ordered implementation steps.',
+          visualMeta: 'Follow the step order to keep execution consistent.',
+          rows: [['Focus', 'Context-derived sequence'], ['Validate', 'Step ordering and dependencies'], ...baseRows]
+        },
+        review: {
+          key: 'review',
+          eyebrow: 'Context-Derived Review',
+          summary: 'This section is interpreted as a quality pass with validation checkpoints.',
+          visualMeta: 'Use this card to verify clarity before final publish.',
+          rows: [['Focus', 'Context-derived quality check'], ['Validate', 'Accuracy and readability'], ...baseRows]
+        },
+        routing: {
+          key: 'routing',
+          eyebrow: 'Context-Derived Topology',
+          summary: 'This section is interpreted as a connectivity narrative focused on technical flow.',
+          visualMeta: 'Use this card to trace the section logic from input to output.',
+          rows: [['Focus', 'Context-derived flow map'], ['Validate', 'Path continuity and endpoint intent'], ...baseRows]
+        },
+        labeling: {
+          key: 'labeling',
+          eyebrow: 'Context-Derived Documentation',
+          summary: 'This section is interpreted as a documentation block for clear handoff semantics.',
+          visualMeta: 'Use this card to keep terms and references consistent.',
+          rows: [['Focus', 'Context-derived clarity layer'], ['Validate', 'Terminology and naming coherence'], ...baseRows]
+        }
+      };
+
+      return fallbackModels[fallbackKey];
+    };
+
+    const renderDiagramByType = (type, shortTitle) => {
+      if (type === 'power') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="48" y="78" width="148" height="104" rx="16" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5" />
+            <text x="122" y="116" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">SOURCE</text>
+            <text x="122" y="138" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <path d="M196 118H360" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" />
+            <path d="M196 156H360" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+            <rect x="360" y="78" width="162" height="104" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+            <text x="441" y="116" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">REGULATE</text>
+            <text x="441" y="138" text-anchor="middle" fill="#94a3b8" font-size="11">rail and return path</text>
+            <path d="M522 118H692" stroke="#34d399" stroke-width="4" stroke-linecap="round" />
+            <path d="M522 156H692" stroke="#34d399" stroke-width="4" stroke-linecap="round" />
+            <rect x="612" y="78" width="96" height="104" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+            <text x="660" y="116" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">LOAD</text>
+            <text x="660" y="138" text-anchor="middle" fill="#94a3b8" font-size="11">stable rails</text>
+          </svg>
+        `;
+      }
+
+      if (type === 'routing') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="54" y="82" width="190" height="96" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+            <text x="149" y="118" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">NET ENTRY</text>
+            <text x="149" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <path d="M244 130H330V96H470V164H612" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="330" cy="130" r="7" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <circle cx="470" cy="96" r="7" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <circle cx="470" cy="164" r="7" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <rect x="612" y="82" width="98" height="96" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+            <text x="661" y="118" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">TARGET</text>
+            <text x="661" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">clean net flow</text>
+          </svg>
+        `;
+      }
+
+      if (type === 'symbols') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="64" y="74" width="180" height="112" rx="16" fill="#0f172a" stroke="#a78bfa" stroke-width="2.5" />
+            <path d="M96 130H212" stroke="#a78bfa" stroke-width="4" />
+            <rect x="304" y="74" width="180" height="112" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <circle cx="394" cy="128" r="28" fill="#0f172a" stroke="#22d3ee" stroke-width="3" />
+            <path d="M394 100V156M366 128H422" stroke="#22d3ee" stroke-width="3" />
+            <rect x="544" y="74" width="152" height="112" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+            <path d="M578 136h38m0-20v40m18-20h28" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
+            <text x="149" y="160" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <text x="394" y="160" text-anchor="middle" fill="#94a3b8" font-size="11">active semantics</text>
+            <text x="620" y="160" text-anchor="middle" fill="#94a3b8" font-size="11">io interpretation</text>
+          </svg>
+        `;
+      }
+
+      if (type === 'labeling') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="86" y="76" width="298" height="108" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+            <text x="236" y="113" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">LABEL BLOCK</text>
+            <text x="236" y="134" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <rect x="454" y="76" width="226" height="108" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <text x="567" y="108" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">R1 10k</text>
+            <text x="567" y="128" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">NET: SENSE_IN</text>
+            <text x="567" y="148" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">U1 Pin 3</text>
+            <path d="M384 106H454M384 128H454M384 150H454" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        `;
+      }
+
+      if (type === 'export') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="64" y="78" width="244" height="104" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+            <text x="186" y="118" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">EDITOR OUTPUT</text>
+            <text x="186" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <path d="M308 130H456" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
+            <rect x="456" y="66" width="98" height="56" rx="10" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+            <text x="505" y="100" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">SVG</text>
+            <rect x="456" y="128" width="98" height="56" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5" />
+            <text x="505" y="162" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">PNG</text>
+            <rect x="568" y="97" width="98" height="56" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2.5" />
+            <text x="617" y="131" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">JSON</text>
+          </svg>
+        `;
+      }
+
+      if (type === 'review') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="56" y="72" width="648" height="116" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2.5" />
+            <path d="M120 108H588" stroke="#38bdf8" stroke-width="4" />
+            <path d="M120 132H636" stroke="#22d3ee" stroke-width="4" />
+            <path d="M120 156H544" stroke="#f59e0b" stroke-width="4" />
+            <circle cx="612" cy="108" r="12" fill="#0f172a" stroke="#34d399" stroke-width="3" />
+            <circle cx="658" cy="132" r="12" fill="#0f172a" stroke="#34d399" stroke-width="3" />
+            <circle cx="568" cy="156" r="12" fill="#0f172a" stroke="#34d399" stroke-width="3" />
+            <text x="146" y="97" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <text x="146" y="121" fill="#94a3b8" font-size="11">clarity review</text>
+            <text x="146" y="145" fill="#94a3b8" font-size="11">consistency review</text>
+          </svg>
+        `;
+      }
+
+      if (type === 'workflow') {
+        return `
+          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="50" y="84" width="134" height="92" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+            <text x="117" y="118" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">START</text>
+            <text x="117" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+            <path d="M184 130H282M340 130H438M496 130H594" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
+            <rect x="282" y="84" width="58" height="92" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+            <text x="311" y="126" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">1</text>
+            <rect x="438" y="84" width="58" height="92" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5" />
+            <text x="467" y="126" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">2</text>
+            <rect x="594" y="84" width="116" height="92" rx="14" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+            <text x="652" y="118" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">DELIVER</text>
+            <text x="652" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">validated result</text>
+          </svg>
+        `;
+      }
+
+      return `
+        <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="46" y="88" width="182" height="84" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
+          <text x="137" y="126" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">SECTION</text>
+          <text x="137" y="146" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
+          <path d="M228 130H388" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+          <rect x="388" y="88" width="158" height="84" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
+          <text x="467" y="123" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">ANALYZE</text>
+          <text x="467" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">technical interpretation</text>
+          <path d="M546 130H710" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
+          <rect x="612" y="88" width="102" height="84" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
+          <text x="663" y="123" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">APPLY</text>
+          <text x="663" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">practical output</text>
+        </svg>
+      `;
+    };
+
     const buildCompanionCard = (heading, index) => {
       const headingTitle = (heading.textContent || `Section ${index + 1}`).trim();
       const safeHeadingTitle = escapeHtml(headingTitle);
-      const shortTitle = escapeHtml((headingTitle.length > 44 ? `${headingTitle.slice(0, 44)}...` : headingTitle).toUpperCase());
-      const focusType = heading.tagName === 'H2' ? 'Core section' : 'Supporting detail';
-      const reviewPriority = heading.tagName === 'H2' ? 'High' : 'Medium';
-      const tableRows = [
-        ['Section type', focusType],
-        ['Review priority', reviewPriority],
-        ['Anchor', heading.id ? `#${heading.id}` : 'Inline section'],
-        ['Workflow', 'Read -> Validate -> Export']
-      ];
+      const shortTitle = toShortTitle(headingTitle);
+      const contextText = collectContextText(heading);
+      const model = resolveCompanionModel(contextText, heading);
+      const diagramMarkup = renderDiagramByType(model.key, shortTitle);
 
       const companion = document.createElement('section');
       companion.className = 'heading-companion';
@@ -237,9 +530,9 @@ const structurePreview = sectionHeadings.slice(0, 6);
 
       companion.innerHTML = `
         <div class="heading-companion-head">
-          <p class="heading-companion-eyebrow">Interactive Section Companion</p>
+          <p class="heading-companion-eyebrow">${escapeHtml(model.eyebrow)}</p>
           <h4 class="heading-companion-title">${safeHeadingTitle}</h4>
-          <p class="heading-companion-summary">Use the tabs to inspect this section through a diagram, a fast reference table, and a visual snapshot panel.</p>
+          <p class="heading-companion-summary">${escapeHtml(model.summary)}</p>
         </div>
 
         <div class="heading-companion-tabs" role="tablist" aria-label="Interactive companion tabs">
@@ -249,26 +542,14 @@ const structurePreview = sectionHeadings.slice(0, 6);
         </div>
 
         <div class="heading-companion-panel" data-companion-panel="diagram">
-          <svg class="heading-companion-diagram" viewBox="0 0 760 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="46" y="88" width="182" height="84" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-            <text x="137" y="126" text-anchor="middle" fill="#f8fafc" font-size="15" font-weight="700">Section</text>
-            <text x="137" y="146" text-anchor="middle" fill="#94a3b8" font-size="11">${shortTitle}</text>
-            <path d="M228 130H388" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
-            <rect x="388" y="88" width="158" height="84" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" />
-            <text x="467" y="123" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">Diagram Check</text>
-            <text x="467" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Signal and path clarity</text>
-            <path d="M546 130H710" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" />
-            <rect x="612" y="88" width="102" height="84" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2.5" />
-            <text x="663" y="123" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700">Ready</text>
-            <text x="663" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Publish pass</text>
-          </svg>
+          ${diagramMarkup}
         </div>
 
         <div class="heading-companion-panel hidden" data-companion-panel="table">
           <div class="heading-companion-table-wrap">
             <table class="heading-companion-table">
               <tbody>
-                ${tableRows.map(([left, right]) => `
+                ${model.rows.map(([left, right]) => `
                   <tr>
                     <th>${escapeHtml(left)}</th>
                     <td>${escapeHtml(right)}</td>
@@ -283,9 +564,9 @@ const structurePreview = sectionHeadings.slice(0, 6);
           <figure class="heading-companion-visual" role="img" aria-label="Visual section summary for ${safeHeadingTitle}">
             <div class="heading-companion-visual-grid"></div>
             <figcaption>
-              <p class="heading-companion-visual-title">Snapshot</p>
+              <p class="heading-companion-visual-title">${escapeHtml(model.eyebrow)}</p>
               <p class="heading-companion-visual-copy">${safeHeadingTitle}</p>
-              <p class="heading-companion-visual-meta">This visual card marks this section as documented, reviewable, and export-ready.</p>
+              <p class="heading-companion-visual-meta">${escapeHtml(model.visualMeta)}</p>
             </figcaption>
           </figure>
         </div>
