@@ -1,51 +1,67 @@
 ---
-import ToolLandingPage from '../components/pages/ToolLandingPage.astro';
-import { getLocaleFromUrl, getLocalizedPath, useTranslations } from '../theme/i18n';
+import ToolLandingPage from "../components/pages/ToolLandingPage.astro";
+import {
+  getLocaleFromUrl,
+  getLocalizedPath,
+  useTranslations,
+} from "../theme/i18n";
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
 const t = useTranslations(locale);
 
 const features = [
-  { title: t('arduino.features.1.title'), desc: t('arduino.features.1.desc') },
-  { title: t('arduino.features.2.title'), desc: t('arduino.features.2.desc') },
-  { title: t('arduino.features.3.title'), desc: t('arduino.features.3.desc') }
+  { title: t("arduino.features.1.title"), desc: t("arduino.features.1.desc") },
+  { title: t("arduino.features.2.title"), desc: t("arduino.features.2.desc") },
+  { title: t("arduino.features.3.title"), desc: t("arduino.features.3.desc") },
 ];
 
 const useCases = [
-  t('arduino.use_case.1'),
-  t('arduino.use_case.2'),
-  t('arduino.use_case.3')
+  t("arduino.use_case.1"),
+  t("arduino.use_case.2"),
+  t("arduino.use_case.3"),
 ];
 
 const tableHeaders = [
-  t('arduino.table.header.1'),
-  t('arduino.table.header.2'),
-  t('arduino.table.header.3')
+  t("arduino.table.header.1"),
+  t("arduino.table.header.2"),
+  t("arduino.table.header.3"),
 ];
 
 const tableRows = [
-  [t('arduino.table.row.1.col.1'), t('arduino.table.row.1.col.2'), t('arduino.table.row.1.col.3')],
-  [t('arduino.table.row.2.col.1'), t('arduino.table.row.2.col.2'), t('arduino.table.row.2.col.3')],
-  [t('arduino.table.row.3.col.1'), t('arduino.table.row.3.col.2'), t('arduino.table.row.3.col.3')]
+  [
+    t("arduino.table.row.1.col.1"),
+    t("arduino.table.row.1.col.2"),
+    t("arduino.table.row.1.col.3"),
+  ],
+  [
+    t("arduino.table.row.2.col.1"),
+    t("arduino.table.row.2.col.2"),
+    t("arduino.table.row.2.col.3"),
+  ],
+  [
+    t("arduino.table.row.3.col.1"),
+    t("arduino.table.row.3.col.2"),
+    t("arduino.table.row.3.col.3"),
+  ],
 ];
 ---
 
 <ToolLandingPage
   locale={locale}
-  title={t('arduino.title')}
-  description={t('arduino.description')}
-  eyebrow={t('arduino.eyebrow')}
-  heroTitle={t('arduino.hero.title')}
-  heroDescription={t('arduino.hero.description')}
-  primaryCtaLabel={t('arduino.cta.primary')}
-  primaryCtaHref={getLocalizedPath('/arduino-editor/', locale)}
-  secondaryCtaLabel={t('arduino.cta.secondary')}
-  secondaryCtaHref={getLocalizedPath('/arduino-editor/', locale)}
-  featureTitle={t('arduino.feature_title')}
-  featureIntro={t('arduino.feature_intro')}
+  title={t("arduino.title")}
+  description={t("arduino.description")}
+  eyebrow={t("arduino.eyebrow")}
+  heroTitle={t("arduino.hero.title")}
+  heroDescription={t("arduino.hero.description")}
+  primaryCtaLabel={t("arduino.cta.primary")}
+  primaryCtaHref={getLocalizedPath("/arduino-editor/", locale)}
+  secondaryCtaLabel={t("arduino.cta.secondary")}
+  secondaryCtaHref={getLocalizedPath("/arduino-editor/", locale)}
+  featureTitle={t("arduino.feature_title")}
+  featureIntro={t("arduino.feature_intro")}
   features={features}
   useCases={useCases}
-  tableTitle={t('arduino.table.title')}
+  tableTitle={t("arduino.table.title")}
   tableHeaders={tableHeaders}
   tableRows={tableRows}
   presetId="arduino"
