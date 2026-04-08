@@ -21,6 +21,9 @@ import toolsKeys from '../data/i18n/tools.json';
 import aboutKeys from '../data/i18n/about.json';
 import contactKeys from '../data/i18n/contact.json';
 import legalKeys from '../data/i18n/legal.json';
+import docsKeys from '../data/i18n/docs.json';
+import componentsPageKeys from '../data/i18n/components-page.json';
+import showcaseKeys from '../data/i18n/showcase.json';
 
 // Merge dictionaries
 const dictionaries = {
@@ -31,45 +34,40 @@ const dictionaries = {
   tools: toolsKeys as Record<string, any>,
   about: aboutKeys as Record<string, any>,
   contact: contactKeys as Record<string, any>,
-  legal: legalKeys as Record<string, any>
+  legal: legalKeys as Record<string, any>,
+  docs: docsKeys as Record<string, any>,
+  componentsPage: componentsPageKeys as Record<string, any>,
+  showcase: showcaseKeys as Record<string, any>
 };
+
+function getTranslationValue(locale: string, key: string): any {
+  for (const dict of Object.values(dictionaries)) {
+    const localeDict = dict[locale] || {};
+    if (Object.prototype.hasOwnProperty.call(localeDict, key)) {
+      return localeDict[key];
+    }
+  }
+
+  return undefined;
+}
 
 export function useTranslations(locale: string) {
   return function t(key: string): any {
-    // Determine which namespace this key probably lives in (faq is special)
     if (key === 'faq') {
        return dictionaries.faq[locale] || dictionaries.faq[defaultLocale] || [];
     }
-    if (key.includes('.steps') || key.includes('.cards') || key.includes('.rows') || key.includes('.headers') || key.includes('.personas') || key.includes('.timeline') || key.includes('.values')) {
-       // Support for array lookups in specific namespaces
-       const [ns] = key.split('.');
-       const dict = (dictionaries as any)[ns]?.[locale] || (dictionaries as any)[ns]?.[defaultLocale] || {};
-       return dict[key] || [];
+
+    const localizedValue = getTranslationValue(locale, key);
+    if (localizedValue !== undefined) {
+      return localizedValue;
     }
 
-    // Combine flat string keys
-    const mergedLocaleDict = {
-      ...(dictionaries.common[locale] || {}),
-      ...(dictionaries.home[locale] || {}),
-      ...(dictionaries.editor[locale] || {}),
-      ...(dictionaries.tools[locale] || {}),
-      ...(dictionaries.about[locale] || {}),
-      ...(dictionaries.contact[locale] || {}),
-      ...(dictionaries.legal[locale] || {})
-    };
-    
-    // Fallback to English
-    const mergedEnDict = {
-      ...(dictionaries.common[defaultLocale] || {}),
-      ...(dictionaries.home[defaultLocale] || {}),
-      ...(dictionaries.editor[defaultLocale] || {}),
-      ...(dictionaries.tools[defaultLocale] || {}),
-      ...(dictionaries.about[defaultLocale] || {}),
-      ...(dictionaries.contact[defaultLocale] || {}),
-      ...(dictionaries.legal[defaultLocale] || {})
-    };
+    const defaultValue = getTranslationValue(defaultLocale, key);
+    if (defaultValue !== undefined) {
+      return defaultValue;
+    }
 
-    return mergedLocaleDict[key] || mergedEnDict[key] || key;
+    return key;
   };
 }
 

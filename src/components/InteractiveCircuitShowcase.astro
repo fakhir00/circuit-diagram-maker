@@ -1,19 +1,34 @@
 ---
 import { toolPresets } from '../data/toolPresets';
+import { getLocalizedPath, useTranslations } from '../theme/i18n';
 import DiagramCanvas from './DiagramCanvas.astro';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 
 // Filter for the tools the user decided to keep on the home showcase
 const showcaseIds = ['logic', 'audio', 'gates', 'pcb_tool'];
-const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
+const presets = toolPresets
+  .filter((preset) => showcaseIds.includes(preset.id))
+  .map((preset) => {
+    const translatedPreset = t(`showcase.presets.${preset.id}`);
+    return translatedPreset && typeof translatedPreset === 'object'
+      ? { ...preset, ...translatedPreset }
+      : preset;
+  });
 ---
 
 <section class="border-t border-white/5 bg-bg-dark py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-14 max-w-3xl text-center">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Interactive Preview</p>
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Explore a live schematic breakdown before you draw</h2>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{t('showcase.badge')}</p>
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{t('showcase.title')}</h2>
       <p class="mt-4 text-lg leading-relaxed text-slate-400">
-        Switch between common circuit patterns to compare structure, complexity, and export readiness directly on the homepage.
+        {t('showcase.description')}
       </p>
     </div>
 
@@ -47,11 +62,11 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
             <div class="overflow-hidden rounded-[1.25rem] border border-white/5 bg-[#05080f] p-4 relative">
               <div class="mb-4 flex items-center justify-between border-b border-white/5 pb-3">
                 <div>
-                  <p class="text-[10px] uppercase tracking-[0.4em] text-slate-600 font-bold">Diagram Canvas</p>
+                  <p class="text-[10px] uppercase tracking-[0.4em] text-slate-600 font-bold">{t('showcase.canvas.label')}</p>
                   <h3 id="showcase-title" class="mt-1 text-lg font-bold text-white tracking-tight">{presets[0].title}</h3>
                 </div>
                 <div class="rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400/90">
-                  Live preset
+                  {t('showcase.live_preset')}
                 </div>
               </div>
 
@@ -66,11 +81,11 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
               <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
                 <div class="flex items-center justify-between gap-4">
                   <div>
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">Schematic breakdown</p>
-                    <h4 class="mt-1 text-base font-semibold text-white">Critical path allocation</h4>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.breakdown.badge')}</p>
+                    <h4 class="mt-1 text-base font-semibold text-white">{t('showcase.breakdown.title')}</h4>
                   </div>
                   <div class="rounded-full border border-white/5 bg-white/5 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                    Auto-profiled
+                    {t('showcase.breakdown.status')}
                   </div>
                 </div>
                 <div id="showcase-stages" class="mt-6 space-y-3">
@@ -93,7 +108,7 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
 
               <div class="space-y-6">
                 <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
-                  <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">Operating metrics</p>
+                  <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.metrics.badge')}</p>
                   <div id="showcase-metrics" class="mt-5 space-y-4">
                     {presets[0].metrics.map((metric) => (
                       <div>
@@ -111,8 +126,8 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
 
                 <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
                   <div class="flex items-center justify-between gap-4">
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">Design checkpoints</p>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">Review cues</span>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.checkpoints.badge')}</p>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.checkpoints.status')}</span>
                   </div>
                   <div id="showcase-checkpoints" class="mt-5 flex flex-wrap gap-2">
                     {presets[0].checkpoints.map((item) => (
@@ -132,14 +147,14 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
               
               <div class="space-y-8">
                 <div>
-                  <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">Technical Profile</p>
+                  <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.profile.badge')}</p>
                   <p id="showcase-summary" class="mt-4 text-sm leading-7 text-slate-400 font-medium italic">"{presets[0].summary}"</p>
                 </div>
 
                 <div class="pt-6 border-t border-white/5">
                   <div class="mb-4 flex items-center justify-between">
-                    <h4 class="text-sm font-bold text-white tracking-wide">Quick Reference Specs</h4>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">Auto-updates</span>
+                    <h4 class="text-sm font-bold text-white tracking-wide">{t('showcase.quick_specs.title')}</h4>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.quick_specs.status')}</span>
                   </div>
                   <table class="w-full text-left">
                     <tbody id="showcase-specs" class="divide-y divide-white/5 border-t border-white/5">
@@ -154,8 +169,8 @@ const presets = toolPresets.filter(p => showcaseIds.includes(p.id));
                 </div>
 
                 <div class="pt-6">
-                  <a href="/editor/" class="group flex items-center justify-center gap-2 rounded-xl bg-white/[0.03] py-3 text-xs font-bold text-white transition-all hover:bg-white/[0.08] hover:text-brand-accent border border-white/5">
-                    <span>Open in Editor</span>
+                  <a href={getLocalizedPath('/editor/', locale)} class="group flex items-center justify-center gap-2 rounded-xl bg-white/[0.03] py-3 text-xs font-bold text-white transition-all hover:bg-white/[0.08] hover:text-brand-accent border border-white/5">
+                    <span>{t('showcase.cta')}</span>
                     <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                   </a>
                 </div>

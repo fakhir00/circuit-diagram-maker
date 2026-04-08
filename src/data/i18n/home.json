@@ -18,42 +18,144 @@
     "home.features.subtitle": "Every feature designed to help you create better circuit diagrams, faster.",
     "home.features.cta": "Try the Editor",
     "home.features.cards": [
-      { "title": "40+ Electronic Symbols", "desc": "Industry-standard IEC and ANSI symbols for resistors, capacitors, ICs, transistors, op-amps, connectors, and more." },
-      { "title": "Manhattan Wire Routing", "desc": "Our smart routing engine keeps every wire perfectly horizontal or vertical. Connections snap to a 20px grid." },
-      { "title": "SVG & PNG Export", "desc": "Export circuit diagrams as infinitely scalable SVG vectors or crisp high-DPI PNG images. Perfect for lab reports." },
-      { "title": "Zero Setup Time", "desc": "No downloads, no installations, no signup. Open your browser and start creating circuit diagrams instantly." },
-      { "title": "Keyboard Shortcuts", "desc": "V to select, W to wire, R to rotate, Del to delete. Every action has a shortcut for lightning-fast drafting." },
-      { "title": "Auto-Save & Backup", "desc": "Calculated save to LocalStorage. Export as JSON for cloud backup, version control, or sharing with team members." }
+      {
+        "title": "40+ Electronic Symbols",
+        "desc": "Industry-standard IEC and ANSI symbols for resistors, capacitors, ICs, transistors, op-amps, connectors, and more."
+      },
+      {
+        "title": "Manhattan Wire Routing",
+        "desc": "Our smart routing engine keeps every wire perfectly horizontal or vertical. Connections snap to a 20px grid."
+      },
+      {
+        "title": "SVG & PNG Export",
+        "desc": "Export circuit diagrams as infinitely scalable SVG vectors or crisp high-DPI PNG images. Perfect for lab reports."
+      },
+      {
+        "title": "Zero Setup Time",
+        "desc": "No downloads, no installations, no signup. Open your browser and start creating circuit diagrams instantly."
+      },
+      {
+        "title": "Keyboard Shortcuts",
+        "desc": "V to select, W to wire, R to rotate, Del to delete. Every action has a shortcut for lightning-fast drafting."
+      },
+      {
+        "title": "Auto-Save & Backup",
+        "desc": "Calculated save to LocalStorage. Export as JSON for cloud backup, version control, or sharing with team members."
+      }
     ],
     "home.how_it_works.title": "How to Use the Circuit Diagram Maker",
     "home.how_it_works.steps": [
-      { "title": "Draft Your Circuit Diagram", "description": "Open the circuit diagram maker, drag components onto the infinite canvas, and place them on the auto-snapping grid." },
-      { "title": "Connect & Route Wires", "description": "Use the smart routing engine to connect pins. Label critical signals and separate high-current paths from control logic." },
-      { "title": "Export & Share Diagrams", "description": "Download your finished circuit diagram as a crystal-clear SVG or high-DPI PNG accepted by IEEE and academic journals." }
+      {
+        "title": "Draft Your Circuit Diagram",
+        "description": "Open the circuit diagram maker, drag components onto the infinite canvas, and place them on the auto-snapping grid."
+      },
+      {
+        "title": "Connect & Route Wires",
+        "description": "Use the smart routing engine to connect pins. Label critical signals and separate high-current paths from control logic."
+      },
+      {
+        "title": "Export & Share Diagrams",
+        "description": "Download your finished circuit diagram as a crystal-clear SVG or high-DPI PNG accepted by IEEE and academic journals."
+      }
     ],
     "home.data.title": "Tool Comparison",
-    "home.data.headers": ["Feature", "Circuit Diagram Maker", "Desktop CAD Tools", "Generic Drawing Apps"],
+    "home.data.headers": [
+      "Feature",
+      "Circuit Diagram Maker",
+      "Desktop CAD Tools",
+      "Generic Drawing Apps"
+    ],
     "home.data.rows": [
-      ["100% Browser-Based", "Yes", "No", "Yes"],
-      ["Smart Wire Routing", "Yes", "Yes", "No"],
-      ["Electronic Symbol Library", "Yes", "Yes", "No"],
-      ["SVG Vector Export", "Yes", "Limited", "Yes"],
-      ["High-DPI PNG Export", "Yes", "Yes", "No"],
-      ["Grid Snapping", "Yes", "Yes", "Limited"],
-      ["No Account Required", "Yes", "No", "No"],
-      ["Completely Free", "Yes", "No", "No"],
-      ["Keyboard Shortcuts", "Yes", "Yes", "Limited"],
-      ["Works Offline", "Yes", "Yes", "No"]
+      [
+        "100% Browser-Based",
+        "Yes",
+        "No",
+        "Yes"
+      ],
+      [
+        "Smart Wire Routing",
+        "Yes",
+        "Yes",
+        "No"
+      ],
+      [
+        "Electronic Symbol Library",
+        "Yes",
+        "Yes",
+        "No"
+      ],
+      [
+        "SVG Vector Export",
+        "Yes",
+        "Limited",
+        "Yes"
+      ],
+      [
+        "High-DPI PNG Export",
+        "Yes",
+        "Yes",
+        "No"
+      ],
+      [
+        "Grid Snapping",
+        "Yes",
+        "Yes",
+        "Limited"
+      ],
+      [
+        "No Account Required",
+        "Yes",
+        "No",
+        "No"
+      ],
+      [
+        "Completely Free",
+        "Yes",
+        "No",
+        "No"
+      ],
+      [
+        "Keyboard Shortcuts",
+        "Yes",
+        "Yes",
+        "Limited"
+      ],
+      [
+        "Works Offline",
+        "Yes",
+        "Yes",
+        "No"
+      ]
     ],
     "home.personas.badge": "Use Cases",
     "home.personas.title": "Who Uses Circuit Diagram Maker?",
     "home.personas.subtitle": "From university labs to professional engineering teams, thousands of users rely on our tool.",
     "home.personas.cta": "Launch Editor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Students & Academics", "desc": "Create publication-quality circuit diagrams for lab reports and thesis documents.", "keyword": "circuit diagram maker for students" },
-      { "emoji": "⚡", "title": "Electronics Engineers", "desc": "Draft professional schematics for design reviews and component documentation.", "keyword": "circuit diagram tool for engineers" },
-      { "emoji": "🔧", "title": "Hobbyists & Makers", "desc": "Plan your Arduino projects and IoT prototypes with an intuitive interface.", "keyword": "free circuit diagram maker for hobbyists" },
-      { "emoji": "📚", "title": "Educators & Trainers", "desc": "Build interactive circuit diagrams for lectures and online courses.", "keyword": "circuit diagram maker for teaching" }
+      {
+        "emoji": "🎓",
+        "title": "Students & Academics",
+        "desc": "Create publication-quality circuit diagrams for lab reports and thesis documents.",
+        "keyword": "circuit diagram maker for students"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Electronics Engineers",
+        "desc": "Draft professional schematics for design reviews and component documentation.",
+        "keyword": "circuit diagram tool for engineers"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobbyists & Makers",
+        "desc": "Plan your Arduino projects and IoT prototypes with an intuitive interface.",
+        "keyword": "free circuit diagram maker for hobbyists"
+      },
+      {
+        "emoji": "📚",
+        "title": "Educators & Trainers",
+        "desc": "Build interactive circuit diagrams for lectures and online courses.",
+        "keyword": "circuit diagram maker for teaching"
+      }
     ],
     "home.faq.title": "Frequently Asked Questions",
     "home.cta.title": "Start Creating Circuit Diagrams Now",
@@ -79,12 +181,146 @@
     "home.features.subtitle": "बेहतर सर्किट आरेख तेज़ी से बनाने में आपकी सहायता के लिए डिज़ाइन की गई प्रत्येक सुविधा।",
     "home.features.cta": "संपादक आज़माएं",
     "home.features.cards": [
-      { "title": "40+ इलेक्ट्रॉनिक प्रतीक", "desc": "प्रतिरोधों, कैपेसिटर, आईसी और बहुत कुछ के लिए उद्योग-मानक प्रतीक।" },
-      { "title": "मैनहट्टन वायर राउटिंग", "desc": "हमारा स्मार्ट राउटिंग इंजन हर तार को पूरी तरह से क्षैतिज या ऊर्ध्वाधर रखता है।" },
-      { "title": "SVG और PNG निर्यात", "desc": "सर्किट आरेख को SVG या उच्च-DPI PNG के रूप में निर्यात करें।" },
-      { "title": "शून्य सेटअप समय", "desc": "कोई डाउनलोड नहीं, कोई इंस्टॉलेशन नहीं। ब्राउज़र खोलें और तुरंत शुरू करें।" }
+      {
+        "title": "40+ इलेक्ट्रॉनिक प्रतीक",
+        "desc": "प्रतिरोधों, कैपेसिटर, आईसी और बहुत कुछ के लिए उद्योग-मानक प्रतीक।"
+      },
+      {
+        "title": "मैनहट्टन वायर राउटिंग",
+        "desc": "हमारा स्मार्ट राउटिंग इंजन हर तार को पूरी तरह से क्षैतिज या ऊर्ध्वाधर रखता है।"
+      },
+      {
+        "title": "SVG और PNG निर्यात",
+        "desc": "सर्किट आरेख को SVG या उच्च-DPI PNG के रूप में निर्यात करें।"
+      },
+      {
+        "title": "शून्य सेटअप समय",
+        "desc": "कोई डाउनलोड नहीं, कोई इंस्टॉलेशन नहीं। ब्राउज़र खोलें और तुरंत शुरू करें।"
+      },
+      {
+        "title": "कुंजीपटल अल्प मार्ग",
+        "desc": "चुनने के लिए V, तार के लिए W, घुमाने के लिए R, हटाने के लिए Del। हर क्रिया में बिजली की तेजी से ड्राफ्टिंग का एक शॉर्टकट होता है।"
+      },
+      {
+        "title": "ऑटो-सेव और बैकअप",
+        "desc": "लोकलस्टोरेज में सेव की गणना की गई। क्लाउड बैकअप, संस्करण नियंत्रण या टीम के सदस्यों के साथ साझा करने के लिए JSON के रूप में निर्यात करें।"
+      }
     ],
     "home.how_it_works.title": "सर्किट आरेख निर्माता का उपयोग कैसे करें",
+    "home.how_it_works.steps": [
+      {
+        "title": "अपना सर्किट आरेख ड्राफ़्ट करें",
+        "description": "सर्किट आरेख निर्माता खोलें, घटकों को अनंत कैनवास पर खींचें, और उन्हें ऑटो-स्नैपिंग ग्रिड पर रखें।"
+      },
+      {
+        "title": "तारों को कनेक्ट एवं रूट करें",
+        "description": "पिन कनेक्ट करने के लिए स्मार्ट रूटिंग इंजन का उपयोग करें। महत्वपूर्ण संकेतों को लेबल करें और उच्च-वर्तमान पथों को नियंत्रण तर्क से अलग करें।"
+      },
+      {
+        "title": "निर्यात एवं साझा आरेख",
+        "description": "अपने तैयार सर्किट आरेख को आईईईई और अकादमिक पत्रिकाओं द्वारा स्वीकृत क्रिस्टल-क्लियर एसवीजी या हाई-डीपीआई पीएनजी के रूप में डाउनलोड करें।"
+      }
+    ],
+    "home.data.title": "उपकरण तुलना",
+    "home.data.headers": [
+      "विशेषता",
+      "सर्किट आरेख निर्माता",
+      "डेस्कटॉप सीएडी उपकरण",
+      "सामान्य ड्राइंग ऐप्स"
+    ],
+    "home.data.rows": [
+      [
+        "100% ब्राउज़र-आधारित",
+        "हाँ",
+        "नहीं",
+        "हाँ"
+      ],
+      [
+        "स्मार्ट वायर रूटिंग",
+        "हाँ",
+        "हाँ",
+        "नहीं"
+      ],
+      [
+        "इलेक्ट्रॉनिक प्रतीक पुस्तकालय",
+        "हाँ",
+        "हाँ",
+        "नहीं"
+      ],
+      [
+        "एसवीजी वेक्टर निर्यात",
+        "हाँ",
+        "सीमित",
+        "हाँ"
+      ],
+      [
+        "उच्च-डीपीआई पीएनजी निर्यात",
+        "हाँ",
+        "हाँ",
+        "नहीं"
+      ],
+      [
+        "ग्रिड स्नैपिंग",
+        "हाँ",
+        "हाँ",
+        "सीमित"
+      ],
+      [
+        "किसी खाते की आवश्यकता नहीं",
+        "हाँ",
+        "नहीं",
+        "नहीं"
+      ],
+      [
+        "पूर्णतः निःशुल्क",
+        "हाँ",
+        "नहीं",
+        "नहीं"
+      ],
+      [
+        "कुंजीपटल अल्प मार्ग",
+        "हाँ",
+        "हाँ",
+        "सीमित"
+      ],
+      [
+        "ऑफ़लाइन काम करता है",
+        "हाँ",
+        "हाँ",
+        "नहीं"
+      ]
+    ],
+    "home.personas.badge": "मामलों का प्रयोग करें",
+    "home.personas.title": "सर्किट आरेख निर्माता का उपयोग कौन करता है?",
+    "home.personas.subtitle": "विश्वविद्यालय प्रयोगशालाओं से लेकर पेशेवर इंजीनियरिंग टीमों तक, हजारों उपयोगकर्ता हमारे टूल पर भरोसा करते हैं।",
+    "home.personas.cta": "संपादक लॉन्च करें",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "छात्र और शिक्षाविद्",
+        "desc": "लैब रिपोर्ट और थीसिस दस्तावेज़ों के लिए प्रकाशन-गुणवत्ता वाले सर्किट आरेख बनाएं।",
+        "keyword": "छात्रों के लिए सर्किट आरेख निर्माता"
+      },
+      {
+        "emoji": "⚡",
+        "title": "इलेक्ट्रॉनिक्स इंजीनियर्स",
+        "desc": "डिज़ाइन समीक्षा और घटक दस्तावेज़ीकरण के लिए पेशेवर योजनाएँ तैयार करें।",
+        "keyword": "इंजीनियरों के लिए सर्किट आरेख उपकरण"
+      },
+      {
+        "emoji": "🔧",
+        "title": "शौकीन और निर्माता",
+        "desc": "सहज इंटरफ़ेस के साथ अपने Arduino प्रोजेक्ट और IoT प्रोटोटाइप की योजना बनाएं।",
+        "keyword": "शौकीनों के लिए निःशुल्क सर्किट आरेख निर्माता"
+      },
+      {
+        "emoji": "📚",
+        "title": "शिक्षक एवं प्रशिक्षक",
+        "desc": "व्याख्यान और ऑनलाइन पाठ्यक्रमों के लिए इंटरैक्टिव सर्किट आरेख बनाएं।",
+        "keyword": "शिक्षण के लिए सर्किट आरेख निर्माता"
+      }
+    ],
+    "home.faq.title": "अक्सर पूछे जाने वाले प्रश्नों",
     "home.cta.title": "अब सर्किट आरेख बनाना शुरू करें",
     "home.cta.desc": "कोई साइनअप नहीं। कोई डाउनलोड नहीं। बस खोलें और डिजाइन करना शुरू करें।",
     "home.cta.button": "सर्किट आरेख संपादक खोलें — यह मुफ़्त है"
@@ -108,42 +344,144 @@
     "home.features.subtitle": "Diseñado para ayudarte a crear mejores diagramas de circuitos, más rápido.",
     "home.features.cta": "Probar el editor",
     "home.features.cards": [
-      { "title": "Más de 40 símbolos", "desc": "Símbolos estándar IEC y ANSI listos para usar." },
-      { "title": "Enrutamiento Manhattan", "desc": "Mantiene los cables perfectamente horizontales o verticales automáticamente." },
-      { "title": "Exportación SVG y PNG", "desc": "Ideal para informes de laboratorio y documentos técnicos." },
-      { "title": "Sin tiempo de configuración", "desc": "Sin descargas ni registros. Crea diagramas al instante." },
-      { "title": "Atajos de teclado", "desc": "V para seleccionar, W para cable, R para rotar. Diseña a la velocidad de la luz." },
-      { "title": "Autoguardado", "desc": "Tus diagramas se guardan en el navegador. Exporta a JSON para respaldo." }
+      {
+        "title": "Más de 40 símbolos",
+        "desc": "Símbolos estándar IEC y ANSI listos para usar."
+      },
+      {
+        "title": "Enrutamiento Manhattan",
+        "desc": "Mantiene los cables perfectamente horizontales o verticales automáticamente."
+      },
+      {
+        "title": "Exportación SVG y PNG",
+        "desc": "Ideal para informes de laboratorio y documentos técnicos."
+      },
+      {
+        "title": "Sin tiempo de configuración",
+        "desc": "Sin descargas ni registros. Crea diagramas al instante."
+      },
+      {
+        "title": "Atajos de teclado",
+        "desc": "V para seleccionar, W para cable, R para rotar. Diseña a la velocidad de la luz."
+      },
+      {
+        "title": "Autoguardado",
+        "desc": "Tus diagramas se guardan en el navegador. Exporta a JSON para respaldo."
+      }
     ],
     "home.how_it_works.title": "Cómo usar el creador de diagramas de circuitos",
     "home.how_it_works.steps": [
-      { "title": "Dibuja tu diagrama", "description": "Abre el editor, arrastra componentes al lienzo infinito y colócalos en la cuadrícula." },
-      { "title": "Conecta los cables", "description": "Usa el motor de enrutamiento inteligente. Etiqueta señales críticas fácilmente." },
-      { "title": "Exporta y comparte", "description": "Descarga tu diagrama como SVG o PNG de alta resolución aceptado por revistas académicas." }
+      {
+        "title": "Dibuja tu diagrama",
+        "description": "Abre el editor, arrastra componentes al lienzo infinito y colócalos en la cuadrícula."
+      },
+      {
+        "title": "Conecta los cables",
+        "description": "Usa el motor de enrutamiento inteligente. Etiqueta señales críticas fácilmente."
+      },
+      {
+        "title": "Exporta y comparte",
+        "description": "Descarga tu diagrama como SVG o PNG de alta resolución aceptado por revistas académicas."
+      }
     ],
     "home.data.title": "Comparación de herramientas",
-    "home.data.headers": ["Característica", "Circuit Diagram Maker", "Herramientas CAD", "Apps de dibujo"],
+    "home.data.headers": [
+      "Característica",
+      "Creador de diagramas de circuitos",
+      "Herramientas CAD",
+      "Apps de dibujo"
+    ],
     "home.data.rows": [
-      ["100% en navegador", "Sí", "No", "Sí"],
-      ["Enrutamiento inteligente", "Sí", "Sí", "No"],
-      ["Biblioteca de símbolos", "Sí", "Sí", "No"],
-      ["Exportación SVG", "Sí", "Limitado", "Sí"],
-      ["Exportación PNG", "Sí", "Sí", "No"],
-      ["Ajuste de rejilla", "Sí", "Sí", "Limitado"],
-      ["Sin cuenta", "Sí", "No", "No"],
-      ["Completamente gratis", "Sí", "No", "No"],
-      ["Atajos de teclado", "Sí", "Sí", "Limitado"],
-      ["Funciona sin conexión", "Sí", "Sí", "No"]
+      [
+        "100% en navegador",
+        "Sí",
+        "No",
+        "Sí"
+      ],
+      [
+        "Enrutamiento inteligente",
+        "Sí",
+        "Sí",
+        "No"
+      ],
+      [
+        "Biblioteca de símbolos",
+        "Sí",
+        "Sí",
+        "No"
+      ],
+      [
+        "Exportación SVG",
+        "Sí",
+        "Limitado",
+        "Sí"
+      ],
+      [
+        "Exportación PNG",
+        "Sí",
+        "Sí",
+        "No"
+      ],
+      [
+        "Ajuste de rejilla",
+        "Sí",
+        "Sí",
+        "Limitado"
+      ],
+      [
+        "Sin cuenta",
+        "Sí",
+        "No",
+        "No"
+      ],
+      [
+        "Completamente gratis",
+        "Sí",
+        "No",
+        "No"
+      ],
+      [
+        "Atajos de teclado",
+        "Sí",
+        "Sí",
+        "Limitado"
+      ],
+      [
+        "Funciona sin conexión",
+        "Sí",
+        "Sí",
+        "No"
+      ]
     ],
     "home.personas.badge": "Casos de uso",
     "home.personas.title": "¿Quién usa Circuit Diagram Maker?",
     "home.personas.subtitle": "Desde laboratorios universitarios hasta equipos de ingeniería profesionales.",
     "home.personas.cta": "Abrir editor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Estudiantes y académicos", "desc": "Crea diagramas de calidad para informes de laboratorio y tesis.", "keyword": "creador de diagramas para estudiantes" },
-      { "emoji": "⚡", "title": "Ingenieros electrónicos", "desc": "Diseña esquemas profesionales para revisiones y documentación.", "keyword": "herramienta de circuitos para ingenieros" },
-      { "emoji": "🔧", "title": "Hobbyists y Makers", "desc": "Planifica tus proyectos de Arduino e IoT con una interfaz intuitiva.", "keyword": "creador de circuitos para aficionados" },
-      { "emoji": "📚", "title": "Educadores", "desc": "Crea diagramas interactivos para lecciones y cursos en línea.", "keyword": "creador de diagramas para enseñanza" }
+      {
+        "emoji": "🎓",
+        "title": "Estudiantes y académicos",
+        "desc": "Crea diagramas de calidad para informes de laboratorio y tesis.",
+        "keyword": "creador de diagramas para estudiantes"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Ingenieros electrónicos",
+        "desc": "Diseña esquemas profesionales para revisiones y documentación.",
+        "keyword": "herramienta de circuitos para ingenieros"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobbyists y Makers",
+        "desc": "Planifica tus proyectos de Arduino e IoT con una interfaz intuitiva.",
+        "keyword": "creador de circuitos para aficionados"
+      },
+      {
+        "emoji": "📚",
+        "title": "Educadores",
+        "desc": "Crea diagramas interactivos para lecciones y cursos en línea.",
+        "keyword": "creador de diagramas para enseñanza"
+      }
     ],
     "home.faq.title": "Preguntas frecuentes",
     "home.cta.title": "Empieza a crear diagramas de circuitos ahora",
@@ -169,42 +507,144 @@
     "home.features.subtitle": "Каждая функция разработана, чтобы помочь вам создавать схемы быстрее и лучше.",
     "home.features.cta": "Попробовать редактор",
     "home.features.cards": [
-      { "title": "40+ электронных символов", "desc": "Стандартные символы IEC и ANSI для резисторов, конденсаторов и микросхем." },
-      { "title": "Умная трассировка проводов", "desc": "Наш движок автоматически держит все провода строго горизонтально или вертикально." },
-      { "title": "Экспорт в SVG и PNG", "desc": "Идеально подходит для лабораторных отчетов и технических спецификаций." },
-      { "title": "Нулевое время установки", "desc": "Без скачиваний и регистрации. Начните проектировать мгновенно." },
-      { "title": "Горячие клавиши", "desc": "V для выбора, W для провода, R для поворота. Проектируйте молниеносно." },
-      { "title": "Автосохранение", "desc": "Ваши схемы сохраняются в браузере. Экспорт в JSON для резервного копирования." }
+      {
+        "title": "40+ электронных символов",
+        "desc": "Стандартные символы IEC и ANSI для резисторов, конденсаторов и микросхем."
+      },
+      {
+        "title": "Умная трассировка проводов",
+        "desc": "Наш движок автоматически держит все провода строго горизонтально или вертикально."
+      },
+      {
+        "title": "Экспорт в SVG и PNG",
+        "desc": "Идеально подходит для лабораторных отчетов и технических спецификаций."
+      },
+      {
+        "title": "Нулевое время установки",
+        "desc": "Без скачиваний и регистрации. Начните проектировать мгновенно."
+      },
+      {
+        "title": "Горячие клавиши",
+        "desc": "V для выбора, W для провода, R для поворота. Проектируйте молниеносно."
+      },
+      {
+        "title": "Автосохранение",
+        "desc": "Ваши схемы сохраняются в браузере. Экспорт в JSON для резервного копирования."
+      }
     ],
     "home.how_it_works.title": "Как пользоваться конструктором схем",
     "home.how_it_works.steps": [
-      { "title": "Создайте черновик", "description": "Откройте редактор, перетащите компоненты на холст и разместите их по сетке." },
-      { "title": "Соедините компоненты", "description": "Используйте умную трассировку. Маркируйте важные сигналы." },
-      { "title": "Экспорт и публикация", "description": "Скачайте готовую схему в формате SVG или PNG высокого разрешения." }
+      {
+        "title": "Создайте черновик",
+        "description": "Откройте редактор, перетащите компоненты на холст и разместите их по сетке."
+      },
+      {
+        "title": "Соедините компоненты",
+        "description": "Используйте умную трассировку. Маркируйте важные сигналы."
+      },
+      {
+        "title": "Экспорт и публикация",
+        "description": "Скачайте готовую схему в формате SVG или PNG высокого разрешения."
+      }
     ],
     "home.data.title": "Сравнение инструментов",
-    "home.data.headers": ["Функция", "Circuit Diagram Maker", "CAD системы", "Рисовалки"],
+    "home.data.headers": [
+      "Функция",
+      "Создатель принципиальных схем",
+      "CAD системы",
+      "Рисовалки"
+    ],
     "home.data.rows": [
-      ["100% в браузере", "Да", "Нет", "Да"],
-      ["Умная трассировка", "Да", "Да", "Нет"],
-      ["Библиотека символов", "Да", "Да", "Нет"],
-      ["Экспорт в SVG", "Да", "Ограничено", "Да"],
-      ["Экспорт в PNG", "Да", "Да", "Нет"],
-      ["Привязка к сетке", "Да", "Да", "Ограничено"],
-      ["Без регистрации", "Да", "Нет", "Нет"],
-      ["Полностью бесплатно", "Да", "Нет", "Нет"],
-      ["Горячие клавиши", "Да", "Да", "Ограничено"],
-      ["Работа оффлайн", "Да", "Да", "Нет"]
+      [
+        "100% в браузере",
+        "Да",
+        "Нет",
+        "Да"
+      ],
+      [
+        "Умная трассировка",
+        "Да",
+        "Да",
+        "Нет"
+      ],
+      [
+        "Библиотека символов",
+        "Да",
+        "Да",
+        "Нет"
+      ],
+      [
+        "Экспорт в SVG",
+        "Да",
+        "Ограничено",
+        "Да"
+      ],
+      [
+        "Экспорт в PNG",
+        "Да",
+        "Да",
+        "Нет"
+      ],
+      [
+        "Привязка к сетке",
+        "Да",
+        "Да",
+        "Ограничено"
+      ],
+      [
+        "Без регистрации",
+        "Да",
+        "Нет",
+        "Нет"
+      ],
+      [
+        "Полностью бесплатно",
+        "Да",
+        "Нет",
+        "Нет"
+      ],
+      [
+        "Горячие клавиши",
+        "Да",
+        "Да",
+        "Ограничено"
+      ],
+      [
+        "Работа оффлайн",
+        "Да",
+        "Да",
+        "Нет"
+      ]
     ],
     "home.personas.badge": "Кейсы",
     "home.personas.title": "Кто использует наш конструктор?",
     "home.personas.subtitle": "От студенческих лабораторий до профессиональных инженерных команд.",
     "home.personas.cta": "Запустить редактор",
     "home.personas": [
-      { "emoji": "🎓", "title": "Студенты и ученые", "desc": "Создавайте схемы для лабораторных работ и диссертаций.", "keyword": "конструктор схем для студентов" },
-      { "emoji": "⚡", "title": "Инженеры-электроники", "desc": "Профессиональные схемы для проектирования и документации.", "keyword": "инструмент для инженеров" },
-      { "emoji": "🔧", "title": "Радиолюбители", "desc": "Планируйте проекты Arduino и IoT с интуитивным интерфейсом.", "keyword": "конструктор для любителей" },
-      { "emoji": "📚", "title": "Преподаватели", "desc": "Создавайте интерактивные схемы для лекций и онлайн-курсов.", "keyword": "конструктор для обучения" }
+      {
+        "emoji": "🎓",
+        "title": "Студенты и ученые",
+        "desc": "Создавайте схемы для лабораторных работ и диссертаций.",
+        "keyword": "конструктор схем для студентов"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Инженеры-электроники",
+        "desc": "Профессиональные схемы для проектирования и документации.",
+        "keyword": "инструмент для инженеров"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Радиолюбители",
+        "desc": "Планируйте проекты Arduino и IoT с интуитивным интерфейсом.",
+        "keyword": "конструктор для любителей"
+      },
+      {
+        "emoji": "📚",
+        "title": "Преподаватели",
+        "desc": "Создавайте интерактивные схемы для лекций и онлайн-курсов.",
+        "keyword": "конструктор для обучения"
+      }
     ],
     "home.faq.title": "Часто задаваемые вопросы",
     "home.cta.title": "Начните создавать схемы прямо сейчас",
@@ -230,42 +670,144 @@
     "home.features.subtitle": "Conçu pour vous aider à créer de meilleurs schémas de circuits, plus rapidement.",
     "home.features.cta": "Essayer l'éditeur",
     "home.features.cards": [
-      { "title": "40+ symboles électroniques", "desc": "Symboles standards pour résistances, condensateurs, CI, etc." },
-      { "title": "Routage de fils Manhattan", "desc": "Maintient les fils parfaitement horizontaux ou verticaux." },
-      { "title": "Export SVG et PNG", "desc": "Idéal pour les rapports de laboratoire et documents techniques." },
-      { "title": "Zéro temps d'installation", "desc": "Aucun téléchargement ni inscription requis." },
-      { "title": "Raccourcis clavier", "desc": "V pour sélectionner, W pour fil, R pour pivoter. Concevez rapidement." },
-      { "title": "Auto-enregistrement", "desc": "Vos schémas sont sauvés dans le navigateur. Export JSON pour sauvegarde." }
+      {
+        "title": "40+ symboles électroniques",
+        "desc": "Symboles standards pour résistances, condensateurs, CI, etc."
+      },
+      {
+        "title": "Routage de fils Manhattan",
+        "desc": "Maintient les fils parfaitement horizontaux ou verticaux."
+      },
+      {
+        "title": "Export SVG et PNG",
+        "desc": "Idéal pour les rapports de laboratoire et documents techniques."
+      },
+      {
+        "title": "Zéro temps d'installation",
+        "desc": "Aucun téléchargement ni inscription requis."
+      },
+      {
+        "title": "Raccourcis clavier",
+        "desc": "V pour sélectionner, W pour fil, R pour pivoter. Concevez rapidement."
+      },
+      {
+        "title": "Auto-enregistrement",
+        "desc": "Vos schémas sont sauvés dans le navigateur. Export JSON pour sauvegarde."
+      }
     ],
     "home.how_it_works.title": "Comment utiliser le créateur de schémas",
     "home.how_it_works.steps": [
-      { "title": "Ébauchez votre schéma", "description": "Ouvrez l'éditeur, glissez les composants sur le canevas et placez-les sur la grille." },
-      { "title": "Connectez les fils", "description": "Utilisez le moteur de routage intelligent pour connecter les broches." },
-      { "title": "Exportez et partagez", "description": "Téléchargez votre schéma en SVG ou PNG haute résolution pour vos rapports." }
+      {
+        "title": "Ébauchez votre schéma",
+        "description": "Ouvrez l'éditeur, glissez les composants sur le canevas et placez-les sur la grille."
+      },
+      {
+        "title": "Connectez les fils",
+        "description": "Utilisez le moteur de routage intelligent pour connecter les broches."
+      },
+      {
+        "title": "Exportez et partagez",
+        "description": "Téléchargez votre schéma en SVG ou PNG haute résolution pour vos rapports."
+      }
     ],
     "home.data.title": "Comparaison des outils",
-    "home.data.headers": ["Fonctionnalité", "Circuit Diagram Maker", "Outils CAD", "Dessin générique"],
+    "home.data.headers": [
+      "Fonctionnalité",
+      "Créateur de schémas de circuits",
+      "Outils CAD",
+      "Dessin générique"
+    ],
     "home.data.rows": [
-      ["100% sur navigateur", "Oui", "Non", "Oui"],
-      ["Routage intelligent", "Oui", "Oui", "Non"],
-      ["Bibliothèque de symboles", "Oui", "Oui", "Non"],
-      ["Export SVG", "Oui", "Limité", "Oui"],
-      ["Export PNG", "Oui", "Oui", "Non"],
-      ["Grille magnétique", "Oui", "Oui", "Limité"],
-      ["Sans compte", "Oui", "Non", "Non"],
-      ["Totalement gratuit", "Oui", "Non", "Non"],
-      ["Raccourcis clavier", "Oui", "Oui", "Limité"],
-      ["Fonctionne hors-ligne", "Oui", "Oui", "Non"]
+      [
+        "100% sur navigateur",
+        "Oui",
+        "Non",
+        "Oui"
+      ],
+      [
+        "Routage intelligent",
+        "Oui",
+        "Oui",
+        "Non"
+      ],
+      [
+        "Bibliothèque de symboles",
+        "Oui",
+        "Oui",
+        "Non"
+      ],
+      [
+        "Export SVG",
+        "Oui",
+        "Limité",
+        "Oui"
+      ],
+      [
+        "Export PNG",
+        "Oui",
+        "Oui",
+        "Non"
+      ],
+      [
+        "Grille magnétique",
+        "Oui",
+        "Oui",
+        "Limité"
+      ],
+      [
+        "Sans compte",
+        "Oui",
+        "Non",
+        "Non"
+      ],
+      [
+        "Totalement gratuit",
+        "Oui",
+        "Non",
+        "Non"
+      ],
+      [
+        "Raccourcis clavier",
+        "Oui",
+        "Oui",
+        "Limité"
+      ],
+      [
+        "Fonctionne hors-ligne",
+        "Oui",
+        "Oui",
+        "Non"
+      ]
     ],
     "home.personas.badge": "Cas d'utilisation",
     "home.personas.title": "Qui utilise Circuit Diagram Maker ?",
     "home.personas.subtitle": "Des labos universitaires aux équipes d'ingénierie professionnelles.",
     "home.personas.cta": "Lancer l'éditeur",
     "home.personas": [
-      { "emoji": "🎓", "title": "Étudiants", "desc": "Créez des schémas de qualité pour vos rapports de labo et thèses.", "keyword": "créateur de schéma pour étudiants" },
-      { "emoji": "⚡", "title": "Ingénieurs", "desc": "Concevez des schémas professionnels pour revues de design.", "keyword": "outil de circuit pour ingénieurs" },
-      { "emoji": "🔧", "title": "Makers", "desc": "Planifiez vos projets Arduino et IoT avec une interface intuitive.", "keyword": "créateur de circuit gratuit" },
-      { "emoji": "📚", "title": "Éducateurs", "desc": "Créez des schémas interactifs pour vos cours en ligne.", "keyword": "créateur de schéma pour enseignement" }
+      {
+        "emoji": "🎓",
+        "title": "Étudiants",
+        "desc": "Créez des schémas de qualité pour vos rapports de labo et thèses.",
+        "keyword": "créateur de schéma pour étudiants"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Ingénieurs",
+        "desc": "Concevez des schémas professionnels pour revues de design.",
+        "keyword": "outil de circuit pour ingénieurs"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Makers",
+        "desc": "Planifiez vos projets Arduino et IoT avec une interface intuitive.",
+        "keyword": "créateur de circuit gratuit"
+      },
+      {
+        "emoji": "📚",
+        "title": "Éducateurs",
+        "desc": "Créez des schémas interactifs pour vos cours en ligne.",
+        "keyword": "créateur de schéma pour enseignement"
+      }
     ],
     "home.faq.title": "Questions fréquentes",
     "home.cta.title": "Commencez à créer des schémas de circuits",
@@ -291,42 +833,144 @@
     "home.features.subtitle": "Jede Funktion wurde entwickelt, um Ihnen zu helfen, bessere Schaltpläne schneller zu erstellen.",
     "home.features.cta": "Editor ausprobieren",
     "home.features.cards": [
-      { "title": "40+ elektronische Symbole", "desc": "Standard-Symbole für Widerstände, Kondensatoren, ICs usw." },
-      { "title": "Manhattan-Draht-Routing", "desc": "Hält alle Drähte automatisch horizontal oder vertikal." },
-      { "title": "SVG & PNG Export", "desc": "Perfekt für Laborberichte und technische Spezifikationen." },
-      { "title": "Keine Einrichtungszeit", "desc": "Keine Downloads oder Registrierung erforderlich." },
-      { "title": "Tastaturkürzel", "desc": "V für Auswahl, W für Draht, R für Drehen. Designen Sie blitzschnell." },
-      { "title": "Auto-Speicherung", "desc": "Schaltpläne werden im Browser gespeichert. JSON-Export für Backup." }
+      {
+        "title": "40+ elektronische Symbole",
+        "desc": "Standard-Symbole für Widerstände, Kondensatoren, ICs usw."
+      },
+      {
+        "title": "Manhattan-Draht-Routing",
+        "desc": "Hält alle Drähte automatisch horizontal oder vertikal."
+      },
+      {
+        "title": "SVG- und PNG-Export",
+        "desc": "Perfekt für Laborberichte und technische Spezifikationen."
+      },
+      {
+        "title": "Keine Einrichtungszeit",
+        "desc": "Keine Downloads oder Registrierung erforderlich."
+      },
+      {
+        "title": "Tastaturkürzel",
+        "desc": "V für Auswahl, W für Draht, R für Drehen. Designen Sie blitzschnell."
+      },
+      {
+        "title": "Auto-Speicherung",
+        "desc": "Schaltpläne werden im Browser gespeichert. JSON-Export für Backup."
+      }
     ],
     "home.how_it_works.title": "So nutzen Sie den Schaltplan-Ersteller",
     "home.how_it_works.steps": [
-      { "title": "Schaltplan entwerfen", "description": "Öffnen Sie den Editor, ziehen Sie Komponenten auf die Leinwand und platzieren Sie sie im Raster." },
-      { "title": "Drähte verbinden", "description": "Nutzen Sie das intelligente Routing, um Pins zu verbinden." },
-      { "title": "Exportieren & Teilen", "description": "Laden Sie Ihren Schaltplan als SVG oder hochauflösendes PNG für Ihre Berichte herunter." }
+      {
+        "title": "Schaltplan entwerfen",
+        "description": "Öffnen Sie den Editor, ziehen Sie Komponenten auf die Leinwand und platzieren Sie sie im Raster."
+      },
+      {
+        "title": "Drähte verbinden",
+        "description": "Nutzen Sie das intelligente Routing, um Pins zu verbinden."
+      },
+      {
+        "title": "Exportieren & Teilen",
+        "description": "Laden Sie Ihren Schaltplan als SVG oder hochauflösendes PNG für Ihre Berichte herunter."
+      }
     ],
     "home.data.title": "Werkzeug-Vergleich",
-    "home.data.headers": ["Funktion", "Circuit Diagram Maker", "CAD-Tools", "Zeichen-Apps"],
+    "home.data.headers": [
+      "Funktion",
+      "Schaltplan-Ersteller",
+      "CAD-Tools",
+      "Zeichen-Apps"
+    ],
     "home.data.rows": [
-      ["100% im Browser", "Ja", "Nein", "Ja"],
-      ["Intelligentes Routing", "Ja", "Ja", "Nein"],
-      ["Symbol-Bibliothek", "Ja", "Ja", "Nein"],
-      ["SVG-Export", "Ja", "Eingeschränkt", "Ja"],
-      ["PNG-Export", "Ja", "Ja", "Nein"],
-      ["Raster-Ausrichtung", "Ja", "Ja", "Eingeschränkt"],
-      ["Ohne Account", "Ja", "Nein", "Nein"],
-      ["Völlig kostenlos", "Ja", "Nein", "Nein"],
-      ["Tastasturkürzel", "Ja", "Ja", "Eingeschränkt"],
-      ["Offline-Modus", "Ja", "Ja", "Nein"]
+      [
+        "100% im Browser",
+        "Ja",
+        "Nein",
+        "Ja"
+      ],
+      [
+        "Intelligentes Routing",
+        "Ja",
+        "Ja",
+        "Nein"
+      ],
+      [
+        "Symbol-Bibliothek",
+        "Ja",
+        "Ja",
+        "Nein"
+      ],
+      [
+        "SVG-Export",
+        "Ja",
+        "Eingeschränkt",
+        "Ja"
+      ],
+      [
+        "PNG-Export",
+        "Ja",
+        "Ja",
+        "Nein"
+      ],
+      [
+        "Raster-Ausrichtung",
+        "Ja",
+        "Ja",
+        "Eingeschränkt"
+      ],
+      [
+        "Ohne Account",
+        "Ja",
+        "Nein",
+        "Nein"
+      ],
+      [
+        "Völlig kostenlos",
+        "Ja",
+        "Nein",
+        "Nein"
+      ],
+      [
+        "Tastasturkürzel",
+        "Ja",
+        "Ja",
+        "Eingeschränkt"
+      ],
+      [
+        "Offline-Modus",
+        "Ja",
+        "Ja",
+        "Nein"
+      ]
     ],
     "home.personas.badge": "Anwendungsfälle",
     "home.personas.title": "Wer nutzt den Schaltplan-Ersteller?",
     "home.personas.subtitle": "Von Universitätslaboren bis hin zu professionellen Ingenieurteams.",
     "home.personas.cta": "Editor starten",
     "home.personas": [
-      { "emoji": "🎓", "title": "Studenten & Akademiker", "desc": "Erstellen Sie hochwertige Diagramme für Laborberichte und Abschlussarbeiten.", "keyword": "Schaltplan-Ersteller für Studenten" },
-      { "emoji": "⚡", "title": "Elektroingenieure", "desc": "Entwerfen Sie professionelle Schaltpläne für Design-Reviews.", "keyword": "Schaltungs-Tool für Ingenieure" },
-      { "emoji": "🔧", "title": "Hobbyisten & Maker", "desc": "Planen Sie Arduino- und IoT-Projekte mit einer intuitiven Oberfläche.", "keyword": "kostenloser Schaltungs-Planer" },
-      { "emoji": "📚", "title": "Lehrkräfte", "desc": "Erstellen Sie interaktive Schaltpläne für Vorlesungen und Online-Kurse.", "keyword": "Schaltplan-Tool für den Unterricht" }
+      {
+        "emoji": "🎓",
+        "title": "Studenten & Akademiker",
+        "desc": "Erstellen Sie hochwertige Diagramme für Laborberichte und Abschlussarbeiten.",
+        "keyword": "Schaltplan-Ersteller für Studenten"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Elektroingenieure",
+        "desc": "Entwerfen Sie professionelle Schaltpläne für Design-Reviews.",
+        "keyword": "Schaltungs-Tool für Ingenieure"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobbyisten & Maker",
+        "desc": "Planen Sie Arduino- und IoT-Projekte mit einer intuitiven Oberfläche.",
+        "keyword": "kostenloser Schaltungs-Planer"
+      },
+      {
+        "emoji": "📚",
+        "title": "Lehrkräfte",
+        "desc": "Erstellen Sie interaktive Schaltpläne für Vorlesungen und Online-Kurse.",
+        "keyword": "Schaltplan-Tool für den Unterricht"
+      }
     ],
     "home.faq.title": "Häufig gestellte Fragen",
     "home.cta.title": "Jetzt Schaltpläne erstellen",
@@ -352,42 +996,144 @@
     "home.features.subtitle": "Ogni funzione è progettata per aiutarti a creare diagrammi migliori, più velocemente.",
     "home.features.cta": "Prova l'editor",
     "home.features.cards": [
-      { "title": "40+ simboli elettronici", "desc": "Simboli standard IEC e ANSI per resistori, condensatori, IC e altro." },
-      { "title": "Routing fili Manhattan", "desc": "Il nostro motore mantiene i fili perfettamente orizzontali o verticali." },
-      { "title": "Esportazione SVG e PNG", "desc": "Ideale per relazioni di laboratorio e pubblicazioni scientifiche." },
-      { "title": "Zero tempi di setup", "desc": "Nessun download, nessuna registrazione. Inizia subito nel browser." },
-      { "title": "Scorciatoie da tastiera", "desc": "V per seleziona, W per filo, R per ruota. Progetta alla velocità della luce." },
-      { "title": "Salvataggio automatico", "desc": "I diagrammi sono salvati nel browser. Esporta in JSON per il backup." }
+      {
+        "title": "40+ simboli elettronici",
+        "desc": "Simboli standard IEC e ANSI per resistori, condensatori, IC e altro."
+      },
+      {
+        "title": "Routing fili Manhattan",
+        "desc": "Il nostro motore mantiene i fili perfettamente orizzontali o verticali."
+      },
+      {
+        "title": "Esportazione SVG e PNG",
+        "desc": "Ideale per relazioni di laboratorio e pubblicazioni scientifiche."
+      },
+      {
+        "title": "Zero tempi di setup",
+        "desc": "Nessun download, nessuna registrazione. Inizia subito nel browser."
+      },
+      {
+        "title": "Scorciatoie da tastiera",
+        "desc": "V per seleziona, W per filo, R per ruota. Progetta alla velocità della luce."
+      },
+      {
+        "title": "Salvataggio automatico",
+        "desc": "I diagrammi sono salvati nel browser. Esporta in JSON per il backup."
+      }
     ],
     "home.how_it_works.title": "Come usare il creatore di diagrammi",
     "home.how_it_works.steps": [
-      { "title": "Disegna il tuo schema", "description": "Apri l'editor, trascina i componenti e posizionali sulla griglia magnetica." },
-      { "title": "Connetti i componenti", "description": "Usa il motore di routing intelligente per collegare i pin dei componenti." },
-      { "title": "Esporta e condividi", "description": "Scarica lo schema finito in formato SVG o PNG ad alta risoluzione." }
+      {
+        "title": "Disegna il tuo schema",
+        "description": "Apri l'editor, trascina i componenti e posizionali sulla griglia magnetica."
+      },
+      {
+        "title": "Connetti i componenti",
+        "description": "Usa il motore di routing intelligente per collegare i pin dei componenti."
+      },
+      {
+        "title": "Esporta e condividi",
+        "description": "Scarica lo schema finito in formato SVG o PNG ad alta risoluzione."
+      }
     ],
     "home.data.title": "Confronto strumenti",
-    "home.data.headers": ["Funzionalità", "Circuit Diagram Maker", "Strumenti CAD", "Disegno generico"],
+    "home.data.headers": [
+      "Funzionalità",
+      "Creatore di schemi circuitali",
+      "Strumenti CAD",
+      "Disegno generico"
+    ],
     "home.data.rows": [
-      ["100% nel browser", "Sì", "No", "Sì"],
-      ["Routing intelligente", "Sì", "Sì", "No"],
-      ["Libreria simboli", "Sì", "Sì", "No"],
-      ["Esportazione SVG", "Sì", "Limitato", "Sì"],
-      ["Esportazione PNG", "Sì", "Sì", "No"],
-      ["Griglia magnetica", "Sì", "Sì", "Limitato"],
-      ["Senza account", "Sì", "No", "No"],
-      ["Completamente gratis", "Sì", "No", "No"],
-      ["Scorciatoie tastiera", "Sì", "Sì", "Limitado"],
-      ["Funziona offline", "Sì", "Sì", "No"]
+      [
+        "100% nel browser",
+        "Sì",
+        "NO",
+        "Sì"
+      ],
+      [
+        "Routing intelligente",
+        "Sì",
+        "Sì",
+        "NO"
+      ],
+      [
+        "Libreria simboli",
+        "Sì",
+        "Sì",
+        "NO"
+      ],
+      [
+        "Esportazione SVG",
+        "Sì",
+        "Limitato",
+        "Sì"
+      ],
+      [
+        "Esportazione PNG",
+        "Sì",
+        "Sì",
+        "NO"
+      ],
+      [
+        "Griglia magnetica",
+        "Sì",
+        "Sì",
+        "Limitato"
+      ],
+      [
+        "Senza account",
+        "Sì",
+        "NO",
+        "NO"
+      ],
+      [
+        "Completamente gratis",
+        "Sì",
+        "NO",
+        "NO"
+      ],
+      [
+        "Scorciatoie tastiera",
+        "Sì",
+        "Sì",
+        "Limitado"
+      ],
+      [
+        "Funziona offline",
+        "Sì",
+        "Sì",
+        "NO"
+      ]
     ],
     "home.personas.badge": "Casi d'uso",
     "home.personas.title": "Chi usa Circuit Diagram Maker?",
     "home.personas.subtitle": "Dai laboratori universitari ai team di ingegneria professionale.",
     "home.personas.cta": "Lancia l'editor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Studenti e accademici", "desc": "Crea schemi di qualità per relazioni di laboratorio e tesi.", "keyword": "creatore di schemi per studenti" },
-      { "emoji": "⚡", "title": "Ingegneri elettronici", "desc": "Progetta schemi professionali per revisioni di progetto.", "keyword": "strumento circuiti per ingegneri" },
-      { "emoji": "🔧", "title": "Hobbisti e Maker", "desc": "Pianifica i tuoi progetti Arduino e IoT con un'interfaccia intuitiva.", "keyword": "creatore circuiti gratuito" },
-      { "emoji": "📚", "title": "Educatori", "desc": "Crea diagrammi interattivi per lezioni e corsi online.", "keyword": "creatore di schemi per insegnamento" }
+      {
+        "emoji": "🎓",
+        "title": "Studenti e accademici",
+        "desc": "Crea schemi di qualità per relazioni di laboratorio e tesi.",
+        "keyword": "creatore di schemi per studenti"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Ingegneri elettronici",
+        "desc": "Progetta schemi professionali per revisioni di progetto.",
+        "keyword": "strumento circuiti per ingegneri"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobbisti e Maker",
+        "desc": "Pianifica i tuoi progetti Arduino e IoT con un'interfaccia intuitiva.",
+        "keyword": "creatore circuiti gratuito"
+      },
+      {
+        "emoji": "📚",
+        "title": "Educatori",
+        "desc": "Crea diagrammi interattivi per lezioni e corsi online.",
+        "keyword": "creatore di schemi per insegnamento"
+      }
     ],
     "home.faq.title": "Domande frequenti",
     "home.cta.title": "Inizia a creare diagrammi ora",
@@ -413,42 +1159,144 @@
     "home.features.subtitle": "Cada funcionalidade foi desenhada para o ajudar a criar melhores diagramas, mais rápido.",
     "home.features.cta": "Experimentar o editor",
     "home.features.cards": [
-      { "title": "40+ símbolos eletrónicos", "desc": "Símbolos padrão IEC e ANSI para resistores, capacitores, ICs e mais." },
-      { "title": "Roteamento Manhattan", "desc": "O nosso motor mantém os fios perfeitamente horizontais ou verticais." },
-      { "title": "Exportação SVG e PNG", "desc": "Perfeito para relatórios de laboratório e documentos técnicos." },
-      { "title": "Zero tempo de configuração", "desc": "Sem downloads nem registo. Comece instantaneamente no navegador." },
-      { "title": "Atalhos de teclado", "desc": "V para selecionar, W para fio, R para rodar. Desenhe à velocidade da luz." },
-      { "title": "Auto-gravação", "desc": "Diagramas guardados no navegador. Exporte para JSON como cópia de segurança." }
+      {
+        "title": "40+ símbolos eletrónicos",
+        "desc": "Símbolos padrão IEC e ANSI para resistores, capacitores, ICs e mais."
+      },
+      {
+        "title": "Roteamento Manhattan",
+        "desc": "O nosso motor mantém os fios perfeitamente horizontais ou verticais."
+      },
+      {
+        "title": "Exportação SVG e PNG",
+        "desc": "Perfeito para relatórios de laboratório e documentos técnicos."
+      },
+      {
+        "title": "Zero tempo de configuração",
+        "desc": "Sem downloads nem registo. Comece instantaneamente no navegador."
+      },
+      {
+        "title": "Atalhos de teclado",
+        "desc": "V para selecionar, W para fio, R para rodar. Desenhe à velocidade da luz."
+      },
+      {
+        "title": "Auto-gravação",
+        "desc": "Diagramas guardados no navegador. Exporte para JSON como cópia de segurança."
+      }
     ],
     "home.how_it_works.title": "Como usar o criador de diagramas",
     "home.how_it_works.steps": [
-      { "title": "Desenhe o seu esquema", "description": "Abra o editor, arraste componentes para a tela e coloque-os na grelha." },
-      { "title": "Conecte os fios", "description": "Utilize o motor de roteamento inteligente para ligar os pinos." },
-      { "title": "Exporte e partilhe", "description": "Descarregue o seu esquema como SVG ou PNG de alta resolução para os seus relatórios." }
+      {
+        "title": "Desenhe o seu esquema",
+        "description": "Abra o editor, arraste componentes para a tela e coloque-os na grelha."
+      },
+      {
+        "title": "Conecte os fios",
+        "description": "Utilize o motor de roteamento inteligente para ligar os pinos."
+      },
+      {
+        "title": "Exporte e partilhe",
+        "description": "Descarregue o seu esquema como SVG ou PNG de alta resolução para os seus relatórios."
+      }
     ],
     "home.data.title": "Comparação de ferramentas",
-    "home.data.headers": ["Funcionalidade", "Circuit Diagram Maker", "Ferramentas CAD", "Apps de desenho"],
+    "home.data.headers": [
+      "Funcionalidade",
+      "Criador de diagrama de circuito",
+      "Ferramentas CAD",
+      "Apps de desenho"
+    ],
     "home.data.rows": [
-      ["100% no navegador", "Sim", "Não", "Sim"],
-      ["Roteamento inteligente", "Sim", "Sim", "Não"],
-      ["Biblioteca de símbolos", "Sim", "Sim", "Não"],
-      ["Exportação SVG", "Sim", "Limitado", "Sim"],
-      ["Exportação PNG", "Sim", "Sim", "Não"],
-      ["Ajuste à grelha", "Sim", "Sim", "Limitado"],
-      ["Sem conta", "Sim", "Não", "Não"],
-      ["Totalmente grátis", "Sim", "Não", "Não"],
-      ["Atalhos de teclado", "Sim", "Sim", "Limitado"],
-      ["Funciona offline", "Sim", "Sim", "Não"]
+      [
+        "100% no navegador",
+        "Sim",
+        "Não",
+        "Sim"
+      ],
+      [
+        "Roteamento inteligente",
+        "Sim",
+        "Sim",
+        "Não"
+      ],
+      [
+        "Biblioteca de símbolos",
+        "Sim",
+        "Sim",
+        "Não"
+      ],
+      [
+        "Exportação SVG",
+        "Sim",
+        "Limitado",
+        "Sim"
+      ],
+      [
+        "Exportação PNG",
+        "Sim",
+        "Sim",
+        "Não"
+      ],
+      [
+        "Ajuste à grelha",
+        "Sim",
+        "Sim",
+        "Limitado"
+      ],
+      [
+        "Sem conta",
+        "Sim",
+        "Não",
+        "Não"
+      ],
+      [
+        "Totalmente grátis",
+        "Sim",
+        "Não",
+        "Não"
+      ],
+      [
+        "Atalhos de teclado",
+        "Sim",
+        "Sim",
+        "Limitado"
+      ],
+      [
+        "Funciona offline",
+        "Sim",
+        "Sim",
+        "Não"
+      ]
     ],
     "home.personas.badge": "Casos de uso",
     "home.personas.title": "Quem usa o Circuit Diagram Maker?",
     "home.personas.subtitle": "De laboratórios universitários a equipas de engenharia profissionais.",
     "home.personas.cta": "Lançar editor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Estudantes", "desc": "Crie diagramas de qualidade para relatórios e teses.", "keyword": "criador de diagramas para estudantes" },
-      { "emoji": "⚡", "title": "Engenheiros", "desc": "Desenhe esquemas profissionais para revisões de projeto.", "keyword": "ferramenta de circuitos para engenheiros" },
-      { "emoji": "🔧", "title": "Maker", "desc": "Planeie os seus projetos Arduino e IoT com uma interface intuitiva.", "keyword": "criador de circuitos gratuito" },
-      { "emoji": "📚", "title": "Educadores", "desc": "Crie diagramas interativos para aulas e cursos online.", "keyword": "criador de diagramas para ensino" }
+      {
+        "emoji": "🎓",
+        "title": "Estudantes",
+        "desc": "Crie diagramas de qualidade para relatórios e teses.",
+        "keyword": "criador de diagramas para estudantes"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Engenheiros",
+        "desc": "Desenhe esquemas profissionais para revisões de projeto.",
+        "keyword": "ferramenta de circuitos para engenheiros"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Maker",
+        "desc": "Planeie os seus projetos Arduino e IoT com uma interface intuitiva.",
+        "keyword": "criador de circuitos gratuito"
+      },
+      {
+        "emoji": "📚",
+        "title": "Educadores",
+        "desc": "Crie diagramas interativos para aulas e cursos online.",
+        "keyword": "criador de diagramas para ensino"
+      }
     ],
     "home.faq.title": "Perguntas frequentes",
     "home.cta.title": "Comece a criar diagramas agora",
@@ -468,20 +1316,150 @@
     "home.what_is.title": "সার্কিট ডায়াগ্রাম মেকার কী?",
     "home.what_is.p1": "প্রমিত প্রতীক ব্যবহার করে ইলেকট্রনিক সার্কিট ডায়াগ্রাম দৃশ্যমানভাবে উপস্থাপন করার একটি বিশেষ টুল।",
     "home.what_is.p2": "এটি সরাসরি ব্রাউজারে চলে, ইনস্টলেশনের প্রয়োজন নেই এবং উচ্চ রেজোলিউশনের SVG এবং PNG এক্সপোর্ট করতে পারে।",
+    "home.what_is.p3": "আপনার তৈরি করা প্রতিটি সার্কিট ডায়াগ্রাম স্বয়ংক্রিয়ভাবে আপনার ব্রাউজারের স্থানীয় স্টোরেজে সংরক্ষিত হয়। আপনি সংস্করণ নিয়ন্ত্রণ, টিম ভাগ করে নেওয়া বা অন্য মেশিনে লোড করার জন্য JSON ফাইল হিসাবে প্রকল্পগুলি রপ্তানি করতে পারেন।",
     "home.features.badge": "বৈশিষ্ট্য",
     "home.features.title": "কেন আমাদের সার্কিট মেকার ব্যবহার করবেন?",
     "home.features.subtitle": "দ্রুত এবং আরও ভাল সার্কিট তৈরি করতে সাহায্য করার জন্য ডিজাইন করা হয়েছে।",
     "home.features.cta": "এডিটর ট্রাই করুন",
     "home.features.cards": [
-      { "title": "৪০+ ইলেকট্রনিক প্রতীক", "desc": "রেজিস্টর, ক্যাপাসিটর, আইসি ইত্যাদির জন্য প্রমিত প্রতীক।" },
-      { "title": "স্মার্ট ওয়্যার রাউটিং", "desc": "আমাদের ইঞ্জিন স্বয়ংক্রিয়ভাবে তারগুলোকে সমান্তরাল বা লম্বভাবে সাজিয়ে রাখে।" },
-      { "title": "কী-বোর্ড শর্টকাট", "desc": "দ্রুত কাজ করার জন্য শর্টকাট ব্যবহার করুন। ডিজাইনের গতি বাড়ান।" }
+      {
+        "title": "৪০+ ইলেকট্রনিক প্রতীক",
+        "desc": "রেজিস্টর, ক্যাপাসিটর, আইসি ইত্যাদির জন্য প্রমিত প্রতীক।"
+      },
+      {
+        "title": "স্মার্ট ওয়্যার রাউটিং",
+        "desc": "আমাদের ইঞ্জিন স্বয়ংক্রিয়ভাবে তারগুলোকে সমান্তরাল বা লম্বভাবে সাজিয়ে রাখে।"
+      },
+      {
+        "title": "কী-বোর্ড শর্টকাট",
+        "desc": "দ্রুত কাজ করার জন্য শর্টকাট ব্যবহার করুন। ডিজাইনের গতি বাড়ান।"
+      },
+      {
+        "title": "জিরো সেটআপ সময়",
+        "desc": "কোন ডাউনলোড, কোন ইনস্টলেশন, কোন সাইন আপ. আপনার ব্রাউজার খুলুন এবং অবিলম্বে সার্কিট ডায়াগ্রাম তৈরি করা শুরু করুন।"
+      },
+      {
+        "title": "কীবোর্ড শর্টকাট",
+        "desc": "নির্বাচন করতে V, তারের জন্য W, ঘোরাতে R, মুছতে Del। বাজ-দ্রুত খসড়া তৈরির জন্য প্রতিটি কর্মের একটি শর্টকাট রয়েছে।"
+      },
+      {
+        "title": "অটো-সেভ এবং ব্যাকআপ",
+        "desc": "LocalStorage-এ গণনা করা হয়েছে। ক্লাউড ব্যাকআপ, সংস্করণ নিয়ন্ত্রণ, বা দলের সদস্যদের সাথে ভাগ করার জন্য JSON হিসাবে রপ্তানি করুন।"
+      }
     ],
     "home.how_it_works.title": "কিভাবে সার্কিট মেকার ব্যবহার করবেন",
     "home.how_it_works.steps": [
-      { "title": "ডায়াগ্রাম ড্রাফট করুন", "description": "এডিটর খুলুন এবং কম্পোনেন্টগুলো গ্রিডে বসান।" },
-      { "title": "তারগুলো সংযুক্ত করুন", "description": "স্মার্ট রাউটিং ইঞ্জিন ব্যবহার করে সংযোগ দিন।" },
-      { "title": "এক্সপোর্ট এবং শেয়ার", "description": "আপনার ডায়াগ্রাম SVG বা PNG হিসেবে ডাউনলোড করুন।" }
+      {
+        "title": "ডায়াগ্রাম ড্রাফট করুন",
+        "description": "এডিটর খুলুন এবং কম্পোনেন্টগুলো গ্রিডে বসান।"
+      },
+      {
+        "title": "তারগুলো সংযুক্ত করুন",
+        "description": "স্মার্ট রাউটিং ইঞ্জিন ব্যবহার করে সংযোগ দিন।"
+      },
+      {
+        "title": "এক্সপোর্ট এবং শেয়ার",
+        "description": "আপনার ডায়াগ্রাম SVG বা PNG হিসেবে ডাউনলোড করুন।"
+      }
+    ],
+    "home.data.title": "টুল তুলনা",
+    "home.data.headers": [
+      "বৈশিষ্ট্য",
+      "সার্কিট ডায়াগ্রাম মেকার",
+      "ডেস্কটপ CAD টুলস",
+      "জেনেরিক ড্রয়িং অ্যাপস"
+    ],
+    "home.data.rows": [
+      [
+        "100% ব্রাউজার-ভিত্তিক",
+        "হ্যাঁ",
+        "না",
+        "হ্যাঁ"
+      ],
+      [
+        "স্মার্ট ওয়্যার রাউটিং",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "না"
+      ],
+      [
+        "ইলেকট্রনিক সিম্বল লাইব্রেরি",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "না"
+      ],
+      [
+        "SVG ভেক্টর রপ্তানি",
+        "হ্যাঁ",
+        "লিমিটেড",
+        "হ্যাঁ"
+      ],
+      [
+        "উচ্চ-DPI PNG রপ্তানি",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "না"
+      ],
+      [
+        "গ্রিড স্ন্যাপিং",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "লিমিটেড"
+      ],
+      [
+        "কোন অ্যাকাউন্টের প্রয়োজন নেই",
+        "হ্যাঁ",
+        "না",
+        "না"
+      ],
+      [
+        "সম্পূর্ণ বিনামূল্যে",
+        "হ্যাঁ",
+        "না",
+        "না"
+      ],
+      [
+        "কীবোর্ড শর্টকাট",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "লিমিটেড"
+      ],
+      [
+        "অফলাইনে কাজ করে",
+        "হ্যাঁ",
+        "হ্যাঁ",
+        "না"
+      ]
+    ],
+    "home.personas.badge": "কেস ব্যবহার করুন",
+    "home.personas.title": "কে সার্কিট ডায়াগ্রাম মেকার ব্যবহার করে?",
+    "home.personas.subtitle": "বিশ্ববিদ্যালয়ের ল্যাব থেকে পেশাদার ইঞ্জিনিয়ারিং দল, হাজার হাজার ব্যবহারকারী আমাদের টুলের উপর নির্ভর করে।",
+    "home.personas.cta": "এডিটর চালু করুন",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "ছাত্র এবং শিক্ষাবিদ",
+        "desc": "ল্যাব রিপোর্ট এবং থিসিস নথিগুলির জন্য প্রকাশনা-মানের সার্কিট ডায়াগ্রাম তৈরি করুন।",
+        "keyword": "শিক্ষার্থীদের জন্য সার্কিট ডায়াগ্রাম মেকার"
+      },
+      {
+        "emoji": "⚡",
+        "title": "ইলেকট্রনিক্স ইঞ্জিনিয়ার",
+        "desc": "নকশা পর্যালোচনা এবং উপাদান ডকুমেন্টেশনের জন্য পেশাদার স্কিম্যাটিক্স খসড়া।",
+        "keyword": "ইঞ্জিনিয়ারদের জন্য সার্কিট ডায়াগ্রাম টুল"
+      },
+      {
+        "emoji": "🔧",
+        "title": "শখ এবং মেকার",
+        "desc": "একটি স্বজ্ঞাত ইন্টারফেসের সাথে আপনার Arduino প্রকল্প এবং IoT প্রোটোটাইপ পরিকল্পনা করুন।",
+        "keyword": "শখের জন্য বিনামূল্যে সার্কিট ডায়াগ্রাম প্রস্তুতকারক"
+      },
+      {
+        "emoji": "📚",
+        "title": "শিক্ষাবিদ ও প্রশিক্ষক",
+        "desc": "বক্তৃতা এবং অনলাইন কোর্সের জন্য ইন্টারেক্টিভ সার্কিট ডায়াগ্রাম তৈরি করুন।",
+        "keyword": "শিক্ষার জন্য সার্কিট ডায়াগ্রাম নির্মাতা"
+      }
     ],
     "home.faq.title": "সাধারণ জিজ্ঞাসা",
     "home.cta.title": "এখনই সার্কিট ডায়াগ্রাম তৈরি শুরু করুন",
@@ -507,42 +1485,144 @@
     "home.features.subtitle": "より良い回路図を、より速く作成できるように設計されたすべての機能。",
     "home.features.cta": "エディタを試す",
     "home.features.cards": [
-      { "title": "40以上の電子シンボル", "desc": "抵抗、コンデンサ、ICなどの業界標準シンボル。" },
-      { "title": "スマート配線エンジン", "desc": "すべてのワイヤを完全に水平または垂直に保ちます。" },
-      { "title": "SVGおよびPNGエクスポート", "desc": "レポートや技術文書に最適です。" },
-      { "title": "セットアップ時間ゼロ", "desc": "ダウンロードや登録は不要。ブラウザで即座に開始。" },
-      { "title": "キーボードショートカット", "desc": "Vで選択、Wで配線、Rで回転。爆速で設計。" },
-      { "title": "自動保存", "desc": "回路図はブラウザに保存。JSON形式でバックアップ可能。" }
+      {
+        "title": "40以上の電子シンボル",
+        "desc": "抵抗、コンデンサ、ICなどの業界標準シンボル。"
+      },
+      {
+        "title": "スマート配線エンジン",
+        "desc": "すべてのワイヤを完全に水平または垂直に保ちます。"
+      },
+      {
+        "title": "SVGおよびPNGエクスポート",
+        "desc": "レポートや技術文書に最適です。"
+      },
+      {
+        "title": "セットアップ時間ゼロ",
+        "desc": "ダウンロードや登録は不要。ブラウザで即座に開始。"
+      },
+      {
+        "title": "キーボードショートカット",
+        "desc": "Vで選択、Wで配線、Rで回転。爆速で設計。"
+      },
+      {
+        "title": "自動保存",
+        "desc": "回路図はブラウザに保存。JSON形式でバックアップ可能。"
+      }
     ],
     "home.how_it_works.title": "回路図メーカーの使い方",
     "home.how_it_works.steps": [
-      { "title": "回路図を下書きする", "description": "エディタを開き、キャンバスにコンポーネントをドラッグしてグリッドに配置します。" },
-      { "title": "ワイヤを接続する", "description": "配線エンジンを使用してピン間を接続。ラベル付けも簡単です。" },
-      { "title": "エクスポートと共有", "description": "完成した回路図をSVGまたは高解像度PNGでダウンロードします。" }
+      {
+        "title": "回路図を下書きする",
+        "description": "エディタを開き、キャンバスにコンポーネントをドラッグしてグリッドに配置します。"
+      },
+      {
+        "title": "ワイヤを接続する",
+        "description": "配線エンジンを使用してピン間を接続。ラベル付けも簡単です。"
+      },
+      {
+        "title": "エクスポートと共有",
+        "description": "完成した回路図をSVGまたは高解像度PNGでダウンロードします。"
+      }
     ],
     "home.data.title": "ツール比較",
-    "home.data.headers": ["機能", "Circuit Diagram Maker", "CADツール", "汎用描画アプリ"],
+    "home.data.headers": [
+      "機能",
+      "回路図メーカー",
+      "CADツール",
+      "汎用描画アプリ"
+    ],
     "home.data.rows": [
-      ["100%ブラウザ動作", "はい", "いいえ", "はい"],
-      ["スマート配線", "はい", "はい", "いいえ"],
-      ["シンボルライブラリ", "はい", "はい", "いいえ"],
-      ["SVGエクスポート", "はい", "限定的", "はい"],
-      ["PNGエクスポート", "はい", "はい", "いいえ"],
-      ["グリッド吸着", "はい", "はい", "限定的"],
-      ["アカウント不要", "はい", "いいえ", "いいえ"],
-      ["完全無料", "はい", "いいえ", "いいえ"],
-      ["ショートカットキー", "はい", "はい", "限定的"],
-      ["オフライン対応", "はい", "はい", "いいえ"]
+      [
+        "100%ブラウザ動作",
+        "はい",
+        "いいえ",
+        "はい"
+      ],
+      [
+        "スマート配線",
+        "はい",
+        "はい",
+        "いいえ"
+      ],
+      [
+        "シンボルライブラリ",
+        "はい",
+        "はい",
+        "いいえ"
+      ],
+      [
+        "SVGエクスポート",
+        "はい",
+        "限定的",
+        "はい"
+      ],
+      [
+        "PNGエクスポート",
+        "はい",
+        "はい",
+        "いいえ"
+      ],
+      [
+        "グリッド吸着",
+        "はい",
+        "はい",
+        "限定的"
+      ],
+      [
+        "アカウント不要",
+        "はい",
+        "いいえ",
+        "いいえ"
+      ],
+      [
+        "完全無料",
+        "はい",
+        "いいえ",
+        "いいえ"
+      ],
+      [
+        "ショートカットキー",
+        "はい",
+        "はい",
+        "限定的"
+      ],
+      [
+        "オフライン対応",
+        "はい",
+        "はい",
+        "いいえ"
+      ]
     ],
     "home.personas.badge": "ユースケース",
     "home.personas.title": "回路図メーカーの利用者層",
     "home.personas.subtitle": "大学の研究室からプロのエンジニアリングチームまで。",
     "home.personas.cta": "エディタを起動",
     "home.personas": [
-      { "emoji": "🎓", "title": "学生・研究者", "desc": "レポートや論文用に高品質な回路図を作成。", "keyword": "学生向け回路図作成" },
-      { "emoji": "⚡", "title": "電子エンジニア", "desc": "設計レビューやドキュメント用にプロフェッショナルな図面を。", "keyword": "エンジニア向け回路ツール" },
-      { "emoji": "🔧", "title": "個人開発者・メイカー", "desc": "ArduinoやIoTプロジェクトを直感的に計画。", "keyword": "無料回路図メーカー" },
-      { "emoji": "📚", "title": "教育関係者", "desc": "講義やオンラインコース用のインタラクティブな図を作成。", "keyword": "教育用回路図作成" }
+      {
+        "emoji": "🎓",
+        "title": "学生・研究者",
+        "desc": "レポートや論文用に高品質な回路図を作成。",
+        "keyword": "学生向け回路図作成"
+      },
+      {
+        "emoji": "⚡",
+        "title": "電子エンジニア",
+        "desc": "設計レビューやドキュメント用にプロフェッショナルな図面を。",
+        "keyword": "エンジニア向け回路ツール"
+      },
+      {
+        "emoji": "🔧",
+        "title": "個人開発者・メイカー",
+        "desc": "ArduinoやIoTプロジェクトを直感的に計画。",
+        "keyword": "無料回路図メーカー"
+      },
+      {
+        "emoji": "📚",
+        "title": "教育関係者",
+        "desc": "講義やオンラインコース用のインタラクティブな図を作成。",
+        "keyword": "教育用回路図作成"
+      }
     ],
     "home.faq.title": "よくある質問",
     "home.cta.title": "今すぐ回路図の作成を開始",
@@ -568,42 +1648,144 @@
     "home.features.subtitle": "더 나은 회로도를 더 빠르게 만들 수 있도록 설계된 모든 기능.",
     "home.features.cta": "에디터 사용해보기",
     "home.features.cards": [
-      { "title": "40개 이상의 전자 기호", "desc": "저항, 커패시터, IC 등 업계 표준 기호 제공." },
-      { "title": "스마트 와이어 라우팅", "desc": "모든 와이어를 수평 또는 수직으로 깔끔하게 유지합니다." },
-      { "title": "SVG 및 PNG 내보내기", "desc": "실험 보고서나 기술 문서에 완벽하게 어울립니다." },
-      { "title": "설치 시간 제로", "desc": "다운로드나 가입 없이 즉시 브라우저에서 시작하세요." },
-      { "title": "키보드 단축키", "desc": "선택은 V, 와이어는 W, 회전은 R. 빛의 속도로 설계하세요." },
-      { "title": "자동 저장", "desc": "회로도는 브라우저에 저장됩니다. JSON으로 백업 가능합니다." }
+      {
+        "title": "40개 이상의 전자 기호",
+        "desc": "저항, 커패시터, IC 등 업계 표준 기호 제공."
+      },
+      {
+        "title": "스마트 와이어 라우팅",
+        "desc": "모든 와이어를 수평 또는 수직으로 깔끔하게 유지합니다."
+      },
+      {
+        "title": "SVG 및 PNG 내보내기",
+        "desc": "실험 보고서나 기술 문서에 완벽하게 어울립니다."
+      },
+      {
+        "title": "설치 시간 제로",
+        "desc": "다운로드나 가입 없이 즉시 브라우저에서 시작하세요."
+      },
+      {
+        "title": "키보드 단축키",
+        "desc": "선택은 V, 와이어는 W, 회전은 R. 빛의 속도로 설계하세요."
+      },
+      {
+        "title": "자동 저장",
+        "desc": "회로도는 브라우저에 저장됩니다. JSON으로 백업 가능합니다."
+      }
     ],
     "home.how_it_works.title": "회로도 제작소 사용 방법",
     "home.how_it_works.steps": [
-      { "title": "회로도 초안 작성", "description": "에디터를 열고 캔버스에 부품을 드래그하여 그리드에 배치합니다." },
-      { "title": "와이어 연결", "description": "스마트 라우팅 엔진을 사용하여 핀 사이를 연결합니다." },
-      { "title": "내보내기 및 공유", "description": "완성된 회로도를 SVG 또는 고행상도 PNG로 다운로드합니다." }
+      {
+        "title": "회로도 초안 작성",
+        "description": "에디터를 열고 캔버스에 부품을 드래그하여 그리드에 배치합니다."
+      },
+      {
+        "title": "와이어 연결",
+        "description": "스마트 라우팅 엔진을 사용하여 핀 사이를 연결합니다."
+      },
+      {
+        "title": "내보내기 및 공유",
+        "description": "완성된 회로도를 SVG 또는 고행상도 PNG로 다운로드합니다."
+      }
     ],
     "home.data.title": "도구 비교",
-    "home.data.headers": ["기능", "Circuit Diagram Maker", "CAD 도구", "일반 드로잉 앱"],
+    "home.data.headers": [
+      "기능",
+      "회로도 작성기",
+      "CAD 도구",
+      "일반 드로잉 앱"
+    ],
     "home.data.rows": [
-      ["100% 브라우저 기반", "예", "아니오", "예"],
-      ["스마트 라우팅", "예", "예", "아니오"],
-      ["기호 라이브러리", "예", "예", "아니오"],
-      ["SVG 내보내기", "예", "제한적", "예"],
-      ["PNG 내보내기", "예", "예", "아니오"],
-      ["그리드 스냅", "예", "예", "제한적"],
-      ["계정 불필요", "예", "아니오", "아니오"],
-      ["완전 무료", "예", "아니오", "아니오"],
-      ["단축키 지원", "예", "예", "제한적"],
-      ["오프라인 작동", "예", "예", "아니오"]
+      [
+        "100% 브라우저 기반",
+        "예",
+        "아니오",
+        "예"
+      ],
+      [
+        "스마트 라우팅",
+        "예",
+        "예",
+        "아니오"
+      ],
+      [
+        "기호 라이브러리",
+        "예",
+        "예",
+        "아니오"
+      ],
+      [
+        "SVG 내보내기",
+        "예",
+        "제한적",
+        "예"
+      ],
+      [
+        "PNG 내보내기",
+        "예",
+        "예",
+        "아니오"
+      ],
+      [
+        "그리드 스냅",
+        "예",
+        "예",
+        "제한적"
+      ],
+      [
+        "계정 불필요",
+        "예",
+        "아니오",
+        "아니오"
+      ],
+      [
+        "완전 무료",
+        "예",
+        "아니오",
+        "아니오"
+      ],
+      [
+        "단축키 지원",
+        "예",
+        "예",
+        "제한적"
+      ],
+      [
+        "오프라인 작동",
+        "예",
+        "예",
+        "아니오"
+      ]
     ],
     "home.personas.badge": "사용 사례",
     "home.personas.title": "누가 회로도 제작소를 사용하나요?",
     "home.personas.subtitle": "대학 연구실부터 전문 엔지니어링 팀까지.",
     "home.personas.cta": "에디터 실행",
     "home.personas": [
-      { "emoji": "🎓", "title": "학생 및 학술인", "desc": "실험 보고서 및 논문용 고화질 회로도 작성.", "keyword": "학생용 회로도 제작" },
-      { "emoji": "⚡", "title": "전자 엔지니어", "desc": "디자인 리뷰 및 문서화를 위한 전문 도면 작성.", "keyword": "엔지니어를 위한 회로 도구" },
-      { "emoji": "🔧", "title": "취미 제작자", "desc": "Arduino 및 IoT 프로젝트를 직관적으로 계획.", "keyword": "무료 회로도 제작기" },
-      { "emoji": "📚", "title": "기술 교육자", "desc": "강의 및 온라인 코스용 회로도 교재 제작.", "keyword": "교육용 회로도 작성" }
+      {
+        "emoji": "🎓",
+        "title": "학생 및 학술인",
+        "desc": "실험 보고서 및 논문용 고화질 회로도 작성.",
+        "keyword": "학생용 회로도 제작"
+      },
+      {
+        "emoji": "⚡",
+        "title": "전자 엔지니어",
+        "desc": "디자인 리뷰 및 문서화를 위한 전문 도면 작성.",
+        "keyword": "엔지니어를 위한 회로 도구"
+      },
+      {
+        "emoji": "🔧",
+        "title": "취미 제작자",
+        "desc": "Arduino 및 IoT 프로젝트를 직관적으로 계획.",
+        "keyword": "무료 회로도 제작기"
+      },
+      {
+        "emoji": "📚",
+        "title": "기술 교육자",
+        "desc": "강의 및 온라인 코스용 회로도 교재 제작.",
+        "keyword": "교육용 회로도 작성"
+      }
     ],
     "home.faq.title": "자주 묻는 질문",
     "home.cta.title": "지금 바로 회로도 작성을 시작하세요",
@@ -613,117 +1795,328 @@
   "ms": {
     "home.hero.badge": "Editor Gambarajah Litar Percuma Berasaskan Pelayar",
     "home.hero.title": "Pembuat Gambarajah Litar",
-    "home.hero.subtitle": "Cara paling pantas dan intuitif untuk mencipta gambarajah litar elektronik profesional secara dalam talian. Eksport gambarajah berkualiti — tanpa muat turun.",
-    "home.hero.cta": "Mula Menghasil — Ia Percuma",
+    "home.hero.subtitle": "Cara paling pantas dan intuitif untuk mencipta gambarajah litar elektronik profesional secara dalam talian. Eksport gambarajah berkualiti tanpa muat turun.",
+    "home.hero.cta": "Mula Mereka Bentuk — Ia Percuma",
     "home.hero.secondary": "Lihat Dokumentasi",
     "home.stats.symbols": "Simbol",
     "home.stats.formats": "Format Eksport",
     "home.stats.free": "Percuma Selamanya",
     "home.what_is.badge": "Apa itu?",
     "home.what_is.title": "Apakah itu Pembuat Gambarajah Litar?",
-    "home.what_is.p1": "Alat khusus untuk mewakili litar elektronik secara visual.",
-    "home.features.badge": "Ciri-ciri",
-    "home.features.title": "Mengapa menggunakan pembuat litar kami?",
-    "home.features.cards": [
-      { "title": "40+ Simbol Elektronik", "desc": "Simbol standard." }
-    ],
-    "home.faq.title": "Soalan Lazim",
-    "home.cta.title": "Mula sekarang",
-    "home.cta.desc": "Tiada pendaftaran.",
-    "home.cta.button": "Buka Editor"
-  },
-  "bg": {
-    "home.stats.free": "Percuma Selamanya",
-    "home.what_is.badge": "Apa itu?",
-    "home.what_is.title": "Apakah itu Pembuat Gambarajah Litar?",
     "home.what_is.p1": "Alat khusus untuk mewakili litar elektronik secara visual menggunakan simbol piawai.",
+    "home.what_is.p2": "Pembuat gambar rajah litar percuma kami berjalan sepenuhnya dalam penyemak imbas anda, tidak memerlukan pemasangan dan menghasilkan eksport SVG dan PNG berkualiti penerbitan. Sama ada anda mereka bentuk litar LED ringkas atau penguat berbilang peringkat, prosesnya adalah sama: seret, sambung, eksport.",
+    "home.what_is.p3": "Setiap rajah litar yang anda buat disimpan secara automatik ke storan setempat penyemak imbas anda. Anda juga boleh mengeksport projek sebagai fail JSON untuk kawalan versi, perkongsian pasukan atau memuatkan pada mesin lain.",
     "home.features.badge": "Ciri-ciri",
     "home.features.title": "Mengapa menggunakan pembuat litar kami?",
+    "home.features.subtitle": "Setiap ciri direka untuk membantu anda membuat gambar rajah litar yang lebih baik, lebih pantas.",
+    "home.features.cta": "Cuba Editor",
     "home.features.cards": [
-      { "title": "40+ Simbol Elektronik", "desc": "Simbol standard untuk perintang, kapasitor, IC dan banyak lagi." },
-      { "title": "Penyambungan Pintar", "desc": "Enjin kami menyimpan pendawaian sentiasa kemas secara mendatar atau menegak." },
-      { "title": "Pintas Papan Kekunci", "desc": "V untuk pilih, W untuk wayar, R untuk putar. Rekabentuk sepantas kilat." }
+      {
+        "title": "40+ Simbol Elektronik",
+        "desc": "Simbol standard untuk perintang, kapasitor, IC dan banyak lagi."
+      },
+      {
+        "title": "Penyambungan Pintar",
+        "desc": "Enjin kami menyimpan pendawaian sentiasa kemas secara mendatar atau menegak."
+      },
+      {
+        "title": "Eksport SVG & PNG",
+        "desc": "Ideal untuk laporan makmal dan dokumen teknikal."
+      },
+      {
+        "title": "Tiada Pemasangan",
+        "desc": "Tiada muat turun atau pendaftaran diperlukan."
+      },
+      {
+        "title": "Pintas Papan Kekunci",
+        "desc": "V untuk pilih, W untuk wayar, R untuk putar. Reka bentuk sepantas kilat."
+      },
+      {
+        "title": "Simpan Automatik",
+        "desc": "Gambarajah disimpan dalam pelayar. Eksport ke JSON untuk sandaran."
+      }
     ],
     "home.how_it_works.title": "Cara menggunakan pembuat litar",
     "home.how_it_works.steps": [
-      { "title": "Lakar Gambarajah", "description": "Buka editor, tarik komponen ke kanvas och letakkan pada grid." },
-      { "title": "Sambungkan Wayar", "description": "Gunakan enjin penyambungan pintar untuk menyambung pin." },
-      { "title": "Eksport & Kongsi", "description": "Muat turun gambarajah dalam format SVG atau PNG resolusi tinggi." }
-    ],
-    "home.faq.title": "Soalan Lazim",
-    "home.cta.title": "Mula membuat gambarajah litar sekarang",
-    "home.cta.desc": "Tiada pendaftaran. Hanya buka och mula.",
-    "home.cta.button": "Buka Editor Litar — Ia Percuma"
-  },
-    "home.hero.badge": "Безплатен браузърен редактор на схеми",
-    "home.hero.title": "Създател на електрически схеми",
-    "home.hero.subtitle": "Най-бързият начин за създаване на професионални електронни схеми онлайн. Плъзгайте компоненти и експортирайте качествени диаграми — без инсталация.",
-    "home.hero.cta": "Започнете проектирането — безплатно е",
-    "home.hero.secondary": "Документация",
-    "home.stats.symbols": "Символи",
-    "home.stats.formats": "Формати за експорт",
-    "home.stats.free": "Безплатно завинаги",
-    "home.what_is.badge": "Какво е това?",
-    "home.what_is.title": "Какво представлява този инструмент?",
-    "home.what_is.p1": "Специализиран инструмент за визуално представяне на електронни вериги чрез стандартизирани символи.",
-    "home.features.badge": "Функции",
-    "home.features.title": "Защо да изберете нашия инструмент?",
-    "home.features.cards": [
-      { "title": "40+ електронни символа", "desc": "Стандартни символи за резистори, кондензатори, интегрални схеми и др." },
-      { "title": "Умно свързване", "desc": "Поддържа проводниците идеално хоризонтални или вертикални автоматично." },
-      { "title": "Бързи клавиши", "desc": "V за избор, W за проводник, R за завъртане. Проектирайте светкавично." }
-    ],
-    "home.how_it_works.title": "Как се работи с инструмента",
-    "home.how_it_works.steps": [
-      { "title": "Начертайте схемата", "description": "Отворете редактора и плъзнете компонентите върху мрежата." },
-      { "title": "Свържете проводниците", "description": "Използвайте интелигентното свързване за свързване на щифтовете." },
-      { "title": "Експорт и споделяне", "description": "Изтеглете схемата като висококачествен SVG или PNG файл." }
-    ],
-    "home.faq.title": "Често задавани въпроси",
-    "home.cta.title": "Започнете да създавате схеми сега",
-    "home.cta.desc": "Без регистрация. Без сваляне. Просто отворете и проектирайте.",
-    "home.cta.button": "Отвори редактора — безплатно"
-  },
-waian sentiasa kemas secara mendatar atau menegak." },
-      { "title": "Eksport SVG & PNG", "desc": "Ideal untuk laporan makmal dan dokumen teknikal." },
-      { "title": "Tiada Pemasangan", "desc": "Tiada muat turun atau pendaftaran diperlukan." },
-      { "title": "Pintas Papan Kekunci", "desc": "V untuk pilih, W untuk wayar, R untuk putar. Rekabentuk sepantas kilat." },
-      { "title": "Simpan Automatik", "desc": "Gambarajah disimpan dalam pelayar. Eksport ke JSON untuk sandaran." }
-    ],
-    "home.how_it_works.title": "Cara menggunakan pembuat litar",
-    "home.how_it_works.steps": [
-      { "title": "Lakar Gambarajah", "description": "Buka editor, tarik komponen ke kanvas dan letakkan pada grid." },
-      { "title": "Sambungkan Wayar", "description": "Gunakan enjin penyambungan pintar untuk menyambung pin." },
-      { "title": "Eksport & Kongsi", "description": "Muat turun gambarajah dalam format SVG atau PNG resolusi tinggi." }
+      {
+        "title": "Lakar Gambarajah",
+        "description": "Buka editor, tarik komponen ke kanvas dan letakkan pada grid."
+      },
+      {
+        "title": "Sambungkan Wayar",
+        "description": "Gunakan enjin penyambungan pintar untuk menyambung pin."
+      },
+      {
+        "title": "Eksport & Kongsi",
+        "description": "Muat turun gambarajah dalam format SVG atau PNG resolusi tinggi."
+      }
     ],
     "home.data.title": "Perbandingan Alat",
-    "home.data.headers": ["Ciri", "Circuit Diagram Maker", "Alat CAD", "Apps Lukisan"],
+    "home.data.headers": [
+      "Ciri",
+      "Pembuat Rajah Litar",
+      "Alat CAD",
+      "Aplikasi Lukisan"
+    ],
     "home.data.rows": [
-      ["100% dalam pelayar", "Ya", "Tidak", "Ya"],
-      ["Penyambungan Pintar", "Ya", "Ya", "Tidak"],
-      ["Perpustakaan Simbol", "Ya", "Ya", "Tidak"],
-      ["Eksport SVG", "Ya", "Terhad", "Ya"],
-      ["Eksport PNG", "Ya", "Ya", "Tidak"],
-      ["Snap ke Grid", "Ya", "Ya", "Terhad"],
-      ["Tanpa Akaun", "Ya", "Tidak", "Tidak"],
-      ["Percuma Sepenuhnya", "Ya", "Tidak", "Tidak"],
-      ["Pintas Papan Kekunci", "Ya", "Ya", "Terhad"],
-      ["Berfungsi luar talian", "Ya", "Ya", "Tidak"]
+      [
+        "100% dalam pelayar",
+        "Ya",
+        "Tidak",
+        "Ya"
+      ],
+      [
+        "Penyambungan Pintar",
+        "Ya",
+        "Ya",
+        "Tidak"
+      ],
+      [
+        "Perpustakaan Simbol",
+        "Ya",
+        "Ya",
+        "Tidak"
+      ],
+      [
+        "Eksport SVG",
+        "Ya",
+        "Terhad",
+        "Ya"
+      ],
+      [
+        "Eksport PNG",
+        "Ya",
+        "Ya",
+        "Tidak"
+      ],
+      [
+        "Snap ke Grid",
+        "Ya",
+        "Ya",
+        "Terhad"
+      ],
+      [
+        "Tanpa Akaun",
+        "Ya",
+        "Tidak",
+        "Tidak"
+      ],
+      [
+        "Percuma Sepenuhnya",
+        "Ya",
+        "Tidak",
+        "Tidak"
+      ],
+      [
+        "Pintas Papan Kekunci",
+        "Ya",
+        "Ya",
+        "Terhad"
+      ],
+      [
+        "Berfungsi Luar Talian",
+        "Ya",
+        "Ya",
+        "Tidak"
+      ]
     ],
     "home.personas.badge": "Kes Penggunaan",
     "home.personas.title": "Siapa Menggunakan Circuit Diagram Maker?",
     "home.personas.subtitle": "Dari makmal universiti ke pasukan kejuruteraan profesional.",
-    "home.personas.cta": "Lancar Editor",
+    "home.personas.cta": "Buka Editor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Pelajar", "desc": "Cipta gambarajah berkualiti untuk laporan makmal dan tesis.", "keyword": "pembuat gambarajah litar pelajar" },
-      { "emoji": "⚡", "title": "Jurutera", "desc": "Rekabentuk skematik profesional untuk semakan rekabentuk.", "keyword": "alat litar untuk jurutera" },
-      { "emoji": "🔧", "title": "Maker", "desc": "Rancang projek Arduino dan IoT anda dengan antara muka intuitif.", "keyword": "pembuat litar percuma" },
-      { "emoji": "📚", "title": "Pendidik", "desc": "Cipta gambarajah interaktif untuk pelajaran dan kursus dalam talian.", "keyword": "pembuat litar untuk pengajaran" }
+      {
+        "emoji": "🎓",
+        "title": "Pelajar",
+        "desc": "Cipta gambarajah berkualiti untuk laporan makmal dan tesis.",
+        "keyword": "pembuat gambarajah litar pelajar"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Jurutera",
+        "desc": "Reka bentuk skematik profesional untuk semakan reka bentuk.",
+        "keyword": "alat litar untuk jurutera"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Pembina",
+        "desc": "Rancang projek Arduino dan IoT anda dengan antara muka intuitif.",
+        "keyword": "pembuat litar percuma"
+      },
+      {
+        "emoji": "📚",
+        "title": "Pendidik",
+        "desc": "Cipta gambarajah interaktif untuk pelajaran dan kursus dalam talian.",
+        "keyword": "pembuat litar untuk pengajaran"
+      }
     ],
     "home.faq.title": "Soalan Lazim",
     "home.cta.title": "Mula membuat gambarajah litar sekarang",
     "home.cta.desc": "Tiada pendaftaran. Tiada muat turun. Hanya buka dan mula.",
     "home.cta.button": "Buka Editor Litar — Ia Percuma"
+  },
+  "bg": {
+    "home.hero.badge": "Безплатен базиран на браузър редактор на схеми",
+    "home.hero.title": "Безплатна програма за създаване на електрически схеми",
+    "home.hero.subtitle": "Създавайте, редактирайте и експортирайте професионални електрически схеми за секунди. Нашият базиран на браузъра инструмент за създаване на схеми ви позволява да плъзгате и пускате над 40 стандартни символа, да насочвате автоматично кабели и да експортирате в SVG или PNG – напълно безплатно, не се изисква регистрация.",
+    "home.hero.cta": "Отворете редактора на електрически схеми",
+    "home.hero.secondary": "Прочетете документацията",
+    "home.stats.symbols": "Символи",
+    "home.stats.formats": "Експортиране на формати",
+    "home.stats.free": "Безплатно завинаги",
+    "home.what_is.badge": "Какво е това?",
+    "home.what_is.title": "Какво представлява машината за създаване на схеми?",
+    "home.what_is.p1": "Специализиран инструмент, който ви позволява да представяте визуално електронни схеми с помощта на стандартизирани символи. Вместо да скицирате вериги на ръка или да се борите със сложен CAD софтуер, създателят на електрически диаграми предоставя интуитивен интерфейс за плъзгане и пускане, където избирате компоненти и ги свързвате с кабели, за да създадете професионални схеми.",
+    "home.what_is.p2": "Нашият безплатен инструмент за създаване на схеми работи изцяло във вашия браузър, не изисква инсталация и създава SVG и PNG експортирания с качество за публикация. Независимо дали проектирате проста LED верига или многостъпален усилвател, процесът е един и същ: плъзгане, свързване, експортиране.",
+    "home.what_is.p3": "Всяка електрическа схема, която създавате, се записва автоматично в локалното хранилище на вашия браузър. Можете също да експортирате проекти като JSON файлове за контрол на версиите, споделяне на екип или зареждане на друга машина.",
+    "home.features.badge": "Характеристики",
+    "home.features.title": "Защо инженерите избират нашия Създател на електрически схеми",
+    "home.features.subtitle": "Всяка функция, предназначена да ви помогне да създавате по-добри схеми, по-бързо.",
+    "home.features.cta": "Опитайте редактора",
+    "home.features.cards": [
+      {
+        "title": "40+ електронни символа",
+        "desc": "Стандартни за индустрията IEC и ANSI символи за резистори, кондензатори, интегрални схеми, транзистори, операционни усилватели, съединители и др."
+      },
+      {
+        "title": "Манхатън Wire Routing",
+        "desc": "Нашият интелигентен механизъм за маршрутизиране поддържа всеки проводник идеално хоризонтален или вертикален. Връзките се прилепват към решетка от 20 пиксела."
+      },
+      {
+        "title": "Експортиране на SVG и PNG",
+        "desc": "Експортирайте електрически диаграми като безкрайно мащабируеми SVG вектори или ясни PNG изображения с висока DPI. Перфектен за лабораторни отчети."
+      },
+      {
+        "title": "Нулево време за настройка",
+        "desc": "Без изтегляния, без инсталации, без регистрация. Отворете браузъра си и започнете незабавно да създавате електрически схеми."
+      },
+      {
+        "title": "Клавишни комбинации",
+        "desc": "V за избор, W за свързване, R за завъртане, Del за изтриване. Всяко действие има пряк път за светкавично изготвяне."
+      },
+      {
+        "title": "Автоматично запазване и архивиране",
+        "desc": "Изчислено запазване в LocalStorage. Експортирайте като JSON за архивиране в облак, контрол на версиите или споделяне с членове на екипа."
+      }
+    ],
+    "home.how_it_works.title": "Как да създадете електрическа схема в 3 стъпки",
+    "home.how_it_works.steps": [
+      {
+        "title": "Начертайте вашата електрическа схема",
+        "description": "Отворете създателя на електрически диаграми, плъзнете компоненти върху безкрайното платно и ги поставете върху мрежата за автоматично прихващане."
+      },
+      {
+        "title": "Свържете и прокарайте кабели",
+        "description": "Използвайте механизма за интелигентно маршрутизиране, за да свържете щифтове. Етикетирайте критичните сигнали и отделете пътищата с голям ток от контролната логика."
+      },
+      {
+        "title": "Експортиране и споделяне на диаграми",
+        "description": "Изтеглете вашата готова електрическа схема като кристално чист SVG или PNG с висока DPI, приет от IEEE и академични списания."
+      }
+    ],
+    "home.data.title": "Създател на електрически схеми срещу наследени инструменти за настолен компютър",
+    "home.data.headers": [
+      "Характеристика",
+      "Създател на електрически схеми",
+      "Настолни CAD инструменти",
+      "Общи приложения за рисуване"
+    ],
+    "home.data.rows": [
+      [
+        "100% базиран на браузър",
+        "да",
+        "не",
+        "да"
+      ],
+      [
+        "Интелигентно маршрутизиране на проводници",
+        "да",
+        "да",
+        "не"
+      ],
+      [
+        "Електронна библиотека със символи",
+        "да",
+        "да",
+        "не"
+      ],
+      [
+        "SVG векторно експортиране",
+        "да",
+        "Ограничен",
+        "да"
+      ],
+      [
+        "High-DPI PNG експортиране",
+        "да",
+        "да",
+        "не"
+      ],
+      [
+        "Прихващане на решетка",
+        "да",
+        "да",
+        "Ограничен"
+      ],
+      [
+        "Не се изисква акаунт",
+        "да",
+        "не",
+        "не"
+      ],
+      [
+        "Напълно безплатно",
+        "да",
+        "не",
+        "не"
+      ],
+      [
+        "Клавишни комбинации",
+        "да",
+        "да",
+        "Ограничен"
+      ],
+      [
+        "Работи офлайн",
+        "да",
+        "да",
+        "не"
+      ]
+    ],
+    "home.personas.badge": "Случаи на употреба",
+    "home.personas.title": "Кой използва Circuit Diagram Maker?",
+    "home.personas.subtitle": "От университетски лаборатории до професионални инженерни екипи, хиляди потребители разчитат на нашия инструмент.",
+    "home.personas.cta": "Стартирайте редактора",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "Студенти и преподаватели",
+        "desc": "Създавайте схеми с качество на публикация за лабораторни доклади и документи за дипломни работи.",
+        "keyword": "създател на електрически схеми за студенти"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Инженери по електроника",
+        "desc": "Проект на професионални схеми за прегледи на дизайна и документация на компоненти.",
+        "keyword": "инструмент за електрическа схема за инженери"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Любители и производители",
+        "desc": "Планирайте своите Arduino проекти и IoT прототипи с интуитивен интерфейс.",
+        "keyword": "безплатен производител на електрически схеми за любители"
+      },
+      {
+        "emoji": "📚",
+        "title": "Преподаватели и обучители",
+        "desc": "Изградете интерактивни електрически схеми за лекции и онлайн курсове.",
+        "keyword": "създател на схеми за преподаване"
+      }
+    ],
+    "home.faq.title": "Често задавани въпроси за Circuit Diagram Maker",
+    "home.cta.title": "Започнете да създавате електрически схеми сега",
+    "home.cta.desc": "Няма регистрация. Няма изтегляне. Просто отворете програмата за създаване на схеми и започнете да проектирате.",
+    "home.cta.button": "Отворете редактора на схеми на веригата — Безплатно е"
   },
   "pl": {
     "home.hero.badge": "Darmowy przeglądarkowy edytor schematów",
@@ -737,47 +2130,151 @@ waian sentiasa kemas secara mendatar atau menegak." },
     "home.what_is.badge": "Co to jest?",
     "home.what_is.title": "Czym jest kreator schematów?",
     "home.what_is.p1": "Specjalistyczne narzędzie do wizualnego przedstawiania obwodów elektronicznych przy użyciu standardowych symboli.",
+    "home.what_is.p2": "Nasz darmowy kreator schematów obwodów działa całkowicie w przeglądarce, nie wymaga instalacji i generuje eksporty w formacie SVG i PNG o jakości publikacyjnej. Niezależnie od tego, czy projektujesz prosty obwód LED, czy wzmacniacz wielostopniowy, proces jest taki sam: przeciąganie, podłączanie, eksportowanie.",
+    "home.what_is.p3": "Każdy utworzony przez Ciebie schemat obwodu jest automatycznie zapisywany w pamięci lokalnej Twojej przeglądarki. Możesz także eksportować projekty jako pliki JSON w celu kontroli wersji, udostępniania zespołu lub ładowania na innym komputerze.",
     "home.features.badge": "Funkcje",
     "home.features.title": "Dlaczego nasz kreator?",
     "home.features.subtitle": "Zaprojektowany, aby pomóc Ci tworzyć lepsze schematy, szybciej.",
     "home.features.cta": "Wypróbuj Edytor",
     "home.features.cards": [
-      { "title": "Ponad 40 symboli", "desc": "Standardowe symbole rezystorów, kondensatorów, układów scalonych itp." },
-      { "title": "Inteligentne trasowanie", "desc": "Automatycznie układa przewody poziomo lub pionowo." },
-      { "title": "Eksport SVG i PNG", "desc": "Idealny do raportów laboratoryjnych i dokumentacji technicznej." },
-      { "title": "Brak instalacji", "desc": "Brak pobierania i rejestracji. Zacznij natychmiast." },
-      { "title": "Skróty klawiszowe", "desc": "V - wybór, W - przewód, R - obrót. Projektuj błyskawicznie." },
-      { "title": "Autozapis", "desc": "Schematy są zapisywane w przeglądarce. Eksport do JSON dla kopii zapasowej." }
+      {
+        "title": "Ponad 40 symboli",
+        "desc": "Standardowe symbole rezystorów, kondensatorów, układów scalonych itp."
+      },
+      {
+        "title": "Inteligentne trasowanie",
+        "desc": "Automatycznie układa przewody poziomo lub pionowo."
+      },
+      {
+        "title": "Eksport SVG i PNG",
+        "desc": "Idealny do raportów laboratoryjnych i dokumentacji technicznej."
+      },
+      {
+        "title": "Brak instalacji",
+        "desc": "Brak pobierania i rejestracji. Zacznij natychmiast."
+      },
+      {
+        "title": "Skróty klawiszowe",
+        "desc": "V - wybór, W - przewód, R - obrót. Projektuj błyskawicznie."
+      },
+      {
+        "title": "Autozapis",
+        "desc": "Schematy są zapisywane w przeglądarce. Eksport do JSON dla kopii zapasowej."
+      }
     ],
     "home.how_it_works.title": "Jak używać kreatora",
     "home.how_it_works.steps": [
-      { "title": "Szkicuj schemat", "description": "Otwórz edytor i przeciągnij komponenty na siatkę." },
-      { "title": "Połącz przewody", "description": "Użyj inteligentnego trasowania, aby połączyć wyprowadzenia." },
-      { "title": "Eksportuj i udostępniaj", "description": "Pobierz schemat jako SVG lub PNG w wysokiej rozdzielczości." }
+      {
+        "title": "Szkicuj schemat",
+        "description": "Otwórz edytor i przeciągnij komponenty na siatkę."
+      },
+      {
+        "title": "Połącz przewody",
+        "description": "Użyj inteligentnego trasowania, aby połączyć wyprowadzenia."
+      },
+      {
+        "title": "Eksportuj i udostępniaj",
+        "description": "Pobierz schemat jako SVG lub PNG w wysokiej rozdzielczości."
+      }
     ],
     "home.data.title": "Porównanie narzędzi",
-    "home.data.headers": ["Cecha", "Circuit Diagram Maker", "Narzędzia CAD", "Aplikacje do rysowania"],
+    "home.data.headers": [
+      "Cecha",
+      "Kreator schematów obwodów",
+      "Narzędzia CAD",
+      "Aplikacje do rysowania"
+    ],
     "home.data.rows": [
-      ["100% w przeglądarce", "Tak", "Nie", "Tak"],
-      ["Inteligentne połączenia", "Tak", "Tak", "Nie"],
-      ["Biblioteka symboli", "Tak", "Tak", "Nie"],
-      ["Eksport SVG", "Tak", "Ograniczony", "Tak"],
-      ["Eksport PNG", "Tak", "Tak", "Nie"],
-      ["Przyciąganie do siatki", "Tak", "Tak", "Ograniczone"],
-      ["Bez konta", "Tak", "Nie", "Nie"],
-      ["Całkowicie za darmo", "Tak", "Nie", "Nie"],
-      ["Skróty klawiszowe", "Tak", "Tak", "Ograniczone"],
-      ["Działa offline", "Tak", "Tak", "Nie"]
+      [
+        "100% w przeglądarce",
+        "Tak",
+        "Nie",
+        "Tak"
+      ],
+      [
+        "Inteligentne połączenia",
+        "Tak",
+        "Tak",
+        "Nie"
+      ],
+      [
+        "Biblioteka symboli",
+        "Tak",
+        "Tak",
+        "Nie"
+      ],
+      [
+        "Eksport SVG",
+        "Tak",
+        "Ograniczony",
+        "Tak"
+      ],
+      [
+        "Eksport PNG",
+        "Tak",
+        "Tak",
+        "Nie"
+      ],
+      [
+        "Przyciąganie do siatki",
+        "Tak",
+        "Tak",
+        "Ograniczone"
+      ],
+      [
+        "Bez konta",
+        "Tak",
+        "Nie",
+        "Nie"
+      ],
+      [
+        "Całkowicie za darmo",
+        "Tak",
+        "Nie",
+        "Nie"
+      ],
+      [
+        "Skróty klawiszowe",
+        "Tak",
+        "Tak",
+        "Ograniczone"
+      ],
+      [
+        "Działa offline",
+        "Tak",
+        "Tak",
+        "Nie"
+      ]
     ],
     "home.personas.badge": "Przypadki użycia",
     "home.personas.title": "Kto używa Circuit Diagram Maker?",
     "home.personas.subtitle": "Od laboratoriów uniwersyteckich po profesjonalne zespoły inżynierskie.",
     "home.personas.cta": "Uruchom Edytor",
     "home.personas": [
-      { "emoji": "🎓", "title": "Studenci", "desc": "Twórz schematy wysokiej jakości do raportów i prac dyplomowych.", "keyword": "kreator schematów dla studentów" },
-      { "emoji": "⚡", "title": "Inżynierowie", "desc": "Projektuj profesjonalne schematy do recenzji technicznych.", "keyword": "narzędzie dla inżynierów" },
-      { "emoji": "🔧", "title": "Makerzy", "desc": "Planuj swoje projekty Arduino i IoT z intuicyjnym interfejsem.", "keyword": "darmowy kreator obwodów" },
-      { "emoji": "📚", "title": "Edukatorzy", "desc": "Twórz interaktywne schematy do lekcji i kursów online.", "keyword": "narzędzie do nauczania elektroniki" }
+      {
+        "emoji": "🎓",
+        "title": "Studenci",
+        "desc": "Twórz schematy wysokiej jakości do raportów i prac dyplomowych.",
+        "keyword": "kreator schematów dla studentów"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Inżynierowie",
+        "desc": "Projektuj profesjonalne schematy do recenzji technicznych.",
+        "keyword": "narzędzie dla inżynierów"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Makerzy",
+        "desc": "Planuj swoje projekty Arduino i IoT z intuicyjnym interfejsem.",
+        "keyword": "darmowy kreator obwodów"
+      },
+      {
+        "emoji": "📚",
+        "title": "Edukatorzy",
+        "desc": "Twórz interaktywne schematy do lekcji i kursów online.",
+        "keyword": "narzędzie do nauczania elektroniki"
+      }
     ],
     "home.faq.title": "Często zadawane pytania",
     "home.cta.title": "Zacznij tworzyć schematy teraz",
@@ -796,18 +2293,151 @@ waian sentiasa kemas secara mendatar atau menegak." },
     "home.what_is.badge": "Apa itu?",
     "home.what_is.title": "Apa itu Pembuat Diagram Sirkuit?",
     "home.what_is.p1": "Alat khusus untuk merepresentasikan sirkuit elektronik secara visual menggunakan simbol standar.",
+    "home.what_is.p2": "Pembuat diagram sirkuit gratis kami berjalan sepenuhnya di browser Anda, tidak memerlukan instalasi, dan menghasilkan ekspor SVG dan PNG berkualitas publikasi. Baik Anda mendesain sirkuit LED sederhana atau amplifier multi-tahap, prosesnya sama: seret, sambungkan, ekspor.",
+    "home.what_is.p3": "Setiap diagram sirkuit yang Anda buat disimpan secara otomatis ke penyimpanan lokal browser Anda. Anda juga dapat mengekspor proyek sebagai file JSON untuk kontrol versi, berbagi tim, atau memuat di mesin lain.",
     "home.features.badge": "Fitur",
     "home.features.title": "Mengapa menggunakan pembuat sirkuit kami?",
+    "home.features.subtitle": "Setiap fitur dirancang untuk membantu Anda membuat diagram sirkuit yang lebih baik dan lebih cepat.",
+    "home.features.cta": "Coba Editornya",
     "home.features.cards": [
-      { "title": "40+ Simbol Elektronik", "desc": "Simbol standar untuk resistor, kapasitor, IC, dan lainnya." },
-      { "title": "Penyambungan Pintar", "desc": "Mesin kami menjaga pengkabelan tetap rapi secara horizontal atau vertikal." },
-      { "title": "Pintasan Keyboard", "desc": "V untuk pilih, W para kabel, R untuk putar. Desain secepat kilat." }
+      {
+        "title": "40+ Simbol Elektronik",
+        "desc": "Simbol standar untuk resistor, kapasitor, IC, dan lainnya."
+      },
+      {
+        "title": "Penyambungan Pintar",
+        "desc": "Mesin kami menjaga pengkabelan tetap rapi secara horizontal atau vertikal."
+      },
+      {
+        "title": "Pintasan Keyboard",
+        "desc": "V untuk pilih, W para kabel, R untuk putar. Desain secepat kilat."
+      },
+      {
+        "title": "Waktu Pengaturan Nol",
+        "desc": "Tidak ada unduhan, tidak ada instalasi, tidak ada pendaftaran. Buka browser Anda dan mulailah membuat diagram sirkuit secara instan."
+      },
+      {
+        "title": "Pintasan Papan Ketik",
+        "desc": "V untuk memilih, W untuk menyambung, R untuk memutar, Del untuk menghapus. Setiap tindakan memiliki jalan pintas untuk penyusunan secepat kilat."
+      },
+      {
+        "title": "Simpan & Cadangkan Otomatis",
+        "desc": "Dihitung simpan ke Penyimpanan Lokal. Ekspor sebagai JSON untuk pencadangan cloud, kontrol versi, atau berbagi dengan anggota tim."
+      }
     ],
     "home.how_it_works.title": "Cara menggunakan pembuat sirkuit",
     "home.how_it_works.steps": [
-      { "title": "Gambar Skema", "description": "Buka editor, tarik komponen ke kanvas dan letakkan pada kisi." },
-      { "title": "Hubungkan Kabel", "description": "Gunakan mesin penyambungan pintar untuk menghubungkan pin." },
-      { "title": "Ekspor & Bagikan", "description": "Unduh diagram dalam format SVG atau PNG resolusi tinggi." }
+      {
+        "title": "Gambar Skema",
+        "description": "Buka editor, tarik komponen ke kanvas dan letakkan pada kisi."
+      },
+      {
+        "title": "Hubungkan Kabel",
+        "description": "Gunakan mesin penyambungan pintar untuk menghubungkan pin."
+      },
+      {
+        "title": "Ekspor & Bagikan",
+        "description": "Unduh diagram dalam format SVG atau PNG resolusi tinggi."
+      }
+    ],
+    "home.data.title": "Perbandingan Alat",
+    "home.data.headers": [
+      "Fitur",
+      "Pembuat Diagram Sirkuit",
+      "Alat CAD Desktop",
+      "Aplikasi Menggambar Generik"
+    ],
+    "home.data.rows": [
+      [
+        "100% Berbasis Browser",
+        "Ya",
+        "TIDAK",
+        "Ya"
+      ],
+      [
+        "Perutean Kabel Cerdas",
+        "Ya",
+        "Ya",
+        "TIDAK"
+      ],
+      [
+        "Perpustakaan Simbol Elektronik",
+        "Ya",
+        "Ya",
+        "TIDAK"
+      ],
+      [
+        "Ekspor Vektor SVG",
+        "Ya",
+        "Terbatas",
+        "Ya"
+      ],
+      [
+        "Ekspor PNG DPI Tinggi",
+        "Ya",
+        "Ya",
+        "TIDAK"
+      ],
+      [
+        "Pemotretan Grid",
+        "Ya",
+        "Ya",
+        "Terbatas"
+      ],
+      [
+        "Tidak Perlu Akun",
+        "Ya",
+        "TIDAK",
+        "TIDAK"
+      ],
+      [
+        "Sepenuhnya Gratis",
+        "Ya",
+        "TIDAK",
+        "TIDAK"
+      ],
+      [
+        "Pintasan Papan Ketik",
+        "Ya",
+        "Ya",
+        "Terbatas"
+      ],
+      [
+        "Bekerja Offline",
+        "Ya",
+        "Ya",
+        "TIDAK"
+      ]
+    ],
+    "home.personas.badge": "Kasus Penggunaan",
+    "home.personas.title": "Siapa yang Menggunakan Pembuat Diagram Sirkuit?",
+    "home.personas.subtitle": "Dari laboratorium universitas hingga tim teknik profesional, ribuan pengguna mengandalkan alat kami.",
+    "home.personas.cta": "Luncurkan Editor",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "Mahasiswa & Akademisi",
+        "desc": "Buat diagram sirkuit berkualitas publikasi untuk laporan lab dan dokumen tesis.",
+        "keyword": "pembuat diagram sirkuit untuk siswa"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Insinyur Elektronik",
+        "desc": "Draf skema profesional untuk tinjauan desain dan dokumentasi komponen.",
+        "keyword": "alat diagram sirkuit untuk insinyur"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Penghobi & Pembuat",
+        "desc": "Rencanakan proyek Arduino dan prototipe IoT Anda dengan antarmuka yang intuitif.",
+        "keyword": "pembuat diagram sirkuit gratis untuk penghobi"
+      },
+      {
+        "emoji": "📚",
+        "title": "Pendidik & Pelatih",
+        "desc": "Buat diagram sirkuit interaktif untuk kuliah dan kursus online.",
+        "keyword": "pembuat diagram sirkuit untuk mengajar"
+      }
     ],
     "home.faq.title": "Pertanyaan Umum",
     "home.cta.title": "Mulai membuat diagram sirkuit sekarang",
@@ -826,33 +2456,156 @@ waian sentiasa kemas secara mendatar atau menegak." },
     "home.what_is.badge": "ما هذا؟",
     "home.what_is.title": "ما هو صانع مخططات الدوائر؟",
     "home.what_is.p1": "أداة متخصصة لتمثيل الدوائر الإلكترونية بصريًا باستخدام رموز معيارية عبر واجهة سهلة الاستخدام.",
+    "home.what_is.p2": "يعمل صانع مخططات الدوائر المجانية الخاص بنا بالكامل في متصفحك، ولا يتطلب أي تثبيت، وينتج تصديرًا بجودة النشر بتنسيق SVG وPNG. سواء كنت تصمم دائرة LED بسيطة أو مضخمًا متعدد المراحل، فإن العملية هي نفسها: السحب والتوصيل والتصدير.",
+    "home.what_is.p3": "يتم حفظ كل مخطط دائرة تقوم بإنشائه تلقائيًا في وحدة التخزين المحلية للمتصفح الخاص بك. يمكنك أيضًا تصدير المشاريع كملفات JSON للتحكم في الإصدار أو مشاركة الفريق أو التحميل على جهاز مختلف.",
     "home.features.badge": "المميزات",
     "home.features.title": "لماذا تستخدم صانع الدوائر الخاص بنا؟",
+    "home.features.subtitle": "تم تصميم كل ميزة لمساعدتك في إنشاء مخططات دوائر أفضل وأسرع.",
+    "home.features.cta": "جرب المحرر",
     "home.features.cards": [
-      { "title": "أكثر من 40 رمزًا إلكترونيًا", "desc": "رموز قياسية للمقاومات والمكثفات والدوائر المتكاملة وغيرها." },
-      { "title": "توجيه ذكي للأسلاك", "desc": "يحافظ المحرك الخاص بنا على الأسلاك أفقية أو رأسية تمامًا تلقائيًا." },
-      { "title": "اختصارات لوحة المفاتيح", "desc": "V للتحديد، W للأسلاك، R للتدوير. صمم بسرعة البرق." }
+      {
+        "title": "أكثر من 40 رمزًا إلكترونيًا",
+        "desc": "رموز قياسية للمقاومات والمكثفات والدوائر المتكاملة وغيرها."
+      },
+      {
+        "title": "توجيه ذكي للأسلاك",
+        "desc": "يحافظ المحرك الخاص بنا على الأسلاك أفقية أو رأسية تمامًا تلقائيًا."
+      },
+      {
+        "title": "اختصارات لوحة المفاتيح",
+        "desc": "V للتحديد، W للأسلاك، R للتدوير. صمم بسرعة البرق."
+      },
+      {
+        "title": "وقت الإعداد صفر",
+        "desc": "لا التنزيلات، لا التثبيتات، لا الاشتراك. افتح متصفحك وابدأ في إنشاء مخططات الدوائر على الفور."
+      },
+      {
+        "title": "اختصارات لوحة المفاتيح",
+        "desc": "V للاختيار، W للسلك، R للتدوير، Del للحذف. كل إجراء له اختصار للصياغة بسرعة البرق."
+      },
+      {
+        "title": "الحفظ التلقائي والنسخ الاحتياطي",
+        "desc": "تم الحفظ المحسوب في LocalStorage. قم بالتصدير بتنسيق JSON للنسخ الاحتياطي السحابي أو التحكم في الإصدار أو المشاركة مع أعضاء الفريق."
+      }
     ],
     "home.how_it_works.title": "كيفية استخدام صانع الدوائر",
     "home.how_it_works.steps": [
-      { "title": "ارسم المخطط", "description": "افتح المحرر، واسحب المكونات إلى اللوحة وضعها على الشبكة." },
-      { "title": "قم بتوصيل الأسلاك", "description": "استخدم محرك التوجيه الذكي لتوصيل الأطراف ببعضها." },
-      { "title": "التصدير والمشاركة", "description": "قم بتحميل مخططك بصيغة SVG أو PNG عالية الدقة لتقاريرك." }
+      {
+        "title": "ارسم المخطط",
+        "description": "افتح المحرر، واسحب المكونات إلى اللوحة وضعها على الشبكة."
+      },
+      {
+        "title": "قم بتوصيل الأسلاك",
+        "description": "استخدم محرك التوجيه الذكي لتوصيل الأطراف ببعضها."
+      },
+      {
+        "title": "التصدير والمشاركة",
+        "description": "قم بتحميل مخططك بصيغة SVG أو PNG عالية الدقة لتقاريرك."
+      }
+    ],
+    "home.data.title": "مقارنة الأداة",
+    "home.data.headers": [
+      "ميزة",
+      "صانع مخطط الدائرة",
+      "أدوات CAD لسطح المكتب",
+      "تطبيقات الرسم العامة"
+    ],
+    "home.data.rows": [
+      [
+        "يعتمد على المتصفح بنسبة 100%",
+        "نعم",
+        "لا",
+        "نعم"
+      ],
+      [
+        "توجيه الأسلاك الذكية",
+        "نعم",
+        "نعم",
+        "لا"
+      ],
+      [
+        "مكتبة الرموز الإلكترونية",
+        "نعم",
+        "نعم",
+        "لا"
+      ],
+      [
+        "تصدير ناقلات SVG",
+        "نعم",
+        "محدود",
+        "نعم"
+      ],
+      [
+        "تصدير PNG عالي الدقة لكل بوصة",
+        "نعم",
+        "نعم",
+        "لا"
+      ],
+      [
+        "التقاط الشبكة",
+        "نعم",
+        "نعم",
+        "محدود"
+      ],
+      [
+        "لا يوجد حساب مطلوب",
+        "نعم",
+        "لا",
+        "لا"
+      ],
+      [
+        "مجاني تماما",
+        "نعم",
+        "لا",
+        "لا"
+      ],
+      [
+        "اختصارات لوحة المفاتيح",
+        "نعم",
+        "نعم",
+        "محدود"
+      ],
+      [
+        "يعمل دون اتصال",
+        "نعم",
+        "نعم",
+        "لا"
+      ]
+    ],
+    "home.personas.badge": "حالات الاستخدام",
+    "home.personas.title": "من يستخدم صانع مخططات الدوائر؟",
+    "home.personas.subtitle": "من مختبرات الجامعة إلى فرق الهندسة المهنية، يعتمد آلاف المستخدمين على أداتنا.",
+    "home.personas.cta": "إطلاق المحرر",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "الطلاب والأكاديميين",
+        "desc": "قم بإنشاء مخططات دوائر بجودة النشر لتقارير المختبر ووثائق الأطروحات.",
+        "keyword": "صانع مخطط الدائرة للطلاب"
+      },
+      {
+        "emoji": "⚡",
+        "title": "مهندسي الالكترونيات",
+        "desc": "قم بصياغة مخططات احترافية لمراجعات التصميم ووثائق المكونات.",
+        "keyword": "أداة مخطط الدائرة للمهندسين"
+      },
+      {
+        "emoji": "🔧",
+        "title": "الهواة والصناع",
+        "desc": "قم بتخطيط مشاريع Arduino ونماذج IoT الأولية باستخدام واجهة بديهية.",
+        "keyword": "صانع مخططات الدوائر المجانية للهواة"
+      },
+      {
+        "emoji": "📚",
+        "title": "المعلمون والمدربون",
+        "desc": "إنشاء مخططات دوائر تفاعلية للمحاضرات والدورات التدريبية عبر الإنترنت.",
+        "keyword": "صانع مخطط الدائرة للتدريس"
+      }
     ],
     "home.faq.title": "الأسئلة الشائعة",
     "home.cta.title": "ابدأ في إنشاء مخططات الدوائر الآن",
     "home.cta.desc": "بدون تسجيل. بدون تحميل. فقط افتح وابدأ التصميم.",
     "home.cta.button": "افتح محرر الدوائر — مجاني"
-  },
-  "bg": {
-    "home.hero.title": "Безплатна програма за създаване на електрически схеми",
-    "home.hero.subtitle": "Създавайте, редактирайте и експортирайте професионални електрически схеми за секунди. Нашият базиран на браузъра инструмент за създаване на схеми ви позволява да плъзгате и пускате над 40 стандартни символа, да насочвате автоматично кабели и да експортирате в SVG или PNG – напълно безплатно, не се изисква регистрация.",
-    "home.hero.cta": "Отворете редактора на електрически схеми",
-    "home.hero.secondary": "Прочетете документацията",
-    "home.features.title": "Защо инженерите избират нашия Създател на електрически схеми",
-    "home.faq.title": "Често задавани въпроси за Circuit Diagram Maker",
-    "home.how_it_works.title": "Как да създадете електрическа схема в 3 стъпки",
-    "home.data.title": "Създател на електрически схеми срещу наследени инструменти за настолен компютър"
   },
   "tr": {
     "home.hero.badge": "Ücretsiz Tarayıcı Tabanlı Şema Düzenleyici",
@@ -866,18 +2619,151 @@ waian sentiasa kemas secara mendatar atau menegak." },
     "home.what_is.badge": "Bu nedir?",
     "home.what_is.title": "Devre Şeması Oluşturucu Nedir?",
     "home.what_is.p1": "Standart semboller kullanarak elektronik devreleri görsel olarak temsil etmek için kullanılan özel bir araçtır.",
+    "home.what_is.p2": "Ücretsiz devre şeması oluşturucumuz tamamen tarayıcınızda çalışır, kurulum gerektirmez ve yayın kalitesinde SVG ve PNG dışa aktarımları üretir. İster basit bir LED devresi, ister çok aşamalı bir amplifikatör tasarlıyor olun, süreç aynıdır: sürükleyin, bağlayın, dışa aktarın.",
+    "home.what_is.p3": "Oluşturduğunuz her devre şeması otomatik olarak tarayıcınızın yerel belleğine kaydedilir. Ayrıca sürüm kontrolü, ekip paylaşımı veya farklı bir makineye yükleme için projeleri JSON dosyaları olarak dışa aktarabilirsiniz.",
     "home.features.badge": "Özellikler",
     "home.features.title": "Neden bizim devre oluşturucumuzu seçmelisiniz?",
+    "home.features.subtitle": "Her özellik, daha iyi devre şemalarını daha hızlı oluşturmanıza yardımcı olmak için tasarlanmıştır.",
+    "home.features.cta": "Düzenleyiciyi deneyin",
     "home.features.cards": [
-      { "title": "40+ Elektronik Sembol", "desc": "Dirençler, kondansatörler, IC'ler vb. için standart semboller." },
-      { "title": "Akıllı Kablo Yönlendirme", "desc": "Kabloları otomatik olarak mükemmel yatay veya dikey tutar." },
-      { "title": "Klavye Kısayolları", "desc": "V seçmek için, W kablo için, R döndürmek için. Işık hızında tasarım." }
+      {
+        "title": "40+ Elektronik Sembol",
+        "desc": "Dirençler, kondansatörler, IC'ler vb. için standart semboller."
+      },
+      {
+        "title": "Akıllı Kablo Yönlendirme",
+        "desc": "Kabloları otomatik olarak mükemmel yatay veya dikey tutar."
+      },
+      {
+        "title": "Klavye Kısayolları",
+        "desc": "V seçmek için, W kablo için, R döndürmek için. Işık hızında tasarım."
+      },
+      {
+        "title": "Sıfır Kurulum Süresi",
+        "desc": "İndirme yok, kurulum yok, kayıt yok. Tarayıcınızı açın ve anında devre şemaları oluşturmaya başlayın."
+      },
+      {
+        "title": "Klavye Kısayolları",
+        "desc": "Seçmek için V, kablolamak için W, döndürmek için R, silmek için Del. Her eylemin, ışık hızında çizim yapmak için bir kısayolu vardır."
+      },
+      {
+        "title": "Otomatik Kaydetme ve Yedekleme",
+        "desc": "LocalStorage'a hesaplanan kaydetme. Bulut yedekleme, sürüm kontrolü veya ekip üyeleriyle paylaşım için JSON olarak dışa aktarın."
+      }
     ],
     "home.how_it_works.title": "Devre oluşturucu nasıl kullanılır?",
     "home.how_it_works.steps": [
-      { "title": "Şemayı Çizin", "description": "Düzenleyiciyi açın ve bileşenleri ızgaraya yerleştirin." },
-      { "title": "Kabloları Bağlayın", "description": "Pinleri bağlamak için akıllı yönlendirme motorunu kullanın." },
-      { "title": "Dışa Aktar ve Paylaş", "description": "Şemanızı yüksek çözünürlüklü SVG veya PNG olarak indirin." }
+      {
+        "title": "Şemayı Çizin",
+        "description": "Düzenleyiciyi açın ve bileşenleri ızgaraya yerleştirin."
+      },
+      {
+        "title": "Kabloları Bağlayın",
+        "description": "Pinleri bağlamak için akıllı yönlendirme motorunu kullanın."
+      },
+      {
+        "title": "Dışa Aktar ve Paylaş",
+        "description": "Şemanızı yüksek çözünürlüklü SVG veya PNG olarak indirin."
+      }
+    ],
+    "home.data.title": "Takım Karşılaştırması",
+    "home.data.headers": [
+      "Özellik",
+      "Devre Şeması Oluşturucu",
+      "Masaüstü CAD Araçları",
+      "Genel Çizim Uygulamaları"
+    ],
+    "home.data.rows": [
+      [
+        "%100 Tarayıcı Tabanlı",
+        "Evet",
+        "HAYIR",
+        "Evet"
+      ],
+      [
+        "Akıllı Kablo Yönlendirme",
+        "Evet",
+        "Evet",
+        "HAYIR"
+      ],
+      [
+        "Elektronik Sembol Kütüphanesi",
+        "Evet",
+        "Evet",
+        "HAYIR"
+      ],
+      [
+        "SVG Vektör Dışa Aktarma",
+        "Evet",
+        "Sınırlı",
+        "Evet"
+      ],
+      [
+        "Yüksek DPI PNG Dışa Aktarma",
+        "Evet",
+        "Evet",
+        "HAYIR"
+      ],
+      [
+        "Izgaraya Yapışma",
+        "Evet",
+        "Evet",
+        "Sınırlı"
+      ],
+      [
+        "Hesap Gerekmiyor",
+        "Evet",
+        "HAYIR",
+        "HAYIR"
+      ],
+      [
+        "Tamamen Ücretsiz",
+        "Evet",
+        "HAYIR",
+        "HAYIR"
+      ],
+      [
+        "Klavye Kısayolları",
+        "Evet",
+        "Evet",
+        "Sınırlı"
+      ],
+      [
+        "Çevrimdışı Çalışır",
+        "Evet",
+        "Evet",
+        "HAYIR"
+      ]
+    ],
+    "home.personas.badge": "Kullanım Durumları",
+    "home.personas.title": "Devre Şeması Oluşturucuyu Kimler Kullanır?",
+    "home.personas.subtitle": "Üniversite laboratuvarlarından profesyonel mühendislik ekiplerine kadar binlerce kullanıcı aracımıza güveniyor.",
+    "home.personas.cta": "Düzenleyiciyi Başlat",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "Öğrenciler ve Akademisyenler",
+        "desc": "Laboratuvar raporları ve tez belgeleri için yayın kalitesinde devre şemaları oluşturun.",
+        "keyword": "öğrenciler için devre şeması oluşturucu"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Elektronik Mühendisleri",
+        "desc": "Tasarım incelemeleri ve bileşen dokümantasyonu için profesyonel şemalar hazırlayın.",
+        "keyword": "mühendisler için devre şeması aracı"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobiciler ve Yapımcılar",
+        "desc": "Arduino projelerinizi ve IoT prototiplerinizi sezgisel bir arayüzle planlayın.",
+        "keyword": "hobiciler için ücretsiz devre şeması oluşturucu"
+      },
+      {
+        "emoji": "📚",
+        "title": "Eğitimciler ve Eğitmenler",
+        "desc": "Dersler ve çevrimiçi kurslar için etkileşimli devre şemaları oluşturun.",
+        "keyword": "öğretim için devre şeması oluşturucu"
+      }
     ],
     "home.faq.title": "Sıkça Sorulan Sorular",
     "home.cta.title": "Şimdi devre şemaları oluşturmaya başlayın",
@@ -885,13 +2771,166 @@ waian sentiasa kemas secara mendatar atau menegak." },
     "home.cta.button": "Düzenleyiciyi Aç — Ücretsiz"
   },
   "sv": {
+    "home.hero.badge": "Gratis webbläsarbaserad schematisk redigerare",
     "home.hero.title": "Gratis Kretsdiagram Maker",
     "home.hero.subtitle": "Skapa, redigera och exportera professionella kretsscheman på några sekunder. Vår webbläsarbaserade skapare av kretsscheman låter dig dra och släppa 40+ standardsymboler, auto-routa ledningar och exportera till SVG eller PNG - helt gratis, ingen registrering krävs.",
     "home.hero.cta": "Öppna Circuit Diagram Editor",
     "home.hero.secondary": "Läs dokumentation",
+    "home.stats.symbols": "Symboler",
+    "home.stats.formats": "Exportera format",
+    "home.stats.free": "Gratis för alltid",
+    "home.what_is.badge": "Vad är det?",
+    "home.what_is.title": "Vad är en kretsdiagrammakare?",
+    "home.what_is.p1": "Ett specialiserat verktyg som låter dig visuellt representera elektroniska kretsar med hjälp av standardiserade symboler. Istället för att skissa kretsar för hand eller brottas med komplex CAD-mjukvara, tillhandahåller en kretsschematillverkare ett intuitivt dra-och-släpp-gränssnitt där du väljer komponenter och ansluter dem med kablar för att skapa professionella scheman.",
+    "home.what_is.p2": "Vår skapare av gratis kretsscheman körs helt i din webbläsare, kräver ingen installation och producerar SVG- och PNG-exporter av publikationskvalitet. Oavsett om du designar en enkel LED-krets eller en flerstegsförstärkare är processen densamma: dra, anslut, exportera.",
+    "home.what_is.p3": "Varje kretsschema du skapar sparas automatiskt i din webbläsares lokala lagring. Du kan också exportera projekt som JSON-filer för versionskontroll, teamdelning eller laddning på en annan dator.",
+    "home.features.badge": "Drag",
     "home.features.title": "Varför ingenjörer väljer vår kretsdiagrammakare",
-    "home.faq.title": "Vanliga frågor om Circuit Diagram Maker",
+    "home.features.subtitle": "Varje funktion utformad för att hjälpa dig att skapa bättre kretsscheman, snabbare.",
+    "home.features.cta": "Prova Editor",
+    "home.features.cards": [
+      {
+        "title": "40+ elektroniska symboler",
+        "desc": "Branschstandard IEC- och ANSI-symboler för motstånd, kondensatorer, IC, transistorer, op-förstärkare, kontakter och mer."
+      },
+      {
+        "title": "Manhattan Wire Routing",
+        "desc": "Vår smarta routingmotor håller varje tråd perfekt horisontell eller vertikal. Anslutningar knäpps till ett 20px rutnät."
+      },
+      {
+        "title": "SVG & PNG Export",
+        "desc": "Exportera kretsdiagram som oändligt skalbara SVG-vektorer eller skarpa PNG-bilder med hög DPI. Perfekt för labbrapporter."
+      },
+      {
+        "title": "Noll inställningstid",
+        "desc": "Inga nedladdningar, inga installationer, ingen registrering. Öppna din webbläsare och börja skapa kretsscheman direkt."
+      },
+      {
+        "title": "Kortkommandon",
+        "desc": "V för att välja, W för att koppla, R för att rotera, Del för att radera. Varje åtgärd har en genväg för blixtsnabb ritning."
+      },
+      {
+        "title": "Spara och säkerhetskopiera automatiskt",
+        "desc": "Beräknad spara till LocalStorage. Exportera som JSON för molnsäkerhetskopiering, versionskontroll eller delning med teammedlemmar."
+      }
+    ],
     "home.how_it_works.title": "Hur man skapar ett kretsdiagram i 3 steg",
-    "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools"
+    "home.how_it_works.steps": [
+      {
+        "title": "Skapa ditt kretsdiagram",
+        "description": "Öppna kretsschematillverkaren, dra komponenter till den oändliga duken och placera dem på rutnätet för automatisk snäppning."
+      },
+      {
+        "title": "Anslut och dra ledningar",
+        "description": "Använd den smarta routingmotorn för att ansluta stift. Märk kritiska signaler och separera högströmsvägar från styrlogik."
+      },
+      {
+        "title": "Exportera och dela diagram",
+        "description": "Ladda ner ditt färdiga kretsschema som en kristallklar SVG eller PNG med hög DPI som accepteras av IEEE och akademiska tidskrifter."
+      }
+    ],
+    "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools",
+    "home.data.headers": [
+      "Särdrag",
+      "Kretsdiagram Maker",
+      "Desktop CAD-verktyg",
+      "Generiska ritappar"
+    ],
+    "home.data.rows": [
+      [
+        "100 % webbläsarbaserat",
+        "Ja",
+        "Inga",
+        "Ja"
+      ],
+      [
+        "Smart Wire Routing",
+        "Ja",
+        "Ja",
+        "Inga"
+      ],
+      [
+        "Elektroniskt symbolbibliotek",
+        "Ja",
+        "Ja",
+        "Inga"
+      ],
+      [
+        "SVG vektorexport",
+        "Ja",
+        "Begränsad",
+        "Ja"
+      ],
+      [
+        "PNG-export med hög DPI",
+        "Ja",
+        "Ja",
+        "Inga"
+      ],
+      [
+        "Grid Snapping",
+        "Ja",
+        "Ja",
+        "Begränsad"
+      ],
+      [
+        "Inget konto krävs",
+        "Ja",
+        "Inga",
+        "Inga"
+      ],
+      [
+        "Helt gratis",
+        "Ja",
+        "Inga",
+        "Inga"
+      ],
+      [
+        "Kortkommandon",
+        "Ja",
+        "Ja",
+        "Begränsad"
+      ],
+      [
+        "Fungerar offline",
+        "Ja",
+        "Ja",
+        "Inga"
+      ]
+    ],
+    "home.personas.badge": "Användningsfall",
+    "home.personas.title": "Vem använder Circuit Diagram Maker?",
+    "home.personas.subtitle": "Från universitetslabb till professionella ingenjörsteam, tusentals användare litar på vårt verktyg.",
+    "home.personas.cta": "Starta Editor",
+    "home.personas": [
+      {
+        "emoji": "🎓",
+        "title": "Studenter och akademiker",
+        "desc": "Skapa kretsdiagram av publikationskvalitet för labbrapporter och examensarbeten.",
+        "keyword": "kretsschematillverkare för studenter"
+      },
+      {
+        "emoji": "⚡",
+        "title": "Elektronikingenjörer",
+        "desc": "Utkast till professionella scheman för designgranskningar och komponentdokumentation.",
+        "keyword": "kretsschemaverktyg för ingenjörer"
+      },
+      {
+        "emoji": "🔧",
+        "title": "Hobbyister och skapare",
+        "desc": "Planera dina Arduino-projekt och IoT-prototyper med ett intuitivt gränssnitt.",
+        "keyword": "gratis kretsschematillverkare för hobbyister"
+      },
+      {
+        "emoji": "📚",
+        "title": "Utbildare och tränare",
+        "desc": "Bygg interaktiva kretsscheman för föreläsningar och onlinekurser.",
+        "keyword": "kretsschematillverkare för undervisning"
+      }
+    ],
+    "home.faq.title": "Vanliga frågor om Circuit Diagram Maker",
+    "home.cta.title": "Börja skapa kretsdiagram nu",
+    "home.cta.desc": "Ingen registrering. Ingen nedladdning. Öppna bara kretsschematillverkaren och börja designa.",
+    "home.cta.button": "Open Circuit Diagram Editor — Det är gratis"
   }
 }

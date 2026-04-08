@@ -1,0 +1,4700 @@
+{
+  "en": {
+    "showcase.badge": "Interactive Preview",
+    "showcase.title": "Explore a live schematic breakdown before you draw",
+    "showcase.description": "Switch between common circuit patterns to compare structure, complexity, and export readiness directly on the homepage.",
+    "showcase.canvas.label": "Diagram Canvas",
+    "showcase.live_preset": "Live preset",
+    "showcase.breakdown.badge": "Schematic breakdown",
+    "showcase.breakdown.title": "Critical path allocation",
+    "showcase.breakdown.status": "Auto-profiled",
+    "showcase.metrics.badge": "Operating metrics",
+    "showcase.checkpoints.badge": "Design checkpoints",
+    "showcase.checkpoints.status": "Review cues",
+    "showcase.profile.badge": "Technical Profile",
+    "showcase.quick_specs.title": "Quick Reference Specs",
+    "showcase.quick_specs.status": "Auto-updates",
+    "showcase.cta": "Open in Editor",
+    "showcase.presets.logic": {
+      "label": "Logic Control",
+      "title": "Sensor and MCU interface",
+      "summary": "Plan input protection, pull resistors, and connector strategy for digital control systems.",
+      "specs": [
+        [
+          "Primary parts",
+          "12"
+        ],
+        [
+          "Estimated nets",
+          "16"
+        ],
+        [
+          "Signal class",
+          "Mixed signal"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Bus utilization",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violet"
+        },
+        {
+          "label": "Pin fan-out",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cyan"
+        },
+        {
+          "label": "Protection cover",
+          "value": "88%",
+          "strength": 88,
+          "accent": "emerald"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Sensor ingress",
+          "detail": "ESD and pull network",
+          "load": 24
+        },
+        {
+          "name": "MCU processing",
+          "detail": "Core logic and timing",
+          "load": 49
+        },
+        {
+          "name": "Peripheral links",
+          "detail": "UART and GPIO breakout",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Reserve spare GPIO labels",
+        "Flag mixed-voltage crossings",
+        "Document pull-up defaults"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Audio Amp",
+      "title": "Class-A Preamplifier",
+      "summary": "Design high-fidelity signal paths with DC blocking capacitors and precision gain stages.",
+      "specs": [
+        [
+          "Primary parts",
+          "7"
+        ],
+        [
+          "Estimated nets",
+          "11"
+        ],
+        [
+          "Signal class",
+          "Hi-Fi Audio"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Gain balance",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "DC isolation",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cyan"
+        },
+        {
+          "label": "Output clarity",
+          "value": "73%",
+          "strength": 73,
+          "accent": "emerald"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Input coupling",
+          "detail": "DC block and source trim",
+          "load": 21
+        },
+        {
+          "name": "Transistor gain",
+          "detail": "Bias and amplification core",
+          "load": 53
+        },
+        {
+          "name": "Line conditioning",
+          "detail": "Output cap and line handoff",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verify bias point symmetry",
+        "Keep audio ground quiet",
+        "Separate line output from supply return"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Logic Designer",
+      "title": "Digital Logic Controller",
+      "summary": "Design binary logic CMOS circuits with AND, OR, and XOR gates for specialized digital handshakes.",
+      "specs": [
+        [
+          "Primary gates",
+          "7"
+        ],
+        [
+          "Logic depth",
+          "4-layer"
+        ],
+        [
+          "Signal class",
+          "Digital CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Logic stability",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violet"
+        },
+        {
+          "label": "Timing margin",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cyan"
+        },
+        {
+          "label": "Fan-out efficiency",
+          "value": "64%",
+          "strength": 64,
+          "accent": "emerald"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Binary ingress",
+          "detail": "Input levels and pull-downs",
+          "load": 21
+        },
+        {
+          "name": "Condition logic",
+          "detail": "Branching and XOR gates",
+          "load": 56
+        },
+        {
+          "name": "Signal output",
+          "detail": "Buffer stage and edge trim",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimize gate propagation delay",
+        "Verify CMOS logic thresholds",
+        "Buffer fan-out branches"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB Drafting",
+      "title": "Multi-layer Schematic",
+      "summary": "Design manufacturing-ready PCBs with multi-layer trace routing, vias, and thermal relief planning.",
+      "specs": [
+        [
+          "Layer count",
+          "4-Layer"
+        ],
+        [
+          "Trace width",
+          "6 mil"
+        ],
+        [
+          "Clearance",
+          "0.15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Signal integrity",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cyan"
+        },
+        {
+          "label": "Thermal relief",
+          "value": "82%",
+          "strength": 82,
+          "accent": "emerald"
+        },
+        {
+          "label": "EMI shielding",
+          "value": "67%",
+          "strength": 67,
+          "accent": "rose"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Trace routing",
+          "detail": "Automatic differential routing",
+          "load": 46
+        },
+        {
+          "name": "Layer stacking",
+          "detail": "Ground plane and isolation",
+          "load": 38
+        },
+        {
+          "name": "Gerber prep",
+          "detail": "Via drill path optimization",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Keep differential pairs matched",
+        "Balance ground plane coverage",
+        "Minimize high-speed via hops"
+      ]
+    }
+  },
+  "hi": {
+    "showcase.badge": "इंटरैक्टिव पूर्वावलोकन",
+    "showcase.title": "चित्र बनाने से पहले एक लाइव योजनाबद्ध विश्लेषण का अन्वेषण करें",
+    "showcase.description": "मुखपृष्ठ पर सीधे संरचना, जटिलता और निर्यात की तैयारी की तुलना करने के लिए सामान्य सर्किट पैटर्न के बीच स्विच करें।",
+    "showcase.canvas.label": "आरेख कैनवास",
+    "showcase.live_preset": "लाइव प्रीसेट",
+    "showcase.breakdown.badge": "योजनाबद्ध टूटना",
+    "showcase.breakdown.title": "महत्वपूर्ण पथ आवंटन",
+    "showcase.breakdown.status": "स्वतः-प्रोफ़ाइल",
+    "showcase.metrics.badge": "ऑपरेटिंग मेट्रिक्स",
+    "showcase.checkpoints.badge": "चौकियों को डिज़ाइन करें",
+    "showcase.checkpoints.status": "संकेतों की समीक्षा करें",
+    "showcase.profile.badge": "तकनीकी प्रोफ़ाइल",
+    "showcase.quick_specs.title": "त्वरित संदर्भ विवरण",
+    "showcase.quick_specs.status": "स्वतः अद्यतन",
+    "showcase.cta": "संपादक में खोलें",
+    "showcase.presets.logic": {
+      "label": "तर्क नियंत्रण",
+      "title": "सेंसर और एमसीयू इंटरफ़ेस",
+      "summary": "डिजिटल नियंत्रण प्रणालियों के लिए इनपुट सुरक्षा, पुल रेसिस्टर्स और कनेक्टर रणनीति की योजना बनाएं।",
+      "specs": [
+        [
+          "प्राथमिक भाग",
+          "12"
+        ],
+        [
+          "अनुमानित जाल",
+          "16"
+        ],
+        [
+          "सिग्नल क्लास",
+          "मिश्रित संकेत"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "बस उपयोग",
+          "value": "57%",
+          "strength": 57,
+          "accent": "बैंगनी"
+        },
+        {
+          "label": "पिन फैन-आउट",
+          "value": "71%",
+          "strength": 71,
+          "accent": "सियान"
+        },
+        {
+          "label": "सुरक्षा कवच",
+          "value": "88%",
+          "strength": 88,
+          "accent": "पन्ना"
+        }
+      ],
+      "stages": [
+        {
+          "name": "सेंसर का प्रवेश",
+          "detail": "ईएसडी और पुल नेटवर्क",
+          "load": 24
+        },
+        {
+          "name": "एमसीयू प्रसंस्करण",
+          "detail": "मूल तर्क और समय",
+          "load": 49
+        },
+        {
+          "name": "परिधीय लिंक",
+          "detail": "यूएआरटी और जीपीआईओ ब्रेकआउट",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "अतिरिक्त GPIO लेबल आरक्षित करें",
+        "मिश्रित-वोल्टेज क्रॉसिंग को चिह्नित करें",
+        "दस्तावेज़ पुल-अप डिफ़ॉल्ट"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "ऑडियो एम्प",
+      "title": "क्लास-ए प्रीएम्प्लीफायर",
+      "summary": "डीसी अवरोधक कैपेसिटर और सटीक लाभ चरणों के साथ उच्च-निष्ठा सिग्नल पथ डिज़ाइन करें।",
+      "specs": [
+        [
+          "प्राथमिक भाग",
+          "7"
+        ],
+        [
+          "अनुमानित जाल",
+          "11"
+        ],
+        [
+          "सिग्नल क्लास",
+          "हाई-फाई ऑडियो"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "संतुलन प्राप्त करें",
+          "value": "76%",
+          "strength": 76,
+          "accent": "फुकिया"
+        },
+        {
+          "label": "डीसी अलगाव",
+          "value": "84%",
+          "strength": 84,
+          "accent": "सियान"
+        },
+        {
+          "label": "आउटपुट स्पष्टता",
+          "value": "73%",
+          "strength": 73,
+          "accent": "पन्ना"
+        }
+      ],
+      "stages": [
+        {
+          "name": "इनपुट युग्मन",
+          "detail": "डीसी ब्लॉक और स्रोत ट्रिम",
+          "load": 21
+        },
+        {
+          "name": "ट्रांजिस्टर लाभ",
+          "detail": "पूर्वाग्रह और प्रवर्धन कोर",
+          "load": 53
+        },
+        {
+          "name": "लाइन कंडीशनिंग",
+          "detail": "आउटपुट कैप और लाइन हैंडऑफ़",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "पूर्वाग्रह बिंदु समरूपता सत्यापित करें",
+        "ऑडियो ग्राउंड को शांत रखें",
+        "सप्लाई रिटर्न से अलग लाइन आउटपुट"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "तर्क डिजाइनर",
+      "title": "डिजिटल तर्क नियंत्रक",
+      "summary": "विशेष डिजिटल हैंडशेक के लिए AND, OR, और XOR गेट्स के साथ बाइनरी लॉजिक CMOS सर्किट डिज़ाइन करें।",
+      "specs": [
+        [
+          "प्राथमिक द्वार",
+          "7"
+        ],
+        [
+          "तर्क की गहराई",
+          "4 परत"
+        ],
+        [
+          "सिग्नल क्लास",
+          "डिजिटल सीएमओएस"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "तर्क स्थिरता",
+          "value": "72%",
+          "strength": 72,
+          "accent": "बैंगनी"
+        },
+        {
+          "label": "समय सीमा",
+          "value": "85%",
+          "strength": 85,
+          "accent": "सियान"
+        },
+        {
+          "label": "फैन-आउट दक्षता",
+          "value": "64%",
+          "strength": 64,
+          "accent": "पन्ना"
+        }
+      ],
+      "stages": [
+        {
+          "name": "बाइनरी प्रवेश",
+          "detail": "इनपुट स्तर और पुल-डाउन",
+          "load": 21
+        },
+        {
+          "name": "शर्त तर्क",
+          "detail": "ब्रांचिंग और एक्सओआर गेट्स",
+          "load": 56
+        },
+        {
+          "name": "सिग्नल आउटपुट",
+          "detail": "बफर स्टेज और एज ट्रिम",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "गेट प्रसार विलंब को कम करें",
+        "CMOS तर्क सीमाएँ सत्यापित करें",
+        "बफ़र फैन-आउट शाखाएँ"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "पीसीबी ड्राफ्टिंग",
+      "title": "बहु-परत योजनाबद्ध",
+      "summary": "मल्टी-लेयर ट्रेस रूटिंग, विअस और थर्मल रिलीफ प्लानिंग के साथ निर्माण के लिए तैयार पीसीबी डिजाइन करें।",
+      "specs": [
+        [
+          "परत गिनती",
+          "4-परत"
+        ],
+        [
+          "ट्रेस चौड़ाई",
+          "6 मिलि"
+        ],
+        [
+          "निकासी",
+          "0.15 मिमी"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "सिग्नल अखंडता",
+          "value": "91%",
+          "strength": 91,
+          "accent": "सियान"
+        },
+        {
+          "label": "थर्मल राहत",
+          "value": "82%",
+          "strength": 82,
+          "accent": "पन्ना"
+        },
+        {
+          "label": "ईएमआई परिरक्षण",
+          "value": "67%",
+          "strength": 67,
+          "accent": "गुलाब"
+        }
+      ],
+      "stages": [
+        {
+          "name": "रूटिंग का पता लगाएं",
+          "detail": "स्वचालित अंतर रूटिंग",
+          "load": 46
+        },
+        {
+          "name": "परत जमाना",
+          "detail": "ग्राउंड प्लेन और अलगाव",
+          "load": 38
+        },
+        {
+          "name": "गेरबर तैयारी",
+          "detail": "ड्रिल पथ अनुकूलन के माध्यम से",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "विभेदक जोड़ियों का मिलान रखें",
+        "ग्राउंड प्लेन कवरेज को संतुलित करें",
+        "हॉप्स के माध्यम से उच्च गति को कम करें"
+      ]
+    }
+  },
+  "es": {
+    "showcase.badge": "Vista previa interactiva",
+    "showcase.title": "Explora un desglose esquemático en vivo antes de dibujar",
+    "showcase.description": "Cambie entre patrones de circuitos comunes para comparar la estructura, la complejidad y la preparación para exportar directamente en la página de inicio.",
+    "showcase.canvas.label": "Lienzo de diagrama",
+    "showcase.live_preset": "Preestablecido en vivo",
+    "showcase.breakdown.badge": "Desglose esquemático",
+    "showcase.breakdown.title": "Asignación de ruta crítica",
+    "showcase.breakdown.status": "Perfilado automáticamente",
+    "showcase.metrics.badge": "Métricas operativas",
+    "showcase.checkpoints.badge": "Puntos de control de diseño",
+    "showcase.checkpoints.status": "Revisar señales",
+    "showcase.profile.badge": "Perfil Técnico",
+    "showcase.quick_specs.title": "Especificaciones de referencia rápida",
+    "showcase.quick_specs.status": "Actualizaciones automáticas",
+    "showcase.cta": "Abrir en el editor",
+    "showcase.presets.logic": {
+      "label": "Control lógico",
+      "title": "Interfaz de sensor y MCU",
+      "summary": "Planifique la protección de entradas, resistencias de extracción y estrategia de conectores para sistemas de control digital.",
+      "specs": [
+        [
+          "Partes primarias",
+          "12"
+        ],
+        [
+          "Redes estimadas",
+          "16"
+        ],
+        [
+          "Clase de señal",
+          "Señal mixta"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Utilización del autobús",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violeta"
+        },
+        {
+          "label": "Distribución de pines",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cian"
+        },
+        {
+          "label": "Cubierta de protección",
+          "value": "88%",
+          "strength": 88,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Entrada del sensor",
+          "detail": "ESD y red pull",
+          "load": 24
+        },
+        {
+          "name": "Procesamiento de MCU",
+          "detail": "Lógica central y sincronización",
+          "load": 49
+        },
+        {
+          "name": "Enlaces periféricos",
+          "detail": "Ruptura de UART y GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Reserve etiquetas GPIO de repuesto",
+        "Señalar cruces de tensión mixta",
+        "Valores predeterminados de extracción de documentos"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Amplificador de audio",
+      "title": "Preamplificador Clase A",
+      "summary": "Diseñe rutas de señal de alta fidelidad con condensadores de bloqueo de CC y etapas de ganancia de precisión.",
+      "specs": [
+        [
+          "Partes primarias",
+          "7"
+        ],
+        [
+          "Redes estimadas",
+          "11"
+        ],
+        [
+          "Clase de señal",
+          "Audio de alta fidelidad"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Ganar equilibrio",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fucsia"
+        },
+        {
+          "label": "Aislamiento CC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cian"
+        },
+        {
+          "label": "Claridad de salida",
+          "value": "73%",
+          "strength": 73,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Acoplamiento de entrada",
+          "detail": "Bloque de CC y ajuste de fuente",
+          "load": 21
+        },
+        {
+          "name": "Ganancia del transistor",
+          "detail": "Núcleo de polarización y amplificación.",
+          "load": 53
+        },
+        {
+          "name": "Acondicionamiento de línea",
+          "detail": "Límite de salida y transferencia de línea",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verificar la simetría del punto de polarización",
+        "Mantenga el audio en silencio",
+        "Separe la salida de línea del retorno de suministro"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Diseñador lógico",
+      "title": "Controlador lógico digital",
+      "summary": "Diseñe circuitos CMOS de lógica binaria con puertas AND, OR y XOR para apretones de manos digitales especializados.",
+      "specs": [
+        [
+          "Puertas primarias",
+          "7"
+        ],
+        [
+          "Profundidad lógica",
+          "4 capas"
+        ],
+        [
+          "Clase de señal",
+          "CMOS digitales"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Estabilidad lógica",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violeta"
+        },
+        {
+          "label": "Margen de tiempo",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cian"
+        },
+        {
+          "label": "Eficiencia de distribución",
+          "value": "64%",
+          "strength": 64,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "ingreso binario",
+          "detail": "Niveles de entrada y menús desplegables",
+          "load": 21
+        },
+        {
+          "name": "Lógica de condición",
+          "detail": "Puertas de ramificación y XOR",
+          "load": 56
+        },
+        {
+          "name": "Salida de señal",
+          "detail": "Etapa intermedia y recorte de bordes",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimizar el retraso de propagación de la puerta",
+        "Verificar los umbrales lógicos CMOS",
+        "Ramas de distribución en búfer"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Redacción de PCB",
+      "title": "Esquema multicapa",
+      "summary": "Diseñe PCB listos para la fabricación con enrutamiento de trazas multicapa, vías y planificación de alivio térmico.",
+      "specs": [
+        [
+          "Recuento de capas",
+          "4 capas"
+        ],
+        [
+          "Ancho de traza",
+          "6 millones"
+        ],
+        [
+          "Liquidación",
+          "0,15 milímetros"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integridad de la señal",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cian"
+        },
+        {
+          "label": "Alivio termal",
+          "value": "82%",
+          "strength": 82,
+          "accent": "esmeralda"
+        },
+        {
+          "label": "Blindaje EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "rosa"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Enrutamiento de seguimiento",
+          "detail": "Enrutamiento diferencial automático",
+          "load": 46
+        },
+        {
+          "name": "Apilamiento de capas",
+          "detail": "Plano de tierra y aislamiento.",
+          "load": 38
+        },
+        {
+          "name": "preparación gerbera",
+          "detail": "Mediante optimización de la ruta de perforación",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Mantener pares diferenciales coincidentes",
+        "Equilibrar la cobertura del plano de tierra",
+        "Minimizar la alta velocidad mediante saltos"
+      ]
+    }
+  },
+  "ru": {
+    "showcase.badge": "Интерактивный просмотр",
+    "showcase.title": "Прежде чем рисовать, изучите разбивку схемы в реальном времени.",
+    "showcase.description": "Переключайтесь между распространенными шаблонами схем, чтобы сравнивать структуру, сложность и готовность к экспорту прямо на главной странице.",
+    "showcase.canvas.label": "Холст диаграммы",
+    "showcase.live_preset": "Живая предустановка",
+    "showcase.breakdown.badge": "Схематическая разбивка",
+    "showcase.breakdown.title": "Распределение критического пути",
+    "showcase.breakdown.status": "Автопрофилирование",
+    "showcase.metrics.badge": "Операционные показатели",
+    "showcase.checkpoints.badge": "Проектирование контрольных точек",
+    "showcase.checkpoints.status": "Обзор подсказок",
+    "showcase.profile.badge": "Технический профиль",
+    "showcase.quick_specs.title": "Краткий справочник по характеристикам",
+    "showcase.quick_specs.status": "Автообновления",
+    "showcase.cta": "Открыть в редакторе",
+    "showcase.presets.logic": {
+      "label": "Логическое управление",
+      "title": "Интерфейс датчика и MCU",
+      "summary": "Спланируйте защиту входов, тянущие резисторы и стратегию подключения для цифровых систем управления.",
+      "specs": [
+        [
+          "Основные части",
+          "12"
+        ],
+        [
+          "Предполагаемые сети",
+          "16"
+        ],
+        [
+          "Класс сигнала",
+          "Смешанный сигнал"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Использование автобусов",
+          "value": "57%",
+          "strength": 57,
+          "accent": "фиолетовый"
+        },
+        {
+          "label": "Разветвление контактов",
+          "value": "71%",
+          "strength": 71,
+          "accent": "голубой"
+        },
+        {
+          "label": "Защитная крышка",
+          "value": "88%",
+          "strength": 88,
+          "accent": "изумруд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Вход датчика",
+          "detail": "ESD и тянущая сеть",
+          "load": 24
+        },
+        {
+          "name": "обработка микроконтроллера",
+          "detail": "Основная логика и время",
+          "load": 49
+        },
+        {
+          "name": "Периферийные ссылки",
+          "detail": "Разрыв UART и GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Зарезервируйте запасные метки GPIO",
+        "Пометить переходы смешанного напряжения",
+        "Параметры извлечения документа по умолчанию"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Аудиоусилитель",
+      "title": "Предусилитель класса А",
+      "summary": "Создавайте высококачественные пути прохождения сигнала с помощью блокирующих конденсаторов постоянного тока и прецизионных каскадов усиления.",
+      "specs": [
+        [
+          "Основные части",
+          "7"
+        ],
+        [
+          "Предполагаемые сети",
+          "11"
+        ],
+        [
+          "Класс сигнала",
+          "Hi-Fi аудио"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Получить баланс",
+          "value": "76%",
+          "strength": 76,
+          "accent": "фуксия"
+        },
+        {
+          "label": "Изоляция постоянного тока",
+          "value": "84%",
+          "strength": 84,
+          "accent": "голубой"
+        },
+        {
+          "label": "Четкость вывода",
+          "value": "73%",
+          "strength": 73,
+          "accent": "изумруд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Входная связь",
+          "detail": "Блок постоянного тока и подстройка источника",
+          "load": 21
+        },
+        {
+          "name": "Коэффициент усиления транзистора",
+          "detail": "Ядро смещения и усиления",
+          "load": 53
+        },
+        {
+          "name": "Кондиционирование линии",
+          "detail": "Ограничение выхода и передача линии",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Проверьте симметрию точки смещения",
+        "Держите звуковое заземление тихим",
+        "Отдельный линейный выход от возврата питания"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Логический дизайнер",
+      "title": "Цифровой логический контроллер",
+      "summary": "Разрабатывайте КМОП-схемы двоичной логики с логическими элементами И, ИЛИ и исключающее ИЛИ для специализированных цифровых подтверждений связи.",
+      "specs": [
+        [
+          "Первичные ворота",
+          "7"
+        ],
+        [
+          "Логическая глубина",
+          "4-слойный"
+        ],
+        [
+          "Класс сигнала",
+          "Цифровая КМОП"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Логическая стабильность",
+          "value": "72%",
+          "strength": 72,
+          "accent": "фиолетовый"
+        },
+        {
+          "label": "Временной запас",
+          "value": "85%",
+          "strength": 85,
+          "accent": "голубой"
+        },
+        {
+          "label": "Эффективность разветвления",
+          "value": "64%",
+          "strength": 64,
+          "accent": "изумруд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Двоичный вход",
+          "detail": "Уровни ввода и раскрывающиеся списки",
+          "load": 21
+        },
+        {
+          "name": "Логика условий",
+          "detail": "Ветвление и вентили XOR",
+          "load": 56
+        },
+        {
+          "name": "Выходной сигнал",
+          "detail": "Буферный столик и обрезка кромок",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Минимизируйте задержку распространения ворот",
+        "Проверьте логические пороги CMOS",
+        "Разветвления буфера"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Чертеж печатной платы",
+      "title": "Многослойная схема",
+      "summary": "Создавайте готовые к производству печатные платы с многоуровневой трассировкой, переходными отверстиями и планированием терморазгрузки.",
+      "specs": [
+        [
+          "Количество слоев",
+          "4-слойный"
+        ],
+        [
+          "Ширина трассировки",
+          "6 миллионов"
+        ],
+        [
+          "Распродажа",
+          "0,15 мм"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Целостность сигнала",
+          "value": "91%",
+          "strength": 91,
+          "accent": "голубой"
+        },
+        {
+          "label": "Термальный рельеф",
+          "value": "82%",
+          "strength": 82,
+          "accent": "изумруд"
+        },
+        {
+          "label": "Экранирование электромагнитных помех",
+          "value": "67%",
+          "strength": 67,
+          "accent": "роза"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Отслеживание маршрутизации",
+          "detail": "Автоматическая дифференциальная маршрутизация",
+          "load": 46
+        },
+        {
+          "name": "Укладка слоев",
+          "detail": "Заземляющий слой и изоляция",
+          "load": 38
+        },
+        {
+          "name": "подготовка к герберу",
+          "detail": "Через оптимизацию траектории бурения",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Держите дифференциальные пары согласованными",
+        "Баланс покрытия наземной плоскости",
+        "Минимизируйте высокую скорость через прыжки"
+      ]
+    }
+  },
+  "fr": {
+    "showcase.badge": "Aperçu interactif",
+    "showcase.title": "Explorez une répartition schématique en direct avant de dessiner",
+    "showcase.description": "Basculez entre les modèles de circuits courants pour comparer la structure, la complexité et la préparation à l'exportation directement sur la page d'accueil.",
+    "showcase.canvas.label": "Canevas de diagramme",
+    "showcase.live_preset": "Préréglage en direct",
+    "showcase.breakdown.badge": "Répartition schématique",
+    "showcase.breakdown.title": "Allocation du chemin critique",
+    "showcase.breakdown.status": "Profilé automatiquement",
+    "showcase.metrics.badge": "Paramètres opérationnels",
+    "showcase.checkpoints.badge": "Points de contrôle de conception",
+    "showcase.checkpoints.status": "Réviser les indices",
+    "showcase.profile.badge": "Profil technique",
+    "showcase.quick_specs.title": "Spécifications de référence rapide",
+    "showcase.quick_specs.status": "Mises à jour automatiques",
+    "showcase.cta": "Ouvrir dans l'éditeur",
+    "showcase.presets.logic": {
+      "label": "Contrôle logique",
+      "title": "Interface capteur et MCU",
+      "summary": "Planifiez la protection des entrées, les résistances de tirage et la stratégie de connecteur pour les systèmes de contrôle numérique.",
+      "specs": [
+        [
+          "Pièces primaires",
+          "12"
+        ],
+        [
+          "Filets estimés",
+          "16"
+        ],
+        [
+          "Classe de signal",
+          "Signal mixte"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Utilisation des bus",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violette"
+        },
+        {
+          "label": "Distribution des épingles",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cyan"
+        },
+        {
+          "label": "Housse de protection",
+          "value": "88%",
+          "strength": 88,
+          "accent": "émeraude"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Entrée du capteur",
+          "detail": "ESD et réseau pull",
+          "load": 24
+        },
+        {
+          "name": "Traitement MCU",
+          "detail": "Logique de base et timing",
+          "load": 49
+        },
+        {
+          "name": "Liens périphériques",
+          "detail": "Répartition UART et GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Réserver des étiquettes GPIO de rechange",
+        "Signaler les passages à niveau à tension mixte",
+        "Paramètres par défaut d'extraction du document"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Ampli audio",
+      "title": "Préamplificateur de classe A",
+      "summary": "Concevez des chemins de signaux haute fidélité avec des condensateurs de blocage CC et des étages de gain de précision.",
+      "specs": [
+        [
+          "Pièces primaires",
+          "7"
+        ],
+        [
+          "Filets estimés",
+          "11"
+        ],
+        [
+          "Classe de signal",
+          "Audio haute fidélité"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Gagner en équilibre",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "Isolation CC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cyan"
+        },
+        {
+          "label": "Clarté de sortie",
+          "value": "73%",
+          "strength": 73,
+          "accent": "émeraude"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Couplage d'entrée",
+          "detail": "Bloc DC et trim de la source",
+          "load": 21
+        },
+        {
+          "name": "Gain des transistors",
+          "detail": "Noyau de polarisation et d'amplification",
+          "load": 53
+        },
+        {
+          "name": "Conditionnement de ligne",
+          "detail": "Plafond de sortie et transfert de ligne",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Vérifier la symétrie du point de biais",
+        "Gardez le sol audio silencieux",
+        "Sortie de ligne séparée du retour d'alimentation"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Concepteur logique",
+      "title": "Contrôleur logique numérique",
+      "summary": "Concevez des circuits CMOS logiques binaires avec des portes AND, OR et XOR pour des prises de contact numériques spécialisées.",
+      "specs": [
+        [
+          "Portes primaires",
+          "7"
+        ],
+        [
+          "Profondeur logique",
+          "4 couches"
+        ],
+        [
+          "Classe de signal",
+          "CMOS numérique"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Stabilité logique",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violette"
+        },
+        {
+          "label": "Marge temporelle",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cyan"
+        },
+        {
+          "label": "Efficacité de diffusion",
+          "value": "64%",
+          "strength": 64,
+          "accent": "émeraude"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Entrée binaire",
+          "detail": "Niveaux d'entrée et menus déroulants",
+          "load": 21
+        },
+        {
+          "name": "Logique des conditions",
+          "detail": "Portes de branchement et XOR",
+          "load": 56
+        },
+        {
+          "name": "Sortie de signal",
+          "detail": "Étape tampon et garniture de bord",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimiser le délai de propagation de la porte",
+        "Vérifier les seuils logiques CMOS",
+        "Branches de distribution tampon"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Rédaction de PCB",
+      "title": "Schéma multicouche",
+      "summary": "Concevez des PCB prêts à être fabriqués avec un routage de traces multicouche, des vias et une planification du soulagement thermique.",
+      "specs": [
+        [
+          "Nombre de couches",
+          "4 couches"
+        ],
+        [
+          "Largeur de trace",
+          "6 millions"
+        ],
+        [
+          "Liquidation",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Intégrité du signal",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cyan"
+        },
+        {
+          "label": "Soulagement thermique",
+          "value": "82%",
+          "strength": 82,
+          "accent": "émeraude"
+        },
+        {
+          "label": "Blindage EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "rose"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Routage des traces",
+          "detail": "Routage différentiel automatique",
+          "load": 46
+        },
+        {
+          "name": "Empilement de couches",
+          "detail": "Plan de masse et isolation",
+          "load": 38
+        },
+        {
+          "name": "Préparation Gerber",
+          "detail": "Via l'optimisation du chemin de forage",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Gardez les paires différentielles appariées",
+        "Équilibrer la couverture du plan de sol",
+        "Minimiser la vitesse élevée via les sauts"
+      ]
+    }
+  },
+  "de": {
+    "showcase.badge": "Interaktive Vorschau",
+    "showcase.title": "Sehen Sie sich eine Live-Schaltplanaufschlüsselung an, bevor Sie zeichnen",
+    "showcase.description": "Wechseln Sie zwischen gängigen Schaltungsmustern, um Struktur, Komplexität und Exportfähigkeit direkt auf der Startseite zu vergleichen.",
+    "showcase.canvas.label": "Diagramm-Leinwand",
+    "showcase.live_preset": "Live-Voreinstellung",
+    "showcase.breakdown.badge": "Schematische Aufschlüsselung",
+    "showcase.breakdown.title": "Kritische Pfadzuweisung",
+    "showcase.breakdown.status": "Automatisch profiliert",
+    "showcase.metrics.badge": "Betriebskennzahlen",
+    "showcase.checkpoints.badge": "Kontrollpunkte entwerfen",
+    "showcase.checkpoints.status": "Überprüfen Sie Hinweise",
+    "showcase.profile.badge": "Technisches Profil",
+    "showcase.quick_specs.title": "Kurzreferenzspezifikationen",
+    "showcase.quick_specs.status": "Automatische Updates",
+    "showcase.cta": "Im Editor öffnen",
+    "showcase.presets.logic": {
+      "label": "Logiksteuerung",
+      "title": "Sensor- und MCU-Schnittstelle",
+      "summary": "Planen Sie Eingangsschutz, Zugwiderstände und Anschlussstrategie für digitale Steuerungssysteme.",
+      "specs": [
+        [
+          "Primärteile",
+          "12"
+        ],
+        [
+          "Geschätzte Netze",
+          "16"
+        ],
+        [
+          "Signalklasse",
+          "Gemischtes Signal"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Busauslastung",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violett"
+        },
+        {
+          "label": "Pin-Fanout",
+          "value": "71%",
+          "strength": 71,
+          "accent": "Cyan"
+        },
+        {
+          "label": "Schutzhülle",
+          "value": "88%",
+          "strength": 88,
+          "accent": "Smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Sensoreinbruch",
+          "detail": "ESD und Pull-Netzwerk",
+          "load": 24
+        },
+        {
+          "name": "MCU-Verarbeitung",
+          "detail": "Kernlogik und Timing",
+          "load": 49
+        },
+        {
+          "name": "Peripherieverbindungen",
+          "detail": "UART- und GPIO-Breakout",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Reserve-GPIO-Etiketten reservieren",
+        "Mischspannungsübergänge kennzeichnen",
+        "Standardeinstellungen für das Dokument-Pullup"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Audioverstärker",
+      "title": "Vorverstärker der Klasse A",
+      "summary": "Entwerfen Sie High-Fidelity-Signalpfade mit DC-Sperrkondensatoren und Präzisionsverstärkungsstufen.",
+      "specs": [
+        [
+          "Primärteile",
+          "7"
+        ],
+        [
+          "Geschätzte Netze",
+          "11"
+        ],
+        [
+          "Signalklasse",
+          "Hi-Fi-Audio"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Finden Sie das Gleichgewicht",
+          "value": "76%",
+          "strength": 76,
+          "accent": "Fuchsia"
+        },
+        {
+          "label": "DC-Isolierung",
+          "value": "84%",
+          "strength": 84,
+          "accent": "Cyan"
+        },
+        {
+          "label": "Klarheit der Ausgabe",
+          "value": "73%",
+          "strength": 73,
+          "accent": "Smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Eingangskopplung",
+          "detail": "DC-Block und Quellentrimmung",
+          "load": 21
+        },
+        {
+          "name": "Transistorverstärkung",
+          "detail": "Bias- und Verstärkungskern",
+          "load": 53
+        },
+        {
+          "name": "Leitungskonditionierung",
+          "detail": "Ausgangsobergrenze und Leitungsübergabe",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Überprüfen Sie die Symmetrie des Bias-Punkts",
+        "Halten Sie den Audio-Boden ruhig",
+        "Trennen Sie den Leitungsausgang vom Versorgungsrücklauf"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Logikdesigner",
+      "title": "Digitaler Logikcontroller",
+      "summary": "Entwerfen Sie binäre logische CMOS-Schaltkreise mit UND-, ODER- und XOR-Gattern für spezielle digitale Handshakes.",
+      "specs": [
+        [
+          "Primäre Tore",
+          "7"
+        ],
+        [
+          "Logiktiefe",
+          "4-lagig"
+        ],
+        [
+          "Signalklasse",
+          "Digitales CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Logikstabilität",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violett"
+        },
+        {
+          "label": "Timing-Marge",
+          "value": "85%",
+          "strength": 85,
+          "accent": "Cyan"
+        },
+        {
+          "label": "Fan-Out-Effizienz",
+          "value": "64%",
+          "strength": 64,
+          "accent": "Smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Binärer Eingang",
+          "detail": "Eingabeebenen und Pulldowns",
+          "load": 21
+        },
+        {
+          "name": "Bedingungslogik",
+          "detail": "Verzweigungs- und XOR-Gatter",
+          "load": 56
+        },
+        {
+          "name": "Signalausgang",
+          "detail": "Pufferstufe und Randbeschnitt",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimieren Sie die Gate-Ausbreitungsverzögerung",
+        "Überprüfen Sie die Schwellenwerte der CMOS-Logik",
+        "Puffer-Fanout-Zweige"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB-Entwurf",
+      "title": "Mehrschichtiges Schema",
+      "summary": "Entwerfen Sie fertigungsbereite Leiterplatten mit mehrschichtiger Leiterbahnführung, Durchkontaktierungen und thermischer Entlastungsplanung.",
+      "specs": [
+        [
+          "Anzahl der Ebenen",
+          "4-lagig"
+        ],
+        [
+          "Spurbreite",
+          "6 Mio"
+        ],
+        [
+          "Freigabe",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Signalintegrität",
+          "value": "91%",
+          "strength": 91,
+          "accent": "Cyan"
+        },
+        {
+          "label": "Thermische Entlastung",
+          "value": "82%",
+          "strength": 82,
+          "accent": "Smaragd"
+        },
+        {
+          "label": "EMI-Abschirmung",
+          "value": "67%",
+          "strength": 67,
+          "accent": "Rose"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Trace-Routing",
+          "detail": "Automatisches Differential-Routing",
+          "load": 46
+        },
+        {
+          "name": "Schichtenstapelung",
+          "detail": "Grundplatte und Isolierung",
+          "load": 38
+        },
+        {
+          "name": "Gerber-Vorbereitung",
+          "detail": "Durch Bohrpfadoptimierung",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Halten Sie Differentialpaare aufeinander abgestimmt",
+        "Ausgleichen der Bodenebenenabdeckung",
+        "Minimieren Sie Hochgeschwindigkeits-Via-Hops"
+      ]
+    }
+  },
+  "it": {
+    "showcase.badge": "Anteprima interattiva",
+    "showcase.title": "Esplora una suddivisione dello schema dal vivo prima di disegnare",
+    "showcase.description": "Passa da uno schema di circuito comune all'altro per confrontare struttura, complessità e disponibilità all'esportazione direttamente sulla home page.",
+    "showcase.canvas.label": "Tela del diagramma",
+    "showcase.live_preset": "Preimpostazione dal vivo",
+    "showcase.breakdown.badge": "Ripartizione schematica",
+    "showcase.breakdown.title": "Allocazione del percorso critico",
+    "showcase.breakdown.status": "Profilatura automatica",
+    "showcase.metrics.badge": "Metriche operative",
+    "showcase.checkpoints.badge": "Punti di controllo della progettazione",
+    "showcase.checkpoints.status": "Rivedere gli spunti",
+    "showcase.profile.badge": "Profilo tecnico",
+    "showcase.quick_specs.title": "Specifiche di riferimento rapido",
+    "showcase.quick_specs.status": "Aggiornamenti automatici",
+    "showcase.cta": "Apri nell'editor",
+    "showcase.presets.logic": {
+      "label": "Controllo logico",
+      "title": "Sensore e interfaccia MCU",
+      "summary": "Pianificare la protezione degli ingressi, le resistenze di trazione e la strategia dei connettori per i sistemi di controllo digitale.",
+      "specs": [
+        [
+          "Parti primarie",
+          "12"
+        ],
+        [
+          "Reti stimate",
+          "16"
+        ],
+        [
+          "Classe del segnale",
+          "Segnale misto"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Utilizzo degli autobus",
+          "value": "57%",
+          "strength": 57,
+          "accent": "viola"
+        },
+        {
+          "label": "Pin-out",
+          "value": "71%",
+          "strength": 71,
+          "accent": "ciano"
+        },
+        {
+          "label": "Copertura di protezione",
+          "value": "88%",
+          "strength": 88,
+          "accent": "smeraldo"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Ingresso del sensore",
+          "detail": "ESD e rete pull",
+          "load": 24
+        },
+        {
+          "name": "Elaborazione MCU",
+          "detail": "Logica e tempistica fondamentali",
+          "load": 49
+        },
+        {
+          "name": "Collegamenti periferici",
+          "detail": "Breakout UART e GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Prenota etichette GPIO di riserva",
+        "Segnalazione di incroci a tensione mista",
+        "Impostazioni predefinite per il pull-up dei documenti"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Amplificatore audio",
+      "title": "Preamplificatore di classe A",
+      "summary": "Progetta percorsi di segnale ad alta fedeltà con condensatori di blocco CC e stadi di guadagno di precisione.",
+      "specs": [
+        [
+          "Parti primarie",
+          "7"
+        ],
+        [
+          "Reti stimate",
+          "11"
+        ],
+        [
+          "Classe del segnale",
+          "Audio HiFi"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Ottieni equilibrio",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fucsia"
+        },
+        {
+          "label": "Isolamento CC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "ciano"
+        },
+        {
+          "label": "Chiarezza dell'output",
+          "value": "73%",
+          "strength": 73,
+          "accent": "smeraldo"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Accoppiamento di ingresso",
+          "detail": "Blocco DC e trim della sorgente",
+          "load": 21
+        },
+        {
+          "name": "Guadagno del transistor",
+          "detail": "Nucleo di polarizzazione e amplificazione",
+          "load": 53
+        },
+        {
+          "name": "Condizionamento della linea",
+          "detail": "Limite di output e trasferimento di linea",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verificare la simmetria dei punti di polarizzazione",
+        "Mantieni il livello dell'audio silenzioso",
+        "Uscita di linea separata dal ritorno dell'alimentazione"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Progettista logico",
+      "title": "Controllore logico digitale",
+      "summary": "Progetta circuiti CMOS a logica binaria con porte AND, OR e XOR per handshake digitali specializzati.",
+      "specs": [
+        [
+          "Cancelli primari",
+          "7"
+        ],
+        [
+          "Profondità logica",
+          "4 strati"
+        ],
+        [
+          "Classe del segnale",
+          "CMOS digitale"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Stabilità logica",
+          "value": "72%",
+          "strength": 72,
+          "accent": "viola"
+        },
+        {
+          "label": "Margine temporale",
+          "value": "85%",
+          "strength": 85,
+          "accent": "ciano"
+        },
+        {
+          "label": "Efficienza del fan-out",
+          "value": "64%",
+          "strength": 64,
+          "accent": "smeraldo"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Ingresso binario",
+          "detail": "Livelli di ingresso e pull-down",
+          "load": 21
+        },
+        {
+          "name": "Logica delle condizioni",
+          "detail": "Porte di ramificazione e XOR",
+          "load": 56
+        },
+        {
+          "name": "Uscita del segnale",
+          "detail": "Palcoscenico buffer e rifinitura dei bordi",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimizzare il ritardo di propagazione del gate",
+        "Verificare le soglie logiche CMOS",
+        "Rami fan-out buffer"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Redazione di PCB",
+      "title": "Schema multistrato",
+      "summary": "Progetta PCB pronti per la produzione con instradamento delle tracce multistrato, via e pianificazione dello scarico termico.",
+      "specs": [
+        [
+          "Conteggio degli strati",
+          "4 strati"
+        ],
+        [
+          "Larghezza della traccia",
+          "6 milioni"
+        ],
+        [
+          "Liquidazione",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integrità del segnale",
+          "value": "91%",
+          "strength": 91,
+          "accent": "ciano"
+        },
+        {
+          "label": "Sollievo termico",
+          "value": "82%",
+          "strength": 82,
+          "accent": "smeraldo"
+        },
+        {
+          "label": "Schermatura EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "rosa"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Traccia il percorso",
+          "detail": "Routing differenziale automatico",
+          "load": 46
+        },
+        {
+          "name": "Impilamento degli strati",
+          "detail": "Piano di massa e isolamento",
+          "load": 38
+        },
+        {
+          "name": "Preparazione Gerber",
+          "detail": "Tramite l'ottimizzazione del percorso di perforazione",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Mantieni abbinate le coppie differenziali",
+        "Bilanciare la copertura del piano terra",
+        "Ridurre al minimo l'alta velocità tramite hop"
+      ]
+    }
+  },
+  "pt": {
+    "showcase.badge": "Visualização interativa",
+    "showcase.title": "Explore um detalhamento esquemático ao vivo antes de desenhar",
+    "showcase.description": "Alterne entre padrões de circuito comuns para comparar estrutura, complexidade e prontidão para exportação diretamente na página inicial.",
+    "showcase.canvas.label": "Tela de diagrama",
+    "showcase.live_preset": "Predefinição ao vivo",
+    "showcase.breakdown.badge": "Divisão esquemática",
+    "showcase.breakdown.title": "Alocação de caminho crítico",
+    "showcase.breakdown.status": "Perfil automático",
+    "showcase.metrics.badge": "Métricas operacionais",
+    "showcase.checkpoints.badge": "Pontos de verificação de projeto",
+    "showcase.checkpoints.status": "Revise as dicas",
+    "showcase.profile.badge": "Perfil Técnico",
+    "showcase.quick_specs.title": "Especificações de referência rápida",
+    "showcase.quick_specs.status": "Atualizações automáticas",
+    "showcase.cta": "Abrir no Editor",
+    "showcase.presets.logic": {
+      "label": "Controle Lógico",
+      "title": "Interface de sensor e MCU",
+      "summary": "Planeje proteção de entrada, resistores de tração e estratégia de conectores para sistemas de controle digital.",
+      "specs": [
+        [
+          "Partes primárias",
+          "12"
+        ],
+        [
+          "Redes estimadas",
+          "16"
+        ],
+        [
+          "Classe de sinal",
+          "Sinal misto"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Utilização de ônibus",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violeta"
+        },
+        {
+          "label": "Distribuição de pinos",
+          "value": "71%",
+          "strength": 71,
+          "accent": "ciano"
+        },
+        {
+          "label": "Capa de proteção",
+          "value": "88%",
+          "strength": 88,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Entrada do sensor",
+          "detail": "ESD e rede pull",
+          "load": 24
+        },
+        {
+          "name": "Processamento de MCU",
+          "detail": "Lógica central e tempo",
+          "load": 49
+        },
+        {
+          "name": "Links periféricos",
+          "detail": "Quebra de UART e GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Reserve etiquetas GPIO sobressalentes",
+        "Sinalizar cruzamentos de tensão mista",
+        "Padrões de pull-up de documentos"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Amplificador de áudio",
+      "title": "Pré-amplificador Classe A",
+      "summary": "Projete caminhos de sinal de alta fidelidade com capacitores de bloqueio CC e estágios de ganho de precisão.",
+      "specs": [
+        [
+          "Partes primárias",
+          "7"
+        ],
+        [
+          "Redes estimadas",
+          "11"
+        ],
+        [
+          "Classe de sinal",
+          "Áudio Hi-Fi"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Ganhe equilíbrio",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fúcsia"
+        },
+        {
+          "label": "Isolamento CC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "ciano"
+        },
+        {
+          "label": "Clareza de saída",
+          "value": "73%",
+          "strength": 73,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Acoplamento de entrada",
+          "detail": "Bloco DC e corte de fonte",
+          "load": 21
+        },
+        {
+          "name": "Ganho do transistor",
+          "detail": "Núcleo de polarização e amplificação",
+          "load": 53
+        },
+        {
+          "name": "Condicionamento de linha",
+          "detail": "Limite de saída e transferência de linha",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verifique a simetria do ponto de polarização",
+        "Mantenha o áudio silencioso",
+        "Saída de linha separada do retorno de alimentação"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Designer Lógico",
+      "title": "Controlador Lógico Digital",
+      "summary": "Projete circuitos CMOS de lógica binária com portas AND, OR e XOR para handshakes digitais especializados.",
+      "specs": [
+        [
+          "Portões primários",
+          "7"
+        ],
+        [
+          "Profundidade lógica",
+          "4 camadas"
+        ],
+        [
+          "Classe de sinal",
+          "CMOS digitais"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Estabilidade lógica",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violeta"
+        },
+        {
+          "label": "Margem de tempo",
+          "value": "85%",
+          "strength": 85,
+          "accent": "ciano"
+        },
+        {
+          "label": "Eficiência de dispersão",
+          "value": "64%",
+          "strength": 64,
+          "accent": "esmeralda"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Entrada binária",
+          "detail": "Níveis de entrada e pull-downs",
+          "load": 21
+        },
+        {
+          "name": "Lógica de condição",
+          "detail": "Portas de ramificação e XOR",
+          "load": 56
+        },
+        {
+          "name": "Saída de sinal",
+          "detail": "Estágio de buffer e acabamento de borda",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimize o atraso de propagação do portão",
+        "Verifique os limites lógicos do CMOS",
+        "Ramificações de distribuição de buffer"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Elaboração de PCB",
+      "title": "Esquema multicamadas",
+      "summary": "Projete PCBs prontos para fabricação com roteamento de rastreamento multicamadas, vias e planejamento de alívio térmico.",
+      "specs": [
+        [
+          "Contagem de camadas",
+          "4 camadas"
+        ],
+        [
+          "Largura do traço",
+          "6 milhões"
+        ],
+        [
+          "Liberação",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integridade do sinal",
+          "value": "91%",
+          "strength": 91,
+          "accent": "ciano"
+        },
+        {
+          "label": "Alívio térmico",
+          "value": "82%",
+          "strength": 82,
+          "accent": "esmeralda"
+        },
+        {
+          "label": "Blindagem EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "rosa"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Roteamento de rastreamento",
+          "detail": "Roteamento diferencial automático",
+          "load": 46
+        },
+        {
+          "name": "Empilhamento de camadas",
+          "detail": "Plano de aterramento e isolamento",
+          "load": 38
+        },
+        {
+          "name": "Preparação Gerber",
+          "detail": "Através da otimização do caminho de perfuração",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Mantenha pares diferenciais combinados",
+        "Equilibre a cobertura do plano terrestre",
+        "Minimize a alta velocidade por meio de saltos"
+      ]
+    }
+  },
+  "bn": {
+    "showcase.badge": "ইন্টারেক্টিভ পূর্বরূপ",
+    "showcase.title": "আপনি আঁকার আগে একটি লাইভ স্কিম্যাটিক ব্রেকডাউন অন্বেষণ করুন",
+    "showcase.description": "সরাসরি হোমপেজে গঠন, জটিলতা এবং রপ্তানির প্রস্তুতির তুলনা করতে সাধারণ সার্কিট প্যাটার্নের মধ্যে পরিবর্তন করুন।",
+    "showcase.canvas.label": "ডায়াগ্রাম ক্যানভাস",
+    "showcase.live_preset": "লাইভ প্রিসেট",
+    "showcase.breakdown.badge": "পরিকল্পিত ভাঙ্গন",
+    "showcase.breakdown.title": "জটিল পথ বরাদ্দ",
+    "showcase.breakdown.status": "স্বতঃপ্রোফাইল",
+    "showcase.metrics.badge": "অপারেটিং মেট্রিক্স",
+    "showcase.checkpoints.badge": "চেকপয়েন্ট ডিজাইন করুন",
+    "showcase.checkpoints.status": "পর্যালোচনা চিহ্ন",
+    "showcase.profile.badge": "প্রযুক্তিগত প্রোফাইল",
+    "showcase.quick_specs.title": "দ্রুত রেফারেন্স স্পেসিফিকেশন",
+    "showcase.quick_specs.status": "স্বয়ংক্রিয় আপডেট",
+    "showcase.cta": "এডিটরে খুলুন",
+    "showcase.presets.logic": {
+      "label": "লজিক কন্ট্রোল",
+      "title": "সেন্সর এবং MCU ইন্টারফেস",
+      "summary": "ডিজিটাল কন্ট্রোল সিস্টেমের জন্য ইনপুট সুরক্ষা, টান প্রতিরোধক এবং সংযোগকারী কৌশল পরিকল্পনা করুন।",
+      "specs": [
+        [
+          "প্রাথমিক অংশ",
+          "12"
+        ],
+        [
+          "আনুমানিক নেট",
+          "16"
+        ],
+        [
+          "সংকেত ক্লাস",
+          "মিশ্র সংকেত"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "বাস ব্যবহার",
+          "value": "57%",
+          "strength": 57,
+          "accent": "ভায়োলেট"
+        },
+        {
+          "label": "পিন ফ্যান-আউট",
+          "value": "71%",
+          "strength": 71,
+          "accent": "সায়ান"
+        },
+        {
+          "label": "সুরক্ষা কভার",
+          "value": "88%",
+          "strength": 88,
+          "accent": "পান্না"
+        }
+      ],
+      "stages": [
+        {
+          "name": "সেন্সর প্রবেশ",
+          "detail": "ESD এবং টান নেটওয়ার্ক",
+          "load": 24
+        },
+        {
+          "name": "MCU প্রক্রিয়াকরণ",
+          "detail": "মূল যুক্তি এবং সময়",
+          "load": 49
+        },
+        {
+          "name": "পেরিফেরাল লিঙ্ক",
+          "detail": "UART এবং GPIO ব্রেকআউট",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "রিজার্ভ অতিরিক্ত GPIO লেবেল",
+        "ফ্ল্যাগ মিশ্র-ভোল্টেজ ক্রসিং",
+        "ডকুমেন্ট পুল-আপ ডিফল্ট"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "অডিও অ্যাম্প",
+      "title": "ক্লাস-এ প্রিমপ্লিফায়ার",
+      "summary": "ডিসি ব্লকিং ক্যাপাসিটর এবং নির্ভুলতা লাভের পর্যায়গুলির সাথে হাই-ফিডেলিটি সিগন্যাল পাথ ডিজাইন করুন।",
+      "specs": [
+        [
+          "প্রাথমিক অংশ",
+          "7"
+        ],
+        [
+          "আনুমানিক নেট",
+          "11"
+        ],
+        [
+          "সংকেত ক্লাস",
+          "হাই-ফাই অডিও"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "ভারসাম্য অর্জন করুন",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "ডিসি বিচ্ছিন্নতা",
+          "value": "84%",
+          "strength": 84,
+          "accent": "সায়ান"
+        },
+        {
+          "label": "আউটপুট স্বচ্ছতা",
+          "value": "73%",
+          "strength": 73,
+          "accent": "পান্না"
+        }
+      ],
+      "stages": [
+        {
+          "name": "ইনপুট কাপলিং",
+          "detail": "ডিসি ব্লক এবং উত্স ট্রিম",
+          "load": 21
+        },
+        {
+          "name": "ট্রানজিস্টর লাভ",
+          "detail": "পক্ষপাত এবং পরিবর্ধন কোর",
+          "load": 53
+        },
+        {
+          "name": "লাইন কন্ডিশনার",
+          "detail": "আউটপুট ক্যাপ এবং লাইন হ্যান্ডঅফ",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "বায়াস পয়েন্ট সিমেট্রি যাচাই করুন",
+        "অডিও গ্রাউন্ড শান্ত রাখুন",
+        "সাপ্লাই রিটার্ন থেকে আলাদা লাইন আউটপুট"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "লজিক ডিজাইনার",
+      "title": "ডিজিটাল লজিক কন্ট্রোলার",
+      "summary": "বিশেষায়িত ডিজিটাল হ্যান্ডশেকের জন্য AND, OR, এবং XOR গেট সহ বাইনারি লজিক CMOS সার্কিট ডিজাইন করুন।",
+      "specs": [
+        [
+          "প্রাথমিক গেট",
+          "7"
+        ],
+        [
+          "যুক্তির গভীরতা",
+          "4-স্তর"
+        ],
+        [
+          "সংকেত ক্লাস",
+          "ডিজিটাল CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "যুক্তির স্থায়িত্ব",
+          "value": "72%",
+          "strength": 72,
+          "accent": "ভায়োলেট"
+        },
+        {
+          "label": "টাইমিং মার্জিন",
+          "value": "85%",
+          "strength": 85,
+          "accent": "সায়ান"
+        },
+        {
+          "label": "ফ্যান-আউট দক্ষতা",
+          "value": "64%",
+          "strength": 64,
+          "accent": "পান্না"
+        }
+      ],
+      "stages": [
+        {
+          "name": "বাইনারি প্রবেশ",
+          "detail": "ইনপুট স্তর এবং পুল-ডাউন",
+          "load": 21
+        },
+        {
+          "name": "শর্ত যুক্তি",
+          "detail": "শাখা এবং XOR গেট",
+          "load": 56
+        },
+        {
+          "name": "সিগন্যাল আউটপুট",
+          "detail": "বাফার স্টেজ এবং প্রান্ত ছাঁটা",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "গেট প্রচার বিলম্ব ন্যূনতম",
+        "CMOS লজিক থ্রেশহোল্ড যাচাই করুন",
+        "বাফার ফ্যান-আউট শাখা"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "পিসিবি ড্রাফটিং",
+      "title": "মাল্টি-লেয়ার স্কিম্যাটিক",
+      "summary": "মাল্টি-লেয়ার ট্রেস রাউটিং, ভিয়াস এবং থার্মাল রিলিফ প্ল্যানিং সহ ডিজাইন ম্যানুফ্যাকচারিং-প্রস্তুত পিসিবি।",
+      "specs": [
+        [
+          "স্তর গণনা",
+          "4-স্তর"
+        ],
+        [
+          "ট্রেস প্রস্থ",
+          "6 মিলিয়ন"
+        ],
+        [
+          "ক্লিয়ারেন্স",
+          "0.15 মিমি"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "সংকেত অখণ্ডতা",
+          "value": "91%",
+          "strength": 91,
+          "accent": "সায়ান"
+        },
+        {
+          "label": "তাপ ত্রাণ",
+          "value": "82%",
+          "strength": 82,
+          "accent": "পান্না"
+        },
+        {
+          "label": "ইএমআই শিল্ডিং",
+          "value": "67%",
+          "strength": 67,
+          "accent": "গোলাপ"
+        }
+      ],
+      "stages": [
+        {
+          "name": "ট্রেস রাউটিং",
+          "detail": "স্বয়ংক্রিয় ডিফারেনশিয়াল রাউটিং",
+          "load": 46
+        },
+        {
+          "name": "লেয়ার স্ট্যাকিং",
+          "detail": "স্থল সমতল এবং বিচ্ছিন্নতা",
+          "load": 38
+        },
+        {
+          "name": "Gerber প্রস্তুতি",
+          "detail": "ড্রিল পাথ অপ্টিমাইজেশান মাধ্যমে",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "ডিফারেনশিয়াল জোড়া মেলে রাখুন",
+        "স্থল সমতল কভারেজ ভারসাম্য",
+        "হপসের মাধ্যমে উচ্চ-গতি হ্রাস করুন"
+      ]
+    }
+  },
+  "ja": {
+    "showcase.badge": "インタラクティブなプレビュー",
+    "showcase.title": "描画する前に実際の回路図の内訳を確認する",
+    "showcase.description": "一般的な回路パターンを切り替えて、構造、複雑さ、エクスポートの準備状況をホームページ上で直接比較します。",
+    "showcase.canvas.label": "ダイアグラムキャンバス",
+    "showcase.live_preset": "ライブプリセット",
+    "showcase.breakdown.badge": "回路図の内訳",
+    "showcase.breakdown.title": "クリティカルパスの割り当て",
+    "showcase.breakdown.status": "自動プロファイリング",
+    "showcase.metrics.badge": "運用指標",
+    "showcase.checkpoints.badge": "設計のチェックポイント",
+    "showcase.checkpoints.status": "キューを確認する",
+    "showcase.profile.badge": "技術プロフィール",
+    "showcase.quick_specs.title": "クイックリファレンス仕様",
+    "showcase.quick_specs.status": "自動更新",
+    "showcase.cta": "エディタで開く",
+    "showcase.presets.logic": {
+      "label": "ロジック制御",
+      "title": "センサーとMCUインターフェース",
+      "summary": "デジタル制御システムの入力保護、プル抵抗、およびコネクタ戦略を計画します。",
+      "specs": [
+        [
+          "一次部品",
+          "12"
+        ],
+        [
+          "推定ネット数",
+          "16"
+        ],
+        [
+          "信号クラス",
+          "混合信号"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "バスの利用状況",
+          "value": "57%",
+          "strength": 57,
+          "accent": "バイオレット"
+        },
+        {
+          "label": "ピンのファンアウト",
+          "value": "71%",
+          "strength": 71,
+          "accent": "シアン"
+        },
+        {
+          "label": "保護カバー",
+          "value": "88%",
+          "strength": 88,
+          "accent": "エメラルド"
+        }
+      ],
+      "stages": [
+        {
+          "name": "センサーの侵入",
+          "detail": "ESDとプルネットワーク",
+          "load": 24
+        },
+        {
+          "name": "MCU処理",
+          "detail": "コアロジックとタイミング",
+          "load": 49
+        },
+        {
+          "name": "周辺リンク",
+          "detail": "UART と GPIO のブレークアウト",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "予備の GPIO ラベルを予約する",
+        "混合電圧交差にフラグを付ける",
+        "ドキュメントプルアップのデフォルト"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "オーディオアンプ",
+      "title": "クラスAプリアンプ",
+      "summary": "DC ブロッキング コンデンサと高精度のゲイン ステージを備えた高忠実度の信号パスを設計します。",
+      "specs": [
+        [
+          "一次部品",
+          "7"
+        ],
+        [
+          "推定ネット数",
+          "11"
+        ],
+        [
+          "信号クラス",
+          "ハイファイオーディオ"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "ゲインバランス",
+          "value": "76%",
+          "strength": 76,
+          "accent": "フクシア"
+        },
+        {
+          "label": "DC絶縁",
+          "value": "84%",
+          "strength": 84,
+          "accent": "シアン"
+        },
+        {
+          "label": "出力の明瞭さ",
+          "value": "73%",
+          "strength": 73,
+          "accent": "エメラルド"
+        }
+      ],
+      "stages": [
+        {
+          "name": "入力カップリング",
+          "detail": "DCブロックとソーストリム",
+          "load": 21
+        },
+        {
+          "name": "トランジスタゲイン",
+          "detail": "バイアスおよび増幅コア",
+          "load": 53
+        },
+        {
+          "name": "ラインコンディショニング",
+          "detail": "出力キャップとラインのハンドオフ",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "バイアス点の対称性を検証する",
+        "オーディオアースを静かに保ちます",
+        "電源リターンからの独立したライン出力"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "ロジックデザイナー",
+      "title": "デジタルロジックコントローラー",
+      "summary": "特殊なデジタル ハンドシェイク用に、AND、OR、および XOR ゲートを備えたバイナリ ロジック CMOS 回路を設計します。",
+      "specs": [
+        [
+          "プライマリーゲート",
+          "7"
+        ],
+        [
+          "論理の深さ",
+          "4層"
+        ],
+        [
+          "信号クラス",
+          "デジタルCMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "論理の安定性",
+          "value": "72%",
+          "strength": 72,
+          "accent": "バイオレット"
+        },
+        {
+          "label": "タイミングマージン",
+          "value": "85%",
+          "strength": 85,
+          "accent": "シアン"
+        },
+        {
+          "label": "ファンアウト効率",
+          "value": "64%",
+          "strength": 64,
+          "accent": "エメラルド"
+        }
+      ],
+      "stages": [
+        {
+          "name": "バイナリ入力",
+          "detail": "入力レベルとプルダウン",
+          "load": 21
+        },
+        {
+          "name": "条件ロジック",
+          "detail": "分岐ゲートと XOR ゲート",
+          "load": 56
+        },
+        {
+          "name": "信号出力",
+          "detail": "バッファステージとエッジトリム",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "ゲート伝播遅延を最小限に抑える",
+        "CMOS ロジックしきい値を検証する",
+        "バッファファンアウトブランチ"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB製図",
+      "title": "多層回路図",
+      "summary": "多層配線配線、ビア、サーマルリリーフ計画を使用して、すぐに製造可能な PCB を設計します。",
+      "specs": [
+        [
+          "レイヤー数",
+          "4層"
+        ],
+        [
+          "トレース幅",
+          "600万"
+        ],
+        [
+          "クリアランス",
+          "0.15mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "シグナルインテグリティ",
+          "value": "91%",
+          "strength": 91,
+          "accent": "シアン"
+        },
+        {
+          "label": "サーマルリリーフ",
+          "value": "82%",
+          "strength": 82,
+          "accent": "エメラルド"
+        },
+        {
+          "label": "EMIシールド",
+          "value": "67%",
+          "strength": 67,
+          "accent": "バラ"
+        }
+      ],
+      "stages": [
+        {
+          "name": "トレースルーティング",
+          "detail": "自動差動配線",
+          "load": 46
+        },
+        {
+          "name": "レイヤースタッキング",
+          "detail": "グランドプレーンと絶縁",
+          "load": 38
+        },
+        {
+          "name": "ガーバーの準備",
+          "detail": "ビアドリルパスの最適化",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "差動ペアを一致させておく",
+        "グランドプレーンのカバレッジのバランスを取る",
+        "ホップ経由の高速性を最小限に抑える"
+      ]
+    }
+  },
+  "ko": {
+    "showcase.badge": "대화형 미리보기",
+    "showcase.title": "그리기 전에 실시간 회로도 분석을 살펴보세요.",
+    "showcase.description": "공통 회로 패턴 간을 전환하여 홈페이지에서 직접 구조, 복잡성 및 내보내기 준비 상태를 비교하세요.",
+    "showcase.canvas.label": "다이어그램 캔버스",
+    "showcase.live_preset": "라이브 프리셋",
+    "showcase.breakdown.badge": "회로도 분석",
+    "showcase.breakdown.title": "중요 경로 할당",
+    "showcase.breakdown.status": "자동 프로파일링됨",
+    "showcase.metrics.badge": "운영 지표",
+    "showcase.checkpoints.badge": "디자인 체크포인트",
+    "showcase.checkpoints.status": "단서 검토",
+    "showcase.profile.badge": "기술 프로필",
+    "showcase.quick_specs.title": "빠른 참조 사양",
+    "showcase.quick_specs.status": "자동 업데이트",
+    "showcase.cta": "편집기에서 열기",
+    "showcase.presets.logic": {
+      "label": "로직 제어",
+      "title": "센서 및 MCU 인터페이스",
+      "summary": "디지털 제어 시스템을 위한 입력 보호, 풀 저항기 및 커넥터 전략을 계획합니다.",
+      "specs": [
+        [
+          "주요 부품",
+          "12"
+        ],
+        [
+          "예상 네트",
+          "16"
+        ],
+        [
+          "신호 등급",
+          "혼합 신호"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "버스 활용",
+          "value": "57%",
+          "strength": 57,
+          "accent": "제비꽃"
+        },
+        {
+          "label": "핀 팬아웃",
+          "value": "71%",
+          "strength": 71,
+          "accent": "청록색"
+        },
+        {
+          "label": "보호 커버",
+          "value": "88%",
+          "strength": 88,
+          "accent": "에메랄드"
+        }
+      ],
+      "stages": [
+        {
+          "name": "센서 진입",
+          "detail": "ESD 및 풀 네트워크",
+          "load": 24
+        },
+        {
+          "name": "MCU 처리",
+          "detail": "핵심 로직 및 타이밍",
+          "load": 49
+        },
+        {
+          "name": "주변 링크",
+          "detail": "UART 및 GPIO 브레이크아웃",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "예비 GPIO 라벨 예약",
+        "혼합 전압 교차점에 플래그 지정",
+        "문서 풀업 기본값"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "오디오 앰프",
+      "title": "클래스 A 프리앰프",
+      "summary": "DC 차단 커패시터와 정밀 게인 스테이지를 사용하여 충실도가 높은 신호 경로를 설계합니다.",
+      "specs": [
+        [
+          "주요 부품",
+          "7"
+        ],
+        [
+          "예상 네트",
+          "11"
+        ],
+        [
+          "신호 등급",
+          "하이파이 오디오"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "균형을 잡아라",
+          "value": "76%",
+          "strength": 76,
+          "accent": "자홍색"
+        },
+        {
+          "label": "DC 절연",
+          "value": "84%",
+          "strength": 84,
+          "accent": "청록색"
+        },
+        {
+          "label": "출력 선명도",
+          "value": "73%",
+          "strength": 73,
+          "accent": "에메랄드"
+        }
+      ],
+      "stages": [
+        {
+          "name": "입력 커플링",
+          "detail": "DC 블록 및 소스 트림",
+          "load": 21
+        },
+        {
+          "name": "트랜지스터 이득",
+          "detail": "바이어스 및 증폭 코어",
+          "load": 53
+        },
+        {
+          "name": "라인 컨디셔닝",
+          "detail": "출력 캡 및 라인 핸드오프",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "바이어스 포인트 대칭 확인",
+        "오디오 그라운드를 조용하게 유지하세요",
+        "공급 반환과 별도의 라인 출력"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "로직 디자이너",
+      "title": "디지털 로직 컨트롤러",
+      "summary": "특수 디지털 핸드셰이크를 위해 AND, OR 및 XOR 게이트를 사용하여 이진 논리 CMOS 회로를 설계합니다.",
+      "specs": [
+        [
+          "기본 게이트",
+          "7"
+        ],
+        [
+          "논리 깊이",
+          "4층"
+        ],
+        [
+          "신호 등급",
+          "디지털 CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "논리 안정성",
+          "value": "72%",
+          "strength": 72,
+          "accent": "제비꽃"
+        },
+        {
+          "label": "타이밍 여유",
+          "value": "85%",
+          "strength": 85,
+          "accent": "청록색"
+        },
+        {
+          "label": "팬아웃 효율성",
+          "value": "64%",
+          "strength": 64,
+          "accent": "에메랄드"
+        }
+      ],
+      "stages": [
+        {
+          "name": "바이너리 인그레스",
+          "detail": "입력 레벨 및 풀다운",
+          "load": 21
+        },
+        {
+          "name": "조건 논리",
+          "detail": "분기 및 XOR 게이트",
+          "load": 56
+        },
+        {
+          "name": "신호 출력",
+          "detail": "버퍼 스테이지 및 가장자리 트림",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "게이트 전파 지연 최소화",
+        "CMOS 로직 임계값 확인",
+        "버퍼 팬아웃 분기"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB 제도",
+      "title": "다층 회로도",
+      "summary": "다층 트레이스 라우팅, 비아 및 열 완화 계획을 통해 제조 준비가 완료된 PCB를 설계합니다.",
+      "specs": [
+        [
+          "레이어 수",
+          "4층"
+        ],
+        [
+          "트레이스 폭",
+          "600만"
+        ],
+        [
+          "클리어런스",
+          "0.15mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "신호 무결성",
+          "value": "91%",
+          "strength": 91,
+          "accent": "청록색"
+        },
+        {
+          "label": "열 완화",
+          "value": "82%",
+          "strength": 82,
+          "accent": "에메랄드"
+        },
+        {
+          "label": "EMI 차폐",
+          "value": "67%",
+          "strength": 67,
+          "accent": "장미"
+        }
+      ],
+      "stages": [
+        {
+          "name": "추적 라우팅",
+          "detail": "자동 차등 라우팅",
+          "load": 46
+        },
+        {
+          "name": "레이어 스태킹",
+          "detail": "접지면 및 절연",
+          "load": 38
+        },
+        {
+          "name": "거버 준비",
+          "detail": "드릴 경로 최적화를 통해",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "차동 쌍을 일치하게 유지",
+        "밸런스 접지면 적용 범위",
+        "홉을 통해 고속을 최소화"
+      ]
+    }
+  },
+  "ms": {
+    "showcase.badge": "Pratonton Interaktif",
+    "showcase.title": "Terokai pecahan skema langsung sebelum anda melukis",
+    "showcase.description": "Beralih antara corak litar biasa untuk membandingkan struktur, kerumitan dan kesediaan eksport terus di halaman utama.",
+    "showcase.canvas.label": "Kanvas Gambar rajah",
+    "showcase.live_preset": "Pratetap langsung",
+    "showcase.breakdown.badge": "Pecahan skematik",
+    "showcase.breakdown.title": "Peruntukan laluan kritikal",
+    "showcase.breakdown.status": "Autoprofil",
+    "showcase.metrics.badge": "Metrik operasi",
+    "showcase.checkpoints.badge": "Reka bentuk pusat pemeriksaan",
+    "showcase.checkpoints.status": "Semak isyarat",
+    "showcase.profile.badge": "Profil Teknikal",
+    "showcase.quick_specs.title": "Spesifikasi Rujukan Pantas",
+    "showcase.quick_specs.status": "Kemas kini automatik",
+    "showcase.cta": "Buka dalam Editor",
+    "showcase.presets.logic": {
+      "label": "Kawalan Logik",
+      "title": "Sensor dan antara muka MCU",
+      "summary": "Rancang perlindungan input, perintang tarik dan strategi penyambung untuk sistem kawalan digital.",
+      "specs": [
+        [
+          "Bahagian utama",
+          "12"
+        ],
+        [
+          "Anggaran jaring",
+          "16"
+        ],
+        [
+          "Kelas isyarat",
+          "Isyarat bercampur"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Penggunaan bas",
+          "value": "57%",
+          "strength": 57,
+          "accent": "ungu"
+        },
+        {
+          "label": "Pin kipas keluar",
+          "value": "71%",
+          "strength": 71,
+          "accent": "sian"
+        },
+        {
+          "label": "Penutup perlindungan",
+          "value": "88%",
+          "strength": 88,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Kemasukan sensor",
+          "detail": "ESD dan rangkaian tarik",
+          "load": 24
+        },
+        {
+          "name": "pemprosesan MCU",
+          "detail": "Logik teras dan masa",
+          "load": 49
+        },
+        {
+          "name": "Pautan persisian",
+          "detail": "UART dan GPIO pecahan",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Simpan label GPIO ganti",
+        "Benderakan lintasan voltan bercampur",
+        "Pulak ke atas dokumen lalai"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Amp Audio",
+      "title": "Prapenguat Kelas-A",
+      "summary": "Reka bentuk laluan isyarat kesetiaan tinggi dengan kapasitor penyekat DC dan peringkat perolehan ketepatan.",
+      "specs": [
+        [
+          "Bahagian utama",
+          "7"
+        ],
+        [
+          "Anggaran jaring",
+          "11"
+        ],
+        [
+          "Kelas isyarat",
+          "Audio Hi-Fi"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Dapatkan keseimbangan",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "Pengasingan DC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "sian"
+        },
+        {
+          "label": "Kejelasan output",
+          "value": "73%",
+          "strength": 73,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Gandingan input",
+          "detail": "Blok DC dan pemangkasan sumber",
+          "load": 21
+        },
+        {
+          "name": "Keuntungan transistor",
+          "detail": "Teras berat sebelah dan amplifikasi",
+          "load": 53
+        },
+        {
+          "name": "Pengkondisian talian",
+          "detail": "Had keluaran dan serahan talian",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Sahkan simetri titik bias",
+        "Pastikan tanah audio senyap",
+        "Asingkan keluaran talian daripada pulangan bekalan"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Pereka Logik",
+      "title": "Pengawal Logik Digital",
+      "summary": "Reka litar CMOS logik binari dengan get AND, OR, dan XOR untuk jabat tangan digital khusus.",
+      "specs": [
+        [
+          "Gerbang utama",
+          "7"
+        ],
+        [
+          "Kedalaman logik",
+          "4 lapisan"
+        ],
+        [
+          "Kelas isyarat",
+          "CMOS Digital"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Kestabilan logik",
+          "value": "72%",
+          "strength": 72,
+          "accent": "ungu"
+        },
+        {
+          "label": "Margin masa",
+          "value": "85%",
+          "strength": 85,
+          "accent": "sian"
+        },
+        {
+          "label": "Kecekapan kipas",
+          "value": "64%",
+          "strength": 64,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Kemasukan binari",
+          "detail": "Tahap input dan tarik-turun",
+          "load": 21
+        },
+        {
+          "name": "Logik keadaan",
+          "detail": "Gerbang bercabang dan XOR",
+          "load": 56
+        },
+        {
+          "name": "Keluaran isyarat",
+          "detail": "Peringkat penampan dan trim tepi",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimumkan kelewatan perambatan pintu",
+        "Sahkan ambang logik CMOS",
+        "Menampan cawangan kipas keluar"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Penggubalan PCB",
+      "title": "Skema berbilang lapisan",
+      "summary": "Reka bentuk PCB sedia pembuatan dengan penghalaan surih berbilang lapisan, vias dan perancangan pelepasan haba.",
+      "specs": [
+        [
+          "Kiraan lapisan",
+          "4-Lapisan"
+        ],
+        [
+          "Lebar jejak",
+          "6 juta"
+        ],
+        [
+          "Pembersihan",
+          "0.15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integriti isyarat",
+          "value": "91%",
+          "strength": 91,
+          "accent": "sian"
+        },
+        {
+          "label": "Pelepasan haba",
+          "value": "82%",
+          "strength": 82,
+          "accent": "zamrud"
+        },
+        {
+          "label": "Perisai EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "mawar"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Jejaki penghalaan",
+          "detail": "Penghalaan pembezaan automatik",
+          "load": 46
+        },
+        {
+          "name": "Susun lapisan",
+          "detail": "Satah tanah dan pengasingan",
+          "load": 38
+        },
+        {
+          "name": "Persiapan Gerber",
+          "detail": "Melalui pengoptimuman laluan gerudi",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Pastikan pasangan pembezaan dipadankan",
+        "Mengimbangi liputan satah darat",
+        "Minimumkan kelajuan tinggi melalui hop"
+      ]
+    }
+  },
+  "pl": {
+    "showcase.badge": "Interaktywny podgląd",
+    "showcase.title": "Przed rozpoczęciem rysowania zapoznaj się z podziałem schematu na żywo",
+    "showcase.description": "Przełączaj się między typowymi wzorcami obwodów, aby porównać strukturę, złożoność i gotowość do eksportu bezpośrednio na stronie głównej.",
+    "showcase.canvas.label": "Płótno diagramu",
+    "showcase.live_preset": "Ustawienia wstępne na żywo",
+    "showcase.breakdown.badge": "Podział schematu",
+    "showcase.breakdown.title": "Alokacja ścieżki krytycznej",
+    "showcase.breakdown.status": "Autoprofilowane",
+    "showcase.metrics.badge": "Wskaźniki operacyjne",
+    "showcase.checkpoints.badge": "Projektuj punkty kontrolne",
+    "showcase.checkpoints.status": "Przejrzyj wskazówki",
+    "showcase.profile.badge": "Profil techniczny",
+    "showcase.quick_specs.title": "Skrócona specyfikacja referencyjna",
+    "showcase.quick_specs.status": "Automatyczne aktualizacje",
+    "showcase.cta": "Otwórz w Edytorze",
+    "showcase.presets.logic": {
+      "label": "Sterowanie logiczne",
+      "title": "Interfejs czujnika i MCU",
+      "summary": "Zaplanuj ochronę wejścia, rezystory ciągnące i strategię złączy dla cyfrowych systemów sterowania.",
+      "specs": [
+        [
+          "Części podstawowe",
+          "12"
+        ],
+        [
+          "Szacunkowe sieci",
+          "16"
+        ],
+        [
+          "Klasa sygnału",
+          "Sygnał mieszany"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Wykorzystanie autobusu",
+          "value": "57%",
+          "strength": 57,
+          "accent": "fioletowy"
+        },
+        {
+          "label": "Rozgałęzienie pinów",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cyjan"
+        },
+        {
+          "label": "Osłona ochronna",
+          "value": "88%",
+          "strength": 88,
+          "accent": "szmaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Wejście czujnika",
+          "detail": "Sieć ESD i pull",
+          "load": 24
+        },
+        {
+          "name": "Przetwarzanie MCU",
+          "detail": "Podstawowa logika i synchronizacja",
+          "load": 49
+        },
+        {
+          "name": "Łącza peryferyjne",
+          "detail": "Przerwa w UART i GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Zarezerwuj zapasowe etykiety GPIO",
+        "Oznacz przejścia o różnym napięciu",
+        "Domyślne ustawienia pobierania dokumentów"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Wzmacniacz audio",
+      "title": "Przedwzmacniacz klasy A",
+      "summary": "Projektuj ścieżki sygnałowe o wysokiej jakości z kondensatorami blokującymi prąd stały i precyzyjnymi stopniami wzmocnienia.",
+      "specs": [
+        [
+          "Części podstawowe",
+          "7"
+        ],
+        [
+          "Szacunkowe sieci",
+          "11"
+        ],
+        [
+          "Klasa sygnału",
+          "Dźwięk Hi-Fi"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Zyskaj równowagę",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuksja"
+        },
+        {
+          "label": "Izolacja prądu stałego",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cyjan"
+        },
+        {
+          "label": "Klarowność wyjściowa",
+          "value": "73%",
+          "strength": 73,
+          "accent": "szmaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Sprzężenie wejściowe",
+          "detail": "Blok DC i wykończenie źródła",
+          "load": 21
+        },
+        {
+          "name": "Wzmocnienie tranzystora",
+          "detail": "Rdzeń odchylający i wzmacniający",
+          "load": 53
+        },
+        {
+          "name": "Kondycjonowanie linii",
+          "detail": "Limit wyjściowy i przekazywanie linii",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Sprawdź symetrię punktu odchylenia",
+        "Utrzymuj ciszę audio",
+        "Oddzielne wyjście liniowe od powrotu zasilania"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Projektant logiki",
+      "title": "Cyfrowy sterownik logiczny",
+      "summary": "Projektuj binarne obwody CMOS z bramkami AND, OR i XOR na potrzeby specjalistycznych cyfrowych uzgadniań.",
+      "specs": [
+        [
+          "Bramy pierwotne",
+          "7"
+        ],
+        [
+          "Głębia logiczna",
+          "4-warstwowy"
+        ],
+        [
+          "Klasa sygnału",
+          "Cyfrowy CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Stabilność logiczna",
+          "value": "72%",
+          "strength": 72,
+          "accent": "fioletowy"
+        },
+        {
+          "label": "Margines czasowy",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cyjan"
+        },
+        {
+          "label": "Wydajność wentylatora",
+          "value": "64%",
+          "strength": 64,
+          "accent": "szmaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Wejście binarne",
+          "detail": "Poziomy wejściowe i pull-down",
+          "load": 21
+        },
+        {
+          "name": "Logika warunku",
+          "detail": "Bramki rozgałęziające i XOR",
+          "load": 56
+        },
+        {
+          "name": "Wyjście sygnału",
+          "detail": "Stopień buforowy i wykończenie krawędzi",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Zminimalizuj opóźnienie propagacji bramki",
+        "Sprawdź progi logiczne CMOS",
+        "Gałęzie rozgałęziające bufor"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Projekt PCB",
+      "title": "Schemat wielowarstwowy",
+      "summary": "Projektuj gotowe do produkcji płytki drukowane z wielowarstwowym trasowaniem ścieżek, przelotkami i planowaniem odprężania termicznego.",
+      "specs": [
+        [
+          "Liczba warstw",
+          "4-warstwowy"
+        ],
+        [
+          "Szerokość śladu",
+          "6 milionów"
+        ],
+        [
+          "Rozliczenie",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integralność sygnału",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cyjan"
+        },
+        {
+          "label": "Ulga termiczna",
+          "value": "82%",
+          "strength": 82,
+          "accent": "szmaragd"
+        },
+        {
+          "label": "Ekranowanie EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "róża"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Śledzenie routingu",
+          "detail": "Automatyczne routing różnicowy",
+          "load": 46
+        },
+        {
+          "name": "Układanie warstw",
+          "detail": "Płaszczyzna uziemienia i izolacja",
+          "load": 38
+        },
+        {
+          "name": "Przygotowanie Gerbera",
+          "detail": "Poprzez optymalizację ścieżki wiercenia",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Zachowaj dopasowanie par różnicowych",
+        "Zrównoważyć pokrycie płaszczyzny podłoża",
+        "Zminimalizuj dużą prędkość poprzez przeskoki"
+      ]
+    }
+  },
+  "id": {
+    "showcase.badge": "Pratinjau Interaktif",
+    "showcase.title": "Jelajahi perincian skema langsung sebelum Anda menggambar",
+    "showcase.description": "Beralih di antara pola sirkuit umum untuk membandingkan struktur, kompleksitas, dan kesiapan ekspor langsung di beranda.",
+    "showcase.canvas.label": "Diagram Kanvas",
+    "showcase.live_preset": "Prasetel langsung",
+    "showcase.breakdown.badge": "Perincian skema",
+    "showcase.breakdown.title": "Alokasi jalur kritis",
+    "showcase.breakdown.status": "Diprofilkan secara otomatis",
+    "showcase.metrics.badge": "Metrik operasi",
+    "showcase.checkpoints.badge": "Desain pos pemeriksaan",
+    "showcase.checkpoints.status": "Tinjau isyarat",
+    "showcase.profile.badge": "Profil Teknis",
+    "showcase.quick_specs.title": "Spesifikasi Referensi Cepat",
+    "showcase.quick_specs.status": "Pembaruan otomatis",
+    "showcase.cta": "Buka di Editor",
+    "showcase.presets.logic": {
+      "label": "Kontrol Logika",
+      "title": "Antarmuka Sensor dan MCU",
+      "summary": "Rencanakan perlindungan masukan, resistor tarik, dan strategi konektor untuk sistem kontrol digital.",
+      "specs": [
+        [
+          "Bagian primer",
+          "12"
+        ],
+        [
+          "Perkiraan jaring",
+          "16"
+        ],
+        [
+          "Kelas sinyal",
+          "Sinyal campuran"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Pemanfaatan bus",
+          "value": "57%",
+          "strength": 57,
+          "accent": "ungu"
+        },
+        {
+          "label": "Sematkan penyebaran",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cyan"
+        },
+        {
+          "label": "Penutup perlindungan",
+          "value": "88%",
+          "strength": 88,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Masuknya sensor",
+          "detail": "ESD dan jaringan tarik",
+          "load": 24
+        },
+        {
+          "name": "Pemrosesan MCU",
+          "detail": "Logika inti dan waktu",
+          "load": 49
+        },
+        {
+          "name": "Tautan periferal",
+          "detail": "Pelarian UART dan GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Cadangan label GPIO cadangan",
+        "Tandai perlintasan tegangan campuran",
+        "Default penarik dokumen"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Penguat Audio",
+      "title": "Preamplifier Kelas-A",
+      "summary": "Rancang jalur sinyal fidelitas tinggi dengan kapasitor pemblokiran DC dan tahapan penguatan presisi.",
+      "specs": [
+        [
+          "Bagian primer",
+          "7"
+        ],
+        [
+          "Perkiraan jaring",
+          "11"
+        ],
+        [
+          "Kelas sinyal",
+          "Audio Hi-Fi"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Dapatkan keseimbangan",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "isolasi DC",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cyan"
+        },
+        {
+          "label": "Kejelasan keluaran",
+          "value": "73%",
+          "strength": 73,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Kopling masukan",
+          "detail": "Blok DC dan trim sumber",
+          "load": 21
+        },
+        {
+          "name": "Penguatan transistor",
+          "detail": "Bias dan inti amplifikasi",
+          "load": 53
+        },
+        {
+          "name": "Pengkondisian garis",
+          "detail": "Batas keluaran dan handoff saluran",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verifikasi simetri titik bias",
+        "Jaga agar audio tetap senyap",
+        "Pisahkan keluaran jalur dari pengembalian pasokan"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Desainer Logika",
+      "title": "Pengontrol Logika Digital",
+      "summary": "Rancang sirkuit CMOS logika biner dengan gerbang AND, OR, dan XOR untuk jabat tangan digital khusus.",
+      "specs": [
+        [
+          "Gerbang utama",
+          "7"
+        ],
+        [
+          "Kedalaman logika",
+          "4 lapisan"
+        ],
+        [
+          "Kelas sinyal",
+          "CMOS Digital"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Stabilitas logika",
+          "value": "72%",
+          "strength": 72,
+          "accent": "ungu"
+        },
+        {
+          "label": "Margin waktu",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cyan"
+        },
+        {
+          "label": "Efisiensi penyebaran",
+          "value": "64%",
+          "strength": 64,
+          "accent": "zamrud"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Masuknya biner",
+          "detail": "Level input dan pull-down",
+          "load": 21
+        },
+        {
+          "name": "Logika kondisi",
+          "detail": "Gerbang percabangan dan XOR",
+          "load": 56
+        },
+        {
+          "name": "Keluaran sinyal",
+          "detail": "Tahap penyangga dan trim tepi",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimalkan penundaan propagasi gerbang",
+        "Verifikasi ambang logika CMOS",
+        "Cabang penyangga penyebaran"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Penyusunan PCB",
+      "title": "Skema Multi-lapis",
+      "summary": "Rancang PCB siap produksi dengan perutean jejak multi-lapisan, vias, dan perencanaan bantuan termal.",
+      "specs": [
+        [
+          "Jumlah lapisan",
+          "4-Lapisan"
+        ],
+        [
+          "Lebar jejak",
+          "6 juta"
+        ],
+        [
+          "Izin",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Integritas sinyal",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cyan"
+        },
+        {
+          "label": "Bantuan termal",
+          "value": "82%",
+          "strength": 82,
+          "accent": "zamrud"
+        },
+        {
+          "label": "Pelindung EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "bangkit"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Melacak perutean",
+          "detail": "Perutean diferensial otomatis",
+          "load": 46
+        },
+        {
+          "name": "Penumpukan lapisan",
+          "detail": "Pesawat darat dan isolasi",
+          "load": 38
+        },
+        {
+          "name": "Persiapan Gerber",
+          "detail": "Melalui optimasi jalur bor",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Jaga agar pasangan diferensial tetap cocok",
+        "Seimbangkan cakupan bidang tanah",
+        "Minimalkan kecepatan tinggi melalui hop"
+      ]
+    }
+  },
+  "ar": {
+    "showcase.badge": "المعاينة التفاعلية",
+    "showcase.title": "استكشف التفاصيل التخطيطية المباشرة قبل الرسم",
+    "showcase.description": "قم بالتبديل بين أنماط الدوائر الشائعة لمقارنة البنية والتعقيد وجاهزية التصدير مباشرةً على الصفحة الرئيسية.",
+    "showcase.canvas.label": "قماش الرسم البياني",
+    "showcase.live_preset": "لايف مسبقا",
+    "showcase.breakdown.badge": "انهيار تخطيطي",
+    "showcase.breakdown.title": "تخصيص المسار الحرج",
+    "showcase.breakdown.status": "لمحة تلقائية",
+    "showcase.metrics.badge": "مقاييس التشغيل",
+    "showcase.checkpoints.badge": "تصميم نقاط التفتيش",
+    "showcase.checkpoints.status": "مراجعة الإشارات",
+    "showcase.profile.badge": "الملف الفني",
+    "showcase.quick_specs.title": "المواصفات المرجعية السريعة",
+    "showcase.quick_specs.status": "التحديثات التلقائية",
+    "showcase.cta": "افتح في المحرر",
+    "showcase.presets.logic": {
+      "label": "التحكم المنطقي",
+      "title": "واجهة الاستشعار وMCU",
+      "summary": "تخطيط حماية المدخلات، ومقاومات السحب، وإستراتيجية الموصل لأنظمة التحكم الرقمية.",
+      "specs": [
+        [
+          "الأجزاء الأولية",
+          "12"
+        ],
+        [
+          "الشباك المقدرة",
+          "16"
+        ],
+        [
+          "فئة الإشارة",
+          "إشارة مختلطة"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "استغلال الحافلات",
+          "value": "57%",
+          "strength": 57,
+          "accent": "البنفسجي"
+        },
+        {
+          "label": "دبوس المروحة",
+          "value": "71%",
+          "strength": 71,
+          "accent": "سماوي"
+        },
+        {
+          "label": "غطاء حماية",
+          "value": "88%",
+          "strength": 88,
+          "accent": "الزمرد"
+        }
+      ],
+      "stages": [
+        {
+          "name": "دخول الاستشعار",
+          "detail": "ESD وسحب الشبكة",
+          "load": 24
+        },
+        {
+          "name": "معالجة MCU",
+          "detail": "المنطق الأساسي والتوقيت",
+          "load": 49
+        },
+        {
+          "name": "الروابط الطرفية",
+          "detail": "اختراق UART وGPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "حجز ملصقات GPIO الاحتياطية",
+        "وضع علامة على معابر الجهد المختلط",
+        "الإعدادات الافتراضية لسحب المستندات"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "مضخم الصوت",
+      "title": "مضخم صوت من الدرجة الأولى",
+      "summary": "صمم مسارات إشارة عالية الدقة باستخدام مكثفات حجب التيار المستمر ومراحل الكسب الدقيقة.",
+      "specs": [
+        [
+          "الأجزاء الأولية",
+          "7"
+        ],
+        [
+          "الشباك المقدرة",
+          "11"
+        ],
+        [
+          "فئة الإشارة",
+          "مرحبا فاي الصوت"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "احصل على التوازن",
+          "value": "76%",
+          "strength": 76,
+          "accent": "ضارب الى الحمرة"
+        },
+        {
+          "label": "عزل العاصمة",
+          "value": "84%",
+          "strength": 84,
+          "accent": "سماوي"
+        },
+        {
+          "label": "وضوح الإخراج",
+          "value": "73%",
+          "strength": 73,
+          "accent": "الزمرد"
+        }
+      ],
+      "stages": [
+        {
+          "name": "اقتران الإدخال",
+          "detail": "كتلة العاصمة وتقليم المصدر",
+          "load": 21
+        },
+        {
+          "name": "كسب الترانزستور",
+          "detail": "التحيز والتضخيم الأساسية",
+          "load": 53
+        },
+        {
+          "name": "تكييف الخط",
+          "detail": "سقف الإخراج وتسليم الخط",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "التحقق من التماثل نقطة التحيز",
+        "حافظ على هدوء الأرضية الصوتية",
+        "إخراج خط منفصل عن إرجاع العرض"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "مصمم المنطق",
+      "title": "وحدة التحكم المنطقية الرقمية",
+      "summary": "تصميم دوائر CMOS منطقية ثنائية مع بوابات AND وOR وXOR للمصافحة الرقمية المتخصصة.",
+      "specs": [
+        [
+          "البوابات الأولية",
+          "7"
+        ],
+        [
+          "عمق المنطق",
+          "4 طبقة"
+        ],
+        [
+          "فئة الإشارة",
+          "سيموس الرقمية"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "الاستقرار المنطقي",
+          "value": "72%",
+          "strength": 72,
+          "accent": "البنفسجي"
+        },
+        {
+          "label": "هامش التوقيت",
+          "value": "85%",
+          "strength": 85,
+          "accent": "سماوي"
+        },
+        {
+          "label": "كفاءة المروحة",
+          "value": "64%",
+          "strength": 64,
+          "accent": "الزمرد"
+        }
+      ],
+      "stages": [
+        {
+          "name": "دخول ثنائي",
+          "detail": "مستويات الإدخال والمنسدلة",
+          "load": 21
+        },
+        {
+          "name": "منطق الشرط",
+          "detail": "بوابات المتفرعة وXOR",
+          "load": 56
+        },
+        {
+          "name": "إخراج الإشارة",
+          "detail": "مرحلة العازلة وتقليم الحافة",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "تقليل تأخير انتشار البوابة",
+        "تحقق من عتبات منطق CMOS",
+        "عازلة فروع مروحة التدريجي"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "صياغة ثنائي الفينيل متعدد الكلور",
+      "title": "متعدد الطبقات التخطيطي",
+      "summary": "تصميم مركبات ثنائي الفينيل متعدد الكلور جاهزة للتصنيع مع توجيه تتبع متعدد الطبقات، وعبر، وتخطيط للتخفيف الحراري.",
+      "specs": [
+        [
+          "عدد الطبقات",
+          "4-طبقة"
+        ],
+        [
+          "عرض التتبع",
+          "6 مل"
+        ],
+        [
+          "التخليص",
+          "0.15 ملم"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "سلامة الإشارة",
+          "value": "91%",
+          "strength": 91,
+          "accent": "سماوي"
+        },
+        {
+          "label": "الإغاثة الحرارية",
+          "value": "82%",
+          "strength": 82,
+          "accent": "الزمرد"
+        },
+        {
+          "label": "التدريع EMI",
+          "value": "67%",
+          "strength": 67,
+          "accent": "ارتفع"
+        }
+      ],
+      "stages": [
+        {
+          "name": "تتبع التوجيه",
+          "detail": "التوجيه التفاضلي التلقائي",
+          "load": 46
+        },
+        {
+          "name": "تكديس الطبقة",
+          "detail": "الطائرة الأرضية والعزلة",
+          "load": 38
+        },
+        {
+          "name": "إعدادية جربر",
+          "detail": "عبر تحسين مسار الحفر",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "حافظ على تطابق الأزواج التفاضلية",
+        "موازنة تغطية الطائرة الأرضية",
+        "تقليل السرعة العالية عبر القفزات"
+      ]
+    }
+  },
+  "bg": {
+    "showcase.badge": "Интерактивен преглед",
+    "showcase.title": "Разгледайте схематична разбивка на живо, преди да рисувате",
+    "showcase.description": "Превключвайте между общи модели на вериги, за да сравните структурата, сложността и готовността за експортиране директно на началната страница.",
+    "showcase.canvas.label": "Диаграмно платно",
+    "showcase.live_preset": "Предварителна настройка на живо",
+    "showcase.breakdown.badge": "Схематична разбивка",
+    "showcase.breakdown.title": "Разпределение на критичния път",
+    "showcase.breakdown.status": "Автоматично профилиране",
+    "showcase.metrics.badge": "Оперативни показатели",
+    "showcase.checkpoints.badge": "Проектиране на контролни точки",
+    "showcase.checkpoints.status": "Подсказки за преглед",
+    "showcase.profile.badge": "Технически профил",
+    "showcase.quick_specs.title": "Бързи справочни спецификации",
+    "showcase.quick_specs.status": "Автоматични актуализации",
+    "showcase.cta": "Отворете в Редактор",
+    "showcase.presets.logic": {
+      "label": "Логически контрол",
+      "title": "Сензор и MCU интерфейс",
+      "summary": "Планирайте защита на входа, издърпващи резистори и стратегия за свързване за цифрови системи за управление.",
+      "specs": [
+        [
+          "Първични части",
+          "12"
+        ],
+        [
+          "Прогнозирани мрежи",
+          "16"
+        ],
+        [
+          "Сигнален клас",
+          "Смесен сигнал"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Използване на автобуса",
+          "value": "57%",
+          "strength": 57,
+          "accent": "виолетово"
+        },
+        {
+          "label": "Pin fan-out",
+          "value": "71%",
+          "strength": 71,
+          "accent": "циан"
+        },
+        {
+          "label": "Защитен капак",
+          "value": "88%",
+          "strength": 88,
+          "accent": "смарагд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Влизане на сензор",
+          "detail": "ESD и изтегляща мрежа",
+          "load": 24
+        },
+        {
+          "name": "MCU обработка",
+          "detail": "Основна логика и време",
+          "load": 49
+        },
+        {
+          "name": "Периферни връзки",
+          "detail": "Пробив на UART и GPIO",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Резервирайте резервни GPIO етикети",
+        "Флаг кръстовища със смесено напрежение",
+        "Стандартни настройки за изтегляне на документа"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Аудио усилвател",
+      "title": "Предусилвател от клас А",
+      "summary": "Проектирайте сигнални пътища с висока прецизност с DC блокиращи кондензатори и прецизни етапи на усилване.",
+      "specs": [
+        [
+          "Първични части",
+          "7"
+        ],
+        [
+          "Прогнозирани мрежи",
+          "11"
+        ],
+        [
+          "Сигнален клас",
+          "Hi-Fi аудио"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Спечелете баланс",
+          "value": "76%",
+          "strength": 76,
+          "accent": "фуксия"
+        },
+        {
+          "label": "DC изолация",
+          "value": "84%",
+          "strength": 84,
+          "accent": "циан"
+        },
+        {
+          "label": "Изходна яснота",
+          "value": "73%",
+          "strength": 73,
+          "accent": "смарагд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Входен съединител",
+          "detail": "DC блок и настройка на източника",
+          "load": 21
+        },
+        {
+          "name": "Транзисторно усилване",
+          "detail": "Преднапрежение и ядро за усилване",
+          "load": 53
+        },
+        {
+          "name": "Кондициониране на линията",
+          "detail": "Капачка на изхода и предаване на линия",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Проверете симетрията на точката на отклонение",
+        "Keep audio ground quiet",
+        "Отделен изход на линия от връщане на захранване"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Логически дизайнер",
+      "title": "Цифров логически контролер",
+      "summary": "Проектирайте двоични логически CMOS схеми с И, ИЛИ и XOR портове за специализирани цифрови ръкостискания.",
+      "specs": [
+        [
+          "Първични порти",
+          "7"
+        ],
+        [
+          "Логическа дълбочина",
+          "4-слоен"
+        ],
+        [
+          "Сигнален клас",
+          "Цифров CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Логическа стабилност",
+          "value": "72%",
+          "strength": 72,
+          "accent": "виолетово"
+        },
+        {
+          "label": "Времеви запас",
+          "value": "85%",
+          "strength": 85,
+          "accent": "циан"
+        },
+        {
+          "label": "Ефективност на вентилатор",
+          "value": "64%",
+          "strength": 64,
+          "accent": "смарагд"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Двоичен вход",
+          "detail": "Нива на въвеждане и падащи менюта",
+          "load": 21
+        },
+        {
+          "name": "Логика на условията",
+          "detail": "Разклоняващи и XOR порти",
+          "load": 56
+        },
+        {
+          "name": "Изходен сигнал",
+          "detail": "Буферен етап и подрязване на ръба",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Минимизиране на забавянето на разпространението на гейта",
+        "Проверете логическите прагове на CMOS",
+        "Буферни ветрилообразни разклонения"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "Изготвяне на печатни платки",
+      "title": "Многослойна схема",
+      "summary": "Проектирайте готови за производство печатни платки с многослойно трасиране, отвори и планиране на термично облекчение.",
+      "specs": [
+        [
+          "Брой слоеве",
+          "4-слоен"
+        ],
+        [
+          "Ширина на трасето",
+          "6 милиона"
+        ],
+        [
+          "Клирънс",
+          "0,15 мм"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Целостта на сигнала",
+          "value": "91%",
+          "strength": 91,
+          "accent": "циан"
+        },
+        {
+          "label": "Термичен релеф",
+          "value": "82%",
+          "strength": 82,
+          "accent": "смарагд"
+        },
+        {
+          "label": "EMI екраниране",
+          "value": "67%",
+          "strength": 67,
+          "accent": "роза"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Проследяване на маршрута",
+          "detail": "Автоматично диференциално маршрутизиране",
+          "load": 46
+        },
+        {
+          "name": "Подреждане на слоеве",
+          "detail": "Заземяване и изолация",
+          "load": 38
+        },
+        {
+          "name": "Gerber prep",
+          "detail": "Чрез оптимизиране на пътя на пробиване",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Поддържайте съвпадение на диференциалните двойки",
+        "Баланс покритие на земната равнина",
+        "Минимизирайте високата скорост чрез прескачане"
+      ]
+    }
+  },
+  "tr": {
+    "showcase.badge": "İnteraktif Önizleme",
+    "showcase.title": "Çizim yapmadan önce canlı şematik dökümü keşfedin",
+    "showcase.description": "Doğrudan ana sayfada yapıyı, karmaşıklığı ve dışa aktarma hazırlığını karşılaştırmak için ortak devre modelleri arasında geçiş yapın.",
+    "showcase.canvas.label": "Diyagram Kanvası",
+    "showcase.live_preset": "Canlı ön ayar",
+    "showcase.breakdown.badge": "Şematik döküm",
+    "showcase.breakdown.title": "Kritik yol tahsisi",
+    "showcase.breakdown.status": "Otomatik profil oluşturuldu",
+    "showcase.metrics.badge": "İşletim metrikleri",
+    "showcase.checkpoints.badge": "Tasarım kontrol noktaları",
+    "showcase.checkpoints.status": "İpuçlarını gözden geçirin",
+    "showcase.profile.badge": "Teknik Profil",
+    "showcase.quick_specs.title": "Hızlı Referans Özellikleri",
+    "showcase.quick_specs.status": "Otomatik güncellemeler",
+    "showcase.cta": "Editörde Aç",
+    "showcase.presets.logic": {
+      "label": "Mantık Kontrolü",
+      "title": "Sensör ve MCU arayüzü",
+      "summary": "Dijital kontrol sistemleri için giriş korumasını, çekme dirençlerini ve konnektör stratejisini planlayın.",
+      "specs": [
+        [
+          "Birincil parçalar",
+          "12"
+        ],
+        [
+          "Tahmini ağlar",
+          "16"
+        ],
+        [
+          "Sinyal sınıfı",
+          "Karışık sinyal"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Otobüs kullanımı",
+          "value": "57%",
+          "strength": 57,
+          "accent": "menekşe"
+        },
+        {
+          "label": "Pin yayılımı",
+          "value": "71%",
+          "strength": 71,
+          "accent": "camgöbeği"
+        },
+        {
+          "label": "Koruma kapağı",
+          "value": "88%",
+          "strength": 88,
+          "accent": "zümrüt"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Sensör girişi",
+          "detail": "ESD ve çekme ağı",
+          "load": 24
+        },
+        {
+          "name": "MCU işleme",
+          "detail": "Temel mantık ve zamanlama",
+          "load": 49
+        },
+        {
+          "name": "Çevresel bağlantılar",
+          "detail": "UART ve GPIO kopuşu",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Yedek GPIO etiketlerini ayırın",
+        "Karışık gerilim geçişlerini işaretleyin",
+        "Belge çekme varsayılanları"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Ses Yükselticisi",
+      "title": "A Sınıfı Ön Amplifikatör",
+      "summary": "DC engelleme kapasitörleri ve hassas kazanç aşamaları ile yüksek kaliteli sinyal yolları tasarlayın.",
+      "specs": [
+        [
+          "Birincil parçalar",
+          "7"
+        ],
+        [
+          "Tahmini ağlar",
+          "11"
+        ],
+        [
+          "Sinyal sınıfı",
+          "Hi-Fi Ses"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Denge kazanın",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuşya"
+        },
+        {
+          "label": "DC izolasyonu",
+          "value": "84%",
+          "strength": 84,
+          "accent": "camgöbeği"
+        },
+        {
+          "label": "Çıkış netliği",
+          "value": "73%",
+          "strength": 73,
+          "accent": "zümrüt"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Giriş bağlantısı",
+          "detail": "DC bloğu ve kaynak trimi",
+          "load": 21
+        },
+        {
+          "name": "Transistör kazancı",
+          "detail": "Önyargı ve amplifikasyon çekirdeği",
+          "load": 53
+        },
+        {
+          "name": "Hat koşullandırma",
+          "detail": "Çıkış sınırı ve hat aktarımı",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Önyargı noktası simetrisini doğrulayın",
+        "Sesi sessiz tutun",
+        "Hat çıkışını besleme dönüşünden ayırın"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Mantık Tasarımcısı",
+      "title": "Dijital Mantık Denetleyicisi",
+      "summary": "Özel dijital el sıkışmaları için AND, OR ve XOR geçitlerine sahip ikili mantık CMOS devreleri tasarlayın.",
+      "specs": [
+        [
+          "Birincil kapılar",
+          "7"
+        ],
+        [
+          "Mantık derinliği",
+          "4 katmanlı"
+        ],
+        [
+          "Sinyal sınıfı",
+          "Dijital CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Mantıksal kararlılık",
+          "value": "72%",
+          "strength": 72,
+          "accent": "menekşe"
+        },
+        {
+          "label": "Zamanlama marjı",
+          "value": "85%",
+          "strength": 85,
+          "accent": "camgöbeği"
+        },
+        {
+          "label": "Fan çıkışı verimliliği",
+          "value": "64%",
+          "strength": 64,
+          "accent": "zümrüt"
+        }
+      ],
+      "stages": [
+        {
+          "name": "İkili giriş",
+          "detail": "Giriş seviyeleri ve açılır menüler",
+          "load": 21
+        },
+        {
+          "name": "Koşul mantığı",
+          "detail": "Dallanma ve XOR kapıları",
+          "load": 56
+        },
+        {
+          "name": "Sinyal çıkışı",
+          "detail": "Tampon aşaması ve kenar trimi",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Geçit yayılma gecikmesini en aza indirin",
+        "CMOS mantık eşiklerini doğrulayın",
+        "Tampon çıkış dalları"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB Taslağı Hazırlama",
+      "title": "Çok Katmanlı Şematik",
+      "summary": "Çok katmanlı iz yönlendirme, yollar ve termal tahliye planlamasıyla üretime hazır PCB'ler tasarlayın.",
+      "specs": [
+        [
+          "Katman sayısı",
+          "4-Katmanlı"
+        ],
+        [
+          "İz genişliği",
+          "6 milyon"
+        ],
+        [
+          "Gümrükleme",
+          "0,15mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Sinyal bütünlüğü",
+          "value": "91%",
+          "strength": 91,
+          "accent": "camgöbeği"
+        },
+        {
+          "label": "Termal rahatlama",
+          "value": "82%",
+          "strength": 82,
+          "accent": "zümrüt"
+        },
+        {
+          "label": "EMI koruma",
+          "value": "67%",
+          "strength": 67,
+          "accent": "gül"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Yönlendirmeyi izle",
+          "detail": "Otomatik diferansiyel yönlendirme",
+          "load": 46
+        },
+        {
+          "name": "Katman istifleme",
+          "detail": "Yer düzlemi ve izolasyon",
+          "load": 38
+        },
+        {
+          "name": "Gerber hazırlığı",
+          "detail": "Matkap yolu optimizasyonu yoluyla",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Diferansiyel çiftleri uyumlu tutun",
+        "Yer düzlemi kapsamını dengeleyin",
+        "Atlamalar yoluyla yüksek hızı en aza indirin"
+      ]
+    }
+  },
+  "sv": {
+    "showcase.badge": "Interaktiv förhandsvisning",
+    "showcase.title": "Explore a live schematic breakdown before you draw",
+    "showcase.description": "Switch between common circuit patterns to compare structure, complexity, and export readiness directly on the homepage.",
+    "showcase.canvas.label": "Diagram Canvas",
+    "showcase.live_preset": "Live förinställning",
+    "showcase.breakdown.badge": "Schematisk uppdelning",
+    "showcase.breakdown.title": "Tilldelning av kritisk väg",
+    "showcase.breakdown.status": "Autoprofilerad",
+    "showcase.metrics.badge": "Driftsmått",
+    "showcase.checkpoints.badge": "Designa kontrollpunkter",
+    "showcase.checkpoints.status": "Granska ledtrådar",
+    "showcase.profile.badge": "Teknisk profil",
+    "showcase.quick_specs.title": "Snabbreferens specifikationer",
+    "showcase.quick_specs.status": "Automatiska uppdateringar",
+    "showcase.cta": "Öppna i Editor",
+    "showcase.presets.logic": {
+      "label": "Logisk kontroll",
+      "title": "Sensor och MCU-gränssnitt",
+      "summary": "Planera ingångsskydd, dragmotstånd och anslutningsstrategi för digitala styrsystem.",
+      "specs": [
+        [
+          "Primära delar",
+          "12"
+        ],
+        [
+          "Uppskattade nät",
+          "16"
+        ],
+        [
+          "Signalklass",
+          "Blandad signal"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Bussutnyttjande",
+          "value": "57%",
+          "strength": 57,
+          "accent": "violett"
+        },
+        {
+          "label": "Pin fan-out",
+          "value": "71%",
+          "strength": 71,
+          "accent": "cyan"
+        },
+        {
+          "label": "Skyddskåpa",
+          "value": "88%",
+          "strength": 88,
+          "accent": "smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Sensorinträde",
+          "detail": "ESD och pull-nätverk",
+          "load": 24
+        },
+        {
+          "name": "MCU-bearbetning",
+          "detail": "Kärnlogik och timing",
+          "load": 49
+        },
+        {
+          "name": "Perifera länkar",
+          "detail": "UART och GPIO breakout",
+          "load": 27
+        }
+      ],
+      "checkpoints": [
+        "Reservera reserv GPIO-etiketter",
+        "Flagga korsningar med blandad spänning",
+        "Dokument pull-up standardinställningar"
+      ]
+    },
+    "showcase.presets.audio": {
+      "label": "Ljudförstärkare",
+      "title": "Klass-A förförstärkare",
+      "summary": "Designa högfientliga signalvägar med DC-blockerande kondensatorer och precisionsförstärkningssteg.",
+      "specs": [
+        [
+          "Primära delar",
+          "7"
+        ],
+        [
+          "Uppskattade nät",
+          "11"
+        ],
+        [
+          "Signalklass",
+          "Hi-Fi-ljud"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Få balans",
+          "value": "76%",
+          "strength": 76,
+          "accent": "fuchsia"
+        },
+        {
+          "label": "DC isolering",
+          "value": "84%",
+          "strength": 84,
+          "accent": "cyan"
+        },
+        {
+          "label": "Utgångstydlighet",
+          "value": "73%",
+          "strength": 73,
+          "accent": "smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Ingångskoppling",
+          "detail": "DC-block och källtrim",
+          "load": 21
+        },
+        {
+          "name": "Transistorförstärkning",
+          "detail": "Bias och förstärkningskärna",
+          "load": 53
+        },
+        {
+          "name": "Linjekonditionering",
+          "detail": "Output cap and line handoff",
+          "load": 26
+        }
+      ],
+      "checkpoints": [
+        "Verify bias point symmetry",
+        "Håll ljudet tyst",
+        "Separat linjeutgång från matningsretur"
+      ]
+    },
+    "showcase.presets.gates": {
+      "label": "Logik designer",
+      "title": "Digital Logic Controller",
+      "summary": "Designa binära logiska CMOS-kretsar med OCH-, ELLER- och XOR-grindar för specialiserade digitala handskakningar.",
+      "specs": [
+        [
+          "Primära portar",
+          "7"
+        ],
+        [
+          "Logiskt djup",
+          "4-lager"
+        ],
+        [
+          "Signalklass",
+          "Digital CMOS"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Logisk stabilitet",
+          "value": "72%",
+          "strength": 72,
+          "accent": "violett"
+        },
+        {
+          "label": "Tidsmarginal",
+          "value": "85%",
+          "strength": 85,
+          "accent": "cyan"
+        },
+        {
+          "label": "Fan-out effektivitet",
+          "value": "64%",
+          "strength": 64,
+          "accent": "smaragd"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Binärt inträde",
+          "detail": "Input levels and pull-downs",
+          "load": 21
+        },
+        {
+          "name": "Tillståndslogik",
+          "detail": "Förgrenings- och XOR-portar",
+          "load": 56
+        },
+        {
+          "name": "Signalutgång",
+          "detail": "Buffer stage and edge trim",
+          "load": 23
+        }
+      ],
+      "checkpoints": [
+        "Minimera grindens utbredningsfördröjning",
+        "Verify CMOS logic thresholds",
+        "Buffert fan-out grenar"
+      ]
+    },
+    "showcase.presets.pcb_tool": {
+      "label": "PCB-ritning",
+      "title": "Schema i flera lager",
+      "summary": "Designa tillverkningsfärdiga kretskort med flerlagers spårrouting, vias och planering av termisk avlastning.",
+      "specs": [
+        [
+          "Antal lager",
+          "4-lager"
+        ],
+        [
+          "Spårbredd",
+          "6 mil"
+        ],
+        [
+          "Röjning",
+          "0,15 mm"
+        ]
+      ],
+      "metrics": [
+        {
+          "label": "Signalintegritet",
+          "value": "91%",
+          "strength": 91,
+          "accent": "cyan"
+        },
+        {
+          "label": "Termisk avlastning",
+          "value": "82%",
+          "strength": 82,
+          "accent": "smaragd"
+        },
+        {
+          "label": "EMI-skärmning",
+          "value": "67%",
+          "strength": 67,
+          "accent": "ros"
+        }
+      ],
+      "stages": [
+        {
+          "name": "Spåra routing",
+          "detail": "Automatisk differentialdirigering",
+          "load": 46
+        },
+        {
+          "name": "Lager stapling",
+          "detail": "Ground plane and isolation",
+          "load": 38
+        },
+        {
+          "name": "Gerber prep",
+          "detail": "Via drill path optimization",
+          "load": 16
+        }
+      ],
+      "checkpoints": [
+        "Keep differential pairs matched",
+        "Balance ground plane coverage",
+        "Minimize high-speed via hops"
+      ]
+    }
+  }
+}

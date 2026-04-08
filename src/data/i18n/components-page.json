@@ -1,0 +1,3116 @@
+{
+  "en": {
+    "components.meta.title": "Component Library — Circuit Diagram Maker",
+    "components.meta.description": "Browse the complete symbol library of Circuit Diagram Maker. Explore resistors, capacitors, ICs, transistors, connectors, power symbols, and more.",
+    "components.hero.badge": "Component Library",
+    "components.hero.title": "Circuit Diagram Maker — Component Library & Symbol Reference",
+    "components.hero.description": "Browse the complete library of electronic symbols available in Circuit Diagram Maker. Every component follows common schematic conventions so your diagrams stay readable for engineers, students, and reviewers.",
+    "components.hero.body": "The library is organized into six practical groups covering passive parts, semiconductors, integrated circuits, power elements, connectors, and electromechanical devices. Use it as a quick reference while planning or reviewing a schematic.",
+    "components.categories": [
+      {
+        "title": "Passive Components",
+        "notes": "The foundation of every circuit diagram. Use passive components for filtering, timing, biasing, and current limiting in your schematics.",
+        "items": [
+          "Resistor",
+          "Capacitor",
+          "Inductor",
+          "Potentiometer",
+          "Fuse",
+          "Thermistor"
+        ]
+      },
+      {
+        "title": "Active & Semiconductor",
+        "notes": "Semiconductors enable switching, amplification, and signal processing. Circuit Diagram Maker includes standard symbols for common device types.",
+        "items": [
+          "Diode",
+          "Zener Diode",
+          "LED",
+          "NPN Transistor",
+          "PNP Transistor",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Integrated Circuits",
+        "notes": "From analog op-amps to digital controllers, the IC symbols cover the building blocks most schematics depend on.",
+        "items": [
+          "Op-Amp",
+          "Comparator",
+          "Microcontroller",
+          "Logic Gate (AND/OR/NOT)",
+          "555 Timer",
+          "Voltage Regulator"
+        ]
+      },
+      {
+        "title": "Power Components",
+        "notes": "Map power distribution clearly and keep supply paths easy to inspect during design reviews and documentation work.",
+        "items": [
+          "Battery",
+          "DC Power Supply",
+          "AC Source",
+          "Transformer",
+          "Ground Symbol",
+          "Voltage Rail"
+        ]
+      },
+      {
+        "title": "Connectors & IO",
+        "notes": "Interface symbols define where the circuit connects to the outside world and help make schematics production-ready.",
+        "items": [
+          "Header Connector",
+          "Terminal Block",
+          "USB Port",
+          "Test Point",
+          "Antenna",
+          "Probe Point"
+        ]
+      },
+      {
+        "title": "Electromechanical",
+        "notes": "Control physical devices with electromechanical symbols for relays, switches, indicators, and actuators.",
+        "items": [
+          "Relay",
+          "Switch (SPST/SPDT)",
+          "Push Button",
+          "Motor",
+          "Speaker",
+          "Buzzer"
+        ]
+      }
+    ],
+    "components.table.title": "Complete Symbol Reference Table",
+    "components.table.description": "Use these naming conventions to keep your circuit diagrams consistent across reviews, handoffs, and documentation.",
+    "components.table.headers": [
+      "Symbol",
+      "Category",
+      "Typical Use in Circuit Diagrams",
+      "Reference Designator"
+    ],
+    "components.table.rows": [
+      [
+        "Resistor",
+        "Passive",
+        "Current limiting, voltage dividers, pull-up and pull-down networks",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Capacitor",
+        "Passive",
+        "Decoupling, filtering, timing, and coupling",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Inductor",
+        "Passive",
+        "Energy storage, filtering, and EMI suppression",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diode",
+        "Semiconductor",
+        "Rectification, protection, and clamping",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semiconductor",
+        "Status indication and illumination",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Power",
+        "Load switching, H-bridges, and converters",
+        "Q1, Q_SW"
+      ],
+      [
+        "Op-Amp",
+        "Analog IC",
+        "Amplification, filtering, and comparison",
+        "U1A, U1B"
+      ],
+      [
+        "Microcontroller",
+        "Digital IC",
+        "Logic, sequencing, and communication",
+        "U2, MCU"
+      ],
+      [
+        "Voltage Regulator",
+        "Power IC",
+        "Voltage regulation, LDO, and switching",
+        "U3, REG"
+      ],
+      [
+        "Connector",
+        "Interface",
+        "External wiring, board-to-board links, and IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relay",
+        "Electromechanical",
+        "High-power switching and isolation",
+        "K1, RLY"
+      ],
+      [
+        "Switch",
+        "Electromechanical",
+        "User input and mode selection",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "How to Place Components in Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Open the Circuit Diagram Maker editor, browse or search the component library in the left sidebar, and drag a symbol onto the canvas. Each component snaps to the 20px grid for clean alignment.",
+      "Select a placed component and press R to rotate it. Use H or F to flip it horizontally or vertically, and double-click the symbol when you want to edit its label or reference designator.",
+      "Once your parts are in place, switch to the Wire tool by pressing W and connect pins point to point. The Manhattan routing engine keeps the wiring tidy automatically."
+    ],
+    "components.actions.primary": "Open Circuit Diagram Editor",
+    "components.actions.secondary": "Read Full Documentation"
+  },
+  "hi": {
+    "components.meta.title": "घटक पुस्तकालय - सर्किट आरेख निर्माता",
+    "components.meta.description": "सर्किट आरेख निर्माता की संपूर्ण प्रतीक लाइब्रेरी ब्राउज़ करें। रेसिस्टर्स, कैपेसिटर, आईसी, ट्रांजिस्टर, कनेक्टर, पावर सिंबल और बहुत कुछ खोजें।",
+    "components.hero.badge": "घटक पुस्तकालय",
+    "components.hero.title": "सर्किट आरेख निर्माता - घटक पुस्तकालय और प्रतीक संदर्भ",
+    "components.hero.description": "सर्किट डायग्राम मेकर में उपलब्ध इलेक्ट्रॉनिक प्रतीकों की पूरी लाइब्रेरी ब्राउज़ करें। प्रत्येक घटक सामान्य योजनाबद्ध परंपराओं का पालन करता है ताकि आपके आरेख इंजीनियरों, छात्रों और समीक्षकों के लिए पठनीय बने रहें।",
+    "components.hero.body": "लाइब्रेरी को छह व्यावहारिक समूहों में व्यवस्थित किया गया है, जिसमें निष्क्रिय भाग, अर्धचालक, एकीकृत सर्किट, पावर तत्व, कनेक्टर और इलेक्ट्रोमैकेनिकल डिवाइस शामिल हैं। योजना बनाते समय या योजनाबद्ध समीक्षा करते समय इसे त्वरित संदर्भ के रूप में उपयोग करें।",
+    "components.categories": [
+      {
+        "title": "निष्क्रिय घटक",
+        "notes": "प्रत्येक सर्किट आरेख की नींव। अपनी योजनाओं में फ़िल्टरिंग, समय, पूर्वाग्रह और वर्तमान सीमित करने के लिए निष्क्रिय घटकों का उपयोग करें।",
+        "items": [
+          "अवरोधक",
+          "संधारित्र",
+          "प्रारंभ करनेवाला",
+          "पोटेंशियोमीटर",
+          "फ़्यूज़",
+          "थर्मिस्टर"
+        ]
+      },
+      {
+        "title": "सक्रिय एवं अर्धचालक",
+        "notes": "अर्धचालक स्विचिंग, प्रवर्धन और सिग्नल प्रोसेसिंग को सक्षम करते हैं। सर्किट आरेख निर्माता में सामान्य डिवाइस प्रकारों के लिए मानक प्रतीक शामिल हैं।",
+        "items": [
+          "डायोड",
+          "जेनर डायोड",
+          "एलईडी",
+          "एनपीएन ट्रांजिस्टर",
+          "पीएनपी ट्रांजिस्टर",
+          "एन-एमओएसएफईटी",
+          "पी-एमओएसएफईटी"
+        ]
+      },
+      {
+        "title": "इंटीग्रेटेड सर्किट",
+        "notes": "एनालॉग ऑप-एम्प्स से लेकर डिजिटल नियंत्रकों तक, आईसी प्रतीक बिल्डिंग ब्लॉक्स को कवर करते हैं जिन पर अधिकांश योजनाएं निर्भर करती हैं।",
+        "items": [
+          "ऑप-एम्प",
+          "तुलनित्र",
+          "माइक्रोकंट्रोलर",
+          "लॉजिक गेट (और/या/नहीं)",
+          "555 टाइमर",
+          "वोल्टेज नियामक"
+        ]
+      },
+      {
+        "title": "शक्ति घटक",
+        "notes": "बिजली वितरण को स्पष्ट रूप से मैप करें और डिज़ाइन समीक्षा और दस्तावेज़ीकरण कार्य के दौरान आपूर्ति पथ का निरीक्षण करना आसान रखें।",
+        "items": [
+          "बैटरी",
+          "डीसी विद्युत आपूर्ति",
+          "एसी स्रोत",
+          "ट्रांसफार्मर",
+          "ग्राउंड सिंबल",
+          "वोल्टेज रेल"
+        ]
+      },
+      {
+        "title": "कनेक्टर्स और आईओ",
+        "notes": "इंटरफ़ेस प्रतीक परिभाषित करते हैं कि सर्किट बाहरी दुनिया से कहां जुड़ता है और योजनाबद्ध उत्पादन-तैयार बनाने में मदद करता है।",
+        "items": [
+          "हेडर कनेक्टर",
+          "टर्मिनल ब्लॉक",
+          "यूएसबी पोर्ट",
+          "परीक्षण बिंदु",
+          "एंटीना",
+          "जांच बिंदु"
+        ]
+      },
+      {
+        "title": "इलेक्ट्रोमैकेनिकल",
+        "notes": "रिले, स्विच, संकेतक और एक्चुएटर्स के लिए इलेक्ट्रोमैकेनिकल प्रतीकों के साथ भौतिक उपकरणों को नियंत्रित करें।",
+        "items": [
+          "रिले",
+          "स्विच (एसपीएसटी/एसपीडीटी)",
+          "बटन दबाओ",
+          "मोटर",
+          "वक्ता",
+          "बजर"
+        ]
+      }
+    ],
+    "components.table.title": "संपूर्ण प्रतीक संदर्भ तालिका",
+    "components.table.description": "अपने सर्किट आरेखों को समीक्षाओं, हैंडऑफ़ और दस्तावेज़ीकरण में सुसंगत रखने के लिए इन नामकरण परंपराओं का उपयोग करें।",
+    "components.table.headers": [
+      "प्रतीक",
+      "श्रेणी",
+      "सर्किट आरेखों में विशिष्ट उपयोग",
+      "संदर्भ डिज़ाइनकर्ता"
+    ],
+    "components.table.rows": [
+      [
+        "अवरोधक",
+        "निष्क्रिय",
+        "करंट लिमिटिंग, वोल्टेज डिवाइडर, पुल-अप और पुल-डाउन नेटवर्क",
+        "आर1, आर2, आर_पुल"
+      ],
+      [
+        "संधारित्र",
+        "निष्क्रिय",
+        "डिकूपलिंग, फ़िल्टरिंग, टाइमिंग और कपलिंग",
+        "C1, C_BYPASS"
+      ],
+      [
+        "प्रारंभ करनेवाला",
+        "निष्क्रिय",
+        "ऊर्जा भंडारण, फ़िल्टरिंग और ईएमआई दमन",
+        "एल1, एल_चोक"
+      ],
+      [
+        "डायोड",
+        "अर्धचालक",
+        "सुधार, सुरक्षा, और क्लैम्पिंग",
+        "D1, D_TVS"
+      ],
+      [
+        "एलईडी",
+        "अर्धचालक",
+        "स्थिति संकेत और रोशनी",
+        "LED1, LED_PWR"
+      ],
+      [
+        "एन-एमओएसएफईटी",
+        "शक्ति",
+        "लोड स्विचिंग, एच-ब्रिज और कन्वर्टर्स",
+        "Q1, Q_SW"
+      ],
+      [
+        "ऑप-एम्प",
+        "एनालॉग आईसी",
+        "प्रवर्धन, फ़िल्टरिंग और तुलना",
+        "यू1ए, यू1बी"
+      ],
+      [
+        "माइक्रोकंट्रोलर",
+        "डिजिटल आईसी",
+        "तर्क, अनुक्रमण और संचार",
+        "यू2, एमसीयू"
+      ],
+      [
+        "वोल्टेज नियामक",
+        "पावर आईसी",
+        "वोल्टेज विनियमन, एलडीओ, और स्विचिंग",
+        "यू3, रेग"
+      ],
+      [
+        "योजक",
+        "इंटरफ़ेस",
+        "बाहरी वायरिंग, बोर्ड-टू-बोर्ड लिंक और आईओ",
+        "जे1, जे_यूएसबी"
+      ],
+      [
+        "रिले",
+        "इलेक्ट्रोमैकेनिकल",
+        "उच्च-शक्ति स्विचिंग और अलगाव",
+        "K1, रेलवे"
+      ],
+      [
+        "स्विच करें",
+        "इलेक्ट्रोमैकेनिकल",
+        "उपयोगकर्ता इनपुट और मोड चयन",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "सर्किट डायग्राम मेकर में घटकों को कैसे रखें",
+    "components.how.paragraphs": [
+      "सर्किट आरेख निर्माता संपादक खोलें, बाएं साइडबार में घटक लाइब्रेरी ब्राउज़ करें या खोजें, और एक प्रतीक को कैनवास पर खींचें। प्रत्येक घटक स्वच्छ संरेखण के लिए 20px ग्रिड पर स्नैप करता है।",
+      "रखे गए घटक का चयन करें और उसे घुमाने के लिए R दबाएँ। इसे क्षैतिज या लंबवत रूप से फ़्लिप करने के लिए H या F का उपयोग करें, और जब आप इसके लेबल या संदर्भ डिज़ाइनर को संपादित करना चाहते हैं तो प्रतीक पर डबल-क्लिक करें।",
+      "एक बार जब आपके हिस्से अपनी जगह पर आ जाएं, तो W दबाकर वायर टूल पर स्विच करें और पिनों को बिंदु दर बिंदु कनेक्ट करें। मैनहट्टन रूटिंग इंजन वायरिंग को स्वचालित रूप से साफ रखता है।"
+    ],
+    "components.actions.primary": "ओपन सर्किट आरेख संपादक",
+    "components.actions.secondary": "पूर्ण दस्तावेज़ीकरण पढ़ें"
+  },
+  "es": {
+    "components.meta.title": "Biblioteca de componentes: creador de diagramas de circuitos",
+    "components.meta.description": "Explore la biblioteca completa de símbolos de Circuit Diagram Maker. Explore resistencias, condensadores, circuitos integrados, transistores, conectores, símbolos de potencia y más.",
+    "components.hero.badge": "Biblioteca de componentes",
+    "components.hero.title": "Creador de diagramas de circuito: biblioteca de componentes y referencia de símbolos",
+    "components.hero.description": "Explore la biblioteca completa de símbolos electrónicos disponibles en Circuit Diagram Maker. Cada componente sigue convenciones esquemáticas comunes para que sus diagramas sigan siendo legibles para ingenieros, estudiantes y revisores.",
+    "components.hero.body": "La biblioteca está organizada en seis grupos prácticos que cubren piezas pasivas, semiconductores, circuitos integrados, elementos de potencia, conectores y dispositivos electromecánicos. Úselo como referencia rápida mientras planifica o revisa un esquema.",
+    "components.categories": [
+      {
+        "title": "Componentes pasivos",
+        "notes": "La base de cada diagrama de circuito. Utilice componentes pasivos para filtrar, cronometrar, polarizar y limitar la corriente en sus esquemas.",
+        "items": [
+          "resistencia",
+          "condensador",
+          "Inductor",
+          "Potenciómetro",
+          "Fusible",
+          "termistor"
+        ]
+      },
+      {
+        "title": "Activo y semiconductor",
+        "notes": "Los semiconductores permiten la conmutación, la amplificación y el procesamiento de señales. Circuit Diagram Maker incluye símbolos estándar para tipos de dispositivos comunes.",
+        "items": [
+          "diodo",
+          "Diodo Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Circuitos integrados",
+        "notes": "Desde amplificadores operacionales analógicos hasta controladores digitales, los símbolos de CI cubren los componentes básicos de los que dependen la mayoría de los esquemas.",
+        "items": [
+          "amplificador operacional",
+          "Comparador",
+          "Microcontrolador",
+          "Puerta lógica (Y/O/NO)",
+          "555 Temporizador",
+          "Regulador de voltaje"
+        ]
+      },
+      {
+        "title": "Componentes de potencia",
+        "notes": "Mapee la distribución de energía con claridad y mantenga las rutas de suministro fáciles de inspeccionar durante las revisiones de diseño y el trabajo de documentación.",
+        "items": [
+          "Batería",
+          "Fuente de alimentación CC",
+          "Fuente de CA",
+          "Transformador",
+          "Símbolo de tierra",
+          "Carril de voltaje"
+        ]
+      },
+      {
+        "title": "Conectores y E/S",
+        "notes": "Los símbolos de interfaz definen dónde se conecta el circuito con el mundo exterior y ayudan a que los esquemas estén listos para la producción.",
+        "items": [
+          "Conector de encabezado",
+          "Bloque de terminales",
+          "Puerto USB",
+          "Punto de prueba",
+          "Antena",
+          "Punto de sonda"
+        ]
+      },
+      {
+        "title": "Electromecánico",
+        "notes": "Controle dispositivos físicos con símbolos electromecánicos para relés, interruptores, indicadores y actuadores.",
+        "items": [
+          "Relevo",
+          "Interruptor (SPST/SPDT)",
+          "Pulsador",
+          "motores",
+          "altavoz",
+          "Zumbador"
+        ]
+      }
+    ],
+    "components.table.title": "Tabla de referencia de símbolos completa",
+    "components.table.description": "Utilice estas convenciones de nomenclatura para mantener la coherencia de sus diagramas de circuitos en revisiones, transferencias y documentación.",
+    "components.table.headers": [
+      "Símbolo",
+      "categoría",
+      "Uso típico en diagramas de circuitos",
+      "Designador de referencia"
+    ],
+    "components.table.rows": [
+      [
+        "resistencia",
+        "Pasivo",
+        "Limitación de corriente, divisores de voltaje, redes pull-up y pull-down.",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "condensador",
+        "Pasivo",
+        "Desacoplamiento, filtrado, temporización y acoplamiento",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Inductor",
+        "Pasivo",
+        "Almacenamiento de energía, filtrado y supresión de EMI.",
+        "L1, L_CHOQUE"
+      ],
+      [
+        "diodo",
+        "semiconductores",
+        "Rectificación, protección y sujeción.",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "semiconductores",
+        "Indicación de estado e iluminación.",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "poder",
+        "Conmutación de carga, puentes H y convertidores",
+        "Q1, Q_SW"
+      ],
+      [
+        "amplificador operacional",
+        "CI analógico",
+        "Amplificación, filtrado y comparación.",
+        "U1A, U1B"
+      ],
+      [
+        "Microcontrolador",
+        "circuito integrado digital",
+        "Lógica, secuenciación y comunicación.",
+        "U2, MCU"
+      ],
+      [
+        "Regulador de voltaje",
+        "Circuito integrado de potencia",
+        "Regulación de voltaje, LDO y conmutación.",
+        "U3, REG"
+      ],
+      [
+        "Conector",
+        "Interfaz",
+        "Cableado externo, enlaces placa a placa e IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relevo",
+        "Electromecánico",
+        "Conmutación y aislamiento de alta potencia.",
+        "K1, RLY"
+      ],
+      [
+        "Cambiar",
+        "Electromecánico",
+        "Entrada de usuario y selección de modo",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Cómo colocar componentes en Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Abra el editor de Circuit Diagram Maker, explore o busque la biblioteca de componentes en la barra lateral izquierda y arrastre un símbolo al lienzo. Cada componente se ajusta a la cuadrícula de 20 píxeles para una alineación limpia.",
+      "Seleccione un componente colocado y presione R para rotarlo. Utilice H o F para girarlo horizontal o verticalmente y haga doble clic en el símbolo cuando desee editar su etiqueta o designador de referencia.",
+      "Una vez que las piezas estén en su lugar, cambie a la herramienta Cable presionando W y conecte los pines punto a punto. El motor de enrutamiento de Manhattan mantiene el cableado ordenado automáticamente."
+    ],
+    "components.actions.primary": "Editor de diagramas de circuito abierto",
+    "components.actions.secondary": "Leer la documentación completa"
+  },
+  "ru": {
+    "components.meta.title": "Библиотека компонентов — Создатель принципиальных схем",
+    "components.meta.description": "Просмотрите полную библиотеку символов в Circuit Diagram Maker. Изучите резисторы, конденсаторы, микросхемы, транзисторы, разъемы, символы питания и многое другое.",
+    "components.hero.badge": "Библиотека компонентов",
+    "components.hero.title": "Создатель принципиальных схем — библиотека компонентов и справочник по символам",
+    "components.hero.description": "Просмотрите полную библиотеку электронных символов, доступную в Circuit Diagram Maker. Каждый компонент соответствует общим схематическим соглашениям, поэтому ваши диаграммы остаются читабельными для инженеров, студентов и рецензентов.",
+    "components.hero.body": "Библиотека разделена на шесть практических групп, охватывающих пассивные детали, полупроводники, интегральные схемы, силовые элементы, разъемы и электромеханические устройства. Используйте его как краткий справочник при планировании или просмотре схемы.",
+    "components.categories": [
+      {
+        "title": "Пассивные компоненты",
+        "notes": "Основа каждой принципиальной схемы. Используйте пассивные компоненты для фильтрации, синхронизации, смещения и ограничения тока в ваших схемах.",
+        "items": [
+          "Резистор",
+          "Конденсатор",
+          "Индуктор",
+          "потенциометр",
+          "Предохранитель",
+          "Термистор"
+        ]
+      },
+      {
+        "title": "Активные и полупроводниковые приборы",
+        "notes": "Полупроводники обеспечивают переключение, усиление и обработку сигналов. Конструктор принципиальных схем включает стандартные символы для распространенных типов устройств.",
+        "items": [
+          "Диод",
+          "Стабилитрон",
+          "светодиод",
+          "NPN-транзистор",
+          "PNP-транзистор",
+          "N-МОП-транзистор",
+          "P-МОП-транзистор"
+        ]
+      },
+      {
+        "title": "Интегральные схемы",
+        "notes": "От аналоговых операционных усилителей до цифровых контроллеров — символы IC охватывают строительные блоки, от которых зависит большинство схем.",
+        "items": [
+          "Операционный усилитель",
+          "Компаратор",
+          "Микроконтроллер",
+          "Логический вентиль (И/ИЛИ/НЕ)",
+          "555 Таймер",
+          "Регулятор напряжения"
+        ]
+      },
+      {
+        "title": "Силовые компоненты",
+        "notes": "Четко составляйте карту распределения электроэнергии и обеспечивайте удобство проверки путей электропитания во время проверки проекта и работы с документацией.",
+        "items": [
+          "Батарея",
+          "Источник питания постоянного тока",
+          "Источник переменного тока",
+          "Трансформатор",
+          "Символ земли",
+          "Рельс напряжения"
+        ]
+      },
+      {
+        "title": "Разъемы и ввод-вывод",
+        "notes": "Символы интерфейса определяют, где схема соединяется с внешним миром, и помогают подготовить схемы к производству.",
+        "items": [
+          "Разъем заголовка",
+          "Клеммный блок",
+          "USB-порт",
+          "Тестовая точка",
+          "Антенна",
+          "Точка зонда"
+        ]
+      },
+      {
+        "title": "Электромеханический",
+        "notes": "Управляйте физическими устройствами с помощью электромеханических символов для реле, переключателей, индикаторов и исполнительных механизмов.",
+        "items": [
+          "Реле",
+          "Переключатель (SPST/SPDT)",
+          "Кнопка",
+          "Мотор",
+          "Спикер",
+          "Зуммер"
+        ]
+      }
+    ],
+    "components.table.title": "Полная справочная таблица символов",
+    "components.table.description": "Используйте эти соглашения об именах, чтобы обеспечить единообразие ваших принципиальных схем при проверке, передаче и документации.",
+    "components.table.headers": [
+      "Символ",
+      "Категория",
+      "Типичное использование в принципиальных схемах",
+      "Справочное обозначение"
+    ],
+    "components.table.rows": [
+      [
+        "Резистор",
+        "Пассивный",
+        "Ограничение тока, делители напряжения, подтягивающие и понижающие цепи",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Конденсатор",
+        "Пассивный",
+        "Развязка, фильтрация, синхронизация и связь",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Индуктор",
+        "Пассивный",
+        "Хранение энергии, фильтрация и подавление электромагнитных помех",
+        "L1, L_ДРОССЕЛЬ"
+      ],
+      [
+        "Диод",
+        "Полупроводник",
+        "Исправление, защита и зажим",
+        "Д1, Д_ТВС"
+      ],
+      [
+        "светодиод",
+        "Полупроводник",
+        "Индикация состояния и подсветка",
+        "Светодиод1, Светодиод_ПВР"
+      ],
+      [
+        "N-МОП-транзистор",
+        "Мощность",
+        "Переключение нагрузки, H-мосты и преобразователи",
+        "Q1, Q_SW"
+      ],
+      [
+        "Операционный усилитель",
+        "Аналоговая ИС",
+        "Усиление, фильтрация и сравнение",
+        "У1А, У1Б"
+      ],
+      [
+        "Микроконтроллер",
+        "Цифровая ИС",
+        "Логика, последовательность и общение",
+        "У2, МКУ"
+      ],
+      [
+        "Регулятор напряжения",
+        "Силовая ИС",
+        "Регулирование напряжения, LDO и переключение",
+        "U3, РЭГ"
+      ],
+      [
+        "Разъем",
+        "Интерфейс",
+        "Внешняя проводка, межплатные соединения и ввод-вывод",
+        "J1, J_USB"
+      ],
+      [
+        "Реле",
+        "Электромеханический",
+        "Мощное переключение и изоляция",
+        "К1, РЛИ"
+      ],
+      [
+        "Переключатель",
+        "Электромеханический",
+        "Пользовательский ввод и выбор режима",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Как разместить компоненты в конструкторе принципиальных схем",
+    "components.how.paragraphs": [
+      "Откройте редактор Circuit Diagram Maker, просмотрите или выполните поиск в библиотеке компонентов на левой боковой панели и перетащите символ на холст. Каждый компонент привязывается к сетке размером 20 пикселей для четкого выравнивания.",
+      "Выберите размещенный компонент и нажмите R, чтобы повернуть его. Используйте H или F, чтобы перевернуть его по горизонтали или по вертикали, и дважды щелкните символ, если хотите отредактировать его метку или ссылочное обозначение.",
+      "Когда детали будут на месте, переключитесь на инструмент «Проволока», нажав W, и соедините контакты точка к точке. Механизм маршрутизации Manhattan автоматически поддерживает порядок в проводке."
+    ],
+    "components.actions.primary": "Редактор схем открытых цепей",
+    "components.actions.secondary": "Прочитать полную документацию"
+  },
+  "fr": {
+    "components.meta.title": "Bibliothèque de composants — Créateur de schémas de circuits",
+    "components.meta.description": "Parcourez la bibliothèque complète de symboles de Circuit Diagram Maker. Explorez les résistances, les condensateurs, les circuits intégrés, les transistors, les connecteurs, les symboles de puissance et bien plus encore.",
+    "components.hero.badge": "Bibliothèque de composants",
+    "components.hero.title": "Créateur de schémas de circuits – Bibliothèque de composants et référence de symboles",
+    "components.hero.description": "Parcourez la bibliothèque complète de symboles électroniques disponibles dans Circuit Diagram Maker. Chaque composant suit des conventions schématiques communes afin que vos diagrammes restent lisibles pour les ingénieurs, les étudiants et les réviseurs.",
+    "components.hero.body": "La bibliothèque est organisée en six groupes pratiques couvrant les pièces passives, les semi-conducteurs, les circuits intégrés, les éléments de puissance, les connecteurs et les dispositifs électromécaniques. Utilisez-le comme référence rapide lors de la planification ou de la révision d'un schéma.",
+    "components.categories": [
+      {
+        "title": "Composants passifs",
+        "notes": "La base de chaque schéma de circuit. Utilisez des composants passifs pour le filtrage, la synchronisation, la polarisation et la limitation de courant dans vos schémas.",
+        "items": [
+          "Résistance",
+          "Condensateur",
+          "Inducteur",
+          "Potentiomètre",
+          "Fusible",
+          "Thermistance"
+        ]
+      },
+      {
+        "title": "Actif et semi-conducteur",
+        "notes": "Les semi-conducteurs permettent la commutation, l'amplification et le traitement du signal. Circuit Diagram Maker comprend des symboles standard pour les types d'appareils courants.",
+        "items": [
+          "Diodes",
+          "Diode Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Circuits intégrés",
+        "notes": "Des amplificateurs opérationnels analogiques aux contrôleurs numériques, les symboles IC couvrent les éléments de base dont dépendent la plupart des schémas.",
+        "items": [
+          "Ampli-op",
+          "Comparateur",
+          "Microcontrôleur",
+          "Porte Logique (ET/OU/NON)",
+          "555 Minuterie",
+          "Régulateur de tension"
+        ]
+      },
+      {
+        "title": "Composants de puissance",
+        "notes": "Cartographiez clairement la distribution électrique et gardez les chemins d'alimentation faciles à inspecter lors des révisions de conception et des travaux de documentation.",
+        "items": [
+          "Batterie",
+          "Alimentation CC",
+          "Source CA",
+          "Transformateur",
+          "Symbole de terre",
+          "Rail de tension"
+        ]
+      },
+      {
+        "title": "Connecteurs et E/S",
+        "notes": "Les symboles d'interface définissent l'endroit où le circuit se connecte au monde extérieur et aident à préparer les schémas pour la production.",
+        "items": [
+          "Connecteur d'en-tête",
+          "Bornier",
+          "Port USB",
+          "Point de test",
+          "Antenne",
+          "Point de sonde"
+        ]
+      },
+      {
+        "title": "Électromécanique",
+        "notes": "Contrôlez les appareils physiques avec des symboles électromécaniques pour les relais, les commutateurs, les indicateurs et les actionneurs.",
+        "items": [
+          "Relais",
+          "Commutateur (SPST/SPDT)",
+          "Bouton poussoir",
+          "Moteur",
+          "Haut-parleur",
+          "Buzzer"
+        ]
+      }
+    ],
+    "components.table.title": "Tableau complet de référence des symboles",
+    "components.table.description": "Utilisez ces conventions de dénomination pour garantir la cohérence de vos schémas de circuits entre les révisions, les transferts et la documentation.",
+    "components.table.headers": [
+      "Symbole",
+      "Catégorie",
+      "Utilisation typique dans les schémas de circuits",
+      "Désignation de référence"
+    ],
+    "components.table.rows": [
+      [
+        "Résistance",
+        "Passif",
+        "Limitation de courant, diviseurs de tension, réseaux pull-up et pull-down",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Condensateur",
+        "Passif",
+        "Découplage, filtrage, synchronisation et couplage",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Inducteur",
+        "Passif",
+        "Stockage d'énergie, filtrage et suppression des interférences électromagnétiques",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diodes",
+        "Semi-conducteur",
+        "Rectification, protection et serrage",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semi-conducteur",
+        "Indication d'état et éclairage",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Puissance",
+        "Commutation de charge, ponts en H et convertisseurs",
+        "Q1, Q_SW"
+      ],
+      [
+        "Ampli-op",
+        "CI analogique",
+        "Amplification, filtrage et comparaison",
+        "U1A, U1B"
+      ],
+      [
+        "Microcontrôleur",
+        "CI numérique",
+        "Logique, séquencement et communication",
+        "U2, MCU"
+      ],
+      [
+        "Régulateur de tension",
+        "Circuit intégré de puissance",
+        "Régulation de tension, LDO et commutation",
+        "U3, REG"
+      ],
+      [
+        "Connecteur",
+        "Interface",
+        "Câblage externe, liaisons carte à carte et E/S",
+        "J1, J_USB"
+      ],
+      [
+        "Relais",
+        "Électromécanique",
+        "Commutation et isolation haute puissance",
+        "K1, RLY"
+      ],
+      [
+        "Changer",
+        "Électromécanique",
+        "Saisie utilisateur et sélection du mode",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Comment placer des composants dans le créateur de schémas de circuits",
+    "components.how.paragraphs": [
+      "Ouvrez l'éditeur Circuit Diagram Maker, parcourez ou recherchez la bibliothèque de composants dans la barre latérale gauche et faites glisser un symbole sur le canevas. Chaque composant s'aligne sur la grille de 20 pixels pour un alignement propre.",
+      "Sélectionnez un composant placé et appuyez sur R pour le faire pivoter. Utilisez H ou F pour le retourner horizontalement ou verticalement, et double-cliquez sur le symbole lorsque vous souhaitez modifier son étiquette ou son indicateur de référence.",
+      "Une fois vos pièces en place, passez à l'outil Fil en appuyant sur W et connectez les broches point à point. Le moteur de routage Manhattan maintient automatiquement le câblage en ordre."
+    ],
+    "components.actions.primary": "Éditeur de schéma de circuit ouvert",
+    "components.actions.secondary": "Lire la documentation complète"
+  },
+  "de": {
+    "components.meta.title": "Komponentenbibliothek – Schaltplan-Ersteller",
+    "components.meta.description": "Durchsuchen Sie die vollständige Symbolbibliothek von Circuit Diagram Maker. Entdecken Sie Widerstände, Kondensatoren, ICs, Transistoren, Anschlüsse, Leistungssymbole und mehr.",
+    "components.hero.badge": "Komponentenbibliothek",
+    "components.hero.title": "Schaltplan-Ersteller – Komponentenbibliothek und Symbolreferenz",
+    "components.hero.description": "Durchsuchen Sie die vollständige Bibliothek elektronischer Symbole, die im Circuit Diagram Maker verfügbar ist. Jede Komponente folgt allgemeinen Schaltplankonventionen, sodass Ihre Diagramme für Ingenieure, Studenten und Gutachter lesbar bleiben.",
+    "components.hero.body": "Die Bibliothek ist in sechs praktische Gruppen unterteilt, die sich mit passiven Teilen, Halbleitern, integrierten Schaltkreisen, Leistungselementen, Steckverbindern und elektromechanischen Geräten befassen. Verwenden Sie es als schnelle Referenz bei der Planung oder Überprüfung eines Schaltplans.",
+    "components.categories": [
+      {
+        "title": "Passive Komponenten",
+        "notes": "Die Grundlage jedes Schaltplans. Verwenden Sie in Ihren Schaltplänen passive Komponenten zur Filterung, Zeitsteuerung, Vorspannung und Strombegrenzung.",
+        "items": [
+          "Widerstand",
+          "Kondensator",
+          "Induktor",
+          "Potentiometer",
+          "Sicherung",
+          "Thermistor"
+        ]
+      },
+      {
+        "title": "Aktiv und Halbleiter",
+        "notes": "Halbleiter ermöglichen Schalten, Verstärken und Signalverarbeitung. Circuit Diagram Maker enthält Standardsymbole für gängige Gerätetypen.",
+        "items": [
+          "Diode",
+          "Zenerdiode",
+          "LED",
+          "NPN-Transistor",
+          "PNP-Transistor",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Integrierte Schaltkreise",
+        "notes": "Von analogen Operationsverstärkern bis hin zu digitalen Controllern decken die IC-Symbole die Bausteine ab, von denen die meisten Schaltpläne abhängen.",
+        "items": [
+          "Operationsverstärker",
+          "Komparator",
+          "Mikrocontroller",
+          "Logikgatter (UND/ODER/NICHT)",
+          "555 Timer",
+          "Spannungsregler"
+        ]
+      },
+      {
+        "title": "Leistungskomponenten",
+        "notes": "Ordnen Sie die Stromverteilung klar zu und sorgen Sie dafür, dass die Versorgungspfade bei Entwurfsprüfungen und Dokumentationsarbeiten leicht zu überprüfen sind.",
+        "items": [
+          "Batterie",
+          "Gleichstromversorgung",
+          "AC-Quelle",
+          "Transformator",
+          "Bodensymbol",
+          "Spannungsschiene"
+        ]
+      },
+      {
+        "title": "Steckverbinder & IO",
+        "notes": "Schnittstellensymbole definieren, wo die Schaltung mit der Außenwelt verbunden ist, und tragen dazu bei, Schaltpläne produktionsbereit zu machen.",
+        "items": [
+          "Header-Anschluss",
+          "Klemmenblock",
+          "USB-Anschluss",
+          "Testpunkt",
+          "Antenne",
+          "Sondenpunkt"
+        ]
+      },
+      {
+        "title": "Elektromechanisch",
+        "notes": "Steuern Sie physische Geräte mit elektromechanischen Symbolen für Relais, Schalter, Anzeigen und Aktoren.",
+        "items": [
+          "Relais",
+          "Schalter (SPST/SPDT)",
+          "Druckknopf",
+          "Motor",
+          "Sprecher",
+          "Summer"
+        ]
+      }
+    ],
+    "components.table.title": "Vollständige Symbolreferenztabelle",
+    "components.table.description": "Verwenden Sie diese Namenskonventionen, um Ihre Schaltpläne bei Überprüfungen, Übergaben und Dokumentationen konsistent zu halten.",
+    "components.table.headers": [
+      "Symbol",
+      "Kategorie",
+      "Typische Verwendung in Schaltplänen",
+      "Referenzbezeichner"
+    ],
+    "components.table.rows": [
+      [
+        "Widerstand",
+        "Passiv",
+        "Strombegrenzung, Spannungsteiler, Pull-Up- und Pull-Down-Netzwerke",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kondensator",
+        "Passiv",
+        "Entkopplung, Filterung, Timing und Kopplung",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Induktor",
+        "Passiv",
+        "Energiespeicherung, Filterung und EMI-Unterdrückung",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diode",
+        "Halbleiter",
+        "Berichtigung, Schutz und Klemmung",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Halbleiter",
+        "Statusanzeige und Beleuchtung",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Macht",
+        "Lastschaltung, H-Brücken und Wandler",
+        "Q1, Q_SW"
+      ],
+      [
+        "Operationsverstärker",
+        "Analoger IC",
+        "Verstärkung, Filterung und Vergleich",
+        "U1A, U1B"
+      ],
+      [
+        "Mikrocontroller",
+        "Digitaler IC",
+        "Logik, Sequenzierung und Kommunikation",
+        "U2, MCU"
+      ],
+      [
+        "Spannungsregler",
+        "Leistungs-IC",
+        "Spannungsregelung, LDO und Schalten",
+        "U3, REG"
+      ],
+      [
+        "Stecker",
+        "Schnittstelle",
+        "Externe Verkabelung, Board-to-Board-Verbindungen und IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relais",
+        "Elektromechanisch",
+        "Hochleistungsschaltung und -isolierung",
+        "K1, RLY"
+      ],
+      [
+        "Wechseln",
+        "Elektromechanisch",
+        "Benutzereingabe und Modusauswahl",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "So platzieren Sie Komponenten im Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Öffnen Sie den Editor „Circuit Diagram Maker“, durchsuchen oder durchsuchen Sie die Komponentenbibliothek in der linken Seitenleiste und ziehen Sie ein Symbol auf die Leinwand. Jede Komponente wird für eine saubere Ausrichtung am 20-Pixel-Raster ausgerichtet.",
+      "Wählen Sie eine platzierte Komponente aus und drücken Sie R, um sie zu drehen. Verwenden Sie H oder F, um es horizontal oder vertikal zu spiegeln, und doppelklicken Sie auf das Symbol, wenn Sie dessen Beschriftung oder Referenzbezeichner bearbeiten möchten.",
+      "Sobald Ihre Teile angebracht sind, wechseln Sie zum Drahtwerkzeug, indem Sie W drücken und die Stifte Punkt für Punkt verbinden. Die Manhattan-Routing-Engine sorgt automatisch für Ordnung in der Verkabelung."
+    ],
+    "components.actions.primary": "Offener Schaltplan-Editor",
+    "components.actions.secondary": "Lesen Sie die vollständige Dokumentation"
+  },
+  "it": {
+    "components.meta.title": "Libreria dei componenti: creatore di schemi circuitali",
+    "components.meta.description": "Sfoglia la libreria completa di simboli di Circuit Diagram Maker. Esplora resistori, condensatori, circuiti integrati, transistor, connettori, simboli di alimentazione e altro ancora.",
+    "components.hero.badge": "Libreria dei componenti",
+    "components.hero.title": "Creatore di schemi circuitali: libreria di componenti e riferimento di simboli",
+    "components.hero.description": "Sfoglia la libreria completa di simboli elettronici disponibile in Circuit Diagram Maker. Ogni componente segue convenzioni schematiche comuni in modo che i tuoi diagrammi rimangano leggibili per ingegneri, studenti e revisori.",
+    "components.hero.body": "La biblioteca è organizzata in sei gruppi pratici che coprono parti passive, semiconduttori, circuiti integrati, elementi di potenza, connettori e dispositivi elettromeccanici. Usalo come riferimento rapido durante la pianificazione o la revisione di uno schema.",
+    "components.categories": [
+      {
+        "title": "Componenti passivi",
+        "notes": "Il fondamento di ogni schema elettrico. Utilizza componenti passivi per filtraggio, temporizzazione, polarizzazione e limitazione di corrente nei tuoi schemi.",
+        "items": [
+          "Resistore",
+          "Condensatore",
+          "Induttore",
+          "Potenziometro",
+          "Fusibile",
+          "Termistore"
+        ]
+      },
+      {
+        "title": "Attivo e semiconduttore",
+        "notes": "I semiconduttori consentono la commutazione, l'amplificazione e l'elaborazione del segnale. Circuit Diagram Maker include simboli standard per i tipi di dispositivi più comuni.",
+        "items": [
+          "Diodo",
+          "Diodo Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "MOSFET P"
+        ]
+      },
+      {
+        "title": "Circuiti integrati",
+        "notes": "Dagli amplificatori operazionali analogici ai controller digitali, i simboli dei circuiti integrati coprono gli elementi costitutivi da cui dipende la maggior parte degli schemi.",
+        "items": [
+          "Amplificatore operazionale",
+          "Comparatore",
+          "Microcontrollore",
+          "Porta logica (AND/OR/NOT)",
+          "555 Temporizzatore",
+          "Regolatore di tensione"
+        ]
+      },
+      {
+        "title": "Componenti di potenza",
+        "notes": "Mappa chiaramente la distribuzione dell'energia e mantieni i percorsi di fornitura facili da ispezionare durante le revisioni della progettazione e il lavoro di documentazione.",
+        "items": [
+          "Batteria",
+          "Alimentazione CC",
+          "Sorgente CA",
+          "Trasformatore",
+          "Simbolo del suolo",
+          "Guida di tensione"
+        ]
+      },
+      {
+        "title": "Connettori e I/O",
+        "notes": "I simboli dell'interfaccia definiscono il punto in cui il circuito si connette al mondo esterno e aiutano a rendere gli schemi pronti per la produzione.",
+        "items": [
+          "Connettore di intestazione",
+          "Morsettiera",
+          "Porta USB",
+          "Punto di prova",
+          "Antenna",
+          "Punto sonda"
+        ]
+      },
+      {
+        "title": "Elettromeccanico",
+        "notes": "Controlla i dispositivi fisici con simboli elettromeccanici per relè, interruttori, indicatori e attuatori.",
+        "items": [
+          "Relè",
+          "Interruttore (SPST/SPDT)",
+          "Pulsante",
+          "Motore",
+          "Altoparlante",
+          "Cicalino"
+        ]
+      }
+    ],
+    "components.table.title": "Tabella completa di riferimento dei simboli",
+    "components.table.description": "Utilizza queste convenzioni di denominazione per mantenere coerenti i tuoi schemi circuitali tra revisioni, passaggi e documentazione.",
+    "components.table.headers": [
+      "Simbolo",
+      "Categoria",
+      "Utilizzo tipico negli schemi elettrici",
+      "Designatore di riferimento"
+    ],
+    "components.table.rows": [
+      [
+        "Resistore",
+        "Passivo",
+        "Limitazione di corrente, divisori di tensione, reti pull-up e pull-down",
+        "R1, R2, R_TIRARE"
+      ],
+      [
+        "Condensatore",
+        "Passivo",
+        "Disaccoppiamento, filtraggio, temporizzazione e accoppiamento",
+        "C1, C_ESCLUSIONE"
+      ],
+      [
+        "Induttore",
+        "Passivo",
+        "Accumulo di energia, filtraggio e soppressione delle EMI",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diodo",
+        "Semiconduttore",
+        "Rettifica, protezione e bloccaggio",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semiconduttore",
+        "Indicazione di stato e illuminazione",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Potenza",
+        "Commutazione del carico, ponti H e convertitori",
+        "Q1, Q_SW"
+      ],
+      [
+        "Amplificatore operazionale",
+        "Circuito integrato analogico",
+        "Amplificazione, filtraggio e confronto",
+        "U1A, U1B"
+      ],
+      [
+        "Microcontrollore",
+        "Circuito integrato digitale",
+        "Logica, sequenziamento e comunicazione",
+        "U2, MCU"
+      ],
+      [
+        "Regolatore di tensione",
+        "Circuito integrato di potenza",
+        "Regolazione della tensione, LDO e commutazione",
+        "U3, REG"
+      ],
+      [
+        "Connettore",
+        "Interfaccia",
+        "Cablaggio esterno, collegamenti scheda-scheda e IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relè",
+        "Elettromeccanico",
+        "Commutazione e isolamento ad alta potenza",
+        "K1, RLY"
+      ],
+      [
+        "Cambia",
+        "Elettromeccanico",
+        "Input dell'utente e selezione della modalità",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Come posizionare i componenti in Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Apri l'editor Circuit Diagram Maker, sfoglia o cerca la libreria dei componenti nella barra laterale sinistra e trascina un simbolo sull'area di disegno. Ogni componente si aggancia alla griglia da 20px per un allineamento pulito.",
+      "Seleziona un componente posizionato e premi R per ruotarlo. Utilizzare H o F per capovolgerlo orizzontalmente o verticalmente e fare doppio clic sul simbolo quando si desidera modificarne l'etichetta o il designatore di riferimento.",
+      "Una volta posizionate le parti, passa allo strumento Filo premendo W e collega i perni punto a punto. Il motore di routing Manhattan mantiene il cablaggio in ordine automaticamente."
+    ],
+    "components.actions.primary": "Editor di schemi circuitali aperti",
+    "components.actions.secondary": "Leggi la documentazione completa"
+  },
+  "pt": {
+    "components.meta.title": "Biblioteca de Componentes — Criador de Diagramas de Circuitos",
+    "components.meta.description": "Navegue pela biblioteca completa de símbolos do Circuit Diagram Maker. Explore resistores, capacitores, CIs, transistores, conectores, símbolos de potência e muito mais.",
+    "components.hero.badge": "Biblioteca de Componentes",
+    "components.hero.title": "Criador de Diagrama de Circuito – Biblioteca de Componentes e Referência de Símbolos",
+    "components.hero.description": "Navegue pela biblioteca completa de símbolos eletrônicos disponíveis no Circuit Diagram Maker. Cada componente segue convenções esquemáticas comuns para que seus diagramas permaneçam legíveis para engenheiros, estudantes e revisores.",
+    "components.hero.body": "A biblioteca está organizada em seis grupos práticos que abrangem peças passivas, semicondutores, circuitos integrados, elementos de potência, conectores e dispositivos eletromecânicos. Use-o como uma referência rápida ao planejar ou revisar um esquema.",
+    "components.categories": [
+      {
+        "title": "Componentes Passivos",
+        "notes": "A base de cada diagrama de circuito. Use componentes passivos para filtragem, temporização, polarização e limitação de corrente em seus esquemas.",
+        "items": [
+          "Resistor",
+          "Capacitor",
+          "Indutor",
+          "Potenciômetro",
+          "Fusível",
+          "Termistor"
+        ]
+      },
+      {
+        "title": "Ativo e Semicondutor",
+        "notes": "Os semicondutores permitem comutação, amplificação e processamento de sinal. O Circuit Diagram Maker inclui símbolos padrão para tipos de dispositivos comuns.",
+        "items": [
+          "Diodo",
+          "Diodo Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Circuitos Integrados",
+        "notes": "De amplificadores operacionais analógicos a controladores digitais, os símbolos IC cobrem os blocos de construção dos quais a maioria dos esquemas depende.",
+        "items": [
+          "Amplificador operacional",
+          "Comparador",
+          "Microcontrolador",
+          "Porta Lógica (E/OU/NÃO)",
+          "555 Temporizador",
+          "Regulador de tensão"
+        ]
+      },
+      {
+        "title": "Componentes de energia",
+        "notes": "Mapeie claramente a distribuição de energia e mantenha os caminhos de fornecimento fáceis de inspecionar durante revisões de projeto e trabalho de documentação.",
+        "items": [
+          "Bateria",
+          "Fonte de alimentação CC",
+          "Fonte CA",
+          "Transformador",
+          "Símbolo Terrestre",
+          "Trilho de Tensão"
+        ]
+      },
+      {
+        "title": "Conectores e E/S",
+        "notes": "Os símbolos de interface definem onde o circuito se conecta ao mundo externo e ajudam a preparar os esquemas para produção.",
+        "items": [
+          "Conector de cabeçalho",
+          "Bloco Terminal",
+          "Porta USB",
+          "Ponto de teste",
+          "Antena",
+          "Ponto de sonda"
+        ]
+      },
+      {
+        "title": "Eletromecânico",
+        "notes": "Controle dispositivos físicos com símbolos eletromecânicos para relés, interruptores, indicadores e atuadores.",
+        "items": [
+          "Relé",
+          "Interruptor (SPST/SPDT)",
+          "Botão",
+          "Motor",
+          "Palestrante",
+          "Campainha"
+        ]
+      }
+    ],
+    "components.table.title": "Tabela completa de referência de símbolos",
+    "components.table.description": "Use essas convenções de nomenclatura para manter seus diagramas de circuito consistentes em revisões, transferências e documentação.",
+    "components.table.headers": [
+      "Símbolo",
+      "Categoria",
+      "Uso típico em diagramas de circuitos",
+      "Designador de Referência"
+    ],
+    "components.table.rows": [
+      [
+        "Resistor",
+        "Passivo",
+        "Limitação de corrente, divisores de tensão, redes pull-up e pull-down",
+        "R1, R2, R_PUXAR"
+      ],
+      [
+        "Capacitor",
+        "Passivo",
+        "Desacoplamento, filtragem, temporização e acoplamento",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Indutor",
+        "Passivo",
+        "Armazenamento de energia, filtragem e supressão de EMI",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diodo",
+        "Semicondutor",
+        "Retificação, proteção e fixação",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semicondutor",
+        "Indicação de status e iluminação",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Poder",
+        "Comutação de carga, pontes H e conversores",
+        "Q1, Q_SW"
+      ],
+      [
+        "Amplificador operacional",
+        "CI analógico",
+        "Amplificação, filtragem e comparação",
+        "U1A, U1B"
+      ],
+      [
+        "Microcontrolador",
+        "IC digital",
+        "Lógica, sequenciamento e comunicação",
+        "U2, MCU"
+      ],
+      [
+        "Regulador de tensão",
+        "IC de potência",
+        "Regulação de tensão, LDO e comutação",
+        "U3, REG"
+      ],
+      [
+        "Conector",
+        "Interface",
+        "Fiação externa, links placa a placa e IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relé",
+        "Eletromecânico",
+        "Comutação e isolamento de alta potência",
+        "K1, RLY"
+      ],
+      [
+        "Mudar",
+        "Eletromecânico",
+        "Entrada do usuário e seleção de modo",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Como colocar componentes no criador de diagrama de circuito",
+    "components.how.paragraphs": [
+      "Abra o editor do Circuit Diagram Maker, navegue ou pesquise a biblioteca de componentes na barra lateral esquerda e arraste um símbolo para a tela. Cada componente se ajusta à grade de 20px para um alinhamento limpo.",
+      "Selecione um componente inserido e pressione R para girá-lo. Use H ou F para virá-lo horizontalmente ou verticalmente e clique duas vezes no símbolo quando quiser editar seu rótulo ou designador de referência.",
+      "Assim que as peças estiverem no lugar, mude para a ferramenta Wire pressionando W e conecte os pinos ponto a ponto. O mecanismo de roteamento Manhattan mantém a fiação organizada automaticamente."
+    ],
+    "components.actions.primary": "Editor de diagrama de circuito aberto",
+    "components.actions.secondary": "Leia a documentação completa"
+  },
+  "bn": {
+    "components.meta.title": "কম্পোনেন্ট লাইব্রেরি — সার্কিট ডায়াগ্রাম মেকার",
+    "components.meta.description": "সার্কিট ডায়াগ্রাম মেকারের সম্পূর্ণ প্রতীক লাইব্রেরি ব্রাউজ করুন। প্রতিরোধক, ক্যাপাসিটর, আইসি, ট্রানজিস্টর, সংযোগকারী, পাওয়ার চিহ্ন এবং আরও অনেক কিছু অন্বেষণ করুন।",
+    "components.hero.badge": "কম্পোনেন্ট লাইব্রেরি",
+    "components.hero.title": "সার্কিট ডায়াগ্রাম মেকার — কম্পোনেন্ট লাইব্রেরি এবং সিম্বল রেফারেন্স",
+    "components.hero.description": "সার্কিট ডায়াগ্রাম মেকারে উপলব্ধ ইলেকট্রনিক প্রতীকগুলির সম্পূর্ণ লাইব্রেরি ব্রাউজ করুন। প্রতিটি উপাদান সাধারণ পরিকল্পিত নিয়ম অনুসরণ করে যাতে আপনার চিত্রগুলি ইঞ্জিনিয়ার, ছাত্র এবং পর্যালোচকদের জন্য পাঠযোগ্য থাকে।",
+    "components.hero.body": "লাইব্রেরিটি প্যাসিভ পার্টস, সেমিকন্ডাক্টর, ইন্টিগ্রেটেড সার্কিট, পাওয়ার এলিমেন্ট, কানেক্টর এবং ইলেক্ট্রোমেকানিকাল ডিভাইসগুলিকে কভার করে ছয়টি ব্যবহারিক গ্রুপে বিভক্ত। একটি পরিকল্পিত পরিকল্পনা বা পর্যালোচনা করার সময় এটি একটি দ্রুত রেফারেন্স হিসাবে ব্যবহার করুন।",
+    "components.categories": [
+      {
+        "title": "প্যাসিভ উপাদান",
+        "notes": "প্রতিটি সার্কিট ডায়াগ্রামের ভিত্তি। আপনার স্কিমেটিক্সে ফিল্টারিং, টাইমিং, বায়াসিং এবং বর্তমান সীমাবদ্ধতার জন্য প্যাসিভ উপাদান ব্যবহার করুন।",
+        "items": [
+          "প্রতিরোধক",
+          "ক্যাপাসিটর",
+          "প্রবর্তক",
+          "পটেনশিওমিটার",
+          "ফিউজ",
+          "থার্মিস্টর"
+        ]
+      },
+      {
+        "title": "সক্রিয় এবং অর্ধপরিবাহী",
+        "notes": "সেমিকন্ডাক্টরগুলি সুইচিং, পরিবর্ধন এবং সংকেত প্রক্রিয়াকরণ সক্ষম করে। সার্কিট ডায়াগ্রাম মেকারে সাধারণ ডিভাইসের ধরনগুলির জন্য মানক চিহ্ন রয়েছে।",
+        "items": [
+          "ডায়োড",
+          "জেনার ডায়োড",
+          "LED",
+          "এনপিএন ট্রানজিস্টর",
+          "পিএনপি ট্রানজিস্টর",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "ইন্টিগ্রেটেড সার্কিট",
+        "notes": "এনালগ অপ-অ্যাম্প থেকে ডিজিটাল কন্ট্রোলার পর্যন্ত, আইসি চিহ্নগুলি বিল্ডিং ব্লকগুলিকে কভার করে যা বেশিরভাগ স্কিম্যাটিক্স নির্ভর করে।",
+        "items": [
+          "অপ-অ্যাম্প",
+          "তুলনাকারী",
+          "মাইক্রোকন্ট্রোলার",
+          "লজিক গেট (এবং/বা/না)",
+          "555 টাইমার",
+          "ভোল্টেজ রেগুলেটর"
+        ]
+      },
+      {
+        "title": "শক্তি উপাদান",
+        "notes": "পাওয়ার ডিস্ট্রিবিউশনকে পরিষ্কারভাবে ম্যাপ করুন এবং ডিজাইন রিভিউ এবং ডকুমেন্টেশন কাজের সময় সাপ্লাই পাথ সহজে পরিদর্শন করুন।",
+        "items": [
+          "ব্যাটারি",
+          "ডিসি পাওয়ার সাপ্লাই",
+          "এসি সোর্স",
+          "ট্রান্সফরমার",
+          "স্থল প্রতীক",
+          "ভোল্টেজ রেল"
+        ]
+      },
+      {
+        "title": "সংযোগকারী এবং আইও",
+        "notes": "ইন্টারফেস চিহ্নগুলি নির্ধারণ করে যে সার্কিটটি বাইরের বিশ্বের সাথে কোথায় সংযোগ করে এবং স্কিম্যাটিক্স উত্পাদন-প্রস্তুত করতে সহায়তা করে।",
+        "items": [
+          "হেডার সংযোগকারী",
+          "টার্মিনাল ব্লক",
+          "ইউএসবি পোর্ট",
+          "টেস্ট পয়েন্ট",
+          "অ্যান্টেনা",
+          "প্রোব পয়েন্ট"
+        ]
+      },
+      {
+        "title": "ইলেক্ট্রোমেকানিক্যাল",
+        "notes": "রিলে, সুইচ, সূচক এবং অ্যাকুয়েটরগুলির জন্য ইলেক্ট্রোমেকানিকাল প্রতীক সহ শারীরিক ডিভাইসগুলি নিয়ন্ত্রণ করুন।",
+        "items": [
+          "রিলে",
+          "স্যুইচ (SPST/SPDT)",
+          "পুশ বোতাম",
+          "মোটর",
+          "স্পিকার",
+          "বুজার"
+        ]
+      }
+    ],
+    "components.table.title": "সম্পূর্ণ প্রতীক রেফারেন্স টেবিল",
+    "components.table.description": "পর্যালোচনা, হ্যান্ডঅফ এবং ডকুমেন্টেশন জুড়ে আপনার সার্কিট ডায়াগ্রামগুলি সামঞ্জস্যপূর্ণ রাখতে এই নামকরণের নিয়মগুলি ব্যবহার করুন।",
+    "components.table.headers": [
+      "প্রতীক",
+      "শ্রেণী",
+      "সার্কিট ডায়াগ্রামে সাধারণ ব্যবহার",
+      "রেফারেন্স ডিজাইনার"
+    ],
+    "components.table.rows": [
+      [
+        "প্রতিরোধক",
+        "নিষ্ক্রিয়",
+        "কারেন্ট লিমিটিং, ভোল্টেজ ডিভাইডার, পুল-আপ এবং পুল-ডাউন নেটওয়ার্ক",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "ক্যাপাসিটর",
+        "নিষ্ক্রিয়",
+        "ডিকপলিং, ফিল্টারিং, টাইমিং এবং কাপলিং",
+        "C1, C_BYPASS"
+      ],
+      [
+        "প্রবর্তক",
+        "নিষ্ক্রিয়",
+        "শক্তি সঞ্চয়, ফিল্টারিং, এবং EMI দমন",
+        "L1, L_CHOKE"
+      ],
+      [
+        "ডায়োড",
+        "সেমিকন্ডাক্টর",
+        "সংশোধন, সুরক্ষা, এবং ক্ল্যাম্পিং",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "সেমিকন্ডাক্টর",
+        "অবস্থা ইঙ্গিত এবং আলোকসজ্জা",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "শক্তি",
+        "লোড সুইচিং, এইচ-ব্রিজ এবং কনভার্টার",
+        "Q1, Q_SW"
+      ],
+      [
+        "অপ-অ্যাম্প",
+        "এনালগ আইসি",
+        "পরিবর্ধন, ফিল্টারিং এবং তুলনা",
+        "U1A, U1B"
+      ],
+      [
+        "মাইক্রোকন্ট্রোলার",
+        "ডিজিটাল আইসি",
+        "যুক্তিবিদ্যা, সিকোয়েন্সিং এবং যোগাযোগ",
+        "U2, MCU"
+      ],
+      [
+        "ভোল্টেজ রেগুলেটর",
+        "পাওয়ার আইসি",
+        "ভোল্টেজ নিয়ন্ত্রণ, LDO, এবং স্যুইচিং",
+        "U3, REG"
+      ],
+      [
+        "সংযোগকারী",
+        "ইন্টারফেস",
+        "বহিরাগত ওয়্যারিং, বোর্ড থেকে বোর্ড লিঙ্ক, এবং IO",
+        "J1, J_USB"
+      ],
+      [
+        "রিলে",
+        "ইলেক্ট্রোমেকানিক্যাল",
+        "উচ্চ শক্তি স্যুইচিং এবং বিচ্ছিন্নতা",
+        "K1, RLY"
+      ],
+      [
+        "সুইচ",
+        "ইলেক্ট্রোমেকানিক্যাল",
+        "ব্যবহারকারীর ইনপুট এবং মোড নির্বাচন",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "সার্কিট ডায়াগ্রাম মেকারে উপাদানগুলি কীভাবে রাখবেন",
+    "components.how.paragraphs": [
+      "সার্কিট ডায়াগ্রাম মেকার সম্পাদক খুলুন, বাম সাইডবারে উপাদান লাইব্রেরি ব্রাউজ করুন বা অনুসন্ধান করুন এবং ক্যানভাসে একটি প্রতীক টেনে আনুন। পরিষ্কার প্রান্তিককরণের জন্য প্রতিটি উপাদান 20px গ্রিডে স্ন্যাপ করে।",
+      "একটি স্থাপন করা উপাদান নির্বাচন করুন এবং এটি ঘোরাতে R চাপুন। এটিকে অনুভূমিকভাবে বা উল্লম্বভাবে ফ্লিপ করতে H বা F ব্যবহার করুন এবং আপনি যখন এর লেবেল বা রেফারেন্স ডিজাইনার সম্পাদনা করতে চান তখন প্রতীকটিতে ডাবল ক্লিক করুন।",
+      "একবার আপনার যন্ত্রাংশ ঠিক হয়ে গেলে, W টিপে ওয়্যার টুলে স্যুইচ করুন এবং পিন পয়েন্ট টু পয়েন্ট কানেক্ট করুন। ম্যানহাটান রাউটিং ইঞ্জিন তারের স্বয়ংক্রিয়ভাবে পরিপাটি রাখে।"
+    ],
+    "components.actions.primary": "সার্কিট ডায়াগ্রাম এডিটর খুলুন",
+    "components.actions.secondary": "সম্পূর্ণ ডকুমেন্টেশন পড়ুন"
+  },
+  "ja": {
+    "components.meta.title": "コンポーネント ライブラリ — 回路図メーカー",
+    "components.meta.description": "Circuit Diagram Maker の完全なシンボル ライブラリを参照してください。抵抗、コンデンサ、IC、トランジスタ、コネクタ、電源記号などを調べます。",
+    "components.hero.badge": "コンポーネントライブラリ",
+    "components.hero.title": "回路図メーカー — コンポーネント ライブラリとシンボル リファレンス",
+    "components.hero.description": "Circuit Diagram Maker で利用できる電子シンボルの完全なライブラリを参照してください。すべてのコンポーネントは共通の回路図規則に従っているため、図はエンジニア、学生、レビュー担当者にとって読みやすい状態に保たれます。",
+    "components.hero.body": "このライブラリは、受動部品、半導体、集積回路、パワー素子、コネクタ、電気機械デバイスをカバーする 6 つの実用的なグループに編成されています。回路図を計画またはレビューする際のクイック リファレンスとして使用してください。",
+    "components.categories": [
+      {
+        "title": "受動部品",
+        "notes": "あらゆる回路図の基礎。回路図でのフィルタリング、タイミング、バイアス、電流制限には受動部品を使用します。",
+        "items": [
+          "抵抗器",
+          "コンデンサ",
+          "インダクタ",
+          "ポテンショメータ",
+          "ヒューズ",
+          "サーミスター"
+        ]
+      },
+      {
+        "title": "アクティブ＆半導体",
+        "notes": "半導体はスイッチング、増幅、信号処理を可能にします。 Circuit Diagram Maker には、一般的なデバイス タイプの標準シンボルが含まれています。",
+        "items": [
+          "ダイオード",
+          "ツェナーダイオード",
+          "LED",
+          "NPNトランジスタ",
+          "PNPトランジスタ",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "集積回路",
+        "notes": "アナログ オペアンプからデジタル コントローラーに至るまで、IC シンボルは回路図のほとんどが依存する構成要素をカバーしています。",
+        "items": [
+          "オペアンプ",
+          "コンパレータ",
+          "マイクロコントローラー",
+          "論理ゲート (AND/OR/NOT)",
+          "555タイマー",
+          "電圧レギュレータ"
+        ]
+      },
+      {
+        "title": "パワーコンポーネント",
+        "notes": "配電を明確にマッピングし、設計レビューや文書化作業中に供給経路を検査しやすい状態に保ちます。",
+        "items": [
+          "バッテリー",
+          "直流電源",
+          "AC電源",
+          "変圧器",
+          "地面のシンボル",
+          "電圧レール"
+        ]
+      },
+      {
+        "title": "コネクタとIO",
+        "notes": "インターフェイス シンボルは、回路が外部の世界に接続する場所を定義し、回路図を本番環境に準備するのに役立ちます。",
+        "items": [
+          "ヘッダコネクタ",
+          "端子台",
+          "USBポート",
+          "テストポイント",
+          "アンテナ",
+          "プローブポイント"
+        ]
+      },
+      {
+        "title": "電気機械",
+        "notes": "リレー、スイッチ、インジケータ、アクチュエータの電気機械シンボルを使用して物理デバイスを制御します。",
+        "items": [
+          "リレー",
+          "スイッチ(SPST/SPDT)",
+          "押しボタン",
+          "モーター",
+          "スピーカー",
+          "ブザー"
+        ]
+      }
+    ],
+    "components.table.title": "完全なシンボル参照テーブル",
+    "components.table.description": "これらの命名規則を使用して、レビュー、引き継ぎ、ドキュメント間で回路図の一貫性を保ちます。",
+    "components.table.headers": [
+      "シンボル",
+      "カテゴリ",
+      "回路図での一般的な使用法",
+      "参照指定子"
+    ],
+    "components.table.rows": [
+      [
+        "抵抗器",
+        "パッシブ",
+        "電流制限、分圧器、プルアップおよびプルダウンネットワーク",
+        "R1、R2、R_PULL"
+      ],
+      [
+        "コンデンサ",
+        "パッシブ",
+        "デカップリング、フィルタリング、タイミング、カップリング",
+        "C1、C_BYPASS"
+      ],
+      [
+        "インダクタ",
+        "パッシブ",
+        "エネルギー貯蔵、フィルタリング、EMI抑制",
+        "L1、L_CHOKE"
+      ],
+      [
+        "ダイオード",
+        "半導体",
+        "整流、保護、クランプ",
+        "D1、D_TVS"
+      ],
+      [
+        "LED",
+        "半導体",
+        "ステータス表示とイルミネーション",
+        "LED1、LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "パワー",
+        "負荷スイッチング、H ブリッジ、コンバータ",
+        "Q1、Q_SW"
+      ],
+      [
+        "オペアンプ",
+        "アナログIC",
+        "増幅、フィルタリング、比較",
+        "U1A、U1B"
+      ],
+      [
+        "マイクロコントローラー",
+        "デジタルIC",
+        "ロジック、シーケンス、コミュニケーション",
+        "U2、MCU"
+      ],
+      [
+        "電圧レギュレータ",
+        "パワーIC",
+        "電圧レギュレーション、LDO、およびスイッチング",
+        "U3、REG"
+      ],
+      [
+        "コネクタ",
+        "インターフェース",
+        "外部配線、基板間リンク、IO",
+        "J1、J_USB"
+      ],
+      [
+        "リレー",
+        "電気機械",
+        "高出力スイッチングと絶縁",
+        "K1、RLY"
+      ],
+      [
+        "スイッチ",
+        "電気機械",
+        "ユーザー入力とモード選択",
+        "SW1、SW_PWR"
+      ]
+    ],
+    "components.how.title": "回路図メーカーでコンポーネントを配置する方法",
+    "components.how.paragraphs": [
+      "回路図メーカー エディタを開き、左側のサイドバーでコンポーネント ライブラリを参照または検索し、シンボルをキャンバスにドラッグします。各コンポーネントは 20 ピクセルのグリッドにスナップされ、きれいに配置されます。",
+      "配置したコンポーネントを選択し、R を押して回転させます。 H または F を使用してシンボルを水平または垂直に反転し、ラベルまたは参照指定子を編集する場合はシンボルをダブルクリックします。",
+      "パーツを所定の位置に配置したら、W キーを押してワイヤー ツールに切り替え、ピンを点から点に接続します。マンハッタン ルーティング エンジンは、配線を自動的に整理整頓します。"
+    ],
+    "components.actions.primary": "開回路図エディタ",
+    "components.actions.secondary": "完全なドキュメントを読む"
+  },
+  "ko": {
+    "components.meta.title": "부품 라이브러리 - 회로도 작성기",
+    "components.meta.description": "Circuit Diagram Maker의 전체 기호 라이브러리를 찾아보세요. 저항기, 커패시터, IC, 트랜지스터, 커넥터, 전원 기호 등을 살펴보세요.",
+    "components.hero.badge": "부품 라이브러리",
+    "components.hero.title": "회로도 작성기 - 구성 요소 라이브러리 및 기호 참조",
+    "components.hero.description": "Circuit Diagram Maker에서 사용할 수 있는 전체 전자 기호 라이브러리를 찾아보세요. 모든 구성 요소는 일반적인 도식 규칙을 따르므로 엔지니어, 학생 및 검토자가 다이어그램을 계속 읽을 수 있습니다.",
+    "components.hero.body": "라이브러리는 수동 부품, 반도체, 집적 회로, 전력 요소, 커넥터 및 전기 기계 장치를 다루는 6개의 실무 그룹으로 구성됩니다. 회로도를 계획하거나 검토하는 동안 빠른 참조로 사용하십시오.",
+    "components.categories": [
+      {
+        "title": "수동 부품",
+        "notes": "모든 회로도의 기초. 회로도의 필터링, 타이밍, 바이어싱 및 전류 제한을 위해 수동 부품을 사용하십시오.",
+        "items": [
+          "저항기",
+          "커패시터",
+          "인덕터",
+          "전위차계",
+          "퓨즈",
+          "서미스터"
+        ]
+      },
+      {
+        "title": "능동 및 반도체",
+        "notes": "반도체는 스위칭, 증폭, 신호 처리를 가능하게 합니다. Circuit Diagram Maker에는 일반적인 장치 유형에 대한 표준 기호가 포함되어 있습니다.",
+        "items": [
+          "다이오드",
+          "제너다이오드",
+          "LED",
+          "NPN 트랜지스터",
+          "PNP 트랜지스터",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "집적 회로",
+        "notes": "아날로그 연산 증폭기부터 디지털 컨트롤러까지 IC 기호는 대부분의 회로도가 의존하는 빌딩 블록을 포괄합니다.",
+        "items": [
+          "연산 증폭기",
+          "비교기",
+          "마이크로컨트롤러",
+          "논리 게이트(AND/OR/NOT)",
+          "555 타이머",
+          "전압 조정기"
+        ]
+      },
+      {
+        "title": "전원 구성 요소",
+        "notes": "전력 분배를 명확하게 매핑하고 설계 검토 및 문서화 작업 중에 공급 경로를 쉽게 검사할 수 있도록 유지합니다.",
+        "items": [
+          "배터리",
+          "DC 전원 공급 장치",
+          "AC 소스",
+          "변압기",
+          "접지 기호",
+          "전압 레일"
+        ]
+      },
+      {
+        "title": "커넥터 및 IO",
+        "notes": "인터페이스 기호는 회로가 외부 세계에 연결되는 위치를 정의하고 회로도를 즉시 생산할 수 있도록 도와줍니다.",
+        "items": [
+          "헤더 커넥터",
+          "터미널 블록",
+          "USB 포트",
+          "테스트 포인트",
+          "안테나",
+          "프로브 포인트"
+        ]
+      },
+      {
+        "title": "전자기계",
+        "notes": "릴레이, 스위치, 표시기 및 액추에이터에 대한 전기 기계 기호를 사용하여 물리적 장치를 제어합니다.",
+        "items": [
+          "릴레이",
+          "스위치(SPST/SPDT)",
+          "푸시 버튼",
+          "모터",
+          "스피커",
+          "버저"
+        ]
+      }
+    ],
+    "components.table.title": "전체 기호 참조 표",
+    "components.table.description": "이러한 명명 규칙을 사용하여 검토, 전달 및 문서화 과정에서 회로 다이어그램의 일관성을 유지하세요.",
+    "components.table.headers": [
+      "기호",
+      "카테고리",
+      "회로도에서의 일반적인 사용",
+      "참조 지정자"
+    ],
+    "components.table.rows": [
+      [
+        "저항기",
+        "패시브",
+        "전류 제한, 전압 분배기, 풀업 및 풀다운 네트워크",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "커패시터",
+        "패시브",
+        "분리, 필터링, 타이밍 및 결합",
+        "C1, C_바이패스"
+      ],
+      [
+        "인덕터",
+        "패시브",
+        "에너지 저장, 필터링 및 EMI 억제",
+        "L1, L_초크"
+      ],
+      [
+        "다이오드",
+        "반도체",
+        "정류, 보호 및 클램핑",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "반도체",
+        "상태 표시 및 조명",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "힘",
+        "부하 스위칭, H 브리지 및 컨버터",
+        "Q1, Q_SW"
+      ],
+      [
+        "연산 증폭기",
+        "아날로그 IC",
+        "증폭, 필터링 및 비교",
+        "U1A, U1B"
+      ],
+      [
+        "마이크로컨트롤러",
+        "디지털 IC",
+        "논리, 시퀀싱 및 통신",
+        "U2, MCU"
+      ],
+      [
+        "전압 조정기",
+        "파워 IC",
+        "전압 조정, LDO 및 스위칭",
+        "U3, REG"
+      ],
+      [
+        "커넥터",
+        "인터페이스",
+        "외부 배선, 보드 간 링크 및 IO",
+        "J1, J_USB"
+      ],
+      [
+        "릴레이",
+        "전자기계",
+        "고전력 스위칭 및 절연",
+        "K1, RLY"
+      ],
+      [
+        "스위치",
+        "전자기계",
+        "사용자 입력 및 모드 선택",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "회로도 작성기에서 구성요소를 배치하는 방법",
+    "components.how.paragraphs": [
+      "Circuit Diagram Maker 편집기를 열고 왼쪽 사이드바에서 구성 요소 라이브러리를 찾아보거나 검색한 다음 기호를 캔버스로 드래그합니다. 각 구성 요소는 깔끔한 정렬을 위해 20px 그리드에 맞춰집니다.",
+      "배치된 구성요소를 선택하고 R을 눌러 회전합니다. H 또는 F를 사용하여 수평 또는 수직으로 뒤집고, 레이블이나 참조 지정자를 편집하려면 기호를 두 번 클릭합니다.",
+      "부품이 제 위치에 있으면 W를 눌러 와이어 도구로 전환하고 핀을 지점별로 연결합니다. Manhattan 라우팅 엔진은 배선을 자동으로 깔끔하게 유지합니다."
+    ],
+    "components.actions.primary": "개방형 회로 다이어그램 편집기",
+    "components.actions.secondary": "전체 문서 읽기"
+  },
+  "ms": {
+    "components.meta.title": "Perpustakaan Komponen — Pembuat Rajah Litar",
+    "components.meta.description": "Semak imbas perpustakaan simbol lengkap Pembuat Diagram Litar. Teroka perintang, kapasitor, IC, transistor, penyambung, simbol kuasa dan banyak lagi.",
+    "components.hero.badge": "Perpustakaan Komponen",
+    "components.hero.title": "Pembuat Rajah Litar — Perpustakaan Komponen & Rujukan Simbol",
+    "components.hero.description": "Semak imbas perpustakaan lengkap simbol elektronik yang tersedia dalam Pembuat Rajah Litar. Setiap komponen mengikut konvensyen skema biasa supaya rajah anda kekal boleh dibaca oleh jurutera, pelajar dan penyemak.",
+    "components.hero.body": "Perpustakaan ini disusun kepada enam kumpulan praktikal yang meliputi bahagian pasif, semikonduktor, litar bersepadu, elemen kuasa, penyambung dan peranti elektromekanikal. Gunakannya sebagai rujukan pantas semasa merancang atau menyemak skema.",
+    "components.categories": [
+      {
+        "title": "Komponen Pasif",
+        "notes": "Asas bagi setiap rajah litar. Gunakan komponen pasif untuk penapisan, pemasaan, pembiasan dan pengehadan semasa dalam skema anda.",
+        "items": [
+          "Perintang",
+          "Kapasitor",
+          "Induktor",
+          "Potensiometer",
+          "Fius",
+          "Termistor"
+        ]
+      },
+      {
+        "title": "Aktif & Semikonduktor",
+        "notes": "Semikonduktor membolehkan penukaran, penguatan dan pemprosesan isyarat. Pembuat Rajah Litar termasuk simbol standard untuk jenis peranti biasa.",
+        "items": [
+          "Diod",
+          "Diod Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Litar Bersepadu",
+        "notes": "Daripada op-amp analog kepada pengawal digital, simbol IC meliputi blok binaan yang bergantung kepada kebanyakan skema.",
+        "items": [
+          "Op-Amp",
+          "Pembanding",
+          "Pengawal mikro",
+          "Gerbang Logik (DAN/ATAU/TIDAK)",
+          "555 Pemasa",
+          "Pengatur Voltan"
+        ]
+      },
+      {
+        "title": "Komponen Kuasa",
+        "notes": "Petakan pengagihan kuasa dengan jelas dan pastikan laluan bekalan mudah diperiksa semasa semakan reka bentuk dan kerja dokumentasi.",
+        "items": [
+          "Bateri",
+          "Bekalan Kuasa DC",
+          "Sumber AC",
+          "Transformer",
+          "Simbol Tanah",
+          "Rel Voltan"
+        ]
+      },
+      {
+        "title": "Penyambung & IO",
+        "notes": "Simbol antara muka mentakrifkan tempat litar bersambung ke dunia luar dan membantu membuat pengeluaran skematik siap.",
+        "items": [
+          "Penyambung Pengepala",
+          "Blok Terminal",
+          "Port USB",
+          "Titik Ujian",
+          "Antena",
+          "Titik Probe"
+        ]
+      },
+      {
+        "title": "Elektromekanikal",
+        "notes": "Kawal peranti fizikal dengan simbol elektromekanikal untuk geganti, suis, penunjuk dan penggerak.",
+        "items": [
+          "Relay",
+          "Suis (SPST/SPDT)",
+          "Butang Tekan",
+          "Motor",
+          "Penceramah",
+          "Buzzer"
+        ]
+      }
+    ],
+    "components.table.title": "Jadual Rujukan Simbol Lengkap",
+    "components.table.description": "Gunakan konvensyen penamaan ini untuk memastikan rajah litar anda konsisten merentas ulasan, penyerahan dan dokumentasi.",
+    "components.table.headers": [
+      "Simbol",
+      "kategori",
+      "Penggunaan Biasa dalam Rajah Litar",
+      "Penentu Rujukan"
+    ],
+    "components.table.rows": [
+      [
+        "Perintang",
+        "pasif",
+        "Had semasa, pembahagi voltan, rangkaian tarik-ke atas dan tarik-turun",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kapasitor",
+        "pasif",
+        "Penyahgandingan, penapisan, pemasaan dan gandingan",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Induktor",
+        "pasif",
+        "Penyimpanan tenaga, penapisan dan penindasan EMI",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diod",
+        "Semikonduktor",
+        "Pembetulan, perlindungan, dan pengapit",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semikonduktor",
+        "Petunjuk status dan pencahayaan",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "kuasa",
+        "Pensuisan beban, jambatan H dan penukar",
+        "S1, Q_SW"
+      ],
+      [
+        "Op-Amp",
+        "IC analog",
+        "Penguatan, penapisan dan perbandingan",
+        "U1A, U1B"
+      ],
+      [
+        "Pengawal mikro",
+        "IC digital",
+        "Logik, urutan, dan komunikasi",
+        "U2, MCU"
+      ],
+      [
+        "Pengatur Voltan",
+        "IC kuasa",
+        "Peraturan voltan, LDO, dan pensuisan",
+        "U3, REG"
+      ],
+      [
+        "Penyambung",
+        "Antara muka",
+        "Pendawaian luaran, pautan papan ke papan dan IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relay",
+        "Elektromekanikal",
+        "Pensuisan dan pengasingan kuasa tinggi",
+        "K1, RLY"
+      ],
+      [
+        "Tukar",
+        "Elektromekanikal",
+        "Input pengguna dan pemilihan mod",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Cara Meletakkan Komponen dalam Pembuat Rajah Litar",
+    "components.how.paragraphs": [
+      "Buka editor Pembuat Rajah Litar, semak imbas atau cari pustaka komponen di bar sisi kiri dan seret simbol ke atas kanvas. Setiap komponen terkunci pada grid 20px untuk penjajaran bersih.",
+      "Pilih komponen yang diletakkan dan tekan R untuk memutarkannya. Gunakan H atau F untuk membalikkannya secara mendatar atau menegak, dan klik dua kali pada simbol apabila anda ingin mengedit label atau penunjuk rujukannya.",
+      "Setelah bahagian anda dipasang, tukar kepada alat Wire dengan menekan W dan sambungkan pin dari titik ke titik. Enjin penghalaan Manhattan memastikan pendawaian sentiasa kemas secara automatik."
+    ],
+    "components.actions.primary": "Editor Gambarajah Litar Terbuka",
+    "components.actions.secondary": "Baca Dokumentasi Penuh"
+  },
+  "pl": {
+    "components.meta.title": "Biblioteka komponentów — Kreator schematów obwodów",
+    "components.meta.description": "Przeglądaj pełną bibliotekę symboli w Kreatorze schematów obwodów. Przeglądaj rezystory, kondensatory, układy scalone, tranzystory, złącza, symbole mocy i nie tylko.",
+    "components.hero.badge": "Biblioteka komponentów",
+    "components.hero.title": "Kreator schematów obwodów — biblioteka komponentów i odniesienie do symboli",
+    "components.hero.description": "Przeglądaj pełną bibliotekę symboli elektronicznych dostępnych w Kreatorze schematów obwodów. Każdy komponent jest zgodny z powszechnymi konwencjami schematów, dzięki czemu diagramy pozostają czytelne dla inżynierów, studentów i recenzentów.",
+    "components.hero.body": "Biblioteka jest podzielona na sześć praktycznych grup obejmujących części pasywne, półprzewodniki, układy scalone, elementy mocy, złącza i urządzenia elektromechaniczne. Użyj go jako szybkiego odniesienia podczas planowania lub przeglądania schematu.",
+    "components.categories": [
+      {
+        "title": "Komponenty pasywne",
+        "notes": "Podstawa każdego schematu obwodu. Użyj komponentów pasywnych do filtrowania, synchronizacji, odchylania i ograniczania prądu na swoich schematach.",
+        "items": [
+          "Rezystor",
+          "Kondensator",
+          "Cewka indukcyjna",
+          "Potencjometr",
+          "Bezpiecznik",
+          "Termistor"
+        ]
+      },
+      {
+        "title": "Aktywne i półprzewodnikowe",
+        "notes": "Półprzewodniki umożliwiają przełączanie, wzmacnianie i przetwarzanie sygnału. Kreator schematów obwodów zawiera standardowe symbole dla popularnych typów urządzeń.",
+        "items": [
+          "Dioda",
+          "Dioda Zenera",
+          "Dioda LED",
+          "Tranzystor NPN",
+          "Tranzystor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Układy scalone",
+        "notes": "Od analogowych wzmacniaczy operacyjnych po sterowniki cyfrowe – symbole układów scalonych obejmują elementy składowe, na których opiera się większość schematów.",
+        "items": [
+          "Wzmacniacz operacyjny",
+          "Komparator",
+          "Mikrokontroler",
+          "Bramka logiczna (AND/LUB/NOT)",
+          "Zegar 555",
+          "Regulator napięcia"
+        ]
+      },
+      {
+        "title": "Komponenty mocy",
+        "notes": "Wyraźnie mapuj dystrybucję mocy i zapewniaj łatwą kontrolę ścieżek zasilania podczas przeglądów projektów i prac dokumentacyjnych.",
+        "items": [
+          "Bateria",
+          "Zasilanie prądem stałym",
+          "Źródło prądu przemiennego",
+          "Transformator",
+          "Symbol uziemienia",
+          "Szyna napięciowa"
+        ]
+      },
+      {
+        "title": "Złącza i wejścia/wyjścia",
+        "notes": "Symbole interfejsu określają, gdzie obwód łączy się ze światem zewnętrznym i pomagają w przygotowaniu schematów do produkcji.",
+        "items": [
+          "Złącze nagłówka",
+          "Blok zacisków",
+          "Port USB",
+          "Punkt testowy",
+          "Antena",
+          "Punkt sondy"
+        ]
+      },
+      {
+        "title": "Elektromechaniczny",
+        "notes": "Steruj urządzeniami fizycznymi za pomocą symboli elektromechanicznych przekaźników, przełączników, wskaźników i siłowników.",
+        "items": [
+          "Przekaźnik",
+          "Przełącznik (SPST/SPDT)",
+          "Naciśnij przycisk",
+          "Silnik",
+          "Głośnik",
+          "Brzęczyk"
+        ]
+      }
+    ],
+    "components.table.title": "Pełna tabela referencyjna symboli",
+    "components.table.description": "Skorzystaj z tych konwencji nazewnictwa, aby zachować spójność schematów obwodów w przeglądach, przekazach pocztowych i dokumentacji.",
+    "components.table.headers": [
+      "Symbol",
+      "Kategoria",
+      "Typowe zastosowanie na schematach obwodów",
+      "Oznaczenie odniesienia"
+    ],
+    "components.table.rows": [
+      [
+        "Rezystor",
+        "Pasywny",
+        "Ograniczniki prądu, dzielniki napięcia, sieci podciągające i podciągające",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kondensator",
+        "Pasywny",
+        "Odsprzęganie, filtrowanie, synchronizacja i sprzęganie",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Cewka indukcyjna",
+        "Pasywny",
+        "Magazynowanie energii, filtrowanie i tłumienie zakłóceń elektromagnetycznych",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Dioda",
+        "Półprzewodnik",
+        "Prostowanie, ochrona i zaciskanie",
+        "D1, D_TVS"
+      ],
+      [
+        "Dioda LED",
+        "Półprzewodnik",
+        "Wskazanie stanu i podświetlenie",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Moc",
+        "Przełączanie obciążenia, mostki H i konwertery",
+        "Q1, Q_SW"
+      ],
+      [
+        "Wzmacniacz operacyjny",
+        "Analogowy układ scalony",
+        "Wzmocnienie, filtrowanie i porównanie",
+        "U1A, U1B"
+      ],
+      [
+        "Mikrokontroler",
+        "Cyfrowy układ scalony",
+        "Logika, sekwencjonowanie i komunikacja",
+        "U2, MCU"
+      ],
+      [
+        "Regulator napięcia",
+        "Układ scalony zasilania",
+        "Regulacja napięcia, LDO i przełączanie",
+        "U3, REJ"
+      ],
+      [
+        "Złącze",
+        "Interfejs",
+        "Okablowanie zewnętrzne, łącza między płytkami i wejścia/wyjścia",
+        "J1, J_USB"
+      ],
+      [
+        "Przekaźnik",
+        "Elektromechaniczny",
+        "Przełączanie i izolacja dużej mocy",
+        "K1, RLY"
+      ],
+      [
+        "Przełącznik",
+        "Elektromechaniczny",
+        "Dane wejściowe użytkownika i wybór trybu",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Jak umieszczać komponenty w Kreatorze schematów obwodów",
+    "components.how.paragraphs": [
+      "Otwórz edytor Kreatora schematów obwodów, przeglądaj lub przeszukuj bibliotekę komponentów na lewym pasku bocznym i przeciągnij symbol na płótno. Każdy komponent jest przyciągany do siatki o wielkości 20 pikseli, co zapewnia dokładne wyrównanie.",
+      "Wybierz umieszczony komponent i naciśnij R, aby go obrócić. Użyj H lub F, aby obrócić go w poziomie lub w pionie, a następnie kliknij dwukrotnie symbol, jeśli chcesz edytować jego etykietę lub oznaczenie odniesienia.",
+      "Po umieszczeniu części przejdź do narzędzia Drut, naciskając W i połącz styki punkt po punkcie. Mechanizm routingu Manhattan automatycznie utrzymuje porządek w okablowaniu."
+    ],
+    "components.actions.primary": "Otwórz Edytor schematów obwodów",
+    "components.actions.secondary": "Przeczytaj pełną dokumentację"
+  },
+  "id": {
+    "components.meta.title": "Perpustakaan Komponen — Pembuat Diagram Sirkuit",
+    "components.meta.description": "Jelajahi perpustakaan simbol lengkap Pembuat Diagram Sirkuit. Jelajahi resistor, kapasitor, IC, transistor, konektor, simbol daya, dan banyak lagi.",
+    "components.hero.badge": "Perpustakaan Komponen",
+    "components.hero.title": "Pembuat Diagram Sirkuit — Pustaka Komponen & Referensi Simbol",
+    "components.hero.description": "Jelajahi perpustakaan lengkap simbol elektronik yang tersedia di Circuit Diagram Maker. Setiap komponen mengikuti konvensi skema umum sehingga diagram Anda tetap dapat dibaca oleh para insinyur, pelajar, dan pengulas.",
+    "components.hero.body": "Perpustakaan ini dibagi menjadi enam kelompok praktik yang meliputi bagian pasif, semikonduktor, sirkuit terpadu, elemen daya, konektor, dan perangkat elektromekanis. Gunakan ini sebagai referensi cepat saat merencanakan atau meninjau skema.",
+    "components.categories": [
+      {
+        "title": "Komponen Pasif",
+        "notes": "Dasar dari setiap diagram sirkuit. Gunakan komponen pasif untuk memfilter, mengatur waktu, membiaskan, dan membatasi arus dalam skema Anda.",
+        "items": [
+          "Resistor",
+          "Kapasitor",
+          "Induktor",
+          "Potensiometer",
+          "Sekering",
+          "Termistor"
+        ]
+      },
+      {
+        "title": "Aktif & Semikonduktor",
+        "notes": "Semikonduktor memungkinkan peralihan, amplifikasi, dan pemrosesan sinyal. Pembuat Diagram Sirkuit menyertakan simbol standar untuk jenis perangkat umum.",
+        "items": [
+          "Dioda",
+          "Dioda Zener",
+          "LED",
+          "Transistor NPN",
+          "Transistor PNP",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Sirkuit Terpadu",
+        "notes": "Dari op-amp analog hingga pengontrol digital, simbol IC mencakup blok penyusun yang menjadi sandaran sebagian besar skema.",
+        "items": [
+          "Op-Amp",
+          "Pembanding",
+          "Mikrokontroler",
+          "Gerbang Logika (DAN/ATAU/TIDAK)",
+          "555 pengatur waktu",
+          "Pengatur Tegangan"
+        ]
+      },
+      {
+        "title": "Komponen Daya",
+        "notes": "Memetakan distribusi listrik dengan jelas dan memastikan jalur pasokan mudah diperiksa selama peninjauan desain dan pekerjaan dokumentasi.",
+        "items": [
+          "Baterai",
+          "Catu Daya DC",
+          "Sumber AC",
+          "transformator",
+          "Simbol Tanah",
+          "Rel Tegangan"
+        ]
+      },
+      {
+        "title": "Konektor & IO",
+        "notes": "Simbol antarmuka menentukan di mana sirkuit terhubung ke dunia luar dan membantu membuat skema siap produksi.",
+        "items": [
+          "Konektor Tajuk",
+          "Blok Terminal",
+          "Pelabuhan USB",
+          "Titik Tes",
+          "antena",
+          "Titik Penyelidikan"
+        ]
+      },
+      {
+        "title": "Elektromekanis",
+        "notes": "Kontrol perangkat fisik dengan simbol elektromekanis untuk relai, sakelar, indikator, dan aktuator.",
+        "items": [
+          "Relai",
+          "Saklar (SPST/SPDT)",
+          "Tombol Tekan",
+          "motorik",
+          "Pembicara",
+          "Bel"
+        ]
+      }
+    ],
+    "components.table.title": "Tabel Referensi Simbol Lengkap",
+    "components.table.description": "Gunakan konvensi penamaan ini untuk menjaga diagram sirkuit Anda tetap konsisten di seluruh tinjauan, penyerahan, dan dokumentasi.",
+    "components.table.headers": [
+      "Simbol",
+      "Kategori",
+      "Penggunaan Khas dalam Diagram Sirkuit",
+      "Penunjuk Referensi"
+    ],
+    "components.table.rows": [
+      [
+        "Resistor",
+        "Pasif",
+        "Pembatas arus, pembagi tegangan, jaringan pull-up dan pull-down",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kapasitor",
+        "Pasif",
+        "Pemisahan, pemfilteran, pengaturan waktu, dan penggandengan",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Induktor",
+        "Pasif",
+        "Penyimpanan energi, penyaringan, dan penekanan EMI",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Dioda",
+        "Semikonduktor",
+        "Perbaikan, perlindungan, dan penjepitan",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Semikonduktor",
+        "Indikasi status dan iluminasi",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Kekuatan",
+        "Peralihan beban, jembatan-H, dan konverter",
+        "Q1, Q_SW"
+      ],
+      [
+        "Op-Amp",
+        "IC Analog",
+        "Amplifikasi, pemfilteran, dan perbandingan",
+        "U1A, U1B"
+      ],
+      [
+        "Mikrokontroler",
+        "IC Digital",
+        "Logika, urutan, dan komunikasi",
+        "U2, MCU"
+      ],
+      [
+        "Pengatur Tegangan",
+        "IC Daya",
+        "Pengaturan tegangan, LDO, dan switching",
+        "U3, REG"
+      ],
+      [
+        "Konektor",
+        "Antarmuka",
+        "Pengkabelan eksternal, tautan board-to-board, dan IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relai",
+        "Elektromekanis",
+        "Peralihan dan isolasi daya tinggi",
+        "K1, RLI"
+      ],
+      [
+        "Beralih",
+        "Elektromekanis",
+        "Input pengguna dan pemilihan mode",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Cara Menempatkan Komponen pada Pembuat Diagram Sirkuit",
+    "components.how.paragraphs": [
+      "Buka editor Circuit Diagram Maker, telusuri atau cari pustaka komponen di sidebar kiri, dan seret simbol ke kanvas. Setiap komponen masuk ke grid 20px untuk penyelarasan yang bersih.",
+      "Pilih komponen yang ditempatkan dan tekan R untuk memutarnya. Gunakan H atau F untuk membaliknya secara horizontal atau vertikal, dan klik dua kali simbol tersebut ketika Anda ingin mengedit label atau penanda referensinya.",
+      "Setelah komponen Anda terpasang, beralihlah ke alat Kawat dengan menekan W dan sambungkan pin dari titik ke titik. Mesin perutean Manhattan menjaga kabel tetap rapi secara otomatis."
+    ],
+    "components.actions.primary": "Editor Diagram Sirkuit Terbuka",
+    "components.actions.secondary": "Baca Dokumentasi Lengkap"
+  },
+  "ar": {
+    "components.meta.title": "مكتبة المكونات – صانع مخططات الدوائر",
+    "components.meta.description": "تصفح مكتبة الرموز الكاملة لـ Circuit Diagram Maker. استكشف المقاومات والمكثفات والدوائر المتكاملة والترانزستورات والموصلات ورموز الطاقة والمزيد.",
+    "components.hero.badge": "مكتبة المكونات",
+    "components.hero.title": "صانع مخططات الدوائر - مكتبة المكونات ومرجع الرموز",
+    "components.hero.description": "تصفح المكتبة الكاملة للرموز الإلكترونية المتوفرة في Circuit Diagram Maker. يتبع كل مكون اصطلاحات تخطيطية شائعة بحيث تظل الرسوم التخطيطية الخاصة بك قابلة للقراءة للمهندسين والطلاب والمراجعين.",
+    "components.hero.body": "يتم تنظيم المكتبة في ست مجموعات عملية تغطي الأجزاء السلبية وأشباه الموصلات والدوائر المتكاملة وعناصر الطاقة والموصلات والأجهزة الكهروميكانيكية. استخدمه كمرجع سريع أثناء التخطيط أو مراجعة المخطط.",
+    "components.categories": [
+      {
+        "title": "المكونات السلبية",
+        "notes": "أساس كل مخطط الدائرة. استخدم المكونات السلبية للتصفية والتوقيت والانحياز والحد الحالي في المخططات الخاصة بك.",
+        "items": [
+          "المقاوم",
+          "مكثف",
+          "مغو",
+          "مقياس الجهد",
+          "الصمامات",
+          "الثرمستور"
+        ]
+      },
+      {
+        "title": "نشط وأشباه الموصلات",
+        "notes": "تتيح أشباه الموصلات إمكانية التبديل والتضخيم ومعالجة الإشارات. يشتمل صانع مخططات الدائرة على رموز قياسية لأنواع الأجهزة الشائعة.",
+        "items": [
+          "الصمام الثنائي",
+          "زينر ديود",
+          "الصمام",
+          "الترانزستور NPN",
+          "الترانزستور بي إن بي",
+          "إن-موسفيت",
+          "بي موسفيت"
+        ]
+      },
+      {
+        "title": "الدوائر المتكاملة",
+        "notes": "بدءًا من مضخمات التشغيل التناظرية وحتى وحدات التحكم الرقمية، تغطي رموز IC وحدات البناء التي تعتمد عليها معظم المخططات.",
+        "items": [
+          "المرجع أمبير",
+          "المقارنة",
+          "متحكم",
+          "البوابة المنطقية (و/أو/لا)",
+          "555 الموقت",
+          "منظم الجهد"
+        ]
+      },
+      {
+        "title": "مكونات الطاقة",
+        "notes": "قم بتعيين توزيع الطاقة بوضوح وحافظ على سهولة فحص مسارات الإمداد أثناء مراجعات التصميم وأعمال التوثيق.",
+        "items": [
+          "البطارية",
+          "مصدر طاقة التيار المستمر",
+          "مصدر التيار المتردد",
+          "محول",
+          "الرمز الأرضي",
+          "السكك الحديدية الجهد"
+        ]
+      },
+      {
+        "title": "الموصلات والإدخال والإدخال",
+        "notes": "تحدد رموز الواجهة مكان اتصال الدائرة بالعالم الخارجي وتساعد في جعل المخططات جاهزة للإنتاج.",
+        "items": [
+          "موصل الرأس",
+          "كتلة المحطة الطرفية",
+          "منفذ يو اس بي",
+          "نقطة الاختبار",
+          "هوائي",
+          "نقطة التحقيق"
+        ]
+      },
+      {
+        "title": "الكهروميكانيكية",
+        "notes": "التحكم في الأجهزة المادية باستخدام الرموز الكهروميكانيكية للمرحلات والمفاتيح والمؤشرات والمحركات.",
+        "items": [
+          "تتابع",
+          "التبديل (سبست/سبدت)",
+          "زر الضغط",
+          "محرك",
+          "المتحدث",
+          "الجرس"
+        ]
+      }
+    ],
+    "components.table.title": "أكمل الجدول المرجعي للرمز",
+    "components.table.description": "استخدم اصطلاحات التسمية هذه للحفاظ على اتساق مخططات دائرتك عبر المراجعات وعمليات التسليم والوثائق.",
+    "components.table.headers": [
+      "الرمز",
+      "الفئة",
+      "الاستخدام النموذجي في مخططات الدوائر",
+      "المرجع المرجعي"
+    ],
+    "components.table.rows": [
+      [
+        "المقاوم",
+        "سلبي",
+        "تحديد التيار، مقسمات الجهد، شبكات السحب والسحب",
+        "R1، R2، R_PULL"
+      ],
+      [
+        "مكثف",
+        "سلبي",
+        "الفصل والتصفية والتوقيت والاقتران",
+        "C1، C_BYPASS"
+      ],
+      [
+        "مغو",
+        "سلبي",
+        "تخزين الطاقة، والتصفية، وقمع EMI",
+        "L1، L_CHOKE"
+      ],
+      [
+        "الصمام الثنائي",
+        "أشباه الموصلات",
+        "التصحيح والحماية والتثبيت",
+        "D1، D_TVS"
+      ],
+      [
+        "الصمام",
+        "أشباه الموصلات",
+        "مؤشر الحالة والإضاءة",
+        "LED1، LED_PWR"
+      ],
+      [
+        "إن-موسفيت",
+        "القوة",
+        "تبديل الأحمال والجسور H والمحولات",
+        "س1، س_SW"
+      ],
+      [
+        "المرجع أمبير",
+        "التناظرية IC",
+        "التضخيم والتصفية والمقارنة",
+        "U1A، U1B"
+      ],
+      [
+        "متحكم",
+        "آي سي رقمي",
+        "المنطق والتسلسل والتواصل",
+        "يو2، مكو"
+      ],
+      [
+        "منظم الجهد",
+        "الطاقة آي سي",
+        "تنظيم الجهد، LDO، والتبديل",
+        "U3، ريج"
+      ],
+      [
+        "موصل",
+        "واجهة",
+        "الأسلاك الخارجية، والوصلات من لوحة إلى لوحة، وIO",
+        "J1، J_USB"
+      ],
+      [
+        "تتابع",
+        "الكهروميكانيكية",
+        "التبديل والعزلة عالية الطاقة",
+        "K1، ري"
+      ],
+      [
+        "التبديل",
+        "الكهروميكانيكية",
+        "إدخال المستخدم واختيار الوضع",
+        "SW1، SW_PWR"
+      ]
+    ],
+    "components.how.title": "كيفية وضع المكونات في صانع مخططات الدائرة",
+    "components.how.paragraphs": [
+      "افتح محرر Circuit Diagram Maker، وتصفح أو ابحث في مكتبة المكونات في الشريط الجانبي الأيسر، واسحب رمزًا إلى اللوحة القماشية. يتم تثبيت كل مكون على شبكة بحجم 20 بكسل للحصول على محاذاة نظيفة.",
+      "حدد مكونًا موضوعًا واضغط على R لتدويره. استخدم H أو F لقلبه أفقيًا أو رأسيًا، وانقر نقرًا مزدوجًا فوق الرمز عندما تريد تحرير التسمية أو المُحدد المرجعي الخاص به.",
+      "بمجرد أن تكون الأجزاء في مكانها، قم بالتبديل إلى أداة Wire بالضغط على W وتوصيل الدبابيس من نقطة إلى نقطة. يحافظ محرك التوجيه في مانهاتن على ترتيب الأسلاك تلقائيًا."
+    ],
+    "components.actions.primary": "محرر مخطط الدائرة المفتوحة",
+    "components.actions.secondary": "قراءة الوثائق الكاملة"
+  },
+  "bg": {
+    "components.meta.title": "Библиотека с компоненти — Създател на електрически схеми",
+    "components.meta.description": "Разгледайте пълната библиотека със символи на Circuit Diagram Maker. Разгледайте резистори, кондензатори, интегрални схеми, транзистори, съединители, символи за мощност и др.",
+    "components.hero.badge": "Библиотека с компоненти",
+    "components.hero.title": "Създател на електрическа схема — Библиотека на компоненти и Справочник на символи",
+    "components.hero.description": "Разгледайте пълната библиотека от електронни символи, налични в Circuit Diagram Maker. Всеки компонент следва общи схематични конвенции, така че вашите диаграми да останат четливи за инженери, студенти и рецензенти.",
+    "components.hero.body": "Библиотеката е организирана в шест практически групи, обхващащи пасивни части, полупроводници, интегрални схеми, силови елементи, конектори и електромеханични устройства. Използвайте го като бърза справка, докато планирате или преглеждате схема.",
+    "components.categories": [
+      {
+        "title": "Пасивни компоненти",
+        "notes": "Основата на всяка електрическа схема. Използвайте пасивни компоненти за филтриране, синхронизиране, отклонение и ограничаване на тока във вашите схеми.",
+        "items": [
+          "Резистор",
+          "Кондензатор",
+          "Индуктор",
+          "Потенциометър",
+          "Предпазител",
+          "Термистор"
+        ]
+      },
+      {
+        "title": "Активни и полупроводникови",
+        "notes": "Полупроводниците позволяват превключване, усилване и обработка на сигнали. Circuit Diagram Maker включва стандартни символи за общи типове устройства.",
+        "items": [
+          "Диод",
+          "Ценеров диод",
+          "LED",
+          "NPN транзистор",
+          "PNP транзистор",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Интегрални схеми",
+        "notes": "От аналогови операционни усилватели до цифрови контролери, IC символите покриват градивните елементи, от които зависят повечето схеми.",
+        "items": [
+          "Операционен усилвател",
+          "Компаратор",
+          "Микроконтролер",
+          "Логическа врата (И/ИЛИ/НЕ)",
+          "555 Таймер",
+          "Регулатор на напрежението"
+        ]
+      },
+      {
+        "title": "Силови компоненти",
+        "notes": "Картирайте ясно разпределението на мощността и поддържайте пътищата за захранване лесни за проверка по време на прегледи на дизайна и работа по документация.",
+        "items": [
+          "Батерия",
+          "DC захранване",
+          "AC източник",
+          "Трансформатор",
+          "Земен символ",
+          "Релса за напрежение"
+        ]
+      },
+      {
+        "title": "Конектори & IO",
+        "notes": "Символите на интерфейса определят къде веригата се свързва с външния свят и помагат да се направят схемите готови за производство.",
+        "items": [
+          "Заглавен конектор",
+          "Клемен блок",
+          "USB порт",
+          "Тестова точка",
+          "Антена",
+          "Точка на сондата"
+        ]
+      },
+      {
+        "title": "Електромеханични",
+        "notes": "Управлявайте физически устройства с електромеханични символи за релета, превключватели, индикатори и изпълнителни механизми.",
+        "items": [
+          "Реле",
+          "Превключвател (SPST/SPDT)",
+          "Бутон",
+          "Мотор",
+          "Говорител",
+          "зумер"
+        ]
+      }
+    ],
+    "components.table.title": "Пълна справочна таблица за символи",
+    "components.table.description": "Използвайте тези конвенции за именуване, за да поддържате схемите си последователни при прегледи, предавания и документация.",
+    "components.table.headers": [
+      "Символ",
+      "Категория",
+      "Типична употреба в електрически схеми",
+      "Референтен обозначение"
+    ],
+    "components.table.rows": [
+      [
+        "Резистор",
+        "Пасивен",
+        "Ограничаване на тока, делители на напрежение, мрежи за изтегляне и изтегляне",
+        "R1, R2, R_ИЗТЪРПАНЕ"
+      ],
+      [
+        "Кондензатор",
+        "Пасивен",
+        "Отделяне, филтриране, синхронизиране и свързване",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Индуктор",
+        "Пасивен",
+        "Съхранение на енергия, филтриране и потискане на EMI",
+        "L1, L_ЗАДУШВАНЕ"
+      ],
+      [
+        "Диод",
+        "полупроводник",
+        "Коригиране, защита и затягане",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "полупроводник",
+        "Индикация за състояние и осветление",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Мощност",
+        "Превключване на товара, H-мостове и преобразуватели",
+        "Q1, Q_SW"
+      ],
+      [
+        "Операционен усилвател",
+        "Аналогов IC",
+        "Усилване, филтриране и сравнение",
+        "U1A, U1B"
+      ],
+      [
+        "Микроконтролер",
+        "Цифров IC",
+        "Логика, последователност и комуникация",
+        "U2, MCU"
+      ],
+      [
+        "Регулатор на напрежението",
+        "Захранване IC",
+        "Регулиране на напрежението, LDO и превключване",
+        "U3, РЕГ"
+      ],
+      [
+        "Конектор",
+        "Интерфейс",
+        "Външно окабеляване, връзки от платка към платка и IO",
+        "J1, J_USB"
+      ],
+      [
+        "Реле",
+        "Електромеханични",
+        "Превключване и изолация с висока мощност",
+        "K1, RLY"
+      ],
+      [
+        "Превключване",
+        "Електромеханични",
+        "Въвеждане от потребителя и избор на режим",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Как да поставите компоненти в Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Отворете редактора Circuit Diagram Maker, прегледайте или потърсете библиотеката с компоненти в лявата странична лента и плъзнете символ върху платното. Всеки компонент се прилепва към мрежата от 20 пиксела за чисто подравняване.",
+      "Изберете поставен компонент и натиснете R, за да го завъртите. Използвайте H или F, за да го обърнете хоризонтално или вертикално, и щракнете двукратно върху символа, когато искате да редактирате етикета или референтния му обозначение.",
+      "След като частите ви са на мястото си, превключете на инструмента Wire, като натиснете W и свържете щифтовете точка до точка. Механизмът за маршрутизиране на Manhattan поддържа окабеляването подредено автоматично."
+    ],
+    "components.actions.primary": "Отворете редактора на електрически схеми",
+    "components.actions.secondary": "Прочетете пълната документация"
+  },
+  "tr": {
+    "components.meta.title": "Bileşen Kitaplığı — Devre Şeması Oluşturucu",
+    "components.meta.description": "Circuit Diagram Maker'ın tam sembol kütüphanesine göz atın. Dirençleri, kapasitörleri, IC'leri, transistörleri, konektörleri, güç sembollerini ve daha fazlasını keşfedin.",
+    "components.hero.badge": "Bileşen Kitaplığı",
+    "components.hero.title": "Devre Şeması Oluşturucu — Bileşen Kitaplığı ve Sembol Referansı",
+    "components.hero.description": "Circuit Diagram Maker'da bulunan elektronik sembollerin bulunduğu kütüphanenin tamamına göz atın. Her bileşen ortak şematik kuralları takip eder, böylece diyagramlarınız mühendisler, öğrenciler ve gözden geçirenler için okunabilir kalır.",
+    "components.hero.body": "Kütüphane, pasif parçaları, yarı iletkenleri, entegre devreleri, güç elemanlarını, konektörleri ve elektromekanik cihazları kapsayan altı pratik grup halinde düzenlenmiştir. Bir şemayı planlarken veya gözden geçirirken bunu hızlı bir referans olarak kullanın.",
+    "components.categories": [
+      {
+        "title": "Pasif Bileşenler",
+        "notes": "Her devre şemasının temeli. Şemalarınızda filtreleme, zamanlama, eğilimlendirme ve akım sınırlama için pasif bileşenleri kullanın.",
+        "items": [
+          "Direnç",
+          "Kapasitör",
+          "indüktör",
+          "Potansiyometre",
+          "Sigorta",
+          "Termistör"
+        ]
+      },
+      {
+        "title": "Aktif ve Yarı İletken",
+        "notes": "Yarı iletkenler anahtarlama, amplifikasyon ve sinyal işlemeyi mümkün kılar. Devre Şeması Oluşturucu, yaygın cihaz türleri için standart semboller içerir.",
+        "items": [
+          "Diyot",
+          "Zener Diyot",
+          "LED'ler",
+          "NPN Transistörü",
+          "PNP Transistör",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Entegre Devreler",
+        "notes": "Analog op-amp'lerden dijital kontrolörlere kadar IC sembolleri, çoğu şemanın bağlı olduğu yapı taşlarını kapsar.",
+        "items": [
+          "Op-Amp",
+          "Karşılaştırıcı",
+          "Mikrodenetleyici",
+          "Mantık Kapısı (VE/VEYA/DEĞİL)",
+          "555 Zamanlayıcı",
+          "Voltaj Regülatörü"
+        ]
+      },
+      {
+        "title": "Güç Bileşenleri",
+        "notes": "Güç dağıtımını net bir şekilde haritalandırın ve tasarım incelemeleri ve dokümantasyon çalışmaları sırasında besleme yollarının kolayca incelenmesini sağlayın.",
+        "items": [
+          "Pil",
+          "DC Güç Kaynağı",
+          "AC Kaynağı",
+          "Trafo",
+          "Toprak Sembolü",
+          "Gerilim Rayı"
+        ]
+      },
+      {
+        "title": "Konektörler ve IO",
+        "notes": "Arayüz sembolleri devrenin dış dünyaya nereye bağlandığını tanımlar ve şemaların üretime hazır hale getirilmesine yardımcı olur.",
+        "items": [
+          "Başlık Konektörü",
+          "Terminal Bloğu",
+          "USB Bağlantı Noktası",
+          "Test Noktası",
+          "Anten",
+          "Prob Noktası"
+        ]
+      },
+      {
+        "title": "Elektromekanik",
+        "notes": "Röleler, anahtarlar, göstergeler ve aktüatörler için elektromekanik sembollerle fiziksel cihazları kontrol edin.",
+        "items": [
+          "Röle",
+          "Anahtar (SPST/SPDT)",
+          "Basma Düğmesi",
+          "Motorlu",
+          "Hoparlör",
+          "Zil"
+        ]
+      }
+    ],
+    "components.table.title": "Tam Sembol Referans Tablosu",
+    "components.table.description": "Devre şemalarınızın incelemeler, aktarımlar ve belgeler arasında tutarlı olmasını sağlamak için bu adlandırma kurallarını kullanın.",
+    "components.table.headers": [
+      "Sembol",
+      "Kategori",
+      "Devre Şemalarında Tipik Kullanım",
+      "Referans Tanımlayıcı"
+    ],
+    "components.table.rows": [
+      [
+        "Direnç",
+        "Pasif",
+        "Akım sınırlama, voltaj bölücüler, yukarı çekme ve aşağı çekme ağları",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kapasitör",
+        "Pasif",
+        "Ayırma, filtreleme, zamanlama ve birleştirme",
+        "C1, C_BYPASS"
+      ],
+      [
+        "indüktör",
+        "Pasif",
+        "Enerji depolama, filtreleme ve EMI bastırma",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diyot",
+        "Yarı iletken",
+        "Düzeltme, koruma ve sıkıştırma",
+        "D1, D_TVS"
+      ],
+      [
+        "LED'ler",
+        "Yarı iletken",
+        "Durum göstergesi ve aydınlatma",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Güç",
+        "Yük anahtarlama, H-köprüler ve dönüştürücüler",
+        "Q1, Q_SW"
+      ],
+      [
+        "Op-Amp",
+        "Analog IC",
+        "Amplifikasyon, filtreleme ve karşılaştırma",
+        "U1A, U1B"
+      ],
+      [
+        "Mikrodenetleyici",
+        "Dijital IC",
+        "Mantık, sıralama ve iletişim",
+        "U2, MCU"
+      ],
+      [
+        "Voltaj Regülatörü",
+        "Güç IC'si",
+        "Gerilim regülasyonu, LDO ve anahtarlama",
+        "U3, REG"
+      ],
+      [
+        "Bağlayıcı",
+        "Arayüz",
+        "Harici kablolama, karttan karta bağlantılar ve IO",
+        "J1, J_USB"
+      ],
+      [
+        "Röle",
+        "Elektromekanik",
+        "Yüksek güçlü anahtarlama ve izolasyon",
+        "K1, RLY"
+      ],
+      [
+        "Anahtar",
+        "Elektromekanik",
+        "Kullanıcı girişi ve mod seçimi",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Devre Şeması Oluşturucuya Bileşenler Nasıl Yerleştirilir",
+    "components.how.paragraphs": [
+      "Circuit Diagram Maker düzenleyicisini açın, sol kenar çubuğundaki bileşen kitaplığına göz atın veya arayın ve bir sembolü tuvale sürükleyin. Her bileşen, temiz hizalama için 20 piksellik ızgaraya oturur.",
+      "Yerleştirilmiş bir bileşeni seçin ve döndürmek için R tuşuna basın. Yatay veya dikey olarak çevirmek için H veya F'yi kullanın ve etiketini veya referans göstergesini düzenlemek istediğinizde sembole çift tıklayın.",
+      "Parçalarınız yerleştirildikten sonra W tuşuna basarak Tel aracına geçin ve pimleri noktadan noktaya bağlayın. Manhattan yönlendirme motoru kabloları otomatik olarak düzenli tutar."
+    ],
+    "components.actions.primary": "Devre Şeması Düzenleyicisini Aç",
+    "components.actions.secondary": "Tüm Belgeleri Okuyun"
+  },
+  "sv": {
+    "components.meta.title": "Komponentbibliotek — Kretsdiagrammakare",
+    "components.meta.description": "Bläddra i hela symbolbiblioteket i Circuit Diagram Maker. Utforska motstånd, kondensatorer, IC, transistorer, kontakter, effektsymboler och mer.",
+    "components.hero.badge": "Komponentbibliotek",
+    "components.hero.title": "Kretsdiagrammakare — Komponentbibliotek och symbolreferens",
+    "components.hero.description": "Bläddra i hela biblioteket med elektroniska symboler som finns tillgängliga i Circuit Diagram Maker. Varje komponent följer vanliga schematiska konventioner så att dina diagram förblir läsbara för ingenjörer, studenter och granskare.",
+    "components.hero.body": "Biblioteket är organiserat i sex praktiska grupper som täcker passiva delar, halvledare, integrerade kretsar, kraftelement, kontakter och elektromekaniska enheter. Använd den som en snabbreferens när du planerar eller granskar ett schema.",
+    "components.categories": [
+      {
+        "title": "Passiva komponenter",
+        "notes": "Grunden för varje kretsschema. Använd passiva komponenter för filtrering, timing, förspänning och strömbegränsning i dina scheman.",
+        "items": [
+          "Motstånd",
+          "Kondensator",
+          "Induktor",
+          "Potentiometer",
+          "Säkring",
+          "Termistor"
+        ]
+      },
+      {
+        "title": "Active & Semiconductor",
+        "notes": "Halvledare möjliggör omkoppling, förstärkning och signalbehandling. Circuit Diagram Maker innehåller standardsymboler för vanliga enhetstyper.",
+        "items": [
+          "Diod",
+          "Zenerdiod",
+          "LED",
+          "NPN-transistor",
+          "PNP-transistor",
+          "N-MOSFET",
+          "P-MOSFET"
+        ]
+      },
+      {
+        "title": "Integrerade kretsar",
+        "notes": "Från analoga op-förstärkare till digitala kontroller, IC-symbolerna täcker de byggstenar som de flesta scheman är beroende av.",
+        "items": [
+          "Op-Amp",
+          "Komparator",
+          "Mikrokontroller",
+          "Logic Gate (OCH/ELLER/NOT)",
+          "555 Timer",
+          "Spänningsregulator"
+        ]
+      },
+      {
+        "title": "Kraftkomponenter",
+        "notes": "Map power distribution clearly and keep supply paths easy to inspect during design reviews and documentation work.",
+        "items": [
+          "Batteri",
+          "DC strömförsörjning",
+          "AC-källa",
+          "Transformator",
+          "Mark Symbol",
+          "Spänningsskena"
+        ]
+      },
+      {
+        "title": "Kontakter & IO",
+        "notes": "Interface symbols define where the circuit connects to the outside world and help make schematics production-ready.",
+        "items": [
+          "Header Connector",
+          "Terminalblock",
+          "USB-port",
+          "Testpunkt",
+          "Antenn",
+          "Sondpunkt"
+        ]
+      },
+      {
+        "title": "Elektromekanisk",
+        "notes": "Control physical devices with electromechanical symbols for relays, switches, indicators, and actuators.",
+        "items": [
+          "Relä",
+          "Switch (SPST/SPDT)",
+          "Tryckknapp",
+          "Motor",
+          "Högtalare",
+          "Summer"
+        ]
+      }
+    ],
+    "components.table.title": "Komplett symbolreferenstabell",
+    "components.table.description": "Använd dessa namnkonventioner för att hålla dina kretsscheman konsekventa över recensioner, handoffs och dokumentation.",
+    "components.table.headers": [
+      "Symbol",
+      "Kategori",
+      "Typisk användning i kretsdiagram",
+      "Referensbeteckning"
+    ],
+    "components.table.rows": [
+      [
+        "Motstånd",
+        "Passiv",
+        "Strömbegränsning, spänningsdelare, pull-up och pull-down nätverk",
+        "R1, R2, R_PULL"
+      ],
+      [
+        "Kondensator",
+        "Passiv",
+        "Frånkoppling, filtrering, timing och koppling",
+        "C1, C_BYPASS"
+      ],
+      [
+        "Induktor",
+        "Passiv",
+        "Energilagring, filtrering och EMI-dämpning",
+        "L1, L_CHOKE"
+      ],
+      [
+        "Diod",
+        "Halvledare",
+        "Rättning, skydd och fastspänning",
+        "D1, D_TVS"
+      ],
+      [
+        "LED",
+        "Halvledare",
+        "Statusindikering och belysning",
+        "LED1, LED_PWR"
+      ],
+      [
+        "N-MOSFET",
+        "Kraft",
+        "Lastväxling, H-bryggor och omvandlare",
+        "Q1, Q_SW"
+      ],
+      [
+        "Op-Amp",
+        "Analog IC",
+        "Förstärkning, filtrering och jämförelse",
+        "U1A, U1B"
+      ],
+      [
+        "Mikrokontroller",
+        "Digital IC",
+        "Logik, sekvensering och kommunikation",
+        "U2, MCU"
+      ],
+      [
+        "Spänningsregulator",
+        "Power IC",
+        "Spänningsreglering, LDO och omkoppling",
+        "U3, REG"
+      ],
+      [
+        "Anslutning",
+        "Interface",
+        "Extern kabeldragning, kort-till-kort-länkar och IO",
+        "J1, J_USB"
+      ],
+      [
+        "Relä",
+        "Elektromekanisk",
+        "Högeffekts omkoppling och isolering",
+        "K1, RLY"
+      ],
+      [
+        "Växla",
+        "Elektromekanisk",
+        "Användarinmatning och lägesval",
+        "SW1, SW_PWR"
+      ]
+    ],
+    "components.how.title": "Hur man placerar komponenter i Circuit Diagram Maker",
+    "components.how.paragraphs": [
+      "Öppna Circuit Diagram Maker-redigeraren, bläddra eller sök i komponentbiblioteket i det vänstra sidofältet och dra en symbol till arbetsytan. Varje komponent snäpper fast till 20px-rutnätet för ren inriktning.",
+      "Välj en placerad komponent och tryck på R för att rotera den. Använd H eller F för att vända den horisontellt eller vertikalt och dubbelklicka på symbolen när du vill redigera dess etikett eller referensbeteckning.",
+      "När dina delar är på plats byter du till trådverktyget genom att trycka på W och anslut stiften punkt till punkt. Manhattan routing-motorn håller kablarna snyggt automatiskt."
+    ],
+    "components.actions.primary": "Öppna Circuit Diagram Editor",
+    "components.actions.secondary": "Läs hela dokumentationen"
+  }
+}

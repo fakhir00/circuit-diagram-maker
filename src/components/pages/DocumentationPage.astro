@@ -1,72 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath } from '../../theme/i18n';
+import { getLocalizedPath, useTranslations } from '../../theme/i18n';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
-
-const guideSections = [
-  {
-    title: 'Getting Started with Circuit Diagram Maker',
-    body: 'Open the editor in your browser — no download or account needed. You\'ll see a toolbar at the top, a component library on the left, a drawing canvas in the center, and a properties panel on the right. Start by dragging components from the library onto the canvas.',
-  },
-  {
-    title: 'Placing Components on the Canvas',
-    body: 'Browse or search the sidebar for components like resistors, capacitors, ICs, and connectors. Drag any symbol onto the canvas — it snaps to the 20px grid automatically. Press R to rotate, H to flip horizontally, or double-click to edit labels.',
-  },
-  {
-    title: 'Connecting Components with Wires',
-    body: 'Switch to the Wire tool by pressing W or clicking the wire button. Click on a component pin, then click on the destination pin. The Manhattan routing engine calculates the cleanest orthogonal path automatically. All wires stay perfectly horizontal or vertical.',
-  },
-  {
-    title: 'Labeling and Annotation',
-    body: 'Press L to add text labels to your circuit diagram. Double-click any component to edit its reference designator (R1, C1, U1). Use meaningful net names on critical signals (VCC, GND, CLK) to improve schematic readability.',
-  },
-  {
-    title: 'Exporting Your Circuit Diagram',
-    body: 'Click the Export button in the toolbar to download your diagram. Choose SVG for infinitely scalable vector output (ideal for publications and LaTeX), PNG for raster images (ideal for presentations and web), or JSON to save the project for later editing.',
-  },
-  {
-    title: 'Advanced Tips for Circuit Diagram Maker',
-    body: 'Use Ctrl+D to duplicate common blocks. Organize complex diagrams by placing power supply sections on the left, control logic in the center, and outputs on the right. Keep signal flow left-to-right and top-to-bottom for maximum readability.',
-  },
-  {
-    title: 'Professional LaTeX & Academic Export',
-    body: 'For the highest quality in academic papers, export your circuit diagram as an SVG. Our SVG output uses standard XML paths that integrate perfectly with the LaTeX svg package or can be converted to PDF for use with graphicx. This ensures your schematics stay crisp at any zoom level.',
-  },
-  {
-    title: 'Collaborative JSON Workflows',
-    body: 'Use the JSON export to share "live" circuit diagrams with teammates. Unlike a static image, a JSON file allows others to load your schematic into their own browser, edit connections, and export their own versions. Perfect for team design reviews and collaborative lab work.',
-  },
-];
-
-const shortcutRows = [
-  ['V', 'Select Tool', 'Click and drag to select, move, and group components on the canvas'],
-  ['W', 'Wire Tool', 'Draw orthogonal wire connections between component pins'],
-  ['L', 'Label Tool', 'Add text labels and net names to your circuit diagram'],
-  ['R', 'Rotate', 'Rotate the selected component 90° clockwise'],
-  ['H', 'Flip Horizontal', 'Mirror the selected component horizontally'],
-  ['F', 'Flip Vertical', 'Mirror the selected component vertically'],
-  ['Del / Backspace', 'Delete', 'Remove selected components or wires from the diagram'],
-  ['Ctrl+Z', 'Undo', 'Undo the last action in the circuit diagram editor'],
-  ['Ctrl+Y', 'Redo', 'Redo the previously undone action'],
-  ['Ctrl+D', 'Duplicate', 'Create a copy of the selected component or group'],
-  ['Ctrl+S', 'Save', 'Save the circuit diagram to browser local storage'],
-  ['Ctrl+N', 'New', 'Create a new blank circuit diagram'],
-  ['Scroll Wheel', 'Zoom In/Out', 'Zoom the canvas in and out for detail work'],
-  ['Space + Drag', 'Pan Canvas', 'Hold spacebar and drag to pan around the canvas'],
-];
+const t = useTranslations(locale);
+const guideSections = t('docs.guide.sections');
+const shortcutHeaders = t('docs.shortcuts.headers');
+const shortcutRows = t('docs.shortcuts.rows');
+const drcCards = t('docs.drc.cards');
+const standards = t('docs.standards.cards');
+const resourceCards = t('docs.resources.cards');
 ---
 
-<BaseLayout title="Documentation — Circuit Diagram Maker User Guide" description="Complete documentation for Circuit Diagram Maker. Learn how to create circuit diagrams, use keyboard shortcuts, export schematics, and master the editor workflow.">
+<BaseLayout title={t('docs.meta.title')} description={t('docs.meta.description')}>
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.1),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.1),transparent_30%)]"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Documentation</p>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">Circuit Diagram Maker Documentation — Complete User Guide</h1>
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{t('docs.hero.badge')}</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{t('docs.hero.title')}</h1>
         <p class="mt-6 text-xl leading-relaxed text-slate-400">
-          Everything you need to know about creating, editing, and exporting professional circuit diagrams. From your first schematic to advanced layout techniques, this guide covers the complete Circuit Diagram Maker workflow.
+          {t('docs.hero.description')}
         </p>
       </div>
     </div>
@@ -93,17 +48,17 @@ const shortcutRows = [
   <section class="border-t border-white/5 bg-bg-dark py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold text-white">Keyboard Shortcuts & Actions</h2>
-        <p class="mt-3 text-slate-400">Master these shortcuts to create circuit diagrams 3x faster. Every action in Circuit Diagram Maker has a keyboard equivalent.</p>
+        <h2 class="text-3xl font-bold text-white">{t('docs.shortcuts.title')}</h2>
+        <p class="mt-3 text-slate-400">{t('docs.shortcuts.description')}</p>
       </div>
       <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-panel">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-sm">
             <thead class="bg-white/5 text-slate-300">
               <tr>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Shortcut</th>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Action</th>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Description</th>
+                {shortcutHeaders.map((header: string) => (
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">{header}</th>
+                ))}
               </tr>
             </thead>
             <tbody class="divide-y divide-white/10 text-slate-300">
@@ -126,26 +81,20 @@ const shortcutRows = [
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.05),transparent_60%)]"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-white">Manual Design Rule Check (DRC)</h2>
-        <p class="mt-4 text-slate-400">Before you export or share your circuit diagram, run through this technical checklist to ensure professional results.</p>
+        <h2 class="text-3xl font-bold text-white">{t('docs.drc.title')}</h2>
+        <p class="mt-4 text-slate-400">{t('docs.drc.description')}</p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        <div class="p-5 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <h3 class="font-bold text-brand-primary mb-3 text-sm uppercase tracking-wider">Connectivity Check</h3>
-          <ul class="space-y-3 text-sm text-slate-300">
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> No floating pins (all pins connected to a net or GND).</li>
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> No overlapping wires that aren't joined by a junction dot.</li>
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Power and Ground symbols used on every page.</li>
-          </ul>
-        </div>
-        <div class="p-5 rounded-2xl border border-white/10 bg-bg-panel/40">
-          <h3 class="font-bold text-brand-primary mb-3 text-sm uppercase tracking-wider">Labeling & Text</h3>
-          <ul class="space-y-3 text-sm text-slate-300">
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Reference designators are unique (no two R1s).</li>
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Component values are legible and not overlapped by wires.</li>
-            <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span> Critical nets are named (VCC, GND, CLK, DATA).</li>
-          </ul>
-        </div>
+        {drcCards.map((card: any) => (
+          <div class="p-5 rounded-2xl border border-white/10 bg-bg-panel/40">
+            <h3 class="font-bold text-brand-primary mb-3 text-sm uppercase tracking-wider">{card.title}</h3>
+            <ul class="space-y-3 text-sm text-slate-300">
+              {card.items.map((item: string) => (
+                <li class="flex items-start gap-3"><span class="text-emerald-400">✓</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -153,37 +102,23 @@ const shortcutRows = [
   <!-- Best Practices -->
   <section class="py-20 bg-bg-panel border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white mb-8 text-center">Schematic Design Standards</h2>
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">{t('docs.standards.title')}</h2>
       <div class="space-y-6 text-slate-400 leading-relaxed bg-bg-dark/50 p-8 rounded-3xl border border-white/5">
-        <p>To create clear, professional circuit diagrams with Circuit Diagram Maker, follow these industry-standard conventions:</p>
+        <p>{t('docs.standards.intro')}</p>
         <div class="grid gap-6">
-          <div class="flex gap-4">
-            <div class="mt-1 text-brand-accent">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          {standards.map((card: any, index: number) => (
+            <div class="flex gap-4">
+              <div class="mt-1 text-brand-accent">
+                {index === 0 && <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>}
+                {index === 1 && <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>}
+                {index === 2 && <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>}
+              </div>
+              <div>
+                <h4 class="text-white font-semibold">{card.title}</h4>
+                <p class="text-sm">{card.body}</p>
+              </div>
             </div>
-            <div>
-              <h4 class="text-white font-semibold">Signal Flow Direction</h4>
-              <p class="text-sm">Place inputs on the left, processing in the center, and outputs on the right. Standard circuit diagrams flow from left-to-right.</p>
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <div class="mt-1 text-brand-accent">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
-            </div>
-            <div>
-              <h4 class="text-white font-semibold">Voltage Potential Hierarchy</h4>
-              <p class="text-sm">Place VCC/VDD at the top of the schematic and GND at the bottom. This follows the conventional high-to-low voltage orientation.</p>
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <div class="mt-1 text-brand-accent">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-            </div>
-            <div>
-              <h4 class="text-white font-semibold">Reference Designators</h4>
-              <p class="text-sm">Use standard prefixes: R (resistor), C (capacitor), U (IC), Q (transistor), D (diode), J (connector), L (inductor).</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -192,19 +127,19 @@ const shortcutRows = [
   <!-- Related Links -->
   <section class="py-12 bg-bg-dark border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-xl font-bold text-white mb-6">Related Resources</h2>
+      <h2 class="text-xl font-bold text-white mb-6">{t('docs.resources.title')}</h2>
       <div class="grid gap-4 sm:grid-cols-3">
         <a href={getLocalizedPath('/components/', locale)} class="rounded-xl border border-white/10 bg-bg-panel/60 p-4 hover:border-brand-primary/30 transition-colors group">
-          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">Component Library</h3>
-          <p class="text-sm text-slate-500 mt-1">Browse 40+ electronic symbols</p>
+          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">{resourceCards[0].title}</h3>
+          <p class="text-sm text-slate-500 mt-1">{resourceCards[0].body}</p>
         </a>
         <a href={getLocalizedPath('/editor/', locale)} class="rounded-xl border border-white/10 bg-bg-panel/60 p-4 hover:border-brand-primary/30 transition-colors group">
-          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">Open Editor</h3>
-          <p class="text-sm text-slate-500 mt-1">Start creating circuit diagrams</p>
+          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">{resourceCards[1].title}</h3>
+          <p class="text-sm text-slate-500 mt-1">{resourceCards[1].body}</p>
         </a>
-        <a href="/blog/" class="rounded-xl border border-white/10 bg-bg-panel/60 p-4 hover:border-brand-primary/30 transition-colors group">
-          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">Blog & Tutorials</h3>
-          <p class="text-sm text-slate-500 mt-1">Guides, tips, and best practices</p>
+        <a href={getLocalizedPath('/blog/', locale)} class="rounded-xl border border-white/10 bg-bg-panel/60 p-4 hover:border-brand-primary/30 transition-colors group">
+          <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">{resourceCards[2].title}</h3>
+          <p class="text-sm text-slate-500 mt-1">{resourceCards[2].body}</p>
         </a>
       </div>
     </div>

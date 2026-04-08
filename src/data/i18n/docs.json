@@ -1,0 +1,3080 @@
+{
+  "en": {
+    "docs.meta.title": "Documentation — Circuit Diagram Maker User Guide",
+    "docs.meta.description": "Complete documentation for Circuit Diagram Maker. Learn how to create circuit diagrams, use keyboard shortcuts, export schematics, and master the editor workflow.",
+    "docs.hero.badge": "Documentation",
+    "docs.hero.title": "Circuit Diagram Maker Documentation — Complete User Guide",
+    "docs.hero.description": "Everything you need to know about creating, editing, and exporting professional circuit diagrams. From your first schematic to advanced layout techniques, this guide covers the complete Circuit Diagram Maker workflow.",
+    "docs.guide.sections": [
+      {
+        "title": "Getting Started with Circuit Diagram Maker",
+        "body": "Open the editor in your browser with no download or account required. You will see the toolbar at the top, the component library on the left, the drawing canvas in the center, and the properties panel on the right."
+      },
+      {
+        "title": "Placing Components on the Canvas",
+        "body": "Browse or search the sidebar for resistors, capacitors, ICs, connectors, and other symbols. Drag any component onto the canvas and it will snap to the 20px grid automatically."
+      },
+      {
+        "title": "Connecting Components with Wires",
+        "body": "Switch to the Wire tool with the toolbar or by pressing W. Click one component pin, then click the destination pin, and the Manhattan routing engine will generate a clean orthogonal path."
+      },
+      {
+        "title": "Labeling and Annotation",
+        "body": "Press L to add text labels to your circuit diagram. Double-click components to edit reference designators such as R1, C1, or U1, and name important nets like VCC, GND, CLK, or DATA."
+      },
+      {
+        "title": "Exporting Your Circuit Diagram",
+        "body": "Use the Export button in the toolbar to download your work. Choose SVG for scalable vector output, PNG for presentations and web pages, or JSON when you want to reopen and edit the project later."
+      },
+      {
+        "title": "Advanced Tips for Faster Drafting",
+        "body": "Duplicate repeated blocks with Ctrl+D and organize complex schematics from left to right. Keep power sections, logic blocks, and outputs visually separated so the final diagram is easy to review."
+      },
+      {
+        "title": "Academic and Publication Exports",
+        "body": "SVG export works especially well for papers, reports, and LaTeX workflows because the output stays crisp at any zoom level and can be converted cleanly into print-ready assets."
+      },
+      {
+        "title": "Collaborative JSON Workflows",
+        "body": "Use JSON export when teammates need to continue editing the same schematic. Instead of sharing a static image, you can pass around a live project file that opens directly in the browser editor."
+      }
+    ],
+    "docs.shortcuts.title": "Keyboard Shortcuts & Actions",
+    "docs.shortcuts.description": "Master these shortcuts to create circuit diagrams faster. Every core editor action has a keyboard equivalent.",
+    "docs.shortcuts.headers": [
+      "Shortcut",
+      "Action",
+      "Description"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Select Tool",
+        "Click and drag to select, move, and group components on the canvas"
+      ],
+      [
+        "W",
+        "Wire Tool",
+        "Draw orthogonal wire connections between component pins"
+      ],
+      [
+        "L",
+        "Label Tool",
+        "Add text labels and net names to your circuit diagram"
+      ],
+      [
+        "R",
+        "Rotate",
+        "Rotate the selected component 90 degrees clockwise"
+      ],
+      [
+        "H",
+        "Flip Horizontal",
+        "Mirror the selected component horizontally"
+      ],
+      [
+        "F",
+        "Flip Vertical",
+        "Mirror the selected component vertically"
+      ],
+      [
+        "Del / Backspace",
+        "Delete",
+        "Remove selected components or wires from the diagram"
+      ],
+      [
+        "Ctrl+Z",
+        "Undo",
+        "Undo the last action in the circuit diagram editor"
+      ],
+      [
+        "Ctrl+Y",
+        "Redo",
+        "Redo the previously undone action"
+      ],
+      [
+        "Ctrl+D",
+        "Duplicate",
+        "Create a copy of the selected component or group"
+      ],
+      [
+        "Ctrl+S",
+        "Save",
+        "Save the circuit diagram to browser local storage"
+      ],
+      [
+        "Ctrl+N",
+        "New",
+        "Create a new blank circuit diagram"
+      ],
+      [
+        "Scroll Wheel",
+        "Zoom In/Out",
+        "Zoom the canvas in and out for detail work"
+      ],
+      [
+        "Space + Drag",
+        "Pan Canvas",
+        "Hold spacebar and drag to pan around the canvas"
+      ]
+    ],
+    "docs.drc.title": "Manual Design Rule Check (DRC)",
+    "docs.drc.description": "Before you export or share your circuit diagram, run through this checklist to keep the schematic clean, readable, and technically consistent.",
+    "docs.drc.cards": [
+      {
+        "title": "Connectivity Check",
+        "items": [
+          "No floating pins. Every required pin should connect to a net, rail, or ground reference.",
+          "No accidental wire overlaps without a junction marker.",
+          "Power and ground symbols appear wherever they are needed in the schematic."
+        ]
+      },
+      {
+        "title": "Labeling & Text",
+        "items": [
+          "Reference designators stay unique with no duplicate labels.",
+          "Component values remain readable and are not hidden by wires.",
+          "Critical nets are named consistently for easier review and debugging."
+        ]
+      }
+    ],
+    "docs.standards.title": "Schematic Design Standards",
+    "docs.standards.intro": "To create clear, professional circuit diagrams with Circuit Diagram Maker, follow these industry-standard conventions:",
+    "docs.standards.cards": [
+      {
+        "title": "Signal Flow Direction",
+        "body": "Place inputs on the left, processing in the center, and outputs on the right. Most readers expect signal flow to move left to right."
+      },
+      {
+        "title": "Voltage Potential Hierarchy",
+        "body": "Place positive rails such as VCC or VDD near the top and ground near the bottom to match standard schematic reading habits."
+      },
+      {
+        "title": "Reference Designators",
+        "body": "Use common prefixes such as R for resistors, C for capacitors, U for ICs, Q for transistors, D for diodes, J for connectors, and L for inductors."
+      }
+    ],
+    "docs.resources.title": "Related Resources",
+    "docs.resources.cards": [
+      {
+        "title": "Component Library",
+        "body": "Browse 40+ electronic symbols"
+      },
+      {
+        "title": "Open Editor",
+        "body": "Start creating circuit diagrams"
+      },
+      {
+        "title": "Blog & Tutorials",
+        "body": "Guides, tips, and best practices"
+      }
+    ]
+  },
+  "hi": {
+    "docs.meta.title": "दस्तावेज़ीकरण - सर्किट आरेख निर्माता उपयोगकर्ता गाइड",
+    "docs.meta.description": "सर्किट आरेख निर्माता के लिए पूर्ण दस्तावेज़ीकरण। जानें कि सर्किट आरेख कैसे बनाएं, कीबोर्ड शॉर्टकट का उपयोग करें, स्कीमैटिक्स निर्यात करें और संपादक वर्कफ़्लो में महारत हासिल करें।",
+    "docs.hero.badge": "प्रलेखन",
+    "docs.hero.title": "सर्किट आरेख निर्माता दस्तावेज़ीकरण - संपूर्ण उपयोगकर्ता मार्गदर्शिका",
+    "docs.hero.description": "पेशेवर सर्किट आरेख बनाने, संपादित करने और निर्यात करने के बारे में आपको जो कुछ जानने की आवश्यकता है। आपकी पहली योजनाबद्ध से लेकर उन्नत लेआउट तकनीकों तक, यह मार्गदर्शिका संपूर्ण सर्किट आरेख निर्माता वर्कफ़्लो को कवर करती है।",
+    "docs.guide.sections": [
+      {
+        "title": "सर्किट आरेख निर्माता के साथ शुरुआत करना",
+        "body": "बिना किसी डाउनलोड या खाते की आवश्यकता के अपने ब्राउज़र में संपादक खोलें। आप शीर्ष पर टूलबार, बाईं ओर घटक लाइब्रेरी, केंद्र में ड्राइंग कैनवास और दाईं ओर प्रॉपर्टी पैनल देखेंगे।"
+      },
+      {
+        "title": "कैनवास पर घटकों को रखना",
+        "body": "रेसिस्टर्स, कैपेसिटर, आईसी, कनेक्टर्स और अन्य प्रतीकों के लिए साइडबार ब्राउज़ करें या खोजें। किसी भी घटक को कैनवास पर खींचें और यह स्वचालित रूप से 20px ग्रिड पर स्नैप हो जाएगा।"
+      },
+      {
+        "title": "घटकों को तारों से जोड़ना",
+        "body": "टूलबार के साथ या W दबाकर वायर टूल पर स्विच करें। एक घटक पिन पर क्लिक करें, फिर गंतव्य पिन पर क्लिक करें, और मैनहट्टन रूटिंग इंजन एक साफ ऑर्थोगोनल पथ उत्पन्न करेगा।"
+      },
+      {
+        "title": "लेबलिंग और एनोटेशन",
+        "body": "अपने सर्किट आरेख में टेक्स्ट लेबल जोड़ने के लिए L दबाएँ। R1, C1, या U1 जैसे संदर्भ डिज़ाइनरों को संपादित करने के लिए घटकों पर डबल-क्लिक करें, और VCC, GND, CLK, या DATA जैसे महत्वपूर्ण नेट को नाम दें।"
+      },
+      {
+        "title": "आपका सर्किट आरेख निर्यात करना",
+        "body": "अपना काम डाउनलोड करने के लिए टूलबार में निर्यात बटन का उपयोग करें। जब आप प्रोजेक्ट को बाद में फिर से खोलना और संपादित करना चाहते हैं तो स्केलेबल वेक्टर आउटपुट के लिए एसवीजी, प्रस्तुतियों और वेब पेजों के लिए पीएनजी या जेएसओएन चुनें।"
+      },
+      {
+        "title": "तेज़ प्रारूपण के लिए उन्नत युक्तियाँ",
+        "body": "Ctrl+D के साथ दोहराए गए ब्लॉकों को डुप्लिकेट करें और जटिल स्कीमैटिक्स को बाएं से दाएं व्यवस्थित करें। पावर सेक्शन, लॉजिक ब्लॉक और आउटपुट को दृष्टिगत रूप से अलग रखें ताकि अंतिम आरेख की समीक्षा करना आसान हो।"
+      },
+      {
+        "title": "शैक्षणिक और प्रकाशन निर्यात",
+        "body": "एसवीजी निर्यात विशेष रूप से कागजात, रिपोर्ट और लाटेक्स वर्कफ़्लो के लिए अच्छा काम करता है क्योंकि आउटपुट किसी भी ज़ूम स्तर पर कुरकुरा रहता है और इसे प्रिंट-तैयार संपत्तियों में साफ-सुथरा रूप से परिवर्तित किया जा सकता है।"
+      },
+      {
+        "title": "सहयोगात्मक JSON वर्कफ़्लोज़",
+        "body": "जब टीम के साथियों को उसी योजनाबद्ध संपादन को जारी रखने की आवश्यकता हो तो JSON निर्यात का उपयोग करें। एक स्थिर छवि साझा करने के बजाय, आप एक लाइव प्रोजेक्ट फ़ाइल पास कर सकते हैं जो सीधे ब्राउज़र संपादक में खुलती है।"
+      }
+    ],
+    "docs.shortcuts.title": "कीबोर्ड शॉर्टकट और क्रियाएँ",
+    "docs.shortcuts.description": "तेजी से सर्किट आरेख बनाने के लिए इन शॉर्टकट्स में महारत हासिल करें। प्रत्येक मुख्य संपादक क्रिया में एक कीबोर्ड समतुल्य होता है।",
+    "docs.shortcuts.headers": [
+      "शॉर्टकट",
+      "कार्रवाई",
+      "विवरण"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "वी",
+        "टूल चुनें",
+        "कैनवास पर घटकों को चुनने, स्थानांतरित करने और समूहित करने के लिए क्लिक करें और खींचें"
+      ],
+      [
+        "डब्ल्यू",
+        "तार उपकरण",
+        "घटक पिनों के बीच ऑर्थोगोनल तार कनेक्शन बनाएं"
+      ],
+      [
+        "एल",
+        "लेबल टूल",
+        "अपने सर्किट आरेख में टेक्स्ट लेबल और नेट नाम जोड़ें"
+      ],
+      [
+        "आर",
+        "घुमाएँ",
+        "चयनित घटक को 90 डिग्री दक्षिणावर्त घुमाएँ"
+      ],
+      [
+        "एच",
+        "क्षैतिज पलटें",
+        "चयनित घटक को क्षैतिज रूप से प्रतिबिंबित करें"
+      ],
+      [
+        "एफ",
+        "लंबवत पलटें",
+        "चयनित घटक को लंबवत रूप से प्रतिबिंबित करें"
+      ],
+      [
+        "डेल/बैकस्पेस",
+        "मिटाना",
+        "आरेख से चयनित घटकों या तारों को हटा दें"
+      ],
+      [
+        "Ctrl+Z",
+        "पूर्ववत",
+        "सर्किट आरेख संपादक में अंतिम क्रिया को पूर्ववत करें"
+      ],
+      [
+        "Ctrl+Y",
+        "फिर से करना",
+        "पहले की न की गई कार्रवाई को दोबारा करें"
+      ],
+      [
+        "Ctrl+D",
+        "डुप्लिकेट",
+        "चयनित घटक या समूह की एक प्रति बनाएँ"
+      ],
+      [
+        "Ctrl+S",
+        "बचाना",
+        "सर्किट आरेख को ब्राउज़र स्थानीय संग्रहण में सहेजें"
+      ],
+      [
+        "Ctrl+N",
+        "नया",
+        "एक नया रिक्त सर्किट आरेख बनाएं"
+      ],
+      [
+        "स्क्रॉल व्हील",
+        "ज़ूम इन/आउट करें",
+        "विस्तृत कार्य के लिए कैनवास को अंदर और बाहर ज़ूम करें"
+      ],
+      [
+        "स्पेस + खींचें",
+        "पैन कैनवास",
+        "स्पेसबार को पकड़ें और कैनवास के चारों ओर पैन करने के लिए खींचें"
+      ]
+    ],
+    "docs.drc.title": "मैनुअल डिजाइन नियम जांच (डीआरसी)",
+    "docs.drc.description": "अपने सर्किट आरेख को निर्यात या साझा करने से पहले, योजनाबद्ध साफ़, पठनीय और तकनीकी रूप से सुसंगत रखने के लिए इस चेकलिस्ट को पढ़ें।",
+    "docs.drc.cards": [
+      {
+        "title": "कनेक्टिविटी जांच",
+        "items": [
+          "कोई फ़्लोटिंग पिन नहीं. प्रत्येक आवश्यक पिन को नेट, रेल या ग्राउंड रेफरेंस से कनेक्ट होना चाहिए।",
+          "जंक्शन मार्कर के बिना कोई भी आकस्मिक तार ओवरलैप नहीं होता।",
+          "शक्ति और ज़मीनी प्रतीक योजनाबद्ध रूप में जहाँ भी उनकी आवश्यकता होती है वहाँ प्रकट होते हैं।"
+        ]
+      },
+      {
+        "title": "लेबलिंग और पाठ",
+        "items": [
+          "संदर्भ डिज़ाइनर बिना किसी डुप्लिकेट लेबल के अद्वितीय रहते हैं।",
+          "घटक मान पठनीय रहते हैं और तारों से छिपे नहीं होते हैं।",
+          "आसान समीक्षा और डिबगिंग के लिए क्रिटिकल नेट को लगातार नाम दिया गया है।"
+        ]
+      }
+    ],
+    "docs.standards.title": "योजनाबद्ध डिजाइन मानक",
+    "docs.standards.intro": "सर्किट आरेख निर्माता के साथ स्पष्ट, पेशेवर सर्किट आरेख बनाने के लिए, इन उद्योग-मानक सम्मेलनों का पालन करें:",
+    "docs.standards.cards": [
+      {
+        "title": "सिग्नल प्रवाह दिशा",
+        "body": "इनपुट को बाईं ओर, प्रोसेसिंग को केंद्र में और आउटपुट को दाईं ओर रखें। अधिकांश पाठक उम्मीद करते हैं कि सिग्नल प्रवाह बाएँ से दाएँ चले।"
+      },
+      {
+        "title": "वोल्टेज संभावित पदानुक्रम",
+        "body": "मानक योजनाबद्ध पढ़ने की आदतों से मेल खाने के लिए शीर्ष के पास सकारात्मक रेल जैसे वीसीसी या वीडीडी और नीचे के पास जमीन रखें।"
+      },
+      {
+        "title": "संदर्भ डिज़ाइनकर्ता",
+        "body": "सामान्य उपसर्गों का उपयोग करें जैसे कि प्रतिरोधों के लिए R, कैपेसिटर के लिए C, IC के लिए U, ट्रांजिस्टर के लिए Q, डायोड के लिए D, कनेक्टर्स के लिए J और इंडक्टर्स के लिए L।"
+      }
+    ],
+    "docs.resources.title": "संबंधित संसाधन",
+    "docs.resources.cards": [
+      {
+        "title": "घटक पुस्तकालय",
+        "body": "40+ इलेक्ट्रॉनिक प्रतीक ब्राउज़ करें"
+      },
+      {
+        "title": "संपादक खोलें",
+        "body": "सर्किट आरेख बनाना प्रारंभ करें"
+      },
+      {
+        "title": "ब्लॉग एवं ट्यूटोरियल",
+        "body": "मार्गदर्शिकाएँ, युक्तियाँ और सर्वोत्तम प्रथाएँ"
+      }
+    ]
+  },
+  "es": {
+    "docs.meta.title": "Documentación: Guía del usuario de Circuit Diagram Maker",
+    "docs.meta.description": "Documentación completa para Circuit Diagram Maker. Aprenda a crear diagramas de circuitos, utilizar atajos de teclado, exportar esquemas y dominar el flujo de trabajo del editor.",
+    "docs.hero.badge": "Documentación",
+    "docs.hero.title": "Documentación del creador de diagramas de circuito: guía del usuario completa",
+    "docs.hero.description": "Todo lo que necesita saber sobre la creación, edición y exportación de diagramas de circuitos profesionales. Desde su primer esquema hasta técnicas de diseño avanzadas, esta guía cubre el flujo de trabajo completo de Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Primeros pasos con el Creador de diagramas de circuitos",
+        "body": "Abra el editor en su navegador sin necesidad de descarga ni cuenta. Verá la barra de herramientas en la parte superior, la biblioteca de componentes a la izquierda, el lienzo de dibujo en el centro y el panel de propiedades a la derecha."
+      },
+      {
+        "title": "Colocar componentes en el lienzo",
+        "body": "Explore o busque en la barra lateral resistencias, condensadores, circuitos integrados, conectores y otros símbolos. Arrastre cualquier componente al lienzo y se ajustará automáticamente a la cuadrícula de 20 píxeles."
+      },
+      {
+        "title": "Conexión de componentes con cables",
+        "body": "Cambie a la herramienta Cable con la barra de herramientas o presionando W. Haga clic en un pin de componente, luego haga clic en el pin de destino y el motor de enrutamiento de Manhattan generará una ruta ortogonal limpia."
+      },
+      {
+        "title": "Etiquetado y anotación",
+        "body": "Presione L para agregar etiquetas de texto a su diagrama de circuito. Haga doble clic en los componentes para editar designadores de referencia como R1, C1 o U1, y nombrar redes importantes como VCC, GND, CLK o DATA."
+      },
+      {
+        "title": "Exportar su diagrama de circuito",
+        "body": "Utilice el botón Exportar en la barra de herramientas para descargar su trabajo. Elija SVG para salida vectorial escalable, PNG para presentaciones y páginas web, o JSON cuando desee volver a abrir y editar el proyecto más tarde."
+      },
+      {
+        "title": "Consejos avanzados para redactar más rápido",
+        "body": "Duplica bloques repetidos con Ctrl+D y organiza esquemas complejos de izquierda a derecha. Mantenga las secciones de potencia, los bloques lógicos y las salidas visualmente separados para que el diagrama final sea fácil de revisar."
+      },
+      {
+        "title": "Exportaciones académicas y de publicaciones",
+        "body": "La exportación SVG funciona especialmente bien para documentos, informes y flujos de trabajo LaTeX porque la salida se mantiene nítida en cualquier nivel de zoom y se puede convertir limpiamente en recursos listos para imprimir."
+      },
+      {
+        "title": "Flujos de trabajo JSON colaborativos",
+        "body": "Utilice la exportación JSON cuando los compañeros de equipo necesiten continuar editando el mismo esquema. En lugar de compartir una imagen estática, puede transmitir un archivo de proyecto en vivo que se abre directamente en el editor del navegador."
+      }
+    ],
+    "docs.shortcuts.title": "Atajos de teclado y acciones",
+    "docs.shortcuts.description": "Domina estos atajos para crear diagramas de circuitos más rápido. Cada acción del editor principal tiene un equivalente en el teclado.",
+    "docs.shortcuts.headers": [
+      "Atajo",
+      "Acción",
+      "Descripción"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Seleccionar herramienta",
+        "Haga clic y arrastre para seleccionar, mover y agrupar componentes en el lienzo."
+      ],
+      [
+        "W.",
+        "Herramienta de alambre",
+        "Dibuje conexiones de cables ortogonales entre los pines de los componentes."
+      ],
+      [
+        "l",
+        "Herramienta de etiqueta",
+        "Agregue etiquetas de texto y nombres de redes a su diagrama de circuito"
+      ],
+      [
+        "R",
+        "Girar",
+        "Gire el componente seleccionado 90 grados en el sentido de las agujas del reloj"
+      ],
+      [
+        "h",
+        "Voltear horizontalmente",
+        "Reflejar el componente seleccionado horizontalmente"
+      ],
+      [
+        "f",
+        "Voltear verticalmente",
+        "Reflejar el componente seleccionado verticalmente"
+      ],
+      [
+        "Del / Retroceso",
+        "Borrar",
+        "Eliminar componentes o cables seleccionados del diagrama"
+      ],
+      [
+        "Ctrl+Z",
+        "Deshacer",
+        "Deshacer la última acción en el editor de diagramas de circuitos"
+      ],
+      [
+        "Ctrl+Y",
+        "Rehacer",
+        "Rehacer la acción previamente deshecha"
+      ],
+      [
+        "Ctrl+D",
+        "Duplicado",
+        "Crear una copia del componente o grupo seleccionado"
+      ],
+      [
+        "Ctrl+S",
+        "Ahorrar",
+        "Guarde el diagrama del circuito en el almacenamiento local del navegador"
+      ],
+      [
+        "Ctrl+N",
+        "Nuevo",
+        "Crear un nuevo diagrama de circuito en blanco"
+      ],
+      [
+        "Rueda de desplazamiento",
+        "Acercar/alejar",
+        "Acerca y aleja el lienzo para realizar trabajos detallados"
+      ],
+      [
+        "Espacio + Arrastrar",
+        "Lienzo panorámico",
+        "Mantenga presionada la barra espaciadora y arrastre para desplazarse por el lienzo."
+      ]
+    ],
+    "docs.drc.title": "Verificación manual de reglas de diseño (DRC)",
+    "docs.drc.description": "Antes de exportar o compartir su diagrama de circuito, revise esta lista de verificación para mantener el esquema limpio, legible y técnicamente consistente.",
+    "docs.drc.cards": [
+      {
+        "title": "Comprobación de conectividad",
+        "items": [
+          "Sin pasadores flotantes. Cada pin requerido debe conectarse a una red, riel o referencia a tierra.",
+          "No se superponen cables accidentalmente sin un marcador de unión.",
+          "Los símbolos de potencia y tierra aparecen dondequiera que sean necesarios en el esquema."
+        ]
+      },
+      {
+        "title": "Etiquetado y texto",
+        "items": [
+          "Los designadores de referencia siguen siendo únicos sin etiquetas duplicadas.",
+          "Los valores de los componentes permanecen legibles y no quedan ocultos por cables.",
+          "Las redes críticas reciben nombres consistentes para facilitar su revisión y depuración."
+        ]
+      }
+    ],
+    "docs.standards.title": "Estándares de diseño esquemático",
+    "docs.standards.intro": "Para crear diagramas de circuitos claros y profesionales con Circuit Diagram Maker, siga estas convenciones estándar de la industria:",
+    "docs.standards.cards": [
+      {
+        "title": "Dirección del flujo de señal",
+        "body": "Coloque las entradas a la izquierda, el procesamiento en el centro y las salidas a la derecha. La mayoría de los lectores esperan que el flujo de señal se mueva de izquierda a derecha."
+      },
+      {
+        "title": "Jerarquía de potencial de voltaje",
+        "body": "Coloque rieles positivos como VCC o VDD cerca de la parte superior y tierra cerca de la parte inferior para que coincidan con los hábitos de lectura de esquemas estándar."
+      },
+      {
+        "title": "Designadores de referencia",
+        "body": "Utilice prefijos comunes como R para resistencias, C para condensadores, U para circuitos integrados, Q para transistores, D para diodos, J para conectores y L para inductores."
+      }
+    ],
+    "docs.resources.title": "Recursos relacionados",
+    "docs.resources.cards": [
+      {
+        "title": "Biblioteca de componentes",
+        "body": "Explora más de 40 símbolos electrónicos"
+      },
+      {
+        "title": "Abrir editor",
+        "body": "Comience a crear diagramas de circuitos"
+      },
+      {
+        "title": "Blog y tutoriales",
+        "body": "Guías, consejos y mejores prácticas"
+      }
+    ]
+  },
+  "ru": {
+    "docs.meta.title": "Документация — Руководство пользователя Circuit Diagram Maker",
+    "docs.meta.description": "Полная документация для создателя принципиальных схем. Узнайте, как создавать принципиальные схемы, использовать сочетания клавиш, экспортировать схемы и освоить рабочий процесс редактора.",
+    "docs.hero.badge": "Документация",
+    "docs.hero.title": "Документация по созданию принципиальных схем — полное руководство пользователя",
+    "docs.hero.description": "Все, что вам нужно знать о создании, редактировании и экспорте профессиональных принципиальных схем. В этом руководстве описан весь рабочий процесс создания принципиальных схем, от вашей первой схемы до продвинутых методов компоновки.",
+    "docs.guide.sections": [
+      {
+        "title": "Начало работы с создателем принципиальных схем",
+        "body": "Откройте редактор в браузере, загрузка или учетная запись не требуются. Вы увидите панель инструментов вверху, библиотеку компонентов слева, холст для рисования в центре и панель свойств справа."
+      },
+      {
+        "title": "Размещение компонентов на холсте",
+        "body": "Просмотрите или выполните поиск на боковой панели резисторов, конденсаторов, микросхем, разъемов и других символов. Перетащите любой компонент на холст, и он автоматически привяжется к сетке размером 20 пикселей."
+      },
+      {
+        "title": "Соединение компонентов проводами",
+        "body": "Переключитесь на инструмент «Провод» с помощью панели инструментов или нажав W. Щелкните один вывод компонента, затем щелкните целевой вывод, и механизм трассировки Манхэттена сгенерирует чистый ортогональный путь."
+      },
+      {
+        "title": "Маркировка и аннотации",
+        "body": "Нажмите L, чтобы добавить текстовые метки на схему. Дважды щелкните компоненты, чтобы отредактировать позиционные обозначения, такие как R1, C1 или U1, и присвоить имена важным цепям, например VCC, GND, CLK или DATA."
+      },
+      {
+        "title": "Экспорт вашей принципиальной схемы",
+        "body": "Используйте кнопку «Экспорт» на панели инструментов, чтобы загрузить свою работу. Выберите SVG для масштабируемого векторного вывода, PNG для презентаций и веб-страниц или JSON, если вы хотите позже открыть и отредактировать проект."
+      },
+      {
+        "title": "Дополнительные советы для более быстрого черчения",
+        "body": "Дублируйте повторяющиеся блоки с помощью Ctrl+D и организуйте сложные схемы слева направо. Силовые части, логические блоки и выходы должны быть визуально разделены, чтобы окончательную схему было легко просмотреть."
+      },
+      {
+        "title": "Экспорт академических и публикаций",
+        "body": "Экспорт SVG особенно хорошо работает для документов, отчетов и рабочих процессов LaTeX, поскольку выходные данные остаются четкими при любом уровне масштабирования и могут быть легко преобразованы в готовые к печати ресурсы."
+      },
+      {
+        "title": "Совместные рабочие процессы JSON",
+        "body": "Используйте экспорт JSON, когда коллегам по команде необходимо продолжить редактирование одной и той же схемы. Вместо того, чтобы делиться статическим изображением, вы можете передать живой файл проекта, который открывается непосредственно в редакторе браузера."
+      }
+    ],
+    "docs.shortcuts.title": "Сочетания клавиш и действия",
+    "docs.shortcuts.description": "Освойте эти сочетания клавиш, чтобы быстрее создавать принципиальные схемы. Каждое действие основного редактора имеет эквивалент клавиатуры.",
+    "docs.shortcuts.headers": [
+      "Ярлык",
+      "Действие",
+      "Описание"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "В",
+        "Выбрать инструмент",
+        "Нажмите и перетащите, чтобы выбрать, переместить и сгруппировать компоненты на холсте."
+      ],
+      [
+        "Вт",
+        "Проволочный инструмент",
+        "Нарисуйте ортогональные проводные соединения между выводами компонентов."
+      ],
+      [
+        "л",
+        "Инструмент для создания этикеток",
+        "Добавьте текстовые метки и имена цепей на свою принципиальную схему."
+      ],
+      [
+        "Р",
+        "Поворот",
+        "Поворот выбранного компонента на 90 градусов по часовой стрелке"
+      ],
+      [
+        "ЧАС",
+        "Перевернуть по горизонтали",
+        "Зеркально отразить выбранный компонент по горизонтали"
+      ],
+      [
+        "Ф",
+        "Перевернуть по вертикали",
+        "Зеркально отразить выбранный компонент по вертикали"
+      ],
+      [
+        "Del/Backspace",
+        "Удалить",
+        "Удаление выбранных компонентов или проводов со схемы"
+      ],
+      [
+        "Ctrl+Z",
+        "Отменить",
+        "Отменить последнее действие в редакторе принципиальных схем"
+      ],
+      [
+        "Ctrl+Y",
+        "Повторить",
+        "Повторить ранее отмененное действие"
+      ],
+      [
+        "Ctrl+D",
+        "Дублировать",
+        "Создать копию выбранного компонента или группы"
+      ],
+      [
+        "Ctrl+S",
+        "Сохранять",
+        "Сохраните принципиальную схему в локальном хранилище браузера."
+      ],
+      [
+        "Ctrl+Н",
+        "Новый",
+        "Создайте новую пустую принципиальную схему"
+      ],
+      [
+        "Колесо прокрутки",
+        "Увеличение/уменьшение масштаба",
+        "Увеличьте и уменьшите масштаб холста для проработки деталей."
+      ],
+      [
+        "Пробел + перетаскивание",
+        "Пан Холст",
+        "Удерживайте клавишу пробела и перетаскивайте ее, чтобы перемещаться по холсту."
+      ]
+    ],
+    "docs.drc.title": "Ручная проверка правил проектирования (DRC)",
+    "docs.drc.description": "Прежде чем экспортировать или опубликовать свою принципиальную схему, просмотрите этот контрольный список, чтобы схема была чистой, читабельной и технически согласованной.",
+    "docs.drc.cards": [
+      {
+        "title": "Проверка подключения",
+        "items": [
+          "Никаких плавающих штифтов. Каждый необходимый вывод должен быть подключен к сети, шине или заземлению.",
+          "Никакого случайного перекрытия проводов без маркера соединения.",
+          "Символы питания и заземления появляются там, где они необходимы на схеме."
+        ]
+      },
+      {
+        "title": "Маркировка и текст",
+        "items": [
+          "Справочные обозначения остаются уникальными и не имеют повторяющихся меток.",
+          "Значения компонентов остаются читаемыми и не скрыты проводами.",
+          "Критические сети имеют единообразные имена для облегчения просмотра и отладки."
+        ]
+      }
+    ],
+    "docs.standards.title": "Стандарты схематического проектирования",
+    "docs.standards.intro": "Чтобы создавать понятные и профессиональные принципиальные схемы с помощью Circuit Diagram Maker, следуйте следующим стандартным соглашениям:",
+    "docs.standards.cards": [
+      {
+        "title": "Направление потока сигнала",
+        "body": "Разместите входы слева, обработку в центре, а выходы справа. Большинство читателей ожидают, что поток сигналов будет двигаться слева направо."
+      },
+      {
+        "title": "Иерархия потенциалов напряжения",
+        "body": "Разместите положительные шины, такие как VCC или VDD, вверху и заземление внизу, чтобы соответствовать стандартным привычкам чтения схем."
+      },
+      {
+        "title": "Справочные обозначения",
+        "body": "Используйте общие префиксы, такие как R для резисторов, C для конденсаторов, U для микросхем, Q для транзисторов, D для диодов, J для разъемов и L для катушек индуктивности."
+      }
+    ],
+    "docs.resources.title": "Связанные ресурсы",
+    "docs.resources.cards": [
+      {
+        "title": "Библиотека компонентов",
+        "body": "Просмотрите более 40 электронных символов"
+      },
+      {
+        "title": "Открыть редактор",
+        "body": "Начать создавать принципиальные схемы"
+      },
+      {
+        "title": "Блог и руководства",
+        "body": "Руководства, советы и лучшие практики"
+      }
+    ]
+  },
+  "fr": {
+    "docs.meta.title": "Documentation — Guide de l'utilisateur du créateur de schémas de circuits",
+    "docs.meta.description": "Documentation complète pour Circuit Diagram Maker. Apprenez à créer des schémas de circuits, à utiliser des raccourcis clavier, à exporter des schémas et à maîtriser le flux de travail de l'éditeur.",
+    "docs.hero.badge": "Documentation",
+    "docs.hero.title": "Documentation du créateur de schémas de circuits - Guide de l'utilisateur complet",
+    "docs.hero.description": "Tout ce que vous devez savoir sur la création, l'édition et l'exportation de schémas de circuits professionnels. De votre premier schéma aux techniques de mise en page avancées, ce guide couvre le flux de travail complet de Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Premiers pas avec le créateur de schémas de circuits",
+        "body": "Ouvrez l'éditeur dans votre navigateur sans téléchargement ni compte requis. Vous verrez la barre d'outils en haut, la bibliothèque de composants à gauche, le canevas de dessin au centre et le panneau de propriétés à droite."
+      },
+      {
+        "title": "Placer des composants sur le canevas",
+        "body": "Parcourez ou recherchez dans la barre latérale des résistances, des condensateurs, des circuits intégrés, des connecteurs et d'autres symboles. Faites glisser n'importe quel composant sur le canevas et il s'alignera automatiquement sur la grille de 20 pixels."
+      },
+      {
+        "title": "Connexion de composants avec des fils",
+        "body": "Basculez vers l'outil Fil avec la barre d'outils ou en appuyant sur W. Cliquez sur une broche de composant, puis cliquez sur la broche de destination, et le moteur de routage Manhattan générera un chemin orthogonal propre."
+      },
+      {
+        "title": "Étiquetage et annotation",
+        "body": "Appuyez sur L pour ajouter des étiquettes de texte à votre schéma de circuit. Double-cliquez sur les composants pour modifier les désignateurs de référence tels que R1, C1 ou U1, et nommez les réseaux importants comme VCC, GND, CLK ou DATA."
+      },
+      {
+        "title": "Exporter votre schéma de circuit",
+        "body": "Utilisez le bouton Exporter dans la barre d'outils pour télécharger votre travail. Choisissez SVG pour une sortie vectorielle évolutive, PNG pour les présentations et les pages Web, ou JSON lorsque vous souhaitez rouvrir et modifier le projet ultérieurement."
+      },
+      {
+        "title": "Conseils avancés pour une rédaction plus rapide",
+        "body": "Dupliquez des blocs répétés avec Ctrl+D et organisez des schémas complexes de gauche à droite. Gardez les sections de puissance, les blocs logiques et les sorties visuellement séparés afin que le diagramme final soit facile à consulter."
+      },
+      {
+        "title": "Exportations universitaires et de publications",
+        "body": "L'exportation SVG fonctionne particulièrement bien pour les documents, les rapports et les flux de travail LaTeX, car la sortie reste nette quel que soit le niveau de zoom et peut être convertie proprement en ressources prêtes à imprimer."
+      },
+      {
+        "title": "Flux de travail JSON collaboratifs",
+        "body": "Utilisez l'exportation JSON lorsque vos coéquipiers doivent continuer à modifier le même schéma. Au lieu de partager une image statique, vous pouvez transmettre un fichier de projet en direct qui s'ouvre directement dans l'éditeur du navigateur."
+      }
+    ],
+    "docs.shortcuts.title": "Raccourcis clavier et actions",
+    "docs.shortcuts.description": "Maîtrisez ces raccourcis pour créer des schémas de circuits plus rapidement. Chaque action principale de l'éditeur a un équivalent clavier.",
+    "docs.shortcuts.headers": [
+      "Raccourci",
+      "Action",
+      "Descriptif"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Sélectionner un outil",
+        "Cliquez et faites glisser pour sélectionner, déplacer et regrouper des composants sur le canevas."
+      ],
+      [
+        "W",
+        "Outil de fil",
+        "Dessiner des connexions filaires orthogonales entre les broches des composants"
+      ],
+      [
+        "L",
+        "Outil d'étiquetage",
+        "Ajoutez des étiquettes de texte et des noms de réseau à votre schéma de circuit"
+      ],
+      [
+        "R.",
+        "Rotation",
+        "Faites pivoter le composant sélectionné de 90 degrés dans le sens des aiguilles d'une montre"
+      ],
+      [
+        "H",
+        "Retourner horizontalement",
+        "Mettre en miroir le composant sélectionné horizontalement"
+      ],
+      [
+        "F",
+        "Retourner verticalement",
+        "Mettre en miroir le composant sélectionné verticalement"
+      ],
+      [
+        "Suppr / Retour arrière",
+        "Supprimer",
+        "Supprimer les composants ou les fils sélectionnés du diagramme"
+      ],
+      [
+        "Ctrl+Z",
+        "Annuler",
+        "Annuler la dernière action dans l'éditeur de schémas électriques"
+      ],
+      [
+        "Ctrl+Y",
+        "Refaire",
+        "Refaire l'action précédemment annulée"
+      ],
+      [
+        "Ctrl+D",
+        "Dupliquer",
+        "Créer une copie du composant ou du groupe sélectionné"
+      ],
+      [
+        "Ctrl+S",
+        "Enregistrer",
+        "Enregistrez le schéma de circuit dans le stockage local du navigateur"
+      ],
+      [
+        "Ctrl+N",
+        "Nouveau",
+        "Créer un nouveau schéma de circuit vierge"
+      ],
+      [
+        "Molette de défilement",
+        "Zoom avant/arrière",
+        "Effectuez un zoom avant et arrière sur la toile pour un travail de détail"
+      ],
+      [
+        "Espace + Glisser",
+        "Toile panoramique",
+        "Maintenez la barre d'espace et faites-la glisser pour effectuer un panoramique sur la toile"
+      ]
+    ],
+    "docs.drc.title": "Vérification manuelle des règles de conception (DRC)",
+    "docs.drc.description": "Avant d'exporter ou de partager votre schéma de circuit, parcourez cette liste de contrôle pour garder le schéma propre, lisible et techniquement cohérent.",
+    "docs.drc.cards": [
+      {
+        "title": "Vérification de la connectivité",
+        "items": [
+          "Pas de broches flottantes. Chaque broche requise doit être connectée à une référence de réseau, de rail ou de masse.",
+          "Aucun fil accidentel ne se chevauche sans marqueur de jonction.",
+          "Les symboles d'alimentation et de terre apparaissent partout où ils sont nécessaires dans le schéma."
+        ]
+      },
+      {
+        "title": "Étiquetage et texte",
+        "items": [
+          "Les désignateurs de référence restent uniques, sans étiquettes en double.",
+          "Les valeurs des composants restent lisibles et ne sont pas masquées par des fils.",
+          "Les réseaux critiques sont nommés de manière cohérente pour faciliter la révision et le débogage."
+        ]
+      }
+    ],
+    "docs.standards.title": "Normes de conception schématique",
+    "docs.standards.intro": "Pour créer des schémas de circuits clairs et professionnels avec Circuit Diagram Maker, suivez ces conventions standard de l'industrie :",
+    "docs.standards.cards": [
+      {
+        "title": "Direction du flux du signal",
+        "body": "Placez les entrées à gauche, le traitement au centre et les sorties à droite. La plupart des lecteurs s'attendent à ce que le flux du signal se déplace de gauche à droite."
+      },
+      {
+        "title": "Hiérarchie du potentiel de tension",
+        "body": "Placez les rails positifs tels que VCC ou VDD près du haut et la masse près du bas pour correspondre aux habitudes de lecture schématique standard."
+      },
+      {
+        "title": "Désignateurs de référence",
+        "body": "Utilisez des préfixes courants tels que R pour les résistances, C pour les condensateurs, U pour les circuits intégrés, Q pour les transistors, D pour les diodes, J pour les connecteurs et L pour les inductances."
+      }
+    ],
+    "docs.resources.title": "Ressources connexes",
+    "docs.resources.cards": [
+      {
+        "title": "Bibliothèque de composants",
+        "body": "Parcourez plus de 40 symboles électroniques"
+      },
+      {
+        "title": "Ouvrir l'éditeur",
+        "body": "Commencez à créer des schémas de circuits"
+      },
+      {
+        "title": "Blog et tutoriels",
+        "body": "Guides, conseils et bonnes pratiques"
+      }
+    ]
+  },
+  "de": {
+    "docs.meta.title": "Dokumentation – Benutzerhandbuch zum Schaltplan-Ersteller",
+    "docs.meta.description": "Vollständige Dokumentation für Circuit Diagram Maker. Erfahren Sie, wie Sie Schaltpläne erstellen, Tastaturkürzel verwenden, Schaltpläne exportieren und den Editor-Workflow beherrschen.",
+    "docs.hero.badge": "Dokumentation",
+    "docs.hero.title": "Dokumentation zum Schaltplanersteller – Vollständiges Benutzerhandbuch",
+    "docs.hero.description": "Alles, was Sie über das Erstellen, Bearbeiten und Exportieren professioneller Schaltpläne wissen müssen. Von Ihrem ersten Schaltplan bis hin zu fortgeschrittenen Layouttechniken deckt dieser Leitfaden den gesamten Workflow des Circuit Diagram Maker ab.",
+    "docs.guide.sections": [
+      {
+        "title": "Erste Schritte mit Circuit Diagram Maker",
+        "body": "Öffnen Sie den Editor in Ihrem Browser, ohne dass ein Download oder ein Konto erforderlich ist. Sie sehen oben die Symbolleiste, links die Komponentenbibliothek, in der Mitte die Zeichenfläche und rechts das Eigenschaftenfenster."
+      },
+      {
+        "title": "Komponenten auf der Leinwand platzieren",
+        "body": "Durchsuchen oder durchsuchen Sie die Seitenleiste nach Widerständen, Kondensatoren, ICs, Anschlüssen und anderen Symbolen. Ziehen Sie eine beliebige Komponente auf die Leinwand und sie wird automatisch am 20-Pixel-Raster ausgerichtet."
+      },
+      {
+        "title": "Komponenten mit Drähten verbinden",
+        "body": "Wechseln Sie über die Symbolleiste oder durch Drücken von W zum Drahtwerkzeug. Klicken Sie auf einen Komponenten-Pin und dann auf den Ziel-Pin. Die Manhattan-Routing-Engine generiert dann einen sauberen orthogonalen Pfad."
+      },
+      {
+        "title": "Beschriftung und Anmerkung",
+        "body": "Drücken Sie L, um Textbeschriftungen zu Ihrem Schaltplan hinzuzufügen. Doppelklicken Sie auf Komponenten, um Referenzbezeichner wie R1, C1 oder U1 zu bearbeiten und wichtige Netze wie VCC, GND, CLK oder DATA zu benennen."
+      },
+      {
+        "title": "Exportieren Ihres Schaltplans",
+        "body": "Verwenden Sie die Schaltfläche „Exportieren“ in der Symbolleiste, um Ihre Arbeit herunterzuladen. Wählen Sie SVG für eine skalierbare Vektorausgabe, PNG für Präsentationen und Webseiten oder JSON, wenn Sie das Projekt später erneut öffnen und bearbeiten möchten."
+      },
+      {
+        "title": "Erweiterte Tipps für schnellere Entwürfe",
+        "body": "Duplizieren Sie wiederholte Blöcke mit Strg+D und organisieren Sie komplexe Schaltpläne von links nach rechts. Halten Sie Leistungsabschnitte, Logikblöcke und Ausgänge optisch getrennt, damit das endgültige Diagramm leicht überprüft werden kann."
+      },
+      {
+        "title": "Akademische und Publikationsexporte",
+        "body": "Der SVG-Export eignet sich besonders gut für Dokumente, Berichte und LaTeX-Workflows, da die Ausgabe bei jeder Zoomstufe gestochen scharf bleibt und sauber in druckfertige Assets konvertiert werden kann."
+      },
+      {
+        "title": "Kollaborative JSON-Workflows",
+        "body": "Verwenden Sie den JSON-Export, wenn Teamkollegen weiterhin denselben Schaltplan bearbeiten müssen. Anstatt ein statisches Bild zu teilen, können Sie eine Live-Projektdatei weitergeben, die direkt im Browser-Editor geöffnet wird."
+      }
+    ],
+    "docs.shortcuts.title": "Tastaturkürzel und Aktionen",
+    "docs.shortcuts.description": "Beherrschen Sie diese Tastenkombinationen, um Schaltpläne schneller zu erstellen. Für jede Kernaktion des Editors gibt es ein Tastaturäquivalent.",
+    "docs.shortcuts.headers": [
+      "Abkürzung",
+      "Aktion",
+      "Beschreibung"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Wählen Sie Werkzeug",
+        "Klicken und ziehen Sie, um Komponenten auf der Leinwand auszuwählen, zu verschieben und zu gruppieren"
+      ],
+      [
+        "W",
+        "Drahtwerkzeug",
+        "Zeichnen Sie orthogonale Drahtverbindungen zwischen Komponentenstiften"
+      ],
+      [
+        "L",
+        "Beschriftungstool",
+        "Fügen Sie Textbeschriftungen und Netznamen zu Ihrem Schaltplan hinzu"
+      ],
+      [
+        "R",
+        "Drehen",
+        "Drehen Sie die ausgewählte Komponente um 90 Grad im Uhrzeigersinn"
+      ],
+      [
+        "H",
+        "Horizontal spiegeln",
+        "Spiegeln Sie die ausgewählte Komponente horizontal"
+      ],
+      [
+        "F",
+        "Vertikal spiegeln",
+        "Spiegeln Sie die ausgewählte Komponente vertikal"
+      ],
+      [
+        "Entf / Rücktaste",
+        "Löschen",
+        "Entfernen Sie ausgewählte Komponenten oder Drähte aus dem Diagramm"
+      ],
+      [
+        "Strg+Z",
+        "Rückgängig machen",
+        "Machen Sie die letzte Aktion im Schaltplaneditor rückgängig"
+      ],
+      [
+        "Strg+Y",
+        "Wiederholen",
+        "Wiederholen Sie die zuvor rückgängig gemachte Aktion"
+      ],
+      [
+        "Strg+D",
+        "Duplizieren",
+        "Erstellen Sie eine Kopie der ausgewählten Komponente oder Gruppe"
+      ],
+      [
+        "Strg+S",
+        "Speichern",
+        "Speichern Sie den Schaltplan im lokalen Speicher des Browsers"
+      ],
+      [
+        "Strg+N",
+        "Neu",
+        "Erstellen Sie einen neuen leeren Schaltplan"
+      ],
+      [
+        "Scrollrad",
+        "Vergrößern/verkleinern",
+        "Vergrößern und verkleinern Sie die Leinwand für Detailarbeiten"
+      ],
+      [
+        "Leertaste + Ziehen",
+        "Pan-Leinwand",
+        "Halten Sie die Leertaste gedrückt und ziehen Sie, um über die Leinwand zu schwenken"
+      ]
+    ],
+    "docs.drc.title": "Manueller Design Rule Check (DRC)",
+    "docs.drc.description": "Bevor Sie Ihren Schaltplan exportieren oder teilen, gehen Sie diese Checkliste durch, um den Schaltplan sauber, lesbar und technisch konsistent zu halten.",
+    "docs.drc.cards": [
+      {
+        "title": "Konnektivitätsprüfung",
+        "items": [
+          "Keine schwebenden Stifte. Jeder erforderliche Pin sollte mit einem Netz, einer Schiene oder einer Erdungsreferenz verbunden sein.",
+          "Keine versehentlichen Kabelüberlappungen ohne Verbindungsmarkierung.",
+          "Strom- und Erdungssymbole erscheinen überall dort im Schaltplan, wo sie benötigt werden."
+        ]
+      },
+      {
+        "title": "Beschriftung & Text",
+        "items": [
+          "Referenzbezeichner bleiben eindeutig und es gibt keine doppelten Beschriftungen.",
+          "Komponentenwerte bleiben lesbar und werden nicht durch Drähte verdeckt.",
+          "Kritische Netze werden zur einfacheren Überprüfung und Fehlerbehebung einheitlich benannt."
+        ]
+      }
+    ],
+    "docs.standards.title": "Schematische Designstandards",
+    "docs.standards.intro": "Um mit Circuit Diagram Maker klare, professionelle Schaltpläne zu erstellen, befolgen Sie diese branchenüblichen Konventionen:",
+    "docs.standards.cards": [
+      {
+        "title": "Signalflussrichtung",
+        "body": "Platzieren Sie die Eingänge links, die Verarbeitung in der Mitte und die Ausgänge rechts. Die meisten Leser gehen davon aus, dass sich der Signalfluss von links nach rechts bewegt."
+      },
+      {
+        "title": "Spannungspotenzialhierarchie",
+        "body": "Platzieren Sie positive Schienen wie VCC oder VDD oben und Masse unten, um den standardmäßigen Schaltplan-Lesegewohnheiten zu entsprechen."
+      },
+      {
+        "title": "Referenzbezeichner",
+        "body": "Verwenden Sie gebräuchliche Präfixe wie R für Widerstände, C für Kondensatoren, U für ICs, Q für Transistoren, D für Dioden, J für Anschlüsse und L für Induktivitäten."
+      }
+    ],
+    "docs.resources.title": "Verwandte Ressourcen",
+    "docs.resources.cards": [
+      {
+        "title": "Komponentenbibliothek",
+        "body": "Durchsuchen Sie über 40 elektronische Symbole"
+      },
+      {
+        "title": "Öffnen Sie den Editor",
+        "body": "Beginnen Sie mit der Erstellung von Schaltplänen"
+      },
+      {
+        "title": "Blog & Tutorials",
+        "body": "Anleitungen, Tipps und Best Practices"
+      }
+    ]
+  },
+  "it": {
+    "docs.meta.title": "Documentazione: Guida per l'utente di Circuit Diagram Maker",
+    "docs.meta.description": "Documentazione completa per Circuit Diagram Maker. Scopri come creare schemi circuitali, utilizzare le scorciatoie da tastiera, esportare schemi e padroneggiare il flusso di lavoro dell'editor.",
+    "docs.hero.badge": "Documentazione",
+    "docs.hero.title": "Documentazione di Circuit Diagram Maker: guida per l'utente completa",
+    "docs.hero.description": "Tutto quello che devi sapere sulla creazione, modifica ed esportazione di schemi elettrici professionali. Dal primo schema alle tecniche di layout avanzate, questa guida copre il flusso di lavoro completo di Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Iniziare con Circuit Diagram Maker",
+        "body": "Apri l'editor nel tuo browser senza bisogno di download o account. Vedrai la barra degli strumenti in alto, la libreria dei componenti a sinistra, l'area di disegno al centro e il pannello delle proprietà a destra."
+      },
+      {
+        "title": "Posizionamento dei componenti sulla tela",
+        "body": "Sfoglia o cerca nella barra laterale resistori, condensatori, circuiti integrati, connettori e altri simboli. Trascina qualsiasi componente sulla tela e si aggancerà automaticamente alla griglia di 20px."
+      },
+      {
+        "title": "Collegamento di componenti con fili",
+        "body": "Passa allo strumento Wire con la barra degli strumenti o premendo W. Fai clic su un pin del componente, quindi fai clic sul pin di destinazione e il motore di routing Manhattan genererà un percorso ortogonale pulito."
+      },
+      {
+        "title": "Etichettatura e annotazione",
+        "body": "Premi L per aggiungere etichette di testo allo schema circuitale. Fai doppio clic sui componenti per modificare i designatori di riferimento come R1, C1 o U1 e denominare net importanti come VCC, GND, CLK o DATA."
+      },
+      {
+        "title": "Esportazione dello schema elettrico",
+        "body": "Utilizza il pulsante Esporta nella barra degli strumenti per scaricare il tuo lavoro. Scegli SVG per output vettoriale scalabile, PNG per presentazioni e pagine Web o JSON quando desideri riaprire e modificare il progetto in un secondo momento."
+      },
+      {
+        "title": "Suggerimenti avanzati per una redazione più rapida",
+        "body": "Duplica blocchi ripetuti con Ctrl+D e organizza schemi complessi da sinistra a destra. Mantieni le sezioni di potenza, i blocchi logici e le uscite visivamente separate in modo che il diagramma finale sia facile da rivedere."
+      },
+      {
+        "title": "Esportazioni accademiche e di pubblicazioni",
+        "body": "L'esportazione SVG funziona particolarmente bene per documenti, report e flussi di lavoro LaTeX perché l'output rimane nitido a qualsiasi livello di zoom e può essere convertito in modo pulito in risorse pronte per la stampa."
+      },
+      {
+        "title": "Flussi di lavoro JSON collaborativi",
+        "body": "Utilizza l'esportazione JSON quando i compagni di squadra devono continuare a modificare lo stesso schema. Invece di condividere un'immagine statica, puoi trasmettere un file di progetto live che si apre direttamente nell'editor del browser."
+      }
+    ],
+    "docs.shortcuts.title": "Scorciatoie da tastiera e azioni",
+    "docs.shortcuts.description": "Padroneggia queste scorciatoie per creare schemi circuitali più velocemente. Ogni azione principale dell'editor ha un equivalente da tastiera.",
+    "docs.shortcuts.headers": [
+      "Scorciatoia",
+      "Azione",
+      "Descrizione"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Seleziona Strumento",
+        "Fare clic e trascinare per selezionare, spostare e raggruppare i componenti nell'area di disegno"
+      ],
+      [
+        "W",
+        "Strumento filo",
+        "Disegna collegamenti ortogonali tra i pin dei componenti"
+      ],
+      [
+        "l",
+        "Strumento Etichetta",
+        "Aggiungi etichette di testo e nomi di rete al tuo schema circuitale"
+      ],
+      [
+        "R",
+        "Ruota",
+        "Ruota il componente selezionato di 90 gradi in senso orario"
+      ],
+      [
+        "H",
+        "Capovolgi orizzontalmente",
+        "Specchia orizzontalmente il componente selezionato"
+      ],
+      [
+        "F",
+        "Capovolgi verticale",
+        "Specchia verticalmente il componente selezionato"
+      ],
+      [
+        "Canc/Backspace",
+        "Elimina",
+        "Rimuovere i componenti o i cavi selezionati dallo schema"
+      ],
+      [
+        "CTRL+Z",
+        "Annulla",
+        "Annullare l'ultima azione nell'editor dello schema elettrico"
+      ],
+      [
+        "CTRL+Y",
+        "Rifare",
+        "Ripeti l'azione precedentemente annullata"
+      ],
+      [
+        "CTRL+D",
+        "Duplicato",
+        "Crea una copia del componente o gruppo selezionato"
+      ],
+      [
+        "CTRL+S",
+        "Salva",
+        "Salvare lo schema circuitale nella memoria locale del browser"
+      ],
+      [
+        "CTRL+N",
+        "Nuovo",
+        "Creare un nuovo schema elettrico vuoto"
+      ],
+      [
+        "Rotella di scorrimento",
+        "Zoom avanti/indietro",
+        "Ingrandisci e riduci la tela per lavorare sui dettagli"
+      ],
+      [
+        "Spazio + Trascina",
+        "Pan Tela",
+        "Tieni premuta la barra spaziatrice e trascina per eseguire la panoramica della tela"
+      ]
+    ],
+    "docs.drc.title": "Controllo manuale delle regole di progettazione (DRC)",
+    "docs.drc.description": "Prima di esportare o condividere lo schema circuitale, esegui questo elenco di controllo per mantenere lo schema pulito, leggibile e tecnicamente coerente.",
+    "docs.drc.cards": [
+      {
+        "title": "Verifica della connettività",
+        "items": [
+          "Nessun perno mobile. Ogni pin richiesto deve essere collegato a una rete, a un binario o a un riferimento di terra.",
+          "Nessuna sovrapposizione accidentale del filo senza un contrassegno di giunzione.",
+          "I simboli di alimentazione e terra appaiono ovunque siano necessari nello schema."
+        ]
+      },
+      {
+        "title": "Etichettatura e testo",
+        "items": [
+          "I designatori di riferimento rimangono univoci senza etichette duplicate.",
+          "I valori dei componenti rimangono leggibili e non sono nascosti dai fili.",
+          "Le reti critiche vengono denominate in modo coerente per facilitare la revisione e il debug."
+        ]
+      }
+    ],
+    "docs.standards.title": "Standard di progettazione schematica",
+    "docs.standards.intro": "Per creare schemi elettrici chiari e professionali con Circuit Diagram Maker, segui queste convenzioni standard del settore:",
+    "docs.standards.cards": [
+      {
+        "title": "Direzione del flusso del segnale",
+        "body": "Posiziona gli input a sinistra, l'elaborazione al centro e gli output a destra. La maggior parte dei lettori si aspetta che il flusso del segnale si sposti da sinistra a destra."
+      },
+      {
+        "title": "Gerarchia del potenziale di tensione",
+        "body": "Posiziona i binari positivi come VCC o VDD vicino alla parte superiore e mettili a terra vicino al fondo per corrispondere alle abitudini di lettura degli schemi standard."
+      },
+      {
+        "title": "Designatori di riferimento",
+        "body": "Utilizza prefissi comuni come R per resistori, C per condensatori, U per circuiti integrati, Q per transistor, D per diodi, J per connettori e L per induttori."
+      }
+    ],
+    "docs.resources.title": "Risorse correlate",
+    "docs.resources.cards": [
+      {
+        "title": "Libreria dei componenti",
+        "body": "Sfoglia oltre 40 simboli elettronici"
+      },
+      {
+        "title": "Apri Editor",
+        "body": "Inizia a creare schemi elettrici"
+      },
+      {
+        "title": "Blog ed esercitazioni",
+        "body": "Guide, suggerimenti e best practice"
+      }
+    ]
+  },
+  "pt": {
+    "docs.meta.title": "Documentação - Guia do usuário do Circuit Diagram Maker",
+    "docs.meta.description": "Documentação completa para o Circuit Diagram Maker. Aprenda como criar diagramas de circuitos, usar atalhos de teclado, exportar esquemas e dominar o fluxo de trabalho do editor.",
+    "docs.hero.badge": "Documentação",
+    "docs.hero.title": "Documentação do Circuit Diagram Maker – Guia completo do usuário",
+    "docs.hero.description": "Tudo o que você precisa saber sobre criação, edição e exportação de diagramas de circuitos profissionais. Desde o seu primeiro esquema até técnicas avançadas de layout, este guia cobre o fluxo de trabalho completo do Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Introdução ao Criador de Diagramas de Circuitos",
+        "body": "Abra o editor em seu navegador sem necessidade de download ou conta. Você verá a barra de ferramentas na parte superior, a biblioteca de componentes à esquerda, a tela de desenho no centro e o painel de propriedades à direita."
+      },
+      {
+        "title": "Colocando componentes na tela",
+        "body": "Navegue ou pesquise na barra lateral por resistores, capacitores, ICs, conectores e outros símbolos. Arraste qualquer componente para a tela e ele se ajustará automaticamente à grade de 20px."
+      },
+      {
+        "title": "Conectando Componentes com Fios",
+        "body": "Mude para a ferramenta Wire com a barra de ferramentas ou pressionando W. Clique em um pino componente e, em seguida, clique no pino de destino e o mecanismo de roteamento Manhattan gerará um caminho ortogonal limpo."
+      },
+      {
+        "title": "Rotulagem e anotação",
+        "body": "Pressione L para adicionar rótulos de texto ao seu diagrama de circuito. Clique duas vezes nos componentes para editar designadores de referência, como R1, C1 ou U1, e nomear redes importantes como VCC, GND, CLK ou DATA."
+      },
+      {
+        "title": "Exportando seu diagrama de circuito",
+        "body": "Use o botão Exportar na barra de ferramentas para baixar seu trabalho. Escolha SVG para saída vetorial escalonável, PNG para apresentações e páginas da web ou JSON quando quiser reabrir e editar o projeto posteriormente."
+      },
+      {
+        "title": "Dicas avançadas para um rascunho mais rápido",
+        "body": "Duplique blocos repetidos com Ctrl+D e organize esquemas complexos da esquerda para a direita. Mantenha as seções de potência, os blocos lógicos e as saídas visualmente separados para que o diagrama final seja fácil de revisar."
+      },
+      {
+        "title": "Exportações acadêmicas e de publicações",
+        "body": "A exportação SVG funciona especialmente bem para papéis, relatórios e fluxos de trabalho LaTeX porque a saída permanece nítida em qualquer nível de zoom e pode ser convertida de forma limpa em ativos prontos para impressão."
+      },
+      {
+        "title": "Fluxos de trabalho JSON colaborativos",
+        "body": "Use a exportação JSON quando os colegas de equipe precisarem continuar editando o mesmo esquema. Em vez de compartilhar uma imagem estática, você pode distribuir um arquivo de projeto ativo que abre diretamente no editor do navegador."
+      }
+    ],
+    "docs.shortcuts.title": "Atalhos e ações de teclado",
+    "docs.shortcuts.description": "Domine esses atalhos para criar diagramas de circuitos com mais rapidez. Cada ação principal do editor possui um equivalente no teclado.",
+    "docs.shortcuts.headers": [
+      "Atalho",
+      "Ação",
+      "Descrição"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Selecione a ferramenta",
+        "Clique e arraste para selecionar, mover e agrupar componentes na tela"
+      ],
+      [
+        "W",
+        "Ferramenta de arame",
+        "Desenhe conexões de fios ortogonais entre os pinos dos componentes"
+      ],
+      [
+        "eu",
+        "Ferramenta Etiqueta",
+        "Adicione rótulos de texto e nomes de rede ao seu diagrama de circuitos"
+      ],
+      [
+        "R",
+        "Girar",
+        "Gire o componente selecionado 90 graus no sentido horário"
+      ],
+      [
+        "H",
+        "Virar horizontalmente",
+        "Espelhe o componente selecionado horizontalmente"
+      ],
+      [
+        "F",
+        "Virar verticalmente",
+        "Espelhe o componente selecionado verticalmente"
+      ],
+      [
+        "Del / Backspace",
+        "Excluir",
+        "Remova componentes ou fios selecionados do diagrama"
+      ],
+      [
+        "Ctrl+Z",
+        "Desfazer",
+        "Desfaça a última ação no editor de diagrama de circuito"
+      ],
+      [
+        "Ctrl+Y",
+        "Refazer",
+        "Refazer a ação desfeita anteriormente"
+      ],
+      [
+        "Ctrl+D",
+        "Duplicar",
+        "Crie uma cópia do componente ou grupo selecionado"
+      ],
+      [
+        "Ctrl+S",
+        "Salvar",
+        "Salve o diagrama de circuito no armazenamento local do navegador"
+      ],
+      [
+        "Ctrl+N",
+        "Novo",
+        "Crie um novo diagrama de circuito em branco"
+      ],
+      [
+        "Roda de rolagem",
+        "Aumentar/diminuir zoom",
+        "Amplie e reduza o zoom da tela para trabalhos detalhados"
+      ],
+      [
+        "Espaço + Arrastar",
+        "Tela panorâmica",
+        "Segure a barra de espaço e arraste para percorrer a tela"
+      ]
+    ],
+    "docs.drc.title": "Verificação manual de regras de projeto (DRC)",
+    "docs.drc.description": "Antes de exportar ou compartilhar seu diagrama de circuito, execute esta lista de verificação para manter o esquemático limpo, legível e tecnicamente consistente.",
+    "docs.drc.cards": [
+      {
+        "title": "Verificação de conectividade",
+        "items": [
+          "Sem pinos flutuantes. Cada pino necessário deve ser conectado a uma rede, trilho ou referência de aterramento.",
+          "Nenhuma sobreposição acidental de fios sem um marcador de junção.",
+          "Os símbolos de potência e terra aparecem onde quer que sejam necessários no esquema."
+        ]
+      },
+      {
+        "title": "Rotulagem e Texto",
+        "items": [
+          "Os designadores de referência permanecem exclusivos, sem rótulos duplicados.",
+          "Os valores dos componentes permanecem legíveis e não ficam ocultos por fios.",
+          "As redes críticas são nomeadas de forma consistente para facilitar a revisão e a depuração."
+        ]
+      }
+    ],
+    "docs.standards.title": "Padrões de projeto esquemático",
+    "docs.standards.intro": "Para criar diagramas de circuitos claros e profissionais com o Circuit Diagram Maker, siga estas convenções padrão do setor:",
+    "docs.standards.cards": [
+      {
+        "title": "Direção do Fluxo de Sinal",
+        "body": "Coloque as entradas à esquerda, o processamento no centro e as saídas à direita. A maioria dos leitores espera que o fluxo do sinal se mova da esquerda para a direita."
+      },
+      {
+        "title": "Hierarquia de potencial de tensão",
+        "body": "Coloque trilhos positivos, como VCC ou VDD, perto da parte superior e aterrados perto da parte inferior, para corresponder aos hábitos de leitura esquemática padrão."
+      },
+      {
+        "title": "Designadores de Referência",
+        "body": "Use prefixos comuns como R para resistores, C para capacitores, U para CIs, Q para transistores, D para diodos, J para conectores e L para indutores."
+      }
+    ],
+    "docs.resources.title": "Recursos relacionados",
+    "docs.resources.cards": [
+      {
+        "title": "Biblioteca de Componentes",
+        "body": "Navegue por mais de 40 símbolos eletrônicos"
+      },
+      {
+        "title": "Abrir Editor",
+        "body": "Comece a criar diagramas de circuitos"
+      },
+      {
+        "title": "Blog e tutoriais",
+        "body": "Guias, dicas e práticas recomendadas"
+      }
+    ]
+  },
+  "bn": {
+    "docs.meta.title": "ডকুমেন্টেশন — সার্কিট ডায়াগ্রাম মেকার ইউজার গাইড",
+    "docs.meta.description": "সার্কিট ডায়াগ্রাম মেকারের জন্য সম্পূর্ণ ডকুমেন্টেশন। কীভাবে সার্কিট ডায়াগ্রাম তৈরি করতে হয়, কীবোর্ড শর্টকাট ব্যবহার করতে হয়, স্কিম্যাটিক্স রপ্তানি করতে হয় এবং সম্পাদকের কার্যপ্রবাহে দক্ষতা অর্জন করতে হয় তা শিখুন।",
+    "docs.hero.badge": "ডকুমেন্টেশন",
+    "docs.hero.title": "সার্কিট ডায়াগ্রাম মেকার ডকুমেন্টেশন — সম্পূর্ণ ব্যবহারকারীর নির্দেশিকা",
+    "docs.hero.description": "পেশাদার সার্কিট ডায়াগ্রাম তৈরি, সম্পাদনা এবং রপ্তানি সম্পর্কে আপনার যা জানা দরকার। আপনার প্রথম পরিকল্পিত থেকে উন্নত লেআউট কৌশল, এই নির্দেশিকা সম্পূর্ণ সার্কিট ডায়াগ্রাম মেকার ওয়ার্কফ্লো কভার করে।",
+    "docs.guide.sections": [
+      {
+        "title": "সার্কিট ডায়াগ্রাম মেকার দিয়ে শুরু করা",
+        "body": "কোনো ডাউনলোড বা অ্যাকাউন্টের প্রয়োজন ছাড়াই আপনার ব্রাউজারে সম্পাদক খুলুন। আপনি শীর্ষে টুলবার, বাম দিকে উপাদান লাইব্রেরি, কেন্দ্রে অঙ্কন ক্যানভাস এবং ডানদিকে বৈশিষ্ট্য প্যানেল দেখতে পাবেন।"
+      },
+      {
+        "title": "ক্যানভাসে উপাদান স্থাপন",
+        "body": "প্রতিরোধক, ক্যাপাসিটর, আইসি, সংযোগকারী এবং অন্যান্য প্রতীকগুলির জন্য সাইডবার ব্রাউজ করুন বা অনুসন্ধান করুন। ক্যানভাসে যেকোনো উপাদান টেনে আনুন এবং এটি স্বয়ংক্রিয়ভাবে 20px গ্রিডে চলে যাবে।"
+      },
+      {
+        "title": "তারের সঙ্গে উপাদান সংযোগ",
+        "body": "টুলবার দিয়ে ওয়্যার টুলে যান বা W টিপে। একটি কম্পোনেন্ট পিনে ক্লিক করুন, তারপর গন্তব্য পিনে ক্লিক করুন এবং ম্যানহাটান রাউটিং ইঞ্জিন একটি পরিষ্কার অর্থোগোনাল পাথ তৈরি করবে।"
+      },
+      {
+        "title": "লেবেলিং এবং টীকা",
+        "body": "আপনার সার্কিট ডায়াগ্রামে পাঠ্য লেবেল যোগ করতে L টিপুন। রেফারেন্স ডিজাইনার যেমন R1, C1, বা U1 সম্পাদনা করতে উপাদানগুলিতে ডাবল-ক্লিক করুন এবং VCC, GND, CLK বা ডেটার মতো গুরুত্বপূর্ণ নেটগুলির নাম দিন৷"
+      },
+      {
+        "title": "আপনার সার্কিট ডায়াগ্রাম রপ্তানি করা হচ্ছে",
+        "body": "আপনার কাজ ডাউনলোড করতে টুলবারে রপ্তানি বোতামটি ব্যবহার করুন। স্কেলযোগ্য ভেক্টর আউটপুটের জন্য SVG, উপস্থাপনা এবং ওয়েব পৃষ্ঠাগুলির জন্য PNG, অথবা আপনি যখন প্রকল্পটি পরে আবার খুলতে এবং সম্পাদনা করতে চান তখন JSON বেছে নিন।"
+      },
+      {
+        "title": "দ্রুত খসড়া জন্য উন্নত টিপস",
+        "body": "Ctrl+D দিয়ে বারবার ব্লকের নকল করুন এবং বাম থেকে ডানে জটিল স্কিম্যাটিক্স সংগঠিত করুন। পাওয়ার বিভাগ, লজিক ব্লক এবং আউটপুটগুলিকে দৃশ্যত আলাদা করে রাখুন যাতে চূড়ান্ত চিত্রটি পর্যালোচনা করা সহজ হয়।"
+      },
+      {
+        "title": "একাডেমিক এবং প্রকাশনা রপ্তানি",
+        "body": "SVG রপ্তানি কাগজপত্র, প্রতিবেদন এবং LaTeX ওয়ার্কফ্লোগুলির জন্য বিশেষভাবে ভাল কাজ করে কারণ আউটপুট যেকোনো জুম স্তরে খাস্তা থাকে এবং মুদ্রণ-প্রস্তুত সম্পদে পরিচ্ছন্নভাবে রূপান্তরিত হতে পারে।"
+      },
+      {
+        "title": "সহযোগী JSON কর্মপ্রবাহ",
+        "body": "যখন সতীর্থদের একই পরিকল্পিত সম্পাদনা চালিয়ে যেতে হবে তখন JSON এক্সপোর্ট ব্যবহার করুন। একটি স্ট্যাটিক ইমেজ শেয়ার করার পরিবর্তে, আপনি একটি লাইভ প্রজেক্ট ফাইলের কাছাকাছি যেতে পারেন যা সরাসরি ব্রাউজার এডিটরে খোলে।"
+      }
+    ],
+    "docs.shortcuts.title": "কীবোর্ড শর্টকাট এবং অ্যাকশন",
+    "docs.shortcuts.description": "দ্রুত সার্কিট ডায়াগ্রাম তৈরি করতে এই শর্টকাটগুলি আয়ত্ত করুন। প্রতিটি মূল সম্পাদক কর্মের একটি কীবোর্ড সমতুল্য আছে।",
+    "docs.shortcuts.headers": [
+      "শর্টকাট",
+      "অ্যাকশন",
+      "বর্ণনা"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "ভি",
+        "টুল নির্বাচন করুন",
+        "ক্যানভাসে উপাদান নির্বাচন, সরাতে এবং গোষ্ঠীবদ্ধ করতে ক্লিক করুন এবং টেনে আনুন"
+      ],
+      [
+        "ডব্লিউ",
+        "তারের টুল",
+        "কম্পোনেন্ট পিনের মধ্যে অর্থোগোনাল তারের সংযোগ আঁকুন"
+      ],
+      [
+        "এল",
+        "লেবেল টুল",
+        "আপনার সার্কিট ডায়াগ্রামে টেক্সট লেবেল এবং নেট নাম যোগ করুন"
+      ],
+      [
+        "আর",
+        "ঘোরান",
+        "নির্বাচিত উপাদানটিকে ঘড়ির কাঁটার দিকে 90 ডিগ্রি ঘোরান"
+      ],
+      [
+        "এইচ",
+        "ফ্লিপ অনুভূমিক",
+        "নির্বাচিত উপাদানটি অনুভূমিকভাবে মিরর করুন"
+      ],
+      [
+        "চ",
+        "উল্টানো উল্লম্ব",
+        "নির্বাচিত উপাদানটিকে উল্লম্বভাবে মিরর করুন"
+      ],
+      [
+        "ডেল/ব্যাকস্পেস",
+        "মুছুন",
+        "ডায়াগ্রাম থেকে নির্বাচিত উপাদান বা তারগুলি সরান"
+      ],
+      [
+        "Ctrl+Z",
+        "পূর্বাবস্থায় ফেরান",
+        "সার্কিট ডায়াগ্রাম এডিটরে শেষ ক্রিয়াটি পূর্বাবস্থায় ফেরান"
+      ],
+      [
+        "Ctrl+Y",
+        "আবার করুন",
+        "পূর্ববর্তী পূর্বাবস্থায় কাজ পুনরায় করুন"
+      ],
+      [
+        "Ctrl+D",
+        "ডুপ্লিকেট",
+        "নির্বাচিত উপাদান বা গোষ্ঠীর একটি অনুলিপি তৈরি করুন"
+      ],
+      [
+        "Ctrl+S",
+        "সংরক্ষণ করুন",
+        "সার্কিট ডায়াগ্রামটি ব্রাউজার স্থানীয় স্টোরেজে সংরক্ষণ করুন"
+      ],
+      [
+        "Ctrl+N",
+        "নতুন",
+        "একটি নতুন ফাঁকা সার্কিট ডায়াগ্রাম তৈরি করুন"
+      ],
+      [
+        "স্ক্রোল হুইল",
+        "জুম ইন/আউট",
+        "বিস্তারিত কাজের জন্য ক্যানভাস জুম ইন এবং আউট করুন"
+      ],
+      [
+        "স্থান + টেনে আনুন",
+        "প্যান ক্যানভাস",
+        "স্পেসবার ধরে রাখুন এবং ক্যানভাসের চারপাশে প্যান করতে টেনে আনুন"
+      ]
+    ],
+    "docs.drc.title": "ম্যানুয়াল ডিজাইন রুল চেক (ডিআরসি)",
+    "docs.drc.description": "আপনি আপনার সার্কিট ডায়াগ্রাম রপ্তানি বা ভাগ করার আগে, পরিকল্পিত পরিষ্কার, পঠনযোগ্য এবং প্রযুক্তিগতভাবে সামঞ্জস্য রাখতে এই চেকলিস্টটি চালান।",
+    "docs.drc.cards": [
+      {
+        "title": "কানেক্টিভিটি চেক",
+        "items": [
+          "কোন ভাসমান পিন. প্রতিটি প্রয়োজনীয় পিন একটি নেট, রেল বা গ্রাউন্ড রেফারেন্সের সাথে সংযুক্ত হওয়া উচিত।",
+          "জংশন মার্কার ছাড়া কোনো দুর্ঘটনাজনিত তারের ওভারল্যাপ হয় না।",
+          "শক্তি এবং স্থল চিহ্নগুলি পরিকল্পিতভাবে যেখানেই প্রয়োজন সেখানে উপস্থিত হয়।"
+        ]
+      },
+      {
+        "title": "লেবেলিং এবং পাঠ্য",
+        "items": [
+          "রেফারেন্স ডিজাইনাররা কোন ডুপ্লিকেট লেবেল ছাড়াই অনন্য থাকেন।",
+          "উপাদানের মান পঠনযোগ্য থাকে এবং তারের দ্বারা লুকানো হয় না।",
+          "সহজ পর্যালোচনা এবং ডিবাগিংয়ের জন্য ক্রিটিক্যাল নেটগুলির নামকরণ করা হয়েছে ধারাবাহিকভাবে।"
+        ]
+      }
+    ],
+    "docs.standards.title": "পরিকল্পিত নকশা মান",
+    "docs.standards.intro": "সার্কিট ডায়াগ্রাম মেকারের সাথে পরিষ্কার, পেশাদার সার্কিট ডায়াগ্রাম তৈরি করতে, এই শিল্প-মানসম্মত নিয়মগুলি অনুসরণ করুন:",
+    "docs.standards.cards": [
+      {
+        "title": "সংকেত প্রবাহের দিক",
+        "body": "ইনপুটগুলি বাম দিকে রাখুন, কেন্দ্রে প্রক্রিয়াকরণ করুন এবং ডানদিকে আউটপুটগুলি রাখুন৷ বেশীরভাগ পাঠক আশা করেন সিগন্যাল প্রবাহ বাম থেকে ডানে সরে যাবে।"
+      },
+      {
+        "title": "ভোল্টেজ সম্ভাব্য অনুক্রম",
+        "body": "স্ট্যান্ডার্ড পরিকল্পিত পড়ার অভ্যাস মেলানোর জন্য উপরের দিকে এবং নীচে মাটির কাছে VCC বা VDD-এর মতো ইতিবাচক রেলগুলি রাখুন।"
+      },
+      {
+        "title": "রেফারেন্স ডিজাইনার",
+        "body": "সাধারণ উপসর্গগুলি ব্যবহার করুন যেমন প্রতিরোধকের জন্য R, ক্যাপাসিটরের জন্য C, IC-এর জন্য U, ট্রানজিস্টরের জন্য Q, ডায়োডের জন্য D, সংযোগকারীর জন্য J এবং প্রবর্তকগুলির জন্য L।"
+      }
+    ],
+    "docs.resources.title": "সম্পর্কিত সম্পদ",
+    "docs.resources.cards": [
+      {
+        "title": "কম্পোনেন্ট লাইব্রেরি",
+        "body": "40+ ইলেকট্রনিক প্রতীক ব্রাউজ করুন"
+      },
+      {
+        "title": "সম্পাদক খুলুন",
+        "body": "সার্কিট ডায়াগ্রাম তৈরি করা শুরু করুন"
+      },
+      {
+        "title": "ব্লগ এবং টিউটোরিয়াল",
+        "body": "নির্দেশিকা, টিপস এবং সর্বোত্তম অনুশীলন"
+      }
+    ]
+  },
+  "ja": {
+    "docs.meta.title": "ドキュメント — 回路図メーカー ユーザー ガイド",
+    "docs.meta.description": "Circuit Diagram Maker の完全なドキュメント。回路図の作成方法、キーボード ショートカットの使用方法、回路図のエクスポート方法、およびエディタのワークフローをマスターする方法を学びます。",
+    "docs.hero.badge": "ドキュメント",
+    "docs.hero.title": "回路図メーカーのドキュメント — 完全なユーザー ガイド",
+    "docs.hero.description": "プロフェッショナルな回路図の作成、編集、エクスポートについて知っておくべきすべてのこと。このガイドでは、最初の回路図から高度なレイアウト技術まで、完全な回路図メーカーのワークフローをカバーしています。",
+    "docs.guide.sections": [
+      {
+        "title": "回路図メーカー入門",
+        "body": "ダウンロードやアカウントを必要とせずに、ブラウザでエディタを開きます。上部にツールバー、左側にコンポーネント ライブラリ、中央に描画キャンバス、右側にプロパティ パネルが表示されます。"
+      },
+      {
+        "title": "キャンバス上にコンポーネントを配置する",
+        "body": "サイドバーで抵抗、コンデンサ、IC、コネクタ、その他のシンボルを参照または検索します。任意のコンポーネントをキャンバスにドラッグすると、自動的に 20 ピクセルのグリッドにスナップされます。"
+      },
+      {
+        "title": "コンポーネントをワイヤーで接続する",
+        "body": "ツールバーを使用するか、W キーを押してワイヤ ツールに切り替えます。コンポーネント ピンを 1 つクリックし、次に目的のピンをクリックすると、マンハッタン ルーティング エンジンがきれいな直交パスを生成します。"
+      },
+      {
+        "title": "ラベル付けと注釈",
+        "body": "L を押して回路図にテキスト ラベルを追加します。コンポーネントをダブルクリックして、R1、C1、U1 などの参照指定子を編集し、VCC、GND、CLK、DATA などの重要なネットに名前を付けます。"
+      },
+      {
+        "title": "回路図のエクスポート",
+        "body": "ツールバーの [エクスポート] ボタンを使用して、作業内容をダウンロードします。スケーラブルなベクター出力には SVG、プレゼンテーションや Web ページには PNG、後でプロジェクトを再度開いて編集する場合には JSON を選択します。"
+      },
+      {
+        "title": "製図を速くするための高度なヒント",
+        "body": "Ctrl+D を使用して繰り返しブロックを複製し、複雑な回路図を左から右に整理します。最終的な図を確認しやすいように、電源セクション、ロジック ブロック、出力を視覚的に分離しておきます。"
+      },
+      {
+        "title": "学術および出版物の輸出",
+        "body": "SVG エクスポートは、どのズーム レベルでも出力が鮮明に保たれ、印刷可能なアセットにきれいに変換できるため、論文、レポート、LaTeX ワークフローに特に適しています。"
+      },
+      {
+        "title": "共同的な JSON ワークフロー",
+        "body": "チームメイトが同じ回路図の編集を続ける必要がある場合は、JSON エクスポートを使用します。静的イメージを共有する代わりに、ブラウザー エディターで直接開くライブ プロジェクト ファイルを渡すことができます。"
+      }
+    ],
+    "docs.shortcuts.title": "キーボード ショートカットとアクション",
+    "docs.shortcuts.description": "これらのショートカットをマスターして、回路図をより速く作成します。すべてのコア エディター アクションには、同等のキーボードがあります。",
+    "docs.shortcuts.headers": [
+      "ショートカット",
+      "アクション",
+      "説明"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "ツールを選択",
+        "クリックしてドラッグし、キャンバス上のコンポーネントを選択、移動、グループ化します。"
+      ],
+      [
+        "W",
+        "ワイヤーツール",
+        "コンポーネントのピン間に直交するワイヤ接続を描画します"
+      ],
+      [
+        "L",
+        "ラベルツール",
+        "回路図にテキストラベルとネット名を追加する"
+      ],
+      [
+        "R",
+        "回転",
+        "選択したコンポーネントを時計回りに 90 度回転します"
+      ],
+      [
+        "H",
+        "水平方向に反転",
+        "選択したコンポーネントを水平方向にミラーリングします"
+      ],
+      [
+        "F",
+        "垂直方向に反転",
+        "選択したコンポーネントを垂直方向にミラーリングします"
+      ],
+      [
+        "Del / バックスペース",
+        "削除",
+        "選択したコンポーネントまたはワイヤを図から削除します"
+      ],
+      [
+        "Ctrl+Z",
+        "元に戻す",
+        "回路図エディタでの最後の操作を元に戻す"
+      ],
+      [
+        "Ctrl+Y",
+        "やり直し",
+        "以前に取り消した操作をやり直す"
+      ],
+      [
+        "Ctrl+D",
+        "重複",
+        "選択したコンポーネントまたはグループのコピーを作成します"
+      ],
+      [
+        "Ctrl+S",
+        "保存",
+        "回路図をブラウザのローカル ストレージに保存します"
+      ],
+      [
+        "Ctrl+N",
+        "新しい",
+        "新しい空の回路図を作成する"
+      ],
+      [
+        "スクロールホイール",
+        "ズームイン/アウト",
+        "キャンバスを拡大または縮小して細部の作業を行う"
+      ],
+      [
+        "スペース + ドラッグ",
+        "パンキャンバス",
+        "スペースバーを押したままドラッグしてキャンバスをパンします"
+      ]
+    ],
+    "docs.drc.title": "手動デザインルールチェック (DRC)",
+    "docs.drc.description": "回路図をエクスポートまたは共有する前に、このチェックリストを実行して、回路図をクリーンで読みやすく、技術的に一貫した状態に保ちます。",
+    "docs.drc.cards": [
+      {
+        "title": "接続チェック",
+        "items": [
+          "フローティングピンはありません。必要なピンはすべて、ネット、レール、またはグランド基準に接続する必要があります。",
+          "ジャンクションマーカーがなければ、ワイヤーが偶発的に重なることはありません。",
+          "電源およびグランドのシンボルは、回路図内の必要な場所に表示されます。"
+        ]
+      },
+      {
+        "title": "ラベルとテキスト",
+        "items": [
+          "参照指定子は、ラベルが重複せずに一意なままです。",
+          "コンポーネントの値は読み取り可能なままであり、ワイヤによって隠されることはありません。",
+          "レビューとデバッグを容易にするために、重要なネットには一貫した名前が付けられます。"
+        ]
+      }
+    ],
+    "docs.standards.title": "回路図設計基準",
+    "docs.standards.intro": "Circuit Diagram Maker で明確で専門的な回路図を作成するには、次の業界標準の規則に従ってください。",
+    "docs.standards.cards": [
+      {
+        "title": "信号の流れの方向",
+        "body": "入力を左側、処理を中央、出力を右側に配置します。ほとんどの読者は、信号の流れが左から右に移動することを期待しています。"
+      },
+      {
+        "title": "電圧電位階層",
+        "body": "標準的な回路図の読み取り習慣に合わせて、VCC や VDD などのプラスのレールを上部近くに配置し、グランド近くを底部近くに配置します。"
+      },
+      {
+        "title": "参照指定子",
+        "body": "抵抗には R、コンデンサには C、IC には U、トランジスタには Q、ダイオードには D、コネクタには J、インダクタには L などの一般的な接頭辞を使用します。"
+      }
+    ],
+    "docs.resources.title": "関連リソース",
+    "docs.resources.cards": [
+      {
+        "title": "コンポーネントライブラリ",
+        "body": "40 以上の電子シンボルを閲覧する"
+      },
+      {
+        "title": "エディタを開く",
+        "body": "回路図の作成を開始する"
+      },
+      {
+        "title": "ブログとチュートリアル",
+        "body": "ガイド、ヒント、ベストプラクティス"
+      }
+    ]
+  },
+  "ko": {
+    "docs.meta.title": "문서 — 회로도 작성기 사용자 가이드",
+    "docs.meta.description": "Circuit Diagram Maker에 대한 완전한 문서입니다. 회로도 작성, 키보드 단축키 사용, 회로도 내보내기, 편집 작업흐름 마스터 방법을 알아보세요.",
+    "docs.hero.badge": "문서",
+    "docs.hero.title": "회로도 작성기 문서 - 전체 사용자 가이드",
+    "docs.hero.description": "전문적인 회로도 생성, 편집, 내보내기에 대해 알아야 할 모든 것. 첫 번째 회로도부터 고급 레이아웃 기술까지 이 가이드에서는 전체 회로 다이어그램 작성기 작업 흐름을 다룹니다.",
+    "docs.guide.sections": [
+      {
+        "title": "회로도 작성기 시작하기",
+        "body": "다운로드나 계정이 필요 없이 브라우저에서 편집기를 엽니다. 상단에는 도구 모음, 왼쪽에는 구성 요소 라이브러리, 중앙에는 그리기 캔버스, 오른쪽에는 속성 패널이 표시됩니다."
+      },
+      {
+        "title": "캔버스에 구성 요소 배치",
+        "body": "사이드바에서 저항기, 커패시터, IC, 커넥터 및 기타 기호를 찾아보거나 검색하세요. 구성 요소를 캔버스로 드래그하면 자동으로 20px 그리드에 맞춰집니다."
+      },
+      {
+        "title": "와이어로 구성요소 연결하기",
+        "body": "도구 모음을 사용하거나 W를 눌러 와이어 도구로 전환합니다. 구성 요소 핀 하나를 클릭한 다음 대상 핀을 클릭하면 Manhattan 라우팅 엔진이 깔끔한 직교 경로를 생성합니다."
+      },
+      {
+        "title": "라벨링 및 주석",
+        "body": "회로도에 텍스트 라벨을 추가하려면 L을 누르세요. R1, C1 또는 U1과 같은 참조 지정자를 편집하고 VCC, GND, CLK 또는 DATA와 같은 중요한 네트의 이름을 지정하려면 구성 요소를 두 번 클릭하십시오."
+      },
+      {
+        "title": "회로도 내보내기",
+        "body": "도구 모음의 내보내기 버튼을 사용하여 작업을 다운로드하세요. 확장 가능한 벡터 출력에는 SVG를 선택하고, 프리젠테이션 및 웹 페이지에는 PNG를 선택하고, 나중에 프로젝트를 다시 열고 편집하려면 JSON을 선택하세요."
+      },
+      {
+        "title": "더욱 빠른 제도를 위한 고급 팁",
+        "body": "Ctrl+D를 사용하여 반복되는 블록을 복제하고 복잡한 회로도를 왼쪽에서 오른쪽으로 구성합니다. 최종 다이어그램을 쉽게 검토할 수 있도록 전원 섹션, 논리 블록 및 출력을 시각적으로 분리하십시오."
+      },
+      {
+        "title": "학술 및 출판물 수출",
+        "body": "SVG 내보내기는 어떤 확대/축소 수준에서도 출력이 선명하게 유지되고 인쇄용 자산으로 깔끔하게 변환될 수 있기 때문에 종이, 보고서 및 LaTeX 작업 흐름에 특히 적합합니다."
+      },
+      {
+        "title": "협업 JSON 워크플로",
+        "body": "팀원이 동일한 회로도를 계속 편집해야 하는 경우 JSON 내보내기를 사용하세요. 정적 이미지를 공유하는 대신 브라우저 편집기에서 직접 열리는 라이브 프로젝트 파일을 전달할 수 있습니다."
+      }
+    ],
+    "docs.shortcuts.title": "키보드 단축키 및 동작",
+    "docs.shortcuts.description": "회로도를 더 빠르게 작성하려면 이러한 단축키를 익히십시오. 모든 핵심 편집기 작업에는 키보드에 해당하는 작업이 있습니다.",
+    "docs.shortcuts.headers": [
+      "바로가기",
+      "액션",
+      "설명"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "뷔",
+        "도구 선택",
+        "캔버스에서 구성 요소를 클릭하고 드래그하여 선택, 이동 및 그룹화합니다."
+      ],
+      [
+        "여",
+        "와이어 도구",
+        "구성요소 핀 사이에 직교 와이어 연결 그리기"
+      ],
+      [
+        "엘",
+        "라벨 도구",
+        "회로도에 텍스트 라벨과 네트 이름을 추가하세요."
+      ],
+      [
+        "R",
+        "회전",
+        "선택한 구성요소를 시계 방향으로 90도 회전합니다."
+      ],
+      [
+        "H",
+        "수평 뒤집기",
+        "선택한 구성요소를 수평으로 대칭"
+      ],
+      [
+        "에프",
+        "수직 뒤집기",
+        "선택한 구성요소를 수직으로 대칭"
+      ],
+      [
+        "Del / 백스페이스",
+        "삭제",
+        "다이어그램에서 선택한 구성 요소 또는 와이어 제거"
+      ],
+      [
+        "Ctrl+Z",
+        "실행 취소",
+        "회로도 편집기에서 마지막 작업 실행 취소"
+      ],
+      [
+        "Ctrl+Y",
+        "다시 실행",
+        "이전에 실행 취소한 작업을 다시 실행"
+      ],
+      [
+        "Ctrl+D",
+        "중복",
+        "선택한 구성 요소 또는 그룹의 복사본을 만듭니다."
+      ],
+      [
+        "Ctrl+S",
+        "저장",
+        "회로도를 브라우저 로컬 저장소에 저장"
+      ],
+      [
+        "Ctrl+N",
+        "새로운",
+        "새로운 빈 회로도 만들기"
+      ],
+      [
+        "스크롤 휠",
+        "확대/축소",
+        "세부 작업을 위해 캔버스를 확대 및 축소합니다."
+      ],
+      [
+        "스페이스바 + 드래그",
+        "팬 캔버스",
+        "스페이스바를 누른 채 드래그하여 캔버스 주위로 이동"
+      ]
+    ],
+    "docs.drc.title": "수동 설계 규칙 확인(DRC)",
+    "docs.drc.description": "회로 다이어그램을 내보내거나 공유하기 전에 이 체크리스트를 실행하여 회로도를 깔끔하고 읽기 쉽고 기술적으로 일관성 있게 유지하세요.",
+    "docs.drc.cards": [
+      {
+        "title": "연결 확인",
+        "items": [
+          "플로팅 핀이 없습니다. 필요한 모든 핀은 네트, 레일 또는 접지 기준에 연결되어야 합니다.",
+          "접합 마커가 없으면 실수로 와이어가 겹치는 일이 없습니다.",
+          "전원 및 접지 기호는 회로도에서 필요할 때마다 나타납니다."
+        ]
+      },
+      {
+        "title": "라벨링 및 텍스트",
+        "items": [
+          "참조 지정자는 중복된 레이블 없이 고유하게 유지됩니다.",
+          "구성요소 값은 읽을 수 있는 상태로 유지되며 와이어로 숨겨지지 않습니다.",
+          "중요한 네트의 이름은 보다 쉽게 검토하고 디버깅할 수 있도록 일관되게 지정됩니다."
+        ]
+      }
+    ],
+    "docs.standards.title": "회로도 설계 표준",
+    "docs.standards.intro": "Circuit Diagram Maker를 사용하여 명확하고 전문적인 회로 다이어그램을 만들려면 다음 업계 표준 규칙을 따르세요.",
+    "docs.standards.cards": [
+      {
+        "title": "신호 흐름 방향",
+        "body": "입력은 왼쪽에, 처리는 중앙에, 출력은 오른쪽에 배치합니다. 대부분의 독자는 신호 흐름이 왼쪽에서 오른쪽으로 이동할 것으로 기대합니다."
+      },
+      {
+        "title": "전압 전위 계층",
+        "body": "표준 회로도 읽기 습관과 일치하도록 상단 근처에 VCC 또는 VDD와 같은 포지티브 레일을 배치하고 하단 근처에 접지를 배치합니다."
+      },
+      {
+        "title": "참조 지정자",
+        "body": "저항기에는 R, 커패시터에는 C, IC에는 U, 트랜지스터에는 Q, 다이오드에는 D, 커넥터에는 J, 인덕터에는 L과 같은 일반적인 접두사를 사용합니다."
+      }
+    ],
+    "docs.resources.title": "관련 자료",
+    "docs.resources.cards": [
+      {
+        "title": "부품 라이브러리",
+        "body": "40개 이상의 전자 기호 찾아보기"
+      },
+      {
+        "title": "편집기 열기",
+        "body": "회로도 작성 시작"
+      },
+      {
+        "title": "블로그 및 튜토리얼",
+        "body": "가이드, 팁, 모범 사례"
+      }
+    ]
+  },
+  "ms": {
+    "docs.meta.title": "Dokumentasi — Panduan Pengguna Pembuat Gambarajah Litar",
+    "docs.meta.description": "Dokumentasi lengkap untuk Pembuat Rajah Litar. Ketahui cara membuat gambar rajah litar, menggunakan pintasan papan kekunci, mengeksport skema dan menguasai aliran kerja editor.",
+    "docs.hero.badge": "Dokumentasi",
+    "docs.hero.title": "Dokumentasi Pembuat Rajah Litar — Panduan Pengguna Lengkap",
+    "docs.hero.description": "Semua yang anda perlu tahu tentang mencipta, mengedit dan mengeksport gambar rajah litar profesional. Daripada skema pertama anda kepada teknik susun atur lanjutan, panduan ini merangkumi aliran kerja Pembuat Diagram Litar yang lengkap.",
+    "docs.guide.sections": [
+      {
+        "title": "Bermula dengan Pembuat Rajah Litar",
+        "body": "Buka editor dalam penyemak imbas anda tanpa muat turun atau akaun diperlukan. Anda akan melihat bar alat di bahagian atas, perpustakaan komponen di sebelah kiri, kanvas lukisan di tengah dan panel sifat di sebelah kanan."
+      },
+      {
+        "title": "Meletakkan Komponen pada Kanvas",
+        "body": "Semak imbas atau cari bar sisi untuk perintang, kapasitor, IC, penyambung dan simbol lain. Seret mana-mana komponen ke atas kanvas dan ia akan terkunci ke grid 20px secara automatik."
+      },
+      {
+        "title": "Menyambung Komponen dengan Wayar",
+        "body": "Beralih kepada alat Wire dengan bar alat atau dengan menekan W. Klik satu pin komponen, kemudian klik pin destinasi, dan enjin penghalaan Manhattan akan menjana laluan ortogonal yang bersih."
+      },
+      {
+        "title": "Pelabelan dan Anotasi",
+        "body": "Tekan L untuk menambah label teks pada rajah litar anda. Klik dua kali komponen untuk mengedit penunjuk rujukan seperti R1, C1 atau U1 dan namakan jaringan penting seperti VCC, GND, CLK atau DATA."
+      },
+      {
+        "title": "Mengeksport Gambarajah Litar Anda",
+        "body": "Gunakan butang Eksport dalam bar alat untuk memuat turun kerja anda. Pilih SVG untuk output vektor boleh skala, PNG untuk pembentangan dan halaman web atau JSON apabila anda mahu membuka semula dan mengedit projek itu kemudian."
+      },
+      {
+        "title": "Petua Lanjutan untuk Merangka Lebih Pantas",
+        "body": "Duplikat blok berulang dengan Ctrl+D dan susun skema kompleks dari kiri ke kanan. Pastikan bahagian kuasa, blok logik dan output diasingkan secara visual supaya rajah akhir mudah untuk disemak."
+      },
+      {
+        "title": "Eksport Akademik dan Penerbitan",
+        "body": "Eksport SVG berfungsi dengan baik terutamanya untuk kertas, laporan dan aliran kerja LaTeX kerana output kekal segar pada mana-mana tahap zum dan boleh ditukar dengan bersih kepada aset sedia cetak."
+      },
+      {
+        "title": "Aliran Kerja JSON Kolaboratif",
+        "body": "Gunakan eksport JSON apabila rakan sepasukan perlu terus mengedit skema yang sama. Daripada berkongsi imej statik, anda boleh menghantar fail projek langsung yang dibuka terus dalam editor penyemak imbas."
+      }
+    ],
+    "docs.shortcuts.title": "Pintasan Papan Kekunci & Tindakan",
+    "docs.shortcuts.description": "Kuasai pintasan ini untuk membuat gambar rajah litar dengan lebih pantas. Setiap tindakan editor teras mempunyai papan kekunci yang setara.",
+    "docs.shortcuts.headers": [
+      "Jalan pintas",
+      "Tindakan",
+      "Penerangan"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Pilih Alat",
+        "Klik dan seret untuk memilih, mengalih dan mengumpulkan komponen pada kanvas"
+      ],
+      [
+        "W",
+        "Alat Kawat",
+        "Lukis sambungan wayar ortogon antara pin komponen"
+      ],
+      [
+        "L",
+        "Alat Label",
+        "Tambahkan label teks dan nama bersih pada rajah litar anda"
+      ],
+      [
+        "R",
+        "Putar",
+        "Putar komponen yang dipilih 90 darjah mengikut arah jam"
+      ],
+      [
+        "H",
+        "Balikkan Mendatar",
+        "Cerminkan komponen yang dipilih secara mendatar"
+      ],
+      [
+        "F",
+        "Balikkan Menegak",
+        "Cerminkan komponen yang dipilih secara menegak"
+      ],
+      [
+        "Del / Backspace",
+        "Padam",
+        "Keluarkan komponen atau wayar yang dipilih daripada rajah"
+      ],
+      [
+        "Ctrl+Z",
+        "Buat asal",
+        "Buat asal tindakan terakhir dalam editor gambar rajah litar"
+      ],
+      [
+        "Ctrl+Y",
+        "Buat semula",
+        "Buat semula tindakan yang dibuat sebelum ini"
+      ],
+      [
+        "Ctrl+D",
+        "Pendua",
+        "Buat salinan komponen atau kumpulan yang dipilih"
+      ],
+      [
+        "Ctrl+S",
+        "Jimat",
+        "Simpan gambarajah litar ke storan setempat penyemak imbas"
+      ],
+      [
+        "Ctrl+N",
+        "baru",
+        "Buat gambar rajah litar kosong baharu"
+      ],
+      [
+        "Roda Tatal",
+        "Zum Masuk/Keluar",
+        "Zum kanvas masuk dan keluar untuk kerja terperinci"
+      ],
+      [
+        "Ruang + Seret",
+        "Kanvas Pan",
+        "Pegang bar ruang dan seret untuk menyorot sekeliling kanvas"
+      ]
+    ],
+    "docs.drc.title": "Semakan Peraturan Reka Bentuk Manual (DRC)",
+    "docs.drc.description": "Sebelum anda mengeksport atau berkongsi gambar rajah litar anda, jalankan senarai semak ini untuk memastikan skematik bersih, boleh dibaca dan konsisten dari segi teknikal.",
+    "docs.drc.cards": [
+      {
+        "title": "Semakan Ketersambungan",
+        "items": [
+          "Tiada pin terapung. Setiap pin yang diperlukan harus disambungkan ke jaring, rel atau rujukan tanah.",
+          "Tiada wayar yang tidak sengaja bertindih tanpa penanda simpang.",
+          "Simbol kuasa dan tanah muncul di mana sahaja ia diperlukan dalam skema."
+        ]
+      },
+      {
+        "title": "Pelabelan & Teks",
+        "items": [
+          "Penanda rujukan kekal unik tanpa label pendua.",
+          "Nilai komponen kekal boleh dibaca dan tidak disembunyikan oleh wayar.",
+          "Jaringan kritikal dinamakan secara konsisten untuk semakan dan penyahpepijatan yang lebih mudah."
+        ]
+      }
+    ],
+    "docs.standards.title": "Piawaian Reka Bentuk Skema",
+    "docs.standards.intro": "Untuk mencipta gambar rajah litar profesional yang jelas dengan Pembuat Rajah Litar, ikut konvensyen standard industri ini:",
+    "docs.standards.cards": [
+      {
+        "title": "Arah Aliran Isyarat",
+        "body": "Letakkan input di sebelah kiri, pemprosesan di tengah, dan output di sebelah kanan. Kebanyakan pembaca mengharapkan aliran isyarat bergerak dari kiri ke kanan."
+      },
+      {
+        "title": "Hierarki Potensi Voltan",
+        "body": "Letakkan rel positif seperti VCC atau VDD berhampiran bahagian atas dan tanah berhampiran bahagian bawah untuk memadankan tabiat membaca skematik standard."
+      },
+      {
+        "title": "Penentu Rujukan",
+        "body": "Gunakan awalan biasa seperti R untuk perintang, C untuk kapasitor, U untuk IC, Q untuk transistor, D untuk diod, J untuk penyambung, dan L untuk induktor."
+      }
+    ],
+    "docs.resources.title": "Sumber Berkaitan",
+    "docs.resources.cards": [
+      {
+        "title": "Perpustakaan Komponen",
+        "body": "Semak imbas 40+ simbol elektronik"
+      },
+      {
+        "title": "Buka Editor",
+        "body": "Mula membuat gambar rajah litar"
+      },
+      {
+        "title": "Blog & Tutorial",
+        "body": "Panduan, petua dan amalan terbaik"
+      }
+    ]
+  },
+  "pl": {
+    "docs.meta.title": "Dokumentacja — Podręcznik użytkownika narzędzia do tworzenia schematów obwodów",
+    "docs.meta.description": "Pełna dokumentacja programu do tworzenia schematów obwodów. Dowiedz się, jak tworzyć schematy obwodów, używać skrótów klawiaturowych, eksportować schematy i opanowywać przepływ pracy w edytorze.",
+    "docs.hero.badge": "Dokumentacja",
+    "docs.hero.title": "Dokumentacja narzędzia do tworzenia schematów obwodów — kompletny podręcznik użytkownika",
+    "docs.hero.description": "Wszystko, co musisz wiedzieć o tworzeniu, edytowaniu i eksportowaniu profesjonalnych schematów obwodów. Od pierwszego schematu po zaawansowane techniki układania — ten przewodnik opisuje cały proces tworzenia diagramów obwodów.",
+    "docs.guide.sections": [
+      {
+        "title": "Pierwsze kroki z Kreatorem schematów obwodów",
+        "body": "Otwórz edytor w przeglądarce bez konieczności pobierania ani zakładania konta. Zobaczysz pasek narzędzi u góry, bibliotekę komponentów po lewej stronie, obszar rysunku pośrodku i panel właściwości po prawej stronie."
+      },
+      {
+        "title": "Umieszczanie komponentów na płótnie",
+        "body": "Przeglądaj lub przeszukuj pasek boczny w poszukiwaniu rezystorów, kondensatorów, układów scalonych, złączy i innych symboli. Przeciągnij dowolny komponent na płótno, a zostanie on automatycznie przyciągnięty do siatki 20 pikseli."
+      },
+      {
+        "title": "Łączenie komponentów za pomocą przewodów",
+        "body": "Przełącz się na narzędzie Drut za pomocą paska narzędzi lub naciskając W. Kliknij jeden sworzeń komponentu, a następnie kliknij sworzeń docelowy, a silnik wyznaczania tras Manhattan wygeneruje czystą ścieżkę ortogonalną."
+      },
+      {
+        "title": "Etykietowanie i adnotacja",
+        "body": "Naciśnij L, aby dodać etykiety tekstowe do schematu obwodu. Kliknij dwukrotnie komponenty, aby edytować oznaczenia odniesienia, takie jak R1, C1 lub U1, i nazwać ważne sieci, takie jak VCC, GND, CLK lub DATA."
+      },
+      {
+        "title": "Eksportowanie schematu obwodu",
+        "body": "Aby pobrać swoją pracę, użyj przycisku Eksportuj na pasku narzędzi. Wybierz SVG, aby uzyskać skalowalne wyjście wektorowe, PNG dla prezentacji i stron internetowych lub JSON, jeśli chcesz później ponownie otworzyć i edytować projekt."
+      },
+      {
+        "title": "Zaawansowane wskazówki dotyczące szybszego rysowania",
+        "body": "Duplikuj powtarzające się bloki za pomocą Ctrl+D i organizuj złożone schematy od lewej do prawej. Zachowaj wizualne oddzielenie sekcji mocy, bloków logicznych i wyjść, aby ułatwić przeglądanie końcowego diagramu."
+      },
+      {
+        "title": "Eksport akademicki i publikacyjny",
+        "body": "Eksport SVG sprawdza się szczególnie dobrze w przypadku dokumentów, raportów i przepływów pracy LaTeX, ponieważ wydruki pozostają wyraźne przy każdym poziomie powiększenia i można je łatwo przekształcić w zasoby gotowe do druku."
+      },
+      {
+        "title": "Wspólne przepływy pracy JSON",
+        "body": "Użyj eksportu JSON, gdy członkowie zespołu muszą kontynuować edycję tego samego schematu. Zamiast udostępniać statyczny obraz, możesz przekazać plik projektu na żywo, który otwiera się bezpośrednio w edytorze przeglądarki."
+      }
+    ],
+    "docs.shortcuts.title": "Skróty klawiaturowe i akcje",
+    "docs.shortcuts.description": "Opanuj te skróty, aby szybciej tworzyć schematy obwodów. Każda akcja edytora podstawowego ma odpowiednik klawiaturowy.",
+    "docs.shortcuts.headers": [
+      "Skrót",
+      "Akcja",
+      "Opis"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Wybierz opcję Narzędzie",
+        "Kliknij i przeciągnij, aby wybrać, przenieść i pogrupować komponenty na obszarze roboczym"
+      ],
+      [
+        "W",
+        "Narzędzie do drutu",
+        "Narysuj ortogonalne połączenia przewodów pomiędzy stykami komponentów"
+      ],
+      [
+        "L",
+        "Narzędzie do etykietowania",
+        "Dodaj etykiety tekstowe i nazwy sieciowe do schematu obwodu"
+      ],
+      [
+        "R",
+        "Obróć",
+        "Obróć wybrany komponent o 90 stopni w prawo"
+      ],
+      [
+        "H",
+        "Odwróć w poziomie",
+        "Odbij wybrany komponent w poziomie"
+      ],
+      [
+        "F",
+        "Odwróć w pionie",
+        "Odbij wybrany komponent w pionie"
+      ],
+      [
+        "Del / Backspace",
+        "Usuń",
+        "Usuń wybrane komponenty lub przewody ze schematu"
+      ],
+      [
+        "Ctrl+Z",
+        "Cofnij",
+        "Cofnij ostatnią akcję w edytorze schematów obwodów"
+      ],
+      [
+        "Ctrl+Y",
+        "Powtórz",
+        "Wykonaj ponownie cofniętą wcześniej czynność"
+      ],
+      [
+        "Ctrl+D",
+        "Duplikat",
+        "Utwórz kopię wybranego komponentu lub grupy"
+      ],
+      [
+        "Ctrl+S",
+        "Zapisz",
+        "Zapisz schemat obwodu w lokalnej pamięci przeglądarki"
+      ],
+      [
+        "Ctrl+N",
+        "Nowy",
+        "Utwórz nowy pusty schemat obwodu"
+      ],
+      [
+        "Kółko przewijania",
+        "Powiększ/Oddal",
+        "Powiększ i pomniejsz płótno, aby uzyskać szczegółowe informacje"
+      ],
+      [
+        "Spacja + przeciągnij",
+        "Płótno Pana",
+        "Przytrzymaj spację i przeciągnij, aby przesuwać obszar roboczy"
+      ]
+    ],
+    "docs.drc.title": "Ręczna kontrola zasad projektowania (DRC)",
+    "docs.drc.description": "Zanim wyeksportujesz lub udostępnisz schemat obwodu, przejrzyj tę listę kontrolną, aby schemat był czysty, czytelny i spójny technicznie.",
+    "docs.drc.cards": [
+      {
+        "title": "Kontrola łączności",
+        "items": [
+          "Brak pływających szpilek. Każdy wymagany pin powinien być podłączony do sieci, szyny lub uziemienia.",
+          "Żadnych przypadkowych zakładek przewodów bez znacznika skrzyżowania.",
+          "Symbole zasilania i uziemienia pojawiają się tam, gdzie są potrzebne na schemacie."
+        ]
+      },
+      {
+        "title": "Etykietowanie i tekst",
+        "items": [
+          "Oznaczenia referencyjne pozostają unikalne bez duplikatów etykiet.",
+          "Wartości komponentów pozostają czytelne i nie są ukryte za pomocą przewodów.",
+          "Sieci krytyczne mają spójne nazwy, co ułatwia ich przeglądanie i debugowanie."
+        ]
+      }
+    ],
+    "docs.standards.title": "Standardy projektowania schematów",
+    "docs.standards.intro": "Aby tworzyć przejrzyste, profesjonalne schematy obwodów za pomocą narzędzia Circuit Diagram Maker, postępuj zgodnie z poniższymi standardami branżowymi:",
+    "docs.standards.cards": [
+      {
+        "title": "Kierunek przepływu sygnału",
+        "body": "Umieść wejścia po lewej stronie, przetwarzanie pośrodku, a wyjścia po prawej. Większość czytelników spodziewa się, że przepływ sygnału będzie przesuwał się od lewej do prawej."
+      },
+      {
+        "title": "Hierarchia potencjału napięcia",
+        "body": "Umieść szyny dodatnie, takie jak VCC lub VDD, w pobliżu góry i uziemienie w pobliżu dołu, aby dopasować je do standardowych nawyków czytania schematów."
+      },
+      {
+        "title": "Oznaczenia odniesienia",
+        "body": "Używaj popularnych przedrostków, takich jak R dla rezystorów, C dla kondensatorów, U dla układów scalonych, Q dla tranzystorów, D dla diod, J dla złączy i L dla cewek."
+      }
+    ],
+    "docs.resources.title": "Powiązane zasoby",
+    "docs.resources.cards": [
+      {
+        "title": "Biblioteka komponentów",
+        "body": "Przeglądaj ponad 40 symboli elektronicznych"
+      },
+      {
+        "title": "Otwórz Edytor",
+        "body": "Zacznij tworzyć schematy obwodów"
+      },
+      {
+        "title": "Blog i tutoriale",
+        "body": "Poradniki, wskazówki i najlepsze praktyki"
+      }
+    ]
+  },
+  "id": {
+    "docs.meta.title": "Dokumentasi — Panduan Pengguna Pembuat Diagram Sirkuit",
+    "docs.meta.description": "Dokumentasi lengkap untuk Pembuat Diagram Sirkuit. Pelajari cara membuat diagram sirkuit, menggunakan pintasan keyboard, mengekspor skema, dan menguasai alur kerja editor.",
+    "docs.hero.badge": "Dokumentasi",
+    "docs.hero.title": "Dokumentasi Pembuat Diagram Sirkuit — Panduan Pengguna Lengkap",
+    "docs.hero.description": "Semua yang perlu Anda ketahui tentang membuat, mengedit, dan mengekspor diagram sirkuit profesional. Dari skema pertama Anda hingga teknik tata letak tingkat lanjut, panduan ini mencakup alur kerja Pembuat Diagram Sirkuit secara lengkap.",
+    "docs.guide.sections": [
+      {
+        "title": "Memulai dengan Pembuat Diagram Sirkuit",
+        "body": "Buka editor di browser Anda tanpa memerlukan unduhan atau akun. Anda akan melihat toolbar di bagian atas, perpustakaan komponen di sebelah kiri, kanvas gambar di tengah, dan panel properti di sebelah kanan."
+      },
+      {
+        "title": "Menempatkan Komponen pada Kanvas",
+        "body": "Telusuri atau cari di sidebar untuk resistor, kapasitor, IC, konektor, dan simbol lainnya. Seret komponen apa pun ke kanvas dan komponen tersebut akan masuk ke grid 20 piksel secara otomatis."
+      },
+      {
+        "title": "Menghubungkan Komponen dengan Kabel",
+        "body": "Beralih ke alat Wire dengan toolbar atau dengan menekan W. Klik salah satu pin komponen, lalu klik pin tujuan, dan mesin perutean Manhattan akan menghasilkan jalur ortogonal yang bersih."
+      },
+      {
+        "title": "Pelabelan dan Anotasi",
+        "body": "Tekan L untuk menambahkan label teks ke diagram sirkuit Anda. Klik dua kali komponen untuk mengedit penanda referensi seperti R1, C1, atau U1, dan beri nama jaringan penting seperti VCC, GND, CLK, atau DATA."
+      },
+      {
+        "title": "Mengekspor Diagram Sirkuit Anda",
+        "body": "Gunakan tombol Ekspor di toolbar untuk mengunduh karya Anda. Pilih SVG untuk keluaran vektor yang dapat diskalakan, PNG untuk presentasi dan halaman web, atau JSON saat Anda ingin membuka kembali dan mengedit proyek nanti."
+      },
+      {
+        "title": "Tip Tingkat Lanjut untuk Penyusunan Lebih Cepat",
+        "body": "Gandakan blok berulang dengan Ctrl+D dan atur skema kompleks dari kiri ke kanan. Pisahkan bagian daya, blok logika, dan keluaran secara visual sehingga diagram akhir mudah ditinjau."
+      },
+      {
+        "title": "Ekspor Akademik dan Publikasi",
+        "body": "Ekspor SVG berfungsi sangat baik untuk kertas, laporan, dan alur kerja LaTeX karena outputnya tetap tajam pada tingkat zoom apa pun dan dapat dikonversi dengan rapi menjadi aset siap cetak."
+      },
+      {
+        "title": "Alur Kerja JSON Kolaboratif",
+        "body": "Gunakan ekspor JSON ketika rekan satu tim perlu terus mengedit skema yang sama. Daripada membagikan gambar statis, Anda dapat menyebarkan file proyek langsung yang terbuka langsung di editor browser."
+      }
+    ],
+    "docs.shortcuts.title": "Pintasan & Tindakan Keyboard",
+    "docs.shortcuts.description": "Kuasai pintasan ini untuk membuat diagram sirkuit lebih cepat. Setiap tindakan editor inti memiliki keyboard yang setara.",
+    "docs.shortcuts.headers": [
+      "Jalan pintas",
+      "Tindakan",
+      "Deskripsi"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Pilih Alat",
+        "Klik dan seret untuk memilih, memindahkan, dan mengelompokkan komponen di kanvas"
+      ],
+      [
+        "W",
+        "Alat Kawat",
+        "Gambarkan sambungan kawat ortogonal antara pin komponen"
+      ],
+      [
+        "L",
+        "Alat Label",
+        "Tambahkan label teks dan nama bersih ke diagram sirkuit Anda"
+      ],
+      [
+        "R",
+        "Putar",
+        "Putar komponen yang dipilih 90 derajat searah jarum jam"
+      ],
+      [
+        "H",
+        "Balik Horisontal",
+        "Cerminkan komponen yang dipilih secara horizontal"
+      ],
+      [
+        "F",
+        "Balik Vertikal",
+        "Cerminkan komponen yang dipilih secara vertikal"
+      ],
+      [
+        "Del/Backspace",
+        "Hapus",
+        "Hapus komponen atau kabel yang dipilih dari diagram"
+      ],
+      [
+        "Ctrl+Z",
+        "Membatalkan",
+        "Membatalkan tindakan terakhir di editor diagram sirkuit"
+      ],
+      [
+        "Ctrl+Y",
+        "Ulangi",
+        "Ulangi tindakan yang sebelumnya dibatalkan"
+      ],
+      [
+        "Ctrl+D",
+        "Duplikat",
+        "Buat salinan komponen atau grup yang dipilih"
+      ],
+      [
+        "Ctrl+S",
+        "Simpan",
+        "Simpan diagram sirkuit ke penyimpanan lokal browser"
+      ],
+      [
+        "Ctrl+N",
+        "Baru",
+        "Buat diagram sirkuit kosong baru"
+      ],
+      [
+        "Roda Gulir",
+        "Perbesar/Perkecil",
+        "Perbesar dan perkecil kanvas untuk pekerjaan detail"
+      ],
+      [
+        "Spasi + Seret",
+        "Pan Kanvas",
+        "Tahan bilah spasi dan seret untuk menggeser kanvas"
+      ]
+    ],
+    "docs.drc.title": "Pemeriksaan Aturan Desain Manual (DRC)",
+    "docs.drc.description": "Sebelum Anda mengekspor atau membagikan diagram sirkuit Anda, periksa daftar periksa ini untuk menjaga skema tetap bersih, mudah dibaca, dan konsisten secara teknis.",
+    "docs.drc.cards": [
+      {
+        "title": "Pemeriksaan Konektivitas",
+        "items": [
+          "Tidak ada pin mengambang. Setiap pin yang diperlukan harus terhubung ke jaring, rel, atau referensi ground.",
+          "Tidak ada kabel yang tumpang tindih tanpa penanda persimpangan.",
+          "Simbol daya dan ground muncul dimanapun diperlukan dalam skema."
+        ]
+      },
+      {
+        "title": "Pelabelan & Teks",
+        "items": [
+          "Penunjuk referensi tetap unik tanpa label duplikat.",
+          "Nilai komponen tetap dapat dibaca dan tidak disembunyikan oleh kabel.",
+          "Jaring kritis diberi nama secara konsisten untuk memudahkan peninjauan dan debugging."
+        ]
+      }
+    ],
+    "docs.standards.title": "Standar Desain Skema",
+    "docs.standards.intro": "Untuk membuat diagram sirkuit yang jelas dan profesional dengan Circuit Diagram Maker, ikuti konvensi standar industri berikut:",
+    "docs.standards.cards": [
+      {
+        "title": "Arah Aliran Sinyal",
+        "body": "Tempatkan masukan di sebelah kiri, pemrosesan di tengah, dan keluaran di sebelah kanan. Kebanyakan pembaca mengharapkan aliran sinyal bergerak dari kiri ke kanan."
+      },
+      {
+        "title": "Hirarki Potensi Tegangan",
+        "body": "Tempatkan rel positif seperti VCC atau VDD di dekat bagian atas dan tanah di dekat bagian bawah agar sesuai dengan kebiasaan membaca skema standar."
+      },
+      {
+        "title": "Penanda Referensi",
+        "body": "Gunakan awalan umum seperti R untuk resistor, C untuk kapasitor, U untuk IC, Q untuk transistor, D untuk dioda, J untuk konektor, dan L untuk induktor."
+      }
+    ],
+    "docs.resources.title": "Sumber Daya Terkait",
+    "docs.resources.cards": [
+      {
+        "title": "Perpustakaan Komponen",
+        "body": "Jelajahi 40+ simbol elektronik"
+      },
+      {
+        "title": "Buka Penyunting",
+        "body": "Mulai membuat diagram sirkuit"
+      },
+      {
+        "title": "Blog & Tutorial",
+        "body": "Panduan, tip, dan praktik terbaik"
+      }
+    ]
+  },
+  "ar": {
+    "docs.meta.title": "التوثيق - دليل مستخدم صانع مخططات الدائرة",
+    "docs.meta.description": "الوثائق الكاملة لصانع مخططات الدائرة. تعرف على كيفية إنشاء مخططات للدوائر، واستخدام اختصارات لوحة المفاتيح، وتصدير المخططات، وإتقان سير عمل المحرر.",
+    "docs.hero.badge": "التوثيق",
+    "docs.hero.title": "وثائق صانع مخططات الدائرة - دليل المستخدم الكامل",
+    "docs.hero.description": "كل ما تحتاج لمعرفته حول إنشاء مخططات الدوائر الاحترافية وتحريرها وتصديرها. بدءًا من التخطيط الأول وحتى تقنيات التخطيط المتقدمة، يغطي هذا الدليل سير العمل الكامل لـ Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "الشروع في العمل مع صانع مخطط الدائرة",
+        "body": "افتح المحرر في متصفحك دون الحاجة إلى تنزيل أو حساب. سترى شريط الأدوات في الأعلى، ومكتبة المكونات على اليسار، ولوحة الرسم في المنتصف، ولوحة الخصائص على اليمين."
+      },
+      {
+        "title": "وضع المكونات على القماش",
+        "body": "تصفح الشريط الجانبي أو ابحث فيه عن المقاومات والمكثفات والدوائر المتكاملة والموصلات والرموز الأخرى. اسحب أي مكون إلى اللوحة القماشية وسوف ينجذب إلى شبكة 20 بكسل تلقائيًا."
+      },
+      {
+        "title": "توصيل المكونات بالأسلاك",
+        "body": "قم بالتبديل إلى أداة Wire باستخدام شريط الأدوات أو بالضغط على W. انقر فوق طرف مكون واحد، ثم انقر فوق دبوس الوجهة، وسيقوم محرك التوجيه Manhattan بإنشاء مسار متعامد نظيف."
+      },
+      {
+        "title": "وضع العلامات والتعليقات التوضيحية",
+        "body": "اضغط على L لإضافة تسميات نصية إلى مخطط دائرتك. انقر نقرًا مزدوجًا فوق المكونات لتحرير محددات المراجع مثل R1، أو C1، أو U1، وتسمية الشبكات المهمة مثل VCC، أو GND، أو CLK، أو DATA."
+      },
+      {
+        "title": "تصدير مخطط دائرتك",
+        "body": "استخدم زر التصدير في شريط الأدوات لتنزيل عملك. اختر SVG لمخرجات متجهة قابلة للتطوير، أو PNG للعروض التقديمية وصفحات الويب، أو JSON عندما تريد إعادة فتح المشروع وتحريره لاحقًا."
+      },
+      {
+        "title": "نصائح متقدمة لصياغة أسرع",
+        "body": "قم بتكرار الكتل المتكررة باستخدام Ctrl+D وتنظيم المخططات المعقدة من اليسار إلى اليمين. حافظ على فصل أقسام الطاقة والكتل المنطقية والمخرجات بشكل مرئي حتى يسهل مراجعة المخطط النهائي."
+      },
+      {
+        "title": "الصادرات الأكاديمية والنشر",
+        "body": "يعمل تصدير SVG بشكل جيد بشكل خاص مع الأوراق والتقارير وسير عمل LaTeX لأن الإخراج يظل واضحًا عند أي مستوى تكبير ويمكن تحويله بشكل واضح إلى أصول جاهزة للطباعة."
+      },
+      {
+        "title": "سير عمل JSON التعاوني",
+        "body": "استخدم تصدير JSON عندما يحتاج أعضاء الفريق إلى مواصلة تحرير نفس المخطط. بدلاً من مشاركة صورة ثابتة، يمكنك تمرير ملف مشروع مباشر يتم فتحه مباشرة في محرر المتصفح."
+      }
+    ],
+    "docs.shortcuts.title": "اختصارات وإجراءات لوحة المفاتيح",
+    "docs.shortcuts.description": "أتقن هذه الاختصارات لإنشاء مخططات دوائر بشكل أسرع. كل إجراء محرر أساسي له مكافئ للوحة المفاتيح.",
+    "docs.shortcuts.headers": [
+      "الاختصار",
+      "العمل",
+      "الوصف"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "حدد أداة",
+        "انقر واسحب لتحديد المكونات ونقلها وتجميعها على اللوحة القماشية"
+      ],
+      [
+        "دبليو",
+        "أداة الأسلاك",
+        "ارسم وصلات سلكية متعامدة بين دبابيس المكونات"
+      ],
+      [
+        "ل",
+        "أداة التسمية",
+        "أضف تسميات نصية وأسماء شبكية إلى مخطط دائرتك"
+      ],
+      [
+        "ر",
+        "تدوير",
+        "قم بتدوير المكون المحدد بمقدار 90 درجة في اتجاه عقارب الساعة"
+      ],
+      [
+        "ح",
+        "الوجه الأفقي",
+        "قم بعكس المكون المحدد أفقيًا"
+      ],
+      [
+        "ف",
+        "الوجه العمودي",
+        "قم بعكس المكون المحدد عموديًا"
+      ],
+      [
+        "ديل / مسافة للخلف",
+        "حذف",
+        "قم بإزالة المكونات أو الأسلاك المحددة من الرسم التخطيطي"
+      ],
+      [
+        "السيطرة + Z",
+        "تراجع",
+        "التراجع عن الإجراء الأخير في محرر مخطط الدائرة"
+      ],
+      [
+        "السيطرة + ص",
+        "إعادة",
+        "إعادة الإجراء الذي تم التراجع عنه سابقًا"
+      ],
+      [
+        "السيطرة+د",
+        "مكررة",
+        "قم بإنشاء نسخة من المكون أو المجموعة المحددة"
+      ],
+      [
+        "السيطرة + س",
+        "حفظ",
+        "احفظ مخطط الدائرة في وحدة التخزين المحلية للمتصفح"
+      ],
+      [
+        "السيطرة + ن",
+        "جديد",
+        "قم بإنشاء مخطط دائرة فارغ جديد"
+      ],
+      [
+        "عجلة التمرير",
+        "تكبير/تصغير",
+        "قم بتكبير اللوحة القماشية وتصغيرها للحصول على تفاصيل العمل"
+      ],
+      [
+        "الفضاء + السحب",
+        "قماش عموم",
+        "اضغط مع الاستمرار على مفتاح المسافة واسحب للتحريك حول اللوحة القماشية"
+      ]
+    ],
+    "docs.drc.title": "التحقق من قواعد التصميم اليدوي (جمهورية الكونغو الديمقراطية)",
+    "docs.drc.description": "قبل تصدير مخطط دائرتك أو مشاركته، قم بالمراجعة من خلال قائمة التحقق هذه للحفاظ على المخطط نظيفًا وقابلاً للقراءة ومتسقًا من الناحية الفنية.",
+    "docs.drc.cards": [
+      {
+        "title": "فحص الاتصال",
+        "items": [
+          "لا دبابيس عائمة. يجب أن يتصل كل طرف مطلوب بشبكة أو سكة حديدية أو مرجع أرضي.",
+          "لا يوجد تداخل سلكي عرضي بدون علامة الوصل.",
+          "تظهر رموز القوة والأرض أينما تكون هناك حاجة إليها في المخطط."
+        ]
+      },
+      {
+        "title": "وضع العلامات والنص",
+        "items": [
+          "يظل مصممو المراجع فريدين بدون تسميات مكررة.",
+          "تظل قيم المكونات قابلة للقراءة ولا يتم إخفاؤها بواسطة الأسلاك.",
+          "تتم تسمية الشبكات الحرجة بشكل متسق لتسهيل المراجعة والتصحيح."
+        ]
+      }
+    ],
+    "docs.standards.title": "معايير التصميم التخطيطي",
+    "docs.standards.intro": "لإنشاء مخططات دوائر واضحة واحترافية باستخدام Circuit Diagram Maker، اتبع هذه القواعد القياسية الصناعية:",
+    "docs.standards.cards": [
+      {
+        "title": "اتجاه تدفق الإشارة",
+        "body": "ضع المدخلات على اليسار، والمعالجة في المركز، والمخرجات على اليمين. يتوقع معظم القراء أن يتحرك تدفق الإشارة من اليسار إلى اليمين."
+      },
+      {
+        "title": "التسلسل الهرمي المحتمل للجهد",
+        "body": "ضع القضبان الإيجابية مثل VCC أو VDD بالقرب من الأعلى والأرض بالقرب من الأسفل لتتناسب مع عادات القراءة التخطيطية القياسية."
+      },
+      {
+        "title": "المسميات المرجعية",
+        "body": "استخدم البادئات الشائعة مثل R للمقاومات، وC للمكثفات، وU للدوائر المرحلية، وQ للترانزستورات، وD للثنائيات، وJ للموصلات، وL للمحثات."
+      }
+    ],
+    "docs.resources.title": "الموارد ذات الصلة",
+    "docs.resources.cards": [
+      {
+        "title": "مكتبة المكونات",
+        "body": "تصفح أكثر من 40 رمزًا إلكترونيًا"
+      },
+      {
+        "title": "افتح المحرر",
+        "body": "البدء في إنشاء مخططات الدوائر"
+      },
+      {
+        "title": "مدونة وبرامج تعليمية",
+        "body": "الأدلة والنصائح وأفضل الممارسات"
+      }
+    ]
+  },
+  "bg": {
+    "docs.meta.title": "Документация — Ръководство за потребителя на Circuit Diagram Maker",
+    "docs.meta.description": "Пълна документация за Circuit Diagram Maker. Научете как да създавате електрически схеми, да използвате клавишни комбинации, да експортирате схеми и да овладеете работния процес на редактора.",
+    "docs.hero.badge": "Документация",
+    "docs.hero.title": "Документация за създателя на електрически схеми — Пълно ръководство за потребителя",
+    "docs.hero.description": "Всичко, което трябва да знаете за създаването, редактирането и експортирането на професионални електрически схеми. От вашата първа схема до усъвършенствани техники за оформление, това ръководство обхваща пълния работен процес на Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Първи стъпки с Circuit Diagram Maker",
+        "body": "Отворете редактора във вашия браузър, без да е необходимо изтегляне или акаунт. Ще видите лентата с инструменти в горната част, библиотеката с компоненти вляво, платното за рисуване в центъра и панела със свойства вдясно."
+      },
+      {
+        "title": "Поставяне на компоненти върху платното",
+        "body": "Прегледайте или потърсете в страничната лента резистори, кондензатори, интегрални схеми, конектори и други символи. Плъзнете който и да е компонент върху платното и той автоматично ще се прикрепи към мрежата от 20px."
+      },
+      {
+        "title": "Свързване на компоненти с проводници",
+        "body": "Превключете към инструмента Wire с лентата с инструменти или чрез натискане на W. Щракнете върху един щифт на компонента, след това щракнете върху целевия щифт и машината за маршрутизиране на Manhattan ще генерира чист ортогонален път."
+      },
+      {
+        "title": "Етикетиране и пояснение",
+        "body": "Натиснете L, за да добавите текстови етикети към вашата електрическа схема. Щракнете двукратно върху компоненти, за да редактирате референтни обозначения като R1, C1 или U1 и да наименувате важни мрежи като VCC, GND, CLK или DATA."
+      },
+      {
+        "title": "Експортиране на вашата електрическа схема",
+        "body": "Използвайте бутона Експортиране в лентата с инструменти, за да изтеглите работата си. Изберете SVG за мащабируем векторен изход, PNG за презентации и уеб страници или JSON, когато искате да отворите отново и редактирате проекта по-късно."
+      },
+      {
+        "title": "Разширени съвети за по-бързо изготвяне",
+        "body": "Дублирайте повтарящи се блокове с Ctrl+D и организирайте сложни схеми отляво надясно. Дръжте силовите секции, логическите блокове и изходите визуално разделени, така че крайната диаграма да е лесна за преглед."
+      },
+      {
+        "title": "Експорт на академични и публикации",
+        "body": "Експортирането на SVG работи особено добре за документи, отчети и работни потоци на LaTeX, тъй като изходът остава ясен при всяко ниво на увеличение и може да бъде преобразуван чисто в активи, готови за печат."
+      },
+      {
+        "title": "Съвместни JSON работни потоци",
+        "body": "Използвайте JSON експортиране, когато съотборниците трябва да продължат да редактират същата схема. Вместо да споделяте статично изображение, можете да предавате жив проектен файл, който се отваря директно в редактора на браузъра."
+      }
+    ],
+    "docs.shortcuts.title": "Клавишни комбинации и действия",
+    "docs.shortcuts.description": "Овладейте тези преки пътища, за да създавате по-бързо електрически схеми. Всяко основно действие на редактора има еквивалент на клавиатурата.",
+    "docs.shortcuts.headers": [
+      "Пряк път",
+      "Действие",
+      "Описание"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Изберете Инструмент",
+        "Щракнете и плъзнете, за да изберете, преместите и групирате компоненти върху платното"
+      ],
+      [
+        "У",
+        "Инструмент за тел",
+        "Начертайте ортогонални жични връзки между щифтовете на компонента"
+      ],
+      [
+        "Л",
+        "Инструмент за етикетиране",
+        "Добавете текстови етикети и имена на мрежи към вашата електрическа схема"
+      ],
+      [
+        "Р",
+        "Завъртете",
+        "Завъртете избрания компонент на 90 градуса по часовниковата стрелка"
+      ],
+      [
+        "з",
+        "Обръщане хоризонтално",
+        "Отразете избрания компонент хоризонтално"
+      ],
+      [
+        "Е",
+        "Обръщане вертикално",
+        "Отразете избрания компонент вертикално"
+      ],
+      [
+        "Del / Backspace",
+        "Изтриване",
+        "Премахнете избраните компоненти или кабели от диаграмата"
+      ],
+      [
+        "Ctrl+Z",
+        "Отмяна",
+        "Отмяна на последното действие в редактора на електрическата схема"
+      ],
+      [
+        "Ctrl+Y",
+        "Повторете",
+        "Повторете отмененото преди това действие"
+      ],
+      [
+        "Ctrl+D",
+        "Дубликат",
+        "Създайте копие на избрания компонент или група"
+      ],
+      [
+        "Ctrl+S",
+        "Запазване",
+        "Запазете електрическата схема в локалното хранилище на браузъра"
+      ],
+      [
+        "Ctrl+N",
+        "Нов",
+        "Създайте нова празна електрическа схема"
+      ],
+      [
+        "Колело за превъртане",
+        "Увеличаване/намаляване",
+        "Увеличавайте и намалявайте мащаба на платното за детайлна работа"
+      ],
+      [
+        "Интервал + плъзгане",
+        "Pan Canvas",
+        "Задръжте интервала и плъзнете, за да се движите около платното"
+      ]
+    ],
+    "docs.drc.title": "Ръчна проверка на правилата за проектиране (DRC)",
+    "docs.drc.description": "Преди да експортирате или споделите своята електрическа схема, прегледайте този контролен списък, за да поддържате схемата чиста, четлива и технически последователна.",
+    "docs.drc.cards": [
+      {
+        "title": "Проверка на свързаността",
+        "items": [
+          "Без плаващи щифтове. Всеки необходим щифт трябва да се свърже към мрежа, релса или заземяване.",
+          "Без случайно припокриване на проводници без маркер за свързване.",
+          "Символите за захранване и заземяване се появяват навсякъде, където са необходими в схемата."
+        ]
+      },
+      {
+        "title": "Етикетиране и текст",
+        "items": [
+          "Референтните обозначения остават уникални без дублиращи се етикети.",
+          "Стойностите на компонентите остават четими и не са скрити от кабели.",
+          "Критичните мрежи са именувани последователно за по-лесен преглед и отстраняване на грешки."
+        ]
+      }
+    ],
+    "docs.standards.title": "Стандарти за схематично проектиране",
+    "docs.standards.intro": "За да създадете ясни, професионални електрически схеми с Circuit Diagram Maker, следвайте тези индустриални стандартни конвенции:",
+    "docs.standards.cards": [
+      {
+        "title": "Посока на потока на сигнала",
+        "body": "Поставете входовете отляво, обработката в центъра и изходите отдясно. Повечето читатели очакват потокът от сигнали да се движи отляво надясно."
+      },
+      {
+        "title": "Йерархия на потенциала на напрежението",
+        "body": "Поставете положителни релси като VCC или VDD близо до горната част и земята близо до дъното, за да съответстват на стандартните навици за четене на схема."
+      },
+      {
+        "title": "Референтни обозначения",
+        "body": "Използвайте общи префикси като R за резистори, C за кондензатори, U за интегрални схеми, Q за транзистори, D за диоди, J за съединители и L за индуктори."
+      }
+    ],
+    "docs.resources.title": "Свързани ресурси",
+    "docs.resources.cards": [
+      {
+        "title": "Библиотека с компоненти",
+        "body": "Разгледайте 40+ електронни символа"
+      },
+      {
+        "title": "Отворете редактора",
+        "body": "Започнете да създавате електрически схеми"
+      },
+      {
+        "title": "Блог и уроци",
+        "body": "Ръководства, съвети и най-добри практики"
+      }
+    ]
+  },
+  "tr": {
+    "docs.meta.title": "Dokümantasyon — Devre Şeması Oluşturucu Kullanım Kılavuzu",
+    "docs.meta.description": "Devre Şeması Oluşturucu için eksiksiz belgeler. Devre şemaları oluşturmayı, klavye kısayollarını kullanmayı, şemaları dışa aktarmayı ve düzenleyici iş akışında uzmanlaşmayı öğrenin.",
+    "docs.hero.badge": "Dokümantasyon",
+    "docs.hero.title": "Devre Şeması Oluşturucu Dokümantasyonu - Tam Kullanım Kılavuzu",
+    "docs.hero.description": "Profesyonel devre şemalarını oluşturma, düzenleme ve dışa aktarma hakkında bilmeniz gereken her şey. İlk şemanızdan gelişmiş yerleşim tekniklerine kadar bu kılavuz, Devre Şeması Oluşturucu iş akışının tamamını kapsar.",
+    "docs.guide.sections": [
+      {
+        "title": "Devre Şeması Oluşturucuya Başlarken",
+        "body": "Hiçbir indirme veya hesap gerekmeden düzenleyiciyi tarayıcınızda açın. Üstte araç çubuğunu, solda bileşen kitaplığını, ortada çizim tuvalini ve sağda özellikler panelini göreceksiniz."
+      },
+      {
+        "title": "Bileşenleri Tuval Üzerine Yerleştirme",
+        "body": "Dirençler, kapasitörler, IC'ler, konektörler ve diğer semboller için kenar çubuğuna göz atın veya arama yapın. Herhangi bir bileşeni tuval üzerine sürüklediğinizde otomatik olarak 20 piksellik ızgaraya yapışacaktır."
+      },
+      {
+        "title": "Bileşenleri Tellerle Bağlama",
+        "body": "Araç çubuğuyla veya W tuşuna basarak Tel aracına geçin. Bir bileşen pimine tıklayın, ardından hedef pime tıklayın; Manhattan yönlendirme motoru temiz bir dik yol oluşturacaktır."
+      },
+      {
+        "title": "Etiketleme ve Ek Açıklama",
+        "body": "Devre şemanıza metin etiketleri eklemek için L tuşuna basın. R1, C1 veya U1 gibi referans tanımlayıcıları düzenlemek ve VCC, GND, CLK veya DATA gibi önemli ağları adlandırmak için bileşenlere çift tıklayın."
+      },
+      {
+        "title": "Devre Şemanızı Dışa Aktarma",
+        "body": "Çalışmanızı indirmek için araç çubuğundaki Dışa Aktar düğmesini kullanın. Ölçeklenebilir vektör çıktısı için SVG'yi, sunumlar ve web sayfaları için PNG'yi veya projeyi daha sonra yeniden açıp düzenlemek istediğinizde JSON'u seçin."
+      },
+      {
+        "title": "Daha Hızlı Taslak Hazırlama için Gelişmiş İpuçları",
+        "body": "Tekrarlanan blokları Ctrl+D ile çoğaltın ve karmaşık şemaları soldan sağa düzenleyin. Son diyagramın gözden geçirilmesinin kolay olması için güç bölümlerini, mantık bloklarını ve çıkışları görsel olarak ayrı tutun."
+      },
+      {
+        "title": "Akademik ve Yayın İhracatı",
+        "body": "SVG dışa aktarma özellikle kağıtlar, raporlar ve LaTeX iş akışları için iyi çalışır çünkü çıktı her yakınlaştırma düzeyinde net kalır ve temiz bir şekilde baskıya hazır varlıklara dönüştürülebilir."
+      },
+      {
+        "title": "İşbirliğine Dayalı JSON İş Akışları",
+        "body": "Ekip arkadaşlarınızın aynı şemayı düzenlemeye devam etmesi gerektiğinde JSON dışa aktarımını kullanın. Statik bir görüntüyü paylaşmak yerine, doğrudan tarayıcı düzenleyicisinde açılan canlı bir proje dosyasını aktarabilirsiniz."
+      }
+    ],
+    "docs.shortcuts.title": "Klavye Kısayolları ve Eylemleri",
+    "docs.shortcuts.description": "Devre şemalarını daha hızlı oluşturmak için bu kısayollarda ustalaşın. Her temel düzenleyici eyleminin bir klavye eşdeğeri vardır.",
+    "docs.shortcuts.headers": [
+      "Kısayol",
+      "Eylem",
+      "Açıklama"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Aracı Seç",
+        "Tuvaldeki bileşenleri seçmek, taşımak ve gruplamak için tıklayıp sürükleyin"
+      ],
+      [
+        "K",
+        "Tel Aracı",
+        "Bileşen pinleri arasına ortogonal kablo bağlantıları çizin"
+      ],
+      [
+        "L",
+        "Etiket Aracı",
+        "Devre şemanıza metin etiketleri ve ağ adları ekleyin"
+      ],
+      [
+        "R",
+        "Döndür",
+        "Seçilen bileşeni saat yönünde 90 derece döndür"
+      ],
+      [
+        "H",
+        "Yatay Çevir",
+        "Seçilen bileşeni yatay olarak aynalayın"
+      ],
+      [
+        "F",
+        "Dikey Çevir",
+        "Seçilen bileşeni dikey olarak aynalayın"
+      ],
+      [
+        "Del / Geri tuşu",
+        "Sil",
+        "Seçili bileşenleri veya kabloları diyagramdan kaldırın"
+      ],
+      [
+        "Ctrl+Z",
+        "Geri al",
+        "Devre şeması düzenleyicisindeki son eylemi geri alın"
+      ],
+      [
+        "Ctrl+Y",
+        "Yinele",
+        "Daha önce geri alınan eylemi yeniden yap"
+      ],
+      [
+        "Ctrl+D",
+        "Çoğalt",
+        "Seçilen bileşenin veya grubun bir kopyasını oluşturun"
+      ],
+      [
+        "Ctrl+S",
+        "Kaydet",
+        "Devre şemasını tarayıcının yerel belleğine kaydedin"
+      ],
+      [
+        "Ctrl+N",
+        "Yeni",
+        "Yeni bir boş devre şeması oluşturun"
+      ],
+      [
+        "Kaydırma Tekerleği",
+        "Yakınlaştır/Uzaklaştır",
+        "Ayrıntılı çalışma için tuvali yakınlaştırın ve uzaklaştırın"
+      ],
+      [
+        "Boşluk + Sürükle",
+        "Pan Kanvas",
+        "Tuvalin etrafında kaydırma yapmak için boşluk çubuğunu basılı tutun ve sürükleyin"
+      ]
+    ],
+    "docs.drc.title": "Manuel Tasarım Kuralı Kontrolü (DRC)",
+    "docs.drc.description": "Devre şemanızı dışa aktarmadan veya paylaşmadan önce şemayı temiz, okunabilir ve teknik olarak tutarlı tutmak için bu kontrol listesini gözden geçirin.",
+    "docs.drc.cards": [
+      {
+        "title": "Bağlantı Kontrolü",
+        "items": [
+          "Yüzen pin yok. Gerekli her pin bir ağa, raya veya toprak referansına bağlanmalıdır.",
+          "Bağlantı işareti olmadan kazara kablo çakışması olmaz.",
+          "Şematikte ihtiyaç duyulan her yerde güç ve toprak sembolleri görünür."
+        ]
+      },
+      {
+        "title": "Etiketleme ve Metin",
+        "items": [
+          "Referans göstergeleri, yinelenen etiketler olmadan benzersiz kalır.",
+          "Bileşen değerleri okunabilir durumda kalır ve kablolarla gizlenmez.",
+          "Kritik ağlar, daha kolay inceleme ve hata ayıklama için tutarlı bir şekilde adlandırılır."
+        ]
+      }
+    ],
+    "docs.standards.title": "Şematik Tasarım Standartları",
+    "docs.standards.intro": "Circuit Diagram Maker ile anlaşılır, profesyonel devre şemaları oluşturmak için şu endüstri standardı kuralları izleyin:",
+    "docs.standards.cards": [
+      {
+        "title": "Sinyal Akış Yönü",
+        "body": "Girişleri sola, işlemeyi ortaya ve çıkışları sağa yerleştirin. Çoğu okuyucu sinyal akışının soldan sağa doğru hareket etmesini bekler."
+      },
+      {
+        "title": "Gerilim Potansiyeli Hiyerarşisi",
+        "body": "Standart şematik okuma alışkanlıklarına uyacak şekilde VCC veya VDD gibi pozitif rayları üst kısma, zemine de alt kısma yakın bir yere yerleştirin."
+      },
+      {
+        "title": "Referans Tanımlayıcıları",
+        "body": "Dirençler için R, kapasitörler için C, IC'ler için U, transistörler için Q, diyotlar için D, konektörler için J ve indüktörler için L gibi yaygın önekleri kullanın."
+      }
+    ],
+    "docs.resources.title": "İlgili Kaynaklar",
+    "docs.resources.cards": [
+      {
+        "title": "Bileşen Kitaplığı",
+        "body": "40'tan fazla elektronik sembole göz atın"
+      },
+      {
+        "title": "Düzenleyiciyi Aç",
+        "body": "Devre şemaları oluşturmaya başlayın"
+      },
+      {
+        "title": "Blog ve Eğiticiler",
+        "body": "Kılavuzlar, ipuçları ve en iyi uygulamalar"
+      }
+    ]
+  },
+  "sv": {
+    "docs.meta.title": "Dokumentation — Circuit Diagram Maker User Guide",
+    "docs.meta.description": "Komplett dokumentation för Circuit Diagram Maker. Lär dig hur du skapar kretsscheman, använder kortkommandon, exporterar scheman och bemästrar redigerarens arbetsflöde.",
+    "docs.hero.badge": "Dokumentation",
+    "docs.hero.title": "Circuit Diagram Maker Documentation — Komplett användarhandbok",
+    "docs.hero.description": "Allt du behöver veta om att skapa, redigera och exportera professionella kretsscheman. Från din första schematiska till avancerade layouttekniker, den här guiden täcker hela arbetsflödet för Circuit Diagram Maker.",
+    "docs.guide.sections": [
+      {
+        "title": "Komma igång med Circuit Diagram Maker",
+        "body": "Öppna redigeraren i din webbläsare utan att ladda ner eller använda ett konto. Du kommer att se verktygsfältet överst, komponentbiblioteket till vänster, ritningsduken i mitten och egenskapspanelen till höger."
+      },
+      {
+        "title": "Placera komponenter på duken",
+        "body": "Bläddra eller sök i sidofältet efter motstånd, kondensatorer, IC:er, kontakter och andra symboler. Dra valfri komponent till arbetsytan och den fästs automatiskt till 20px-rutnätet."
+      },
+      {
+        "title": "Ansluta komponenter med kablar",
+        "body": "Växla till Wire-verktyget med verktygsfältet eller genom att trycka på W. Klicka på en komponentstift, klicka sedan på målstiftet, så genererar Manhattan routingmotor en ren ortogonal bana."
+      },
+      {
+        "title": "Märkning och anteckning",
+        "body": "Tryck på L för att lägga till textetiketter till ditt kretsschema. Dubbelklicka på komponenter för att redigera referensbeteckningar som R1, C1 eller U1 och namnge viktiga nät som VCC, GND, CLK eller DATA."
+      },
+      {
+        "title": "Exportera ditt kretsdiagram",
+        "body": "Använd knappen Exportera i verktygsfältet för att ladda ner ditt arbete. Välj SVG för skalbar vektorutgång, PNG för presentationer och webbsidor, eller JSON när du vill öppna och redigera projektet igen senare."
+      },
+      {
+        "title": "Avancerade tips för snabbare utkast",
+        "body": "Duplicera upprepade block med Ctrl+D och organisera komplexa scheman från vänster till höger. Håll effektsektioner, logikblock och utgångar visuellt åtskilda så att det slutliga diagrammet är lätt att granska."
+      },
+      {
+        "title": "Akademisk export och publikationsexport",
+        "body": "SVG-export fungerar särskilt bra för papper, rapporter och LaTeX-arbetsflöden eftersom utskriften förblir skarp på alla zoomnivåer och kan omvandlas till utskriftsklara tillgångar."
+      },
+      {
+        "title": "Samarbetande JSON-arbetsflöden",
+        "body": "Använd JSON-export när lagkamrater behöver fortsätta att redigera samma schema. Istället för att dela en statisk bild kan du skicka runt en levande projektfil som öppnas direkt i webbläsarredigeraren."
+      }
+    ],
+    "docs.shortcuts.title": "Kortkommandon och åtgärder",
+    "docs.shortcuts.description": "Bemästra dessa genvägar för att skapa kretsscheman snabbare. Varje kärnredigeringsåtgärd har motsvarande tangentbord.",
+    "docs.shortcuts.headers": [
+      "Genväg",
+      "Åtgärd",
+      "Beskrivning"
+    ],
+    "docs.shortcuts.rows": [
+      [
+        "V",
+        "Välj Verktyg",
+        "Klicka och dra för att välja, flytta och gruppera komponenter på arbetsytan"
+      ],
+      [
+        "W",
+        "Trådverktyg",
+        "Dra ortogonala trådanslutningar mellan komponentstiften"
+      ],
+      [
+        "L",
+        "Etikettverktyg",
+        "Lägg till textetiketter och nätnamn till ditt kretsschema"
+      ],
+      [
+        "R",
+        "Rotera",
+        "Rotera den valda komponenten 90 grader medurs"
+      ],
+      [
+        "H",
+        "Vänd horisontellt",
+        "Spegla den valda komponenten horisontellt"
+      ],
+      [
+        "F",
+        "Vänd vertikal",
+        "Spegla den valda komponenten vertikalt"
+      ],
+      [
+        "Del / Backsteg",
+        "Ta bort",
+        "Ta bort valda komponenter eller ledningar från diagrammet"
+      ],
+      [
+        "Ctrl+Z",
+        "Ångra",
+        "Ångra den sista åtgärden i kretsschemaeditorn"
+      ],
+      [
+        "Ctrl+Y",
+        "Gör om",
+        "Gör om den tidigare ångrade åtgärden"
+      ],
+      [
+        "Ctrl+D",
+        "Duplicera",
+        "Skapa en kopia av den valda komponenten eller gruppen"
+      ],
+      [
+        "Ctrl+S",
+        "Spara",
+        "Spara kretsschemat i webbläsarens lokala minne"
+      ],
+      [
+        "Ctrl+N",
+        "Nytt",
+        "Skapa ett nytt tomt kretsschema"
+      ],
+      [
+        "Scrollhjul",
+        "Zooma in/ut",
+        "Zooma in och ut duken för detaljarbete"
+      ],
+      [
+        "Mellanslag + Dra",
+        "Panorera canvas",
+        "Håll mellanslagstangenten och dra för att panorera runt duken"
+      ]
+    ],
+    "docs.drc.title": "Manual Design Rule Check (DRC)",
+    "docs.drc.description": "Innan du exporterar eller delar ditt kretsschema, gå igenom den här checklistan för att hålla schemat rent, läsbart och tekniskt konsekvent.",
+    "docs.drc.cards": [
+      {
+        "title": "Anslutningskontroll",
+        "items": [
+          "Inga flytande stift. Varje erforderligt stift ska anslutas till en nät-, skena eller jordreferens.",
+          "Ingen oavsiktlig trådöverlappning utan en korsningsmarkör.",
+          "Kraft- och jordsymboler visas varhelst de behövs i schemat."
+        ]
+      },
+      {
+        "title": "Märkning & text",
+        "items": [
+          "Referensbeteckningar förblir unika utan dubbletter av etiketter.",
+          "Komponentvärden förblir läsbara och döljs inte av kablar.",
+          "Kritiska nät namnges konsekvent för enklare granskning och felsökning."
+        ]
+      }
+    ],
+    "docs.standards.title": "Schematisk designstandarder",
+    "docs.standards.intro": "För att skapa tydliga, professionella kretsscheman med Circuit Diagram Maker, följ dessa industristandardkonventioner:",
+    "docs.standards.cards": [
+      {
+        "title": "Signalflödesriktning",
+        "body": "Placera ingångar till vänster, bearbetning i mitten och utgångar till höger. De flesta läsare förväntar sig att signalflödet rör sig från vänster till höger."
+      },
+      {
+        "title": "Spänningspotentialhierarki",
+        "body": "Placera positiva skenor som VCC eller VDD nära toppen och marken nära botten för att matcha vanliga schematiska läsvanor."
+      },
+      {
+        "title": "Referensbeteckningar",
+        "body": "Använd vanliga prefix som R för motstånd, C för kondensatorer, U för IC, Q för transistorer, D för dioder, J för kontakter och L för induktorer."
+      }
+    ],
+    "docs.resources.title": "Relaterade resurser",
+    "docs.resources.cards": [
+      {
+        "title": "Komponentbibliotek",
+        "body": "Bläddra bland 40+ elektroniska symboler"
+      },
+      {
+        "title": "Öppna Editor",
+        "body": "Börja skapa kretsscheman"
+      },
+      {
+        "title": "Blogg & tutorials",
+        "body": "Guider, tips och bästa praxis"
+      }
+    ]
+  }
+}

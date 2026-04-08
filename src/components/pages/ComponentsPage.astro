@@ -1,77 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath } from '../../theme/i18n';
+import { getLocalizedPath, useTranslations } from '../../theme/i18n';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
-
-const categories = [
-  {
-    title: 'Passive Components',
-    color: 'border-cyan-500/30',
-    items: ['Resistor', 'Capacitor', 'Inductor', 'Potentiometer', 'Fuse', 'Thermistor'],
-    notes: 'The foundation of every circuit diagram. Use passive components for filtering, timing, biasing, and current limiting in your schematics.'
-  },
-  {
-    title: 'Active & Semiconductor',
-    color: 'border-purple-500/30',
-    items: ['Diode', 'Zener Diode', 'LED', 'NPN Transistor', 'PNP Transistor', 'N-MOSFET', 'P-MOSFET'],
-    notes: 'Semiconductors enable switching, amplification, and signal processing. Circuit Diagram Maker includes standard symbols for all common device types.'
-  },
-  {
-    title: 'Integrated Circuits',
-    color: 'border-blue-500/30',
-    items: ['Op-Amp', 'Comparator', 'Microcontroller', 'Logic Gate (AND/OR/NOT)', '555 Timer', 'Voltage Regulator'],
-    notes: 'From analog op-amps to digital microcontrollers, IC symbols in our circuit diagram maker follow IEEE and IEC standards.'
-  },
-  {
-    title: 'Power Components',
-    color: 'border-amber-500/30',
-    items: ['Battery', 'DC Power Supply', 'AC Source', 'Transformer', 'Ground Symbol', 'Voltage Rail'],
-    notes: 'Map your power distribution clearly. Separate power paths from signal paths for clean, reviewable circuit diagrams.'
-  },
-  {
-    title: 'Connectors & IO',
-    color: 'border-emerald-500/30',
-    items: ['Header Connector', 'Terminal Block', 'USB Port', 'Test Point', 'Antenna', 'Probe Point'],
-    notes: 'Interface symbols define where your circuit connects to the outside world. Essential for PCB-ready schematics.'
-  },
-  {
-    title: 'Electromechanical',
-    color: 'border-rose-500/30',
-    items: ['Relay', 'Switch (SPST/SPDT)', 'Push Button', 'Motor', 'Speaker', 'Buzzer'],
-    notes: 'Control real-world devices with electromechanical components. Our circuit diagram maker includes symbols for switches, relays, and actuators.'
-  }
+const t = useTranslations(locale);
+const categoryColors = [
+  'border-cyan-500/30',
+  'border-purple-500/30',
+  'border-blue-500/30',
+  'border-amber-500/30',
+  'border-emerald-500/30',
+  'border-rose-500/30'
 ];
-
-const tableRows = [
-  ['Resistor', 'Passive', 'Current limiting, voltage dividers, pull-up/down networks', 'R1, R2, R_PULL'],
-  ['Capacitor', 'Passive', 'Decoupling, filtering, timing, coupling', 'C1, C_BYPASS'],
-  ['Inductor', 'Passive', 'Energy storage, filtering, EMI suppression', 'L1, L_CHOKE'],
-  ['Diode', 'Semiconductor', 'Rectification, protection, clamping', 'D1, D_TVS'],
-  ['LED', 'Semiconductor', 'Status indication, illumination', 'LED1, LED_PWR'],
-  ['N-MOSFET', 'Power', 'Load switching, H-bridges, converters', 'Q1, Q_SW'],
-  ['Op-Amp', 'Analog IC', 'Amplification, filtering, comparison', 'U1A, U1B'],
-  ['Microcontroller', 'Digital IC', 'Logic, sequencing, communication', 'U2, MCU'],
-  ['Voltage Regulator', 'Power IC', 'Voltage regulation, LDO, switching', 'U3, REG'],
-  ['Connector', 'Interface', 'External wiring, board-to-board, IO', 'J1, J_USB'],
-  ['Relay', 'Electromechanical', 'High-power switching, isolation', 'K1, RLY'],
-  ['Switch', 'Electromechanical', 'User input, mode selection', 'SW1, SW_PWR'],
-];
+const categories = t('components.categories').map((category: any, index: number) => ({
+  ...category,
+  color: categoryColors[index] || 'border-white/10'
+}));
+const tableHeaders = t('components.table.headers');
+const tableRows = t('components.table.rows');
+const howParagraphs = t('components.how.paragraphs');
 ---
 
-<BaseLayout title="Component Library — Circuit Diagram Maker" description="Browse the complete symbol library of Circuit Diagram Maker. 40+ electronic components including resistors, capacitors, ICs, transistors, connectors, and more.">
+<BaseLayout title={t('components.meta.title')} description={t('components.meta.description')}>
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.1),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.1),transparent_30%)]"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">Component Library</p>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">Circuit Diagram Maker — Component Library & Symbol Reference</h1>
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{t('components.hero.badge')}</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{t('components.hero.title')}</h1>
         <p class="mt-6 text-xl leading-relaxed text-slate-400">
-          Browse the complete library of 40+ electronic symbols available in Circuit Diagram Maker. Every component follows IEEE and IEC schematic standards, ensuring your circuit diagrams are universally readable by engineers, students, and reviewers worldwide.
+          {t('components.hero.description')}
         </p>
         <p class="mt-4 text-slate-400 leading-relaxed">
-          Each symbol in our circuit diagram maker is designed for clarity at any zoom level and exports crisply to both SVG and PNG formats. Components are organized into six categories covering passive parts, semiconductors, ICs, power elements, connectors, and electromechanical devices.
+          {t('components.hero.body')}
         </p>
       </div>
     </div>
@@ -98,18 +60,17 @@ const tableRows = [
   <section class="border-t border-white/5 bg-bg-dark py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold text-white">Complete Symbol Reference Table</h2>
-        <p class="mt-3 text-slate-400">Use these naming conventions to keep your circuit diagrams consistent across design reviews and documentation.</p>
+        <h2 class="text-3xl font-bold text-white">{t('components.table.title')}</h2>
+        <p class="mt-3 text-slate-400">{t('components.table.description')}</p>
       </div>
       <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-panel">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-sm">
             <thead class="bg-white/5 text-slate-300">
               <tr>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Symbol</th>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Category</th>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Typical Use in Circuit Diagrams</th>
-                <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">Reference Designator</th>
+                {tableHeaders.map((header: string) => (
+                  <th class="px-6 py-4 font-semibold uppercase tracking-[0.22em]">{header}</th>
+                ))}
               </tr>
             </thead>
             <tbody class="divide-y divide-white/10 text-slate-300">
@@ -131,18 +92,18 @@ const tableRows = [
   <!-- How to Place -->
   <section class="py-16 bg-bg-panel border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-white mb-6">How to Place Components in Circuit Diagram Maker</h2>
+      <h2 class="text-2xl font-bold text-white mb-6">{t('components.how.title')}</h2>
       <div class="space-y-4 text-slate-400 leading-relaxed">
-        <p>Adding components to your circuit diagram is straightforward. Open the <strong class="text-white">Circuit Diagram Maker editor</strong>, browse or search the component library in the left sidebar, then drag any symbol onto the canvas. The component automatically snaps to the 20px grid for perfect alignment.</p>
-        <p>To <strong class="text-white">rotate</strong> a placed component, select it and press <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-xs text-white font-mono">R</kbd>. To <strong class="text-white">flip</strong> horizontally or vertically, press <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-xs text-white font-mono">H</kbd> or <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-xs text-white font-mono">F</kbd>. Double-click any component to edit its label and reference designator.</p>
-        <p>Once components are placed, switch to the <strong class="text-white">Wire tool</strong> (press <kbd class="px-1.5 py-0.5 rounded bg-white/10 text-xs text-white font-mono">W</kbd>) and click from pin to pin to connect them. The Manhattan routing engine handles the path automatically.</p>
+        {howParagraphs.map((paragraph: string) => (
+          <p>{paragraph}</p>
+        ))}
       </div>
       <div class="mt-8 flex flex-wrap gap-4">
         <a href={getLocalizedPath('/editor/', locale)} class="rounded-xl bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
-          Open Circuit Diagram Editor
+          {t('components.actions.primary')}
         </a>
         <a href={getLocalizedPath('/docs/', locale)} class="rounded-xl border border-white/10 px-6 py-3 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/5">
-          Read Full Documentation
+          {t('components.actions.secondary')}
         </a>
       </div>
     </div>
