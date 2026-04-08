@@ -8,7 +8,6 @@ category: "Symbols"
 tags: ["symbols", "emi", "filters", "schematic-reading"]
 ---
 
-# Ferrite Bead Symbol – What It Looks Like in Circuit Diagrams
 
 The **ferrite bead symbol** appears in circuit diagrams wherever designers need to reduce high-frequency noise on a signal or power line. Ferrite beads are small passive components used in filtering and EMI control, and they are especially common in digital, RF, and power supply schematics.
 

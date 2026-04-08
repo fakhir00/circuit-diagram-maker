@@ -8,7 +8,6 @@ category: "Beginner Guide"
 tags: ["beginners", "tutorial", "education", "electronics-basics"]
 ---
 
-# Diagramas de circuitos para principiantes: todo lo que necesitas saber
 
 Si nunca antes ha creado un diagrama de circuito, esta guía es para usted. Comenzaremos desde lo más básico (qué son los diagramas de circuito, por qué existen, cómo leerlos) y trabajaremos hasta crear su primer esquema usando **Circuit Diagram Maker**. No se requiere experiencia previa en electrónica.
 

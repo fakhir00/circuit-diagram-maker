@@ -8,7 +8,6 @@ category: "Reference"
 tags: ["symbols", "reference", "components", "electronics"]
 ---
 
-# Explicación de los símbolos del diagrama de circuito: guía de referencia completa
 
 Comprender los símbolos de los diagramas de circuitos es el primer paso para leer y crear esquemas electrónicos. Cada componente de un diagrama de circuito está representado por un símbolo estandarizado que transmite su función, no su apariencia física. Esta guía cubre los símbolos más comunes que encontrará y utilizará en **Circuit Diagram Maker**.
 

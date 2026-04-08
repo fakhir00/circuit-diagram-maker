@@ -8,7 +8,6 @@ category: "Tutorial"
 tags: ["tutorial", "how-to", "online-tools", "circuit-design"]
 ---
 
-# Cómo hacer un diagrama de circuito en línea: guía paso a paso
 
 Crear un diagrama de circuito solía requerir un costoso software de escritorio, pero hoy en día puedes crear esquemas de calidad profesional completamente en línea. **Circuit Diagram Maker** es una herramienta gratuita basada en navegador que le permite diseñar, editar y exportar diagramas de circuitos sin descargar nada. En esta guía paso a paso, lo guiaremos a través de todo el proceso.
 

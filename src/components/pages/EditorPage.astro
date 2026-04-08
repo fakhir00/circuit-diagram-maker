@@ -43,6 +43,8 @@ const modeProjectNames = {
     arduino: t("editor.canvas.untitled.arduino"),
     pcb: t("editor.canvas.untitled.pcb")
 };
+const pageHeading = modeTitles[editorMode] || modeTitles.default;
+const pageDescription = modeDescriptions[editorMode] || modeDescriptions.default;
 
 const editorConfig = {
     mode: editorMode,
@@ -52,8 +54,8 @@ const editorConfig = {
 };
 const seo = resolveSeoMetadata({
     pathname: Astro.url.pathname,
-    title: modeTitles[editorMode] || modeTitles.default,
-    description: modeDescriptions[editorMode] || modeDescriptions.default
+    title: pageHeading,
+    description: pageDescription
 });
 ---
 <!DOCTYPE html>
@@ -74,6 +76,7 @@ const seo = resolveSeoMetadata({
     <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)}; window.__EDITOR_MODE__ = "${editorMode}"; window.__EDITOR_CONFIG__ = ${JSON.stringify(editorConfig)};`}></script>
 </head>
 <body>
+    <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">{pageHeading}</h1>
     <!-- ===== TOP TOOLBAR ===== -->
     <header id="toolbar" class="toolbar">
         <div class="toolbar-left">

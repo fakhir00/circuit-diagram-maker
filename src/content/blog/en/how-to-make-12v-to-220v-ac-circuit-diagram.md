@@ -8,7 +8,6 @@ category: "Power Electronics"
 tags: ["inverter", "tutorial", "power-electronics", "circuit-design"]
 ---
 
-# How to Make a 12V to 220V AC Circuit Diagram
 
 A **12V to 220V AC circuit diagram** shows how low-voltage DC from a battery is converted into high-voltage AC for loads such as lamps, fans, chargers, or small backup systems. If you are documenting an inverter project, studying power electronics, or preparing a clean schematic for a report, it is important to understand the logical structure of the circuit before you start drawing.
 

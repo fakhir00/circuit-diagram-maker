@@ -8,7 +8,6 @@ category: "Tutorial"
 tags: ["tutorial", "circuit-design", "beginners", "guide"]
 ---
 
-# La guía definitiva para diagramas de circuitos en 2026
 
 Los diagramas de circuitos son el lenguaje universal de la electrónica. Ya sea un estudiante que envía un informe de laboratorio, un ingeniero que revisa un diseño o un aficionado que planifica su próximo proyecto Arduino, comprender los diagramas de circuitos es esencial. En esta guía completa, cubriremos todo lo que necesita saber, desde leer símbolos básicos hasta crear esquemas con calidad de publicación con **Circuit Diagram Maker**.
 

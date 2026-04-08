@@ -8,7 +8,6 @@ category: "Beginner Guide"
 tags: ["beginners", "tutorial", "education", "schematic-reading"]
 ---
 
-# How to Read a Circuit Diagram: A Step-by-Step Guide
 
 If you are new to electronics, one of the most useful skills you can learn is **how to read a circuit diagram**. A good schematic tells you what components are used, how they connect, where power enters the circuit, and how a signal moves from input to output.
 

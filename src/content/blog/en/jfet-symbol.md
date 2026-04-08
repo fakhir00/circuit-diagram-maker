@@ -8,7 +8,6 @@ category: "Symbols"
 tags: ["symbols", "transistors", "electronics-basics", "schematic-reading"]
 ---
 
-# JFET Symbol – How to Read and Draw Junction Field-Effect Transistor
 
 The **JFET symbol** is used in circuit diagrams to represent a **junction field-effect transistor**. JFETs are important semiconductor devices used for amplification, switching, impedance buffering, and analog signal control. If you are learning transistor symbols, understanding the JFET is a great next step after basic diode and BJT symbols.
 

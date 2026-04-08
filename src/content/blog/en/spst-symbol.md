@@ -8,7 +8,6 @@ category: "Symbols"
 tags: ["symbols", "switches", "electronics-basics", "schematic-reading"]
 ---
 
-# SPST Symbol – Complete Guide to Single Pole Single Throw Switch
 
 The **SPST symbol** is one of the most common switch symbols in electronics and electrical schematics. If you are learning how to read circuit diagrams, understanding this symbol is essential because it represents the simplest type of manual switching action: a basic **on/off connection**.
 
