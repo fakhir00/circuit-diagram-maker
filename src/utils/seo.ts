@@ -1,4 +1,5 @@
 import { defaultLocale, locales } from '../theme/i18n';
+import config from '../data/config.json';
 
 export interface SeoMetadata {
   title: string;
@@ -13,7 +14,7 @@ interface ResolveSeoMetadataInput {
 
 const ROUTE_DEFAULTS: Record<string, SeoMetadata> = {
   '/': {
-    title: 'Circuit Diagram Maker',
+    title: 'Circuit Diagram Maker Online Tool',
     description: 'Create clean circuit diagrams online with smart wire routing, 40+ symbols, and free SVG or PNG export in your browser.'
   },
   '/editor/': {
@@ -154,6 +155,41 @@ function trimTitleToLength(value: string, maxLength: number): string {
   return value.slice(0, maxLength);
 }
 
+function normalizeTitleValue(value: string): string {
+  return collapseWhitespace(value)
+    .toLocaleLowerCase()
+    .replace(/[|:;,\-–—]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function appendUniqueTitlePart(parts: string[], nextPart?: string) {
+  const candidate = collapseWhitespace(nextPart);
+  if (!candidate) {
+    return;
+  }
+
+  const normalizedCandidate = normalizeTitleValue(candidate);
+  const exists = parts.some((part) => normalizeTitleValue(part) === normalizedCandidate);
+
+  if (!exists) {
+    parts.push(candidate);
+  }
+}
+
+function buildComposedTitle(parts: string[], maxLength: number): string {
+  let current = collapseWhitespace(parts[0] || '');
+
+  for (const part of parts.slice(1)) {
+    const candidate = `${current} | ${collapseWhitespace(part)}`;
+    if (getEscapedHtmlLength(candidate) <= maxLength) {
+      current = candidate;
+    }
+  }
+
+  return current;
+}
+
 function getLocaleFromPathname(pathname: string): string {
   const segments = pathname.split('/').filter(Boolean);
   return segments[0] && locales.includes(segments[0]) ? segments[0] : defaultLocale;
@@ -194,8 +230,47 @@ function getRouteDefaults(pathname: string): SeoMetadata {
   return ROUTE_DEFAULTS['/'];
 }
 
-function finalizeTitle(title: string | undefined, fallback: string): string {
-  return trimTitleToLength(collapseWhitespace(title) || fallback, 60);
+function finalizeTitle(title: string | undefined, fallback: string, pathname: string): string {
+  const maxTitleLength = 75;
+  const baseTitle = collapseWhitespace(title) || fallback;
+  const routeDefaultTitle = collapseWhitespace(getRouteDefaults(pathname).title);
+  const locale = getLocaleFromPathname(pathname);
+  const localeLabel = locale !== defaultLocale ? LOCALE_LABELS[locale] : '';
+  const parts = [baseTitle];
+  const normalizedBase = normalizeTitleValue(baseTitle);
+  const normalizedRouteTitle = normalizeTitleValue(routeDefaultTitle);
+
+  const shouldAddRouteTitle = Boolean(
+    routeDefaultTitle &&
+    normalizedBase &&
+    normalizedRouteTitle &&
+    normalizedBase !== normalizedRouteTitle &&
+    !normalizedBase.includes(normalizedRouteTitle) &&
+    !normalizedRouteTitle.includes(normalizedBase)
+  );
+
+  if (shouldAddRouteTitle) {
+    appendUniqueTitlePart(parts, routeDefaultTitle);
+  }
+
+  if (localeLabel) {
+    appendUniqueTitlePart(parts, `${localeLabel} Page`);
+  }
+
+  let composedTitle = buildComposedTitle(parts, maxTitleLength);
+
+  if (getEscapedHtmlLength(composedTitle) < 30 || normalizedBase === normalizedRouteTitle) {
+    appendUniqueTitlePart(parts, config.site.name);
+    composedTitle = buildComposedTitle(parts, maxTitleLength);
+  }
+
+  if (getEscapedHtmlLength(composedTitle) < 30) {
+    appendUniqueTitlePart(parts, routeDefaultTitle);
+    appendUniqueTitlePart(parts, config.site.name);
+    composedTitle = buildComposedTitle(parts, maxTitleLength);
+  }
+
+  return trimTitleToLength(composedTitle, maxTitleLength);
 }
 
 function appendLocaleSuffix(description: string, pathname: string): string {
@@ -239,7 +314,7 @@ export function resolveSeoMetadata({ pathname, title, description }: ResolveSeoM
   const defaults = getRouteDefaults(pathname);
 
   return {
-    title: finalizeTitle(title, defaults.title),
+    title: finalizeTitle(title, defaults.title, pathname),
     description: finalizeDescription(description, defaults.description, pathname)
   };
 }
