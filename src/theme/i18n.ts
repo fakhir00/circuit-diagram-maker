@@ -74,12 +74,21 @@ export function useTranslations(locale: string) {
 }
 
 export function getLocalizedPath(path: string, locale: string): string {
-  // Ensure the base path starts with a slash
   const basePath = path.startsWith('/') ? path : `/${path}`;
+  const hasTrailingSlash = basePath.length > 1 && basePath.endsWith('/');
+  const segments = basePath.split('/').filter(Boolean);
+  const withoutLocaleSegments = segments.filter((segment, index) => !(index === 0 && locales.includes(segment)));
+  const normalizedPath = withoutLocaleSegments.length === 0
+    ? '/'
+    : `/${withoutLocaleSegments.join('/')}${hasTrailingSlash ? '/' : ''}`;
+
   if (locale === defaultLocale) {
-    return basePath;
+    return normalizedPath;
   }
-  // Strip any existing locale
-  const withoutLocale = basePath.split('/').filter(p => !locales.includes(p)).join('/');
-  return `/${locale}/${withoutLocale}`.replace(/\/+/g, '/');
+
+  if (normalizedPath === '/') {
+    return `/${locale}/`;
+  }
+
+  return `/${locale}${normalizedPath}`;
 }
