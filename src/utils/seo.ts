@@ -108,6 +108,26 @@ const LOCALE_LABELS: Record<string, string> = {
   sv: 'Swedish'
 };
 
+const TITLE_SUFFIX_LABELS: Record<string, string> = {
+  '/': 'Home',
+  '/editor/': 'Editor',
+  '/logic-editor/': 'Logic',
+  '/arduino-editor/': 'Editor',
+  '/pcb-editor/': 'Editor',
+  '/logic-gate-diagram-tool/': 'Tool',
+  '/arduino-circuit-maker/': 'Tool',
+  '/pcb-schematic-tool/': 'Tool',
+  '/docs/': 'Guide',
+  '/components/': 'Library',
+  '/blog/': 'Articles',
+  '/about-us/': 'Team',
+  '/contact-us/': 'Help',
+  '/terms/': 'Legal',
+  '/privacy/': 'Policy',
+  '/sitemap/': 'Index',
+  '/404': '404'
+};
+
 function collapseWhitespace(value?: string): string {
   return (value || '').replace(/\s+/g, ' ').trim();
 }
@@ -177,19 +197,6 @@ function appendUniqueTitlePart(parts: string[], nextPart?: string) {
   }
 }
 
-function buildComposedTitle(parts: string[], maxLength: number): string {
-  let current = collapseWhitespace(parts[0] || '');
-
-  for (const part of parts.slice(1)) {
-    const candidate = `${current} | ${collapseWhitespace(part)}`;
-    if (getEscapedHtmlLength(candidate) <= maxLength) {
-      current = candidate;
-    }
-  }
-
-  return current;
-}
-
 function getLocaleFromPathname(pathname: string): string {
   const segments = pathname.split('/').filter(Boolean);
   return segments[0] && locales.includes(segments[0]) ? segments[0] : defaultLocale;
@@ -231,43 +238,50 @@ function getRouteDefaults(pathname: string): SeoMetadata {
 }
 
 function finalizeTitle(title: string | undefined, fallback: string, pathname: string): string {
-  const maxTitleLength = 75;
+  const maxTitleLength = 60;
+  const minTitleLength = 30;
+  const normalizedPath = normalizePathname(pathname);
   const baseTitle = collapseWhitespace(title) || fallback;
-  const routeDefaultTitle = collapseWhitespace(getRouteDefaults(pathname).title);
   const locale = getLocaleFromPathname(pathname);
-  const localeLabel = locale !== defaultLocale ? LOCALE_LABELS[locale] : '';
-  const parts = [baseTitle];
+  const localeCode = locale !== defaultLocale ? locale.toUpperCase() : '';
+  const routeLabel = TITLE_SUFFIX_LABELS[normalizedPath] || '';
+  const normalizedRouteDefault = normalizeTitleValue(collapseWhitespace(getRouteDefaults(pathname).title));
   const normalizedBase = normalizeTitleValue(baseTitle);
-  const normalizedRouteTitle = normalizeTitleValue(routeDefaultTitle);
+  const suffixParts: string[] = [];
 
-  const shouldAddRouteTitle = Boolean(
-    routeDefaultTitle &&
-    normalizedBase &&
-    normalizedRouteTitle &&
-    normalizedBase !== normalizedRouteTitle &&
-    !normalizedBase.includes(normalizedRouteTitle) &&
-    !normalizedRouteTitle.includes(normalizedBase)
-  );
+  const isArticleRoute = normalizedPath.startsWith('/blog/') && normalizedPath !== '/blog/';
 
-  if (shouldAddRouteTitle) {
-    appendUniqueTitlePart(parts, routeDefaultTitle);
+  if (!isArticleRoute && routeLabel) {
+    const normalizedRouteLabel = normalizeTitleValue(routeLabel);
+    const baseMatchesRouteDefault = normalizedBase === normalizedRouteDefault;
+    const baseContainsRouteLabel = normalizedBase.includes(normalizedRouteLabel);
+
+    if (baseMatchesRouteDefault || !baseContainsRouteLabel) {
+      appendUniqueTitlePart(suffixParts, routeLabel);
+    }
   }
 
-  if (localeLabel) {
-    appendUniqueTitlePart(parts, `${localeLabel} Page`);
+  if (localeCode) {
+    appendUniqueTitlePart(suffixParts, localeCode);
   }
 
-  let composedTitle = buildComposedTitle(parts, maxTitleLength);
+  let suffix = suffixParts.length > 0 ? ` | ${suffixParts.join(' | ')}` : '';
+  let availableBaseLength = Math.max(10, maxTitleLength - getEscapedHtmlLength(suffix));
+  let composedTitle = `${trimTitleToLength(baseTitle, availableBaseLength)}${suffix}`;
 
-  if (getEscapedHtmlLength(composedTitle) < 30 || normalizedBase === normalizedRouteTitle) {
-    appendUniqueTitlePart(parts, config.site.name);
-    composedTitle = buildComposedTitle(parts, maxTitleLength);
+  if (getEscapedHtmlLength(composedTitle) < minTitleLength) {
+    const brandCandidate = getEscapedHtmlLength(composedTitle) <= maxTitleLength - 6 ? 'CDM' : config.site.name;
+    appendUniqueTitlePart(suffixParts, brandCandidate);
+    suffix = ` | ${suffixParts.join(' | ')}`;
+    availableBaseLength = Math.max(10, maxTitleLength - getEscapedHtmlLength(suffix));
+    composedTitle = `${trimTitleToLength(baseTitle, availableBaseLength)}${suffix}`;
   }
 
-  if (getEscapedHtmlLength(composedTitle) < 30) {
-    appendUniqueTitlePart(parts, routeDefaultTitle);
-    appendUniqueTitlePart(parts, config.site.name);
-    composedTitle = buildComposedTitle(parts, maxTitleLength);
+  if (getEscapedHtmlLength(composedTitle) < minTitleLength) {
+    appendUniqueTitlePart(suffixParts, config.site.name);
+    suffix = ` | ${suffixParts.join(' | ')}`;
+    availableBaseLength = Math.max(10, maxTitleLength - getEscapedHtmlLength(suffix));
+    composedTitle = `${trimTitleToLength(baseTitle, availableBaseLength)}${suffix}`;
   }
 
   return trimTitleToLength(composedTitle, maxTitleLength);
