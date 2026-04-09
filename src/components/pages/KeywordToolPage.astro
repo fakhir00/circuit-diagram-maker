@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLocalizedPath } from '../../theme/i18n';
 import InlineKeywordTool from './InlineKeywordTool.astro';
 import FAQ from '../../components/FAQ.astro';
 import RelatedToolsSection from '../../components/RelatedToolsSection.astro';
@@ -15,15 +16,21 @@ interface DiagramStep {
   detail: string;
 }
 
-interface ToolSection {
+interface HeadingBlock {
   id: string;
   title: string;
-  description: string;
+  illustrationSummary: string;
+  purpose: string;
   diagramTitle: string;
   diagramSteps: DiagramStep[];
   tableCaption: string;
   tableHeaders: [string, string, string];
   tableRows: [string, string, string][];
+}
+
+interface SchematicSection {
+  main: HeadingBlock;
+  subs?: HeadingBlock[];
 }
 
 interface ToolFaqItem {
@@ -34,299 +41,932 @@ interface ToolFaqItem {
 
 const { locale, heading, toolKey } = Astro.props;
 
-const pageContent: Record<
-  Props['toolKey'],
+const toolMetaDescriptions: Record<Props['toolKey'], string> = {
+  'schematic-to-breadboard':
+    'Convert schematic diagrams into breadboard layouts with interactive mapping steps, worked examples, and mistake-proof wiring checks.',
+  'truth-table-to-logic-circuit':
+    'Convert truth-table output patterns into simplified Boolean expressions and practical gate-level circuit plans for faster validation.'
+};
+
+const truthContent = {
+  overview:
+    'This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.',
+  sections: [
+    {
+      id: 'boolean-reduction',
+      title: 'Boolean Reduction Pipeline',
+      description:
+        'The tool validates variable and bit lengths, extracts minterms, and reduces the expression so the final equation is easier to implement.',
+      diagramTitle: 'Interactive Simplification Diagram',
+      diagramSteps: [
+        {
+          label: 'Validate',
+          detail: 'Variable count determines required truth-table rows before any reduction starts.'
+        },
+        {
+          label: 'Extract',
+          detail: 'Rows with output 1 are converted into minterm indexes.'
+        },
+        {
+          label: 'Reduce',
+          detail: 'Compatible terms are merged to produce a shorter Boolean expression.'
+        }
+      ],
+      tableCaption: 'Core checks used for expression minimization',
+      tableHeaders: ['Input Rule', 'Why It Matters', 'Output'] as [string, string, string],
+      tableRows: [
+        ['1-4 variables', 'Defines manageable truth-table width', 'Expected bit count'],
+        ['Bit-length match', 'Prevents invalid row interpretation', 'Reliable minterm set'],
+        ['Prime reduction', 'Removes redundant terms', 'Simplified expression']
+      ] as [string, string, string][]
+    },
+    {
+      id: 'gate-planning',
+      title: 'Gate-Level Planning and Verification',
+      description:
+        'After simplification, the tool estimates gate stages and provides a compact implementation path for NOT, AND, and OR composition.',
+      diagramTitle: 'Interactive Gate Planning Diagram',
+      diagramSteps: [
+        {
+          label: 'Invert',
+          detail: 'Only required complemented literals are sent through NOT stages.'
+        },
+        {
+          label: 'Combine',
+          detail: 'Product terms are created with AND gates based on reduced expression terms.'
+        },
+        {
+          label: 'Merge',
+          detail: 'Final OR stage collects term outputs into the target function.'
+        }
+      ],
+      tableCaption: 'Gate-stage mapping from reduced expression',
+      tableHeaders: ['Gate Stage', 'Purpose', 'Design Benefit'] as [string, string, string],
+      tableRows: [
+        ['NOT stage', 'Generate complemented literals', 'Reduces wiring ambiguity'],
+        ['AND stage', 'Build each product term', 'Keeps logic modular'],
+        ['OR stage', 'Merge term outputs', 'Directly matches F output']
+      ] as [string, string, string][]
+    }
+  ],
+  faqItems: [
+    {
+      question: 'How many variables are supported on this page?',
+      answer: 'The inline tool accepts between 1 and 4 variables.',
+      display: true
+    },
+    {
+      question: 'Why must output bits match exactly 2^n rows?',
+      answer: 'Each row represents one input combination. Missing or extra bits break row alignment.',
+      display: true
+    },
+    {
+      question: 'Is this useful for class assignments and prototyping?',
+      answer: 'Yes. It is useful for quick derivation, checking simplification, and preparing gate-level drafts.',
+      display: true
+    }
+  ] as ToolFaqItem[]
+};
+
+const schematicSections: SchematicSection[] = [
   {
-    overview: string;
-    sections: ToolSection[];
-    faqItems: ToolFaqItem[];
-  }
-> = {
-  'schematic-to-breadboard': {
-    overview:
-      'This workflow turns raw schematic-style net connections into a readable breadboard placement plan with grouped rows and an ordered build sequence.',
-    sections: [
+    main: {
+      id: 'what-is-a-schematic-circuit-diagram',
+      title: '1. What is a Schematic Circuit Diagram?',
+      illustrationSummary:
+        'This interactive illustration uses a schematic-to-breadboard reveal where users switch between symbol view and physical placement view. Clicking each symbol highlights the matching real part and connection rails. It helps users see why schematics describe electrical intent, not physical location.',
+      purpose:
+        'Content purpose: establish the foundation by defining a schematic circuit diagram, how symbols represent electrical behavior, and how that differs from breadboard wiring layout.',
+      diagramTitle: 'Schematic vs Physical Wiring Explorer',
+      diagramSteps: [
+        {
+          label: 'Symbols',
+          detail: 'Schematic symbols represent function and electrical relationship, not literal board position.'
+        },
+        {
+          label: 'Nodes',
+          detail: 'Node labels and net links show what must connect electrically, regardless of layout shape.'
+        },
+        {
+          label: 'Placement',
+          detail: 'Breadboards require physical row and rail placement decisions to realize the same net intent.'
+        }
+      ],
+      tableCaption: 'Schematic foundation reference',
+      tableHeaders: ['Concept', 'Schematic View', 'Breadboard View'],
+      tableRows: [
+        ['Resistor', 'Value + symbol in circuit path', 'Physical lead across two rows'],
+        ['Power', 'VCC/GND symbols and net names', 'Positive/negative rail placement'],
+        ['Connection', 'Logical net continuity', 'Row jumper and wire continuity']
+      ]
+    }
+  },
+  {
+    main: {
+      id: 'how-to-use-the-schematic-to-breadboard-converter',
+      title: '2. How to Use the Schematic to Breadboard Converter',
+      illustrationSummary:
+        'The master interactive illustration acts as a workflow simulator with stage tabs for input, mapping, generation, and export. Users can move through the full conversion pipeline and watch the same circuit evolve from symbolic form to physical layout. This gives a complete mental model before step-by-step details.',
+      purpose:
+        'Content purpose: provide an end-to-end operational flow so users can execute conversion confidently and understand what each stage output means.',
+      diagramTitle: 'Master Conversion Workflow Simulator',
+      diagramSteps: [
+        {
+          label: 'Input',
+          detail: 'Upload or draw the source schematic so net relationships can be parsed.'
+        },
+        {
+          label: 'Map',
+          detail: 'Map each symbol and pin to a real breadboard-compatible part footprint.'
+        },
+        {
+          label: 'Layout',
+          detail: 'Generate row and rail assignments, then create physical jumper instructions.'
+        },
+        {
+          label: 'Share',
+          detail: 'Export the result as image/data output for collaboration or documentation.'
+        }
+      ],
+      tableCaption: 'Master conversion stages',
+      tableHeaders: ['Stage', 'What Happens', 'Expected Output'],
+      tableRows: [
+        ['Input', 'Schematic is parsed and validated', 'Clean net/source model'],
+        ['Mapping', 'Components and pins are resolved', 'Component mapping report'],
+        ['Layout', 'Rows/rails/wires are assigned', 'Breadboard layout instructions'],
+        ['Share', 'Layout is exported', 'PNG/SVG/JSON deliverable']
+      ]
+    },
+    subs: [
       {
-        id: 'net-interpretation',
-        title: 'Net Interpretation and Rail Assignment',
-        description:
-          'Start by normalizing each connection, identifying shared nets, and assigning stable row targets so every node maps to a predictable rail or strip.',
-        diagramTitle: 'Interactive Net Grouping Diagram',
+        id: 'step-1-upload-or-draw-your-schematic',
+        title: 'Step 1: Upload or Draw Your Schematic',
+        illustrationSummary:
+          'This step illustration provides a mini input sandbox where users can test netlist lines and symbol placement. Validation feedback appears immediately, showing accepted and rejected input. It reduces parser errors before conversion starts.',
+        purpose:
+          'Content purpose: explain accepted source formats and help users create a structurally valid starting schematic.',
+        diagramTitle: 'Input Validation Sandbox',
         diagramSteps: [
           {
-            label: 'Parse',
-            detail: 'Each line is parsed as NODE_A -> NODE_B, then validated for syntax.'
+            label: 'Upload',
+            detail: 'Load an existing schematic file or paste a connection list.'
           },
           {
-            label: 'Group',
-            detail: 'Connected nodes are merged into one electrical net cluster.'
+            label: 'Draw',
+            detail: 'Create symbols and wire them directly in the editor canvas.'
           },
           {
-            label: 'Assign',
-            detail: 'Each cluster is assigned a row index to keep placement consistent.'
+            label: 'Validate',
+            detail: 'Fix format issues before moving to component mapping.'
           }
         ],
-        tableCaption: 'Key checks for net interpretation and row planning',
-        tableHeaders: ['Check', 'What It Verifies', 'Output'],
+        tableCaption: 'Step 1 checklist',
+        tableHeaders: ['Input Type', 'Requirement', 'Pass Condition'],
         tableRows: [
-          ['Connection syntax', 'Each line matches NODE_A -> NODE_B format', 'Valid edge list'],
-          ['Net continuity', 'Nodes sharing any path are grouped together', 'Distinct net clusters'],
-          ['Row spacing', 'Rows are separated to reduce accidental shorts', 'Clear placement map']
+          ['Netlist', 'NODE_A -> NODE_B format', 'All lines parse successfully'],
+          ['Symbol drawing', 'Pins connected to valid nets', 'No orphan symbol pins'],
+          ['Naming', 'Consistent labels', 'No duplicate ambiguous node names']
         ]
       },
       {
-        id: 'build-sequencing',
-        title: 'Breadboard Build Sequencing',
-        description:
-          'After grouping, the tool emits a practical step order so component and jumper placement follows the same electrical intent as the schematic.',
-        diagramTitle: 'Interactive Build Order Diagram',
+        id: 'step-2-review-component-mapping',
+        title: 'Step 2: Review Component Mapping',
+        illustrationSummary:
+          'This interactive mapping board links schematic symbols to physical component footprints and pins. Hovering a mapping item highlights both symbol pin and breadboard destination point. It makes mis-mapped pins easy to catch before generation.',
+        purpose:
+          'Content purpose: verify symbol-to-part correctness and ensure pin orientation and package assumptions are valid.',
+        diagramTitle: 'Symbol-to-Footprint Mapper',
         diagramSteps: [
           {
-            label: 'Place',
-            detail: 'Drop core ICs and rails first so all later wires reference fixed anchors.'
+            label: 'Match',
+            detail: 'Match each schematic symbol to its intended physical component.'
           },
           {
-            label: 'Wire',
-            detail: 'Add jumpers net-by-net, using mapped rows to avoid crossover confusion.'
+            label: 'Pin check',
+            detail: 'Confirm pin numbering and orientation align with datasheet expectations.'
           },
           {
-            label: 'Verify',
-            detail: 'Confirm each named node appears in the expected row group before power-on.'
+            label: 'Resolve',
+            detail: 'Fix mapping warnings before building the breadboard layout.'
           }
         ],
-        tableCaption: 'Execution sequence for breadboard assembly',
-        tableHeaders: ['Stage', 'Practical Action', 'Result'],
+        tableCaption: 'Step 2 mapping checks',
+        tableHeaders: ['Mapping Item', 'Review Action', 'Result'],
         tableRows: [
-          ['Anchor stage', 'Place power rails and major IC references', 'Stable physical baseline'],
-          ['Jumper stage', 'Connect mapped pairs in generated order', 'Traceable wiring flow'],
-          ['Validation stage', 'Cross-check rows against generated report', 'Safer first power test']
+          ['LED', 'Check anode/cathode assignment', 'Correct polarity mapping'],
+          ['Transistor', 'Confirm base/collector/emitter order', 'Valid switching behavior'],
+          ['IC', 'Validate pin-1 orientation', 'Correct row placement plan']
         ]
-      }
-    ],
-    faqItems: [
-      {
-        question: 'What netlist format does this page accept?',
-        answer: 'Use one connection per line in the form NODE_A -> NODE_B.',
-        display: true
       },
       {
-        question: 'Can I map power rails like VCC and GND?',
-        answer: 'Yes. Named rails are grouped like any other net and appear in the generated row map.',
-        display: true
+        id: 'step-3-generate-breadboard-layout',
+        title: 'Step 3: Generate Breadboard Layout',
+        illustrationSummary:
+          'This generator illustration animates placement in the order the converter recommends: anchors first, then jumpers, then verification highlights. Users can toggle row and rail overlays while watching wiring paths appear. It transforms abstract nets into practical build steps.',
+        purpose:
+          'Content purpose: show how the converter creates a usable physical layout from logical connectivity.',
+        diagramTitle: 'Layout Generator Playback',
+        diagramSteps: [
+          {
+            label: 'Anchor',
+            detail: 'Place major components and power rails as fixed references.'
+          },
+          {
+            label: 'Route',
+            detail: 'Route each net with clear row-to-row jumper instructions.'
+          },
+          {
+            label: 'Inspect',
+            detail: 'Check for conflicts, overlaps, or ambiguous jumpers.'
+          }
+        ],
+        tableCaption: 'Step 3 generation outputs',
+        tableHeaders: ['Output Layer', 'What It Contains', 'Build Use'],
+        tableRows: [
+          ['Placement map', 'Component row positions', 'Physical part insertion'],
+          ['Jumper list', 'Wire endpoints by row/rail', 'Manual wiring order'],
+          ['Validation notes', 'Warnings and edge cases', 'Final pre-build sanity check']
+        ]
       },
       {
-        question: 'Does the output replace electrical verification?',
-        answer: 'No. It accelerates planning, but you should still verify continuity and polarity on hardware.',
-        display: true
+        id: 'step-4-download-or-share-the-result',
+        title: 'Step 4: Download or Share the Result',
+        illustrationSummary:
+          'This export panel simulation previews PNG, SVG, and JSON output from the same layout. Users can switch format tabs and see what details each export keeps. It supports handoff for classrooms, makerspaces, or team documentation.',
+        purpose:
+          'Content purpose: explain delivery options and help users choose the right output for fabrication notes or collaboration.',
+        diagramTitle: 'Export and Share Panel',
+        diagramSteps: [
+          {
+            label: 'Preview',
+            detail: 'Inspect final layout details before export.'
+          },
+          {
+            label: 'Export',
+            detail: 'Select PNG/SVG for visual output or JSON for editable project transfer.'
+          },
+          {
+            label: 'Share',
+            detail: 'Send files to teammates or include in documentation workflows.'
+          }
+        ],
+        tableCaption: 'Step 4 format selection',
+        tableHeaders: ['Format', 'Best Use', 'Includes'],
+        tableRows: [
+          ['PNG', 'Slides, quick sharing', 'Flat visual layout'],
+          ['SVG', 'Scalable docs and print', 'Vector geometry and labels'],
+          ['JSON', 'Project iteration and reload', 'Structured nets and metadata']
+        ]
       }
     ]
   },
-  'truth-table-to-logic-circuit': {
-    overview:
-      'This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.',
-    sections: [
+  {
+    main: {
+      id: 'schematic-to-breadboard-examples',
+      title: '3. Schematic to Breadboard Examples',
+      illustrationSummary:
+        'This example selector is an interactive gallery where users swap among multiple circuits and compare schematic, mapping, and breadboard views. Each switch keeps the same UI so differences in complexity are obvious. It accelerates learning through pattern recognition.',
+      purpose:
+        'Content purpose: teach conversion patterns with concrete circuits users can replicate and modify.',
+      diagramTitle: 'Example Selector Workspace',
+      diagramSteps: [
+        {
+          label: 'LED',
+          detail: 'A minimal single-output pattern for first-time conversions.'
+        },
+        {
+          label: 'Series',
+          detail: 'A chained component pattern with intermediate nodes.'
+        },
+        {
+          label: 'Transistor',
+          detail: 'An active-device switch pattern with orientation-sensitive pins.'
+        }
+      ],
+      tableCaption: 'Example comparison matrix',
+      tableHeaders: ['Example', 'Focus Skill', 'Complexity'],
+      tableRows: [
+        ['Single LED', 'Polarity and resistor placement', 'Beginner'],
+        ['Series resistors', 'Node continuity and value tracing', 'Intermediate'],
+        ['Transistor switch', 'Pin mapping and control paths', 'Intermediate+']
+      ]
+    },
+    subs: [
       {
-        id: 'boolean-reduction',
-        title: 'Boolean Reduction Pipeline',
-        description:
-          'The tool validates variable and bit lengths, extracts minterms, and reduces the expression so the final equation is easier to implement.',
-        diagramTitle: 'Interactive Simplification Diagram',
+        id: 'example-1-single-led-circuit',
+        title: 'Example 1: Single LED Circuit',
+        illustrationSummary:
+          'This interactive LED example lets users toggle resistor values and immediately see current-path feedback. The view highlights anode/cathode orientation and required power path continuity. It is ideal for understanding the smallest valid conversion.',
+        purpose:
+          'Content purpose: reinforce polarity, resistor safety, and clean VCC-to-GND path mapping.',
+        diagramTitle: 'Single LED Conversion Demo',
         diagramSteps: [
           {
-            label: 'Validate',
-            detail: 'Variable count determines required truth-table rows before any reduction starts.'
+            label: 'Source',
+            detail: 'Start from LED + resistor schematic with labeled polarity.'
           },
           {
-            label: 'Extract',
-            detail: 'Rows with output 1 are converted into minterm indexes.'
+            label: 'Place',
+            detail: 'Place LED and resistor across correct breadboard rows.'
           },
           {
-            label: 'Reduce',
-            detail: 'Compatible terms are merged to produce a shorter Boolean expression.'
+            label: 'Test',
+            detail: 'Verify that current path flows correctly from supply to ground.'
           }
         ],
-        tableCaption: 'Core checks used for expression minimization',
-        tableHeaders: ['Input Rule', 'Why It Matters', 'Output'],
+        tableCaption: 'LED example quick checks',
+        tableHeaders: ['Check', 'Why', 'Expected'],
         tableRows: [
-          ['1-4 variables', 'Defines manageable truth-table width', 'Expected bit count'],
-          ['Bit-length match', 'Prevents invalid row interpretation', 'Reliable minterm set'],
-          ['Prime reduction', 'Removes redundant terms', 'Simplified expression']
+          ['LED orientation', 'LED is polarity sensitive', 'Anode to source path'],
+          ['Resistor in series', 'Limits current safely', 'No direct LED short'],
+          ['Rail mapping', 'Ensures valid power path', 'Stable LED operation']
         ]
       },
       {
-        id: 'gate-planning',
-        title: 'Gate-Level Planning and Verification',
-        description:
-          'After simplification, the tool estimates gate stages and provides a compact implementation path for NOT, AND, and OR composition.',
-        diagramTitle: 'Interactive Gate Planning Diagram',
+        id: 'example-2-series-resistors',
+        title: 'Example 2: Series Resistors',
+        illustrationSummary:
+          'This illustration shows two resistors in series with interactive node labels for each junction. Users can change values and inspect how intermediate nodes remain connected in physical layout. It clarifies row planning for chained components.',
+        purpose:
+          'Content purpose: demonstrate series path continuity and intermediate node preservation during conversion.',
+        diagramTitle: 'Series Resistor Path Explorer',
         diagramSteps: [
           {
-            label: 'Invert',
-            detail: 'Only required complemented literals are sent through NOT stages.'
+            label: 'Chain',
+            detail: 'Define the resistor chain order in the schematic source.'
           },
           {
-            label: 'Combine',
-            detail: 'Product terms are created with AND gates based on reduced expression terms.'
+            label: 'Node',
+            detail: 'Preserve the midpoint node when mapping to breadboard rows.'
           },
           {
-            label: 'Merge',
-            detail: 'Final OR stage collects term outputs into the target function.'
+            label: 'Verify',
+            detail: 'Confirm continuity from source through both resistors to sink.'
           }
         ],
-        tableCaption: 'Gate-stage mapping from reduced expression',
-        tableHeaders: ['Gate Stage', 'Purpose', 'Design Benefit'],
+        tableCaption: 'Series resistor conversion checks',
+        tableHeaders: ['Element', 'Conversion Action', 'Verification'],
         tableRows: [
-          ['NOT stage', 'Generate complemented literals', 'Reduces wiring ambiguity'],
-          ['AND stage', 'Build each product term', 'Keeps logic modular'],
-          ['OR stage', 'Merge term outputs', 'Directly matches F output']
+          ['R1/R2 order', 'Keep component order intact', 'Expected node sequence'],
+          ['Midpoint node', 'Assign dedicated row', 'No unintended branching'],
+          ['Terminal rails', 'Connect to proper rails', 'Stable end-to-end path']
+        ]
+      },
+      {
+        id: 'example-3-transistor-as-a-switch',
+        title: 'Example 3: Transistor as a Switch',
+        illustrationSummary:
+          'This transistor switch demo toggles control input and shows collector-emitter state changes in real time. Pin overlays help users avoid base/collector/emitter confusion during placement. It highlights how active components demand stricter mapping discipline.',
+        purpose:
+          'Content purpose: teach correct transistor orientation and control-path conversion for switching circuits.',
+        diagramTitle: 'Transistor Switch Mapping Demo',
+        diagramSteps: [
+          {
+            label: 'Pin map',
+            detail: 'Identify B/C/E pins and align them with the chosen transistor package.'
+          },
+          {
+            label: 'Control',
+            detail: 'Route base control through the correct resistor path.'
+          },
+          {
+            label: 'Load path',
+            detail: 'Confirm collector-emitter load connection behaves as intended.'
+          }
+        ],
+        tableCaption: 'Transistor switch validation',
+        tableHeaders: ['Risk Area', 'Correct Mapping', 'Failure If Wrong'],
+        tableRows: [
+          ['Pin order', 'B-C-E aligned with part package', 'Switch logic fails'],
+          ['Base resistor', 'Resistor on control line', 'Overdrive or unstable switching'],
+          ['Load routing', 'Collector/emitter path verified', 'No output activation']
         ]
       }
-    ],
-    faqItems: [
+    ]
+  },
+  {
+    main: {
+      id: 'common-mistakes-when-converting-schematics-to-breadboard',
+      title: '4. Common Mistakes When Converting Schematics to Breadboard',
+      illustrationSummary:
+        'This section uses an interactive fix-the-layout challenge where users identify and correct deliberate conversion errors. Each correction updates a validation score and explains electrical consequences. It turns troubleshooting into guided practice.',
+      purpose:
+        'Content purpose: prevent frequent conversion failures by training users to recognize and resolve high-impact mistakes.',
+      diagramTitle: 'Find-and-Fix Error Challenge',
+      diagramSteps: [
+        {
+          label: 'Detect',
+          detail: 'Spot rail, orientation, or continuity mistakes in a faulty layout.'
+        },
+        {
+          label: 'Correct',
+          detail: 'Adjust rows, orientation, and jumpers to match net intent.'
+        },
+        {
+          label: 'Validate',
+          detail: 'Run final checks and review why each fix mattered.'
+        }
+      ],
+      tableCaption: 'High-impact conversion mistakes',
+      tableHeaders: ['Mistake Type', 'Symptoms', 'Prevention'],
+      tableRows: [
+        ['Power/GND confusion', 'Circuit appears dead or shorts rails', 'Explicit rail labeling and checks'],
+        ['Reversed orientation', 'Part fails or overheats', 'Pin/polarity validation'],
+        ['Floating nets', 'Intermittent or no output', 'Continuity verification before power-up']
+      ]
+    },
+    subs: [
       {
-        question: 'How many variables are supported on this page?',
-        answer: 'The inline tool accepts between 1 and 4 variables.',
-        display: true
+        id: 'mistake-1-misreading-power-and-ground',
+        title: 'Mistake 1: Misreading Power and Ground',
+        illustrationSummary:
+          'This interactive rail-mapping game asks users to assign VCC and GND rails correctly, then tests with continuity hints. Wrong picks generate instant short/open warnings. It builds reliable rail discipline before hardware testing.',
+        purpose:
+          'Content purpose: reduce power-rail mistakes that cause immediate failures or unsafe shorts.',
+        diagramTitle: 'Power and Ground Rail Checker',
+        diagramSteps: [
+          {
+            label: 'Label',
+            detail: 'Label both positive and ground rails explicitly before wiring.'
+          },
+          {
+            label: 'Connect',
+            detail: 'Attach each power net to the correct rail and verify polarity.'
+          },
+          {
+            label: 'Test',
+            detail: 'Run continuity and short checks between rails and load paths.'
+          }
+        ],
+        tableCaption: 'Power/GND error prevention',
+        tableHeaders: ['Check', 'Why It Matters', 'Pass Condition'],
+        tableRows: [
+          ['Rail polarity', 'Prevents reverse power', 'VCC/GND correctly assigned'],
+          ['Rail continuity', 'Ensures stable distribution', 'Consistent rail voltage'],
+          ['Short guard', 'Prevents component damage', 'No direct VCC-GND short']
+        ]
       },
       {
-        question: 'Why must output bits match exactly 2^n rows?',
-        answer: 'Each row represents one input combination. Missing or extra bits break row alignment.',
-        display: true
+        id: 'mistake-2-reversed-component-orientation',
+        title: 'Mistake 2: Reversed Component Orientation',
+        illustrationSummary:
+          'This orientation trainer lets users flip diodes, polarized capacitors, and transistor symbols in-place to see pass/fail behavior. Pin and polarity callouts update live. It helps users internalize direction-sensitive placement rules.',
+        purpose:
+          'Content purpose: prevent orientation-related wiring errors that break operation or damage parts.',
+        diagramTitle: 'Orientation Flip Trainer',
+        diagramSteps: [
+          {
+            label: 'Identify',
+            detail: 'Identify polarity or pin-1 marker before insertion.'
+          },
+          {
+            label: 'Orient',
+            detail: 'Rotate/flip component so symbol intent matches physical direction.'
+          },
+          {
+            label: 'Confirm',
+            detail: 'Confirm orientation against datasheet and mapping panel.'
+          }
+        ],
+        tableCaption: 'Orientation-critical components',
+        tableHeaders: ['Component', 'Orientation Rule', 'Risk if Reversed'],
+        tableRows: [
+          ['LED/diode', 'Anode/cathode must align', 'No conduction or damage'],
+          ['Electrolytic cap', 'Positive/negative polarity respected', 'Leakage or failure'],
+          ['Transistor', 'Correct B/C/E orientation', 'Switch stage fails']
+        ]
       },
       {
-        question: 'Is this useful for class assignments and prototyping?',
-        answer: 'Yes. It is useful for quick derivation, checking simplification, and preparing gate-level drafts.',
-        display: true
+        id: 'mistake-3-floating-connections',
+        title: 'Mistake 3: Floating Connections',
+        illustrationSummary:
+          'This continuity heatmap marks each required net as connected or floating. Users drag missing jumpers until every net passes the check. It provides a practical pre-power checklist for hidden opens.',
+        purpose:
+          'Content purpose: ensure full net completion so circuits do not fail due to unconnected nodes.',
+        diagramTitle: 'Floating Net Heatmap',
+        diagramSteps: [
+          {
+            label: 'Scan',
+            detail: 'Scan all required nets and mark unresolved nodes.'
+          },
+          {
+            label: 'Patch',
+            detail: 'Insert missing jumper links to restore connectivity.'
+          },
+          {
+            label: 'Finalize',
+            detail: 'Re-run continuity checks until all nets report connected.'
+          }
+        ],
+        tableCaption: 'Floating-connection troubleshooting',
+        tableHeaders: ['Issue', 'Detection Signal', 'Fix'],
+        tableRows: [
+          ['Unconnected node', 'Heatmap highlights open net', 'Add missing jumper'],
+          ['Partial rail feed', 'Only subset of nodes energized', 'Bridge rail segments'],
+          ['Intermittent output', 'Random behavior under motion', 'Secure and re-seat leads']
+        ]
       }
     ]
   }
-};
+];
 
-const content = pageContent[toolKey];
+const schematicNavLinks = schematicSections.flatMap((section) => {
+  const mainLink = [{ id: section.main.id, title: section.main.title, level: 'h2' }];
+  const subLinks = (section.subs || []).map((sub) => ({ id: sub.id, title: sub.title, level: 'h3' }));
+  return [...mainLink, ...subLinks];
+});
+
+const schematicInternalLinks = [
+  {
+    title: 'How to Read a Circuit Diagram (Step by Step)',
+    href: getLocalizedPath('/blog/how-to-read-a-circuit-diagram-step-by-step-guide/', locale),
+    description: 'Build confidence reading symbols, nets, and flow before conversion.'
+  },
+  {
+    title: 'How to Make a Circuit Diagram Online',
+    href: getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale),
+    description: 'Create cleaner source schematics that convert more reliably.'
+  },
+  {
+    title: 'Circuit Components Library',
+    href: getLocalizedPath('/components/', locale),
+    description: 'Verify symbol meanings and part behavior while mapping components.'
+  },
+  {
+    title: 'Circuit Editor Documentation',
+    href: getLocalizedPath('/docs/', locale),
+    description: 'Use shortcuts and editor workflows to prepare valid inputs quickly.'
+  },
+  {
+    title: 'Open Circuit Diagram Editor',
+    href: getLocalizedPath('/editor/', locale),
+    description: 'Draw and refine source schematics before running conversion.'
+  }
+];
+
+const schematicFaqItems: ToolFaqItem[] = [
+  {
+    question: 'Can I convert a hand-drawn or rough schematic?',
+    answer: 'Yes, but best results come from clean symbol and net labeling before conversion.',
+    display: true
+  },
+  {
+    question: 'Does this replace manual hardware verification?',
+    answer: 'No. Use the generated plan as guidance, then verify continuity and polarity on real hardware.',
+    display: true
+  },
+  {
+    question: 'What parts most often fail during mapping?',
+    answer: 'Polarity-sensitive parts and transistor pin-order assumptions cause most mapping issues.',
+    display: true
+  },
+  {
+    question: 'Can I share the conversion output with teammates?',
+    answer: 'Yes. Export visual formats for reviews and JSON for editable project transfer.',
+    display: true
+  }
+];
+
+const activeFaqItems = toolKey === 'schematic-to-breadboard' ? schematicFaqItems : truthContent.faqItems;
+
+const pageDescription = toolMetaDescriptions[toolKey];
 ---
 
-<BaseLayout title={heading} description={`${heading} on Circuit Diagram Maker.`}>
+<BaseLayout title={heading} description={pageDescription}>
   <article aria-labelledby="tool-page-title">
     <InlineKeywordTool toolKey={toolKey} heading={heading} />
 
-    <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <header class="max-w-4xl">
-          <h2 id="workflow-overview-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Workflow Overview</h2>
-          <p class="mt-3 text-slate-400">{content.overview}</p>
-        </header>
-
-        <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label="On-page workflow sections">
-          <ol class="grid gap-2 sm:grid-cols-2">
-            {content.sections.map((section, index) => (
-              <li>
-                <a href={`#${section.id}`} class="block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-brand-primary/35 hover:text-white">
-                  {index + 1}. {section.title}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </div>
-    </section>
-
-    {content.sections.map((section, sectionIndex) => (
-      <section id={section.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.id}-title`}>
-        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <header class="max-w-4xl">
-            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent">Stage {sectionIndex + 1}</p>
-            <h2 id={`${section.id}-title`} class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              {section.title}
-            </h2>
-            <p class="mt-3 text-slate-400">{section.description}</p>
-          </header>
-
-          <div class="mt-8 grid gap-6 lg:grid-cols-2">
-            <figure class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6" data-interactive-diagram>
-              <figcaption class="text-base font-semibold text-white">{section.diagramTitle}</figcaption>
-              <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.diagramTitle}>
-                {section.diagramSteps.slice(0, -1).map((_, index) => {
-                  const segmentWidth = 300 / Math.max(1, section.diagramSteps.length - 1);
-                  const x1 = 60 + segmentWidth * index;
-                  const x2 = x1 + segmentWidth;
-                  return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
-                })}
-
-                {section.diagramSteps.map((step, index) => {
-                  const stepWidth = 300 / Math.max(1, section.diagramSteps.length - 1);
-                  const cx = 60 + stepWidth * index;
-                  return (
-                    <g>
-                      <circle data-diagram-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
-                      <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
-                      <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
-                    </g>
-                  );
-                })}
-              </svg>
-
-              <div class="mt-4 flex flex-wrap gap-2">
-                {section.diagramSteps.map((step, index) => (
-                  <button
-                    type="button"
-                    data-step-button
-                    data-active={index === 0 ? 'true' : 'false'}
-                    data-step-detail={step.detail}
-                    class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
-                    aria-pressed={index === 0 ? 'true' : 'false'}
-                  >
-                    {step.label}
-                  </button>
+    {toolKey === 'schematic-to-breadboard' ? (
+      <>
+        <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="schematic-page-map-title">
+          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <header class="max-w-4xl">
+              <h2 id="schematic-page-map-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Schematic to Breadboard Content Map</h2>
+              <p class="mt-3 text-slate-400">Navigate directly to each required section and step. Every heading includes its own interactive illustration and structured reference table.</p>
+            </header>
+            <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label="Schematic to breadboard heading map">
+              <ol class="grid gap-2 sm:grid-cols-2">
+                {schematicNavLinks.map((link) => (
+                  <li>
+                    <a href={`#${link.id}`} class:list={[
+                      'block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm transition hover:border-brand-primary/35 hover:text-white',
+                      link.level === 'h2' ? 'font-semibold text-slate-100' : 'font-medium text-slate-300'
+                    ]}>
+                      {link.title}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ol>
+            </nav>
+          </div>
+        </section>
 
-              <p data-step-detail class="mt-4 rounded-xl border border-white/10 bg-bg-dark/80 px-4 py-3 text-sm leading-6 text-slate-300">
-                {section.diagramSteps[0].detail}
-              </p>
-            </figure>
+        {schematicSections.map((section) => (
+          <section id={section.main.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.main.id}-title`}>
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
+                <header>
+                  <h2 id={`${section.main.id}-title`} class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{section.main.title}</h2>
+                  <p class="mt-4 text-slate-300 leading-7">{section.main.illustrationSummary}</p>
+                </header>
 
-            <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-surface/70">
-              <table class="w-full text-left text-sm">
-                <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                  {section.tableCaption}
-                </caption>
-                <thead class="bg-white/[0.03] text-slate-300">
-                  <tr>
-                    {section.tableHeaders.map((header) => (
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-white/10 text-slate-300">
-                  {section.tableRows.map((row) => (
-                    <tr>
-                      <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
-                      <td class="px-4 py-3">{row[1]}</td>
-                      <td class="px-4 py-3">{row[2]}</td>
-                    </tr>
+                <div class="mt-6 grid gap-6 lg:grid-cols-2">
+                  <figure class="rounded-2xl border border-white/10 bg-bg-dark/80 p-5" data-illustration-block>
+                    <figcaption class="text-base font-semibold text-white">{section.main.diagramTitle}</figcaption>
+                    <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.main.diagramTitle}>
+                      {section.main.diagramSteps.slice(0, -1).map((_, index) => {
+                        const stepCount = Math.max(1, section.main.diagramSteps.length - 1);
+                        const x1 = 60 + (280 / stepCount) * index;
+                        const x2 = 60 + (280 / stepCount) * (index + 1);
+                        return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
+                      })}
+
+                      {section.main.diagramSteps.map((step, index) => {
+                        const stepCount = Math.max(1, section.main.diagramSteps.length - 1);
+                        const cx = 60 + (280 / stepCount) * index;
+                        return (
+                          <g>
+                            <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
+                            <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
+                            <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
+                          </g>
+                        );
+                      })}
+                    </svg>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                      {section.main.diagramSteps.map((step, index) => (
+                        <button
+                          type="button"
+                          data-ill-button
+                          data-active={index === 0 ? 'true' : 'false'}
+                          data-ill-detail={step.detail}
+                          class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
+                          aria-pressed={index === 0 ? 'true' : 'false'}
+                        >
+                          {step.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-panel/70 px-4 py-3 text-sm leading-6 text-slate-300">
+                      {section.main.diagramSteps[0].detail}
+                    </p>
+                  </figure>
+
+                  <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-dark/60">
+                    <table class="w-full text-left text-sm">
+                      <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                        {section.main.tableCaption}
+                      </caption>
+                      <thead class="bg-white/[0.03] text-slate-300">
+                        <tr>
+                          {section.main.tableHeaders.map((header) => (
+                            <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-white/10 text-slate-300">
+                        {section.main.tableRows.map((row) => (
+                          <tr>
+                            <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
+                            <td class="px-4 py-3">{row[1]}</td>
+                            <td class="px-4 py-3">{row[2]}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <p class="mt-6 text-slate-300 leading-7">{section.main.purpose}</p>
+              </article>
+
+              {section.subs && section.subs.length > 0 && (
+                <div class="mt-8 space-y-6">
+                  {section.subs.map((sub) => (
+                    <article id={sub.id} class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6" aria-labelledby={`${sub.id}-title`}>
+                      <header>
+                        <h3 id={`${sub.id}-title`} class="text-xl font-bold tracking-tight text-white sm:text-2xl">{sub.title}</h3>
+                        <p class="mt-4 text-slate-300 leading-7">{sub.illustrationSummary}</p>
+                      </header>
+
+                      <div class="mt-6 grid gap-6 lg:grid-cols-2">
+                        <figure class="rounded-2xl border border-white/10 bg-bg-dark/80 p-5" data-illustration-block>
+                          <figcaption class="text-base font-semibold text-white">{sub.diagramTitle}</figcaption>
+                          <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={sub.diagramTitle}>
+                            {sub.diagramSteps.slice(0, -1).map((_, index) => {
+                              const stepCount = Math.max(1, sub.diagramSteps.length - 1);
+                              const x1 = 60 + (280 / stepCount) * index;
+                              const x2 = 60 + (280 / stepCount) * (index + 1);
+                              return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
+                            })}
+
+                            {sub.diagramSteps.map((step, index) => {
+                              const stepCount = Math.max(1, sub.diagramSteps.length - 1);
+                              const cx = 60 + (280 / stepCount) * index;
+                              return (
+                                <g>
+                                  <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
+                                  <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
+                                  <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
+                                </g>
+                              );
+                            })}
+                          </svg>
+
+                          <div class="mt-4 flex flex-wrap gap-2">
+                            {sub.diagramSteps.map((step, index) => (
+                              <button
+                                type="button"
+                                data-ill-button
+                                data-active={index === 0 ? 'true' : 'false'}
+                                data-ill-detail={step.detail}
+                                class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
+                                aria-pressed={index === 0 ? 'true' : 'false'}
+                              >
+                                {step.label}
+                              </button>
+                            ))}
+                          </div>
+
+                          <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-panel/70 px-4 py-3 text-sm leading-6 text-slate-300">
+                            {sub.diagramSteps[0].detail}
+                          </p>
+                        </figure>
+
+                        <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-dark/60">
+                          <table class="w-full text-left text-sm">
+                            <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                              {sub.tableCaption}
+                            </caption>
+                            <thead class="bg-white/[0.03] text-slate-300">
+                              <tr>
+                                {sub.tableHeaders.map((header) => (
+                                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/10 text-slate-300">
+                              {sub.tableRows.map((row) => (
+                                <tr>
+                                  <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
+                                  <td class="px-4 py-3">{row[1]}</td>
+                                  <td class="px-4 py-3">{row[2]}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <p class="mt-6 text-slate-300 leading-7">{sub.purpose}</p>
+                    </article>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              )}
+            </div>
+          </section>
+        ))}
+
+        <section class="border-t border-white/5 bg-bg-panel py-14 sm:py-16" aria-labelledby="schematic-internal-links-title">
+          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 id="schematic-internal-links-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Internal Links for Schematic-to-Breadboard Workflows</h2>
+            <p class="mt-3 max-w-3xl text-slate-400">Use these related pages to improve schematic quality, symbol understanding, and conversion reliability.</p>
+            <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {schematicInternalLinks.map((link) => (
+                <article class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 transition-colors hover:border-brand-primary/30 hover:bg-bg-surface">
+                  <h3 class="text-base font-semibold text-white">{link.title}</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">{link.description}</p>
+                  <a href={link.href} class="mt-4 inline-flex rounded-xl bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500">
+                    Open Page
+                  </a>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-    ))}
+        </section>
+      </>
+    ) : (
+      <>
+        <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
+          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <header class="max-w-4xl">
+              <h2 id="workflow-overview-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Workflow Overview</h2>
+              <p class="mt-3 text-slate-400">{truthContent.overview}</p>
+            </header>
+
+            <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label="On-page workflow sections">
+              <ol class="grid gap-2 sm:grid-cols-2">
+                {truthContent.sections.map((section, index) => (
+                  <li>
+                    <a href={`#${section.id}`} class="block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-brand-primary/35 hover:text-white">
+                      {index + 1}. {section.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </div>
+        </section>
+
+        {truthContent.sections.map((section, sectionIndex) => (
+          <section id={section.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.id}-title`}>
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <header class="max-w-4xl">
+                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent">Stage {sectionIndex + 1}</p>
+                <h2 id={`${section.id}-title`} class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">{section.title}</h2>
+                <p class="mt-3 text-slate-400">{section.description}</p>
+              </header>
+
+              <div class="mt-8 grid gap-6 lg:grid-cols-2">
+                <figure class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6" data-illustration-block>
+                  <figcaption class="text-base font-semibold text-white">{section.diagramTitle}</figcaption>
+                  <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.diagramTitle}>
+                    {section.diagramSteps.slice(0, -1).map((_, index) => {
+                      const stepCount = Math.max(1, section.diagramSteps.length - 1);
+                      const x1 = 60 + (280 / stepCount) * index;
+                      const x2 = 60 + (280 / stepCount) * (index + 1);
+                      return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
+                    })}
+
+                    {section.diagramSteps.map((step, index) => {
+                      const stepCount = Math.max(1, section.diagramSteps.length - 1);
+                      const cx = 60 + (280 / stepCount) * index;
+                      return (
+                        <g>
+                          <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
+                          <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
+                          <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
+                        </g>
+                      );
+                    })}
+                  </svg>
+
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {section.diagramSteps.map((step, index) => (
+                      <button
+                        type="button"
+                        data-ill-button
+                        data-active={index === 0 ? 'true' : 'false'}
+                        data-ill-detail={step.detail}
+                        class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
+                        aria-pressed={index === 0 ? 'true' : 'false'}
+                      >
+                        {step.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-dark/80 px-4 py-3 text-sm leading-6 text-slate-300">
+                    {section.diagramSteps[0].detail}
+                  </p>
+                </figure>
+
+                <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-surface/70">
+                  <table class="w-full text-left text-sm">
+                    <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                      {section.tableCaption}
+                    </caption>
+                    <thead class="bg-white/[0.03] text-slate-300">
+                      <tr>
+                        {section.tableHeaders.map((header) => (
+                          <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10 text-slate-300">
+                      {section.tableRows.map((row) => (
+                        <tr>
+                          <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
+                          <td class="px-4 py-3">{row[1]}</td>
+                          <td class="px-4 py-3">{row[2]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        ))}
+      </>
+    )}
 
     <RelatedToolsSection locale={locale} excludeKeys={[toolKey]} />
   </article>
 
-  <FAQ title="Frequently Asked Questions" items={content.faqItems} />
+  <FAQ title="Frequently Asked Questions" items={activeFaqItems} />
 
   <script is:inline>
     (() => {
-      const diagrams = Array.from(document.querySelectorAll('[data-interactive-diagram]'));
-      if (!diagrams.length) return;
+      const blocks = Array.from(document.querySelectorAll('[data-illustration-block]'));
+      if (!blocks.length) return;
 
-      diagrams.forEach((diagram) => {
-        const buttons = Array.from(diagram.querySelectorAll('[data-step-button]'));
-        const nodes = Array.from(diagram.querySelectorAll('[data-diagram-node]'));
-        const detail = diagram.querySelector('[data-step-detail]');
+      blocks.forEach((block) => {
+        const buttons = Array.from(block.querySelectorAll('[data-ill-button]'));
+        const nodes = Array.from(block.querySelectorAll('[data-ill-node]'));
+        const detail = block.querySelector('[data-ill-detail]');
         if (!buttons.length || !nodes.length || !detail) return;
 
         const activate = (index) => {
@@ -340,7 +980,7 @@ const content = pageContent[toolKey];
             node.dataset.active = String(nodeIndex <= index);
           });
 
-          detail.textContent = buttons[index]?.dataset.stepDetail || '';
+          detail.textContent = buttons[index]?.dataset.illDetail || '';
         };
 
         buttons.forEach((button, index) => {
@@ -353,13 +993,13 @@ const content = pageContent[toolKey];
   </script>
 
   <style>
-    [data-step-button][data-active='true'] {
+    [data-ill-button][data-active='true'] {
       border-color: rgba(59, 130, 246, 0.55);
       background: rgba(59, 130, 246, 0.18);
       color: #fff;
     }
 
-    [data-diagram-node][data-active='true'] {
+    [data-ill-node][data-active='true'] {
       stroke: rgba(59, 130, 246, 0.9);
       fill: rgba(30, 64, 175, 0.35);
     }

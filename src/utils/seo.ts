@@ -51,7 +51,8 @@ const ROUTE_DEFAULTS: Record<string, SeoMetadata> = {
   },
   '/schematic-to-breadboard/': {
     title: 'Schematic To Breadboard',
-    description: 'Plan practical breadboard layouts from schematic intent with clearer wiring paths and faster prototype setup.'
+    description:
+      'Convert schematic diagrams into breadboard layouts with interactive mapping, step-by-step examples, and error checks for reliable prototyping.'
   },
   '/docs/': {
     title: 'Circuit Diagram Docs',
