@@ -2,6 +2,8 @@
 import DocumentationPage from '../components/pages/DocumentationPage.astro';
 import { getLocaleFromUrl } from '../theme/i18n';
 
+export const prerender = true;
+
 const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
 

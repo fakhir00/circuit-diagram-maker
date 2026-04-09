@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getLocaleFromUrl, useTranslations } from '../../../theme/i18n';
+import config from '../../../data/config.json';
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection('blog', ({ id }) => !id.startsWith('en/'));
@@ -23,6 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 const locale = getLocaleFromUrl(Astro.url.pathname);
 const t = useTranslations(locale);
+const siteUrl = Astro.site || config.site.url;
 
 // Blog Schema
 const blogSchema = {
@@ -30,14 +32,14 @@ const blogSchema = {
   "@type": "Blog",
   "name": "Circuit Diagram Maker Blog",
   "description": "Tutorials, news and insights about circuit design and engineering.",
-  "url": new URL(Astro.url.pathname, Astro.site || 'https://circuit-diagram.org'),
+  "url": new URL(Astro.url.pathname, siteUrl),
   "inLanguage": locale,
   "itemListElement": page.data.map((post, index) => {
     const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
     return {
       "@type": "ListItem",
       "position": index + 1,
-      "url": new URL(`/${locale}/blog/${slug}`, Astro.site || 'https://circuit-diagram.org'),
+      "url": new URL(`/${locale}/blog/${slug}`, siteUrl),
       "name": post.data.title
     };
   })

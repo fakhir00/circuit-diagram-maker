@@ -1,27 +1,83 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath, useTranslations } from '../../theme/i18n';
+import { defaultLocale, getLocalizedPath, useTranslations } from '../../theme/i18n';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-const guideSections = t('docs.guide.sections');
-const shortcutHeaders = t('docs.shortcuts.headers');
-const shortcutRows = t('docs.shortcuts.rows');
-const drcCards = t('docs.drc.cards');
-const standards = t('docs.standards.cards');
-const resourceCards = t('docs.resources.cards');
+const fallbackT = useTranslations(defaultLocale);
+
+function readLocalizedValue(key: string) {
+  const localizedValue = t(key);
+
+  if (localizedValue !== undefined && localizedValue !== null) {
+    return localizedValue;
+  }
+
+  return fallbackT(key);
+}
+
+function readText(key: string) {
+  const value = readLocalizedValue(key);
+  if (typeof value === 'string' && value.trim().length > 0) {
+    return value;
+  }
+
+  const fallbackValue = fallbackT(key);
+  return typeof fallbackValue === 'string' ? fallbackValue : '';
+}
+
+function readStringArray(key: string) {
+  const value = readLocalizedValue(key);
+  if (Array.isArray(value) && value.every((item) => typeof item === 'string')) {
+    return value;
+  }
+
+  const fallbackValue = fallbackT(key);
+  return Array.isArray(fallbackValue) ? fallbackValue.filter((item) => typeof item === 'string') : [];
+}
+
+function readShortcutRows(key: string) {
+  const value = readLocalizedValue(key);
+  if (Array.isArray(value) && value.every((row) => Array.isArray(row))) {
+    return value.map((row) => [
+      typeof row[0] === 'string' ? row[0] : '',
+      typeof row[1] === 'string' ? row[1] : '',
+      typeof row[2] === 'string' ? row[2] : ''
+    ]);
+  }
+
+  const fallbackValue = fallbackT(key);
+  return Array.isArray(fallbackValue) ? fallbackValue : [];
+}
+
+function readCardArray(key: string) {
+  const value = readLocalizedValue(key);
+  if (Array.isArray(value) && value.every((item) => item && typeof item === 'object' && !Array.isArray(item))) {
+    return value;
+  }
+
+  const fallbackValue = fallbackT(key);
+  return Array.isArray(fallbackValue) ? fallbackValue : [];
+}
+
+const guideSections = readCardArray('docs.guide.sections');
+const shortcutHeaders = readStringArray('docs.shortcuts.headers');
+const shortcutRows = readShortcutRows('docs.shortcuts.rows');
+const drcCards = readCardArray('docs.drc.cards');
+const standards = readCardArray('docs.standards.cards');
+const resourceCards = readCardArray('docs.resources.cards');
 ---
 
-<BaseLayout title={t('docs.meta.title')} description={t('docs.meta.description')}>
+<BaseLayout title={readText('docs.meta.title')} description={readText('docs.meta.description')}>
   <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.1),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.1),transparent_30%)]"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{t('docs.hero.badge')}</p>
-        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{t('docs.hero.title')}</h1>
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{readText('docs.hero.badge')}</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{readText('docs.hero.title')}</h1>
         <p class="mt-6 text-xl leading-relaxed text-slate-400">
-          {t('docs.hero.description')}
+          {readText('docs.hero.description')}
         </p>
       </div>
     </div>
@@ -48,8 +104,8 @@ const resourceCards = t('docs.resources.cards');
   <section class="border-t border-white/5 bg-bg-dark py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
-        <h2 class="text-3xl font-bold text-white">{t('docs.shortcuts.title')}</h2>
-        <p class="mt-3 text-slate-400">{t('docs.shortcuts.description')}</p>
+        <h2 class="text-3xl font-bold text-white">{readText('docs.shortcuts.title')}</h2>
+        <p class="mt-3 text-slate-400">{readText('docs.shortcuts.description')}</p>
       </div>
       <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-panel">
         <div class="overflow-x-auto">
@@ -81,8 +137,8 @@ const resourceCards = t('docs.resources.cards');
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.05),transparent_60%)]"></div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-white">{t('docs.drc.title')}</h2>
-        <p class="mt-4 text-slate-400">{t('docs.drc.description')}</p>
+        <h2 class="text-3xl font-bold text-white">{readText('docs.drc.title')}</h2>
+        <p class="mt-4 text-slate-400">{readText('docs.drc.description')}</p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
         {drcCards.map((card: any) => (
@@ -102,9 +158,9 @@ const resourceCards = t('docs.resources.cards');
   <!-- Best Practices -->
   <section class="py-20 bg-bg-panel border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white mb-8 text-center">{t('docs.standards.title')}</h2>
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">{readText('docs.standards.title')}</h2>
       <div class="space-y-6 text-slate-400 leading-relaxed bg-bg-dark/50 p-8 rounded-3xl border border-white/5">
-        <p>{t('docs.standards.intro')}</p>
+        <p>{readText('docs.standards.intro')}</p>
         <div class="grid gap-6">
           {standards.map((card: any, index: number) => (
             <div class="flex gap-4">
@@ -127,7 +183,7 @@ const resourceCards = t('docs.resources.cards');
   <!-- Related Links -->
   <section class="py-12 bg-bg-dark border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-xl font-bold text-white mb-6">{t('docs.resources.title')}</h2>
+      <h2 class="text-xl font-bold text-white mb-6">{readText('docs.resources.title')}</h2>
       <div class="grid gap-4 sm:grid-cols-3">
         <a href={getLocalizedPath('/components/', locale)} class="rounded-xl border border-white/10 bg-bg-panel/60 p-4 hover:border-brand-primary/30 transition-colors group">
           <h3 class="font-semibold text-white group-hover:text-brand-primary transition-colors">{resourceCards[0].title}</h3>

@@ -6,7 +6,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://circuit-diagram.org', // Placeholder for now
+  site: 'https://www.circuitdiagrammaker.com',
   trailingSlash: 'always',
   integrations: [sitemap(), mdx()],
   vite: {

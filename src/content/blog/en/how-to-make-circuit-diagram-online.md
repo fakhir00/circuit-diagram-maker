@@ -24,7 +24,7 @@ An online circuit diagram maker eliminates all of these barriers. Open your brow
 
 ## Step 1: Open Circuit Diagram Maker
 
-Navigate to [circuit-diagram.org/editor](/editor/) in any modern browser (Chrome, Firefox, Safari, or Edge). The editor loads instantly with:
+Navigate to [circuitdiagrammaker.com/editor](/editor/) in any modern browser (Chrome, Firefox, Safari, or Edge). The editor loads instantly with:
 
 - A **component library** on the left with 40+ electronic symbols
 - An **infinite canvas** in the center with a snap-to-grid system

@@ -24,7 +24,7 @@ tags: ["tutorial", "how-to", "online-tools", "circuit-design"]
 
 ## Шаг 1: Создатель схем разомкнутой цепи
 
-Перейдите на [circuit-diagram.org/editor](/editor/) в любом современном браузере (Chrome, Firefox, Safari или Edge). Редактор загружается мгновенно:
+Перейдите на [circuitdiagrammaker.com/editor](/editor/) в любом современном браузере (Chrome, Firefox, Safari или Edge). Редактор загружается мгновенно:
 
 - **Библиотека компонентов** слева с более чем 40 электронными символами.
 - **бесконечный холст** в центре с системой привязки к сетке.

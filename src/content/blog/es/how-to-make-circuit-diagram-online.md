@@ -24,7 +24,7 @@ Un creador de diagramas de circuitos en línea elimina todas estas barreras. Abr
 
 ## Paso 1: Creador de diagramas de circuito abierto
 
-Navegue a [circuit-diagram.org/editor](/editor/) en cualquier navegador moderno (Chrome, Firefox, Safari o Edge). El editor se carga instantáneamente con:
+Navegue a [circuitdiagrammaker.com/editor](/editor/) en cualquier navegador moderno (Chrome, Firefox, Safari o Edge). El editor se carga instantáneamente con:
 
 - Una **biblioteca de componentes** a la izquierda con más de 40 símbolos electrónicos
 - Un **lienzo infinito** en el centro con un sistema de ajuste a la cuadrícula
