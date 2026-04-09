@@ -7,7 +7,8 @@
   },
   "social": {
     "twitter": "https://twitter.com/circuitdiagram",
-    "facebook": "https://facebook.com/circuitdiagram"
+    "facebook": "https://www.facebook.com/katakanaconverter/",
+    "linkedin": "https://www.linkedin.com/company/katakana-converter/"
   },
   "nav": [
     { "labelKey": "nav.home", "path": "/" },
@@ -21,7 +22,9 @@
       "children": [
         { "labelKey": "nav.logic_gates", "path": "/logic-gate-diagram-tool/" },
         { "labelKey": "nav.arduino", "path": "/arduino-circuit-maker/" },
-        { "labelKey": "nav.pcb", "path": "/pcb-schematic-tool/" }
+        { "labelKey": "nav.pcb", "path": "/pcb-schematic-tool/" },
+        { "labelKey": "nav.schematic_to_breadboard", "path": "/schematic-to-breadboard/" },
+        { "labelKey": "nav.truth_table_to_logic_circuit", "path": "/truth-table-to-logic-circuit/" }
       ]
     },
     { "labelKey": "nav.about", "path": "/about-us/" }

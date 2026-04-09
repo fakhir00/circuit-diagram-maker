@@ -45,6 +45,14 @@ const ROUTE_DEFAULTS: Record<string, SeoMetadata> = {
     title: 'PCB Schematic Tool',
     description: 'Use the PCB schematic tool to plan board circuits, organize symbols, and jump into the dedicated PCB editor.'
   },
+  '/truth-table-to-logic-circuit/': {
+    title: 'Truth Table To Logic Circuit',
+    description: 'Turn logic requirements into gate-level diagrams with Truth Table to Logic Circuit workflows.'
+  },
+  '/schematic-to-breadboard/': {
+    title: 'Schematic To Breadboard',
+    description: 'Plan practical breadboard layouts from schematic intent with clearer wiring paths and faster prototype setup.'
+  },
   '/docs/': {
     title: 'Circuit Diagram Docs',
     description: 'Read circuit diagram docs covering shortcuts, wire routing, exports, and practical workflows for faster schematic work.'
@@ -117,6 +125,8 @@ const TITLE_SUFFIX_LABELS: Record<string, string> = {
   '/logic-gate-diagram-tool/': 'Tool',
   '/arduino-circuit-maker/': 'Tool',
   '/pcb-schematic-tool/': 'Tool',
+  '/truth-table-to-logic-circuit/': 'Tool',
+  '/schematic-to-breadboard/': 'Tool',
   '/docs/': 'Guide',
   '/components/': 'Library',
   '/blog/': 'Articles',

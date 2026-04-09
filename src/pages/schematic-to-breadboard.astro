@@ -1,0 +1,12 @@
+---
+import KeywordToolPage from '../components/pages/KeywordToolPage.astro';
+import { getLocaleFromUrl } from '../theme/i18n';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+---
+
+<KeywordToolPage
+  locale={locale}
+  heading="Schematic To Breadboard"
+  toolKey="schematic-to-breadboard"
+/>

@@ -1,0 +1,352 @@
+---
+interface Props {
+  toolKey: 'schematic-to-breadboard' | 'truth-table-to-logic-circuit';
+  heading: string;
+}
+
+const { toolKey, heading } = Astro.props;
+---
+
+<section id="inline-tool" data-inline-tool-root data-tool-key={toolKey} class="relative overflow-hidden bg-bg-dark pt-16 pb-10 sm:pt-20 sm:pb-14">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.14),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_35%)] pointer-events-none"></div>
+  <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-8 max-w-3xl">
+      <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">{heading}</h1>
+      <p class="mt-4 text-slate-400 text-base sm:text-lg">Use this tool directly — no redirects, no sign-up required.</p>
+    </div>
+
+    {toolKey === 'truth-table-to-logic-circuit' && (
+      <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6">
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="block">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Variables</span>
+            <input data-field="variables" type="text" value="A,B,C" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2" />
+            <span class="mt-2 block text-xs text-slate-500">Use 1 to 4 variables, comma-separated.</span>
+          </label>
+          <label class="block">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Output Bits</span>
+            <input data-field="bits" type="text" value="00010111" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2" />
+            <span class="mt-2 block text-xs text-slate-500">Provide one bit for each truth-table row.</span>
+          </label>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button data-action="run-truth" class="rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">Generate Logic Expression</button>
+        </div>
+        <pre data-output="truth" class="mt-6 overflow-x-auto rounded-xl border border-white/10 bg-bg-dark p-4 text-sm leading-7 text-slate-200"></pre>
+      </div>
+    )}
+
+    {toolKey === 'schematic-to-breadboard' && (
+      <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6">
+        <label class="block">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Connection List</span>
+          <textarea data-field="netlist" rows="9" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2">VCC -> U1.14
+GND -> U1.7
+R1.1 -> U1.1
+R1.2 -> VCC
+U1.2 -> LED1.A
+LED1.K -> GND</textarea>
+          <span class="mt-2 block text-xs text-slate-500">Use one connection per line in this format: `NODE_A -> NODE_B`.</span>
+        </label>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button data-action="run-breadboard" class="rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">Generate Breadboard Plan</button>
+        </div>
+        <pre data-output="breadboard" class="mt-6 overflow-x-auto rounded-xl border border-white/10 bg-bg-dark p-4 text-sm leading-7 text-slate-200"></pre>
+      </div>
+    )}
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const roots = Array.from(document.querySelectorAll('[data-inline-tool-root]'));
+    if (!roots.length) return;
+
+    const toBinary = (num, bits) => num.toString(2).padStart(bits, '0');
+
+    const combinePatterns = (a, b) => {
+      let diff = 0;
+      let out = '';
+      for (let i = 0; i < a.length; i += 1) {
+        if (a[i] === b[i]) {
+          out += a[i];
+          continue;
+        }
+        if (a[i] === '-' || b[i] === '-') {
+          return null;
+        }
+        diff += 1;
+        out += '-';
+        if (diff > 1) return null;
+      }
+      return diff === 1 ? out : null;
+    };
+
+    const patternCovers = (pattern, minterm, bits) => {
+      const term = toBinary(minterm, bits);
+      for (let i = 0; i < bits; i += 1) {
+        if (pattern[i] !== '-' && pattern[i] !== term[i]) return false;
+      }
+      return true;
+    };
+
+    const patternToExpression = (pattern, vars) => {
+      let term = '';
+      for (let i = 0; i < pattern.length; i += 1) {
+        if (pattern[i] === '1') term += vars[i];
+        if (pattern[i] === '0') term += `${vars[i]}'`;
+      }
+      return term || '1';
+    };
+
+    const minimizeFromMinterms = (minterms, vars) => {
+      const bits = vars.length;
+      const totalRows = 2 ** bits;
+      if (minterms.length === 0) return '0';
+      if (minterms.length === totalRows) return '1';
+
+      let terms = minterms.map((m) => ({ pattern: toBinary(m, bits), covers: [m], used: false }));
+      const primeSet = new Set();
+
+      while (terms.length > 0) {
+        terms.forEach((t) => {
+          t.used = false;
+        });
+        const next = [];
+
+        for (let i = 0; i < terms.length; i += 1) {
+          for (let j = i + 1; j < terms.length; j += 1) {
+            const combined = combinePatterns(terms[i].pattern, terms[j].pattern);
+            if (!combined) continue;
+            terms[i].used = true;
+            terms[j].used = true;
+            next.push({
+              pattern: combined,
+              covers: Array.from(new Set([...terms[i].covers, ...terms[j].covers])),
+              used: false
+            });
+          }
+        }
+
+        terms.filter((t) => !t.used).forEach((t) => primeSet.add(t.pattern));
+
+        if (!next.length) break;
+
+        const merged = new Map();
+        next.forEach((term) => {
+          if (!merged.has(term.pattern)) merged.set(term.pattern, new Set());
+          const set = merged.get(term.pattern);
+          term.covers.forEach((m) => set.add(m));
+        });
+        terms = Array.from(merged.entries()).map(([pattern, set]) => ({
+          pattern,
+          covers: Array.from(set),
+          used: false
+        }));
+      }
+
+      const primes = Array.from(primeSet);
+      const selected = new Set();
+      const covered = new Set();
+
+      const mintermCoverage = new Map();
+      minterms.forEach((m) => {
+        mintermCoverage.set(
+          m,
+          primes.filter((p) => patternCovers(p, m, bits))
+        );
+      });
+
+      minterms.forEach((m) => {
+        const options = mintermCoverage.get(m) || [];
+        if (options.length === 1) selected.add(options[0]);
+      });
+
+      selected.forEach((p) => {
+        minterms.forEach((m) => {
+          if (patternCovers(p, m, bits)) covered.add(m);
+        });
+      });
+
+      while (covered.size < minterms.length) {
+        const remaining = minterms.filter((m) => !covered.has(m));
+        let bestPattern = '';
+        let bestScore = -1;
+
+        primes.forEach((p) => {
+          if (selected.has(p)) return;
+          const score = remaining.reduce((acc, m) => acc + (patternCovers(p, m, bits) ? 1 : 0), 0);
+          if (score > bestScore) {
+            bestScore = score;
+            bestPattern = p;
+          }
+        });
+
+        if (!bestPattern || bestScore <= 0) break;
+
+        selected.add(bestPattern);
+        remaining.forEach((m) => {
+          if (patternCovers(bestPattern, m, bits)) covered.add(m);
+        });
+      }
+
+      return Array.from(selected).map((p) => patternToExpression(p, vars)).join(' + ');
+    };
+
+    const initTruthTableTool = (root) => {
+      const varsInput = root.querySelector('[data-field="variables"]');
+      const bitsInput = root.querySelector('[data-field="bits"]');
+      const runButton = root.querySelector('[data-action="run-truth"]');
+      const output = root.querySelector('[data-output="truth"]');
+      if (!varsInput || !bitsInput || !runButton || !output) return;
+
+      const run = () => {
+        const vars = String(varsInput.value || '')
+          .split(',')
+          .map((v) => v.trim().toUpperCase().replace(/[^A-Z0-9_]/g, ''))
+          .filter(Boolean);
+
+        if (!vars.length || vars.length > 4) {
+          output.textContent = 'Enter 1 to 4 variable names (example: A,B,C).';
+          return;
+        }
+
+        const bits = String(bitsInput.value || '').replace(/[^01]/g, '');
+        const expected = 2 ** vars.length;
+        if (bits.length !== expected) {
+          output.textContent = `Output bits length must be ${expected} for ${vars.length} variables.`;
+          return;
+        }
+
+        const minterms = [];
+        bits.split('').forEach((bit, index) => {
+          if (bit === '1') minterms.push(index);
+        });
+
+        const simplified = minimizeFromMinterms(minterms, vars);
+        const notCount = (simplified.match(/'/g) || []).length;
+        const terms = simplified === '0' || simplified === '1' ? [] : simplified.split(/\s*\+\s*/).filter(Boolean);
+
+        const lines = [
+          'Simplified Expression',
+          '---------------------',
+          simplified,
+          '',
+          `Minterms: ${minterms.length ? minterms.join(', ') : 'none'}`,
+          '',
+          'Gate-Level Plan',
+          '---------------',
+          `NOT stage: ${notCount}`,
+          `AND stage terms: ${terms.length || (simplified === '1' ? 1 : 0)}`,
+          `OR stage required: ${terms.length > 1 ? 'yes' : 'no'}`
+        ];
+
+        output.textContent = lines.join('\n');
+      };
+
+      runButton.addEventListener('click', run);
+      run();
+    };
+
+    const initBreadboardTool = (root) => {
+      const netInput = root.querySelector('[data-field="netlist"]');
+      const runButton = root.querySelector('[data-action="run-breadboard"]');
+      const output = root.querySelector('[data-output="breadboard"]');
+      if (!netInput || !runButton || !output) return;
+
+      const run = () => {
+        const lines = String(netInput.value || '')
+          .split('\n')
+          .map((line) => line.trim())
+          .filter(Boolean);
+
+        if (!lines.length) {
+          output.textContent = 'Add at least one connection line.';
+          return;
+        }
+
+        const parent = new Map();
+        const seenNodes = new Set();
+        const edges = [];
+        let invalid = 0;
+
+        const find = (x) => {
+          if (!parent.has(x)) parent.set(x, x);
+          if (parent.get(x) !== x) parent.set(x, find(parent.get(x)));
+          return parent.get(x);
+        };
+
+        const union = (a, b) => {
+          const pa = find(a);
+          const pb = find(b);
+          if (pa !== pb) parent.set(pb, pa);
+        };
+
+        lines.forEach((line) => {
+          const match = line.match(/^([A-Za-z0-9_.-]+)\s*(?:->|=|,)\s*([A-Za-z0-9_.-]+)$/);
+          if (!match) {
+            invalid += 1;
+            return;
+          }
+          const a = match[1];
+          const b = match[2];
+          seenNodes.add(a);
+          seenNodes.add(b);
+          union(a, b);
+          edges.push([a, b]);
+        });
+
+        if (!edges.length) {
+          output.textContent = 'No valid lines found. Use format: NODE_A -> NODE_B';
+          return;
+        }
+
+        const groups = new Map();
+        Array.from(seenNodes).forEach((node) => {
+          const rootNode = find(node);
+          if (!groups.has(rootNode)) groups.set(rootNode, []);
+          groups.get(rootNode).push(node);
+        });
+
+        const rowMap = new Map();
+        let row = 5;
+        Array.from(groups.keys()).forEach((rootNode) => {
+          rowMap.set(rootNode, row);
+          row += 5;
+        });
+
+        const mappingLines = [];
+        groups.forEach((nodes, rootNode) => {
+          mappingLines.push(`Row ${rowMap.get(rootNode)}: ${nodes.sort().join(', ')}`);
+        });
+
+        const steps = edges.map(([a, b], index) => {
+          const r = rowMap.get(find(a));
+          return `${index + 1}. Place ${a} and ${b} on row ${r}.`;
+        });
+
+        const report = [
+          'Breadboard Mapping',
+          '------------------',
+          ...mappingLines,
+          '',
+          'Build Steps',
+          '-----------',
+          ...steps
+        ];
+
+        if (invalid) report.push('', `Skipped invalid lines: ${invalid}`);
+        output.textContent = report.join('\n');
+      };
+
+      runButton.addEventListener('click', run);
+      run();
+    };
+
+    roots.forEach((root) => {
+      const key = root.getAttribute('data-tool-key');
+      if (key === 'truth-table-to-logic-circuit') initTruthTableTool(root);
+      if (key === 'schematic-to-breadboard') initBreadboardTool(root);
+    });
+  })();
+</script>

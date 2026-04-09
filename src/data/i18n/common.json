@@ -13,6 +13,8 @@
     "nav.logic_gates": "Logic Gate Tool",
     "nav.arduino": "Arduino Maker",
     "nav.pcb": "PCB Schematic Tool",
+    "nav.schematic_to_breadboard": "Schematic To Breadboard",
+    "nav.truth_table_to_logic_circuit": "Truth Table To Logic Circuit",
     "brand.name": "Circuit Diagram Maker",
     "brand.tagline": "Free Online PCB Schematic Tool",
     "footer.tagline": "The free circuit diagram maker for students, engineers, hobbyists, and educators. Create professional schematics in your browser — no downloads required.",
