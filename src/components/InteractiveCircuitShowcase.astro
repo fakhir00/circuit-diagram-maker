@@ -22,23 +22,23 @@ const presets = toolPresets
   });
 ---
 
-<section class="border-t border-white/5 bg-bg-dark py-24">
+<section class="overflow-hidden border-t border-white/5 bg-bg-dark py-20 sm:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto mb-14 max-w-3xl text-center">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent">{t('showcase.badge')}</p>
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{t('showcase.title')}</h2>
-      <p class="mt-4 text-lg leading-relaxed text-slate-400">
+    <div class="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+      <p class="mb-4 break-words text-xs font-semibold uppercase tracking-[0.24em] text-brand-accent sm:text-sm sm:tracking-[0.35em]">{t('showcase.badge')}</p>
+      <h2 class="break-words text-3xl font-bold tracking-tight text-white sm:text-4xl">{t('showcase.title')}</h2>
+      <p class="mt-4 break-words text-base leading-relaxed text-slate-400 sm:text-lg">
         {t('showcase.description')}
       </p>
     </div>
 
     <div class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]" data-showcase-root>
       <aside class="rounded-3xl border border-white/10 bg-bg-panel p-3 lg:p-4">
-        <div class="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide snap-x">
+        <div class="flex flex-col gap-2 pb-0 sm:flex-row sm:overflow-x-auto sm:pb-2 lg:flex-col lg:overflow-x-visible lg:pb-0 sm:scrollbar-hide sm:snap-x">
           {presets.map((preset, index) => (
               <button
                 type="button"
-                class={`showcase-tab shrink-0 w-[240px] lg:w-full rounded-2xl border px-4 py-4 text-left transition snap-start ${
+                class={`showcase-tab w-full min-w-0 rounded-2xl border px-4 py-4 text-left transition sm:w-[240px] sm:shrink-0 sm:snap-start lg:w-full ${
                   index === 0
                     ? 'border-brand-primary bg-brand-primary/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.16)]'
                     : 'border-white/10 bg-white/0 text-slate-300 hover:border-white/20 hover:bg-white/5'
@@ -47,30 +47,30 @@ const presets = toolPresets
                 data-preset={preset.id}
                 aria-pressed={index === 0 ? 'true' : 'false'}
               >
-              <span class="block text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent/90">{preset.label}</span>
-              <span class="mt-2 block text-lg font-semibold">{preset.title}</span>
-              <span class="mt-2 block text-sm leading-6 text-slate-400">{preset.summary}</span>
+              <span class="block break-words text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-accent/90 sm:text-sm sm:tracking-[0.25em]">{preset.label}</span>
+              <span class="mt-2 block break-words text-base font-semibold sm:text-lg">{preset.title}</span>
+              <span class="mt-2 block break-words text-sm leading-6 text-slate-400">{preset.summary}</span>
             </button>
           ))}
         </div>
       </aside>
 
-      <div class="rounded-[2rem] border border-white/5 bg-[#080c14] p-6 shadow-2xl relative overflow-hidden group/canvas">
+      <div class="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#080c14] p-3 shadow-2xl group/canvas sm:p-6">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.03),transparent_50%)] pointer-events-none"></div>
-        <div class="relative grid gap-8 lg:grid-cols-[1fr_360px]">
-          <div class="flex flex-col gap-6">
-            <div class="overflow-hidden rounded-[1.25rem] border border-white/5 bg-[#05080f] p-4 relative">
-              <div class="mb-4 flex items-center justify-between border-b border-white/5 pb-3">
-                <div>
+        <div class="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-8">
+          <div class="flex min-w-0 flex-col gap-6">
+            <div class="relative overflow-hidden rounded-[1.25rem] border border-white/5 bg-[#05080f] p-3 sm:p-4">
+              <div class="mb-4 flex flex-col gap-3 border-b border-white/5 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                <div class="min-w-0">
                   <p class="text-[10px] uppercase tracking-[0.4em] text-slate-600 font-bold">{t('showcase.canvas.label')}</p>
-                  <h3 id="showcase-title" class="mt-1 text-lg font-bold text-white tracking-tight">{presets[0].title}</h3>
+                  <h3 id="showcase-title" class="mt-1 break-words text-base font-bold tracking-tight text-white sm:text-lg">{presets[0].title}</h3>
                 </div>
-                <div class="rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400/90">
+                <div class="max-w-full self-start rounded-full border border-emerald-400/20 bg-emerald-400/5 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-400/90 sm:tracking-[0.2em]">
                   {t('showcase.live_preset')}
                 </div>
               </div>
 
-              <div class="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/5 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_40%),#020617]">
+              <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/5 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_40%),#020617] sm:aspect-[16/10]">
                 <div id="diagram-container">
                   <DiagramCanvas showAll showcaseIds={showcaseIds} />
                 </div>
@@ -79,12 +79,12 @@ const presets = toolPresets
 
             <div class="grid gap-6 xl:grid-cols-2">
               <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div class="min-w-0">
                     <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.breakdown.badge')}</p>
-                    <h4 class="mt-1 text-base font-semibold text-white">{t('showcase.breakdown.title')}</h4>
+                    <h4 class="mt-1 break-words text-base font-semibold text-white">{t('showcase.breakdown.title')}</h4>
                   </div>
-                  <div class="rounded-full border border-white/5 bg-white/5 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                  <div class="self-start rounded-full border border-white/5 bg-white/5 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">
                     {t('showcase.breakdown.status')}
                   </div>
                 </div>
@@ -92,11 +92,11 @@ const presets = toolPresets
                   {presets[0].stages.map((stage) => (
                     <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3.5 transition-colors hover:bg-white/[0.04]">
                       <div class="flex items-start justify-between gap-4">
-                        <div>
-                          <p class="text-xs font-bold text-white tracking-wide">{stage.name}</p>
-                          <p class="mt-0.5 text-[11px] text-slate-500 leading-relaxed">{stage.detail}</p>
+                        <div class="min-w-0">
+                          <p class="break-words text-xs font-bold tracking-wide text-white">{stage.name}</p>
+                          <p class="mt-0.5 break-words text-[11px] leading-relaxed text-slate-500">{stage.detail}</p>
                         </div>
-                        <span class="text-[11px] font-mono text-brand-accent">{stage.load}%</span>
+                        <span class="shrink-0 text-[11px] font-mono text-brand-accent">{stage.load}%</span>
                       </div>
                       <div class="mt-2.5 h-1.5 overflow-hidden rounded-full bg-white/5">
                         <div class="h-full rounded-full bg-gradient-to-r from-brand-primary/80 to-cyan-400/80" style={`width: ${stage.load}%`}></div>
@@ -112,9 +112,9 @@ const presets = toolPresets
                   <div id="showcase-metrics" class="mt-5 space-y-4">
                     {presets[0].metrics.map((metric) => (
                       <div>
-                        <div class="mb-1.5 flex items-center justify-between gap-3 text-[11px]">
-                          <span class="text-slate-400 font-medium">{metric.label}</span>
-                          <span class="font-mono text-white">{metric.value}</span>
+                        <div class="mb-1.5 flex items-start justify-between gap-3 text-[11px]">
+                          <span class="min-w-0 break-words text-slate-400 font-medium">{metric.label}</span>
+                          <span class="shrink-0 font-mono text-white">{metric.value}</span>
                         </div>
                         <div class="h-1.5 overflow-hidden rounded-full bg-white/5">
                           <div class={`metric-bar h-full rounded-full metric-${metric.accent}`} style={`width: ${metric.strength}%`}></div>
@@ -125,13 +125,13 @@ const presets = toolPresets
                 </div>
 
                 <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
-                  <div class="flex items-center justify-between gap-4">
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.checkpoints.badge')}</p>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.checkpoints.status')}</span>
+                    <span class="self-start text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.checkpoints.status')}</span>
                   </div>
                   <div id="showcase-checkpoints" class="mt-5 flex flex-wrap gap-2">
                     {presets[0].checkpoints.map((item) => (
-                      <span class="rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 text-[11px] font-medium text-slate-400 transition-colors hover:text-white hover:bg-white/5">{item}</span>
+                      <span class="max-w-full break-words rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 text-[11px] font-medium text-slate-400 transition-colors hover:text-white hover:bg-white/5">{item}</span>
                     ))}
                   </div>
                 </div>
@@ -139,37 +139,39 @@ const presets = toolPresets
             </div>
           </div>
 
-          <div class="flex flex-col gap-6">
-            <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-6 backdrop-blur-3xl shadow-2xl relative overflow-hidden flex-grow">
+          <div class="flex min-w-0 flex-col gap-6">
+            <div class="relative flex-grow overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01] p-4 shadow-2xl backdrop-blur-3xl sm:p-6">
               <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                 <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M12 9v6"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
               </div>
               
               <div class="space-y-8">
-                <div>
+                <div class="min-w-0">
                   <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.profile.badge')}</p>
-                  <p id="showcase-summary" class="mt-4 text-sm leading-7 text-slate-400 font-medium italic">"{presets[0].summary}"</p>
+                  <p id="showcase-summary" class="mt-4 break-words text-sm font-medium italic leading-7 text-slate-400">"{presets[0].summary}"</p>
                 </div>
 
                 <div class="pt-6 border-t border-white/5">
-                  <div class="mb-4 flex items-center justify-between">
-                    <h4 class="text-sm font-bold text-white tracking-wide">{t('showcase.quick_specs.title')}</h4>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.quick_specs.status')}</span>
+                  <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <h4 class="break-words text-sm font-bold tracking-wide text-white">{t('showcase.quick_specs.title')}</h4>
+                    <span class="self-start text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.quick_specs.status')}</span>
                   </div>
-                  <table class="w-full text-left">
-                    <tbody id="showcase-specs" class="divide-y divide-white/5 border-t border-white/5">
-                      {presets[0].specs.map(([label, value]) => (
-                        <tr>
-                          <th class="py-3.5 pr-4 text-[10px] font-extrabold uppercase tracking-[0.15em] text-slate-500">{label}</th>
-                          <td class="py-3.5 text-right font-mono text-[11px] font-bold text-brand-accent">{value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  <div class="overflow-x-auto">
+                    <table class="w-full min-w-[220px] table-fixed text-left">
+                      <tbody id="showcase-specs" class="divide-y divide-white/5 border-t border-white/5">
+                        {presets[0].specs.map(([label, value]) => (
+                          <tr>
+                            <th class="w-[46%] break-words py-3.5 pr-4 text-[10px] font-extrabold uppercase tracking-[0.15em] text-slate-500">{label}</th>
+                            <td class="break-words py-3.5 text-left font-mono text-[11px] font-bold text-brand-accent sm:text-right">{value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="pt-6">
-                  <a href={getLocalizedPath('/editor/', locale)} class="group flex items-center justify-center gap-2 rounded-xl bg-white/[0.03] py-3 text-xs font-bold text-white transition-all hover:bg-white/[0.08] hover:text-brand-accent border border-white/5">
+                  <a href={getLocalizedPath('/editor/', locale)} class="group flex w-full items-center justify-center gap-2 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-3 text-center text-[11px] font-bold text-white transition-all hover:bg-white/[0.08] hover:text-brand-accent sm:text-xs">
                     <span>{t('showcase.cta')}</span>
                     <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                   </a>
@@ -200,8 +202,8 @@ const presets = toolPresets
       if (!specs) return;
       specs.innerHTML = rows.map(([label, value]) => `
         <tr>
-          <th class="py-3.5 pr-4 text-[10px] font-extrabold uppercase tracking-[0.15em] text-slate-500">${label}</th>
-          <td class="py-3.5 text-right font-mono text-[11px] font-bold text-brand-accent">${value}</td>
+          <th class="w-[46%] break-words py-3.5 pr-4 text-[10px] font-extrabold uppercase tracking-[0.15em] text-slate-500">${label}</th>
+          <td class="break-words py-3.5 text-left font-mono text-[11px] font-bold text-brand-accent sm:text-right">${value}</td>
         </tr>
       `).join('');
     };
@@ -210,9 +212,9 @@ const presets = toolPresets
       if (!metrics) return;
       metrics.innerHTML = rows.map((metric) => `
         <div>
-          <div class="mb-1.5 flex items-center justify-between gap-3 text-[11px]">
-            <span class="text-slate-400 font-medium">${metric.label}</span>
-            <span class="font-mono text-white">${metric.value}</span>
+          <div class="mb-1.5 flex items-start justify-between gap-3 text-[11px]">
+            <span class="min-w-0 break-words text-slate-400 font-medium">${metric.label}</span>
+            <span class="shrink-0 font-mono text-white">${metric.value}</span>
           </div>
           <div class="h-1.5 overflow-hidden rounded-full bg-white/5">
             <div class="metric-bar h-full rounded-full metric-${metric.accent}" style="width: ${metric.strength}%"></div>
@@ -226,11 +228,11 @@ const presets = toolPresets
       stages.innerHTML = rows.map((stage) => `
         <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3.5 transition-colors hover:bg-white/[0.04]">
           <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xs font-bold text-white tracking-wide">${stage.name}</p>
-              <p class="mt-0.5 text-[11px] text-slate-500 leading-relaxed">${stage.detail}</p>
+            <div class="min-w-0">
+              <p class="break-words text-xs font-bold tracking-wide text-white">${stage.name}</p>
+              <p class="mt-0.5 break-words text-[11px] leading-relaxed text-slate-500">${stage.detail}</p>
             </div>
-            <span class="text-[11px] font-mono text-brand-accent">${stage.load}%</span>
+            <span class="shrink-0 text-[11px] font-mono text-brand-accent">${stage.load}%</span>
           </div>
           <div class="mt-2.5 h-1.5 overflow-hidden rounded-full bg-white/5">
             <div class="h-full rounded-full bg-gradient-to-r from-brand-primary/80 to-cyan-400/80" style="width: ${stage.load}%"></div>
@@ -242,7 +244,7 @@ const presets = toolPresets
     const renderCheckpoints = (rows) => {
       if (!checkpoints) return;
       checkpoints.innerHTML = rows.map((item) => `
-        <span class="rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 text-[11px] font-medium text-slate-400 transition-colors hover:text-white hover:bg-white/5">${item}</span>
+        <span class="max-w-full break-words rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 text-[11px] font-medium text-slate-400 transition-colors hover:text-white hover:bg-white/5">${item}</span>
       `).join('');
     };
 
