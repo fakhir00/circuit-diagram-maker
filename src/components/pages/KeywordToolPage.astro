@@ -13,21 +13,36 @@ const { locale, heading, toolKey } = Astro.props;
 
 const relatedTools = [
   {
+    key: 'logic-gate-diagram-tool',
     title: 'Logic Gate Diagram Tool',
     href: getLocalizedPath('/logic-gate-diagram-tool/', locale),
     description: 'Build clear gate-level logic diagrams and validate signal flow.'
   },
   {
+    key: 'arduino-circuit-maker',
     title: 'Arduino Circuit Maker',
     href: getLocalizedPath('/arduino-circuit-maker/', locale),
     description: 'Document board pin connections, modules, and wiring paths quickly.'
   },
   {
+    key: 'pcb-schematic-tool',
     title: 'PCB Schematic Tool',
     href: getLocalizedPath('/pcb-schematic-tool/', locale),
     description: 'Draft production-ready schematic structures before PCB layout.'
+  },
+  {
+    key: 'schematic-to-breadboard',
+    title: 'Schematic To Breadboard',
+    href: getLocalizedPath('/schematic-to-breadboard/', locale),
+    description: 'Convert schematic planning into clean breadboard placement and wiring guidance.'
+  },
+  {
+    key: 'truth-table-to-logic-circuit',
+    title: 'Truth Table To Logic Circuit',
+    href: getLocalizedPath('/truth-table-to-logic-circuit/', locale),
+    description: 'Generate gate-level logic from truth-table behavior for quick validation and learning.'
   }
-];
+].filter((tool) => tool.key !== toolKey);
 ---
 
 <BaseLayout title={heading} description={`${heading} on Circuit Diagram Maker.`}>
@@ -37,7 +52,7 @@ const relatedTools = [
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Related Tools</h2>
       <p class="mt-3 max-w-3xl text-slate-400">
-        Explore these dedicated tool pages to continue your workflow with logic, Arduino, and PCB-focused diagram setups.
+        Explore these dedicated tool pages to continue your workflow with logic, Arduino, PCB, and conversion-focused diagram setups.
       </p>
       <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {relatedTools.map((tool) => (

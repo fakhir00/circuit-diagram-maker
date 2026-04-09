@@ -9,6 +9,28 @@ interface Props {
 const { locale, config } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
+
+type ProductLink = {
+  labelKey: string;
+  path: string;
+};
+
+const navItems = Array.isArray(config?.nav) ? config.nav : [];
+const moreToolsGroup = navItems.find(
+  (item: any) => item?.labelKey === 'nav.more_tools' && Array.isArray(item?.children)
+) ?? navItems.find((item: any) => Array.isArray(item?.children));
+
+const toolLinks: ProductLink[] = Array.isArray(moreToolsGroup?.children)
+  ? moreToolsGroup.children.filter(
+      (item: any): item is ProductLink =>
+        typeof item?.labelKey === 'string' && typeof item?.path === 'string'
+    )
+  : [];
+
+const productLinks: ProductLink[] = [
+  { labelKey: 'nav.editor', path: '/editor/' },
+  ...toolLinks
+];
 ---
 
 <footer class="bg-bg-panel border-t border-white/5 mt-auto">
@@ -56,10 +78,13 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.product')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/editor/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Open Editor</a></li>
-          <li><a href={getLocalizedPath('/logic-gate-diagram-tool/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">logic gate diagram tool</a></li>
-          <li><a href={getLocalizedPath('/arduino-circuit-maker/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">arduino-circuit-maker</a></li>
-          <li><a href={getLocalizedPath('/pcb-schematic-tool/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">pcb-schematic-tool</a></li>
+          {productLinks.map((link) => (
+            <li>
+              <a href={getLocalizedPath(link.path, locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">
+                {t(link.labelKey)}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
