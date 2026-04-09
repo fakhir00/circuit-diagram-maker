@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getLocaleFromUrl, useTranslations } from '../../../theme/i18n';
+import { getLocaleFromUrl, useTranslations, locales, defaultLocale } from '../../../theme/i18n';
 import config from '../../../data/config.json';
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -46,7 +46,6 @@ const blogSchema = {
       "name": post.data.title
     };
   })
-};
 };
 
 const baseTitle = `${t('nav.blog')} — ${t('brand.name')}`;
