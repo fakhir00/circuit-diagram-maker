@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath } from '../../theme/i18n';
 import InlineKeywordTool from './InlineKeywordTool.astro';
+import FAQ from '../../components/FAQ.astro';
+import RelatedToolsSection from '../../components/RelatedToolsSection.astro';
 
 interface Props {
   locale: string;
@@ -9,62 +10,358 @@ interface Props {
   toolKey: 'schematic-to-breadboard' | 'truth-table-to-logic-circuit';
 }
 
+interface DiagramStep {
+  label: string;
+  detail: string;
+}
+
+interface ToolSection {
+  id: string;
+  title: string;
+  description: string;
+  diagramTitle: string;
+  diagramSteps: DiagramStep[];
+  tableCaption: string;
+  tableHeaders: [string, string, string];
+  tableRows: [string, string, string][];
+}
+
+interface ToolFaqItem {
+  question: string;
+  answer: string;
+  display: boolean;
+}
+
 const { locale, heading, toolKey } = Astro.props;
 
-const relatedTools = [
+const pageContent: Record<
+  Props['toolKey'],
   {
-    key: 'logic-gate-diagram-tool',
-    title: 'Logic Gate Diagram Tool',
-    href: getLocalizedPath('/logic-gate-diagram-tool/', locale),
-    description: 'Build clear gate-level logic diagrams and validate signal flow.'
-  },
-  {
-    key: 'arduino-circuit-maker',
-    title: 'Arduino Circuit Maker',
-    href: getLocalizedPath('/arduino-circuit-maker/', locale),
-    description: 'Document board pin connections, modules, and wiring paths quickly.'
-  },
-  {
-    key: 'pcb-schematic-tool',
-    title: 'PCB Schematic Tool',
-    href: getLocalizedPath('/pcb-schematic-tool/', locale),
-    description: 'Draft production-ready schematic structures before PCB layout.'
-  },
-  {
-    key: 'schematic-to-breadboard',
-    title: 'Schematic To Breadboard',
-    href: getLocalizedPath('/schematic-to-breadboard/', locale),
-    description: 'Convert schematic planning into clean breadboard placement and wiring guidance.'
-  },
-  {
-    key: 'truth-table-to-logic-circuit',
-    title: 'Truth Table To Logic Circuit',
-    href: getLocalizedPath('/truth-table-to-logic-circuit/', locale),
-    description: 'Generate gate-level logic from truth-table behavior for quick validation and learning.'
+    overview: string;
+    sections: ToolSection[];
+    faqItems: ToolFaqItem[];
   }
-].filter((tool) => tool.key !== toolKey);
+> = {
+  'schematic-to-breadboard': {
+    overview:
+      'This workflow turns raw schematic-style net connections into a readable breadboard placement plan with grouped rows and an ordered build sequence.',
+    sections: [
+      {
+        id: 'net-interpretation',
+        title: 'Net Interpretation and Rail Assignment',
+        description:
+          'Start by normalizing each connection, identifying shared nets, and assigning stable row targets so every node maps to a predictable rail or strip.',
+        diagramTitle: 'Interactive Net Grouping Diagram',
+        diagramSteps: [
+          {
+            label: 'Parse',
+            detail: 'Each line is parsed as NODE_A -> NODE_B, then validated for syntax.'
+          },
+          {
+            label: 'Group',
+            detail: 'Connected nodes are merged into one electrical net cluster.'
+          },
+          {
+            label: 'Assign',
+            detail: 'Each cluster is assigned a row index to keep placement consistent.'
+          }
+        ],
+        tableCaption: 'Key checks for net interpretation and row planning',
+        tableHeaders: ['Check', 'What It Verifies', 'Output'],
+        tableRows: [
+          ['Connection syntax', 'Each line matches NODE_A -> NODE_B format', 'Valid edge list'],
+          ['Net continuity', 'Nodes sharing any path are grouped together', 'Distinct net clusters'],
+          ['Row spacing', 'Rows are separated to reduce accidental shorts', 'Clear placement map']
+        ]
+      },
+      {
+        id: 'build-sequencing',
+        title: 'Breadboard Build Sequencing',
+        description:
+          'After grouping, the tool emits a practical step order so component and jumper placement follows the same electrical intent as the schematic.',
+        diagramTitle: 'Interactive Build Order Diagram',
+        diagramSteps: [
+          {
+            label: 'Place',
+            detail: 'Drop core ICs and rails first so all later wires reference fixed anchors.'
+          },
+          {
+            label: 'Wire',
+            detail: 'Add jumpers net-by-net, using mapped rows to avoid crossover confusion.'
+          },
+          {
+            label: 'Verify',
+            detail: 'Confirm each named node appears in the expected row group before power-on.'
+          }
+        ],
+        tableCaption: 'Execution sequence for breadboard assembly',
+        tableHeaders: ['Stage', 'Practical Action', 'Result'],
+        tableRows: [
+          ['Anchor stage', 'Place power rails and major IC references', 'Stable physical baseline'],
+          ['Jumper stage', 'Connect mapped pairs in generated order', 'Traceable wiring flow'],
+          ['Validation stage', 'Cross-check rows against generated report', 'Safer first power test']
+        ]
+      }
+    ],
+    faqItems: [
+      {
+        question: 'What netlist format does this page accept?',
+        answer: 'Use one connection per line in the form NODE_A -> NODE_B.',
+        display: true
+      },
+      {
+        question: 'Can I map power rails like VCC and GND?',
+        answer: 'Yes. Named rails are grouped like any other net and appear in the generated row map.',
+        display: true
+      },
+      {
+        question: 'Does the output replace electrical verification?',
+        answer: 'No. It accelerates planning, but you should still verify continuity and polarity on hardware.',
+        display: true
+      }
+    ]
+  },
+  'truth-table-to-logic-circuit': {
+    overview:
+      'This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.',
+    sections: [
+      {
+        id: 'boolean-reduction',
+        title: 'Boolean Reduction Pipeline',
+        description:
+          'The tool validates variable and bit lengths, extracts minterms, and reduces the expression so the final equation is easier to implement.',
+        diagramTitle: 'Interactive Simplification Diagram',
+        diagramSteps: [
+          {
+            label: 'Validate',
+            detail: 'Variable count determines required truth-table rows before any reduction starts.'
+          },
+          {
+            label: 'Extract',
+            detail: 'Rows with output 1 are converted into minterm indexes.'
+          },
+          {
+            label: 'Reduce',
+            detail: 'Compatible terms are merged to produce a shorter Boolean expression.'
+          }
+        ],
+        tableCaption: 'Core checks used for expression minimization',
+        tableHeaders: ['Input Rule', 'Why It Matters', 'Output'],
+        tableRows: [
+          ['1-4 variables', 'Defines manageable truth-table width', 'Expected bit count'],
+          ['Bit-length match', 'Prevents invalid row interpretation', 'Reliable minterm set'],
+          ['Prime reduction', 'Removes redundant terms', 'Simplified expression']
+        ]
+      },
+      {
+        id: 'gate-planning',
+        title: 'Gate-Level Planning and Verification',
+        description:
+          'After simplification, the tool estimates gate stages and provides a compact implementation path for NOT, AND, and OR composition.',
+        diagramTitle: 'Interactive Gate Planning Diagram',
+        diagramSteps: [
+          {
+            label: 'Invert',
+            detail: 'Only required complemented literals are sent through NOT stages.'
+          },
+          {
+            label: 'Combine',
+            detail: 'Product terms are created with AND gates based on reduced expression terms.'
+          },
+          {
+            label: 'Merge',
+            detail: 'Final OR stage collects term outputs into the target function.'
+          }
+        ],
+        tableCaption: 'Gate-stage mapping from reduced expression',
+        tableHeaders: ['Gate Stage', 'Purpose', 'Design Benefit'],
+        tableRows: [
+          ['NOT stage', 'Generate complemented literals', 'Reduces wiring ambiguity'],
+          ['AND stage', 'Build each product term', 'Keeps logic modular'],
+          ['OR stage', 'Merge term outputs', 'Directly matches F output']
+        ]
+      }
+    ],
+    faqItems: [
+      {
+        question: 'How many variables are supported on this page?',
+        answer: 'The inline tool accepts between 1 and 4 variables.',
+        display: true
+      },
+      {
+        question: 'Why must output bits match exactly 2^n rows?',
+        answer: 'Each row represents one input combination. Missing or extra bits break row alignment.',
+        display: true
+      },
+      {
+        question: 'Is this useful for class assignments and prototyping?',
+        answer: 'Yes. It is useful for quick derivation, checking simplification, and preparing gate-level drafts.',
+        display: true
+      }
+    ]
+  }
+};
+
+const content = pageContent[toolKey];
 ---
 
 <BaseLayout title={heading} description={`${heading} on Circuit Diagram Maker.`}>
-  <InlineKeywordTool toolKey={toolKey} heading={heading} />
+  <article aria-labelledby="tool-page-title">
+    <InlineKeywordTool toolKey={toolKey} heading={heading} />
 
-  <section class="bg-bg-panel py-14 sm:py-16 border-t border-white/5">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Related Tools</h2>
-      <p class="mt-3 max-w-3xl text-slate-400">
-        Explore these dedicated tool pages to continue your workflow with logic, Arduino, PCB, and conversion-focused diagram setups.
-      </p>
-      <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {relatedTools.map((tool) => (
-          <article class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 transition-colors hover:border-brand-primary/30 hover:bg-bg-surface">
-            <h3 class="text-lg font-semibold text-white">{tool.title}</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-400">{tool.description}</p>
-            <a href={tool.href} class="mt-4 inline-flex rounded-lg bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500">
-              Open Tool
-            </a>
-          </article>
-        ))}
+    <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <header class="max-w-4xl">
+          <h2 id="workflow-overview-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Workflow Overview</h2>
+          <p class="mt-3 text-slate-400">{content.overview}</p>
+        </header>
+
+        <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label="On-page workflow sections">
+          <ol class="grid gap-2 sm:grid-cols-2">
+            {content.sections.map((section, index) => (
+              <li>
+                <a href={`#${section.id}`} class="block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-brand-primary/35 hover:text-white">
+                  {index + 1}. {section.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
       </div>
-    </div>
-  </section>
+    </section>
+
+    {content.sections.map((section, sectionIndex) => (
+      <section id={section.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.id}-title`}>
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header class="max-w-4xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent">Stage {sectionIndex + 1}</p>
+            <h2 id={`${section.id}-title`} class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              {section.title}
+            </h2>
+            <p class="mt-3 text-slate-400">{section.description}</p>
+          </header>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            <figure class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6" data-interactive-diagram>
+              <figcaption class="text-base font-semibold text-white">{section.diagramTitle}</figcaption>
+              <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.diagramTitle}>
+                {section.diagramSteps.slice(0, -1).map((_, index) => {
+                  const segmentWidth = 300 / Math.max(1, section.diagramSteps.length - 1);
+                  const x1 = 60 + segmentWidth * index;
+                  const x2 = x1 + segmentWidth;
+                  return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
+                })}
+
+                {section.diagramSteps.map((step, index) => {
+                  const stepWidth = 300 / Math.max(1, section.diagramSteps.length - 1);
+                  const cx = 60 + stepWidth * index;
+                  return (
+                    <g>
+                      <circle data-diagram-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
+                      <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
+                      <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
+                    </g>
+                  );
+                })}
+              </svg>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                {section.diagramSteps.map((step, index) => (
+                  <button
+                    type="button"
+                    data-step-button
+                    data-active={index === 0 ? 'true' : 'false'}
+                    data-step-detail={step.detail}
+                    class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
+                    aria-pressed={index === 0 ? 'true' : 'false'}
+                  >
+                    {step.label}
+                  </button>
+                ))}
+              </div>
+
+              <p data-step-detail class="mt-4 rounded-xl border border-white/10 bg-bg-dark/80 px-4 py-3 text-sm leading-6 text-slate-300">
+                {section.diagramSteps[0].detail}
+              </p>
+            </figure>
+
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-surface/70">
+              <table class="w-full text-left text-sm">
+                <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+                  {section.tableCaption}
+                </caption>
+                <thead class="bg-white/[0.03] text-slate-300">
+                  <tr>
+                    {section.tableHeaders.map((header) => (
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10 text-slate-300">
+                  {section.tableRows.map((row) => (
+                    <tr>
+                      <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
+                      <td class="px-4 py-3">{row[1]}</td>
+                      <td class="px-4 py-3">{row[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <RelatedToolsSection locale={locale} excludeKeys={[toolKey]} />
+  </article>
+
+  <FAQ title="Frequently Asked Questions" items={content.faqItems} />
+
+  <script is:inline>
+    (() => {
+      const diagrams = Array.from(document.querySelectorAll('[data-interactive-diagram]'));
+      if (!diagrams.length) return;
+
+      diagrams.forEach((diagram) => {
+        const buttons = Array.from(diagram.querySelectorAll('[data-step-button]'));
+        const nodes = Array.from(diagram.querySelectorAll('[data-diagram-node]'));
+        const detail = diagram.querySelector('[data-step-detail]');
+        if (!buttons.length || !nodes.length || !detail) return;
+
+        const activate = (index) => {
+          buttons.forEach((button, buttonIndex) => {
+            const isActive = buttonIndex === index;
+            button.dataset.active = String(isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+          });
+
+          nodes.forEach((node, nodeIndex) => {
+            node.dataset.active = String(nodeIndex <= index);
+          });
+
+          detail.textContent = buttons[index]?.dataset.stepDetail || '';
+        };
+
+        buttons.forEach((button, index) => {
+          button.addEventListener('click', () => activate(index));
+        });
+
+        activate(0);
+      });
+    })();
+  </script>
+
+  <style>
+    [data-step-button][data-active='true'] {
+      border-color: rgba(59, 130, 246, 0.55);
+      background: rgba(59, 130, 246, 0.18);
+      color: #fff;
+    }
+
+    [data-diagram-node][data-active='true'] {
+      stroke: rgba(59, 130, 246, 0.9);
+      fill: rgba(30, 64, 175, 0.35);
+    }
+  </style>
 </BaseLayout>

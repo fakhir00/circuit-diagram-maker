@@ -5,6 +5,7 @@ import HowItWorks from '../HowItWorks.astro';
 import FeatureMatrix from '../FeatureMatrix.astro';
 import FAQ from '../FAQ.astro';
 import InteractiveCircuitShowcase from '../InteractiveCircuitShowcase.astro';
+import RelatedToolsSection from '../RelatedToolsSection.astro';
 
 interface Props {
   locale: string;
@@ -213,6 +214,8 @@ const personas = t('home.personas');
       </div>
     </div>
   </section>
+
+  <RelatedToolsSection locale={locale} />
 
   <!-- ███ FAQ ███ -->
   <FAQ title={t('home.faq.title')} items={faqItems} />

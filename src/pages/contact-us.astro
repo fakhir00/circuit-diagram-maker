@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i18n';
 import ContactForm from '../components/ContactForm.astro';
+import RelatedToolsSection from '../components/RelatedToolsSection.astro';
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
@@ -47,6 +48,8 @@ const supportFaqs = t('contact.support_faqs');
       </div>
     </div>
   </section>
+
+  <RelatedToolsSection locale={locale} />
 
   <!-- Support FAQs -->
   <section class="py-16 bg-bg-dark border-t border-white/5">
