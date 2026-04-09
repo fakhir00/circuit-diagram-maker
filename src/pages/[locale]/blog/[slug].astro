@@ -4,16 +4,34 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BlogArticleLayout from '../../../components/blog/BlogArticleLayout.astro';
 import config from '../../../data/config.json';
 
+import { locales, defaultLocale } from '../../../theme/i18n';
+
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ id }) => !id.startsWith('en/'));
-  return posts.map(post => {
-    const locale = post.id.split('/')[0];
-    const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
-    return {
-      params: { locale, slug },
-      props: { post },
-    };
-  });
+  const allPosts = await getCollection('blog');
+  const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
+  
+  const otherLocales = locales.filter(l => l !== defaultLocale);
+  let paths = [];
+
+  for (const loc of otherLocales) {
+    let localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    
+    // If no translated posts for this locale, use English posts!
+    if (localePosts.length === 0) {
+      localePosts = enPosts;
+    }
+
+    localePosts.forEach(post => {
+      // Slug is identical across languages assuming filenames are 1:1, or it uses the english slug.
+      const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
+      paths.push({
+        params: { locale: loc, slug },
+        props: { post },
+      });
+    });
+  }
+
+  return paths;
 }
 
 const { post } = Astro.props;

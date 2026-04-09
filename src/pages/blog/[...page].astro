@@ -33,9 +33,13 @@ const blogSchema = {
     "name": post.data.title
   }))
 };
+};
+
+const baseTitle = `${t('nav.blog')} — ${t('brand.name')}`;
+const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${page.currentPage}` : baseTitle;
 ---
 
-<BaseLayout title={`${t('nav.blog')} — ${t('brand.name')}`} description={t('blog.subtitle')}>
+<BaseLayout title={pageTitle} description={t('blog.subtitle')}>
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
   <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">

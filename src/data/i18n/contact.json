@@ -16,9 +16,18 @@
     "contact.sidebar.features.desc": "We love hearing from users! If you have an idea for a new component, export format, or editor feature, let us know — the best Circuit Diagram Maker features were suggested by our community.",
     "contact.faq.title": "Common Support Questions",
     "contact.support_faqs": [
-      { "q": "My circuit diagram didn't save — how do I recover it?", "a": "Circuit Diagram Maker uses browser local storage. If you cleared your browser data, the diagram may be lost. We recommend exporting important projects as JSON files for backup. To prevent data loss, use the Export as JSON feature after every significant editing session." },
-      { "q": "Can I import diagrams from other tools into Circuit Diagram Maker?", "a": "Currently, Circuit Diagram Maker supports importing its own JSON format. You can share JSON files between devices and collaborators. Import support for additional formats is on our development roadmap." },
-      { "q": "The editor loads slowly on my device — what can I do?", "a": "For best performance, use a modern browser (Chrome, Firefox, Edge) with hardware acceleration enabled. Close unused browser tabs to free up memory. Circuit Diagram Maker works best on devices with 4GB+ RAM." }
+      {
+        "q": "My circuit diagram didn't save — how do I recover it?",
+        "a": "Circuit Diagram Maker uses browser local storage. If you cleared your browser data, the diagram may be lost. We recommend exporting important projects as JSON files for backup. To prevent data loss, use the Export as JSON feature after every significant editing session."
+      },
+      {
+        "q": "Can I import diagrams from other tools into Circuit Diagram Maker?",
+        "a": "Currently, Circuit Diagram Maker supports importing its own JSON format. You can share JSON files between devices and collaborators. Import support for additional formats is on our development roadmap."
+      },
+      {
+        "q": "The editor loads slowly on my device — what can I do?",
+        "a": "For best performance, use a modern browser (Chrome, Firefox, Edge) with hardware acceleration enabled. Close unused browser tabs to free up memory. Circuit Diagram Maker works best on devices with 4GB+ RAM."
+      }
     ]
   },
   "hi": {
@@ -30,7 +39,9 @@
     "contact.sidebar.time.title": "⏱️ प्रतिक्रिया समय",
     "contact.sidebar.time.strong": "24 घंटे",
     "contact.sidebar.features.title": "💡 सुविधा अनुरोध",
-    "contact.faq.title": "सामान्य सहायता प्रश्न"
+    "contact.faq.title": "सामान्य सहायता प्रश्न",
+    "contact.meta.title": "संपर्क करें - सर्किट आरेख निर्माता सहायता",
+    "contact.meta.description": "तकनीकी समस्याओं या प्रश्नों के लिए हमारी सहायता टीम से संपर्क करें।"
   },
   "es": {
     "contact.hero.badge": "Soporte",
@@ -41,7 +52,9 @@
     "contact.sidebar.time.title": "⏱️ Tiempo de respuesta",
     "contact.sidebar.time.strong": "24 horas",
     "contact.sidebar.features.title": "💡 Sugerencias",
-    "contact.faq.title": "Preguntas comunes"
+    "contact.faq.title": "Preguntas comunes",
+    "contact.meta.title": "Contáctenos — Soporte",
+    "contact.meta.description": "Obtenga ayuda con Circuit Diagram Maker y contacte a nuestro soporte."
   },
   "ru": {
     "contact.hero.badge": "Поддержка",
@@ -52,7 +65,9 @@
     "contact.sidebar.time.title": "⏱️ Время ответа",
     "contact.sidebar.time.strong": "24 часа",
     "contact.sidebar.features.title": "💡 Пожелания",
-    "contact.faq.title": "Частые вопросы"
+    "contact.faq.title": "Частые вопросы",
+    "contact.meta.title": "Контакты — Поддержка",
+    "contact.meta.description": "Свяжитесь с нашей службой поддержки по техническим вопросам."
   },
   "fr": {
     "contact.hero.badge": "Support",
@@ -63,7 +78,9 @@
     "contact.sidebar.time.title": "⏱️ Temps de réponse",
     "contact.sidebar.time.strong": "24 heures",
     "contact.sidebar.features.title": "💡 Suggestions",
-    "contact.faq.title": "Questions fréquentes"
+    "contact.faq.title": "Questions fréquentes",
+    "contact.meta.title": "Nous contacter — Support",
+    "contact.meta.description": "Obtenez de l'aide avec Circuit Diagram Maker. Contactez notre support."
   },
   "de": {
     "contact.hero.badge": "Support",
@@ -74,7 +91,9 @@
     "contact.sidebar.time.title": "⏱️ Reaktionszeit",
     "contact.sidebar.time.strong": "24 Stunden",
     "contact.sidebar.features.title": "💡 Funktionswünsche",
-    "contact.faq.title": "Häufige Fragen"
+    "contact.faq.title": "Häufige Fragen",
+    "contact.meta.title": "Kontakt — Support",
+    "contact.meta.description": "Kontaktieren Sie unser Support-Team für technische Unterstützung."
   },
   "it": {
     "contact.hero.badge": "Supporto",
@@ -85,7 +104,9 @@
     "contact.sidebar.time.title": "⏱️ Tempi di risposta",
     "contact.sidebar.time.strong": "24 ore",
     "contact.sidebar.features.title": "💡 Richieste di funzionalità",
-    "contact.faq.title": "Domande comuni"
+    "contact.faq.title": "Domande comuni",
+    "contact.meta.title": "Contattaci — Supporto",
+    "contact.meta.description": "Ottieni aiuto e contatta il team di supporto tecnico."
   },
   "pt": {
     "contact.hero.badge": "Suporte",
@@ -96,7 +117,9 @@
     "contact.sidebar.time.title": "⏱️ Tempo de resposta",
     "contact.sidebar.time.strong": "24 horas",
     "contact.sidebar.features.title": "💡 Pedidos de funcionalidades",
-    "contact.faq.title": "Dúvidas frequentes"
+    "contact.faq.title": "Dúvidas frequentes",
+    "contact.meta.title": "Contacte-nos — Suporte",
+    "contact.meta.description": "Obtenha ajuda com o Circuit Diagram Maker."
   },
   "ja": {
     "contact.hero.badge": "サポート",
@@ -107,38 +130,60 @@
     "contact.sidebar.time.title": "⏱️ 応答時間",
     "contact.sidebar.time.strong": "24時間以内",
     "contact.sidebar.features.title": "💡 機能リクエスト",
-    "contact.faq.title": "よくある質問"
+    "contact.faq.title": "よくある質問",
+    "contact.meta.title": "お問い合わせ — サポート",
+    "contact.meta.description": "質問やバグ報告についてはサポートチームにお問い合わせください。"
   },
   "bn": {
     "contact.hero.badge": "সহায়তা",
-    "contact.hero.title": "সার্কিট ডায়াগ্রাম মেকার সাপোর্ট"
+    "contact.hero.title": "সার্কিট ডায়াগ্রাম মেকার সাপোর্ট",
+    "contact.meta.title": "যোগাযোগ",
+    "contact.meta.description": "সহায়তার জন্য যোগাযোগ করুন।"
   },
   "ms": {
     "contact.hero.badge": "Sokongan",
-    "contact.hero.title": "Hubungi Sokongan Pembuat Gambarajah Litar"
+    "contact.hero.title": "Hubungi Sokongan Pembuat Gambarajah Litar",
+    "contact.meta.title": "Hubungi Kami",
+    "contact.meta.description": "Hubungi pasukan sokongan kami untuk pertanyaan."
   },
   "pl": {
     "contact.hero.badge": "Wsparcie",
-    "contact.hero.title": "Kontakt z pomocą techniczną"
+    "contact.hero.title": "Kontakt z pomocą techniczną",
+    "contact.meta.title": "Kontakt — Wsparcie",
+    "contact.meta.description": "Skontaktuj się z naszym wsparciem technicznym."
   },
   "id": {
     "contact.hero.badge": "Dukungan",
-    "contact.hero.title": "Hubungi Dukungan Pembuat Diagram Sirkuit"
+    "contact.hero.title": "Hubungi Dukungan Pembuat Diagram Sirkuit",
+    "contact.meta.title": "Hubungi Kami",
+    "contact.meta.description": "Dapatkan bantuan dari tim dukungan kami."
   },
   "ar": {
     "contact.hero.badge": "الدعم",
-    "contact.hero.title": "الاتصال بالدعم الفني"
+    "contact.hero.title": "الاتصال بالدعم الفني",
+    "contact.meta.title": "اتصل بنا — الدعم",
+    "contact.meta.description": "احصل على المساعدة الفنية من فريقنا."
   },
   "bg": {
     "contact.hero.badge": "Поддръжка",
-    "contact.hero.title": "Контакт с поддръжката"
+    "contact.hero.title": "Контакт с поддръжката",
+    "contact.meta.title": "Контакти — Поддръжка",
+    "contact.meta.description": "Свържете се с екипа по поддръжка."
   },
   "tr": {
     "contact.hero.badge": "Destek",
-    "contact.hero.title": "Devre Şeması Oluşturucu Desteği ile İletişime Geçin"
+    "contact.hero.title": "Devre Şeması Oluşturucu Desteği ile İletişime Geçin",
+    "contact.meta.title": "Bize Ulaşın",
+    "contact.meta.description": "Yardım veya destek için bize ulaşın."
   },
   "sv": {
     "contact.hero.badge": "Support",
-    "contact.hero.title": "Kontakta Circuit Diagram Maker Support"
+    "contact.hero.title": "Kontakta Circuit Diagram Maker Support",
+    "contact.meta.title": "Kontakta oss",
+    "contact.meta.description": "Kontakta vår support för teknisk hjälp."
+  },
+  "ko": {
+    "contact.meta.title": "문의하기 — 지원 센터",
+    "contact.meta.description": "기술 문제 또는 기능 요청은 지원팀에 문의하세요."
   }
 }

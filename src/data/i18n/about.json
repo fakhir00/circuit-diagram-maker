@@ -11,17 +11,49 @@
     "about.story.p3": "Our circuit diagram maker handles everything from simple LED circuits to multi-stage amplifier designs, buck converter schematics, and microcontroller interfaces. It's the tool we wished existed when we were students, and now it's free for every student, educator, hobbyist, and engineer on the planet.",
     "about.timeline.title": "Our Journey",
     "about.timeline": [
-      { "year": "2023", "title": "Idea Born", "desc": "Frustrated by bloated desktop CAD tools, our founding engineers began prototyping a browser-based circuit diagram maker." },
-      { "year": "2024", "title": "First Public Beta", "desc": "Circuit Diagram Maker launched with 20 symbols, basic wire routing, and PNG export. Thousands of students adopted it within weeks." },
-      { "year": "2025", "title": "SVG Export & 40+ Symbols", "desc": "We added Manhattan routing, SVG vector export, keyboard shortcuts, and expanded the component library to 40+ symbols." },
-      { "year": "2026", "title": "Global Reach", "desc": "Circuit Diagram Maker now serves users in 180+ countries with localization in 18 languages and a thriving community." }
+      {
+        "year": "2023",
+        "title": "Idea Born",
+        "desc": "Frustrated by bloated desktop CAD tools, our founding engineers began prototyping a browser-based circuit diagram maker."
+      },
+      {
+        "year": "2024",
+        "title": "First Public Beta",
+        "desc": "Circuit Diagram Maker launched with 20 symbols, basic wire routing, and PNG export. Thousands of students adopted it within weeks."
+      },
+      {
+        "year": "2025",
+        "title": "SVG Export & 40+ Symbols",
+        "desc": "We added Manhattan routing, SVG vector export, keyboard shortcuts, and expanded the component library to 40+ symbols."
+      },
+      {
+        "year": "2026",
+        "title": "Global Reach",
+        "desc": "Circuit Diagram Maker now serves users in 180+ countries with localization in 18 languages and a thriving community."
+      }
     ],
     "about.principles.title": "Our Design Principles",
     "about.values": [
-      { "icon": "🚀", "title": "Speed Over Complexity", "desc": "A circuit diagram maker should load in seconds, not minutes. We prioritize startup speed and workflow efficiency above all else." },
-      { "icon": "🎯", "title": "Precision By Default", "desc": "Every wire snaps to a 20px grid. Every connection is orthogonal. Our circuit diagram maker enforces clean schematics by design." },
-      { "icon": "🌍", "title": "Accessible to Everyone", "desc": "Free forever, no signup, no paywall. We believe professional circuit diagram tools should be available to every student and hobbyist worldwide." },
-      { "icon": "🔓", "title": "Your Data, Your Machine", "desc": "All circuit diagrams are stored locally in your browser. We never upload, analyze, or monetize your designs." }
+      {
+        "icon": "🚀",
+        "title": "Speed Over Complexity",
+        "desc": "A circuit diagram maker should load in seconds, not minutes. We prioritize startup speed and workflow efficiency above all else."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precision By Default",
+        "desc": "Every wire snaps to a 20px grid. Every connection is orthogonal. Our circuit diagram maker enforces clean schematics by design."
+      },
+      {
+        "icon": "🌍",
+        "title": "Accessible to Everyone",
+        "desc": "Free forever, no signup, no paywall. We believe professional circuit diagram tools should be available to every student and hobbyist worldwide."
+      },
+      {
+        "icon": "🔓",
+        "title": "Your Data, Your Machine",
+        "desc": "All circuit diagrams are stored locally in your browser. We never upload, analyze, or monetize your designs."
+      }
     ],
     "about.stats.languages.label": "Languages",
     "about.stats.countries.label": "Countries",
@@ -42,7 +74,9 @@
     "about.timeline.title": "हमारी यात्रा",
     "about.principles.title": "हमारे डिजाइन सिद्धांत",
     "about.cta.title": "अपना पहला सर्किट आरेख बनाने के लिए तैयार हैं?",
-    "about.cta.desc": "सर्किट आरेख निर्माता खोलें और डिजाइन करना शुरू करें — पूरी तरह से मुफ़्त।"
+    "about.cta.desc": "सर्किट आरेख निर्माता खोलें और डिजाइन करना शुरू करें — पूरी तरह से मुफ़्त।",
+    "about.meta.title": "हमारे बारे में - सर्किट आरेख निर्माता",
+    "about.meta.description": "सर्किट आरेख निर्माता के पीछे की टीम और हमारे मिशन के बारे में जानें।"
   },
   "es": {
     "about.hero.badge": "Sobre nosotros",
@@ -54,7 +88,9 @@
     "about.timeline.title": "Nuestra trayectoria",
     "about.principles.title": "Nuestros principios de diseño",
     "about.cta.title": "¿Listo para crear tu primer diagrama?",
-    "about.cta.desc": "Abre el creador de diagramas y empieza a diseñar — totalmente gratis."
+    "about.cta.desc": "Abre el creador de diagramas y empieza a diseñar — totalmente gratis.",
+    "about.meta.title": "Acerca de nosotros — Circuit Diagram Maker",
+    "about.meta.description": "Conozca al equipo detrás de Circuit Diagram Maker y nuestra misión."
   },
   "ru": {
     "about.hero.badge": "О нас",
@@ -66,7 +102,9 @@
     "about.timeline.title": "Наш путь",
     "about.principles.title": "Наши принципы",
     "about.cta.title": "Готовы создать свою первую схему?",
-    "about.cta.desc": "Откройте конструктор и начните проектировать — совершенно бесплатно."
+    "about.cta.desc": "Откройте конструктор и начните проектировать — совершенно бесплатно.",
+    "about.meta.title": "О нас — Circuit Diagram Maker",
+    "about.meta.description": "Узнайте о команде Circuit Diagram Maker и нашей миссии."
   },
   "fr": {
     "about.hero.badge": "À propos",
@@ -78,7 +116,9 @@
     "about.timeline.title": "Notre parcours",
     "about.principles.title": "Nos principes de design",
     "about.cta.title": "Prêt à créer votre premier schéma ?",
-    "about.cta.desc": "Ouvrez le créateur de schémas et commencez à concevoir — c'est gratuit."
+    "about.cta.desc": "Ouvrez le créateur de schémas et commencez à concevoir — c'est gratuit.",
+    "about.meta.title": "À propos de nous — Circuit Diagram Maker",
+    "about.meta.description": "Découvrez l'équipe derrière Circuit Diagram Maker et notre mission."
   },
   "de": {
     "about.hero.badge": "Über uns",
@@ -90,7 +130,9 @@
     "about.timeline.title": "Unsere Reise",
     "about.principles.title": "Unsere Design-Prinzipien",
     "about.cta.title": "Bereit für Ihren ersten Schaltplan?",
-    "about.cta.desc": "Öffnen Sie den Schaltplan-Ersteller und legen Sie los — völlig kostenlos."
+    "about.cta.desc": "Öffnen Sie den Schaltplan-Ersteller und legen Sie los — völlig kostenlos.",
+    "about.meta.title": "Über uns — Circuit Diagram Maker",
+    "about.meta.description": "Erfahren Sie mehr über das Team hinter Circuit Diagram Maker."
   },
   "it": {
     "about.hero.badge": "Chi siamo",
@@ -102,7 +144,9 @@
     "about.timeline.title": "Il nostro viaggio",
     "about.principles.title": "I nostri principi di progettazione",
     "about.cta.title": "Pronto a creare il tuo primo schema?",
-    "about.cta.desc": "Apri il creatore di diagrammi e inizia a progettare — completamente gratis."
+    "about.cta.desc": "Apri il creatore di diagrammi e inizia a progettare — completamente gratis.",
+    "about.meta.title": "Chi siamo — Circuit Diagram Maker",
+    "about.meta.description": "Scopri il team e la missione dietro Circuit Diagram Maker."
   },
   "pt": {
     "about.hero.badge": "Sobre nós",
@@ -114,7 +158,9 @@
     "about.timeline.title": "A nossa jornada",
     "about.principles.title": "Os nossos princípios de design",
     "about.cta.title": "Pronto para criar o seu primeiro diagrama?",
-    "about.cta.desc": "Abra o criador de diagramas e comece a desenhar — totalmente grátis."
+    "about.cta.desc": "Abra o criador de diagramas e comece a desenhar — totalmente grátis.",
+    "about.meta.title": "Sobre nós — Circuit Diagram Maker",
+    "about.meta.description": "Conheça a equipa por trás do Circuit Diagram Maker."
   },
   "ja": {
     "about.hero.badge": "私たちについて",
@@ -126,7 +172,9 @@
     "about.timeline.title": "私たちの歩み",
     "about.principles.title": "私たちの設計原則",
     "about.cta.title": "最初の回路図を作成する準備はできましたか？",
-    "about.cta.desc": "回路図メーカーを開いてデザインを開始しましょう。完全に無料です。"
+    "about.cta.desc": "回路図メーカーを開いてデザインを開始しましょう。完全に無料です。",
+    "about.meta.title": "私たちについて — 回路図メーカー",
+    "about.meta.description": "回路図メーカーの開発チームとミッションについて。"
   },
   "ko": {
     "about.hero.badge": "회사 소개",
@@ -138,46 +186,64 @@
     "about.timeline.title": "우리의 여정",
     "about.principles.title": "우리의 설계 원칙",
     "about.cta.title": "첫 번째 회로도를 만들 준비가 되셨나요?",
-    "about.cta.desc": "회로도 제작소를 열고 디자인을 시작하세요 — 완전히 무료입니다."
+    "about.cta.desc": "회로도 제작소를 열고 디자인을 시작하세요 — 완전히 무료입니다.",
+    "about.meta.title": "회사 소개 — 회로도 제작소",
+    "about.meta.description": "회로도 제작소를 만든 팀원들과 우리의 목표를 알아보세요."
   },
   "bn": {
     "about.hero.badge": "আমাদের সম্পর্কে",
     "about.hero.title": "সার্কিট ডায়াগ্রাম মেকার সম্পর্কে",
-    "about.hero.subtitle": "আমরা ইলেকট্রনিক্স ইঞ্জিনিয়ার এবং সফটওয়্যার ডেভেলপারদের একটি দল যারা বিশ্বাস করি যে পেশাদার সার্কিট ডায়াগ্রাম তৈরি দ্রুত, বিনামূল্যে এবং সবার জন্য অ্যাক্সেসযোগ্য হওয়া উচিত।"
+    "about.hero.subtitle": "আমরা ইলেকট্রনিক্স ইঞ্জিনিয়ার এবং সফটওয়্যার ডেভেলপারদের একটি দল যারা বিশ্বাস করি যে পেশাদার সার্কিট ডায়াগ্রাম তৈরি দ্রুত, বিনামূল্যে এবং সবার জন্য অ্যাক্সেসযোগ্য হওয়া উচিত।",
+    "about.meta.title": "আমাদের সম্পর্কে",
+    "about.meta.description": "আমাদের টিম সম্পর্কে জানুন।"
   },
   "ms": {
     "about.hero.badge": "Tentang Kami",
     "about.hero.title": "Mengenai Pembuat Gambarajah Litar",
-    "about.hero.subtitle": "Kami adalah pasukan jurutera elektronik dan pembangun perisian yang percaya bahawa mencipta gambarajah litar profesional haruslah pantas, percuma dan boleh diakses oleh semua."
+    "about.hero.subtitle": "Kami adalah pasukan jurutera elektronik dan pembangun perisian yang percaya bahawa mencipta gambarajah litar profesional haruslah pantas, percuma dan boleh diakses oleh semua.",
+    "about.meta.title": "Mengenai Kami",
+    "about.meta.description": "Ketahui tentang pasukan di sebalik Pembuat Gambarajah Litar."
   },
   "pl": {
     "about.hero.badge": "O nas",
     "about.hero.title": "O Circuit Diagram Maker",
-    "about.hero.subtitle": "Jesteśmy zespołem inżynierów elektroników i programistów, którzy wierzą, że tworzenie profesjonalnych schematów powinno być szybkie, bezpłatne i dostępne dla każdego."
+    "about.hero.subtitle": "Jesteśmy zespołem inżynierów elektroników i programistów, którzy wierzą, że tworzenie profesjonalnych schematów powinno być szybkie, bezpłatne i dostępne dla każdego.",
+    "about.meta.title": "O nas — Circuit Diagram Maker",
+    "about.meta.description": "Poznaj nasz zespół i misję."
   },
   "id": {
     "about.hero.badge": "Tentang Kami",
     "about.hero.title": "Tentang Pembuat Diagram Sirkuit",
-    "about.hero.subtitle": "Kami adalah tim insinyur elektronik dan pengembang perangkat lunak yang percaya bahwa membuat diagram sirkuit profesional harus cepat, gratis, dan dapat diakses oleh semua orang."
+    "about.hero.subtitle": "Kami adalah tim insinyur elektronik dan pengembang perangkat lunak yang percaya bahwa membuat diagram sirkuit profesional harus cepat, gratis, dan dapat diakses oleh semua orang.",
+    "about.meta.title": "Tentang Kami",
+    "about.meta.description": "Pelajari tentang tim kami dan visi kami."
   },
   "ar": {
     "about.hero.badge": "حول المشروع",
     "about.hero.title": "حول صانع مخططات الدوائر",
-    "about.hero.subtitle": "نحن فريق من مهندسي الإلكترونيات ومطوري البرمجيات الذين يؤمنون بأن إنشاء مخططات الدوائر الاحترافية يجب أن يكون سريعًا ومجانيًا ومتاحًا للجميع."
+    "about.hero.subtitle": "نحن فريق من مهندسي الإلكترونيات ومطوري البرمجيات الذين يؤمنون بأن إنشاء مخططات الدوائر الاحترافية يجب أن يكون سريعًا ومجانيًا ومتاحًا للجميع.",
+    "about.meta.title": "معلومات عنا",
+    "about.meta.description": "تعرف على الفريق الذي يقف وراء صانع مخطط الدائرة."
   },
   "bg": {
     "about.hero.badge": "За нас",
     "about.hero.title": "За Circuit Diagram Maker",
-    "about.hero.subtitle": "Ние сме екип от инженери по електроника и софтуерни разработчици, които вярват, че създаването на професионални електрически схеми трябва да бъде бързо, безплатно и достъпно за всеки."
+    "about.hero.subtitle": "Ние сме екип от инженери по електроника и софтуерни разработчици, които вярват, че създаването на професионални електрически схеми трябва да бъде бързо, безплатно и достъпно за всеки.",
+    "about.meta.title": "За нас",
+    "about.meta.description": "Научете повече за нашия екип."
   },
   "tr": {
     "about.hero.badge": "Hakkımızda",
     "about.hero.title": "Devre Şeması Oluşturucu Hakkında",
-    "about.hero.subtitle": "Profesyonel devre şeması oluşturmanın hızlı, ücretsiz ve herkes için erişilebilir olması gerektiğine inanan bir elektronik mühendisleri ve yazılım geliştiricileri ekibiyiz."
+    "about.hero.subtitle": "Profesyonel devre şeması oluşturmanın hızlı, ücretsiz ve herkes için erişilebilir olması gerektiğine inanan bir elektronik mühendisleri ve yazılım geliştiricileri ekibiyiz.",
+    "about.meta.title": "Hakkımızda",
+    "about.meta.description": "Devre Şeması Oluşturucu arkasındaki ekibi tanıyın."
   },
   "sv": {
     "about.hero.badge": "Om oss",
     "about.hero.title": "Om Circuit Diagram Maker",
-    "about.hero.subtitle": "Vi är ett team av elektronikingenjörer och mjukvaruutvecklare som anser att det ska vara snabbt, gratis och tillgängligt för alla att skapa professionella kretsscheman."
+    "about.hero.subtitle": "Vi är ett team av elektronikingenjörer och mjukvaruutvecklare som anser att det ska vara snabbt, gratis och tillgängligt för alla att skapa professionella kretsscheman.",
+    "about.meta.title": "Om oss",
+    "about.meta.description": "Lär känna teamet bakom Circuit Diagram Maker."
   }
 }

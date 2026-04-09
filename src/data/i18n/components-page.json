@@ -174,7 +174,7 @@
   },
   "hi": {
     "components.meta.title": "घटक पुस्तकालय - सर्किट आरेख निर्माता",
-    "components.meta.description": "सर्किट आरेख निर्माता की संपूर्ण प्रतीक लाइब्रेरी ब्राउज़ करें। रेसिस्टर्स, कैपेसिटर, आईसी, ट्रांजिस्टर, कनेक्टर, पावर सिंबल और बहुत कुछ खोजें।",
+    "components.meta.description": "सर्किट आरेख निर्माता के इलेक्ट्रॉनिक प्रतीकों की पूरी लाइब्रेरी ब्राउज़ करें।",
     "components.hero.badge": "घटक पुस्तकालय",
     "components.hero.title": "सर्किट आरेख निर्माता - घटक पुस्तकालय और प्रतीक संदर्भ",
     "components.hero.description": "सर्किट डायग्राम मेकर में उपलब्ध इलेक्ट्रॉनिक प्रतीकों की पूरी लाइब्रेरी ब्राउज़ करें। प्रत्येक घटक सामान्य योजनाबद्ध परंपराओं का पालन करता है ताकि आपके आरेख इंजीनियरों, छात्रों और समीक्षकों के लिए पठनीय बने रहें।",
@@ -346,8 +346,8 @@
     "components.actions.secondary": "पूर्ण दस्तावेज़ीकरण पढ़ें"
   },
   "es": {
-    "components.meta.title": "Biblioteca de componentes: creador de diagramas de circuitos",
-    "components.meta.description": "Explore la biblioteca completa de símbolos de Circuit Diagram Maker. Explore resistencias, condensadores, circuitos integrados, transistores, conectores, símbolos de potencia y más.",
+    "components.meta.title": "Biblioteca de Componentes",
+    "components.meta.description": "Explore la biblioteca completa de símbolos de Circuit Diagram Maker.",
     "components.hero.badge": "Biblioteca de componentes",
     "components.hero.title": "Creador de diagramas de circuito: biblioteca de componentes y referencia de símbolos",
     "components.hero.description": "Explore la biblioteca completa de símbolos electrónicos disponibles en Circuit Diagram Maker. Cada componente sigue convenciones esquemáticas comunes para que sus diagramas sigan siendo legibles para ingenieros, estudiantes y revisores.",
@@ -519,8 +519,8 @@
     "components.actions.secondary": "Leer la documentación completa"
   },
   "ru": {
-    "components.meta.title": "Библиотека компонентов — Создатель принципиальных схем",
-    "components.meta.description": "Просмотрите полную библиотеку символов в Circuit Diagram Maker. Изучите резисторы, конденсаторы, микросхемы, транзисторы, разъемы, символы питания и многое другое.",
+    "components.meta.title": "Библиотека компонентов",
+    "components.meta.description": "Просмотрите всю библиотеку символов Circuit Diagram Maker.",
     "components.hero.badge": "Библиотека компонентов",
     "components.hero.title": "Создатель принципиальных схем — библиотека компонентов и справочник по символам",
     "components.hero.description": "Просмотрите полную библиотеку электронных символов, доступную в Circuit Diagram Maker. Каждый компонент соответствует общим схематическим соглашениям, поэтому ваши диаграммы остаются читабельными для инженеров, студентов и рецензентов.",
@@ -692,8 +692,8 @@
     "components.actions.secondary": "Прочитать полную документацию"
   },
   "fr": {
-    "components.meta.title": "Bibliothèque de composants — Créateur de schémas de circuits",
-    "components.meta.description": "Parcourez la bibliothèque complète de symboles de Circuit Diagram Maker. Explorez les résistances, les condensateurs, les circuits intégrés, les transistors, les connecteurs, les symboles de puissance et bien plus encore.",
+    "components.meta.title": "Bibliothèque de composants",
+    "components.meta.description": "Parcourez la bibliothèque complète de symboles de Circuit Diagram Maker.",
     "components.hero.badge": "Bibliothèque de composants",
     "components.hero.title": "Créateur de schémas de circuits – Bibliothèque de composants et référence de symboles",
     "components.hero.description": "Parcourez la bibliothèque complète de symboles électroniques disponibles dans Circuit Diagram Maker. Chaque composant suit des conventions schématiques communes afin que vos diagrammes restent lisibles pour les ingénieurs, les étudiants et les réviseurs.",
@@ -865,8 +865,8 @@
     "components.actions.secondary": "Lire la documentation complète"
   },
   "de": {
-    "components.meta.title": "Komponentenbibliothek – Schaltplan-Ersteller",
-    "components.meta.description": "Durchsuchen Sie die vollständige Symbolbibliothek von Circuit Diagram Maker. Entdecken Sie Widerstände, Kondensatoren, ICs, Transistoren, Anschlüsse, Leistungssymbole und mehr.",
+    "components.meta.title": "Komponentenbibliothek",
+    "components.meta.description": "Durchsuchen Sie die Symbolbibliothek von Circuit Diagram Maker.",
     "components.hero.badge": "Komponentenbibliothek",
     "components.hero.title": "Schaltplan-Ersteller – Komponentenbibliothek und Symbolreferenz",
     "components.hero.description": "Durchsuchen Sie die vollständige Bibliothek elektronischer Symbole, die im Circuit Diagram Maker verfügbar ist. Jede Komponente folgt allgemeinen Schaltplankonventionen, sodass Ihre Diagramme für Ingenieure, Studenten und Gutachter lesbar bleiben.",
@@ -1038,8 +1038,8 @@
     "components.actions.secondary": "Lesen Sie die vollständige Dokumentation"
   },
   "it": {
-    "components.meta.title": "Libreria dei componenti: creatore di schemi circuitali",
-    "components.meta.description": "Sfoglia la libreria completa di simboli di Circuit Diagram Maker. Esplora resistori, condensatori, circuiti integrati, transistor, connettori, simboli di alimentazione e altro ancora.",
+    "components.meta.title": "Libreria dei Componenti",
+    "components.meta.description": "Esplora la vasta libreria di simboli di Circuit Diagram Maker.",
     "components.hero.badge": "Libreria dei componenti",
     "components.hero.title": "Creatore di schemi circuitali: libreria di componenti e riferimento di simboli",
     "components.hero.description": "Sfoglia la libreria completa di simboli elettronici disponibile in Circuit Diagram Maker. Ogni componente segue convenzioni schematiche comuni in modo che i tuoi diagrammi rimangano leggibili per ingegneri, studenti e revisori.",
@@ -1211,8 +1211,8 @@
     "components.actions.secondary": "Leggi la documentazione completa"
   },
   "pt": {
-    "components.meta.title": "Biblioteca de Componentes — Criador de Diagramas de Circuitos",
-    "components.meta.description": "Navegue pela biblioteca completa de símbolos do Circuit Diagram Maker. Explore resistores, capacitores, CIs, transistores, conectores, símbolos de potência e muito mais.",
+    "components.meta.title": "Biblioteca de Componentes",
+    "components.meta.description": "Explore a biblioteca completa de símbolos eletrónicos.",
     "components.hero.badge": "Biblioteca de Componentes",
     "components.hero.title": "Criador de Diagrama de Circuito – Biblioteca de Componentes e Referência de Símbolos",
     "components.hero.description": "Navegue pela biblioteca completa de símbolos eletrônicos disponíveis no Circuit Diagram Maker. Cada componente segue convenções esquemáticas comuns para que seus diagramas permaneçam legíveis para engenheiros, estudantes e revisores.",
@@ -1384,8 +1384,8 @@
     "components.actions.secondary": "Leia a documentação completa"
   },
   "bn": {
-    "components.meta.title": "কম্পোনেন্ট লাইব্রেরি — সার্কিট ডায়াগ্রাম মেকার",
-    "components.meta.description": "সার্কিট ডায়াগ্রাম মেকারের সম্পূর্ণ প্রতীক লাইব্রেরি ব্রাউজ করুন। প্রতিরোধক, ক্যাপাসিটর, আইসি, ট্রানজিস্টর, সংযোগকারী, পাওয়ার চিহ্ন এবং আরও অনেক কিছু অন্বেষণ করুন।",
+    "components.meta.title": "উপাদান লাইব্রেরি",
+    "components.meta.description": "সার্কিট ডায়াগ্রাম মেকারের লাইব্রেরি দেখুন।",
     "components.hero.badge": "কম্পোনেন্ট লাইব্রেরি",
     "components.hero.title": "সার্কিট ডায়াগ্রাম মেকার — কম্পোনেন্ট লাইব্রেরি এবং সিম্বল রেফারেন্স",
     "components.hero.description": "সার্কিট ডায়াগ্রাম মেকারে উপলব্ধ ইলেকট্রনিক প্রতীকগুলির সম্পূর্ণ লাইব্রেরি ব্রাউজ করুন। প্রতিটি উপাদান সাধারণ পরিকল্পিত নিয়ম অনুসরণ করে যাতে আপনার চিত্রগুলি ইঞ্জিনিয়ার, ছাত্র এবং পর্যালোচকদের জন্য পাঠযোগ্য থাকে।",
@@ -1557,8 +1557,8 @@
     "components.actions.secondary": "সম্পূর্ণ ডকুমেন্টেশন পড়ুন"
   },
   "ja": {
-    "components.meta.title": "コンポーネント ライブラリ — 回路図メーカー",
-    "components.meta.description": "Circuit Diagram Maker の完全なシンボル ライブラリを参照してください。抵抗、コンデンサ、IC、トランジスタ、コネクタ、電源記号などを調べます。",
+    "components.meta.title": "コンポーネントライブラリ",
+    "components.meta.description": "回路図メーカーのシンボルライブラリをご覧ください。",
     "components.hero.badge": "コンポーネントライブラリ",
     "components.hero.title": "回路図メーカー — コンポーネント ライブラリとシンボル リファレンス",
     "components.hero.description": "Circuit Diagram Maker で利用できる電子シンボルの完全なライブラリを参照してください。すべてのコンポーネントは共通の回路図規則に従っているため、図はエンジニア、学生、レビュー担当者にとって読みやすい状態に保たれます。",
@@ -1730,8 +1730,8 @@
     "components.actions.secondary": "完全なドキュメントを読む"
   },
   "ko": {
-    "components.meta.title": "부품 라이브러리 - 회로도 작성기",
-    "components.meta.description": "Circuit Diagram Maker의 전체 기호 라이브러리를 찾아보세요. 저항기, 커패시터, IC, 트랜지스터, 커넥터, 전원 기호 등을 살펴보세요.",
+    "components.meta.title": "구성요소 라이브러리",
+    "components.meta.description": "회로도의 전체 기호 라이브러리를 탐색하세요.",
     "components.hero.badge": "부품 라이브러리",
     "components.hero.title": "회로도 작성기 - 구성 요소 라이브러리 및 기호 참조",
     "components.hero.description": "Circuit Diagram Maker에서 사용할 수 있는 전체 전자 기호 라이브러리를 찾아보세요. 모든 구성 요소는 일반적인 도식 규칙을 따르므로 엔지니어, 학생 및 검토자가 다이어그램을 계속 읽을 수 있습니다.",
@@ -1903,8 +1903,8 @@
     "components.actions.secondary": "전체 문서 읽기"
   },
   "ms": {
-    "components.meta.title": "Perpustakaan Komponen — Pembuat Rajah Litar",
-    "components.meta.description": "Semak imbas perpustakaan simbol lengkap Pembuat Diagram Litar. Teroka perintang, kapasitor, IC, transistor, penyambung, simbol kuasa dan banyak lagi.",
+    "components.meta.title": "Perpustakaan Komponen",
+    "components.meta.description": "Teroka perpustakaan simbol untuk gambarajah litar.",
     "components.hero.badge": "Perpustakaan Komponen",
     "components.hero.title": "Pembuat Rajah Litar — Perpustakaan Komponen & Rujukan Simbol",
     "components.hero.description": "Semak imbas perpustakaan lengkap simbol elektronik yang tersedia dalam Pembuat Rajah Litar. Setiap komponen mengikut konvensyen skema biasa supaya rajah anda kekal boleh dibaca oleh jurutera, pelajar dan penyemak.",
@@ -2076,8 +2076,8 @@
     "components.actions.secondary": "Baca Dokumentasi Penuh"
   },
   "pl": {
-    "components.meta.title": "Biblioteka komponentów — Kreator schematów obwodów",
-    "components.meta.description": "Przeglądaj pełną bibliotekę symboli w Kreatorze schematów obwodów. Przeglądaj rezystory, kondensatory, układy scalone, tranzystory, złącza, symbole mocy i nie tylko.",
+    "components.meta.title": "Biblioteka komponentów",
+    "components.meta.description": "Przeglądaj symbole Circuit Diagram Maker.",
     "components.hero.badge": "Biblioteka komponentów",
     "components.hero.title": "Kreator schematów obwodów — biblioteka komponentów i odniesienie do symboli",
     "components.hero.description": "Przeglądaj pełną bibliotekę symboli elektronicznych dostępnych w Kreatorze schematów obwodów. Każdy komponent jest zgodny z powszechnymi konwencjami schematów, dzięki czemu diagramy pozostają czytelne dla inżynierów, studentów i recenzentów.",
@@ -2249,8 +2249,8 @@
     "components.actions.secondary": "Przeczytaj pełną dokumentację"
   },
   "id": {
-    "components.meta.title": "Perpustakaan Komponen — Pembuat Diagram Sirkuit",
-    "components.meta.description": "Jelajahi perpustakaan simbol lengkap Pembuat Diagram Sirkuit. Jelajahi resistor, kapasitor, IC, transistor, konektor, simbol daya, dan banyak lagi.",
+    "components.meta.title": "Pustaka Komponen",
+    "components.meta.description": "Lihat perpustakaan lengkap simbol sirkuit kami.",
     "components.hero.badge": "Perpustakaan Komponen",
     "components.hero.title": "Pembuat Diagram Sirkuit — Pustaka Komponen & Referensi Simbol",
     "components.hero.description": "Jelajahi perpustakaan lengkap simbol elektronik yang tersedia di Circuit Diagram Maker. Setiap komponen mengikuti konvensi skema umum sehingga diagram Anda tetap dapat dibaca oleh para insinyur, pelajar, dan pengulas.",
@@ -2422,8 +2422,8 @@
     "components.actions.secondary": "Baca Dokumentasi Lengkap"
   },
   "ar": {
-    "components.meta.title": "مكتبة المكونات – صانع مخططات الدوائر",
-    "components.meta.description": "تصفح مكتبة الرموز الكاملة لـ Circuit Diagram Maker. استكشف المقاومات والمكثفات والدوائر المتكاملة والترانزستورات والموصلات ورموز الطاقة والمزيد.",
+    "components.meta.title": "مكتبة العناصر",
+    "components.meta.description": "تصفح الرموز الإلكترونية الكاملة.",
     "components.hero.badge": "مكتبة المكونات",
     "components.hero.title": "صانع مخططات الدوائر - مكتبة المكونات ومرجع الرموز",
     "components.hero.description": "تصفح المكتبة الكاملة للرموز الإلكترونية المتوفرة في Circuit Diagram Maker. يتبع كل مكون اصطلاحات تخطيطية شائعة بحيث تظل الرسوم التخطيطية الخاصة بك قابلة للقراءة للمهندسين والطلاب والمراجعين.",
@@ -2595,8 +2595,8 @@
     "components.actions.secondary": "قراءة الوثائق الكاملة"
   },
   "bg": {
-    "components.meta.title": "Библиотека с компоненти — Създател на електрически схеми",
-    "components.meta.description": "Разгледайте пълната библиотека със символи на Circuit Diagram Maker. Разгледайте резистори, кондензатори, интегрални схеми, транзистори, съединители, символи за мощност и др.",
+    "components.meta.title": "Библиотека с компоненти",
+    "components.meta.description": "Разгледайте пълната библиотека със символи.",
     "components.hero.badge": "Библиотека с компоненти",
     "components.hero.title": "Създател на електрическа схема — Библиотека на компоненти и Справочник на символи",
     "components.hero.description": "Разгледайте пълната библиотека от електронни символи, налични в Circuit Diagram Maker. Всеки компонент следва общи схематични конвенции, така че вашите диаграми да останат четливи за инженери, студенти и рецензенти.",
@@ -2768,8 +2768,8 @@
     "components.actions.secondary": "Прочетете пълната документация"
   },
   "tr": {
-    "components.meta.title": "Bileşen Kitaplığı — Devre Şeması Oluşturucu",
-    "components.meta.description": "Circuit Diagram Maker'ın tam sembol kütüphanesine göz atın. Dirençleri, kapasitörleri, IC'leri, transistörleri, konektörleri, güç sembollerini ve daha fazlasını keşfedin.",
+    "components.meta.title": "Bileşenler Kütüphanesi",
+    "components.meta.description": "Tasarım için tüm sembolleri inceleyin.",
     "components.hero.badge": "Bileşen Kitaplığı",
     "components.hero.title": "Devre Şeması Oluşturucu — Bileşen Kitaplığı ve Sembol Referansı",
     "components.hero.description": "Circuit Diagram Maker'da bulunan elektronik sembollerin bulunduğu kütüphanenin tamamına göz atın. Her bileşen ortak şematik kuralları takip eder, böylece diyagramlarınız mühendisler, öğrenciler ve gözden geçirenler için okunabilir kalır.",
@@ -2941,8 +2941,8 @@
     "components.actions.secondary": "Tüm Belgeleri Okuyun"
   },
   "sv": {
-    "components.meta.title": "Komponentbibliotek — Kretsdiagrammakare",
-    "components.meta.description": "Bläddra i hela symbolbiblioteket i Circuit Diagram Maker. Utforska motstånd, kondensatorer, IC, transistorer, kontakter, effektsymboler och mer.",
+    "components.meta.title": "Komponentbibliotek",
+    "components.meta.description": "Se schemats alla symboler.",
     "components.hero.badge": "Komponentbibliotek",
     "components.hero.title": "Kretsdiagrammakare — Komponentbibliotek och symbolreferens",
     "components.hero.description": "Bläddra i hela biblioteket med elektroniska symboler som finns tillgängliga i Circuit Diagram Maker. Varje komponent följer vanliga schematiska konventioner så att dina diagram förblir läsbara för ingenjörer, studenter och granskare.",

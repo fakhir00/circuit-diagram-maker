@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { locales, defaultLocale, useTranslations } from '../../theme/i18n';
+import { locales, defaultLocale, useTranslations, getLocalizedPath } from '../../theme/i18n';
 
 export async function getStaticPaths() {
   const otherLocales = locales.filter(l => l !== defaultLocale);
@@ -9,53 +9,112 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const t = useTranslations(locale);
+
+const timeline = t('about.timeline');
+const values = t('about.values');
 ---
 
-<BaseLayout title={t('nav.about')}>
-  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">
-    <!-- Blueprint Grid Background -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.08)_1px,transparent_1px)] [background-size:32px_32px] opacity-40"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-dark/50 to-bg-dark"></div>
-    
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Our Mission</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 underline decoration-brand-primary/30 decoration-8 underline-offset-8">{t('nav.about')}</h1>
-      <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-        Building the future of accessible electronic design, one node at a time.
+<BaseLayout title={t('about.meta.title')} description={t('about.meta.description')}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-24">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.1),transparent_40%),radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.08),transparent_40%)]"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('about.hero.badge')}</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">{t('about.hero.title')}</h1>
+      <p class="mt-6 text-xl text-slate-400 leading-relaxed max-w-3xl">
+        {t('about.hero.subtitle')}
       </p>
     </div>
   </section>
 
-  <section class="bg-bg-panel py-24">
+  <!-- Our Story -->
+  <section class="py-20 bg-bg-panel">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="prose prose-invert prose-blue max-w-none">
-        <div class="p-8 rounded-3xl border border-white/10 bg-bg-dark/50 backdrop-blur-sm mb-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-          <p class="text-xl text-slate-300 leading-relaxed font-medium">
-            Circuit Diagram Maker is built by a global team of engineers who believe that professional electronic schematic design should be fast, accessible, and intuitive directly within your browser.
-          </p>
+      <h2 class="text-3xl font-bold text-white mb-6">{t('about.story.title')}</h2>
+      <div class="space-y-4 text-slate-300 leading-relaxed text-lg">
+        <p>
+          {t('about.story.p1')}
+        </p>
+        <p>
+          <strong class="text-white">{t('home.hero.title')}</strong> {t('about.story.p2')}
+        </p>
+        <p>
+          {t('about.story.p3')}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-bg-dark border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white mb-12">{t('about.timeline.title')}</h2>
+      <div class="space-y-8 relative">
+        <div class="absolute left-[18px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-brand-primary/40 via-brand-secondary/30 to-transparent"></div>
+        {timeline.map((item: any) => (
+          <div class="relative pl-12 group">
+            <div class="absolute left-0 top-1 w-9 h-9 rounded-full bg-brand-primary/15 border-2 border-brand-primary/40 flex items-center justify-center group-hover:bg-brand-primary/25 transition-colors">
+              <div class="w-2.5 h-2.5 rounded-full bg-brand-primary"></div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-bg-panel/60 p-5 group-hover:border-brand-primary/20 transition-colors">
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent">{item.year}</span>
+              <h3 class="text-lg font-semibold text-white mt-1">{item.title}</h3>
+              <p class="mt-2 text-slate-400 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-bg-panel border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white mb-12 text-center">{t('about.principles.title')}</h2>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {values.map((v: any) => (
+          <div class="rounded-2xl border border-white/10 bg-bg-dark/50 p-6 hover:border-brand-primary/20 transition-colors group">
+            <div class="text-3xl mb-3">{v.icon}</div>
+            <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{v.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-bg-dark border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <div class="text-3xl font-black text-white">{t('about.stats.symbols.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('home.stats.symbols')}</div>
         </div>
-        
-        <div class="grid gap-12 md:grid-cols-2 mt-16">
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-primary/20 text-brand-primary text-sm">01</span>
-              The Vision
-            </h2>
-            <p class="text-slate-400 leading-relaxed">
-              We aim to provide students, researchers, and professionals with a robust tool to draft, simulate, and export their circuit ideas without the bloat of traditional desktop software.
-            </p>
-          </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-primary/20 text-brand-primary text-sm">02</span>
-              Open Standards
-            </h2>
-            <p class="text-slate-400 leading-relaxed">
-              By using web technologies and standard SVG formats, we ensure your circuit diagrams are infinitely scalable and compatible with everything from LaTeX to professional CAD suites.
-            </p>
-          </div>
+        <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <div class="text-3xl font-black text-white">{t('about.stats.languages.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('about.stats.languages.label')}</div>
+        </div>
+        <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <div class="text-3xl font-black text-white">{t('about.stats.countries.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('about.stats.countries.label')}</div>
+        </div>
+        <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <div class="text-3xl font-black text-white">{t('about.stats.cost.value')}</div>
+          <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('home.stats.free')}</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-bg-panel border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-white">{t('about.cta.title')}</h2>
+      <p class="mt-3 text-slate-400">{t('about.cta.desc')}</p>
+      <a href={getLocalizedPath('/editor/', locale as any)} class="inline-flex mt-6 px-8 py-3 rounded-xl bg-brand-primary hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+        {t('common.open_editor')}
+      </a>
     </div>
   </section>
 </BaseLayout>

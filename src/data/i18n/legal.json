@@ -76,86 +76,154 @@
     "legal.privacy.hero.title": "गोपनीयता नीति",
     "legal.privacy.hero.updated": "अंतिम अपडेट",
     "legal.terms.hero.title": "सेवा की शर्तें",
-    "legal.terms.hero.updated": "अंतिम अपडेट"
+    "legal.terms.hero.updated": "अंतिम अपडेट",
+    "legal.privacy.meta.title": "गोपनीयता नीति",
+    "legal.privacy.meta.description": "सर्किट आरेख निर्माता की गोपनीयता नीति पढ़ें।",
+    "legal.terms.meta.title": "सेवा की शर्तें",
+    "legal.terms.meta.description": "सर्किट आरेख निर्माता की सेवा की शर्तें पढ़ें।"
   },
   "es": {
     "legal.privacy.hero.title": "Política de privacidad",
     "legal.privacy.hero.updated": "Última actualización",
     "legal.terms.hero.title": "Términos de servicio",
-    "legal.terms.hero.updated": "Última actualización"
+    "legal.terms.hero.updated": "Última actualización",
+    "legal.privacy.meta.title": "Política de Privacidad",
+    "legal.privacy.meta.description": "Lea la política de privacidad de Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Términos de Servicio",
+    "legal.terms.meta.description": "Lea los términos de servicio de nuestro creador de diagramas."
   },
   "ru": {
     "legal.privacy.hero.title": "Политика конфиденциальности",
     "legal.privacy.hero.updated": "Последнее обновление",
     "legal.terms.hero.title": "Условия использования",
-    "legal.terms.hero.updated": "Последнее обновление"
+    "legal.terms.hero.updated": "Последнее обновление",
+    "legal.privacy.meta.title": "Политика конфиденциальности",
+    "legal.privacy.meta.description": "Прочтите политику конфиденциальности Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Условия использования",
+    "legal.terms.meta.description": "Ознакомьтесь с условиями использования Circuit Diagram Maker."
   },
   "fr": {
     "legal.privacy.hero.title": "Politique de confidentialité",
     "legal.privacy.hero.updated": "Dernière mise à jour",
     "legal.terms.hero.title": "Conditions d'utilisation",
-    "legal.terms.hero.updated": "Dernière mise à jour"
+    "legal.terms.hero.updated": "Dernière mise à jour",
+    "legal.privacy.meta.title": "Politique de confidentialité",
+    "legal.privacy.meta.description": "Lisez la politique de confidentialité de Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Conditions d'utilisation",
+    "legal.terms.meta.description": "Lisez les conditions d'utilisation de Circuit Diagram Maker."
   },
   "de": {
     "legal.privacy.hero.title": "Datenschutzerklärung",
     "legal.privacy.hero.updated": "Zuletzt aktualisiert",
     "legal.terms.hero.title": "Nutzungsbedingungen",
-    "legal.terms.hero.updated": "Zuletzt aktualisiert"
+    "legal.terms.hero.updated": "Zuletzt aktualisiert",
+    "legal.privacy.meta.title": "Datenschutzrichtlinie",
+    "legal.privacy.meta.description": "Lesen Sie die Datenschutzrichtlinie für Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Nutzungsbedingungen",
+    "legal.terms.meta.description": "Lesen Sie die Nutzungsbedingungen für Circuit Diagram Maker."
   },
   "it": {
     "legal.privacy.hero.title": "Informativa sulla privacy",
     "legal.privacy.hero.updated": "Ultimo aggiornamento",
     "legal.terms.hero.title": "Termini di servizio",
-    "legal.terms.hero.updated": "Ultimo aggiornamento"
+    "legal.terms.hero.updated": "Ultimo aggiornamento",
+    "legal.privacy.meta.title": "Informativa sulla privacy",
+    "legal.privacy.meta.description": "Leggi l'informativa sulla privacy di Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Termini di Servizio",
+    "legal.terms.meta.description": "Leggi le condizioni d'uso di Circuit Diagram Maker."
   },
   "pt": {
     "legal.privacy.hero.title": "Política de Privacidade",
     "legal.privacy.hero.updated": "Última atualização",
     "legal.terms.hero.title": "Termos de Serviço",
-    "legal.terms.hero.updated": "Última atualização"
+    "legal.terms.hero.updated": "Última atualização",
+    "legal.privacy.meta.title": "Política de Privacidade",
+    "legal.privacy.meta.description": "Leia a política de privacidade do Circuit Diagram Maker.",
+    "legal.terms.meta.title": "Termos de Serviço",
+    "legal.terms.meta.description": "Leia os termos de serviço do nosso criador de diagramas."
   },
   "ja": {
     "legal.privacy.hero.title": "プライバシーポリシー",
     "legal.privacy.hero.updated": "最終更新日",
     "legal.terms.hero.title": "利用規約",
-    "legal.terms.hero.updated": "最終更新日"
+    "legal.terms.hero.updated": "最終更新日",
+    "legal.privacy.meta.title": "プライバシーポリシー",
+    "legal.privacy.meta.description": "回路図メーカーの個人情報保護方針。",
+    "legal.terms.meta.title": "利用規約",
+    "legal.terms.meta.description": "回路図メーカーの利用規約をご覧ください。"
   },
   "ko": {
     "legal.privacy.hero.title": "개인정보 처리방침",
     "legal.privacy.hero.updated": "최종 업데이트",
     "legal.terms.hero.title": "서비스 이용약관",
-    "legal.terms.hero.updated": "최종 업데이트"
+    "legal.terms.hero.updated": "최종 업데이트",
+    "legal.privacy.meta.title": "개인정보 처리방침",
+    "legal.privacy.meta.description": "개인정보 처리방침을 확인하세요.",
+    "legal.terms.meta.title": "서비스 이용약관",
+    "legal.terms.meta.description": "서비스 이용약관을 읽어보세요."
   },
   "bn": {
     "legal.privacy.hero.title": "গোপনীয়তা নীতি",
-    "legal.terms.hero.title": "পরিষেবার শর্তাবলী"
+    "legal.terms.hero.title": "পরিষেবার শর্তাবলী",
+    "legal.privacy.meta.title": "গোপনীয়তা নীতি",
+    "legal.privacy.meta.description": "গোপনীয়তা নীতি পড়ুন।",
+    "legal.terms.meta.title": "পরিষেবার শর্তাবলী",
+    "legal.terms.meta.description": "ব্যবহারের শর্তাবলী পড়ুন।"
   },
   "ms": {
     "legal.privacy.hero.title": "Dasar Privasi",
-    "legal.terms.hero.title": "Syarat Perkhidmatan"
+    "legal.terms.hero.title": "Syarat Perkhidmatan",
+    "legal.privacy.meta.title": "Dasar Privasi",
+    "legal.privacy.meta.description": "Baca dasar privasi kami.",
+    "legal.terms.meta.title": "Terma Perkhidmatan",
+    "legal.terms.meta.description": "Baca syarat perkhidmatan kami."
   },
   "pl": {
     "legal.privacy.hero.title": "Polityka prywatności",
-    "legal.terms.hero.title": "Regulamin"
+    "legal.terms.hero.title": "Regulamin",
+    "legal.privacy.meta.title": "Polityka prywatności",
+    "legal.privacy.meta.description": "Przeczytaj politykę prywatności.",
+    "legal.terms.meta.title": "Warunki świadczenia usług",
+    "legal.terms.meta.description": "Przeczytaj nasz regulamin."
   },
   "id": {
     "legal.privacy.hero.title": "Kebijakan Privasi",
-    "legal.terms.hero.title": "Ketentuan Layanan"
+    "legal.terms.hero.title": "Ketentuan Layanan",
+    "legal.privacy.meta.title": "Kebijakan Privasi",
+    "legal.privacy.meta.description": "Baca kebijakan privasi kami.",
+    "legal.terms.meta.title": "Ketentuan Layanan",
+    "legal.terms.meta.description": "Syarat dan ketentuan layanan kami."
   },
   "ar": {
     "legal.privacy.hero.title": "سياسة الخصوصية",
-    "legal.terms.hero.title": "شروط الخدمة"
+    "legal.terms.hero.title": "شروط الخدمة",
+    "legal.privacy.meta.title": "سياسة الخصوصية",
+    "legal.privacy.meta.description": "اقرأ سياسة الخصوصية.",
+    "legal.terms.meta.title": "شروط الخدمة",
+    "legal.terms.meta.description": "اقرأ شروط الخدمة."
   },
   "bg": {
     "legal.privacy.hero.title": "Политика за поверителност",
-    "legal.terms.hero.title": "Условия за ползване"
+    "legal.terms.hero.title": "Условия за ползване",
+    "legal.privacy.meta.title": "Политика за поверителност",
+    "legal.privacy.meta.description": "Прочетете нашата политика за поверителност.",
+    "legal.terms.meta.title": "Условия за ползване",
+    "legal.terms.meta.description": "Прочетете условията за ползване."
   },
   "tr": {
     "legal.privacy.hero.title": "Gizlilik Politikası",
-    "legal.terms.hero.title": "Hizmet Şartları"
+    "legal.terms.hero.title": "Hizmet Şartları",
+    "legal.privacy.meta.title": "Gizlilik Politikası",
+    "legal.privacy.meta.description": "Gizlilik politikamızı okuyun.",
+    "legal.terms.meta.title": "Hizmet Şartları",
+    "legal.terms.meta.description": "Hizmet şartlarını inceleyin."
   },
   "sv": {
     "legal.privacy.hero.title": "Integritetspolicy",
-    "legal.terms.hero.title": "Användarvillkor"
+    "legal.terms.hero.title": "Användarvillkor",
+    "legal.privacy.meta.title": "Integritetspolicy",
+    "legal.privacy.meta.description": "Läs vår integritetspolicy.",
+    "legal.terms.meta.title": "Användarvillkor",
+    "legal.terms.meta.description": "Läs våra användarvillkor."
   }
 }

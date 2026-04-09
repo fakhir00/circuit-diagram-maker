@@ -10,9 +10,10 @@ interface Props {
   title?: string;
   description?: string;
   hideHeaderFooter?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description, hideHeaderFooter = false } = Astro.props;
+const { title, description, hideHeaderFooter = false, noindex = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const locale = getLocaleFromUrl(pathname);
 const dir = locale === 'ar' ? 'rtl' : 'ltr';
@@ -120,8 +121,15 @@ const softwareSchema = isHome ? {
   <meta name="twitter:description" content={finalDescription} />
   <meta name="twitter:image" content={new URL('/og-image.png', canonicalURL)} />
   
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="googlebot" content="index, follow" />
+  {noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+  ) : (
+    <>
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
+    </>
+  )}
   
   <!-- JSON-LD Combined Schema -->
   <script type="application/ld+json" set:html={JSON.stringify({

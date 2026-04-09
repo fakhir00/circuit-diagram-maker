@@ -6,16 +6,19 @@ import { getLocaleFromUrl, useTranslations } from '../../../theme/i18n';
 import config from '../../../data/config.json';
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = await getCollection('blog', ({ id }) => !id.startsWith('en/'));
+  const allPosts = await getCollection('blog');
+  const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
   
-  const postsByLocale: Record<string, any[]> = {};
-  for (const post of posts) {
-    const loc = post.id.split('/')[0];
-    if (!postsByLocale[loc]) postsByLocale[loc] = [];
-    postsByLocale[loc].push(post);
-  }
+  const fromLocales = locales.filter(l => l !== defaultLocale);
 
-  return Object.entries(postsByLocale).flatMap(([loc, localePosts]) => {
+  return fromLocales.flatMap((loc) => {
+    let localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    
+    // If no translated posts exist yet, use English posts
+    if (localePosts.length === 0) {
+      localePosts = enPosts;
+    }
+
     localePosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     return paginate(localePosts, { params: { locale: loc }, pageSize: 12 });
   });
@@ -44,9 +47,13 @@ const blogSchema = {
     };
   })
 };
+};
+
+const baseTitle = `${t('nav.blog')} — ${t('brand.name')}`;
+const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${page.currentPage}` : baseTitle;
 ---
 
-<BaseLayout title={`${t('nav.blog')} — ${t('brand.name')}`} description={t('blog.subtitle')}>
+<BaseLayout title={pageTitle} description={t('blog.subtitle')}>
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
   <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">

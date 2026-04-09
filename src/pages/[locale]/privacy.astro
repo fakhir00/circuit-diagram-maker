@@ -9,20 +9,87 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const t = useTranslations(locale);
-const lastUpdated = "2023-10-24";
+const lastUpdated = "2026-04-01";
 ---
 
-<BaseLayout title={t('footer.privacy')}>
-  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-bold tracking-tight text-white mb-4">{t('footer.privacy')}</h1>
-    <p class="text-slate-400 mb-8">Last updated: {lastUpdated}</p>
-    
-    <div class="prose prose-invert prose-blue max-w-none text-slate-300">
-      <h2>1. Information We Collect</h2>
-      <p>We do not collect any personal data when you use the diagram editor. All circuits are saved directly to your local storage. We only collect standard analytics data strictly for operational purposes.</p>
-      
-      <h2>2. How We Use Your Information</h2>
-      <p>Any non-personal data collected is used solely to improve the user experience and maintain the performance of the website.</p>
+<BaseLayout title={t('legal.privacy.meta.title')} description={t('legal.privacy.meta.description')}>
+  <section class="relative overflow-hidden border-b border-white/5 bg-bg-dark py-20">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.08),transparent_40%)]"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('legal.privacy.hero.badge')}</p>
+      <h1 class="text-4xl font-extrabold tracking-tight text-white">{t('legal.privacy.hero.title')}</h1>
+      <p class="mt-3 text-slate-400">{t('legal.privacy.hero.updated')}: {lastUpdated}</p>
     </div>
-  </div>
+  </section>
+
+  <section class="py-16 bg-bg-panel">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-invert prose-blue max-w-none text-slate-300 space-y-8">
+
+        <div>
+           <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s1.title')}</h2>
+           <p>{t('legal.privacy.s1.p1')}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s2.title')}</h2>
+          <p>{t('legal.privacy.s2.p1')}</p>
+          <ul class="list-disc list-inside space-y-2 mt-3">
+            <li><strong class="text-white">{t('legal.privacy.s2.l1.title')}</strong> {t('legal.privacy.s2.l1.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s2.l2.title')}</strong> {t('legal.privacy.s2.l2.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s2.l3.title')}</strong> {t('legal.privacy.s2.l3.desc')}</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s3.title')}</h2>
+          <p>{t('legal.privacy.s3.p1')}</p>
+          <ul class="list-disc list-inside space-y-2 mt-3">
+            <li>{t('legal.privacy.s3.l1')}</li>
+            <li>{t('legal.privacy.s3.l2')}</li>
+            <li>{t('legal.privacy.s3.l3')}</li>
+            <li>{t('legal.privacy.s3.l4')}</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s4.title')}</h2>
+          <p>{t('legal.privacy.s4.p1')}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s5.title')}</h2>
+          <p>{t('legal.privacy.s5.p1')}</p>
+          <ul class="list-disc list-inside space-y-2 mt-3">
+            <li><strong class="text-white">{t('legal.privacy.s5.l1.title')}</strong> {t('legal.privacy.s5.l1.desc')}</li>
+            <li><strong class="text-white">{t('legal.privacy.s5.l2.title')}</strong> {t('legal.privacy.s5.l2.desc')}</li>
+          </ul>
+          <p class="mt-3">{t('legal.privacy.s5.p2')}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s6.title')}</h2>
+          <p>{t('legal.privacy.s6.p1')}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s7.title')}</h2>
+          <p>{t('legal.privacy.s7.p1')}</p>
+          <ul class="list-disc list-inside space-y-2 mt-3">
+            <li>{t('legal.privacy.s7.l1')}</li>
+            <li>{t('legal.privacy.s7.l2')}</li>
+            <li>{t('legal.privacy.s7.l3')}</li>
+            <li>{t('legal.privacy.s7.l4')}</li>
+          </ul>
+          <p class="mt-3">{t('legal.privacy.s7.p2')} <a href="mailto:privacy@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">privacy@circuit-diagram.org</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s8.title')}</h2>
+          <p>{t('legal.privacy.s8.p1')}</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 </BaseLayout>
