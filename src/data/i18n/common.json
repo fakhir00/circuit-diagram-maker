@@ -27,7 +27,11 @@
     "footer.guideBeginners": "Circuit Diagrams for Beginners",
     "footer.more": "More",
     "footer.status": "Status",
-    "footer.operational": "Operational"
+    "footer.operational": "Operational",
+    "404.meta.title": "404 - Page Not Found",
+    "404.title": "Oops! Page not found.",
+    "404.desc": "It looks like the schematic you're trying to find doesn't exist. Let's get you back to safety.",
+    "404.button": "Return Home"
   },
   "hi": {
     "nav.home": "घर",
@@ -57,7 +61,11 @@
     "footer.guideBeginners": "शुरुआती लोगों के लिए सर्किट आरेख",
     "footer.more": "अधिक",
     "footer.status": "स्थिति",
-    "footer.operational": "आपरेशनल"
+    "footer.operational": "आपरेशनल",
+    "404.meta.title": "404 - पृष्ठ नहीं मिला",
+    "404.title": "उफ़! पृष्ठ नहीं मिला।",
+    "404.desc": "ऐसा लगता है कि आप जो योजना खोज रहे हैं वह मौजूद नहीं है। चलिए आपको वापस सुरक्षित स्थान पर ले चलते हैं।",
+    "404.button": "होम पर लौटें"
   },
   "es": {
     "nav.home": "Hogar",
@@ -87,7 +95,11 @@
     "footer.guideBeginners": "Diagramas de circuitos para principiantes",
     "footer.more": "Más",
     "footer.status": "Estado",
-    "footer.operational": "Operacional"
+    "footer.operational": "Operacional",
+    "404.meta.title": "404 - Página no encontrada",
+    "404.title": "¡Uy! Página no encontrada.",
+    "404.desc": "Parece que el esquema que intentas encontrar no existe. Volvamos a la página principal.",
+    "404.button": "Volver a Inicio"
   },
   "ru": {
     "nav.home": "Дом",
@@ -117,7 +129,11 @@
     "footer.guideBeginners": "Принципиальные схемы для начинающих",
     "footer.more": "Более",
     "footer.status": "Статус",
-    "footer.operational": "Оперативный"
+    "footer.operational": "Оперативный",
+    "404.meta.title": "404 - Страница не найдена",
+    "404.title": "Упс! Страница не найдена.",
+    "404.desc": "Похоже, схемы, которую вы пытаетесь найти, не существует. Давайте вернем вас обратно.",
+    "404.button": "Вернуться на главную"
   },
   "fr": {
     "nav.home": "Maison",
@@ -147,7 +163,11 @@
     "footer.guideBeginners": "Schémas de circuits pour débutants",
     "footer.more": "Plus",
     "footer.status": "Statut",
-    "footer.operational": "Opérationnel"
+    "footer.operational": "Opérationnel",
+    "404.meta.title": "404 - Page non trouvée",
+    "404.title": "Oups ! Page non trouvée.",
+    "404.desc": "Il semble que le schéma que vous essayez de trouver n'existe pas. Retournons à l'accueil.",
+    "404.button": "Retour à l'accueil"
   },
   "de": {
     "nav.home": "Heim",
@@ -177,7 +197,11 @@
     "footer.guideBeginners": "Schaltpläne für Anfänger",
     "footer.more": "Mehr",
     "footer.status": "Status",
-    "footer.operational": "Betriebsbereit"
+    "footer.operational": "Betriebsbereit",
+    "404.meta.title": "404 - Seite nicht gefunden",
+    "404.title": "Hoppla! Seite nicht gefunden.",
+    "404.desc": "Es sieht so aus, als gäbe es den Schaltplan, den Sie suchen, nicht. Lassen Sie uns zum Start zurückkehren.",
+    "404.button": "Zurück zur Startseite"
   },
   "it": {
     "nav.home": "Casa",
@@ -207,7 +231,11 @@
     "footer.guideBeginners": "Schemi elettrici per principianti",
     "footer.more": "Di più",
     "footer.status": "Stato",
-    "footer.operational": "Operativo"
+    "footer.operational": "Operativo",
+    "404.meta.title": "404 - Pagina non trovata",
+    "404.title": "Ops! Pagina non trovata.",
+    "404.desc": "Sembra che lo schema che stai cercando non esista. Torniamo alla home.",
+    "404.button": "Ritorna alla Home"
   },
   "pt": {
     "nav.home": "Lar",
@@ -237,7 +265,11 @@
     "footer.guideBeginners": "Diagramas de circuito para iniciantes",
     "footer.more": "Mais",
     "footer.status": "Status",
-    "footer.operational": "Operacional"
+    "footer.operational": "Operacional",
+    "404.meta.title": "404 - Página não encontrada",
+    "404.title": "Oops! Página não encontrada.",
+    "404.desc": "Parece que o esquema que você está tentando encontrar não existe. Vamos voltar para casa.",
+    "404.button": "Voltar ao Início"
   },
   "bn": {
     "nav.home": "বাড়ি",
@@ -267,7 +299,11 @@
     "footer.guideBeginners": "নতুনদের জন্য সার্কিট ডায়াগ্রাম",
     "footer.more": "আরও",
     "footer.status": "স্ট্যাটাস",
-    "footer.operational": "কর্মক্ষম"
+    "footer.operational": "কর্মক্ষম",
+    "404.meta.title": "৪০৪ - পৃষ্ঠা পাওয়া যায়নি",
+    "404.title": "উফস! পৃষ্ঠা পাওয়া যায়নি।",
+    "404.desc": "মনে হচ্ছে আপনি যে ডায়াগ্রাম খোঁজার চেষ্টা করছেন তা নেই। চলুন আপনাকে নিরাপদে ফিরিয়ে নিয়ে যাই।",
+    "404.button": "হোমে ফিরে যান"
   },
   "ja": {
     "nav.home": "家",
@@ -297,7 +333,11 @@
     "footer.guideBeginners": "初心者向けの回路図",
     "footer.more": "もっと",
     "footer.status": "状態",
-    "footer.operational": "稼働中"
+    "footer.operational": "稼働中",
+    "404.meta.title": "404 - ページが見つかりません",
+    "404.title": "おっと！ページが見つかりません。",
+    "404.desc": "探している回路図は存在しないようです。ホームに戻りましょう。",
+    "404.button": "ホームに戻る"
   },
   "ko": {
     "nav.home": "집",
@@ -327,7 +367,11 @@
     "footer.guideBeginners": "초보자를 위한 회로도",
     "footer.more": "더",
     "footer.status": "상태",
-    "footer.operational": "운영"
+    "footer.operational": "운영",
+    "404.meta.title": "404 - 페이지를 찾을 수 없습니다",
+    "404.title": "앗! 페이지를 찾을 수 없습니다.",
+    "404.desc": "찾으려는 회로도가 존재하지 않는 것 같습니다. 홈으로 돌아가ましょう.",
+    "404.button": "홈으로 돌아가기"
   },
   "ms": {
     "nav.home": "Rumah",
@@ -357,7 +401,11 @@
     "footer.guideBeginners": "Gambarajah Litar untuk Pemula",
     "footer.more": "Lagi",
     "footer.status": "Status",
-    "footer.operational": "Beroperasi"
+    "footer.operational": "Beroperasi",
+    "404.meta.title": "404 - Halaman Tidak Ditemui",
+    "404.title": "Alamak! Halaman tidak ditemui.",
+    "404.desc": "Nampaknya skematik yang anda cari tidak wujud. Mari kembali ke halaman utama.",
+    "404.button": "Kembali ke Utama"
   },
   "pl": {
     "nav.home": "Dom",
@@ -387,7 +435,11 @@
     "footer.guideBeginners": "Schematy obwodów dla początkujących",
     "footer.more": "Więcej",
     "footer.status": "Status",
-    "footer.operational": "Operacyjny"
+    "footer.operational": "Operacyjny",
+    "404.meta.title": "404 - Nie znaleziono strony",
+    "404.title": "Ups! Nie znaleziono strony.",
+    "404.desc": "Wygląda na to, że schemat, którego szukasz, nie istnieje. Wróćmy w bezpieczne miejsce.",
+    "404.button": "Powrót do strony głównej"
   },
   "id": {
     "nav.home": "Rumah",
@@ -417,7 +469,11 @@
     "footer.guideBeginners": "Diagram Sirkuit untuk Pemula",
     "footer.more": "Lagi",
     "footer.status": "Status",
-    "footer.operational": "Operasional"
+    "footer.operational": "Operasional",
+    "404.meta.title": "404 - Halaman Tidak Ditemukan",
+    "404.title": "Ups! Halaman tidak ditemukan.",
+    "404.desc": "Sepertinya skema yang Anda cari tidak ada. Mari kita kembali ke beranda.",
+    "404.button": "Kembali ke Beranda"
   },
   "ar": {
     "nav.home": "بيت",
@@ -447,7 +503,11 @@
     "footer.guideBeginners": "مخططات الدائرة للمبتدئين",
     "footer.more": "أكثر",
     "footer.status": "حالة",
-    "footer.operational": "التشغيلية"
+    "footer.operational": "التشغيلية",
+    "404.meta.title": "404 - الصفحة غير موجودة",
+    "404.title": "عفوًا! الصفحة غير موجودة.",
+    "404.desc": "يبدو أن المخطط الذي تحاول العثور عليه غير موجود. دعنا نعود إلى الصفحة الرئيسية.",
+    "404.button": "العودة للرئيسية"
   },
   "bg": {
     "nav.home": "Начало",
@@ -477,7 +537,11 @@
     "footer.guideBeginners": "Електрически схеми за начинаещи",
     "footer.more": "повече",
     "footer.status": "Статус",
-    "footer.operational": "Оперативен"
+    "footer.operational": "Оперативен",
+    "404.meta.title": "404 - Страницата не е намерена",
+    "404.title": "Опа! Страницата не е намерена.",
+    "404.desc": "Изглежда, че схемата, която търсите, не съществува. Нека се върнем в началото.",
+    "404.button": "Връщане в началото"
   },
   "tr": {
     "nav.home": "Ev",
@@ -507,7 +571,11 @@
     "footer.guideBeginners": "Yeni Başlayanlar İçin Devre Şemaları",
     "footer.more": "Daha",
     "footer.status": "Durum",
-    "footer.operational": "Operasyonel"
+    "footer.operational": "Operasyonel",
+    "404.meta.title": "404 - Sayfa Bulunamadı",
+    "404.title": "Oops! Sayfa bulunamadı.",
+    "404.desc": "Bulmaya çalıştığınız şema mevcut değil gibi görünüyor. Hadi sizi ana sayfaya götürelim.",
+    "404.button": "Ana Sayfaya Dön"
   },
   "sv": {
     "nav.home": "Hem",
@@ -537,6 +605,10 @@
     "footer.guideBeginners": "Kretsdiagram för nybörjare",
     "footer.more": "Mer",
     "footer.status": "Status",
-    "footer.operational": "Operativ"
+    "footer.operational": "Operativ",
+    "404.meta.title": "404 - Sidan hittades inte",
+    "404.title": "Hoppsan! Sidan hittades inte.",
+    "404.desc": "Det verkar som att schemat du letar efter inte existerar. Låt oss gå tillbaka till start.",
+    "404.button": "Tillbaka till Start"
   }
 }

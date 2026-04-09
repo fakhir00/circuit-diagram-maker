@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(yesandnowheel\\.com|circuitdiagrammaker\\.com)$"
+        }
+      ],
+      "destination": "https://www.circuitdiagrammaker.com/$1",
+      "permanent": true
+    }
+  ]
+}

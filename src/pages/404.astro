@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLocalizedPath, getLocaleFromUrl } from '../theme/i18n';
+import { getLocalizedPath, getLocaleFromUrl, useTranslations } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
 ---
 
-<BaseLayout title="404 - Page Not Found">
+<BaseLayout title={t('404.meta.title')}>
   <div class="max-w-7xl mx-auto px-4 py-32 sm:px-6 lg:px-8 flex flex-col items-center text-center">
     <div class="relative mb-8">
       <h1 class="text-9xl font-black text-white/10 select-none">404</h1>
@@ -15,12 +16,12 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
         </svg>
       </div>
     </div>
-    <h2 class="text-3xl font-bold text-white mb-4">Oops! Page not found.</h2>
+    <h2 class="text-3xl font-bold text-white mb-4">{t('404.title')}</h2>
     <p class="text-slate-400 max-w-md mx-auto mb-10 leading-relaxed text-lg">
-      It looks like the schematic you're trying to find doesn't exist. Let's get you back to safety.
+      {t('404.desc')}
     </p>
     <a href={getLocalizedPath('/', locale)} class="px-8 py-3 rounded-xl bg-brand-primary hover:bg-blue-600 text-white font-bold transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95">
-      Return Home
+      {t('404.button')}
     </a>
   </div>
 </BaseLayout>
