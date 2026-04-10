@@ -25,6 +25,7 @@ import docsKeys from '../data/i18n/docs.json';
 import componentsPageKeys from '../data/i18n/components-page.json';
 import showcaseKeys from '../data/i18n/showcase.json';
 import blogKeys from '../data/i18n/blog.json';
+import keywordToolsKeys from '../data/i18n/keyword-tools.json';
 
 // Merge dictionaries
 const dictionaries = {
@@ -39,7 +40,8 @@ const dictionaries = {
   docs: docsKeys as Record<string, any>,
   componentsPage: componentsPageKeys as Record<string, any>,
   showcase: showcaseKeys as Record<string, any>,
-  blog: blogKeys as Record<string, any>
+  blog: blogKeys as Record<string, any>,
+  keywordTools: keywordToolsKeys as Record<string, any>
 };
 
 function getTranslationValue(locale: string, key: string): any {

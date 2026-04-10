@@ -1,0 +1,268 @@
+{
+  "en": {
+    "nav.boolean_expression_simplifier": "Boolean Expression Simplifier",
+    "nav.truth_table_to_logic_circuit": "Truth Table To Logic Circuit",
+    "keyword.heading.boolean_expression_simplifier": "Boolean Expression Simplifier",
+    "keyword.heading.truth_table_to_logic_circuit": "Truth Table To Logic Circuit",
+    "keyword.meta.boolean_expression_simplifier": "Simplify any boolean algebra expression instantly. Supports SOP notation, De Morgan law reduction, truth table generation and gate diagram output.",
+    "keyword.meta.truth_table_to_logic_circuit": "Convert truth-table output patterns into simplified Boolean expressions and practical gate-level circuit plans for faster validation.",
+    "keyword.faq.title": "Frequently Asked Questions",
+    "keyword.related.title": "Related Tools",
+    "keyword.related.description": "Explore these dedicated tool pages to continue your workflow with logic, Arduino, PCB, and conversion-focused diagram setups.",
+    "keyword.related.open": "Open Tool",
+    "keyword.inline.copy": {
+      "heroTagline": "Use this tool directly — no redirects, no sign-up required.",
+      "truth": {
+        "inputTitle": "Truth Table Input",
+        "inputHint": "Click the Output cells to toggle between 0 and 1.",
+        "simplifiedLogic": "Simplified Logic",
+        "generatedCircuit": "Generated Logic Circuit",
+        "outLabel": "Out",
+        "outputConstantPrefix": "Output is constant"
+      },
+      "boolean": {
+        "inputTitle": "Boolean Expression Input",
+        "simplify": "Simplify",
+        "examplesLabel": "Examples:",
+        "resultTitle": "Simplified Expression",
+        "resultPlaceholder": "Result will appear here",
+        "tableTitle": "Truth Table",
+        "tablePlaceholder": "Truth table will appear here",
+        "gateTitle": "Gate Network",
+        "gatePlaceholder": "Gate diagram will appear here",
+        "resultBadge": "Simplified",
+        "alwaysOff": "Always OFF",
+        "alwaysOn": "Always ON",
+        "original": "Original",
+        "variables": "Variables",
+        "constantExpression": "Expression is a constant",
+        "errorMaxVariables": "Maximum 5 variables supported (A-E).",
+        "errorParse": "Could not parse expression. Check syntax: use A, B, C for variables and +, *, A' for operators."
+      }
+    },
+    "keyword.boolean.content": {
+      "howItWorks": {
+        "title": "How Boolean Expression Simplification Works",
+        "intro": "Boolean algebra simplification reduces complex logical expressions into their minimal equivalent form using a set of algebraic laws. Every digital circuit, from basic gates to complex processors, operates on boolean logic — and simplification directly reduces gate count, power consumption and propagation delay in real hardware.",
+        "cards": [
+          {
+            "title": "Sum of Products (SOP)",
+            "description": "The standard form where AND terms are ORed together. Every boolean function can be expressed in SOP and it maps directly to a two-level AND-OR gate network."
+          },
+          {
+            "title": "Prime Implicants",
+            "description": "A prime implicant is a product term that cannot be combined with another term to produce a simpler term. The Quine-McCluskey method finds all prime implicants systematically."
+          },
+          {
+            "title": "Essential Prime Implicants",
+            "description": "An essential prime implicant covers at least one minterm that no other prime implicant covers. The minimum cover must include all essential prime implicants."
+          }
+        ]
+      },
+      "identities": {
+        "title": "De Morgan's Laws and Boolean Identities",
+        "intro": "These fundamental identities allow you to transform and simplify boolean expressions. The simplifier applies these automatically.",
+        "headers": {
+          "name": "Identity Name",
+          "expression": "Expression",
+          "description": "Description"
+        },
+        "rows": {
+          "deMorgan1": {
+            "name": "De Morgan 1",
+            "description": "NAND equals OR of complements"
+          },
+          "deMorgan2": {
+            "name": "De Morgan 2",
+            "description": "NOR equals AND of complements"
+          },
+          "absorption": {
+            "name": "Absorption",
+            "description": "Removes redundant product terms"
+          },
+          "consensus": {
+            "name": "Consensus",
+            "description": "Eliminates redundant consensus terms"
+          },
+          "complement": {
+            "name": "Complement",
+            "description": "A variable OR its complement is always 1"
+          },
+          "idempotent": {
+            "name": "Idempotent",
+            "description": "Repeated terms collapse to a single term"
+          }
+        }
+      },
+      "quine": {
+        "title": "Quine-McCluskey Algorithm Step by Step",
+        "intro": "The Quine-McCluskey method is a tabular technique that systematically finds the minimum SOP form of a boolean function. Unlike K-maps it works for any number of variables and is computer-friendly.",
+        "steps": [
+          {
+            "title": "List all minterms.",
+            "description": "Convert each row where the output is 1 to its binary representation and group by number of 1-bits."
+          },
+          {
+            "title": "Merge adjacent groups.",
+            "description": "Combine pairs that differ in exactly one bit position, replacing that bit with a dash (don't-care). Repeat until no more merges are possible."
+          },
+          {
+            "title": "Identify prime implicants.",
+            "description": "Any term that could not be merged further is a prime implicant. Collect all of them into a prime implicant chart."
+          },
+          {
+            "title": "Select essential prime implicants.",
+            "description": "Find every minterm covered by exactly one prime implicant — that implicant is essential. Include all essentials in the final expression."
+          },
+          {
+            "title": "Cover remaining minterms.",
+            "description": "For any minterms not yet covered by essentials, choose additional prime implicants greedily to minimize the total term count."
+          }
+        ]
+      }
+    },
+    "keyword.boolean.faq": [
+      {
+        "question": "What notation does the Boolean Expression Simplifier accept?",
+        "answer": "The tool accepts multiple notations simultaneously. You can use '+' for OR, '·' or '*' or just adjacency for AND, and apostrophe (A') or '!' for NOT. Parentheses for grouping are fully supported.",
+        "display": true
+      },
+      {
+        "question": "What simplification algorithm is used?",
+        "answer": "The tool uses the Quine-McCluskey algorithm, which is the provably optimal method for finding prime implicants and selecting essential ones. It guarantees the minimum SOP form.",
+        "display": true
+      },
+      {
+        "question": "How many variables are supported?",
+        "answer": "Up to 5 variables (A through E) are supported, producing up to 32-row truth tables. For most practical digital logic problems this is sufficient.",
+        "display": true
+      },
+      {
+        "question": "What is the output format of the simplified expression?",
+        "answer": "The result is shown in standard Sum-of-Products (SOP) form using the apostrophe notation (e.g. A'B + AB'). The truth table and a gate network diagram are also generated automatically.",
+        "display": true
+      },
+      {
+        "question": "Can I use this for Karnaugh map problems?",
+        "answer": "Yes. The Quine-McCluskey algorithm is equivalent to solving a K-map but works for more than 4 variables where K-maps are impractical.",
+        "display": true
+      },
+      {
+        "question": "Does the tool handle expressions that are always true or always false?",
+        "answer": "Yes. Tautologies (always 1) and contradictions (always 0) are detected automatically and displayed as constant outputs.",
+        "display": true
+      }
+    ],
+    "keyword.truth.content": {
+      "overview": "This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.",
+      "sections": [
+        {
+          "id": "boolean-reduction",
+          "title": "Boolean Reduction Pipeline",
+          "description": "The tool validates variable and bit lengths, extracts minterms, and reduces the expression so the final equation is easier to implement.",
+          "diagramTitle": "Interactive Simplification Diagram",
+          "diagramSteps": [
+            {
+              "label": "Validate",
+              "detail": "Variable count determines required truth-table rows before any reduction starts."
+            },
+            {
+              "label": "Extract",
+              "detail": "Rows with output 1 are converted into minterm indexes."
+            },
+            {
+              "label": "Reduce",
+              "detail": "Compatible terms are merged to produce a shorter Boolean expression."
+            }
+          ],
+          "tableCaption": "Core checks used for expression minimization",
+          "tableHeaders": [
+            "Input Rule",
+            "Why It Matters",
+            "Output"
+          ],
+          "tableRows": [
+            [
+              "1-4 variables",
+              "Defines manageable truth-table width",
+              "Expected bit count"
+            ],
+            [
+              "Bit-length match",
+              "Prevents invalid row interpretation",
+              "Reliable minterm set"
+            ],
+            [
+              "Prime reduction",
+              "Removes redundant terms",
+              "Simplified expression"
+            ]
+          ]
+        },
+        {
+          "id": "gate-planning",
+          "title": "Gate-Level Planning and Verification",
+          "description": "After simplification, the tool estimates gate stages and provides a compact implementation path for NOT, AND, and OR composition.",
+          "diagramTitle": "Interactive Gate Planning Diagram",
+          "diagramSteps": [
+            {
+              "label": "Invert",
+              "detail": "Only required complemented literals are sent through NOT stages."
+            },
+            {
+              "label": "Combine",
+              "detail": "Product terms are created with AND gates based on reduced expression terms."
+            },
+            {
+              "label": "Merge",
+              "detail": "Final OR stage collects term outputs into the target function."
+            }
+          ],
+          "tableCaption": "Gate-stage mapping from reduced expression",
+          "tableHeaders": [
+            "Gate Stage",
+            "Purpose",
+            "Design Benefit"
+          ],
+          "tableRows": [
+            [
+              "NOT stage",
+              "Generate complemented literals",
+              "Reduces wiring ambiguity"
+            ],
+            [
+              "AND stage",
+              "Build each product term",
+              "Keeps logic modular"
+            ],
+            [
+              "OR stage",
+              "Merge term outputs",
+              "Directly matches F output"
+            ]
+          ]
+        }
+      ],
+      "faqItems": [
+        {
+          "question": "How many variables are supported on this page?",
+          "answer": "The inline tool accepts between 1 and 4 variables.",
+          "display": true
+        },
+        {
+          "question": "Why must output bits match exactly 2^n rows?",
+          "answer": "Each row represents one input combination. Missing or extra bits break row alignment.",
+          "display": true
+        },
+        {
+          "question": "Is this useful for class assignments and prototyping?",
+          "answer": "Yes. It is useful for quick derivation, checking simplification, and preparing gate-level drafts.",
+          "display": true
+        }
+      ]
+    },
+    "keyword.truth.workflow_overview": "Workflow Overview",
+    "keyword.truth.on_page_nav": "On-page workflow sections",
+    "keyword.truth.stage": "Stage"
+  }
+}

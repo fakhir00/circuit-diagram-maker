@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath } from '../../theme/i18n';
+import { getLocalizedPath, useTranslations } from '../../theme/i18n';
 import InlineKeywordTool from './InlineKeywordTool.astro';
 import FAQ from '../../components/FAQ.astro';
 import RelatedToolsSection from '../../components/RelatedToolsSection.astro';
@@ -41,6 +41,17 @@ interface ToolFaqItem {
 }
 
 const { locale, heading, toolKey } = Astro.props;
+const t = useTranslations(locale);
+
+const translateText = (key: string, fallback: string) => {
+  const value = t(key);
+  return typeof value === 'string' && value !== key ? value : fallback;
+};
+
+const translateObject = <T,>(key: string, fallback: T): T => {
+  const value = t(key);
+  return value && typeof value === 'object' ? (value as T) : fallback;
+};
 
 const toolMetaDescriptions: Record<Props['toolKey'], string> = {
   'boolean-expression-simplifier':
@@ -665,14 +676,107 @@ const booleanFaqItems: ToolFaqItem[] = [
   }
 ];
 
-const activeFaqItems = toolKey === 'boolean-expression-simplifier' ? booleanFaqItems : truthContent.faqItems;
+const localizedTruthContent = translateObject('keyword.truth.content', truthContent);
+const localizedBooleanFaqItems = translateObject<ToolFaqItem[]>('keyword.boolean.faq', booleanFaqItems);
+const booleanContent = translateObject('keyword.boolean.content', {
+  howItWorks: {
+    title: 'How Boolean Expression Simplification Works',
+    intro:
+      'Boolean algebra simplification reduces complex logical expressions into their minimal equivalent form using a set of algebraic laws. Every digital circuit, from basic gates to complex processors, operates on boolean logic — and simplification directly reduces gate count, power consumption and propagation delay in real hardware.',
+    cards: [
+      {
+        title: 'Sum of Products (SOP)',
+        description:
+          'The standard form where AND terms are ORed together. Every boolean function can be expressed in SOP and it maps directly to a two-level AND-OR gate network.'
+      },
+      {
+        title: 'Prime Implicants',
+        description:
+          'A prime implicant is a product term that cannot be combined with another term to produce a simpler term. The Quine-McCluskey method finds all prime implicants systematically.'
+      },
+      {
+        title: 'Essential Prime Implicants',
+        description:
+          'An essential prime implicant covers at least one minterm that no other prime implicant covers. The minimum cover must include all essential prime implicants.'
+      }
+    ]
+  },
+  identities: {
+    title: "De Morgan's Laws and Boolean Identities",
+    intro:
+      'These fundamental identities allow you to transform and simplify boolean expressions. The simplifier applies these automatically.',
+    headers: {
+      name: 'Identity Name',
+      expression: 'Expression',
+      description: 'Description'
+    },
+    rows: {
+      deMorgan1: { name: 'De Morgan 1', description: 'NAND equals OR of complements' },
+      deMorgan2: { name: 'De Morgan 2', description: 'NOR equals AND of complements' },
+      absorption: { name: 'Absorption', description: 'Removes redundant product terms' },
+      consensus: { name: 'Consensus', description: 'Eliminates redundant consensus terms' },
+      complement: { name: 'Complement', description: 'A variable OR its complement is always 1' },
+      idempotent: { name: 'Idempotent', description: 'Repeated terms collapse to a single term' }
+    }
+  },
+  quine: {
+    title: 'Quine-McCluskey Algorithm Step by Step',
+    intro:
+      'The Quine-McCluskey method is a tabular technique that systematically finds the minimum SOP form of a boolean function. Unlike K-maps it works for any number of variables and is computer-friendly.',
+    steps: [
+      {
+        title: 'List all minterms.',
+        description:
+          'Convert each row where the output is 1 to its binary representation and group by number of 1-bits.'
+      },
+      {
+        title: 'Merge adjacent groups.',
+        description:
+          "Combine pairs that differ in exactly one bit position, replacing that bit with a dash (don't-care). Repeat until no more merges are possible."
+      },
+      {
+        title: 'Identify prime implicants.',
+        description:
+          'Any term that could not be merged further is a prime implicant. Collect all of them into a prime implicant chart.'
+      },
+      {
+        title: 'Select essential prime implicants.',
+        description:
+          'Find every minterm covered by exactly one prime implicant — that implicant is essential. Include all essentials in the final expression.'
+      },
+      {
+        title: 'Cover remaining minterms.',
+        description:
+          'For any minterms not yet covered by essentials, choose additional prime implicants greedily to minimize the total term count.'
+      }
+    ]
+  }
+});
 
-const pageDescription = toolMetaDescriptions[toolKey];
+const headingByTool: Record<Props['toolKey'], string> = {
+  'boolean-expression-simplifier': translateText('keyword.heading.boolean_expression_simplifier', heading),
+  'truth-table-to-logic-circuit': translateText('keyword.heading.truth_table_to_logic_circuit', heading)
+};
+
+const descriptionByTool: Record<Props['toolKey'], string> = {
+  'boolean-expression-simplifier': translateText(
+    'keyword.meta.boolean_expression_simplifier',
+    toolMetaDescriptions['boolean-expression-simplifier']
+  ),
+  'truth-table-to-logic-circuit': translateText(
+    'keyword.meta.truth_table_to_logic_circuit',
+    toolMetaDescriptions['truth-table-to-logic-circuit']
+  )
+};
+
+const resolvedHeading = headingByTool[toolKey];
+const activeFaqItems = toolKey === 'boolean-expression-simplifier' ? localizedBooleanFaqItems : localizedTruthContent.faqItems;
+const pageDescription = descriptionByTool[toolKey];
 ---
 
-<BaseLayout title={heading} description={pageDescription}>
+<BaseLayout title={resolvedHeading} description={pageDescription}>
   <article aria-labelledby="tool-page-title">
-    <InlineKeywordTool toolKey={toolKey} heading={heading} />
+    <InlineKeywordTool toolKey={toolKey} heading={resolvedHeading} locale={locale} />
 
     {toolKey === 'boolean-expression-simplifier' ? (
       <>
@@ -680,21 +784,21 @@ const pageDescription = toolMetaDescriptions[toolKey];
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
               <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">How Boolean Expression Simplification Works</h2>
-                <p class="mt-4 text-slate-300 leading-7">Boolean algebra simplification reduces complex logical expressions into their minimal equivalent form using a set of algebraic laws. Every digital circuit, from basic gates to complex processors, operates on boolean logic — and simplification directly reduces gate count, power consumption and propagation delay in real hardware.</p>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.howItWorks.title}</h2>
+                <p class="mt-4 text-slate-300 leading-7">{booleanContent.howItWorks.intro}</p>
               </header>
               <div class="mt-6 grid gap-6 lg:grid-cols-3">
                 <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">Sum of Products (SOP)</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">The standard form where AND terms are ORed together. Every boolean function can be expressed in SOP and it maps directly to a two-level AND-OR gate network.</p>
+                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[0].title}</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[0].description}</p>
                 </div>
                 <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">Prime Implicants</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">A prime implicant is a product term that cannot be combined with another term to produce a simpler term. The Quine-McCluskey method finds all prime implicants systematically.</p>
+                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[1].title}</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[1].description}</p>
                 </div>
                 <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">Essential Prime Implicants</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">An essential prime implicant covers at least one minterm that no other prime implicant covers. The minimum cover must include all essential prime implicants.</p>
+                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[2].title}</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[2].description}</p>
                 </div>
               </div>
             </article>
@@ -705,25 +809,25 @@ const pageDescription = toolMetaDescriptions[toolKey];
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
               <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">De Morgan&apos;s Laws and Boolean Identities</h2>
-                <p class="mt-4 text-slate-300 leading-7">These fundamental identities allow you to transform and simplify boolean expressions. The simplifier applies these automatically.</p>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.identities.title}</h2>
+                <p class="mt-4 text-slate-300 leading-7">{booleanContent.identities.intro}</p>
               </header>
               <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
                 <table class="w-full text-left text-sm">
                   <thead class="bg-white/[0.04] text-slate-300">
                     <tr>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Identity Name</th>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Expression</th>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Description</th>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.name}</th>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.expression}</th>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.description}</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-white/10 text-slate-300">
-                    <tr><td class="px-4 py-3 font-semibold text-white">De Morgan 1</td><td class="px-4 py-3 font-mono text-violet-400">(AB)&apos; = A&apos; + B&apos;</td><td class="px-4 py-3">NAND equals OR of complements</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">De Morgan 2</td><td class="px-4 py-3 font-mono text-violet-400">(A+B)&apos; = A&apos;B&apos;</td><td class="px-4 py-3">NOR equals AND of complements</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">Absorption</td><td class="px-4 py-3 font-mono text-sky-400">A + AB = A</td><td class="px-4 py-3">Removes redundant product terms</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">Consensus</td><td class="px-4 py-3 font-mono text-sky-400">AB + A&apos;C + BC = AB + A&apos;C</td><td class="px-4 py-3">Eliminates redundant consensus terms</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">Complement</td><td class="px-4 py-3 font-mono text-emerald-400">A + A&apos; = 1 &nbsp; | &nbsp; AA&apos; = 0</td><td class="px-4 py-3">A variable OR its complement is always 1</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">Idempotent</td><td class="px-4 py-3 font-mono text-emerald-400">A + A = A &nbsp; | &nbsp; AA = A</td><td class="px-4 py-3">Repeated terms collapse to a single term</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.deMorgan1.name}</td><td class="px-4 py-3 font-mono text-violet-400">(AB)&apos; = A&apos; + B&apos;</td><td class="px-4 py-3">{booleanContent.identities.rows.deMorgan1.description}</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.deMorgan2.name}</td><td class="px-4 py-3 font-mono text-violet-400">(A+B)&apos; = A&apos;B&apos;</td><td class="px-4 py-3">{booleanContent.identities.rows.deMorgan2.description}</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.absorption.name}</td><td class="px-4 py-3 font-mono text-sky-400">A + AB = A</td><td class="px-4 py-3">{booleanContent.identities.rows.absorption.description}</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.consensus.name}</td><td class="px-4 py-3 font-mono text-sky-400">AB + A&apos;C + BC = AB + A&apos;C</td><td class="px-4 py-3">{booleanContent.identities.rows.consensus.description}</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.complement.name}</td><td class="px-4 py-3 font-mono text-emerald-400">A + A&apos; = 1 &nbsp; | &nbsp; AA&apos; = 0</td><td class="px-4 py-3">{booleanContent.identities.rows.complement.description}</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.idempotent.name}</td><td class="px-4 py-3 font-mono text-emerald-400">A + A = A &nbsp; | &nbsp; AA = A</td><td class="px-4 py-3">{booleanContent.identities.rows.idempotent.description}</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -735,29 +839,29 @@ const pageDescription = toolMetaDescriptions[toolKey];
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
               <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Quine-McCluskey Algorithm Step by Step</h2>
-                <p class="mt-4 text-slate-300 leading-7">The Quine-McCluskey method is a tabular technique that systematically finds the minimum SOP form of a boolean function. Unlike K-maps it works for any number of variables and is computer-friendly.</p>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.quine.title}</h2>
+                <p class="mt-4 text-slate-300 leading-7">{booleanContent.quine.intro}</p>
               </header>
               <ol class="mt-6 flex flex-col gap-4">
                 <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
                   <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">1</span>
-                  <div><strong class="text-white">List all minterms.</strong> <span class="text-slate-400">Convert each row where the output is 1 to its binary representation and group by number of 1-bits.</span></div>
+                  <div><strong class="text-white">{booleanContent.quine.steps[0].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[0].description}</span></div>
                 </li>
                 <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
                   <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">2</span>
-                  <div><strong class="text-white">Merge adjacent groups.</strong> <span class="text-slate-400">Combine pairs that differ in exactly one bit position, replacing that bit with a dash (don&apos;t-care). Repeat until no more merges are possible.</span></div>
+                  <div><strong class="text-white">{booleanContent.quine.steps[1].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[1].description}</span></div>
                 </li>
                 <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
                   <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">3</span>
-                  <div><strong class="text-white">Identify prime implicants.</strong> <span class="text-slate-400">Any term that could not be merged further is a prime implicant. Collect all of them into a prime implicant chart.</span></div>
+                  <div><strong class="text-white">{booleanContent.quine.steps[2].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[2].description}</span></div>
                 </li>
                 <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
                   <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">4</span>
-                  <div><strong class="text-white">Select essential prime implicants.</strong> <span class="text-slate-400">Find every minterm covered by exactly one prime implicant — that implicant is essential. Include all essentials in the final expression.</span></div>
+                  <div><strong class="text-white">{booleanContent.quine.steps[3].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[3].description}</span></div>
                 </li>
                 <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
                   <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">5</span>
-                  <div><strong class="text-white">Cover remaining minterms.</strong> <span class="text-slate-400">For any minterms not yet covered by essentials, choose additional prime implicants greedily to minimize the total term count.</span></div>
+                  <div><strong class="text-white">{booleanContent.quine.steps[4].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[4].description}</span></div>
                 </li>
               </ol>
             </article>

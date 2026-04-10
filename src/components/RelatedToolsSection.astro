@@ -1,5 +1,6 @@
 ---
 import { getLocalizedPath } from '../theme/i18n';
+import { useTranslations } from '../theme/i18n';
 
 interface ToolCard {
   key: string;
@@ -13,14 +14,21 @@ interface Props {
   excludeKeys?: string[];
   title?: string;
   description?: string;
+  openLabel?: string;
 }
 
 const {
   locale,
   excludeKeys = [],
-  title = 'Related Tools',
-  description = 'Explore these dedicated tool pages to continue your workflow with logic, Arduino, PCB, and conversion-focused diagram setups.'
+  title,
+  description,
+  openLabel
 } = Astro.props;
+
+const t = useTranslations(locale);
+const translatedTitle = title ?? t('keyword.related.title');
+const translatedDescription = description ?? t('keyword.related.description');
+const translatedOpenLabel = openLabel ?? t('keyword.related.open');
 
 const cards: ToolCard[] = [
   {
@@ -58,15 +66,15 @@ const cards: ToolCard[] = [
 
 <section class="border-t border-white/5 bg-bg-panel py-14 sm:py-16">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{title}</h2>
-    <p class="mt-3 max-w-3xl text-slate-400">{description}</p>
+    <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{translatedTitle}</h2>
+    <p class="mt-3 max-w-3xl text-slate-400">{translatedDescription}</p>
     <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {cards.map((card) => (
         <article class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 transition-colors hover:border-brand-primary/30 hover:bg-bg-surface">
           <h3 class="text-lg font-semibold text-white">{card.title}</h3>
           <p class="mt-2 text-sm leading-8 text-slate-400">{card.description}</p>
           <a href={card.href} class="mt-4 inline-flex rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
-            Open Tool
+            {translatedOpenLabel}
           </a>
         </article>
       ))}
