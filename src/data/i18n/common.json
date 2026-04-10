@@ -67,7 +67,9 @@
     "404.meta.title": "404 - पृष्ठ नहीं मिला",
     "404.title": "उफ़! पृष्ठ नहीं मिला।",
     "404.desc": "ऐसा लगता है कि आप जो योजना खोज रहे हैं वह मौजूद नहीं है। चलिए आपको वापस सुरक्षित स्थान पर ले चलते हैं।",
-    "404.button": "होम पर लौटें"
+    "404.button": "होम पर लौटें",
+    "nav.boolean_expression_simplifier": "बूलियन अभिव्यक्ति सरलीकरणकर्ता",
+    "nav.truth_table_to_logic_circuit": "तर्क सर्किट के लिए सत्य तालिका"
   },
   "es": {
     "nav.home": "Hogar",
@@ -101,7 +103,9 @@
     "404.meta.title": "404 - Página no encontrada",
     "404.title": "¡Uy! Página no encontrada.",
     "404.desc": "Parece que el esquema que intentas encontrar no existe. Volvamos a la página principal.",
-    "404.button": "Volver a Inicio"
+    "404.button": "Volver a Inicio",
+    "nav.boolean_expression_simplifier": "Simplificador de expresiones booleanas",
+    "nav.truth_table_to_logic_circuit": "Tabla de verdad al circuito lógico"
   },
   "ru": {
     "nav.home": "Дом",
@@ -135,7 +139,9 @@
     "404.meta.title": "404 - Страница не найдена",
     "404.title": "Упс! Страница не найдена.",
     "404.desc": "Похоже, схемы, которую вы пытаетесь найти, не существует. Давайте вернем вас обратно.",
-    "404.button": "Вернуться на главную"
+    "404.button": "Вернуться на главную",
+    "nav.boolean_expression_simplifier": "Упроститель логических выражений",
+    "nav.truth_table_to_logic_circuit": "Таблица истинности для логической схемы"
   },
   "fr": {
     "nav.home": "Maison",
@@ -169,7 +175,9 @@
     "404.meta.title": "404 - Page non trouvée",
     "404.title": "Oups ! Page non trouvée.",
     "404.desc": "Il semble que le schéma que vous essayez de trouver n'existe pas. Retournons à l'accueil.",
-    "404.button": "Retour à l'accueil"
+    "404.button": "Retour à l'accueil",
+    "nav.boolean_expression_simplifier": "Simplificateur d'expression booléenne",
+    "nav.truth_table_to_logic_circuit": "Table de vérité au circuit logique"
   },
   "de": {
     "nav.home": "Heim",
@@ -203,7 +211,9 @@
     "404.meta.title": "404 - Seite nicht gefunden",
     "404.title": "Hoppla! Seite nicht gefunden.",
     "404.desc": "Es sieht so aus, als gäbe es den Schaltplan, den Sie suchen, nicht. Lassen Sie uns zum Start zurückkehren.",
-    "404.button": "Zurück zur Startseite"
+    "404.button": "Zurück zur Startseite",
+    "nav.boolean_expression_simplifier": "Boolescher Ausdrucksvereinfacher",
+    "nav.truth_table_to_logic_circuit": "Wahrheitstabelle zur Logikschaltung"
   },
   "it": {
     "nav.home": "Casa",
@@ -237,7 +247,9 @@
     "404.meta.title": "404 - Pagina non trovata",
     "404.title": "Ops! Pagina non trovata.",
     "404.desc": "Sembra che lo schema che stai cercando non esista. Torniamo alla home.",
-    "404.button": "Ritorna alla Home"
+    "404.button": "Ritorna alla Home",
+    "nav.boolean_expression_simplifier": "Semplificatore di espressioni booleane",
+    "nav.truth_table_to_logic_circuit": "Tabella della verità al circuito logico"
   },
   "pt": {
     "nav.home": "Lar",
@@ -271,7 +283,9 @@
     "404.meta.title": "404 - Página não encontrada",
     "404.title": "Oops! Página não encontrada.",
     "404.desc": "Parece que o esquema que você está tentando encontrar não existe. Vamos voltar para casa.",
-    "404.button": "Voltar ao Início"
+    "404.button": "Voltar ao Início",
+    "nav.boolean_expression_simplifier": "Simplificador de expressão booleana",
+    "nav.truth_table_to_logic_circuit": "Tabela verdade para circuito lógico"
   },
   "bn": {
     "nav.home": "বাড়ি",
@@ -305,7 +319,9 @@
     "404.meta.title": "৪০৪ - পৃষ্ঠা পাওয়া যায়নি",
     "404.title": "উফস! পৃষ্ঠা পাওয়া যায়নি।",
     "404.desc": "মনে হচ্ছে আপনি যে ডায়াগ্রাম খোঁজার চেষ্টা করছেন তা নেই। চলুন আপনাকে নিরাপদে ফিরিয়ে নিয়ে যাই।",
-    "404.button": "হোমে ফিরে যান"
+    "404.button": "হোমে ফিরে যান",
+    "nav.boolean_expression_simplifier": "বুলিয়ান এক্সপ্রেশন সিম্পলিফায়ার",
+    "nav.truth_table_to_logic_circuit": "ট্রুথ টেবিল টু লজিক সার্কিট"
   },
   "ja": {
     "nav.home": "家",
@@ -339,7 +355,9 @@
     "404.meta.title": "404 - ページが見つかりません",
     "404.title": "おっと！ページが見つかりません。",
     "404.desc": "探している回路図は存在しないようです。ホームに戻りましょう。",
-    "404.button": "ホームに戻る"
+    "404.button": "ホームに戻る",
+    "nav.boolean_expression_simplifier": "ブール式の簡略化",
+    "nav.truth_table_to_logic_circuit": "論理回路に対する真理値表"
   },
   "ko": {
     "nav.home": "집",
@@ -373,7 +391,9 @@
     "404.meta.title": "404 - 페이지를 찾을 수 없습니다",
     "404.title": "앗! 페이지를 찾을 수 없습니다.",
     "404.desc": "찾으려는 회로도가 존재하지 않는 것 같습니다. 홈으로 돌아가ましょう.",
-    "404.button": "홈으로 돌아가기"
+    "404.button": "홈으로 돌아가기",
+    "nav.boolean_expression_simplifier": "부울 표현식 단순화자",
+    "nav.truth_table_to_logic_circuit": "논리 회로에 대한 진리표"
   },
   "ms": {
     "nav.home": "Rumah",
@@ -407,7 +427,9 @@
     "404.meta.title": "404 - Halaman Tidak Ditemui",
     "404.title": "Alamak! Halaman tidak ditemui.",
     "404.desc": "Nampaknya skematik yang anda cari tidak wujud. Mari kembali ke halaman utama.",
-    "404.button": "Kembali ke Utama"
+    "404.button": "Kembali ke Utama",
+    "nav.boolean_expression_simplifier": "Permudah Ungkapan Boolean",
+    "nav.truth_table_to_logic_circuit": "Jadual Kebenaran Kepada Litar Logik"
   },
   "pl": {
     "nav.home": "Dom",
@@ -441,7 +463,9 @@
     "404.meta.title": "404 - Nie znaleziono strony",
     "404.title": "Ups! Nie znaleziono strony.",
     "404.desc": "Wygląda na to, że schemat, którego szukasz, nie istnieje. Wróćmy w bezpieczne miejsce.",
-    "404.button": "Powrót do strony głównej"
+    "404.button": "Powrót do strony głównej",
+    "nav.boolean_expression_simplifier": "Uproszczenie wyrażeń logicznych",
+    "nav.truth_table_to_logic_circuit": "Tabela prawdy do obwodu logicznego"
   },
   "id": {
     "nav.home": "Rumah",
@@ -475,7 +499,9 @@
     "404.meta.title": "404 - Halaman Tidak Ditemukan",
     "404.title": "Ups! Halaman tidak ditemukan.",
     "404.desc": "Sepertinya skema yang Anda cari tidak ada. Mari kita kembali ke beranda.",
-    "404.button": "Kembali ke Beranda"
+    "404.button": "Kembali ke Beranda",
+    "nav.boolean_expression_simplifier": "Penyederhanaan Ekspresi Boolean",
+    "nav.truth_table_to_logic_circuit": "Tabel Kebenaran Ke Rangkaian Logika"
   },
   "ar": {
     "nav.home": "بيت",
@@ -509,7 +535,9 @@
     "404.meta.title": "404 - الصفحة غير موجودة",
     "404.title": "عفوًا! الصفحة غير موجودة.",
     "404.desc": "يبدو أن المخطط الذي تحاول العثور عليه غير موجود. دعنا نعود إلى الصفحة الرئيسية.",
-    "404.button": "العودة للرئيسية"
+    "404.button": "العودة للرئيسية",
+    "nav.boolean_expression_simplifier": "مبسط التعبير المنطقي",
+    "nav.truth_table_to_logic_circuit": "جدول الحقيقة للدائرة المنطقية"
   },
   "bg": {
     "nav.home": "Начало",
@@ -543,7 +571,9 @@
     "404.meta.title": "404 - Страницата не е намерена",
     "404.title": "Опа! Страницата не е намерена.",
     "404.desc": "Изглежда, че схемата, която търсите, не съществува. Нека се върнем в началото.",
-    "404.button": "Връщане в началото"
+    "404.button": "Връщане в началото",
+    "nav.boolean_expression_simplifier": "Опростител на булев израз",
+    "nav.truth_table_to_logic_circuit": "Таблица на истината към логическа верига"
   },
   "tr": {
     "nav.home": "Ev",
@@ -577,7 +607,9 @@
     "404.meta.title": "404 - Sayfa Bulunamadı",
     "404.title": "Oops! Sayfa bulunamadı.",
     "404.desc": "Bulmaya çalıştığınız şema mevcut değil gibi görünüyor. Hadi sizi ana sayfaya götürelim.",
-    "404.button": "Ana Sayfaya Dön"
+    "404.button": "Ana Sayfaya Dön",
+    "nav.boolean_expression_simplifier": "Boolean İfade Basitleştirici",
+    "nav.truth_table_to_logic_circuit": "Mantık Devresine Doğruluk Tablosu"
   },
   "sv": {
     "nav.home": "Hem",
@@ -611,6 +643,8 @@
     "404.meta.title": "404 - Sidan hittades inte",
     "404.title": "Hoppsan! Sidan hittades inte.",
     "404.desc": "Det verkar som att schemat du letar efter inte existerar. Låt oss gå tillbaka till start.",
-    "404.button": "Tillbaka till Start"
+    "404.button": "Tillbaka till Start",
+    "nav.boolean_expression_simplifier": "Boolean Expression Simplifier",
+    "nav.truth_table_to_logic_circuit": "Sanningstabell till logisk krets"
   }
 }

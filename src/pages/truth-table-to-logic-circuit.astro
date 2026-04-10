@@ -1,12 +1,13 @@
 ---
 import KeywordToolPage from '../components/pages/KeywordToolPage.astro';
-import { getLocaleFromUrl } from '../theme/i18n';
+import { getLocaleFromUrl, useTranslations } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
 ---
 
 <KeywordToolPage
   locale={locale}
-  heading="Truth Table To Logic Circuit"
+  heading={t('keyword.heading.truth_table_to_logic_circuit')}
   toolKey="truth-table-to-logic-circuit"
 />

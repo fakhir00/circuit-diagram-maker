@@ -1,29 +1,91 @@
 ---
+import { useTranslations } from '../../theme/i18n';
+
 interface Props {
   toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
   heading: string;
+  locale: string;
 }
 
-const { toolKey, heading } = Astro.props;
+const { toolKey, heading, locale } = Astro.props;
+const t = useTranslations(locale);
+
+const inlineCopyFallback = {
+  heroTagline: 'Use this tool directly — no redirects, no sign-up required.',
+  truth: {
+    inputTitle: 'Truth Table Input',
+    inputHint: 'Click the Output cells to toggle between 0 and 1.',
+    simplifiedLogic: 'Simplified Logic',
+    generatedCircuit: 'Generated Logic Circuit',
+    outLabel: 'Out',
+    outputConstantPrefix: 'Output is constant'
+  },
+  boolean: {
+    inputTitle: 'Boolean Expression Input',
+    simplify: 'Simplify',
+    examplesLabel: 'Examples:',
+    resultTitle: 'Simplified Expression',
+    resultPlaceholder: 'Result will appear here',
+    tableTitle: 'Truth Table',
+    tablePlaceholder: 'Truth table will appear here',
+    gateTitle: 'Gate Network',
+    gatePlaceholder: 'Gate diagram will appear here',
+    resultBadge: 'Simplified',
+    alwaysOff: 'Always OFF',
+    alwaysOn: 'Always ON',
+    original: 'Original',
+    variables: 'Variables',
+    constantExpression: 'Expression is a constant',
+    errorMaxVariables: 'Maximum 5 variables supported (A-E).',
+    errorParse: "Could not parse expression. Check syntax: use A, B, C for variables and +, *, A' for operators."
+  }
+};
+
+const mergeRecords = (base: Record<string, any>, override: Record<string, any>): Record<string, any> => {
+  const result: Record<string, any> = { ...base };
+  for (const key of Object.keys(override || {})) {
+    const baseValue = result[key];
+    const overrideValue = override[key];
+    if (
+      baseValue &&
+      typeof baseValue === 'object' &&
+      !Array.isArray(baseValue) &&
+      overrideValue &&
+      typeof overrideValue === 'object' &&
+      !Array.isArray(overrideValue)
+    ) {
+      result[key] = mergeRecords(baseValue, overrideValue);
+    } else {
+      result[key] = overrideValue;
+    }
+  }
+  return result;
+};
+
+const inlineCopyValue = t('keyword.inline.copy');
+const inlineCopy =
+  inlineCopyValue && typeof inlineCopyValue === 'object'
+    ? mergeRecords(inlineCopyFallback, inlineCopyValue as Record<string, any>)
+    : inlineCopyFallback;
 ---
 
-<section id="inline-tool" data-inline-tool-root data-tool-key={toolKey} class="relative overflow-hidden bg-bg-dark pt-16 pb-10 sm:pt-20 sm:pb-14">
+<section id="inline-tool" data-inline-tool-root data-tool-key={toolKey} data-inline-copy={JSON.stringify(inlineCopy)} class="relative overflow-hidden bg-bg-dark pt-16 pb-10 sm:pt-20 sm:pb-14">
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.14),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_35%)] pointer-events-none"></div>
   <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="mb-8 max-w-3xl">
       <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">{heading}</h1>
-      <p class="mt-4 text-slate-400 text-base sm:text-lg">Use this tool directly — no redirects, no sign-up required.</p>
+      <p class="mt-4 text-slate-400 text-base sm:text-lg">{inlineCopy.heroTagline}</p>
     </div>
 
     {toolKey === 'truth-table-to-logic-circuit' && (
       <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6 lg:p-8 flex flex-col xl:flex-row gap-8">
         <div class="xl:w-1/3 flex flex-col gap-4">
-          <h2 class="text-xl font-bold text-white">Truth Table Input</h2>
-          <p class="text-sm text-slate-400">Click the Output cells to toggle between 0 and 1.</p>
+          <h2 class="text-xl font-bold text-white">{inlineCopy.truth.inputTitle}</h2>
+          <p class="text-sm text-slate-400">{inlineCopy.truth.inputHint}</p>
           <div class="overflow-hidden rounded-xl border border-white/10">
             <table class="w-full text-center text-sm">
               <thead class="bg-bg-dark text-slate-300">
-                <tr><th class="py-3 px-2">A</th><th class="py-3 px-2">B</th><th class="py-3 px-2">C</th><th class="py-3 px-2 text-brand-primary">Out</th></tr>
+                <tr><th class="py-3 px-2">A</th><th class="py-3 px-2">B</th><th class="py-3 px-2">C</th><th class="py-3 px-2 text-brand-primary">{inlineCopy.truth.outLabel}</th></tr>
               </thead>
               <tbody id="tt-body" class="divide-y divide-white/5 bg-bg-surface text-slate-200">
                 <!-- Rows injected by JS -->
@@ -31,12 +93,12 @@ const { toolKey, heading } = Astro.props;
             </table>
           </div>
           <div class="mt-2 rounded-xl bg-bg-dark p-4 border border-white/5">
-            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Simplified Logic</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{inlineCopy.truth.simplifiedLogic}</span>
             <div id="tt-expression" class="mt-2 font-mono text-lg text-emerald-400"></div>
           </div>
         </div>
         <div class="xl:w-2/3 flex flex-col gap-4">
-          <h2 class="text-xl font-bold text-white">Generated Logic Circuit</h2>
+          <h2 class="text-xl font-bold text-white">{inlineCopy.truth.generatedCircuit}</h2>
           <div class="flex-grow min-h-[400px] rounded-xl border border-white/10 bg-bg-dark relative overflow-hidden" id="logic-svg-container">
             <!-- SVG injected by JS -->
           </div>
@@ -50,7 +112,7 @@ const { toolKey, heading } = Astro.props;
         <!-- Input Row -->
         <div class="flex flex-col gap-3">
           <div class="flex items-center justify-between">
-            <h2 class="text-xl font-bold text-white">Boolean Expression Input</h2>
+            <h2 class="text-xl font-bold text-white">{inlineCopy.boolean.inputTitle}</h2>
             <div class="flex gap-2 text-xs">
               <span class="rounded bg-emerald-500/15 px-2 py-1 font-mono text-emerald-400">AND &nbsp;&middot;&nbsp; *</span>
               <span class="rounded bg-sky-500/15 px-2 py-1 font-mono text-sky-400">OR &nbsp;+&nbsp; |</span>
@@ -66,11 +128,11 @@ const { toolKey, heading } = Astro.props;
               class="flex-grow rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-base text-white placeholder-slate-500 outline-none ring-brand-primary/40 focus:ring-2 transition"
             />
             <button id="bool-simplify-btn" class="rounded-xl bg-brand-primary px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-500 shrink-0 shadow-lg shadow-brand-primary/20">
-              Simplify
+              {inlineCopy.boolean.simplify}
             </button>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs text-slate-500">Examples:</span>
+            <span class="text-xs text-slate-500">{inlineCopy.boolean.examplesLabel}</span>
             <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"A'BC + AB'C + ABC' + ABC"}>A&apos;BC + AB&apos;C + ABC&apos; + ABC</button>
             <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"AB + AB' + A'B"}>AB + AB&apos; + A&apos;B</button>
             <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"A'B'C' + A'B'C + A'BC + ABC"}>A&apos;B&apos;C&apos; + A&apos;B&apos;C + A&apos;BC + ABC</button>
@@ -82,23 +144,23 @@ const { toolKey, heading } = Astro.props;
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 pt-6 border-t border-white/10">
           <!-- Simplified Result -->
           <div class="flex flex-col gap-3">
-            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Simplified Expression</h3>
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">{inlineCopy.boolean.resultTitle}</h3>
             <div id="bool-result" class="flex-grow rounded-xl bg-bg-dark border border-white/10 p-5 flex flex-col gap-4 min-h-[160px] justify-center">
-              <div class="text-slate-500 text-sm text-center">Result will appear here</div>
+              <div class="text-slate-500 text-sm text-center">{inlineCopy.boolean.resultPlaceholder}</div>
             </div>
           </div>
           <!-- Truth Table -->
           <div class="flex flex-col gap-3">
-            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Truth Table</h3>
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">{inlineCopy.boolean.tableTitle}</h3>
             <div id="bool-truth-table" class="overflow-auto rounded-xl border border-white/10 bg-bg-dark min-h-[160px]">
-              <div class="text-slate-500 text-sm p-5 text-center">Truth table will appear here</div>
+              <div class="text-slate-500 text-sm p-5 text-center">{inlineCopy.boolean.tablePlaceholder}</div>
             </div>
           </div>
           <!-- Gate Diagram -->
           <div class="flex flex-col gap-3">
-            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Gate Network</h3>
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">{inlineCopy.boolean.gateTitle}</h3>
             <div id="bool-gate-svg" class="flex-grow rounded-xl border border-white/10 bg-bg-dark min-h-[160px] flex items-center justify-center overflow-hidden">
-              <div class="text-slate-500 text-sm">Gate diagram will appear here</div>
+              <div class="text-slate-500 text-sm">{inlineCopy.boolean.gatePlaceholder}</div>
             </div>
           </div>
         </div>
@@ -112,6 +174,37 @@ const { toolKey, heading } = Astro.props;
   (() => {
     const roots = Array.from(document.querySelectorAll('[data-inline-tool-root]'));
     if (!roots.length) return;
+
+    const fallbackCopy = {
+      truth: {
+        outLabel: 'Out',
+        outputConstantPrefix: 'Output is constant'
+      },
+      boolean: {
+        resultBadge: 'Simplified',
+        alwaysOff: 'Always OFF',
+        alwaysOn: 'Always ON',
+        original: 'Original',
+        variables: 'Variables',
+        constantExpression: 'Expression is a constant',
+        errorMaxVariables: 'Maximum 5 variables supported (A-E).',
+        errorParse: "Could not parse expression. Check syntax: use A, B, C for variables and +, *, A' for operators."
+      }
+    };
+
+    const readInlineCopy = (root) => {
+      try {
+        const raw = root.getAttribute('data-inline-copy');
+        if (!raw) return fallbackCopy;
+        const parsed = JSON.parse(raw);
+        return {
+          truth: { ...fallbackCopy.truth, ...(parsed.truth || {}) },
+          boolean: { ...fallbackCopy.boolean, ...(parsed.boolean || {}) }
+        };
+      } catch {
+        return fallbackCopy;
+      }
+    };
 
     const toBinary = (num, bits) => num.toString(2).padStart(bits, '0');
 
@@ -244,7 +337,7 @@ const { toolKey, heading } = Astro.props;
       return Array.from(selected).map((p) => patternToExpression(p, vars)).join(' + ');
     };
 
-    const initTruthTableTool = (root) => {
+    const initTruthTableTool = (root, copy) => {
       const tbody = root.querySelector('#tt-body');
       const exprDiv = root.querySelector('#tt-expression');
       const svgContainer = root.querySelector('#logic-svg-container');
@@ -286,7 +379,7 @@ const { toolKey, heading } = Astro.props;
         svg += `<g opacity="0.05"><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#ffffff"/></pattern><rect width="100%" height="100%" fill="url(#grid)"/></g>`;
 
         if (simplified === '0' || simplified === '1') {
-            svg += `<text x="${w/2}" y="${h/2}" class="text" text-anchor="middle" font-size="18">Output is constant ${simplified}</text></svg>`;
+            svg += `<text x="${w/2}" y="${h/2}" class="text" text-anchor="middle" font-size="18">${copy.truth.outputConstantPrefix} ${simplified}</text></svg>`;
             svgContainer.innerHTML = svg;
             return;
         }
@@ -350,10 +443,10 @@ const { toolKey, heading } = Astro.props;
                svg += `<path d="M ${out.x} ${out.y} C ${out.x+50} ${out.y}, ${orX-30} ${targetY}, ${orX+5} ${targetY}" class="wire-active" />`;
             });
             svg += `<path d="M ${orX+40} ${orY} L ${w-30} ${orY}" class="wire-active" />`;
-            svg += `<text x="${w-20}" y="${orY}" class="text" fill="#10b981">Out</text>`;
+            svg += `<text x="${w-20}" y="${orY}" class="text" fill="#10b981">${copy.truth.outLabel}</text>`;
         } else if (terms.length === 1) {
             svg += `<path d="M ${andOutputs[0].x} ${andOutputs[0].y} L ${w-30} ${andOutputs[0].y}" class="wire-active" />`;
-            svg += `<text x="${w-20}" y="${andOutputs[0].y}" class="text" fill="#10b981">Out</text>`;
+            svg += `<text x="${w-20}" y="${andOutputs[0].y}" class="text" fill="#10b981">${copy.truth.outLabel}</text>`;
         }
 
         svg += `</svg>`;
@@ -375,7 +468,7 @@ const { toolKey, heading } = Astro.props;
     };
 
 
-    const initBooleanTool = (root) => {
+    const initBooleanTool = (root, copy) => {
       const input = root.querySelector('#bool-input');
       const btn = root.querySelector('#bool-simplify-btn');
       const resultEl = root.querySelector('#bool-result');
@@ -547,12 +640,12 @@ const { toolKey, heading } = Astro.props;
 
         resultEl.innerHTML = `
           <div class="text-center">
-            <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Simplified</div>
-            <div class="text-2xl font-mono font-bold text-emerald-400 break-all">${expr === '0' ? '0 (Always OFF)' : expr === '1' ? '1 (Always ON)' : expr}</div>
+            <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">${copy.boolean.resultBadge}</div>
+            <div class="text-2xl font-mono font-bold text-emerald-400 break-all">${expr === '0' ? `0 (${copy.boolean.alwaysOff})` : expr === '1' ? `1 (${copy.boolean.alwaysOn})` : expr}</div>
           </div>
           <div class="mt-4 border-t border-white/10 pt-4 flex flex-col gap-1 text-xs font-mono">
-            <div class="flex justify-between"><span class="text-slate-400">Original</span><span class="text-slate-300 truncate ml-4 max-w-[70%]">${original}</span></div>
-            <div class="flex justify-between"><span class="text-slate-400">Variables</span><span class="text-emerald-400">${vars.join(', ')}</span></div>
+            <div class="flex justify-between"><span class="text-slate-400">${copy.boolean.original}</span><span class="text-slate-300 truncate ml-4 max-w-[70%]">${original}</span></div>
+            <div class="flex justify-between"><span class="text-slate-400">${copy.boolean.variables}</span><span class="text-emerald-400">${vars.join(', ')}</span></div>
           </div>
         `;
         return expr;
@@ -573,7 +666,7 @@ const { toolKey, heading } = Astro.props;
       const renderGates = (simplified, vars) => {
         const terms = Array.isArray(simplified) ? simplified.map(imp => implicantToExpr(imp.pattern, vars)) : null;
         if (!terms || terms.length === 0) {
-          gateEl.innerHTML = `<div class="text-slate-500 text-sm p-4">Expression is a constant</div>`;
+          gateEl.innerHTML = `<div class="text-slate-500 text-sm p-4">${copy.boolean.constantExpression}</div>`;
           return;
         }
 
@@ -633,7 +726,7 @@ const { toolKey, heading } = Astro.props;
 
         const vars = getVars(raw);
         if (vars.length > 5) {
-          errorEl.textContent = 'Maximum 5 variables supported (A-E).';
+          errorEl.textContent = copy.boolean.errorMaxVariables;
           errorEl.classList.remove('hidden');
           return;
         }
@@ -641,7 +734,7 @@ const { toolKey, heading } = Astro.props;
         const rows = buildTruthTable(raw, vars);
         const hasError = rows.some(r => r.out === null);
         if (hasError) {
-          errorEl.textContent = 'Could not parse expression. Check syntax: use A, B, C for variables and +, *, A\' for operators.';
+          errorEl.textContent = copy.boolean.errorParse;
           errorEl.classList.remove('hidden');
           return;
         }
@@ -662,8 +755,9 @@ const { toolKey, heading } = Astro.props;
 
     roots.forEach((root) => {
       const key = root.getAttribute('data-tool-key');
-      if (key === 'truth-table-to-logic-circuit') initTruthTableTool(root);
-      if (key === 'boolean-expression-simplifier') initBooleanTool(root);
+      const copy = readInlineCopy(root);
+      if (key === 'truth-table-to-logic-circuit') initTruthTableTool(root, copy);
+      if (key === 'boolean-expression-simplifier') initBooleanTool(root, copy);
     });
   })();
 </script>

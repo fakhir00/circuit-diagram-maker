@@ -1,6 +1,6 @@
 ---
 import KeywordToolPage from '../../components/pages/KeywordToolPage.astro';
-import { locales, defaultLocale } from '../../theme/i18n';
+import { locales, defaultLocale, useTranslations } from '../../theme/i18n';
 
 export async function getStaticPaths() {
   return locales
@@ -10,11 +10,12 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const activeLocale = locale || defaultLocale;
+const t = useTranslations(activeLocale);
 ---
 
 <KeywordToolPage
   locale={activeLocale}
-  heading="Truth Table To Logic Circuit"
+  heading={t('keyword.heading.truth_table_to_logic_circuit')}
   toolKey="truth-table-to-logic-circuit"
 />
 

@@ -1,12 +1,13 @@
 ---
 import KeywordToolPage from '../components/pages/KeywordToolPage.astro';
-import { getLocaleFromUrl } from '../theme/i18n';
+import { getLocaleFromUrl, useTranslations } from '../theme/i18n';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
+const t = useTranslations(locale);
 ---
 
 <KeywordToolPage
   locale={locale}
-  heading="Boolean Expression Simplifier"
+  heading={t('keyword.heading.boolean_expression_simplifier')}
   toolKey="boolean-expression-simplifier"
 />
