@@ -8,7 +8,7 @@ import RelatedToolsSection from '../../components/RelatedToolsSection.astro';
 interface Props {
   locale: string;
   heading: string;
-  toolKey: 'schematic-to-breadboard' | 'truth-table-to-logic-circuit';
+  toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
 }
 
 interface DiagramStep {
@@ -43,8 +43,8 @@ interface ToolFaqItem {
 const { locale, heading, toolKey } = Astro.props;
 
 const toolMetaDescriptions: Record<Props['toolKey'], string> = {
-  'schematic-to-breadboard':
-    'Convert schematic diagrams into breadboard layouts with interactive mapping steps, worked examples, and mistake-proof wiring checks.',
+  'boolean-expression-simplifier':
+    'Simplify any boolean algebra expression instantly. Supports SOP notation, De Morgan law reduction, truth table generation and gate diagram output.',
   'truth-table-to-logic-circuit':
     'Convert truth-table output patterns into simplified Boolean expressions and practical gate-level circuit plans for faster validation.'
 };
@@ -632,7 +632,40 @@ const schematicFaqItems: ToolFaqItem[] = [
   }
 ];
 
-const activeFaqItems = toolKey === 'schematic-to-breadboard' ? schematicFaqItems : truthContent.faqItems;
+const booleanFaqItems: ToolFaqItem[] = [
+  {
+    question: 'What notation does the Boolean Expression Simplifier accept?',
+    answer: "The tool accepts multiple notations simultaneously. You can use '+' for OR, '·' or '*' or just adjacency for AND, and apostrophe (A') or '!' for NOT. Parentheses for grouping are fully supported.",
+    display: true
+  },
+  {
+    question: 'What simplification algorithm is used?',
+    answer: 'The tool uses the Quine-McCluskey algorithm, which is the provably optimal method for finding prime implicants and selecting essential ones. It guarantees the minimum SOP form.',
+    display: true
+  },
+  {
+    question: 'How many variables are supported?',
+    answer: 'Up to 5 variables (A through E) are supported, producing up to 32-row truth tables. For most practical digital logic problems this is sufficient.',
+    display: true
+  },
+  {
+    question: 'What is the output format of the simplified expression?',
+    answer: "The result is shown in standard Sum-of-Products (SOP) form using the apostrophe notation (e.g. A'B + AB'). The truth table and a gate network diagram are also generated automatically.",
+    display: true
+  },
+  {
+    question: 'Can I use this for Karnaugh map problems?',
+    answer: 'Yes. The Quine-McCluskey algorithm is equivalent to solving a K-map but works for more than 4 variables where K-maps are impractical.',
+    display: true
+  },
+  {
+    question: 'Does the tool handle expressions that are always true or always false?',
+    answer: 'Yes. Tautologies (always 1) and contradictions (always 0) are detected automatically and displayed as constant outputs.',
+    display: true
+  }
+];
+
+const activeFaqItems = toolKey === 'boolean-expression-simplifier' ? booleanFaqItems : truthContent.faqItems;
 
 const pageDescription = toolMetaDescriptions[toolKey];
 ---
@@ -641,228 +674,93 @@ const pageDescription = toolMetaDescriptions[toolKey];
   <article aria-labelledby="tool-page-title">
     <InlineKeywordTool toolKey={toolKey} heading={heading} />
 
-    {toolKey === 'schematic-to-breadboard' ? (
+    {toolKey === 'boolean-expression-simplifier' ? (
       <>
-        <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="schematic-page-map-title">
+        <section class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <header class="max-w-4xl">
-              <h2 id="schematic-page-map-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Schematic to Breadboard Content Map</h2>
-              <p class="mt-3 text-slate-400">Navigate directly to each required section and step. Every heading includes its own interactive illustration and structured reference table.</p>
-            </header>
-            <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label="Schematic to breadboard heading map">
-              <ol class="grid gap-2 sm:grid-cols-2">
-                {schematicNavLinks.map((link) => (
-                  <li>
-                    <a href={`#${link.id}`} class:list={[
-                      'block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm transition hover:border-brand-primary/35 hover:text-white',
-                      link.level === 'h2' ? 'font-semibold text-slate-100' : 'font-medium text-slate-300'
-                    ]}>
-                      {link.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
+            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
+              <header>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">How Boolean Expression Simplification Works</h2>
+                <p class="mt-4 text-slate-300 leading-7">Boolean algebra simplification reduces complex logical expressions into their minimal equivalent form using a set of algebraic laws. Every digital circuit, from basic gates to complex processors, operates on boolean logic — and simplification directly reduces gate count, power consumption and propagation delay in real hardware.</p>
+              </header>
+              <div class="mt-6 grid gap-6 lg:grid-cols-3">
+                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
+                  <h3 class="font-semibold text-white">Sum of Products (SOP)</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">The standard form where AND terms are ORed together. Every boolean function can be expressed in SOP and it maps directly to a two-level AND-OR gate network.</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
+                  <h3 class="font-semibold text-white">Prime Implicants</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">A prime implicant is a product term that cannot be combined with another term to produce a simpler term. The Quine-McCluskey method finds all prime implicants systematically.</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
+                  <h3 class="font-semibold text-white">Essential Prime Implicants</h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-6">An essential prime implicant covers at least one minterm that no other prime implicant covers. The minimum cover must include all essential prime implicants.</p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
-        {schematicSections.map((section) => (
-          <section id={section.main.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.main.id}-title`}>
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
-                <header>
-                  <h2 id={`${section.main.id}-title`} class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{section.main.title}</h2>
-                  <p class="mt-4 text-slate-300 leading-7">{section.main.illustrationSummary}</p>
-                </header>
-
-                {section.main.imageSrc && (
-                  <figure class="mt-6">
-                    <img
-                      src={section.main.imageSrc}
-                      alt={section.main.title}
-                      class="w-full rounded-2xl border border-white/10 object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="1200"
-                      height="630"
-                    />
-                  </figure>
-                )}
-
-                <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                  <figure class="rounded-2xl border border-white/10 bg-bg-dark/80 p-5" data-illustration-block>
-                    <figcaption class="text-base font-semibold text-white">{section.main.diagramTitle}</figcaption>
-                    <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.main.diagramTitle}>
-                      {section.main.diagramSteps.slice(0, -1).map((_, index) => {
-                        const stepCount = Math.max(1, section.main.diagramSteps.length - 1);
-                        const x1 = 60 + (280 / stepCount) * index;
-                        const x2 = 60 + (280 / stepCount) * (index + 1);
-                        return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
-                      })}
-
-                      {section.main.diagramSteps.map((step, index) => {
-                        const stepCount = Math.max(1, section.main.diagramSteps.length - 1);
-                        const cx = 60 + (280 / stepCount) * index;
-                        return (
-                          <g>
-                            <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
-                            <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
-                            <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
-                          </g>
-                        );
-                      })}
-                    </svg>
-
-                    <div class="mt-4 flex flex-wrap gap-2">
-                      {section.main.diagramSteps.map((step, index) => (
-                        <button
-                          type="button"
-                          data-ill-button
-                          data-active={index === 0 ? 'true' : 'false'}
-                          data-ill-detail={step.detail}
-                          class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
-                          aria-pressed={index === 0 ? 'true' : 'false'}
-                        >
-                          {step.label}
-                        </button>
-                      ))}
-                    </div>
-
-                    <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-panel/70 px-4 py-3 text-sm leading-6 text-slate-300">
-                      {section.main.diagramSteps[0].detail}
-                    </p>
-                  </figure>
-
-                  <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-dark/60">
-                    <table class="w-full text-left text-sm">
-                      <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                        {section.main.tableCaption}
-                      </caption>
-                      <thead class="bg-white/[0.03] text-slate-300">
-                        <tr>
-                          {section.main.tableHeaders.map((header) => (
-                            <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody class="divide-y divide-white/10 text-slate-300">
-                        {section.main.tableRows.map((row) => (
-                          <tr>
-                            <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
-                            <td class="px-4 py-3">{row[1]}</td>
-                            <td class="px-4 py-3">{row[2]}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <p class="mt-6 text-slate-300 leading-7">{section.main.purpose}</p>
-              </article>
-
-              {section.subs && section.subs.length > 0 && (
-                <div class="mt-8 space-y-6">
-                  {section.subs.map((sub) => (
-                    <article id={sub.id} class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6" aria-labelledby={`${sub.id}-title`}>
-                      <header>
-                        <h3 id={`${sub.id}-title`} class="text-xl font-bold tracking-tight text-white sm:text-2xl">{sub.title}</h3>
-                        <p class="mt-4 text-slate-300 leading-7">{sub.illustrationSummary}</p>
-                      </header>
-
-                      <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                        <figure class="rounded-2xl border border-white/10 bg-bg-dark/80 p-5" data-illustration-block>
-                          <figcaption class="text-base font-semibold text-white">{sub.diagramTitle}</figcaption>
-                          <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={sub.diagramTitle}>
-                            {sub.diagramSteps.slice(0, -1).map((_, index) => {
-                              const stepCount = Math.max(1, sub.diagramSteps.length - 1);
-                              const x1 = 60 + (280 / stepCount) * index;
-                              const x2 = 60 + (280 / stepCount) * (index + 1);
-                              return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
-                            })}
-
-                            {sub.diagramSteps.map((step, index) => {
-                              const stepCount = Math.max(1, sub.diagramSteps.length - 1);
-                              const cx = 60 + (280 / stepCount) * index;
-                              return (
-                                <g>
-                                  <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
-                                  <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
-                                  <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
-                                </g>
-                              );
-                            })}
-                          </svg>
-
-                          <div class="mt-4 flex flex-wrap gap-2">
-                            {sub.diagramSteps.map((step, index) => (
-                              <button
-                                type="button"
-                                data-ill-button
-                                data-active={index === 0 ? 'true' : 'false'}
-                                data-ill-detail={step.detail}
-                                class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
-                                aria-pressed={index === 0 ? 'true' : 'false'}
-                              >
-                                {step.label}
-                              </button>
-                            ))}
-                          </div>
-
-                          <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-panel/70 px-4 py-3 text-sm leading-6 text-slate-300">
-                            {sub.diagramSteps[0].detail}
-                          </p>
-                        </figure>
-
-                        <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-dark/60">
-                          <table class="w-full text-left text-sm">
-                            <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                              {sub.tableCaption}
-                            </caption>
-                            <thead class="bg-white/[0.03] text-slate-300">
-                              <tr>
-                                {sub.tableHeaders.map((header) => (
-                                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
-                                ))}
-                              </tr>
-                            </thead>
-                            <tbody class="divide-y divide-white/10 text-slate-300">
-                              {sub.tableRows.map((row) => (
-                                <tr>
-                                  <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
-                                  <td class="px-4 py-3">{row[1]}</td>
-                                  <td class="px-4 py-3">{row[2]}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-
-                      <p class="mt-6 text-slate-300 leading-7">{sub.purpose}</p>
-                    </article>
-                  ))}
-                </div>
-              )}
-            </div>
-          </section>
-        ))}
-
-        <section class="border-t border-white/5 bg-bg-panel py-14 sm:py-16" aria-labelledby="schematic-internal-links-title">
+        <section class="border-t border-white/5 bg-bg-panel py-14 sm:py-16">
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 id="schematic-internal-links-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Internal Links for Schematic-to-Breadboard Workflows</h2>
-            <p class="mt-3 max-w-3xl text-slate-400">Use these related pages to improve schematic quality, symbol understanding, and conversion reliability.</p>
-            <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {schematicInternalLinks.map((link) => (
-                <article class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 transition-colors hover:border-brand-primary/30 hover:bg-bg-surface">
-                  <h3 class="text-base font-semibold text-white">{link.title}</h3>
-                  <p class="mt-2 text-sm leading-6 text-slate-400">{link.description}</p>
-                  <a href={link.href} class="mt-4 inline-flex rounded-xl bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500">
-                    Open Page
-                  </a>
-                </article>
-              ))}
-            </div>
+            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
+              <header>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">De Morgan&apos;s Laws and Boolean Identities</h2>
+                <p class="mt-4 text-slate-300 leading-7">These fundamental identities allow you to transform and simplify boolean expressions. The simplifier applies these automatically.</p>
+              </header>
+              <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                  <thead class="bg-white/[0.04] text-slate-300">
+                    <tr>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Identity Name</th>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Expression</th>
+                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/10 text-slate-300">
+                    <tr><td class="px-4 py-3 font-semibold text-white">De Morgan 1</td><td class="px-4 py-3 font-mono text-violet-400">(AB)&apos; = A&apos; + B&apos;</td><td class="px-4 py-3">NAND equals OR of complements</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">De Morgan 2</td><td class="px-4 py-3 font-mono text-violet-400">(A+B)&apos; = A&apos;B&apos;</td><td class="px-4 py-3">NOR equals AND of complements</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">Absorption</td><td class="px-4 py-3 font-mono text-sky-400">A + AB = A</td><td class="px-4 py-3">Removes redundant product terms</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">Consensus</td><td class="px-4 py-3 font-mono text-sky-400">AB + A&apos;C + BC = AB + A&apos;C</td><td class="px-4 py-3">Eliminates redundant consensus terms</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">Complement</td><td class="px-4 py-3 font-mono text-emerald-400">A + A&apos; = 1 &nbsp; | &nbsp; AA&apos; = 0</td><td class="px-4 py-3">A variable OR its complement is always 1</td></tr>
+                    <tr><td class="px-4 py-3 font-semibold text-white">Idempotent</td><td class="px-4 py-3 font-mono text-emerald-400">A + A = A &nbsp; | &nbsp; AA = A</td><td class="px-4 py-3">Repeated terms collapse to a single term</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
+          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
+              <header>
+                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Quine-McCluskey Algorithm Step by Step</h2>
+                <p class="mt-4 text-slate-300 leading-7">The Quine-McCluskey method is a tabular technique that systematically finds the minimum SOP form of a boolean function. Unlike K-maps it works for any number of variables and is computer-friendly.</p>
+              </header>
+              <ol class="mt-6 flex flex-col gap-4">
+                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
+                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">1</span>
+                  <div><strong class="text-white">List all minterms.</strong> <span class="text-slate-400">Convert each row where the output is 1 to its binary representation and group by number of 1-bits.</span></div>
+                </li>
+                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
+                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">2</span>
+                  <div><strong class="text-white">Merge adjacent groups.</strong> <span class="text-slate-400">Combine pairs that differ in exactly one bit position, replacing that bit with a dash (don&apos;t-care). Repeat until no more merges are possible.</span></div>
+                </li>
+                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
+                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">3</span>
+                  <div><strong class="text-white">Identify prime implicants.</strong> <span class="text-slate-400">Any term that could not be merged further is a prime implicant. Collect all of them into a prime implicant chart.</span></div>
+                </li>
+                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
+                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">4</span>
+                  <div><strong class="text-white">Select essential prime implicants.</strong> <span class="text-slate-400">Find every minterm covered by exactly one prime implicant — that implicant is essential. Include all essentials in the final expression.</span></div>
+                </li>
+                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
+                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">5</span>
+                  <div><strong class="text-white">Cover remaining minterms.</strong> <span class="text-slate-400">For any minterms not yet covered by essentials, choose additional prime implicants greedily to minimize the total term count.</span></div>
+                </li>
+              </ol>
+            </article>
           </div>
         </section>
       </>

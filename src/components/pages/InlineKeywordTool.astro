@@ -1,6 +1,6 @@
 ---
 interface Props {
-  toolKey: 'schematic-to-breadboard' | 'truth-table-to-logic-circuit';
+  toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
   heading: string;
 }
 
@@ -16,42 +16,93 @@ const { toolKey, heading } = Astro.props;
     </div>
 
     {toolKey === 'truth-table-to-logic-circuit' && (
-      <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6">
-        <div class="grid gap-4 md:grid-cols-2">
-          <label class="block">
-            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Variables</span>
-            <input data-field="variables" type="text" value="A,B,C" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2" />
-            <span class="mt-2 block text-xs text-slate-500">Use 1 to 4 variables, comma-separated.</span>
-          </label>
-          <label class="block">
-            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Output Bits</span>
-            <input data-field="bits" type="text" value="00010111" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2" />
-            <span class="mt-2 block text-xs text-slate-500">Provide one bit for each truth-table row.</span>
-          </label>
+      <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6 lg:p-8 flex flex-col xl:flex-row gap-8">
+        <div class="xl:w-1/3 flex flex-col gap-4">
+          <h2 class="text-xl font-bold text-white">Truth Table Input</h2>
+          <p class="text-sm text-slate-400">Click the Output cells to toggle between 0 and 1.</p>
+          <div class="overflow-hidden rounded-xl border border-white/10">
+            <table class="w-full text-center text-sm">
+              <thead class="bg-bg-dark text-slate-300">
+                <tr><th class="py-3 px-2">A</th><th class="py-3 px-2">B</th><th class="py-3 px-2">C</th><th class="py-3 px-2 text-brand-primary">Out</th></tr>
+              </thead>
+              <tbody id="tt-body" class="divide-y divide-white/5 bg-bg-surface text-slate-200">
+                <!-- Rows injected by JS -->
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-2 rounded-xl bg-bg-dark p-4 border border-white/5">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Simplified Logic</span>
+            <div id="tt-expression" class="mt-2 font-mono text-lg text-emerald-400"></div>
+          </div>
         </div>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <button data-action="run-truth" class="rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">Generate Logic Expression</button>
+        <div class="xl:w-2/3 flex flex-col gap-4">
+          <h2 class="text-xl font-bold text-white">Generated Logic Circuit</h2>
+          <div class="flex-grow min-h-[400px] rounded-xl border border-white/10 bg-bg-dark relative overflow-hidden" id="logic-svg-container">
+            <!-- SVG injected by JS -->
+          </div>
         </div>
-        <pre data-output="truth" class="mt-6 overflow-x-auto rounded-xl border border-white/10 bg-bg-dark p-4 text-sm leading-7 text-slate-200"></pre>
       </div>
     )}
 
-    {toolKey === 'schematic-to-breadboard' && (
-      <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6">
-        <label class="block">
-          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Connection List</span>
-          <textarea data-field="netlist" rows="9" class="mt-2 w-full rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-white outline-none ring-brand-primary/40 placeholder:text-slate-500 focus:ring-2">VCC -> U1.14
-GND -> U1.7
-R1.1 -> U1.1
-R1.2 -> VCC
-U1.2 -> LED1.A
-LED1.K -> GND</textarea>
-          <span class="mt-2 block text-xs text-slate-500">Use one connection per line in this format: `NODE_A -> NODE_B`.</span>
-        </label>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <button data-action="run-breadboard" class="rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">Generate Breadboard Plan</button>
+    {toolKey === 'boolean-expression-simplifier' && (
+      <div id="bool-tool-wrapper" class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6 lg:p-8 flex flex-col gap-8">
+
+        <!-- Input Row -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold text-white">Boolean Expression Input</h2>
+            <div class="flex gap-2 text-xs">
+              <span class="rounded bg-emerald-500/15 px-2 py-1 font-mono text-emerald-400">AND &nbsp;&middot;&nbsp; *</span>
+              <span class="rounded bg-sky-500/15 px-2 py-1 font-mono text-sky-400">OR &nbsp;+&nbsp; |</span>
+              <span class="rounded bg-violet-500/15 px-2 py-1 font-mono text-violet-400">NOT &nbsp;&apos;&nbsp; !</span>
+            </div>
+          </div>
+          <div class="flex gap-3 items-stretch">
+            <input
+              id="bool-input"
+              type="text"
+              value={"A'BC + AB'C + ABC' + ABC"}
+              placeholder={"e.g. A'B + AB' + AB  or  (!A && B) || A"}
+              class="flex-grow rounded-xl border border-white/10 bg-bg-dark px-4 py-3 font-mono text-base text-white placeholder-slate-500 outline-none ring-brand-primary/40 focus:ring-2 transition"
+            />
+            <button id="bool-simplify-btn" class="rounded-xl bg-brand-primary px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-500 shrink-0 shadow-lg shadow-brand-primary/20">
+              Simplify
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs text-slate-500">Examples:</span>
+            <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"A'BC + AB'C + ABC' + ABC"}>A&apos;BC + AB&apos;C + ABC&apos; + ABC</button>
+            <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"AB + AB' + A'B"}>AB + AB&apos; + A&apos;B</button>
+            <button class="bool-example text-xs font-mono text-slate-400 hover:text-brand-primary transition" data-expr={"A'B'C' + A'B'C + A'BC + ABC"}>A&apos;B&apos;C&apos; + A&apos;B&apos;C + A&apos;BC + ABC</button>
+          </div>
+          <p id="bool-error" class="text-xs text-red-400 font-mono hidden"></p>
         </div>
-        <pre data-output="breadboard" class="mt-6 overflow-x-auto rounded-xl border border-white/10 bg-bg-dark p-4 text-sm leading-7 text-slate-200"></pre>
+
+        <!-- Results Row -->
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+          <!-- Simplified Result -->
+          <div class="flex flex-col gap-3">
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Simplified Expression</h3>
+            <div id="bool-result" class="flex-grow rounded-xl bg-bg-dark border border-white/10 p-5 flex flex-col gap-4 min-h-[160px] justify-center">
+              <div class="text-slate-500 text-sm text-center">Result will appear here</div>
+            </div>
+          </div>
+          <!-- Truth Table -->
+          <div class="flex flex-col gap-3">
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Truth Table</h3>
+            <div id="bool-truth-table" class="overflow-auto rounded-xl border border-white/10 bg-bg-dark min-h-[160px]">
+              <div class="text-slate-500 text-sm p-5 text-center">Truth table will appear here</div>
+            </div>
+          </div>
+          <!-- Gate Diagram -->
+          <div class="flex flex-col gap-3">
+            <h3 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Gate Network</h3>
+            <div id="bool-gate-svg" class="flex-grow rounded-xl border border-white/10 bg-bg-dark min-h-[160px] flex items-center justify-center overflow-hidden">
+              <div class="text-slate-500 text-sm">Gate diagram will appear here</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     )}
   </div>
@@ -194,159 +245,425 @@ LED1.K -> GND</textarea>
     };
 
     const initTruthTableTool = (root) => {
-      const varsInput = root.querySelector('[data-field="variables"]');
-      const bitsInput = root.querySelector('[data-field="bits"]');
-      const runButton = root.querySelector('[data-action="run-truth"]');
-      const output = root.querySelector('[data-output="truth"]');
-      if (!varsInput || !bitsInput || !runButton || !output) return;
+      const tbody = root.querySelector('#tt-body');
+      const exprDiv = root.querySelector('#tt-expression');
+      const svgContainer = root.querySelector('#logic-svg-container');
+      if (!tbody || !exprDiv || !svgContainer) return;
 
-      const run = () => {
-        const vars = String(varsInput.value || '')
-          .split(',')
-          .map((v) => v.trim().toUpperCase().replace(/[^A-Z0-9_]/g, ''))
-          .filter(Boolean);
+      const vars = ['A', 'B', 'C'];
+      const rows = 8;
+      let outputs = [0,0,0,1,0,1,1,1]; 
 
-        if (!vars.length || vars.length > 4) {
-          output.textContent = 'Enter 1 to 4 variable names (example: A,B,C).';
-          return;
+      const renderTable = () => {
+        tbody.innerHTML = '';
+        for (let i = 0; i < rows; i++) {
+          const bin = toBinary(i, 3);
+          const tr = document.createElement('tr');
+          const tdClass = "py-2 px-2 text-slate-300 font-mono";
+          tr.innerHTML = `<td class="${tdClass}">${bin[0]}</td><td class="${tdClass}">${bin[1]}</td><td class="${tdClass}">${bin[2]}</td><td class="${tdClass} cursor-pointer hover:bg-white/10 select-none text-brand-primary font-bold transition-colors" data-row="${i}">${outputs[i]}</td>`;
+          tbody.appendChild(tr);
         }
-
-        const bits = String(bitsInput.value || '').replace(/[^01]/g, '');
-        const expected = 2 ** vars.length;
-        if (bits.length !== expected) {
-          output.textContent = `Output bits length must be ${expected} for ${vars.length} variables.`;
-          return;
-        }
-
-        const minterms = [];
-        bits.split('').forEach((bit, index) => {
-          if (bit === '1') minterms.push(index);
+        
+        tbody.querySelectorAll('[data-row]').forEach(cell => {
+          cell.addEventListener('click', (e) => {
+             const r = parseInt(e.target.getAttribute('data-row'), 10);
+             outputs[r] = outputs[r] === 1 ? 0 : 1;
+             renderTable();
+          });
         });
 
-        const simplified = minimizeFromMinterms(minterms, vars);
-        const notCount = (simplified.match(/'/g) || []).length;
-        const terms = simplified === '0' || simplified === '1' ? [] : simplified.split(/\s*\+\s*/).filter(Boolean);
-
-        const lines = [
-          'Simplified Expression',
-          '---------------------',
-          simplified,
-          '',
-          `Minterms: ${minterms.length ? minterms.join(', ') : 'none'}`,
-          '',
-          'Gate-Level Plan',
-          '---------------',
-          `NOT stage: ${notCount}`,
-          `AND stage terms: ${terms.length || (simplified === '1' ? 1 : 0)}`,
-          `OR stage required: ${terms.length > 1 ? 'yes' : 'no'}`
-        ];
-
-        output.textContent = lines.join('\n');
+        updateLogic();
       };
 
-      runButton.addEventListener('click', run);
-      run();
+      const drawGateSVG = (simplified) => {
+        const h = svgContainer.clientHeight || 400;
+        const w = svgContainer.clientWidth || 600;
+        
+        // Dynamic grid background
+        let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">`;
+        svg += `<style> .wire{stroke:#475569;stroke-width:2.5;fill:none;} .wire-active{stroke:#3b82f6;stroke-width:2.5;fill:none;animation:dash 20s linear infinite;} .gate{fill:#1e293b;stroke:#94a3b8;stroke-width:2;transition:all 0.3s;} .text{fill:#cbd5e1;font-family:monospace;font-size:14px;dominant-baseline:middle;font-weight:600;} .node{fill:#94a3b8;} @keyframes dash { to { stroke-dashoffset: -1000; } } </style>`;
+        
+        svg += `<g opacity="0.05"><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#ffffff"/></pattern><rect width="100%" height="100%" fill="url(#grid)"/></g>`;
+
+        if (simplified === '0' || simplified === '1') {
+            svg += `<text x="${w/2}" y="${h/2}" class="text" text-anchor="middle" font-size="18">Output is constant ${simplified}</text></svg>`;
+            svgContainer.innerHTML = svg;
+            return;
+        }
+
+        // Draw inputs (Vertical trunks)
+        for(let i=0; i<3; i++) {
+            const hx = 60 + i*40;
+            // Name label
+            svg += `<text x="${hx}" y="30" class="text" text-anchor="middle" font-size="16">${vars[i]}</text>`;
+            // Trunk line
+            svg += `<path d="M ${hx} 45 L ${hx} ${h-20}" class="wire" opacity="0.4" />`;
+            // Inverted trunk line
+            const nx = hx + 15;
+            svg += `<path d="M ${nx} 65 L ${nx} ${h-20}" class="wire" opacity="0.3" stroke-dasharray="4,4" />`;
+            // Inverter Triangle + dot
+            svg += `<path d="M ${hx} 45 L ${nx} 55 L ${hx} 65 Z" class="gate" />`;
+            svg += `<circle cx="${nx}" cy="${68}" r="3" class="wire" />`;
+        }
+
+        const terms = simplified.split(/\s*\+\s*/).filter(Boolean);
+        const gatesX = 220;
+        
+        let andOutputs = [];
+        
+        terms.forEach((term, index) => {
+            const spacing = Math.max(50, (h - 100) / terms.length);
+            const gy = 80 + index * spacing;
+            
+            // AND Gate shape (D shape)
+            svg += `<path d="M ${gatesX} ${gy-20} L ${gatesX+20} ${gy-20} A 20 20 0 0 1 ${gatesX+20} ${gy+20} L ${gatesX} ${gy+20} Z" class="gate" stroke="#3b82f6" />`;
+            svg += `<text x="${gatesX+8}" y="${gy}" class="text" font-size="12" fill="#60a5fa">AND</text>`;
+            andOutputs.push({x: gatesX+40, y: gy});
+            
+            // Draw connections from trunks to AND gate
+            const inputs = term.match(/[A-Z]'/g) ? (term.replace(/'/g, "_not").match(/([A-Z]_not|[A-Z])/g) || []) : term.split('');
+            inputs.forEach((inputVar, vi) => {
+                const isNot = inputVar.includes('_not');
+                const baseVar = inputVar.replace('_not', '');
+                let varIdx = vars.indexOf(baseVar);
+                if (varIdx > -1) {
+                    const trunkX = 60 + varIdx*40 + (isNot ? 15 : 0);
+                    const connectionY = gy - 12 + vi*12;
+                    svg += `<circle cx="${trunkX}" cy="${connectionY}" r="4" class="node" />`;
+                    svg += `<path d="M ${trunkX} ${connectionY} L ${gatesX} ${connectionY}" class="wire-active" />`;
+                }
+            });
+        });
+
+        // Draw final OR gate
+        if (terms.length > 1) {
+            const orX = gatesX + 160;
+            const orY = h / 2;
+            
+            // OR Gate shape (curved)
+            svg += `<path d="M ${orX} ${orY-35} Q ${orX+20} ${orY-35} ${orX+40} ${orY} Q ${orX+20} ${orY+35} ${orX} ${orY+35} Q ${orX+15} ${orY} ${orX} ${orY-35}" class="gate" stroke="#10b981" />`;
+            svg += `<text x="${orX+15}" y="${orY}" class="text" font-size="12" fill="#34d399">OR</text>`;
+            
+            andOutputs.forEach((out, i) => {
+               // Route AND outputs to OR gate inputs (curved)
+               const targetY = out.y > orY ? orY+15 : (out.y < orY ? orY-15 : orY);
+               svg += `<path d="M ${out.x} ${out.y} C ${out.x+50} ${out.y}, ${orX-30} ${targetY}, ${orX+5} ${targetY}" class="wire-active" />`;
+            });
+            svg += `<path d="M ${orX+40} ${orY} L ${w-30} ${orY}" class="wire-active" />`;
+            svg += `<text x="${w-20}" y="${orY}" class="text" fill="#10b981">Out</text>`;
+        } else if (terms.length === 1) {
+            svg += `<path d="M ${andOutputs[0].x} ${andOutputs[0].y} L ${w-30} ${andOutputs[0].y}" class="wire-active" />`;
+            svg += `<text x="${w-20}" y="${andOutputs[0].y}" class="text" fill="#10b981">Out</text>`;
+        }
+
+        svg += `</svg>`;
+        svgContainer.innerHTML = svg;
+      };
+
+      const updateLogic = () => {
+         const minterms = [];
+         outputs.forEach((o, i) => { if(o === 1) minterms.push(i); });
+         const expr = minimizeFromMinterms(minterms, vars);
+         exprDiv.innerHTML = expr || '0';
+         if (svgContainer) drawGateSVG(expr);
+      };
+
+      // Handle resize to redraw
+      window.addEventListener('resize', () => requestAnimationFrame(updateLogic));
+      renderTable();
+      setTimeout(updateLogic, 100);
     };
 
-    const initBreadboardTool = (root) => {
-      const netInput = root.querySelector('[data-field="netlist"]');
-      const runButton = root.querySelector('[data-action="run-breadboard"]');
-      const output = root.querySelector('[data-output="breadboard"]');
-      if (!netInput || !runButton || !output) return;
 
-      const run = () => {
-        const lines = String(netInput.value || '')
-          .split('\n')
-          .map((line) => line.trim())
-          .filter(Boolean);
+    const initBooleanTool = (root) => {
+      const input = root.querySelector('#bool-input');
+      const btn = root.querySelector('#bool-simplify-btn');
+      const resultEl = root.querySelector('#bool-result');
+      const tableEl = root.querySelector('#bool-truth-table');
+      const gateEl = root.querySelector('#bool-gate-svg');
+      const errorEl = root.querySelector('#bool-error');
+      const examples = root.querySelectorAll('.bool-example');
+      if (!input || !btn) return;
 
-        if (!lines.length) {
-          output.textContent = 'Add at least one connection line.';
-          return;
-        }
-
-        const parent = new Map();
-        const seenNodes = new Set();
-        const edges = [];
-        let invalid = 0;
-
-        const find = (x) => {
-          if (!parent.has(x)) parent.set(x, x);
-          if (parent.get(x) !== x) parent.set(x, find(parent.get(x)));
-          return parent.get(x);
-        };
-
-        const union = (a, b) => {
-          const pa = find(a);
-          const pb = find(b);
-          if (pa !== pb) parent.set(pb, pa);
-        };
-
-        lines.forEach((line) => {
-          const match = line.match(/^([A-Za-z0-9_.-]+)\s*(?:->|=|,)\s*([A-Za-z0-9_.-]+)$/);
-          if (!match) {
-            invalid += 1;
-            return;
-          }
-          const a = match[1];
-          const b = match[2];
-          seenNodes.add(a);
-          seenNodes.add(b);
-          union(a, b);
-          edges.push([a, b]);
+      examples.forEach(ex => {
+        ex.addEventListener('click', () => {
+          input.value = ex.getAttribute('data-expr');
+          run();
         });
+      });
 
-        if (!edges.length) {
-          output.textContent = 'No valid lines found. Use format: NODE_A -> NODE_B';
-          return;
-        }
-
-        const groups = new Map();
-        Array.from(seenNodes).forEach((node) => {
-          const rootNode = find(node);
-          if (!groups.has(rootNode)) groups.set(rootNode, []);
-          groups.get(rootNode).push(node);
-        });
-
-        const rowMap = new Map();
-        let row = 5;
-        Array.from(groups.keys()).forEach((rootNode) => {
-          rowMap.set(rootNode, row);
-          row += 5;
-        });
-
-        const mappingLines = [];
-        groups.forEach((nodes, rootNode) => {
-          mappingLines.push(`Row ${rowMap.get(rootNode)}: ${nodes.sort().join(', ')}`);
-        });
-
-        const steps = edges.map(([a, b], index) => {
-          const r = rowMap.get(find(a));
-          return `${index + 1}. Place ${a} and ${b} on row ${r}.`;
-        });
-
-        const report = [
-          'Breadboard Mapping',
-          '------------------',
-          ...mappingLines,
-          '',
-          'Build Steps',
-          '-----------',
-          ...steps
-        ];
-
-        if (invalid) report.push('', `Skipped invalid lines: ${invalid}`);
-        output.textContent = report.join('\n');
+      // Parse expression into a JS-evaluable function
+      const parseExpr = (expr) => {
+        let s = expr.trim();
+        // Normalize separators
+        s = s.replace(/AND/gi, '&').replace(/OR/gi, '|').replace(/NOT\s*/gi, '!');
+        // Infix NOT: apostrophe after a paren or letter means complement of the preceding token
+        s = s.replace(/([A-Za-z])\'/g, '(!$1)');
+        s = s.replace(/\)'/g, '(complement_paren)'); // handled below
+        // AND operators: explicit * or implicit adjacency
+        s = s.replace(/\*/g, '&&');
+        s = s.replace(/\&+/g, '&&');
+        // OR operators
+        s = s.replace(/\+/g, '||');
+        s = s.replace(/\|+/g, '||');
+        // AND by adjacency: letter followed by letter or (
+        s = s.replace(/([A-Za-z\)])\s*([A-Za-z\(])/g, '$1 && $2');
+        s = s.replace(/([A-Za-z\)])\s*([A-Za-z\(])/g, '$1 && $2'); // run twice for triples
+        return s;
       };
 
-      runButton.addEventListener('click', run);
-      run();
+      const getVars = (expr) => {
+        const matches = expr.match(/[A-Za-z]/g) || [];
+        return [...new Set(matches)].sort();
+      };
+
+      const evalExpr = (expr, assignment) => {
+        let s = parseExpr(expr);
+        Object.entries(assignment).forEach(([v, val]) => {
+          s = s.replace(new RegExp(`\\b${v}\\b`, 'g'), val ? 'true' : 'false');
+        });
+        try {
+          return Function('"use strict"; return (' + s + ')')() ? 1 : 0;
+        } catch(e) {
+          return null;
+        }
+      };
+
+      const buildTruthTable = (expr, vars) => {
+        const rows = [];
+        const count = Math.pow(2, vars.length);
+        for (let i = 0; i < count; i++) {
+          const assignment = {};
+          vars.forEach((v, idx) => {
+            assignment[v] = (i >> (vars.length - 1 - idx)) & 1;
+          });
+          const out = evalExpr(expr, assignment);
+          rows.push({ assignment, out });
+        }
+        return rows;
+      };
+
+      // Quine-McCluskey simplification
+      const toBinary = (n, bits) => n.toString(2).padStart(bits, '0');
+      const countOnes = (s) => (s.match(/1/g) || []).length;
+      const differ = (a, b) => {
+        let diff = 0, pos = -1;
+        for (let i = 0; i < a.length; i++) {
+          if (a[i] !== b[i]) { diff++; pos = i; }
+        }
+        return diff === 1 ? pos : -1;
+      };
+
+      const qmSimplify = (minterms, numVars) => {
+        if (minterms.length === 0) return '0';
+        const total = Math.pow(2, numVars);
+        if (minterms.length === total) return '1';
+
+        let groups = {};
+        minterms.forEach(m => {
+          const b = toBinary(m, numVars);
+          const ones = countOnes(b);
+          if (!groups[ones]) groups[ones] = [];
+          groups[ones].push({ minterms: [m], pattern: b, used: false });
+        });
+
+        const allImplicants = [];
+        let current = groups;
+
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+          const next = {};
+          let combined = false;
+          const keys = Object.keys(current).map(Number).sort((a,b) => a-b);
+          keys.forEach(k => {
+            if (!current[k+1]) return;
+            current[k].forEach(a => {
+              current[k+1].forEach(b => {
+                const pos = differ(a.pattern, b.pattern);
+                if (pos !== -1) {
+                  const newPat = a.pattern.substring(0, pos) + '-' + a.pattern.substring(pos+1);
+                  const newMins = [...new Set([...a.minterms, ...b.minterms])];
+                  const key = newMins.length;
+                  if (!next[k]) next[k] = [];
+                  const exists = next[k].find(x => x.pattern === newPat);
+                  if (!exists) next[k].push({ minterms: newMins, pattern: newPat, used: false });
+                  a.used = true; b.used = true;
+                  combined = true;
+                }
+              });
+            });
+          });
+          // Collect unused (prime implicants)
+          keys.forEach(k => {
+            current[k].forEach(imp => { if (!imp.used) allImplicants.push(imp); });
+          });
+          if (!combined) break;
+          current = next;
+        }
+
+        if (allImplicants.length === 0) return '0';
+
+        // Build essential prime implicants
+        const essential = [];
+        const covered = new Set();
+        minterms.forEach(m => {
+          const covering = allImplicants.filter(imp => imp.minterms.includes(m));
+          if (covering.length === 1) {
+            if (!essential.find(e => e.pattern === covering[0].pattern)) {
+              essential.push(covering[0]);
+              covering[0].minterms.forEach(x => covered.add(x));
+            }
+          }
+        });
+        // Cover remaining
+        minterms.forEach(m => {
+          if (!covered.has(m)) {
+            const imp = allImplicants.find(i => i.minterms.includes(m));
+            if (imp && !essential.find(e => e.pattern === imp.pattern)) {
+              essential.push(imp);
+              imp.minterms.forEach(x => covered.add(x));
+            }
+          }
+        });
+
+        return essential;
+      };
+
+      const implicantToExpr = (pattern, vars) => {
+        const terms = [];
+        for (let i = 0; i < pattern.length; i++) {
+          if (pattern[i] === '1') terms.push(vars[i]);
+          else if (pattern[i] === '0') terms.push(vars[i] + "'");
+        }
+        return terms.join('') || '1';
+      };
+
+      const renderResult = (simplified, original, vars) => {
+        const isConst = simplified === '0' || simplified === '1';
+        const expr = isConst ? simplified :
+          (Array.isArray(simplified)
+            ? simplified.map(imp => implicantToExpr(imp.pattern, vars)).join(' + ')
+            : simplified);
+
+        resultEl.innerHTML = `
+          <div class="text-center">
+            <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Simplified</div>
+            <div class="text-2xl font-mono font-bold text-emerald-400 break-all">${expr === '0' ? '0 (Always OFF)' : expr === '1' ? '1 (Always ON)' : expr}</div>
+          </div>
+          <div class="mt-4 border-t border-white/10 pt-4 flex flex-col gap-1 text-xs font-mono">
+            <div class="flex justify-between"><span class="text-slate-400">Original</span><span class="text-slate-300 truncate ml-4 max-w-[70%]">${original}</span></div>
+            <div class="flex justify-between"><span class="text-slate-400">Variables</span><span class="text-emerald-400">${vars.join(', ')}</span></div>
+          </div>
+        `;
+        return expr;
+      };
+
+      const renderTable = (rows, vars) => {
+        const tdClass = 'px-3 py-1.5 text-center text-xs';
+        const thClass = 'px-3 py-2 text-center text-xs font-semibold uppercase tracking-wide text-slate-400';
+        const headers = [...vars, 'Out'].map(v => `<th class="${thClass}">${v}</th>`).join('');
+        const tableRows = rows.map(r => {
+          const cells = vars.map(v => `<td class="${tdClass} text-slate-300">${r.assignment[v]}</td>`).join('');
+          const outClass = r.out ? 'text-emerald-400 font-bold' : 'text-slate-500';
+          return `<tr class="border-t border-white/5">${cells}<td class="${tdClass} ${outClass}">${r.out}</td></tr>`;
+        }).join('');
+        tableEl.innerHTML = `<table class="w-full"><thead class="bg-bg-dark/80"><tr>${headers}</tr></thead><tbody class="bg-bg-surface/40">${tableRows}</tbody></table>`;
+      };
+
+      const renderGates = (simplified, vars) => {
+        const terms = Array.isArray(simplified) ? simplified.map(imp => implicantToExpr(imp.pattern, vars)) : null;
+        if (!terms || terms.length === 0) {
+          gateEl.innerHTML = `<div class="text-slate-500 text-sm p-4">Expression is a constant</div>`;
+          return;
+        }
+
+        const W = 420, H = 60 + terms.length * 50 + 60;
+        let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto p-4" xmlns="http://www.w3.org/2000/svg">
+          <style>.gl{stroke:#475569;stroke-width:1.5;fill:none} .gf{fill:#1e293b;stroke:#64748b;stroke-width:1.5} .gt{fill:#94a3b8;font-family:monospace;font-size:11px} .gand{fill:#1e293b;stroke:#3b82f6;stroke-width:1.5} .gor{fill:#1e293b;stroke:#10b981;stroke-width:1.5}</style>`;
+
+        const andOutputs = [];
+        terms.forEach((term, i) => {
+          const y = 40 + i * 50;
+          const ax = 90, ay = y;
+          // AND gate shape
+          svg += `<path d="M ${ax} ${ay-12} L ${ax+20} ${ay-12} A 12 12 0 0 1 ${ax+20} ${ay+12} L ${ax} ${ay+12} Z" class="gand"/>`;
+          svg += `<text x="${ax+8}" y="${ay+4}" class="gt" fill="#60a5fa" font-size="9">AND</text>`;
+          // Input lines
+          const literals = [];
+          for (let c = 0; c < term.length; c++) {
+            const ch = term[c];
+            if (ch === "'") continue;
+            const isNeg = term[c+1] === "'";
+            literals.push({ var: ch, neg: isNeg });
+          }
+          literals.forEach((lit, li) => {
+            const lx = 20, ly = ay - 8 + li * 8;
+            svg += `<line x1="${lx}" y1="${ly}" x2="${ax}" y2="${ay + (li - (literals.length-1)/2)*6}" class="gl"/>`;
+            svg += `<text x="${lx+2}" y="${ly+4}" class="gt" fill="${lit.neg ? '#a78bfa' : '#94a3b8'}">${lit.neg ? lit.var+"'" : lit.var}</text>`;
+          });
+          // AND output line to OR
+          const outX = ax + 32;
+          svg += `<line x1="${outX}" y1="${ay}" x2="${W - 80}" y2="${ay}" class="gl"/>`;
+          andOutputs.push({ x: W - 80, y: ay });
+        });
+
+        // OR gate
+        const orY = 40 + (terms.length - 1) * 25;
+        const orX = W - 75;
+        svg += `<path d="M ${orX} ${orY-20} Q ${orX+15} ${orY-20} ${orX+35} ${orY} Q ${orX+15} ${orY+20} ${orX} ${orY+20} Q ${orX+10} ${orY} ${orX} ${orY-20}" class="gor"/>`;
+        svg += `<text x="${orX+8}" y="${orY+4}" class="gt" fill="#34d399" font-size="9">OR</text>`;
+        if (terms.length === 1) {
+          svg += `<line x1="${andOutputs[0].x}" y1="${andOutputs[0].y}" x2="${orX}" y2="${orY}" class="gl"/>`;
+        } else {
+          andOutputs.forEach(pt => {
+            svg += `<path d="M ${pt.x} ${pt.y} C ${pt.x+20} ${pt.y}, ${orX-10} ${orY}, ${orX+2} ${orY}" fill="none" class="gl"/>`;
+          });
+        }
+        svg += `<line x1="${orX+35}" y1="${orY}" x2="${W - 20}" y2="${orY}" class="gl"/>`;
+        svg += `<text x="${W-15}" y="${orY+4}" class="gt" fill="#10b981">Out</text>`;
+        svg += `</svg>`;
+        gateEl.innerHTML = svg;
+      };
+
+      const run = () => {
+        const raw = input.value.trim();
+        errorEl.classList.add('hidden');
+        errorEl.textContent = '';
+        if (!raw) return;
+
+        const vars = getVars(raw);
+        if (vars.length > 5) {
+          errorEl.textContent = 'Maximum 5 variables supported (A-E).';
+          errorEl.classList.remove('hidden');
+          return;
+        }
+
+        const rows = buildTruthTable(raw, vars);
+        const hasError = rows.some(r => r.out === null);
+        if (hasError) {
+          errorEl.textContent = 'Could not parse expression. Check syntax: use A, B, C for variables and +, *, A\' for operators.';
+          errorEl.classList.remove('hidden');
+          return;
+        }
+
+        const minterms = rows.filter(r => r.out === 1).map((_, i) => rows.findIndex((_, j) => j === rows.indexOf(rows.filter(r2 => r2.out === 1)[i])));
+        const actualMinterms = rows.reduce((acc, r, i) => { if (r.out) acc.push(i); return acc; }, []);
+        const simplified = qmSimplify(actualMinterms, vars.length);
+        const expr = renderResult(simplified, raw, vars);
+        renderTable(rows, vars);
+        if (Array.isArray(simplified)) renderGates(simplified, vars);
+        else gateEl.innerHTML = `<div class="text-2xl font-mono font-bold text-center text-emerald-400 p-8">${expr}</div>`;
+      };
+
+      btn.addEventListener('click', run);
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+      setTimeout(() => run(), 100);
     };
 
     roots.forEach((root) => {
       const key = root.getAttribute('data-tool-key');
       if (key === 'truth-table-to-logic-circuit') initTruthTableTool(root);
-      if (key === 'schematic-to-breadboard') initBreadboardTool(root);
+      if (key === 'boolean-expression-simplifier') initBooleanTool(root);
     });
   })();
 </script>
