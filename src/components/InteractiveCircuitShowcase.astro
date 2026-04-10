@@ -89,7 +89,7 @@ const presets = toolPresets
                   </div>
                 </div>
                 <div id="showcase-stages" class="mt-6 space-y-3">
-                  {presets[0].stages.map((stage) => (
+                  {presets[0].stages.map((stage: any) => (
                     <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3.5 transition-colors hover:bg-white/[0.04]">
                       <div class="flex items-start justify-between gap-4">
                         <div class="min-w-0">
@@ -110,7 +110,7 @@ const presets = toolPresets
                 <div class="rounded-2xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-3xl">
                   <p class="text-[10px] uppercase tracking-[0.4em] text-brand-accent font-bold">{t('showcase.metrics.badge')}</p>
                   <div id="showcase-metrics" class="mt-5 space-y-4">
-                    {presets[0].metrics.map((metric) => (
+                    {presets[0].metrics.map((metric: any) => (
                       <div>
                         <div class="mb-1.5 flex items-start justify-between gap-3 text-[11px]">
                           <span class="min-w-0 break-words text-slate-400 font-medium">{metric.label}</span>
@@ -130,7 +130,7 @@ const presets = toolPresets
                     <span class="self-start text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">{t('showcase.checkpoints.status')}</span>
                   </div>
                   <div id="showcase-checkpoints" class="mt-5 flex flex-wrap gap-2">
-                    {presets[0].checkpoints.map((item) => (
+                    {presets[0].checkpoints.map((item: string) => (
                       <span class="max-w-full break-words rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-1.5 text-[11px] font-medium text-slate-400 transition-colors hover:text-white hover:bg-white/5">{item}</span>
                     ))}
                   </div>
@@ -159,7 +159,7 @@ const presets = toolPresets
                   <div class="overflow-x-auto">
                     <table class="w-full min-w-[220px] table-fixed text-left">
                       <tbody id="showcase-specs" class="divide-y divide-white/5 border-t border-white/5">
-                        {presets[0].specs.map(([label, value]) => (
+                        {presets[0].specs.map(([label, value]: any[]) => (
                           <tr>
                             <th class="w-[46%] break-words py-3.5 pr-4 text-[10px] font-extrabold uppercase tracking-[0.15em] text-slate-500">{label}</th>
                             <td class="break-words py-3.5 text-left font-mono text-[11px] font-bold text-brand-accent sm:text-right">{value}</td>
