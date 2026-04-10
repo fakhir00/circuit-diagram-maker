@@ -12,16 +12,6 @@
       ],
       "destination": "https://www.circuitdiagrammaker.com/$1",
       "permanent": true
-    },
-    {
-      "source": "/schematic-to-breadboard/?",
-      "destination": "/boolean-expression-simplifier/",
-      "permanent": true
-    },
-    {
-      "source": "/(?<locale>[a-z]{2})/schematic-to-breadboard/?",
-      "destination": "/$locale/boolean-expression-simplifier/",
-      "permanent": true
     }
   ]
 }
