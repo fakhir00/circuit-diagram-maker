@@ -49,10 +49,9 @@ const ROUTE_DEFAULTS: Record<string, SeoMetadata> = {
     title: 'Truth Table To Logic Circuit',
     description: 'Turn logic requirements into gate-level diagrams with Truth Table to Logic Circuit workflows.'
   },
-  '/schematic-to-breadboard/': {
-    title: 'Schematic To Breadboard',
-    description:
-      'Convert schematic diagrams into breadboard layouts with interactive mapping, step-by-step examples, and error checks for reliable prototyping.'
+  '/boolean-expression-simplifier/': {
+    title: 'Boolean Expression Simplifier',
+    description: 'Simplify boolean expressions and generate logic gate diagrams with our online boolean expression simplifier tool.'
   },
   '/docs/': {
     title: 'Circuit Diagram Docs',
@@ -127,7 +126,7 @@ const TITLE_SUFFIX_LABELS: Record<string, string> = {
   '/arduino-circuit-maker/': 'Tool',
   '/pcb-schematic-tool/': 'Tool',
   '/truth-table-to-logic-circuit/': 'Tool',
-  '/schematic-to-breadboard/': 'Tool',
+  '/boolean-expression-simplifier/': 'Tool',
   '/docs/': 'Guide',
   '/components/': 'Library',
   '/blog/': 'Articles',
