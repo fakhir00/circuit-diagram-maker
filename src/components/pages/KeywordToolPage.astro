@@ -26,6 +26,7 @@ interface HeadingBlock {
   tableCaption: string;
   tableHeaders: [string, string, string];
   tableRows: [string, string, string][];
+  imageSrc?: string;
 }
 
 interface SchematicSection {
@@ -134,9 +135,10 @@ const schematicSections: SchematicSection[] = [
       id: 'what-is-a-schematic-circuit-diagram',
       title: '1. What is a Schematic Circuit Diagram?',
       illustrationSummary:
-        'This interactive illustration uses a schematic-to-breadboard reveal where users switch between symbol view and physical placement view. Clicking each symbol highlights the matching real part and connection rails. It helps users see why schematics describe electrical intent, not physical location.',
+        'A schematic circuit diagram is a standardized visual representation of an electronic circuit that uses symbols to describe the electrical connections between components. Unlike a physical breadboard layout where parts have real positions and sizes, a schematic focuses on logical relationships — which pins connect where, how current flows, and what each component does in the circuit. Standard symbols like zigzag lines for resistors, triangles for diodes, and labeled rectangles for integrated circuits make schematics universally readable across engineering teams, classrooms, and datasheets. Understanding this symbolic language is the first step toward translating any design into a working breadboard prototype.',
       purpose:
-        'Content purpose: establish the foundation by defining a schematic circuit diagram, how symbols represent electrical behavior, and how that differs from breadboard wiring layout.',
+        'Before placing a single wire on a breadboard, you need to be able to read the schematic and identify every node, net name, and power rail. A node is any point where two or more component leads connect. Net names like VCC and GND label recurring power references. Tracing the current path from power source through each component to ground ensures you understand the circuit intent — which is exactly what you will replicate on the breadboard.',
+      imageSrc: '/images/tools/schematic-vs-breadboard.png',
       diagramTitle: 'Schematic vs Physical Wiring Explorer',
       diagramSteps: [
         {
@@ -166,9 +168,10 @@ const schematicSections: SchematicSection[] = [
       id: 'how-to-use-the-schematic-to-breadboard-converter',
       title: '2. How to Use the Schematic to Breadboard Converter',
       illustrationSummary:
-        'The master interactive illustration acts as a workflow simulator with stage tabs for input, mapping, generation, and export. Users can move through the full conversion pipeline and watch the same circuit evolve from symbolic form to physical layout. This gives a complete mental model before step-by-step details.',
+        'Converting a schematic into a breadboard layout follows a four-stage pipeline: input, mapping, layout generation, and export. In the input stage, you provide a valid schematic by uploading a netlist file or drawing symbols directly in the editor. The mapping stage resolves each schematic symbol to a physical component — a resistor symbol becomes two leads across specific breadboard rows. During layout generation, the converter assigns row positions, routes jumper wires, and flags conflicts. Finally, the export stage lets you download the breadboard plan as PNG, SVG, or JSON for documentation, classroom handouts, or collaborative iteration.',
       purpose:
-        'Content purpose: provide an end-to-end operational flow so users can execute conversion confidently and understand what each stage output means.',
+        'Having a structured workflow prevents the most common conversion errors. When you skip straight from schematic to hardware, it is easy to misread pin assignments, forget jumper wires, or reverse polarity-sensitive parts. Each stage acts as a checkpoint: the input stage catches format errors, the mapping stage catches symbol mismatches, the layout stage catches physical conflicts, and the export stage ensures your work is shareable and repeatable.',
+      imageSrc: '/images/tools/conversion-workflow.png',
       diagramTitle: 'Master Conversion Workflow Simulator',
       diagramSteps: [
         {
@@ -202,9 +205,9 @@ const schematicSections: SchematicSection[] = [
         id: 'step-1-upload-or-draw-your-schematic',
         title: 'Step 1: Upload or Draw Your Schematic',
         illustrationSummary:
-          'This step illustration provides a mini input sandbox where users can test netlist lines and symbol placement. Validation feedback appears immediately, showing accepted and rejected input. It reduces parser errors before conversion starts.',
+          'Start by providing your circuit in one of two ways. You can paste a connection list in NODE_A -> NODE_B format, where each line represents one electrical connection between two pins. Alternatively, draw the circuit directly in the editor canvas using the component library. The parser validates every line immediately — it checks for recognized node names, rejects duplicate or contradictory connections, and flags orphan pins that are not connected to any net. Fixing errors at this stage is far cheaper than debugging a mis-wired breadboard later.',
         purpose:
-          'Content purpose: explain accepted source formats and help users create a structurally valid starting schematic.',
+          'Tip: keep net names consistent. If an IC supply pin is labeled VCC in the schematic, use that exact label everywhere — not V+, not 5V, not Vdd. Consistent naming prevents the converter from treating the same electrical node as separate nets, which would result in missing connections on the breadboard.',
         diagramTitle: 'Input Validation Sandbox',
         diagramSteps: [
           {
@@ -232,9 +235,9 @@ const schematicSections: SchematicSection[] = [
         id: 'step-2-review-component-mapping',
         title: 'Step 2: Review Component Mapping',
         illustrationSummary:
-          'This interactive mapping board links schematic symbols to physical component footprints and pins. Hovering a mapping item highlights both symbol pin and breadboard destination point. It makes mis-mapped pins easy to catch before generation.',
+          'Every schematic symbol needs to be matched to a real physical component before breadboard placement can begin. This step resolves abstractions: the resistor symbol becomes a specific value with two axial leads, the LED symbol becomes a 5mm part with a longer anode leg and a shorter cathode leg, and an 8-pin IC symbol needs its pin-1 dot oriented correctly. Review each mapping carefully — the most common errors here are swapped transistor pins and reversed LED polarity. A wrong mapping at this stage produces a layout that looks correct but fails electrically.',
         purpose:
-          'Content purpose: verify symbol-to-part correctness and ensure pin orientation and package assumptions are valid.',
+          'Pay special attention to components with more than two pins. Transistors, voltage regulators, and ICs all have pin assignments that vary by package type. A 2N2222 transistor in a TO-92 package has a different pin order than the same transistor in an SOT-23 package. Always cross-reference the datasheet before confirming your mapping.',
         diagramTitle: 'Symbol-to-Footprint Mapper',
         diagramSteps: [
           {
@@ -262,9 +265,9 @@ const schematicSections: SchematicSection[] = [
         id: 'step-3-generate-breadboard-layout',
         title: 'Step 3: Generate Breadboard Layout',
         illustrationSummary:
-          'This generator illustration animates placement in the order the converter recommends: anchors first, then jumpers, then verification highlights. Users can toggle row and rail overlays while watching wiring paths appear. It transforms abstract nets into practical build steps.',
+          'With validated input and confirmed mappings, the converter generates a physical breadboard layout. The algorithm places anchor components first — typically the largest part like an IC chip straddling the center channel — then assigns surrounding row positions for resistors, LEDs, and capacitors. Jumper wires are routed to connect nodes that the breadboard internal row connections cannot reach. Power rails along the top and bottom edges are assigned to VCC and GND nets. The output includes a visual placement map, a numbered wiring sequence, and validation notes highlighting any unresolved conflicts.',
         purpose:
-          'Content purpose: show how the converter creates a usable physical layout from logical connectivity.',
+          'The generated layout is a starting point, not a finished product. Review it for wire crossing density, accessibility of test points, and logical grouping of related components. Rearranging two components to reduce jumper wire length can make your breadboard significantly easier to debug.',
         diagramTitle: 'Layout Generator Playback',
         diagramSteps: [
           {
@@ -292,9 +295,9 @@ const schematicSections: SchematicSection[] = [
         id: 'step-4-download-or-share-the-result',
         title: 'Step 4: Download or Share the Result',
         illustrationSummary:
-          'This export panel simulation previews PNG, SVG, and JSON output from the same layout. Users can switch format tabs and see what details each export keeps. It supports handoff for classrooms, makerspaces, or team documentation.',
+          'After reviewing and optionally adjusting the layout, export it in the format that fits your workflow. PNG images work well for slides, lab reports, and quick sharing in chat. SVG files are scalable and printable, making them ideal for reference documents and classroom handouts. JSON export preserves the full project structure — component positions, net lists, and mapping metadata — so you can reload, edit, and re-export later without starting over.',
         purpose:
-          'Content purpose: explain delivery options and help users choose the right output for fabrication notes or collaboration.',
+          'For team projects and classroom settings, the JSON format is particularly valuable because it enables iterative collaboration. One person can set up the initial schematic, another can verify the mapping, and a third can refine the physical layout — all working from the same exportable project file.',
         diagramTitle: 'Export and Share Panel',
         diagramSteps: [
           {
@@ -325,9 +328,10 @@ const schematicSections: SchematicSection[] = [
       id: 'schematic-to-breadboard-examples',
       title: '3. Schematic to Breadboard Examples',
       illustrationSummary:
-        'This example selector is an interactive gallery where users swap among multiple circuits and compare schematic, mapping, and breadboard views. Each switch keeps the same UI so differences in complexity are obvious. It accelerates learning through pattern recognition.',
+        'The best way to learn schematic-to-breadboard conversion is by studying worked examples at increasing complexity levels. Below you will find three circuits that cover the core skills: a single LED circuit that teaches polarity and resistor placement, a series resistor chain that introduces intermediate node management, and a transistor switching circuit that requires careful pin mapping. Each example shows the original schematic, the component mapping decisions, and the final breadboard layout with numbered wiring steps.',
       purpose:
-        'Content purpose: teach conversion patterns with concrete circuits users can replicate and modify.',
+        'These examples are designed to be hands-on. After reading each one, try replicating it using the inline tool above. Enter the connection list, generate the breadboard plan, and compare your result to the example. This active practice builds the pattern recognition skills that make future conversions faster and more reliable.',
+      imageSrc: '/images/tools/circuit-examples.png',
       diagramTitle: 'Example Selector Workspace',
       diagramSteps: [
         {
@@ -356,9 +360,9 @@ const schematicSections: SchematicSection[] = [
         id: 'example-1-single-led-circuit',
         title: 'Example 1: Single LED Circuit',
         illustrationSummary:
-          'This interactive LED example lets users toggle resistor values and immediately see current-path feedback. The view highlights anode/cathode orientation and required power path continuity. It is ideal for understanding the smallest valid conversion.',
+          'This beginner-level circuit connects a current-limiting resistor in series with an LED between VCC and GND. The schematic shows three nodes: VCC connects to R1 pin 1, R1 pin 2 connects to the LED anode, and the LED cathode connects to GND. On the breadboard, the resistor spans two rows with one end connected to the positive power rail via a jumper. The LED straddles two rows with its longer anode leg in the same row as the second lead of the resistor. A final jumper connects the LED cathode row to the ground rail.',
         purpose:
-          'Content purpose: reinforce polarity, resistor safety, and clean VCC-to-GND path mapping.',
+          'Key learning point: the LED is polarity-sensitive. If you reverse the anode and cathode, no current will flow and the LED will not light up. Always identify the flat edge or shorter leg of a physical LED as the cathode before insertion. The resistor, being non-polarized, can be inserted in either direction.',
         diagramTitle: 'Single LED Conversion Demo',
         diagramSteps: [
           {
@@ -386,9 +390,9 @@ const schematicSections: SchematicSection[] = [
         id: 'example-2-series-resistors',
         title: 'Example 2: Series Resistors',
         illustrationSummary:
-          'This illustration shows two resistors in series with interactive node labels for each junction. Users can change values and inspect how intermediate nodes remain connected in physical layout. It clarifies row planning for chained components.',
+          'This intermediate circuit places two resistors in series to form a voltage divider. The schematic shows VCC to R1 to midpoint node to R2 to GND, creating an intermediate voltage at the junction between R1 and R2. On the breadboard, the critical conversion detail is preserving the midpoint node: the second lead of R1 and the first lead of R2 must occupy the same breadboard row so they are electrically connected through the internal bus. If they land on different rows without a jumper wire, the series connection breaks and the voltage divider produces no output.',
         purpose:
-          'Content purpose: demonstrate series path continuity and intermediate node preservation during conversion.',
+          'Key learning point: breadboard rows connect all five holes in a row into a single electrical node. When converting series components, always verify that the shared junction node lands in the same row. This principle scales to any chain of components — filters, attenuators, and multi-stage amplifiers all rely on accurate intermediate node preservation.',
         diagramTitle: 'Series Resistor Path Explorer',
         diagramSteps: [
           {
@@ -416,9 +420,9 @@ const schematicSections: SchematicSection[] = [
         id: 'example-3-transistor-as-a-switch',
         title: 'Example 3: Transistor as a Switch',
         illustrationSummary:
-          'This transistor switch demo toggles control input and shows collector-emitter state changes in real time. Pin overlays help users avoid base/collector/emitter confusion during placement. It highlights how active components demand stricter mapping discipline.',
+          'This intermediate-to-advanced circuit uses an NPN transistor (such as a 2N2222) as an electronically controlled switch. The schematic shows a control signal driving the base through a current-limiting resistor, with the collector connected to an LED load and the emitter connected to GND. The breadboard conversion requires careful attention to the physical pin order of the transistor, which varies by package. For a TO-92 package viewed from the flat side, the pins are typically Emitter-Base-Collector from left to right. Placing the transistor with incorrect pin orientation results in a switch that does not respond to the control signal.',
         purpose:
-          'Content purpose: teach correct transistor orientation and control-path conversion for switching circuits.',
+          'Key learning point: active components like transistors, MOSFETs, and voltage regulators have pin assignments that are not interchangeable. Unlike resistors, which work in either direction, getting the base, collector, and emitter wrong will cause complete functional failure. Always consult the component datasheet before placing an active device on the breadboard.',
         diagramTitle: 'Transistor Switch Mapping Demo',
         diagramSteps: [
           {
@@ -449,9 +453,10 @@ const schematicSections: SchematicSection[] = [
       id: 'common-mistakes-when-converting-schematics-to-breadboard',
       title: '4. Common Mistakes When Converting Schematics to Breadboard',
       illustrationSummary:
-        'This section uses an interactive fix-the-layout challenge where users identify and correct deliberate conversion errors. Each correction updates a validation score and explains electrical consequences. It turns troubleshooting into guided practice.',
+        'Even experienced builders encounter conversion errors, especially when working with unfamiliar components or complex schematics. The three most common mistakes are misreading power and ground rail assignments, reversing the orientation of polarity-sensitive components, and leaving connections floating — where a net that should be continuous has a physical gap on the breadboard. Each mistake has distinct symptoms: shorts and overheating suggest power rail confusion, non-functional but undamaged components suggest reversed orientation, and intermittent or absent output suggests floating connections.',
       purpose:
-        'Content purpose: prevent frequent conversion failures by training users to recognize and resolve high-impact mistakes.',
+        'Developing a pre-power checklist eliminates most of these errors. Before applying power to your breadboard for the first time, verify three things: (1) the positive and ground rails are correctly assigned and bridged if your board has split rails, (2) all polarity-sensitive components are oriented correctly, and (3) every required net has physical continuity using a multimeter continuity mode.',
+      imageSrc: '/images/tools/common-mistakes.png',
       diagramTitle: 'Find-and-Fix Error Challenge',
       diagramSteps: [
         {
@@ -480,9 +485,9 @@ const schematicSections: SchematicSection[] = [
         id: 'mistake-1-misreading-power-and-ground',
         title: 'Mistake 1: Misreading Power and Ground',
         illustrationSummary:
-          'This interactive rail-mapping game asks users to assign VCC and GND rails correctly, then tests with continuity hints. Wrong picks generate instant short/open warnings. It builds reliable rail discipline before hardware testing.',
+          'Power rail confusion is the most dangerous conversion mistake because it can cause immediate component damage. On a breadboard, the long horizontal buses along the top and bottom edges serve as power distribution rails — typically red for VCC and blue for GND. The mistake happens when you accidentally swap them, when your breadboard has split rails (a gap in the middle that breaks continuity), or when you connect a supply pin to the wrong rail. Symptoms include circuits that appear completely dead, components that get hot immediately, or damage from reversed electrolytic capacitors.',
         purpose:
-          'Content purpose: reduce power-rail mistakes that cause immediate failures or unsafe shorts.',
+          'Watch out for split-rail breadboards. Many full-size breadboards have a physical gap in the power rail at the midpoint, meaning the top half and bottom half of each rail are not connected by default. You must add a jumper wire to bridge this gap, or components on the far side of the board will have no power or ground connection.',
         diagramTitle: 'Power and Ground Rail Checker',
         diagramSteps: [
           {
@@ -510,9 +515,9 @@ const schematicSections: SchematicSection[] = [
         id: 'mistake-2-reversed-component-orientation',
         title: 'Mistake 2: Reversed Component Orientation',
         illustrationSummary:
-          'This orientation trainer lets users flip diodes, polarized capacitors, and transistor symbols in-place to see pass/fail behavior. Pin and polarity callouts update live. It helps users internalize direction-sensitive placement rules.',
+          'LEDs, diodes, electrolytic capacitors, transistors, and ICs all have specific orientation requirements. Reversing an LED simply prevents it from lighting — annoying but harmless. Reversing an electrolytic capacitor, however, can cause it to leak, bulge, or even rupture. Reversing a transistor swaps the control logic entirely. For ICs, pin-1 is marked with a dot or notch on the physical package; placing the chip backwards swaps every single pin pair simultaneously, which typically destroys the component or connected circuits.',
         purpose:
-          'Content purpose: prevent orientation-related wiring errors that break operation or damage parts.',
+          'A practical technique: before inserting any polarity-sensitive component, hold it next to the breadboard and point at each lead while saying the pin name out loud — anode then cathode for an LED, base then collector then emitter for a transistor. This verbal check takes two seconds and catches orientation errors before they become hardware failures.',
         diagramTitle: 'Orientation Flip Trainer',
         diagramSteps: [
           {
@@ -540,9 +545,9 @@ const schematicSections: SchematicSection[] = [
         id: 'mistake-3-floating-connections',
         title: 'Mistake 3: Floating Connections',
         illustrationSummary:
-          'This continuity heatmap marks each required net as connected or floating. Users drag missing jumpers until every net passes the check. It provides a practical pre-power checklist for hidden opens.',
+          'A floating connection occurs when a net that should be continuous has a physical gap on the breadboard. This happens when a jumper wire is forgotten, when a component lead does not fully seat into a breadboard hole, or when two components that should share a node are placed in different rows without a connecting wire. Floating inputs on logic ICs are particularly problematic because they pick up electrical noise and cause erratic behavior — the circuit may appear to work intermittently or produce random outputs.',
         purpose:
-          'Content purpose: ensure full net completion so circuits do not fail due to unconnected nodes.',
+          'Prevention tip: work through your connection list one line at a time and physically verify each connection immediately after placing it. Do not wire the entire board and then test — by that point, a single missing jumper in a 30-wire circuit becomes extremely difficult to locate. Sequential verification catches floating connections the moment they occur.',
         diagramTitle: 'Floating Net Heatmap',
         diagramSteps: [
           {
@@ -669,6 +674,20 @@ const pageDescription = toolMetaDescriptions[toolKey];
                   <h2 id={`${section.main.id}-title`} class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{section.main.title}</h2>
                   <p class="mt-4 text-slate-300 leading-7">{section.main.illustrationSummary}</p>
                 </header>
+
+                {section.main.imageSrc && (
+                  <figure class="mt-6">
+                    <img
+                      src={section.main.imageSrc}
+                      alt={section.main.title}
+                      class="w-full rounded-2xl border border-white/10 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width="1200"
+                      height="630"
+                    />
+                  </figure>
+                )}
 
                 <div class="mt-6 grid gap-6 lg:grid-cols-2">
                   <figure class="rounded-2xl border border-white/10 bg-bg-dark/80 p-5" data-illustration-block>
