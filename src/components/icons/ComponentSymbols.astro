@@ -1,14 +1,15 @@
----
-interface Props {
-  symbolId: string;
-  class?: string;
-}
-
 const { symbolId, class: className = "w-6 h-6" } = Astro.props;
 
-// Normalizing IDs for mapping
-const id = symbolId.toLowerCase().replace(/\s+/g, '-');
+// Normalizing IDs for mapping - handle potential undefined
+const rawId = (symbolId || "").toLowerCase().trim();
+const id = rawId.replace(/\s+/g, '-');
 ---
+
+{id.includes('resistor') && (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={className}>
+    <path d="M3 12h3l1.5-4 2 8 2-8 2 8 2-8 1.5 4h3" />
+  </svg>
+)}
 
 {id === 'resistor' && (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
