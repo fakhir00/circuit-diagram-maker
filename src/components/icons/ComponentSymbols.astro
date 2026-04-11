@@ -1,263 +1,104 @@
-const { symbolId, class: className = "w-6 h-6" } = Astro.props;
+const { symbolId = "", class: className = "w-6 h-6" } = Astro.props;
 
-// Normalizing IDs for mapping - handle potential undefined
-const rawId = (symbolId || "").toLowerCase().trim();
-const id = rawId.replace(/\s+/g, '-');
+const id = symbolId.toLowerCase().trim().replace(/\s+/g, '-');
 ---
 
-{id.includes('resistor') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h3l1.5-4 2 8 2-8 2 8 2-8 1.5 4h3" />
-  </svg>
-)}
+<svg 
+  viewBox="0 0 24 24" 
+  fill="none" 
+  stroke="currentColor" 
+  stroke-width="1.8" 
+  stroke-linecap="round" 
+  stroke-linejoin="round" 
+  class={className}
+>
+  {/* Passives */}
+  {id.includes('resistor') && <path d="M3 12h3l1.5-4 2 8 2-8 2 8 2-8 1.5 4h3" />}
+  {id.includes('capacitor') && <path d="M3 12h7M14 12h7M10 5v14M14 5v14" />}
+  {id.includes('inductor') && <path d="M3 12h2a2 2 0 104 0 2 2 0 104 0 2 2 0 104 0h2" />}
+  {id.includes('potentiometer') && (
+    <>
+      <path d="M3 12h2l1-3 1.5 6 1.5-6 1.5 6 1.5-6 1 3h2" />
+      <path d="M12 4v4l-2 2M12 4l2 2" />
+    </>
+  )}
+  {id.includes('fuse') && (
+    <>
+      <rect x="6" y="8" width="12" height="8" rx="1" />
+      <path d="M3 12h3M18 12h3M6 12c2-2 4 2 6 0s4-2 6 0" />
+    </>
+  )}
+  {id.includes('thermistor') && (
+    <>
+      <rect x="6" y="9" width="12" height="6" />
+      <path d="M3 12h3M18 12h3M8 17l8-10" />
+    </>
+  )}
 
-{id === 'resistor' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h3l1.5-4 2 8 2-8 2 8 2-8 1.5 4h3" />
-  </svg>
-)}
+  {/* Semiconductors */}
+  {(id.includes('diode') && !id.includes('zener')) && <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7v10" />}
+  {id.includes('zener') && <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7h1v2M14 15h1v2" />}
+  {id.includes('led') && (
+    <>
+      <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7v10" />
+      <path d="M11 5l2-3M14 6l2-3M13 2h-1M16 3h-1" />
+    </>
+  )}
+  {(id.includes('transistor') || id.includes('mosfet')) && (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9 7v10M9 12h4M13 12l3-4M13 12l3 4" />
+    </>
+  )}
 
-{id === 'capacitor' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h7M14 12h7M10 5v14M14 5v14" />
-  </svg>
-)}
+  {/* ICs */}
+  {(id.includes('op-amp') || id.includes('comparator')) && <path d="M4 6v12l14-6-14-6z M18 12h3M2 9h2M2 15h2" />}
+  {id.includes('microcontroller') && (
+    <>
+      <rect x="6" y="6" width="12" height="12" rx="1" />
+      <path d="M6 9H4M6 12H4M6 15H4M18 9h2M18 12h2M18 15h2" />
+    </>
+  )}
+  {id.includes('logic-gate') && <path d="M4 6v12h4c4 0 8-3 8-6s-4-6-8-6H4z M2 9h2M2 15h2M16 12h4" />}
+  {id.includes('555') && <rect x="5" y="5" width="14" height="14" rx="1" />}
+  {id.includes('regulator') && <rect x="6" y="7" width="12" height="10" />}
 
-{id === 'inductor' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h2a2 2 0 104 0 2 2 0 104 0 2 2 0 104 0h2" />
-  </svg>
-)}
+  {/* Power */}
+  {id.includes('battery') && <path d="M10 6v12M14 9v6M6 6v12M18 9v6M3 12h3M18 12h3" />}
+  {id.includes('source') && (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 8v8M10 12h4" />
+    </>
+  )}
+  {id.includes('ground') && <path d="M12 4v12M6 16h12M9 19h6M11 20h2" />}
+  {id.includes('rail') && <path d="M12 20V8M8 8l4-4 4 4" />}
 
-{id === 'potentiometer' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h2l1-3 1.5 6 1.5-6 1.5 6 1.5-6 1 3h2" />
-    <path d="M12 4v4l-2 2M12 4l2 2" />
-  </svg>
-)}
+  {/* Connector */}
+  {id.includes('connector') && <rect x="5" y="8" width="14" height="8" rx="1" />}
+  {id.includes('usb') && <rect x="4" y="7" width="16" height="10" rx="1" />}
+  {id.includes('antenna') && <path d="M12 20V10M8 6l4 4 4-4" />}
 
-{id === 'fuse' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="6" y="8" width="12" height="8" rx="1" />
-    <path d="M3 12h3M18 12h3M6 12c2-2 4 2 6 0s4-2 6 0" />
-  </svg>
-)}
+  {/* Electromechanical */}
+  {id.includes('relay') && <rect x="4" y="7" width="8" height="10" />}
+  {id.includes('switch') && (
+    <>
+      <circle cx="6" cy="12" r="1.5" />
+      <circle cx="18" cy="12" r="1.5" />
+      <path d="M18 12l-10-4" />
+    </>
+  )}
+  {id.includes('button') && (
+    <>
+      <circle cx="6" cy="14" r="1.5" />
+      <circle cx="18" cy="14" r="1.5" />
+      <path d="M6 10h12" />
+    </>
+  )}
+  {id.includes('motor') && <circle cx="12" cy="12" r="8" />}
+  {id.includes('speaker') && <path d="M4 9h4l5-5v16l-5-5H4V9z" />}
+  {id.includes('buzzer') && <path d="M6 8h12v4H6V8z M12 12c0 4-4 4-8 4" />}
 
-{id === 'thermistor' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="6" y="9" width="12" height="6" />
-    <path d="M3 12h3M18 12h3M8 17l8-10M8 17h2" />
-  </svg>
-)}
-
-{id === 'diode' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7v10" />
-  </svg>
-)}
-
-{id === 'zener-diode' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7h1v2M14 15h1v2" />
-  </svg>
-)}
-
-{id === 'led' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M3 12h6M15 12h6M9 7v10l6-5-6-5zM15 7v10" />
-    <path d="M11 5l2-3M13 2h-1M14 6l2-3M16 3h-1" />
-  </svg>
-)}
-
-{(id === 'npn-transistor' || id === 'pnp-transistor' || id === 'transistor') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="9" />
-    <path d="M9 7v10M9 12h3M12 12l4-5M12 12l4 5" />
-    {id === 'npn-transistor' && <path d="M15 15l1 2h-2" fill="currentColor" />}
-    {id === 'pnp-transistor' && <path d="M13 13l-1-2h2" fill="currentColor" />}
-  </svg>
-)}
-
-{(id === 'n-mosfet' || id === 'p-mosfet') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="9" />
-    <path d="M8 8v8M10 7v3M10 11v2M10 14v3M10 12h6M16 7v10" />
-    <path d={id === 'n-mosfet' ? "M13 12l-3 1.5v-3z" : "M10 12l3 1.5v-3z"} fill="currentColor" />
-  </svg>
-)}
-
-{(id === 'op-amp' || id === 'comparator') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M4 6v12l14-6-14-6z" />
-    <path d="M2 9h2M2 15h2M18 12h4" />
-    <path d="M6 9h2M6 15h2m-1-1v2" />
-  </svg>
-)}
-
-{id === 'microcontroller' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="5" y="5" width="14" height="14" rx="1" />
-    <path d="M5 8h-2M5 12h-2M5 16h-2M19 8h2M19 12h2M19 16h2M8 5v-2M12 5v-2M16 5v-2M8 19v2M12 19v2M16 19v2" />
-  </svg>
-)}
-
-{id.includes('logic-gate') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M4 6v12h4c4 0 8-3 8-6s-4-6-8-6H4zM2 9h2M2 15h2M16 12h4" />
-  </svg>
-)}
-
-{id === '555-timer' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="5" y="5" width="14" height="14" rx="1" />
-    <text x="8" y="14" font-size="6" fill="currentColor" stroke="none" font-family="sans-serif">555</text>
-  </svg>
-)}
-
-{id === 'voltage-regulator' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="6" y="7" width="12" height="10" />
-    <path d="M9 17v4M12 17v4M15 17v4M6 10h12" />
-  </svg>
-)}
-
-{id === 'battery' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M10 6v12M14 9v6M6 6v12M18 9v6" />
-    <path d="M3 12h3M18 12h3" />
-  </svg>
-)}
-
-{(id === 'dc-power-supply' || id === 'dc-source') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="8" />
-    <path d="M12 8v8M10 12h4" />
-  </svg>
-)}
-
-{id === 'ac-source' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="8" />
-    <path d="M8 12c1-2 3-2 4 0s3 2 4 0" />
-  </svg>
-)}
-
-{id === 'transformer' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M6 6c2-2 4 2 6 0s4-2 6 0M6 10c2-2 4 2 6 0s4-2 6 0M6 14c2-2 4 2 6 0s4-2 6 0M6 18c2-2 4 2 6 0s4-2 6 0" />
-    <path d="M10 4v16M14 4v16" />
-  </svg>
-)}
-
-{id === 'ground-symbol' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M12 4v12M6 16h12M9 19h6M11 22h2" />
-  </svg>
-)}
-
-{id === 'voltage-rail' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M12 20V8M8 8l4-4 4 4" />
-  </svg>
-)}
-
-{id === 'header-connector' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="4" y="8" width="16" height="8" rx="1" />
-    <circle cx="7" cy="12" r="1" fill="currentColor" />
-    <circle cx="12" cy="12" r="1" fill="currentColor" />
-    <circle cx="17" cy="12" r="1" fill="currentColor" />
-  </svg>
-)}
-
-{id === 'terminal-block' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="4" y="6" width="16" height="12" />
-    <path d="M8 6v4M12 6v4M16 6v4" />
-    <circle cx="8" cy="14" r="1.5" />
-    <circle cx="12" cy="14" r="1.5" />
-    <circle cx="16" cy="14" r="1.5" />
-  </svg>
-)}
-
-{id === 'usb-port' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="4" y="7" width="16" height="10" rx="1" />
-    <path d="M8 10h8M8 14h8" />
-  </svg>
-)}
-
-{id === 'test-point' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="3" />
-    <path d="M12 4v5M12 15v5M4 12h5M15 12h5" />
-  </svg>
-)}
-
-{id === 'antenna' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M12 20V10M8 6l4 4 4-4M5 2h14" />
-  </svg>
-)}
-
-{id === 'relay' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="4" y="7" width="8" height="10" />
-    <path d="M8 7c0-2 4-2 4 0s-4 2-4 4 4 2 4 4-4 2-4 0" />
-    <path d="M14 12h6M16 8l4 4-4 4" />
-  </svg>
-)}
-
-{id.includes('switch') && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="6" cy="12" r="1.5" />
-    <circle cx="18" cy="12" r="1.5" />
-    <path d="M18 12l-10-4" />
-    <path d="M3 12h1.5M19.5 12H21" />
-  </svg>
-)}
-
-{id === 'push-button' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="6" cy="14" r="1.5" />
-    <circle cx="18" cy="14" r="1.5" />
-    <path d="M6 10h12M12 10V6M9 6h6" />
-    <path d="M3 14h1.5M19.5 14H21" />
-  </svg>
-)}
-
-{id === 'motor' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="8" />
-    <text x="9" y="15" font-size="8" fill="currentColor" stroke="none" font-family="sans-serif" font-weight="bold">M</text>
-    <path d="M2 12h2M20 12h2" />
-  </svg>
-)}
-
-{id === 'speaker' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M4 9h4l5-5v16l-5-5H4V9zM17 8c1 1 2 2 2 4s-1 3-2 4" />
-  </svg>
-)}
-
-{id === 'buzzer' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <path d="M6 8h12v4H6V8zM12 12v4M8 16h8" />
-    <path d="M4 12c0 4 4 4 8 4s8 0 8-4" />
-  </svg>
-)}
-
-{id === 'connector' && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <rect x="6" y="6" width="12" height="12" rx="1" />
-    <path d="M10 6v-2M14 6v-2M10 18v2M14 18v2" />
-  </svg>
-)}
-
-{/* Fallback for unknown items */}
-{!['resistor', 'capacitor', 'inductor', 'potentiometer', 'fuse', 'thermistor', 'diode', 'zener-diode', 'led', 'npn-transistor', 'pnp-transistor', 'transistor', 'n-mosfet', 'p-mosfet', 'op-amp', 'comparator', 'microcontroller', 'logic-gate', '555-timer', 'voltage-regulator', 'battery', 'dc-power-supply', 'dc-source', 'ac-source', 'transformer', 'ground-symbol', 'voltage-rail', 'header-connector', 'terminal-block', 'usb-port', 'test-point', 'antenna', 'relay', 'switch', 'push-button', 'motor', 'speaker', 'buzzer', 'connector'].some(k => id.includes(k)) && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class={className}>
-    <circle cx="12" cy="12" r="9" />
-    <path d="M12 8v4M12 16h.01" />
-  </svg>
-)}
+  {/* Default/Fallback */}
+  {!id && <circle cx="12" cy="12" r="9" opacity="0.2" />}
+</svg>
