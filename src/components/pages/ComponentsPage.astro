@@ -56,7 +56,7 @@ const howParagraphs = t('components.how.paragraphs');
           <ul class="mt-5 space-y-2 text-slate-300">
             {cat.items.map((item: string, itemIdx: number) => (
               <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm hover:border-brand-primary/20 hover:bg-brand-primary/5 transition-colors cursor-default">
-                <ComponentSymbols symbolId={cat.enItems[itemIdx] || ''} class="w-5 h-5 text-brand-accent/80" />
+                <ComponentSymbols symbolId={cat.enItems[itemIdx] || item} class="w-5 h-5 text-brand-accent/80" />
                 <span>{item}</span>
               </li>
             ))}
@@ -89,7 +89,7 @@ const howParagraphs = t('components.how.paragraphs');
                   <td class="px-6 py-4">
                     <div class="flex items-center gap-4">
                       <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] text-brand-accent">
-                        <ComponentSymbols symbolId={enTableRows[rowIdx]?.[0] || ''} class="w-6 h-6" />
+                        <ComponentSymbols symbolId={enTableRows[rowIdx]?.[0] || row[0]} class="w-6 h-6" />
                       </div>
                       <span class="font-medium text-white">{row[0]}</span>
                     </div>
