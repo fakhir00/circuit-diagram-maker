@@ -159,124 +159,28 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
 
     const i18n = {
       en: {
-        explainer: 'Section explainer',
-        tabs: { diagram: 'Diagram', table: 'Table' },
-        diagramTitle: 'Section flow',
-        tableTitle: 'Quick reference',
-        rows: {
-          focus: 'Section focus',
-          key: 'Key point',
-          watch: 'What to watch',
-          apply: 'How to use it',
-          risk: 'Common pitfall'
-        },
-        nodes: {
-          idea: 'Core idea',
-          meaning: 'Meaning',
-          usage: 'Usage',
-          start: 'Start',
-          process: 'Process',
-          verify: 'Verify',
-          compare: 'Compare',
-          difference: 'Difference',
-          bestFit: 'Best fit',
-          path: 'Path',
-          control: 'Control',
-          result: 'Result',
-          check: 'Check',
-          fix: 'Fix',
-          outcome: 'Outcome'
-        }
+        blueprint: 'Concept Blueprint',
+        tabs: { principle: 'Core Principle', steps: 'Actionable Steps', pitfalls: 'Key Pitfalls' },
+        labels: { idea: 'The Big Idea', apply: 'How to Apply This', watch: 'Watch Out For' },
+        fallbacks: { step: 'Analyze the surrounding circuit context carefully.', watch: 'Always trace the net connections to verify your assumptions.' }
       },
       es: {
-        explainer: 'Explicador de seccion',
-        tabs: { diagram: 'Diagrama', table: 'Tabla' },
-        diagramTitle: 'Flujo de la seccion',
-        tableTitle: 'Referencia rapida',
-        rows: {
-          focus: 'Enfoque',
-          key: 'Punto clave',
-          watch: 'Que revisar',
-          apply: 'Como usarlo',
-          risk: 'Error comun'
-        },
-        nodes: {
-          idea: 'Idea central',
-          meaning: 'Significado',
-          usage: 'Uso',
-          start: 'Inicio',
-          process: 'Proceso',
-          verify: 'Verificar',
-          compare: 'Comparar',
-          difference: 'Diferencia',
-          bestFit: 'Mejor uso',
-          path: 'Ruta',
-          control: 'Control',
-          result: 'Resultado',
-          check: 'Revisar',
-          fix: 'Corregir',
-          outcome: 'Resultado'
-        }
+        blueprint: 'Plano Conceptual',
+        tabs: { principle: 'Principio Base', steps: 'Pasos a Seguir', pitfalls: 'Riesgos Clave' },
+        labels: { idea: 'La Idea Principal', apply: 'Cómo Aplicarlo', watch: 'Presta Atención A' },
+        fallbacks: { step: 'Analiza cuidadosamente el contexto del circuito circundante.', watch: 'Siempre rastrea las conexiones para verificar las suposiciones.' }
       },
       ru: {
-        explainer: 'Poyasnenie razdela',
-        tabs: { diagram: 'Skhema', table: 'Tablitsa' },
-        diagramTitle: 'Logika razdela',
-        tableTitle: 'Bystraya spravka',
-        rows: {
-          focus: 'Tema razdela',
-          key: 'Glavnaya mysl',
-          watch: 'Na chto smotret',
-          apply: 'Kak primenit',
-          risk: 'Chastaya oshibka'
-        },
-        nodes: {
-          idea: 'Ideya',
-          meaning: 'Smysl',
-          usage: 'Primenenie',
-          start: 'Start',
-          process: 'Protsess',
-          verify: 'Proverka',
-          compare: 'Sravnenie',
-          difference: 'Raznitsa',
-          bestFit: 'Luchshiy variant',
-          path: 'Put',
-          control: 'Upravlenie',
-          result: 'Rezultat',
-          check: 'Proverit',
-          fix: 'Ispravit',
-          outcome: 'Itog'
-        }
+        blueprint: 'Схема Концепции',
+        tabs: { principle: 'Главный Принцип', steps: 'Шаги', pitfalls: 'Ошибки' },
+        labels: { idea: 'Главная Идея', apply: 'Как Применить', watch: 'На Что Обратить Внимание' },
+        fallbacks: { step: 'Внимательно изучите окружающий контекст цепи.', watch: 'Всегда проверяйте соединения для подтверждения.' }
       },
       hi: {
-        explainer: 'Section guide',
-        tabs: { diagram: 'Diagram', table: 'Table' },
-        diagramTitle: 'Section flow',
-        tableTitle: 'Quick reference',
-        rows: {
-          focus: 'Section focus',
-          key: 'Key point',
-          watch: 'What to watch',
-          apply: 'How to use it',
-          risk: 'Common pitfall'
-        },
-        nodes: {
-          idea: 'Core idea',
-          meaning: 'Meaning',
-          usage: 'Usage',
-          start: 'Start',
-          process: 'Process',
-          verify: 'Verify',
-          compare: 'Compare',
-          difference: 'Difference',
-          bestFit: 'Best fit',
-          path: 'Path',
-          control: 'Control',
-          result: 'Result',
-          check: 'Check',
-          fix: 'Fix',
-          outcome: 'Outcome'
-        }
+        blueprint: 'Concept Blueprint',
+        tabs: { principle: 'Core Principle', steps: 'Actionable Steps', pitfalls: 'Key Pitfalls' },
+        labels: { idea: 'The Big Idea', apply: 'How to Apply This', watch: 'Watch Out For' },
+        fallbacks: { step: 'Analyze the surrounding circuit context carefully.', watch: 'Always trace the net connections to verify your assumptions.' }
       }
     };
 
@@ -319,14 +223,12 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
       const stopTags = heading.tagName === 'H2' ? ['H2'] : ['H2', 'H3'];
       const parts = [];
       let cursor = heading.nextElementSibling;
-
       while (cursor && !stopTags.includes(cursor.tagName) && parts.join(' ').length < 900) {
-        if (['P', 'UL', 'OL', 'BLOCKQUOTE', 'TABLE'].includes(cursor.tagName)) {
+        if (['P', 'BLOCKQUOTE'].includes(cursor.tagName)) {
           parts.push(tidyText(cursor.textContent || ''));
         }
         cursor = cursor.nextElementSibling;
       }
-
       return tidyText(parts.join(' '));
     };
 
@@ -334,226 +236,72 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
       const stopTags = heading.tagName === 'H2' ? ['H2'] : ['H2', 'H3'];
       const items = [];
       let cursor = heading.nextElementSibling;
-
       while (cursor && !stopTags.includes(cursor.tagName) && items.length < 4) {
         if (cursor.tagName === 'UL' || cursor.tagName === 'OL') {
           cursor.querySelectorAll('li').forEach((item) => {
-            if (items.length < 4) {
-              items.push(shorten(item.textContent || '', 80));
-            }
+            if (items.length < 4) items.push(shorten(item.textContent || '', 95));
           });
         }
         cursor = cursor.nextElementSibling;
       }
-
       return items;
     };
 
-    const pickKeyword = (headingText, sectionText) => {
-      const text = `${headingText} ${sectionText}`.toLowerCase();
-
-      if (/(step|how to|draw|build|create|read|workflow|practice|process|guide|best practice)/.test(text)) return 'workflow';
-      if (/(vs|versus|difference|compare|distinguish|n-channel|p-channel)/.test(text)) return 'comparison';
-      if (/(mistake|avoid|wrong|review|check|final thought|troubleshoot|problem)/.test(text)) return 'review';
-      if (/(application|applications|use case|used in|where used|typical uses|common uses)/.test(text)) return 'application';
-      if (/(power|ground|rail|supply|noise|emi|signal|current|voltage|filter|analog|digital)/.test(text)) return 'path';
-      if (/(symbol|terminal|gate|drain|source|emitter|collector|base|resistor|capacitor|diode|transistor|mosfet|jfet|led|component)/.test(text)) return 'symbol';
-      return 'concept';
-    };
-
-    const buildRows = (kind, headingText, sectionText, listItems) => {
-      const corePoint = firstSentence(sectionText) || shorten(headingText, 130);
-      const bulletSummary = listItems.length > 0 ? listItems.join(' | ') : '';
-      const fallbackApply = bulletSummary || 'Use the section notes and surrounding labels to confirm the diagram intent.';
-
-      if (kind === 'workflow') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.watch, listItems[0] || 'Follow the order shown in the section before moving to the next block.'],
-          [copy.rows.apply, fallbackApply]
-        ];
-      }
-
-      if (kind === 'comparison') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.watch, listItems[0] || 'Look for the difference in labels, arrow direction, or surrounding context.'],
-          [copy.rows.apply, listItems[1] || 'Choose the interpretation that matches the surrounding circuit role.']
-        ];
-      }
-
-      if (kind === 'review') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.risk, listItems[0] || 'Readers usually get stuck when labels or context are missing.'],
-          [copy.rows.apply, listItems[1] || 'Use designators, values, and nearby nets to confirm meaning.']
-        ];
-      }
-
-      if (kind === 'application') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.watch, listItems[0] || 'Match the component or method to the part of the circuit it is helping.'],
-          [copy.rows.apply, listItems[1] || 'Use the surrounding circuit goal to decide whether this application fits.']
-        ];
-      }
-
-      if (kind === 'path') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.watch, listItems[0] || 'Trace the entry path, filtered path, and protected block.'],
-          [copy.rows.apply, listItems[1] || 'Read the section from source to destination rather than one isolated symbol at a time.']
-        ];
-      }
-
-      if (kind === 'symbol') {
-        return [
-          [copy.rows.focus, headingText],
-          [copy.rows.key, corePoint],
-          [copy.rows.watch, listItems[0] || 'Check reference labels and terminal names first.'],
-          [copy.rows.apply, listItems[1] || 'Use the surrounding circuit role to distinguish similar-looking parts.']
-        ];
-      }
-
-      return [
-        [copy.rows.focus, headingText],
-        [copy.rows.key, corePoint],
-        [copy.rows.watch, listItems[0] || 'Identify the part, path, or behavior the section is explaining.'],
-        [copy.rows.apply, listItems[1] || fallbackApply]
-      ];
-    };
-
-    const buildDiagramStages = (kind, headingText, sectionText, listItems) => {
-      const core = firstSentence(sectionText) || shorten(headingText, 120);
-      const support = listItems[0] || shorten(sectionText, 88);
-      const result = listItems[1] || 'Use the surrounding labels and circuit context to confirm the takeaway.';
-
-      if (kind === 'workflow') {
-        return [
-          { label: copy.nodes.start, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.process, value: shorten(core, 92), tone: 'cyan' },
-          { label: copy.nodes.verify, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      if (kind === 'comparison') {
-        return [
-          { label: copy.nodes.compare, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.difference, value: shorten(core, 92), tone: 'amber' },
-          { label: copy.nodes.bestFit, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      if (kind === 'review') {
-        return [
-          { label: copy.nodes.check, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.fix, value: shorten(support, 92), tone: 'amber' },
-          { label: copy.nodes.outcome, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      if (kind === 'application') {
-        return [
-          { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.usage, value: shorten(core, 92), tone: 'cyan' },
-          { label: copy.nodes.result, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      if (kind === 'path') {
-        return [
-          { label: copy.nodes.path, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.control, value: shorten(core, 92), tone: 'cyan' },
-          { label: copy.nodes.result, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      if (kind === 'symbol') {
-        return [
-          { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
-          { label: copy.nodes.meaning, value: shorten(core, 92), tone: 'cyan' },
-          { label: copy.nodes.usage, value: shorten(result, 88), tone: 'green' }
-        ];
-      }
-
-      return [
-        { label: copy.nodes.idea, value: shorten(headingText, 64), tone: 'blue' },
-        { label: copy.nodes.meaning, value: shorten(core, 92), tone: 'cyan' },
-        { label: copy.nodes.usage, value: shorten(result, 88), tone: 'green' }
-      ];
-    };
-
-    const renderRows = (rows) => rows.map(([label, value]) => `
-      <tr>
-        <th>${escapeHtml(label)}</th>
-        <td>${escapeHtml(value)}</td>
-      </tr>
-    `).join('');
-
-    const renderStages = (stages) => stages.map((stage, index) => `
-      <div class="blog-explainer-stage blog-explainer-stage--${escapeHtml(stage.tone)}">
-        <span>${escapeHtml(stage.label)}</span>
-        <strong>${escapeHtml(stage.value)}</strong>
-      </div>
-      ${index < stages.length - 1 ? '<div class="blog-explainer-link" aria-hidden="true"></div>' : ''}
-    `).join('');
-
-    const buildExplainerCard = (heading, index) => {
+    const buildBlueprintCard = (heading, index) => {
       const headingText = tidyText(heading.textContent || `Section ${index + 1}`);
       const sectionText = collectSectionText(heading);
       const listItems = collectListItems(heading);
-      const kind = pickKeyword(headingText, sectionText);
-      const rows = buildRows(kind, headingText, sectionText, listItems);
-      const stages = buildDiagramStages(kind, headingText, sectionText, listItems);
-      const intro = firstSentence(sectionText) || rows[1][1];
+      
+      const intro = firstSentence(sectionText) || shorten(headingText, 130);
+      const steps = listItems.length > 0 ? listItems : [copy.fallbacks.step];
+      const watchOut = listItems.length > 1 ? listItems[listItems.length - 1] : copy.fallbacks.watch;
       const headingLevel = heading.tagName === 'H2' ? 'major' : 'minor';
 
       const wrapper = document.createElement('section');
-      wrapper.className = `blog-explainer blog-explainer--${headingLevel}`;
-      wrapper.setAttribute('data-blog-explainer', '');
+      wrapper.className = `blog-blueprint blog-blueprint--${headingLevel}`;
+      wrapper.setAttribute('data-blog-blueprint', '');
 
       wrapper.innerHTML = `
-        <div class="blog-explainer-head">
-          <p>${escapeHtml(copy.explainer)}</p>
+        <div class="blog-blueprint-head">
+          <p>${escapeHtml(copy.blueprint)}</p>
           <h4>${escapeHtml(headingText)}</h4>
-          <p class="blog-explainer-intro">${escapeHtml(intro)}</p>
         </div>
 
-        <div class="blog-explainer-tabs" role="tablist" aria-label="${escapeHtml(headingText)} helper tabs">
-          <button type="button" class="is-active" data-explainer-tab="diagram" aria-selected="true">${escapeHtml(copy.tabs.diagram)}</button>
-          <button type="button" data-explainer-tab="table" aria-selected="false">${escapeHtml(copy.tabs.table)}</button>
+        <div class="blog-blueprint-tabs" role="tablist">
+          <button type="button" class="is-active" data-bp-tab="principle" aria-selected="true">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            ${escapeHtml(copy.tabs.principle)}
+          </button>
+          <button type="button" data-bp-tab="steps" aria-selected="false">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+             ${escapeHtml(copy.tabs.steps)}
+          </button>
+          <button type="button" data-bp-tab="pitfalls" aria-selected="false">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+             ${escapeHtml(copy.tabs.pitfalls)}
+          </button>
         </div>
 
-        <div class="blog-explainer-panel" data-explainer-panel="diagram">
-          <div class="blog-explainer-panel-card">
-            <div class="blog-explainer-panel-head">
-              <span>${escapeHtml(copy.diagramTitle)}</span>
-              <strong>${escapeHtml(headingText)}</strong>
-            </div>
-            <div class="blog-explainer-flow">
-              ${renderStages(stages)}
-            </div>
+        <div class="blog-blueprint-content" data-bp-panel="principle">
+          <div class="blog-blueprint-card blog-blueprint-card--blue">
+            <strong>${escapeHtml(copy.labels.idea)}</strong>
+            <p>${escapeHtml(intro)}</p>
           </div>
         </div>
 
-        <div class="blog-explainer-panel hidden" data-explainer-panel="table">
-          <div class="blog-explainer-panel-card">
-            <div class="blog-explainer-panel-head">
-              <span>${escapeHtml(copy.tableTitle)}</span>
-              <strong>${escapeHtml(headingText)}</strong>
-            </div>
-            <div class="blog-explainer-table-wrap">
-              <table class="blog-explainer-table">
-                <tbody>
-                  ${renderRows(rows)}
-                </tbody>
-              </table>
-            </div>
+        <div class="blog-blueprint-content hidden" data-bp-panel="steps">
+          <div class="blog-blueprint-card blog-blueprint-card--emerald">
+             <strong>${escapeHtml(copy.labels.apply)}</strong>
+             <ul>
+                ${steps.map(li => `<li><span>→</span><aside>${escapeHtml(li)}</aside></li>`).join('')}
+             </ul>
+          </div>
+        </div>
+
+        <div class="blog-blueprint-content hidden" data-bp-panel="pitfalls">
+          <div class="blog-blueprint-card blog-blueprint-card--amber">
+            <strong>${escapeHtml(copy.labels.watch)}</strong>
+            <p>${escapeHtml(watchOut)}</p>
           </div>
         </div>
       `;
@@ -562,14 +310,14 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     };
 
     const activateTab = (root, key) => {
-      root.querySelectorAll('[data-explainer-tab]').forEach((button) => {
-        const active = button.getAttribute('data-explainer-tab') === key;
+      root.querySelectorAll('[data-bp-tab]').forEach((button) => {
+        const active = button.getAttribute('data-bp-tab') === key;
         button.classList.toggle('is-active', active);
         button.setAttribute('aria-selected', String(active));
       });
 
-      root.querySelectorAll('[data-explainer-panel]').forEach((panel) => {
-        panel.classList.toggle('hidden', panel.getAttribute('data-explainer-panel') !== key);
+      root.querySelectorAll('[data-bp-panel]').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.getAttribute('data-bp-panel') !== key);
       });
     };
 
@@ -580,17 +328,17 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     });
 
     headings.forEach((heading, index) => {
-      if (heading.nextElementSibling?.hasAttribute('data-blog-explainer')) return;
-      buildExplainerCard(heading, index);
+      if (heading.nextElementSibling?.hasAttribute('data-blog-blueprint')) return;
+      buildBlueprintCard(heading, index);
     });
 
-    articleRoot.querySelectorAll('[data-blog-explainer]').forEach((explainer) => {
-      explainer.querySelectorAll('[data-explainer-tab]').forEach((button) => {
+    articleRoot.querySelectorAll('[data-blog-blueprint]').forEach((bp) => {
+      bp.querySelectorAll('[data-bp-tab]').forEach((button) => {
         button.addEventListener('click', () => {
-          activateTab(explainer, button.getAttribute('data-explainer-tab') || 'diagram');
+          activateTab(bp, button.getAttribute('data-bp-tab') || 'principle');
         });
       });
-      activateTab(explainer, 'diagram');
+      activateTab(bp, 'principle');
     });
   })();
 </script>
@@ -798,23 +546,30 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     margin: 2.5rem 0;
   }
 
-  /* Interactive Explainer CSS mapped from previous state to fit the new body format */
-  :global(.blog-article .blog-explainer) {
+  /* Blueprint Interactive Component Styles */
+  :global(.blog-article .blog-blueprint) {
     margin: 2.5rem 0 3.5rem;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.15);
     border-radius: 1.5rem;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6));
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+    backdrop-filter: blur(12px);
     padding: 1.5rem;
-    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.06);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  :global(.blog-article .blog-blueprint:hover) {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
   }
 
-  :global(.blog-article .blog-explainer--minor) {
+  :global(.blog-article .blog-blueprint--minor) {
     border-color: rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.02);
     box-shadow: none;
   }
 
-  :global(.blog-article .blog-explainer-head p:first-child) {
+  :global(.blog-article .blog-blueprint-head p:first-child) {
     margin: 0;
     font-size: 0.7rem;
     font-weight: 800;
@@ -823,7 +578,7 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     color: rgb(56 189 248);
   }
 
-  :global(.blog-article .blog-explainer-head h4) {
+  :global(.blog-article .blog-blueprint-head h4) {
     margin: 0.5rem 0 0;
     color: white;
     font-size: 1.25rem;
@@ -831,21 +586,17 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     font-weight: 800;
   }
 
-  :global(.blog-article .blog-explainer-intro) {
-    margin: 0.75rem 0 0;
-    color: rgba(203, 213, 225, 0.96);
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  :global(.blog-article .blog-explainer-tabs) {
+  :global(.blog-article .blog-blueprint-tabs) {
     display: inline-flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 1.25rem;
   }
 
-  :global(.blog-article .blog-explainer-tabs button) {
+  :global(.blog-article .blog-blueprint-tabs button) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     appearance: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 999px;
@@ -854,164 +605,116 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
-  :global(.blog-article .blog-explainer-tabs button:hover) {
+  :global(.blog-article .blog-blueprint-tabs button:hover) {
     background: rgba(255, 255, 255, 0.08);
   }
 
-  :global(.blog-article .blog-explainer-tabs button.is-active) {
+  :global(.blog-article .blog-blueprint-tabs button.is-active) {
     border-color: rgba(56, 189, 248, 0.5);
     background: rgba(56, 189, 248, 0.15);
     color: white;
   }
 
-  :global(.blog-article .blog-explainer-panel.hidden) {
+  :global(.blog-article .blog-blueprint-content) {
+    margin-top: 1.5rem;
+    animation: fade-in-up 0.3s ease forwards;
+  }
+
+  :global(.blog-article .blog-blueprint-content.hidden) {
     display: none;
   }
 
-  :global(.blog-article .blog-explainer-panel-card) {
-    margin-top: 1.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  :global(.blog-article .blog-blueprint-card) {
     border-radius: 1.25rem;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent);
-    padding: 1.25rem;
-  }
-
-  :global(.blog-article .blog-explainer-panel-head) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    align-items: baseline;
-  }
-
-  :global(.blog-article .blog-explainer-panel-head span) {
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(148, 163, 184, 0.9);
-  }
-
-  :global(.blog-article .blog-explainer-panel-head strong) {
-    font-size: 1.1rem;
-    color: white;
-  }
-
-  :global(.blog-article .blog-explainer-flow) {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 1rem;
-    align-items: center;
-  }
-
-  :global(.blog-article .blog-explainer-stage) {
-    min-width: 0;
-    border-radius: 1.25rem;
-    padding: 1.25rem;
-    background: rgba(15, 23, 42, 0.9);
+    padding: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
   }
 
-  :global(.blog-article .blog-explainer-stage span) {
-    display: block;
-    margin: 0;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(191, 219, 254, 0.9);
+  :global(.blog-article .blog-blueprint-card::before) {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at top left, currentColor 0%, transparent 40%);
+    opacity: 0.05;
   }
 
-  :global(.blog-article .blog-explainer-stage strong) {
-    display: block;
-    margin-top: 0.75rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: white;
-    font-weight: 700;
-  }
-
-  :global(.blog-article .blog-explainer-stage--blue) {
-    border-color: rgba(56, 189, 248, 0.5);
+  :global(.blog-article .blog-blueprint-card--blue) {
+    color: rgb(56 189 248);
     background: rgba(56, 189, 248, 0.05);
+    border-color: rgba(56, 189, 248, 0.2);
   }
 
-  :global(.blog-article .blog-explainer-stage--cyan) {
-    border-color: rgba(34, 211, 238, 0.5);
-    background: rgba(34, 211, 238, 0.05);
-  }
-
-  :global(.blog-article .blog-explainer-stage--amber) {
-    border-color: rgba(251, 191, 36, 0.5);
-    background: rgba(251, 191, 36, 0.05);
-  }
-
-  :global(.blog-article .blog-explainer-stage--green) {
-    border-color: rgba(52, 211, 153, 0.5);
+  :global(.blog-article .blog-blueprint-card--emerald) {
+    color: rgb(52 211 153);
     background: rgba(52, 211, 153, 0.05);
+    border-color: rgba(52, 211, 153, 0.2);
   }
 
-  :global(.blog-article .blog-explainer-link) {
-    width: 2.5rem;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(56, 189, 248, 0.6), rgba(52, 211, 153, 0.6));
-    border-radius: 999px;
+  :global(.blog-article .blog-blueprint-card--amber) {
+    color: rgb(251 191 36);
+    background: rgba(251, 191, 36, 0.05);
+    border-color: rgba(251, 191, 36, 0.2);
   }
 
-  :global(.blog-article .blog-explainer-table-wrap) {
-    margin-top: 1.25rem;
-    overflow-x: auto;
+  :global(.blog-article .blog-blueprint-card strong) {
+    color: white;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.75rem;
   }
 
-  :global(.blog-article .blog-explainer-table) {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 450px;
-  }
-
-  :global(.blog-article .blog-explainer-table th),
-  :global(.blog-article .blog-explainer-table td) {
-    text-align: left;
-    vertical-align: top;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 1rem;
+  :global(.blog-article .blog-blueprint-card p) {
+    margin: 0;
+    color: rgba(203, 213, 225, 0.95);
+    font-size: 1.05rem;
     line-height: 1.7;
   }
 
-  :global(.blog-article .blog-explainer-table th) {
-    width: 30%;
-    padding-right: 1.25rem;
-    color: rgba(148, 163, 184, 0.95);
-    font-weight: 700;
+  :global(.blog-article .blog-blueprint-card ul) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
   }
 
-  :global(.blog-article .blog-explainer-table td) {
-    color: white;
+  :global(.blog-article .blog-blueprint-card li) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    color: rgba(203, 213, 225, 0.95);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  :global(.blog-article .blog-blueprint-card li span) {
+    color: inherit;
+    font-weight: 900;
   }
 
-  :global(.blog-article .blog-explainer-table tr:last-child th),
-  :global(.blog-article .blog-explainer-table tr:last-child td) {
-    border-bottom: 0;
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @media (max-width: 768px) {
-    :global(.blog-article .blog-explainer-flow) {
-      grid-template-columns: 1fr;
+    :global(.blog-article .blog-blueprint) {
+      padding: 1.2rem;
     }
-
-    :global(.blog-article .blog-explainer-link) {
-      width: 3px;
-      height: 2rem;
-      justify-self: center;
-      background: linear-gradient(180deg, rgba(56, 189, 248, 0.6), rgba(52, 211, 153, 0.6));
+    :global(.blog-article .blog-blueprint-tabs) {
+      flex-direction: column;
+      align-items: stretch;
     }
   }
 </style>
