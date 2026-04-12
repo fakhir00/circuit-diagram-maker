@@ -41,14 +41,14 @@ const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${pag
 <BaseLayout title={pageTitle} description={t('blog.subtitle')}>
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 
-  <section class="relative overflow-hidden bg-bg-dark pt-24 pb-16 border-b border-white/5">
+  <section class="page-hero relative overflow-hidden bg-bg-dark pt-32 pb-24 border-b border-white/5" aria-labelledby="blog-title">
     <!-- Blueprint Grid Background -->
     <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(59,130,246,0.08)_1px,transparent_1px)] [background-size:32px_32px] opacity-40"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-dark/50 to-bg-dark"></div>
     
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('blog.eyebrow')}</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6">{t('blog.title')}</h1>
+    <div class="container relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="hero-badge inline-block text-[10px] font-black uppercase tracking-[0.25em] text-brand-accent bg-brand-primary/10 px-4 py-2 rounded-full border border-brand-primary/20 mb-6">{t('blog.eyebrow')}</div>
+      <h1 id="blog-title" class="text-4xl md:text-5xl lg:text-7xl font-black tracking-tight text-white mb-6">{t('blog.title')}</h1>
       <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
         {t('blog.subtitle')}
       </p>
@@ -59,61 +59,92 @@ const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${pag
     </div>
   </section>
 
-  <div class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {page.data.map((post) => (
-        <a href={`/blog/${post.id.replace(/^en\//, '')}`} class="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded-3xl">
-          <article class="relative p-8 rounded-3xl bg-bg-panel border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.12)] hover:-translate-y-1 overflow-hidden">
-            <!-- Background Glow on Hover -->
-            <div class="absolute -inset-10 bg-brand-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none"></div>
-            
-            <div class="relative z-10 flex flex-col h-full">
-              <div class="flex items-center justify-between mb-5">
-                <time datetime={post.data.date.toISOString()} class="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                  {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
-                </time>
-                <span class="text-[10px] font-black uppercase tracking-tighter px-2 py-1 bg-brand-primary/10 text-brand-primary rounded border border-brand-primary/20">
-                  5 {t('blog.min_read')}
-                </span>
+  <section class="blog-listing-section relative" aria-labelledby="blog-articles-heading">
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-20">
+      <h2 class="sr-only" id="blog-articles-heading">Articles</h2>
+      <div class="blog-grid grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-20">
+        {page.data.map((post) => (
+          <a href={`/blog/${post.id.replace(/^en\//, '')}`} class="blog-card group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded-3xl" id={`article-${post.id.replace(/^en\//, '').replace(/\.md$/, '')}`}>
+            <article class="blog-card-body relative p-6 rounded-3xl bg-bg-surface border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 overflow-hidden shadow-xl">
+              <!-- Background Glow on Hover -->
+              <div class="absolute -inset-10 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none duration-700"></div>
+              
+              <!-- Placeholder Image -->
+              <div class="blog-card-image w-full h-48 bg-bg-dark rounded-2xl mb-6 relative overflow-hidden group-hover:shadow-lg transition-all duration-500 border border-white/5">
+                  <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)),linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02))] [background-size:20px_20px] [background-position:0_0,10px_10px]"></div>
+                  <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-accent/20 mix-blend-overlay group-hover:opacity-100 opacity-50 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-110 transition-transform duration-700">
+                    <svg class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                  </div>
               </div>
               
-              <h2 class="text-2xl font-bold text-white mb-4 leading-snug group-hover:text-brand-primary transition-colors">
-                {post.data.title}
-              </h2>
-              
-              <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-8 line-clamp-3">
-                {post.data.description}
-              </p>
-              
-              <div class="pt-6 border-t border-white/5 mt-auto">
-                <span class="group/btn inline-flex items-center gap-2 text-sm font-bold text-white uppercase tracking-wider group-hover:text-brand-accent transition-colors">
-                  {t('blog.read_more')} 
-                  <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </span>
+              <div class="relative z-10 flex flex-col h-full px-2">
+                <div class="blog-card-meta flex items-center flex-wrap gap-2 mb-4 text-[11px] font-mono font-medium text-slate-400">
+                  <span class="blog-card-tag text-brand-primary font-bold uppercase tracking-wider">{post.data.category || 'Article'}</span>
+                  <span class="text-slate-600 font-bold opacity-60">•</span>
+                  <time datetime={post.data.date.toISOString()}>
+                    {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </time>
+                  <span class="text-slate-600 font-bold opacity-60">•</span>
+                  <span>5 {t('blog.min_read')}</span>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mb-3 leading-snug group-hover:text-brand-primary transition-colors duration-300">
+                  {post.data.title}
+                </h3>
+                
+                <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6 line-clamp-3">
+                  {post.data.description}
+                </p>
+                
+                <div class="pt-5 border-t border-white/5 mt-auto">
+                  <span class="blog-card-link group/btn inline-flex items-center gap-2 text-xs font-bold text-white tracking-widest uppercase group-hover:text-brand-accent transition-colors">
+                    {t('blog.read_more')} →
+                  </span>
+                </div>
               </div>
-            </div>
-          </article>
-        </a>
-      ))}
-    </div>
+            </article>
+          </a>
+        ))}
+      </div>
 
-    {/* Pagination */}
-    {(page.url.prev || page.url.next) && (
-      <nav class="flex justify-between items-center mt-20 pt-10 border-t border-white/5">
-        {page.url.prev ? (
-          <a href={page.url.prev} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">&larr; {t('blog.newer')}</a>
-        ) : <div class="w-24"></div>}
-        
-        <div class="flex items-center gap-2">
-          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.part')}</span>
-          <span class="px-3 py-1 rounded-md bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-bold text-sm">{page.currentPage}</span>
-          <span class="text-[10px] uppercase font-bold text-slate-600 tracking-widest">{t('blog.of')} {page.lastPage}</span>
-        </div>
-        
-        {page.url.next ? (
-          <a href={page.url.next} class="px-6 py-2.5 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all">{t('blog.older')} &rarr;</a>
-        ) : <div class="w-24"></div>}
-      </nav>
-    )}
-  </div>
+      {/* Pagination */}
+      {(page.url.prev || page.url.next) && (
+        <nav class="flex justify-between items-center mt-20 pt-10 border-t border-white/5">
+          {page.url.prev ? (
+            <a href={page.url.prev} class="px-6 py-3 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all shadow-sm">&larr; {t('blog.newer')}</a>
+          ) : <div class="w-24"></div>}
+          
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">{t('blog.part')}</span>
+            <span class="px-4 py-1.5 rounded-lg bg-brand-primary/10 border border-brand-primary/20 text-brand-primary font-bold text-sm shadow-inner">{page.currentPage}</span>
+            <span class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">{t('blog.of')} {page.lastPage}</span>
+          </div>
+          
+          {page.url.next ? (
+            <a href={page.url.next} class="px-6 py-3 border border-white/10 rounded-xl bg-bg-surface hover:bg-slate-800 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all shadow-sm">{t('blog.older')} &rarr;</a>
+          ) : <div class="w-24"></div>}
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA section mapping to seo-content-section -->
+  <section class="seo-content-section pb-24 relative">
+    <div class="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="content-flow relative p-12 md:p-16 rounded-[2.5rem] bg-gradient-to-b from-brand-primary/10 to-transparent border border-brand-primary/20 overflow-hidden shadow-[0_0_80px_rgba(59,130,246,0.1)]">
+         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.2)_0%,transparent_70%)] pointer-events-none"></div>
+         <div class="absolute top-0 right-0 p-8 opacity-10">
+           <svg class="w-64 h-64 text-brand-primary transform rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+         </div>
+         <article class="content-block relative z-10 flex flex-col items-center">
+           <h2 class="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">Try Our Circuit Diagram Maker</h2>
+           <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">Ready to put your knowledge into practice? Use our free editor to easily sketch, configure, and export beautiful electronic schematic diagrams directly in your browser.</p>
+           <a href="/editor/" class="btn-primary inline-flex items-center justify-center font-bold px-10 py-5 rounded-2xl bg-gradient-to-r from-brand-primary to-brand-accent text-white shadow-[0_4px_20px_rgba(59,130,246,0.4)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.6)] hover:-translate-y-1 transition-all duration-300 text-sm uppercase tracking-widest ring-1 ring-white/20">
+             Open Circuit Editor →
+           </a>
+         </article>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
