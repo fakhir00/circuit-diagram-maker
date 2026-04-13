@@ -69,13 +69,22 @@ const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${pag
               <!-- Background Glow on Hover -->
               <div class="absolute -inset-10 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none duration-700"></div>
               
-              <!-- Placeholder Image -->
+              <!-- Image -->
               <div class="blog-card-image w-full h-48 bg-bg-dark rounded-2xl mb-6 relative overflow-hidden group-hover:shadow-lg transition-all duration-500 border border-white/5">
-                  <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)),linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02))] [background-size:20px_20px] [background-position:0_0,10px_10px]"></div>
-                  <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-accent/20 mix-blend-overlay group-hover:opacity-100 opacity-50 transition-opacity duration-500"></div>
-                  <div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-110 transition-transform duration-700">
-                    <svg class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                  </div>
+                {post.data.image ? (
+                  <>
+                    <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-80"></div>
+                  </>
+                ) : (
+                  <>
+                    <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)),linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02))] [background-size:20px_20px] [background-position:0_0,10px_10px]"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-brand-accent/20 mix-blend-overlay group-hover:opacity-100 opacity-50 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-110 transition-transform duration-700">
+                      <svg class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                  </>
+                )}
               </div>
               
               <div class="relative z-10 flex flex-col h-full px-2">

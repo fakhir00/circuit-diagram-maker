@@ -144,7 +144,29 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
 
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    mermaid.initialize({ startOnLoad: false, theme: 'dark', background: 'transparent' });
+
+    // Astro puts ```mermaid code into <pre class="astro-code..."><code class="language-mermaid">
+    // We need to hunt these down and render them explicitly.
+    document.addEventListener('DOMContentLoaded', async () => {
+      const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+      for (let i = 0; i < codeBlocks.length; i++) {
+        const codeElement = codeBlocks[i];
+        const preElement = codeElement.parentElement;
+        const codeText = codeElement.textContent || '';
+        const id = 'mermaid-rendered-' + Date.now() + '-' + i;
+        
+        try {
+          const { svg } = await mermaid.render(id, codeText);
+          const diagramContainer = document.createElement('div');
+          diagramContainer.className = 'mermaid-container flex justify-center my-8 p-4 bg-bg-dark rounded-2xl border border-white/5 shadow-inner overflow-x-auto';
+          diagramContainer.innerHTML = svg;
+          preElement.replaceWith(diagramContainer);
+        } catch (e) {
+          console.error("Mermaid failed to render diagram:", e);
+        }
+      }
+    });
   </script>
 </article>
 
