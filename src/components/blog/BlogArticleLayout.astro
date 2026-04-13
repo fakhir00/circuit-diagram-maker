@@ -146,14 +146,13 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: false, theme: 'dark', background: 'transparent' });
 
-    // Astro puts ```mermaid code into <pre class="astro-code..."><code class="language-mermaid">
+    // Astro puts ```mermaid code into <pre data-language="mermaid">
     // We need to hunt these down and render them explicitly.
     document.addEventListener('DOMContentLoaded', async () => {
-      const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+      const codeBlocks = document.querySelectorAll('pre[data-language="mermaid"]');
       for (let i = 0; i < codeBlocks.length; i++) {
-        const codeElement = codeBlocks[i];
-        const preElement = codeElement.parentElement;
-        const codeText = codeElement.textContent || '';
+        const preElement = codeBlocks[i];
+        const codeText = preElement.textContent || '';
         const id = 'mermaid-rendered-' + Date.now() + '-' + i;
         
         try {
