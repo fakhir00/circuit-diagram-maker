@@ -8,46 +8,52 @@ import config from '../../../data/config.json';
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection('blog');
   const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
-  const enImageBySlug = new Map(
+  
+  const enPostsBySlug = new Map(
     enPosts.map((post) => [
-      post.id.replace(/^en\//, '').replace(/\.md$/, ''),
-      post.data.image,
+      post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, ''),
+      post,
     ])
   );
   
   const fromLocales = locales.filter(l => l !== defaultLocale);
 
   return fromLocales.flatMap((loc) => {
-    let localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    const localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    const localeSlugs = new Set(
+      localePosts.map((p) => p.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, ''))
+    );
     
-    // If no translated posts exist yet, use English posts
-    if (localePosts.length === 0) {
-      localePosts = enPosts;
-    }
-
-    localePosts = localePosts.map((post) => {
-      if (post.data.image) {
-        return post;
+    // Start with translated posts
+    const combinedPosts = [...localePosts];
+    
+    // Add English fallbacks for missing translations
+    enPosts.forEach((enPost) => {
+      const slug = enPost.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '');
+      if (!localeSlugs.has(slug)) {
+        combinedPosts.push(enPost);
       }
-
-      const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
-      const fallbackImage = enImageBySlug.get(slug);
-
-      if (!fallbackImage) {
-        return post;
-      }
-
-      return {
-        ...post,
-        data: {
-          ...post.data,
-          image: fallbackImage,
-        },
-      };
     });
 
-    localePosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-    return paginate(localePosts, { params: { locale: loc }, pageSize: 12 });
+    const finalPosts = combinedPosts.map((post) => {
+      const slug = post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '');
+      const enPostMatch = enPostsBySlug.get(slug);
+      
+      // Fallback image logic
+      if (!post.data.image && enPostMatch?.data.image) {
+        return {
+          ...post,
+          data: {
+            ...post.data,
+            image: enPostMatch.data.image,
+          },
+        };
+      }
+      return post;
+    });
+
+    finalPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+    return paginate(finalPosts, { params: { locale: loc }, pageSize: 12 });
   });
 }) satisfies GetStaticPaths;
 
@@ -65,7 +71,7 @@ const blogSchema = {
   "url": new URL(Astro.url.pathname, siteUrl),
   "inLanguage": locale,
   "itemListElement": page.data.map((post, index) => {
-    const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
+    const slug = post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '');
     return {
       "@type": "ListItem",
       "position": index + 1,
@@ -105,7 +111,7 @@ const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${pag
       <h2 class="sr-only" id="blog-articles-heading">Articles</h2>
       <div class="blog-grid grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-20">
         {page.data.map((post) => (
-          <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`} class="blog-card group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded-3xl" id={`article-${post.id.split('/').slice(1).join('/').replace(/\.md$/, '')}`}>
+          <a href={`/${locale}/blog/${post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '')}`} class="blog-card group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded-3xl" id={`article-${post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '')}`}>
             <article class="blog-card-body relative p-6 rounded-3xl bg-bg-surface border border-white/10 hover:border-brand-primary/40 transition-all duration-500 flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 overflow-hidden shadow-xl">
               <!-- Background Glow on Hover -->
               <div class="absolute -inset-10 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl pointer-events-none duration-700"></div>

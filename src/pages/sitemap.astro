@@ -56,7 +56,7 @@ const staticPages = [
         <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">Latest Articles</h2>
         <div class="grid sm:grid-cols-2 gap-4">
           {posts.map(post => (
-            <a href={`/blog/${post.id}`} class="block p-4 rounded-xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-all group">
+            <a href={getLocalizedPath(`/blog/${post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '')}`, post.id.split('/')[0])} class="block p-4 rounded-xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-all group">
               <h3 class="font-medium group-hover:text-brand-primary transition-colors">{post.data.title}</h3>
               <p class="text-xs text-slate-500 mt-1">{post.data.date.toLocaleDateString()}</p>
             </a>

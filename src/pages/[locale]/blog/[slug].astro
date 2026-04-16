@@ -9,10 +9,11 @@ import { locales, defaultLocale } from '../../../theme/i18n';
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
   const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
-  const enImageBySlug = new Map(
+  
+  const enPostsBySlug = new Map(
     enPosts.map((post) => [
-      post.id.replace(/^en\//, '').replace(/\.md$/, ''),
-      post.data.image,
+      post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, ''),
+      post,
     ])
   );
   
@@ -20,24 +21,34 @@ export async function getStaticPaths() {
   let paths: any[] = [];
 
   for (const loc of otherLocales) {
-    let localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    const localePosts = allPosts.filter(p => p.id.startsWith(`${loc}/`));
+    const localeSlugs = new Set(
+      localePosts.map((p) => p.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, ''))
+    );
     
-    // If no translated posts for this locale, use English posts!
-    if (localePosts.length === 0) {
-      localePosts = enPosts;
-    }
+    // Start with translated posts
+    const postsToGenerate = [...localePosts];
+    
+    // Add English fallbacks for missing translations
+    enPosts.forEach((enPost) => {
+      const slug = enPost.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '');
+      if (!localeSlugs.has(slug)) {
+        postsToGenerate.push(enPost);
+      }
+    });
 
-    localePosts.forEach(post => {
-      // Slug is identical across languages assuming filenames are 1:1, or it uses the english slug.
-      const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
-      const fallbackImage = enImageBySlug.get(slug);
-      const postWithFallbackImage = post.data.image || !fallbackImage
+    postsToGenerate.forEach(post => {
+      const slug = post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '');
+      const enPostMatch = enPostsBySlug.get(slug);
+      
+      // Fallback image logic
+      const postWithFallbackImage = post.data.image || !enPostMatch?.data.image
         ? post
         : {
             ...post,
             data: {
               ...post.data,
-              image: fallbackImage,
+              image: enPostMatch.data.image,
             },
           };
 
@@ -96,7 +107,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": new URL('/blog/', siteUrl)
+      "item": new URL(`/${locale}/blog/`, siteUrl)
     },
     {
       "@type": "ListItem",
