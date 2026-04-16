@@ -9,6 +9,12 @@ import { locales, defaultLocale } from '../../../theme/i18n';
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
   const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
+  const enImageBySlug = new Map(
+    enPosts.map((post) => [
+      post.id.replace(/^en\//, '').replace(/\.md$/, ''),
+      post.data.image,
+    ])
+  );
   
   const otherLocales = locales.filter(l => l !== defaultLocale);
   let paths: any[] = [];
@@ -24,9 +30,20 @@ export async function getStaticPaths() {
     localePosts.forEach(post => {
       // Slug is identical across languages assuming filenames are 1:1, or it uses the english slug.
       const slug = post.id.split('/').slice(1).join('/').replace(/\.md$/, '');
+      const fallbackImage = enImageBySlug.get(slug);
+      const postWithFallbackImage = post.data.image || !fallbackImage
+        ? post
+        : {
+            ...post,
+            data: {
+              ...post.data,
+              image: fallbackImage,
+            },
+          };
+
       paths.push({
         params: { locale: loc, slug },
-        props: { post },
+        props: { post: postWithFallbackImage },
       });
     });
   }
