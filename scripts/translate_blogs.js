@@ -81,7 +81,7 @@ async function main() {
     const enDir = path.join(__dirname, '../src/content/blog/en');
     const blogRoot = path.join(__dirname, '../src/content/blog');
     
-    const files = fs.readdirSync(enDir).filter(f => f.endsWith('.md'));
+    const files = fs.readdirSync(enDir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
 
     for (const locale of locales) {
         const localeDir = path.join(blogRoot, locale);
