@@ -7,6 +7,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
     author: z.string().default('Circuit Diagram Maker Team'),
     image: z.string().optional(),
     tags: z.array(z.string()).default([]),

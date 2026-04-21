@@ -70,11 +70,12 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": post.data.title,
   "description": post.data.description,
   "image": post.data.image ? new URL(post.data.image, siteUrl) : undefined,
   "datePublished": post.data.date.toISOString(),
+  "dateModified": post.data.updatedDate ? post.data.updatedDate.toISOString() : post.data.date.toISOString(),
   "author": {
     "@type": "Person",
     "name": post.data.author || "CircuitForge Team"
