@@ -34,7 +34,6 @@ const featureCards = t('home.features.cards').map((card: any, i: number) => ({
 }));
 
 const personas = t('home.personas');
----
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -58,14 +57,17 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "mainEntity": faqItems.filter((f: any) => f.display !== false).map((faq: any) => ({
+      "mainEntity": faqItems && Array.isArray(faqItems) ? faqItems.filter((f: any) => f.display !== false).map((faq: any) => ({
         "@type": "Question",
         "name": faq.question,
         "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-      }))
+      })) : []
     }
   ]
 };
+
+const currentDateIso = new Date().toISOString();
+const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'});
 ---
 
 <BaseLayout title={t('home.hero.title')} description={t('home.hero.meta_desc') || t('home.hero.subtitle')}>
@@ -275,7 +277,7 @@ const pageSchema = {
           <div class="flex items-center gap-4">
             <span>By <a href="/about-us" rel="author" class="hover:text-white">Circuit Diagram Maker Team</a></span>
             <span>Published: <time itemprop="datePublished" datetime="2025-01-01T00:00:00Z">Jan 1, 2025</time></span>
-            <span>Updated: <time itemprop="dateModified" datetime={new Date().toISOString()}>{new Date().toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</time></span>
+            <span>Updated: <time itemprop="dateModified" datetime={currentDateIso}>{currentDateFormatted}</time></span>
           </div>
           
           <div class="flex items-center gap-3">
