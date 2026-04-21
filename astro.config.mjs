@@ -9,6 +9,9 @@ export default defineConfig({
   site: 'https://www.circuitdiagrammaker.com',
   trailingSlash: 'always',
   integrations: [sitemap(), mdx()],
+  build: {
+    inlineStylesheets: 'always'
+  },
   vite: {
     plugins: [tailwindcss()]
   }
