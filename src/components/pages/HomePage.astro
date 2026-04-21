@@ -36,7 +36,40 @@ const featureCards = t('home.features.cards').map((card: any, i: number) => ({
 const personas = t('home.personas');
 ---
 
-<BaseLayout title={t('home.hero.title')} description={t('home.hero.subtitle')}>
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The #1 Best Circuit Diagram Maker Online [2025 Update]",
+      "author": { "@type": "Person", "name": "Circuit Diagram Maker Team" },
+      "datePublished": "2025-01-01T00:00:00Z",
+      "dateModified": new Date().toISOString()
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "The #1 Best Circuit Diagram Maker Online [2025 Update]"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://circuitdiagram.org/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqItems.filter((f: any) => f.display !== false).map((faq: any) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout title={t('home.hero.title')} description={t('home.hero.meta_desc') || t('home.hero.subtitle')}>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <!-- ███ HERO SECTION ███ -->
   <section class="relative overflow-hidden bg-bg-dark" id="hero">
     <!-- Background gradients -->
@@ -49,9 +82,7 @@ const personas = t('home.personas');
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
           <span class="bg-gradient-to-br from-white via-white to-slate-400 bg-clip-text text-transparent" id="hero-typed">{t('home.hero.title')}</span>
         </h1>
-        <p class="mt-6 text-lg sm:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
-          {t('home.hero.subtitle')}
-        </p>
+        <p class="mt-6 text-lg sm:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto" set:html={t('home.hero.subtitle')}></p>
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={getLocalizedPath('/editor/', locale)} 
              class="group relative px-8 py-3.5 rounded-xl bg-brand-primary text-white font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-[1.03] w-full sm:w-auto text-center"
@@ -230,6 +261,36 @@ const personas = t('home.personas');
         <a href={getLocalizedPath('/editor/', locale)} class="px-10 py-4 rounded-xl bg-brand-primary hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] w-full sm:w-auto">
           {t('home.cta.button')}
         </a>
+      </div>
+      
+      <!-- SEO Required Visual Elements (Minimal layout) -->
+      <div class="mt-12 pt-8 border-t border-white/5 text-left max-w-4xl mx-auto">
+        <nav aria-label="Breadcrumb" class="text-xs text-slate-500 mb-4" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/>
+          </span>
+        </nav>
+        
+        <div class="flex flex-wrap items-center justify-between text-xs text-slate-400 gap-4">
+          <div class="flex items-center gap-4">
+            <span>By <a href="/about-us" rel="author" class="hover:text-white">Circuit Diagram Maker Team</a></span>
+            <span>Published: <time itemprop="datePublished" datetime="2025-01-01T00:00:00Z">Jan 1, 2025</time></span>
+            <span>Updated: <time itemprop="dateModified" datetime={new Date().toISOString()}>{new Date().toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'})}</time></span>
+          </div>
+          
+          <div class="flex items-center gap-3">
+             <span class="font-bold text-slate-300">Share:</span>
+             <a href="https://twitter.com/intent/tweet?url=https://circuitdiagram.org" target="_blank" rel="noopener noreferrer" class="hover:text-[#1DA1F2]">Twitter</a>
+             <a href="https://www.facebook.com/sharer/sharer.php?u=https://circuitdiagram.org" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877F2]">Facebook</a>
+             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://circuitdiagram.org" target="_blank" rel="noopener noreferrer" class="hover:text-[#0A66C2]">LinkedIn</a>
+          </div>
+        </div>
+        
+        <div class="mt-4 text-xs text-slate-500">
+          <strong>Sources:</strong> 
+          <a href="https://www.ieee.org" target="_blank" rel="noopener" class="hover:text-white underline">IEEE Standards</a>, 
+          <a href="https://www.ipc.org" target="_blank" rel="noopener" class="hover:text-white underline">IPC Documentation</a>
+        </div>
       </div>
     </div>
   </section>
