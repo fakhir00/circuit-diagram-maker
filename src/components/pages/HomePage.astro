@@ -34,20 +34,27 @@ const featureCards = t('home.features.cards').map((card: any, i: number) => ({
 }));
 
 const personas = t('home.personas');
+const homeMetaTitle = locale === 'en'
+  ? 'Circuit Diagram Maker (Free Online Tool) – Draw Easy'
+  : t('home.hero.title');
+
+const homeMetaDescription = locale === 'en'
+  ? 'Create circuit diagrams online for free with our easy-to-use circuit diagram maker. Draw, edit, and customize schematics instantly—no download needed.'
+  : (t('home.hero.meta_desc') || t('home.hero.subtitle'));
 
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Article",
-      "headline": "The #1 Best Circuit Diagram Maker Online",
+      "headline": homeMetaTitle,
       "author": { "@type": "Person", "name": "Circuit Diagram Maker Team" },
       "datePublished": "2025-01-01T00:00:00Z",
       "dateModified": new Date().toISOString()
     },
     {
       "@type": "BlogPosting",
-      "headline": "The #1 Best Circuit Diagram Maker Online"
+      "headline": homeMetaTitle
     },
     {
       "@type": "BreadcrumbList",
@@ -70,7 +77,7 @@ const currentDateIso = new Date().toISOString();
 const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'});
 ---
 
-<BaseLayout title={t('home.hero.title')} description={t('home.hero.meta_desc') || t('home.hero.subtitle')}>
+<BaseLayout title={homeMetaTitle} description={homeMetaDescription}>
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <!-- ███ HERO SECTION ███ -->
   <section class="relative overflow-hidden bg-bg-dark" id="hero">

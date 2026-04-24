@@ -14,8 +14,8 @@ interface ResolveSeoMetadataInput {
 
 const ROUTE_DEFAULTS: Record<string, SeoMetadata> = {
   '/': {
-    title: 'Circuit Diagram Maker Online Tool',
-    description: 'Create clean circuit diagrams online with smart wire routing, 40+ symbols, and free SVG or PNG export in your browser.'
+    title: 'Circuit Diagram Maker (Free Online Tool) – Draw Easy',
+    description: 'Create circuit diagrams online for free with our easy-to-use circuit diagram maker. Draw, edit, and customize schematics instantly—no download needed.'
   },
   '/editor/': {
     title: 'Circuit Diagram Editor',
@@ -117,7 +117,7 @@ const LOCALE_LABELS: Record<string, string> = {
 };
 
 const TITLE_SUFFIX_LABELS: Record<string, string> = {
-  '/': 'Home',
+  '/': '',
   '/editor/': 'Editor',
   '/logic-editor/': 'Logic',
   '/arduino-editor/': 'Editor',
