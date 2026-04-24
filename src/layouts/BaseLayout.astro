@@ -202,5 +202,43 @@ const softwareSchema = isHome ? {
   </main>
 
   {!hideHeaderFooter && <Footer locale={locale} config={config} />}
+
+  {!hideHeaderFooter && (
+    <button
+      id="back-to-top-btn"
+      type="button"
+      aria-label="Back to top"
+      class="fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-bg-surface/90 text-white shadow-lg backdrop-blur-sm transition-all duration-300 opacity-0 translate-y-3 pointer-events-none hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark"
+    >
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  )}
+
+  <script is:inline>
+    (() => {
+      const backToTopButton = document.getElementById('back-to-top-btn');
+      if (!backToTopButton) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const toggleBackToTop = () => {
+        const shouldShow = window.scrollY > 300;
+        backToTopButton.classList.toggle('opacity-0', !shouldShow);
+        backToTopButton.classList.toggle('translate-y-3', !shouldShow);
+        backToTopButton.classList.toggle('pointer-events-none', !shouldShow);
+        backToTopButton.classList.toggle('opacity-100', shouldShow);
+        backToTopButton.classList.toggle('translate-y-0', shouldShow);
+      };
+
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      });
+
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+      toggleBackToTop();
+    })();
+  </script>
 </body>
 </html>
