@@ -1,5 +1,5 @@
 ---
-title: "7 Best Practices for Circuit Schematic Design [2025 Guide]"
+title: "7 Best Practices for Circuit Schematic Design"
 description: "Learn the 7 best practices for circuit schematic design that professionals use. Avoid common layout mistakes and draw clean, readable schematics today."
 date: 2026-04-03
 updatedDate: 2026-04-21
