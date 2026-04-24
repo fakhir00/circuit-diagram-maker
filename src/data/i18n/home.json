@@ -159,6 +159,124 @@
       }
     ],
     "home.faq.title": "Frequently Asked Questions",
+    "home.benefits.badge": "Why Choose Us",
+    "home.benefits.title": "Everything You Need — Zero Hassle",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Free to use",
+        "desc": "No hidden fees, no premium tiers. Every feature is available at zero cost, forever."
+      },
+      {
+        "icon": "cloud",
+        "label": "No download required",
+        "desc": "Runs 100% in your browser. No software to install, no updates to manage."
+      },
+      {
+        "icon": "devices",
+        "label": "Works on all devices",
+        "desc": "Desktop, tablet, or phone — design circuit diagrams anywhere with a responsive interface."
+      },
+      {
+        "icon": "easy",
+        "label": "Beginner-friendly interface",
+        "desc": "Intuitive drag-and-drop editor designed so anyone can create professional schematics in minutes."
+      }
+    ],
+    "home.power_features.badge": "Powerful Tools",
+    "home.power_features.title": "Powerful Circuit Diagram Tool",
+    "home.power_features.subtitle": "Professional-grade features that make circuit design effortless.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Drag & Drop Components",
+        "desc": "Simply drag resistors, capacitors, transistors, and 40+ more components onto your canvas."
+      },
+      {
+        "icon": "schematic",
+        "title": "Accurate Schematic Drawing",
+        "desc": "IEC and ANSI-standard symbols ensure your diagrams are technically precise and universally readable."
+      },
+      {
+        "icon": "realtime",
+        "title": "Real-Time Editing",
+        "desc": "See changes instantly as you connect, move, and rearrange components on the live canvas."
+      },
+      {
+        "icon": "export",
+        "title": "Export & Save Diagrams",
+        "desc": "Download as SVG, PNG, or JSON. Share with teammates or embed in technical documents."
+      }
+    ],
+    "home.how_to.badge": "3 Simple Steps",
+    "home.how_to.title": "How to Make a Circuit Diagram",
+    "home.how_to.steps": [
+      {
+        "number": "01",
+        "title": "Choose Components",
+        "desc": "Browse our library of 40+ electronic symbols and drag them onto the infinite canvas."
+      },
+      {
+        "number": "02",
+        "title": "Connect Your Circuit",
+        "desc": "Use smart wire routing to connect pins. The engine keeps every wire perfectly aligned."
+      },
+      {
+        "number": "03",
+        "title": "Customize and Export",
+        "desc": "Add labels, adjust layouts, then export as SVG, PNG, or JSON with one click."
+      }
+    ],
+    "home.how_to.cta": "Click Here to Open Editor",
+    "home.examples.badge": "Inspiration",
+    "home.examples.title": "Circuit Diagram Examples",
+    "home.examples.subtitle": "Explore common circuit types you can create with our tool.",
+    "home.examples.items": [
+      {
+        "title": "Series Circuit Diagram",
+        "desc": "Components connected end-to-end in a single path. Current flows through each component sequentially.",
+        "icon": "series"
+      },
+      {
+        "title": "Parallel Circuit Diagram",
+        "desc": "Components connected across common points, creating multiple paths for current to flow.",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC Generator Circuit",
+        "desc": "Armature winding, field coil, and commutator arrangement for converting mechanical to electrical energy.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED Circuit Diagram",
+        "desc": "Basic LED with current-limiting resistor — the most common beginner circuit for learning electronics.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Try Building These →",
+    "home.more_tools.badge": "Explore More",
+    "home.more_tools.title": "More Diagram Tools",
+    "home.more_tools.subtitle": "Extend your workflow with our specialized circuit and logic design tools.",
+    "home.more_tools.items": [
+      {
+        "title": "Schematic Diagram Creator",
+        "desc": "Create detailed electronic schematics with professional-grade symbols and smart routing.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Logic Gate Diagram Tool",
+        "desc": "Build clear gate-level logic diagrams and validate signal flow visually.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Document board pin connections, modules, and wiring paths for Arduino projects.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Start Creating Your Circuit Diagram",
+    "home.final_cta.desc": "No sign-up. No download. Just start building.",
+    "home.final_cta.button": "Launch Circuit Diagram Maker",
     "home.cta.title": "Start Creating Circuit Diagrams Now",
     "home.cta.desc": "No signup. No download. Just open the circuit diagram maker and start designing.",
     "home.cta.button": "Open Circuit Diagram Editor — It's Free"
