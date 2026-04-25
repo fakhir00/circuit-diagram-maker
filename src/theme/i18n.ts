@@ -1,6 +1,6 @@
 export const locales = [
   'en', 'hi', 'es', 'ru', 'fr', 'de', 'it', 'pt', 
-  'bn', 'ja', 'ko', 'ms', 'pl', 'id', 'ar', 'bg', 'tr', 'sv'
+  'bn', 'ja', 'ko', 'ms', 'pl', 'id', 'ar', 'bg', 'tr', 'sv', 'ur'
 ];
 
 export const defaultLocale = 'en';

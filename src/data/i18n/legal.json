@@ -225,5 +225,15 @@
     "legal.privacy.meta.description": "Läs vår integritetspolicy.",
     "legal.terms.meta.title": "Användarvillkor",
     "legal.terms.meta.description": "Läs våra användarvillkor."
+  },
+  "ur": {
+    "legal.privacy.hero.title": "رازداری کی پالیسی",
+    "legal.privacy.hero.updated": "آخری اپ ڈیٹ",
+    "legal.terms.hero.title": "سروس کی شرائط",
+    "legal.terms.hero.updated": "آخری اپ ڈیٹ",
+    "legal.privacy.meta.title": "رازداری کی پالیسی",
+    "legal.privacy.meta.description": "سرکٹ ڈایاگرام بنانے والے کی رازداری کی پالیسی پڑھیں۔",
+    "legal.terms.meta.title": "سروس کی شرائط",
+    "legal.terms.meta.description": "سرکٹ ڈایاگرام بنانے والے کی سروس کی شرائط پڑھیں۔"
   }
 }

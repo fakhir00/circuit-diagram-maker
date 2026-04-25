@@ -16,7 +16,7 @@ interface Props {
 const { title, description, hideHeaderFooter = false, noindex = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const locale = getLocaleFromUrl(pathname);
-const dir = locale === 'ar' ? 'rtl' : 'ltr';
+const dir = ['ar', 'ur'].includes(locale) ? 'rtl' : 'ltr';
 const seo = resolveSeoMetadata({ pathname, title, description });
 const finalTitle = seo.title;
 const finalDescription = seo.description;
@@ -42,7 +42,7 @@ const labelMap: Record<string,string> = {
 };
 let pathAccum = '';
 for (const seg of segments) {
-  if (['en','hi','es','ru','fr','de','it','pt','bn','ja','ko','ms','pl','id','ar','bg','tr','sv'].includes(seg)) continue;
+  if (['en','hi','es','ru','fr','de','it','pt','bn','ja','ko','ms','pl','id','ar','bg','tr','sv','ur'].includes(seg)) continue;
   pathAccum += `/${seg}`;
   breadcrumbItems.push({
     name: labelMap[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),

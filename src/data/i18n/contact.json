@@ -185,5 +185,18 @@
   "ko": {
     "contact.meta.title": "문의하기 — 지원 센터",
     "contact.meta.description": "기술 문제 또는 기능 요청은 지원팀에 문의하세요."
+  },
+  "ur": {
+    "contact.hero.badge": "مدد",
+    "contact.hero.title": "سرکٹ ڈایاگرام میکر سپورٹ سے رابطہ کریں۔",
+    "contact.hero.subtitle": "سرکٹ ڈایاگرام میکر کے بارے میں کوئی سوال ہے؟ ایڈیٹر میں کوئی کیڑے ملے؟ ہماری ٹیم عام طور پر 24 گھنٹوں کے اندر جواب دیتی ہے۔",
+    "contact.form.title": "ہمیں پیغام دیں",
+    "contact.sidebar.email.title": "📧 ای میل سپورٹ",
+    "contact.sidebar.time.title": "⏱️ رسپانس ٹائم",
+    "contact.sidebar.time.strong": "24 گھنٹے",
+    "contact.sidebar.features.title": "💡 خصوصیت کی درخواست",
+    "contact.faq.title": "عام مدد کے سوالات",
+    "contact.meta.title": "ہم سے رابطہ کریں - سرکٹ ڈایاگرام میکر سپورٹ",
+    "contact.meta.description": "تکنیکی مسائل یا سوالات کے لیے ہماری سپورٹ ٹیم سے رابطہ کریں۔"
   }
 }

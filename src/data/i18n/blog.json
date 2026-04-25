@@ -248,5 +248,19 @@
     "blog.part": "Sida",
     "blog.of": "av",
     "blog.older": "Äldre"
+  },
+  "ur": {
+    "blog.meta.title": "بلاگ - سرکٹ ڈایاگرام میکر",
+    "blog.meta.description": "سرکٹ ڈیزائن اور انجینئرنگ کے بارے میں سبق، خبریں اور رہنمائی۔",
+    "blog.eyebrow": "تعلیمی مرکز",
+    "blog.title": "بلاگ",
+    "blog.subtitle": "سرکٹ ڈیزائن اور انجینئرنگ کے بارے میں",
+    "blog.articles_published": "مضمون شائع ہوا",
+    "blog.min_read": "منٹ پڑھنا",
+    "blog.read_more": "مزید پڑھیں",
+    "blog.newer": "نیا",
+    "blog.part": "صفحہ",
+    "blog.of": "سے باہر",
+    "blog.older": "پرانا"
   }
 }
