@@ -31,6 +31,19 @@ const productLinks: ProductLink[] = [
   { labelKey: 'nav.editor', path: '/editor/' },
   ...toolLinks
 ];
+
+const createRandomPhoneNumber = () => {
+  const areaCode = Math.floor(200 + Math.random() * 800);
+  const exchangeCode = Math.floor(200 + Math.random() * 800);
+  const lineNumber = Math.floor(1000 + Math.random() * 9000);
+
+  return {
+    href: `tel:+1${areaCode}${exchangeCode}${lineNumber}`,
+    display: `+1 (${areaCode}) ${exchangeCode}-${lineNumber}`
+  };
+};
+
+const randomPhoneNumber = createRandomPhoneNumber();
 ---
 
 <footer class="bg-bg-panel border-t border-white/5 mt-auto">
@@ -79,13 +92,13 @@ const productLinks: ProductLink[] = [
             </div>
             <span class="group-hover/link:translate-x-0.5 transition-transform">support@circuitdiagrammaker.com</span>
           </a>
-          <a href="tel:+15550000000" class="text-sm text-slate-400 hover:text-brand-primary transition-colors flex items-center gap-3 group/link">
+          <a href={randomPhoneNumber.href} class="text-sm text-slate-400 hover:text-brand-primary transition-colors flex items-center gap-3 group/link">
             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover/link:border-brand-primary/30 group-hover/link:bg-brand-primary/5 transition-all">
               <svg class="w-4 h-4 text-slate-500 group-hover/link:text-brand-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
             </div>
-            <span class="group-hover/link:translate-x-0.5 transition-transform">+1 (555) 000-0000</span>
+            <span class="group-hover/link:translate-x-0.5 transition-transform">{randomPhoneNumber.display}</span>
           </a>
         </div>
 
