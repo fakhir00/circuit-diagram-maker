@@ -7,8 +7,8 @@
   },
   "social": {
     "twitter": "https://twitter.com/circuitdiagram",
-    "facebook": "https://www.facebook.com/katakanaconverter/",
-    "linkedin": "https://www.linkedin.com/company/katakana-converter/"
+    "facebook": "https://www.facebook.com/circuitdiagrammaker/",
+    "linkedin": "https://www.linkedin.com/company/circuitdiagrammaker/"
   },
   "nav": [
     { "labelKey": "nav.home", "path": "/" },

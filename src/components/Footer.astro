@@ -125,10 +125,10 @@ const randomPhoneNumber = createRandomPhoneNumber();
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.guides')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Components</a></li>
-          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Documentation</a></li>
-          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Blog & Tutorials</a></li>
-          <li><a href={getLocalizedPath('/sitemap/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Sitemap</a></li>
+          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.components')}</a></li>
+          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.docs')}</a></li>
+          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.blogTutorials')}</a></li>
+          <li><a href={getLocalizedPath('/sitemap/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.sitemap')}</a></li>
         </ul>
       </div>
 
@@ -136,10 +136,10 @@ const randomPhoneNumber = createRandomPhoneNumber();
       <div>
         <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.company')}</h3>
         <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">About Us</a></li>
-          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Contact Support</a></li>
-          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Terms of Service</a></li>
-          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">Privacy Policy</a></li>
+          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.about')}</a></li>
+          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.contactSupport')}</a></li>
+          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.terms')}</a></li>
+          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.privacy')}</a></li>
         </ul>
 
         <!-- Social Icons -->
