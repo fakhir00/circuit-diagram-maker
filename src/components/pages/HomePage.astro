@@ -130,167 +130,6 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
 
   </section>
 
-  <!-- ███ BENEFITS SECTION ███ -->
-  <section class="py-16 bg-bg-panel border-t border-white/5 relative overflow-hidden" id="benefits">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.06),transparent_50%)]"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.benefits.badge')}</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.benefits.title')}</h2>
-      </div>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {benefitItems.map((item: any, i: number) => (
-          <div class="group relative rounded-2xl border border-white/10 bg-bg-dark/60 p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-bg-surface/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)]" style={`animation-delay: ${i * 100}ms`}>
-            <div class="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
-              <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">{item.label}</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ███ POWERFUL FEATURES SECTION ███ -->
-  <section class="py-20 bg-bg-dark border-t border-white/5 relative overflow-hidden" id="power-features">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.power_features.badge')}</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.power_features.title')}</h2>
-        <p class="mt-4 text-lg text-slate-400">{t('home.power_features.subtitle')}</p>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2">
-        {powerFeatures.map((feat: any, i: number) => (
-          <div class="group rounded-2xl border border-white/10 bg-bg-panel/70 p-7 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.06)]">
-            <div class="flex items-start gap-5">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary/20 transition-colors">
-                <span class="text-xl font-black">{String(i + 1).padStart(2, '0')}</span>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{feat.title}</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">{feat.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ███ HOW TO MAKE A CIRCUIT DIAGRAM ███ -->
-  <section class="py-24 bg-bg-panel border-t border-white/5 relative overflow-hidden" id="how-to">
-    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.how_to.badge')}</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">{t('home.how_to.title')}</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-10 relative">
-        <!-- Connection line -->
-        <svg class="hidden md:block absolute top-[40px] left-[15%] w-[70%] h-[6px] pointer-events-none" viewBox="0 0 800 6" fill="none">
-          <line x1="0" y1="3" x2="800" y2="3" stroke="url(#howToGrad)" stroke-width="2" stroke-dasharray="8 4" opacity="0.4"/>
-          <defs><linearGradient id="howToGrad" x1="0" y1="0" x2="800" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
-        </svg>
-        {howToSteps.map((step: any, index: number) => (
-          <div class="flex flex-col items-center text-center group z-10">
-            <div class="relative mb-6">
-              <div class="w-20 h-20 rounded-2xl bg-bg-dark border-2 border-white/10 flex items-center justify-center transition-all duration-500 group-hover:border-brand-primary group-hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] group-hover:scale-110">
-                <span class="text-3xl font-black bg-gradient-to-br from-blue-400 to-cyan-400 bg-clip-text text-transparent">{step.number}</span>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors tracking-tight">{step.title}</h3>
-            <p class="text-slate-400 leading-relaxed max-w-xs text-sm">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-      <div class="text-center mt-14">
-        <a href={getLocalizedPath('/editor/', locale)}
-           class="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-brand-primary text-white font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-[1.03]"
-           id="how-to-cta">
-          <span class="relative z-10">{t('home.how_to.cta')}</span>
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ███ EXAMPLES SECTION ███ -->
-  <section class="py-20 bg-bg-dark border-t border-white/5 relative" id="examples">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.examples.badge')}</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.examples.title')}</h2>
-        <p class="mt-4 text-lg text-slate-400">{t('home.examples.subtitle')}</p>
-      </div>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {exampleItems.map((ex: any, i: number) => (
-          <a href={getLocalizedPath('/editor/', locale)}
-             class="group rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-bg-surface/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] block">
-            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
-              <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="3"/>
-                <path d="M8 12h8M12 8v8" opacity="0.5"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">{ex.title}</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">{ex.desc}</p>
-          </a>
-        ))}
-      </div>
-      <div class="text-center mt-10">
-        <a href={getLocalizedPath('/editor/', locale)} class="text-brand-accent hover:text-white font-semibold transition-colors text-sm">
-          {t('home.examples.cta')}
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ███ MORE DIAGRAM TOOLS ███ -->
-  <section class="py-20 bg-bg-panel border-t border-white/5" id="more-tools">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.more_tools.badge')}</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.more_tools.title')}</h2>
-        <p class="mt-4 text-lg text-slate-400">{t('home.more_tools.subtitle')}</p>
-      </div>
-      <div class="grid gap-5 md:grid-cols-3">
-        {moreToolItems.map((tool: any) => (
-          <a href={getLocalizedPath(tool.href, locale)}
-             class="group rounded-2xl border border-white/10 bg-bg-dark/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 block">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-lg bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
-                <svg class="w-5 h-5 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-              </div>
-              <h3 class="text-base font-semibold text-white group-hover:text-brand-primary transition-colors">{tool.title}</h3>
-            </div>
-            <p class="text-sm text-slate-400 leading-relaxed">{tool.desc}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ███ FINAL CTA ███ -->
-  <section class="py-24 bg-bg-dark border-t border-white/5 relative overflow-hidden" id="final-cta">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12),transparent_55%)]"></div>
-    <div class="relative max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">{t('home.final_cta.title')}</h2>
-      <p class="mt-5 text-xl text-slate-400">{t('home.final_cta.desc')}</p>
-      <div class="mt-10">
-        <a href={getLocalizedPath('/editor/', locale)}
-           class="group relative inline-flex items-center gap-3 px-12 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-lg font-bold transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.3)] hover:shadow-[0_0_60px_rgba(59,130,246,0.5)] hover:scale-[1.04]"
-           id="final-cta-btn">
-          <span>{t('home.final_cta.button')}</span>
-          <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ███ WHAT IS A CIRCUIT DIAGRAM MAKER? ███ -->
   <section class="py-20 bg-bg-panel border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -369,6 +208,30 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
     </div>
   </section>
 
+  <!-- ███ BENEFITS SECTION ███ -->
+  <section class="py-16 bg-bg-panel border-t border-white/5 relative overflow-hidden" id="benefits">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.06),transparent_50%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.benefits.badge')}</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.benefits.title')}</h2>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {benefitItems.map((item: any, i: number) => (
+          <div class="group relative rounded-2xl border border-white/10 bg-bg-dark/60 p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-bg-surface/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)]" style={`animation-delay: ${i * 100}ms`}>
+            <div class="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
+              <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-emerald-400 transition-colors">{item.label}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ███ WHY USE OUR CIRCUIT DIAGRAM MAKER ███ -->
   <section class="py-20 bg-bg-dark border-t border-white/5 relative group/section">
     <a href={getLocalizedPath('/editor/', locale)} class="absolute inset-0 z-10 block cursor-default" aria-label={t('nav.editor')}></a>
@@ -392,11 +255,106 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
     </div>
   </section>
 
+  <!-- ███ POWERFUL FEATURES SECTION ███ -->
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative overflow-hidden" id="power-features">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08),transparent_50%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.power_features.badge')}</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.power_features.title')}</h2>
+        <p class="mt-4 text-lg text-slate-400">{t('home.power_features.subtitle')}</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {powerFeatures.map((feat: any, i: number) => (
+          <div class="group rounded-2xl border border-white/10 bg-bg-panel/70 p-7 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.06)]">
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary/20 transition-colors">
+                <span class="text-xl font-black">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-brand-primary transition-colors">{feat.title}</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">{feat.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ███ INTERACTIVE SCHEMATIC SHOWCASE ███ -->
   <InteractiveCircuitShowcase locale={locale} />
 
+  <!-- ███ HOW TO MAKE A CIRCUIT DIAGRAM ███ -->
+  <section class="py-24 bg-bg-panel border-t border-white/5 relative overflow-hidden" id="how-to">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.how_to.badge')}</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">{t('home.how_to.title')}</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 relative">
+        <!-- Connection line -->
+        <svg class="hidden md:block absolute top-[40px] left-[15%] w-[70%] h-[6px] pointer-events-none" viewBox="0 0 800 6" fill="none">
+          <line x1="0" y1="3" x2="800" y2="3" stroke="url(#howToGrad)" stroke-width="2" stroke-dasharray="8 4" opacity="0.4"/>
+          <defs><linearGradient id="howToGrad" x1="0" y1="0" x2="800" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
+        </svg>
+        {howToSteps.map((step: any, index: number) => (
+          <div class="flex flex-col items-center text-center group z-10">
+            <div class="relative mb-6">
+              <div class="w-20 h-20 rounded-2xl bg-bg-dark border-2 border-white/10 flex items-center justify-center transition-all duration-500 group-hover:border-brand-primary group-hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] group-hover:scale-110">
+                <span class="text-3xl font-black bg-gradient-to-br from-blue-400 to-cyan-400 bg-clip-text text-transparent">{step.number}</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors tracking-tight">{step.title}</h3>
+            <p class="text-slate-400 leading-relaxed max-w-xs text-sm">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-14">
+        <a href={getLocalizedPath('/editor/', locale)}
+           class="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-brand-primary text-white font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-[1.03]"
+           id="how-to-cta">
+          <span class="relative z-10">{t('home.how_to.cta')}</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ███ HOW IT WORKS ███ -->
   <HowItWorks title={t('home.how_it_works.title')} steps={howItWorksSteps} />
+
+  <!-- ███ EXAMPLES SECTION ███ -->
+  <section class="py-20 bg-bg-dark border-t border-white/5 relative" id="examples">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.examples.badge')}</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.examples.title')}</h2>
+        <p class="mt-4 text-lg text-slate-400">{t('home.examples.subtitle')}</p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {exampleItems.map((ex: any, i: number) => (
+          <a href={getLocalizedPath('/editor/', locale)}
+             class="group rounded-2xl border border-white/10 bg-bg-panel/60 p-6 transition-all duration-300 hover:border-cyan-500/30 hover:bg-bg-surface/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.08)] block">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+              <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <path d="M8 12h8M12 8v8" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">{ex.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{ex.desc}</p>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href={getLocalizedPath('/editor/', locale)} class="text-brand-accent hover:text-white font-semibold transition-colors text-sm">
+          {t('home.examples.cta')}
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ███ COMPARISON TABLE ███ -->
   <FeatureMatrix title={t('home.data.title')} headers={matrixHeaders} rows={matrixRows} />
@@ -422,10 +380,52 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
     </div>
   </section>
 
+  <!-- ███ MORE DIAGRAM TOOLS ███ -->
+  <section class="py-20 bg-bg-panel border-t border-white/5" id="more-tools">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.more_tools.badge')}</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.more_tools.title')}</h2>
+        <p class="mt-4 text-lg text-slate-400">{t('home.more_tools.subtitle')}</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {moreToolItems.map((tool: any) => (
+          <a href={getLocalizedPath(tool.href, locale)}
+             class="group rounded-2xl border border-white/10 bg-bg-dark/60 p-6 transition-all duration-300 hover:border-brand-primary/30 hover:bg-bg-surface/50 block">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
+                <svg class="w-5 h-5 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <h3 class="text-base font-semibold text-white group-hover:text-brand-primary transition-colors">{tool.title}</h3>
+            </div>
+            <p class="text-sm text-slate-400 leading-relaxed">{tool.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <RelatedToolsSection locale={locale} />
 
   <!-- ███ FAQ ███ -->
   <FAQ title={t('home.faq.title')} items={faqItems} />
+
+  <!-- ███ FINAL CTA ███ -->
+  <section class="py-24 bg-bg-dark border-t border-white/5 relative overflow-hidden" id="final-cta">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12),transparent_55%)]"></div>
+    <div class="relative max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">{t('home.final_cta.title')}</h2>
+      <p class="mt-5 text-xl text-slate-400">{t('home.final_cta.desc')}</p>
+      <div class="mt-10">
+        <a href={getLocalizedPath('/editor/', locale)}
+           class="group relative inline-flex items-center gap-3 px-12 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-lg font-bold transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.3)] hover:shadow-[0_0_60px_rgba(59,130,246,0.5)] hover:scale-[1.04]"
+           id="final-cta-btn">
+          <span>{t('home.final_cta.button')}</span>
+          <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ███ BOTTOM CTA ███ -->
   <section class="py-20 bg-bg-dark border-t border-white/5 relative overflow-hidden">
