@@ -340,6 +340,8 @@
         "description": "अपने तैयार सर्किट आरेख को आईईईई और अकादमिक पत्रिकाओं द्वारा स्वीकृत क्रिस्टल-क्लियर एसवीजी या हाई-डीपीआई पीएनजी के रूप में डाउनलोड करें।"
       }
     ],
+    "home.how_to.badge": "3 आसान चरण",
+    "home.how_to.cta": "एडिटर खोलने के लिए यहां क्लिक करें",
     "home.data.title": "उपकरण तुलना",
     "home.data.headers": [
       "विशेषता",
@@ -503,6 +505,8 @@
         "description": "Descarga tu diagrama como SVG o PNG de alta resolución aceptado por revistas académicas."
       }
     ],
+    "home.how_to.badge": "3 pasos simples",
+    "home.how_to.cta": "Haz clic aquí para abrir el editor",
     "home.data.title": "Comparación de herramientas",
     "home.data.headers": [
       "Característica",
@@ -666,6 +670,8 @@
         "description": "Скачайте готовую схему в формате SVG или PNG высокого разрешения."
       }
     ],
+    "home.how_to.badge": "3 простых шага",
+    "home.how_to.cta": "Нажмите здесь, чтобы открыть редактор",
     "home.data.title": "Сравнение инструментов",
     "home.data.headers": [
       "Функция",
@@ -829,6 +835,8 @@
         "description": "Téléchargez votre schéma en SVG ou PNG haute résolution pour vos rapports."
       }
     ],
+    "home.how_to.badge": "3 étapes simples",
+    "home.how_to.cta": "Cliquez ici pour ouvrir l'éditeur",
     "home.data.title": "Comparaison des outils",
     "home.data.headers": [
       "Fonctionnalité",
@@ -992,6 +1000,8 @@
         "description": "Laden Sie Ihren Schaltplan als SVG oder hochauflösendes PNG für Ihre Berichte herunter."
       }
     ],
+    "home.how_to.badge": "3 einfache Schritte",
+    "home.how_to.cta": "Klicken Sie hier, um den Editor zu öffnen",
     "home.data.title": "Werkzeug-Vergleich",
     "home.data.headers": [
       "Funktion",
@@ -1155,6 +1165,8 @@
         "description": "Scarica lo schema finito in formato SVG o PNG ad alta risoluzione."
       }
     ],
+    "home.how_to.badge": "3 semplici passaggi",
+    "home.how_to.cta": "Fai clic qui per aprire l'editor",
     "home.data.title": "Confronto strumenti",
     "home.data.headers": [
       "Funzionalità",
@@ -1318,6 +1330,8 @@
         "description": "Descarregue o seu esquema como SVG ou PNG de alta resolução para os seus relatórios."
       }
     ],
+    "home.how_to.badge": "3 passos simples",
+    "home.how_to.cta": "Clique aqui para abrir o editor",
     "home.data.title": "Comparação de ferramentas",
     "home.data.headers": [
       "Funcionalidade",
@@ -1481,6 +1495,8 @@
         "description": "আপনার ডায়াগ্রাম SVG বা PNG হিসেবে ডাউনলোড করুন।"
       }
     ],
+    "home.how_to.badge": "৩টি সহজ ধাপ",
+    "home.how_to.cta": "এডিটর খুলতে এখানে ক্লিক করুন",
     "home.data.title": "টুল তুলনা",
     "home.data.headers": [
       "বৈশিষ্ট্য",
@@ -1644,6 +1660,8 @@
         "description": "完成した回路図をSVGまたは高解像度PNGでダウンロードします。"
       }
     ],
+    "home.how_to.badge": "3つの簡単なステップ",
+    "home.how_to.cta": "エディターを開くにはここをクリック",
     "home.data.title": "ツール比較",
     "home.data.headers": [
       "機能",
@@ -1807,6 +1825,8 @@
         "description": "완성된 회로도를 SVG 또는 고행상도 PNG로 다운로드합니다."
       }
     ],
+    "home.how_to.badge": "3가지 간단한 단계",
+    "home.how_to.cta": "편집기를 열려면 여기를 클릭하세요",
     "home.data.title": "도구 비교",
     "home.data.headers": [
       "기능",
@@ -1970,6 +1990,8 @@
         "description": "Muat turun gambarajah dalam format SVG atau PNG resolusi tinggi."
       }
     ],
+    "home.how_to.badge": "3 Langkah Mudah",
+    "home.how_to.cta": "Klik di sini untuk membuka editor",
     "home.data.title": "Perbandingan Alat",
     "home.data.headers": [
       "Ciri",
@@ -2133,6 +2155,8 @@
         "description": "Изтеглете вашата готова електрическа схема като кристално чист SVG или PNG с висока DPI, приет от IEEE и академични списания."
       }
     ],
+    "home.how_to.badge": "3 лесни стъпки",
+    "home.how_to.cta": "Кликнете тук, за да отворите редактора",
     "home.data.title": "Създател на електрически схеми срещу наследени инструменти за настолен компютър",
     "home.data.headers": [
       "Характеристика",
@@ -2296,6 +2320,8 @@
         "description": "Pobierz schemat jako SVG lub PNG w wysokiej rozdzielczości."
       }
     ],
+    "home.how_to.badge": "3 proste kroki",
+    "home.how_to.cta": "Kliknij tutaj, aby otworzyć edytor",
     "home.data.title": "Porównanie narzędzi",
     "home.data.headers": [
       "Cecha",
@@ -2459,6 +2485,8 @@
         "description": "Unduh diagram dalam format SVG atau PNG resolusi tinggi."
       }
     ],
+    "home.how_to.badge": "3 langkah sederhana",
+    "home.how_to.cta": "Klik di sini untuk membuka editor",
     "home.data.title": "Perbandingan Alat",
     "home.data.headers": [
       "Fitur",
@@ -2622,6 +2650,8 @@
         "description": "قم بتحميل مخططك بصيغة SVG أو PNG عالية الدقة لتقاريرك."
       }
     ],
+    "home.how_to.badge": "3 خطوات بسيطة",
+    "home.how_to.cta": "انقر هنا لفتح المحرر",
     "home.data.title": "مقارنة الأداة",
     "home.data.headers": [
       "ميزة",
@@ -2785,6 +2815,8 @@
         "description": "Şemanızı yüksek çözünürlüklü SVG veya PNG olarak indirin."
       }
     ],
+    "home.how_to.badge": "3 basit adım",
+    "home.how_to.cta": "Düzenleyiciyi açmak için buraya tıklayın",
     "home.data.title": "Takım Karşılaştırması",
     "home.data.headers": [
       "Özellik",
@@ -2948,6 +2980,8 @@
         "description": "Ladda ner ditt färdiga kretsschema som en kristallklar SVG eller PNG med hög DPI som accepteras av IEEE och akademiska tidskrifter."
       }
     ],
+    "home.how_to.badge": "3 enkla steg",
+    "home.how_to.cta": "Klicka här för att öppna redigeraren",
     "home.data.title": "Circuit Diagram Maker vs Legacy Desktop Tools",
     "home.data.headers": [
       "Särdrag",
