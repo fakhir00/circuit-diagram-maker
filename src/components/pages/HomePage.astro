@@ -35,7 +35,6 @@ const featureCards = t('home.features.cards').map((card: any, i: number) => ({
 
 const benefitItems = t('home.benefits.items');
 const powerFeatures = t('home.power_features.items');
-const howToSteps = t('home.how_to.steps');
 const exampleItems = t('home.examples.items');
 const moreToolItems = t('home.more_tools.items');
 
@@ -285,45 +284,14 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
   <!-- ███ INTERACTIVE SCHEMATIC SHOWCASE ███ -->
   <InteractiveCircuitShowcase locale={locale} />
 
-  <!-- ███ HOW TO MAKE A CIRCUIT DIAGRAM ███ -->
-  <section class="py-24 bg-bg-panel border-t border-white/5 relative overflow-hidden" id="how-to">
-    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">{t('home.how_to.badge')}</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">{t('home.how_to.title')}</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-10 relative">
-        <!-- Connection line -->
-        <svg class="hidden md:block absolute top-[40px] left-[15%] w-[70%] h-[6px] pointer-events-none" viewBox="0 0 800 6" fill="none">
-          <line x1="0" y1="3" x2="800" y2="3" stroke="url(#howToGrad)" stroke-width="2" stroke-dasharray="8 4" opacity="0.4"/>
-          <defs><linearGradient id="howToGrad" x1="0" y1="0" x2="800" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
-        </svg>
-        {howToSteps.map((step: any, index: number) => (
-          <div class="flex flex-col items-center text-center group z-10">
-            <div class="relative mb-6">
-              <div class="w-20 h-20 rounded-2xl bg-bg-dark border-2 border-white/10 flex items-center justify-center transition-all duration-500 group-hover:border-brand-primary group-hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] group-hover:scale-110">
-                <span class="text-3xl font-black bg-gradient-to-br from-blue-400 to-cyan-400 bg-clip-text text-transparent">{step.number}</span>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors tracking-tight">{step.title}</h3>
-            <p class="text-slate-400 leading-relaxed max-w-xs text-sm">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-      <div class="text-center mt-14">
-        <a href={getLocalizedPath('/editor/', locale)}
-           class="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-brand-primary text-white font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.25)] hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-[1.03]"
-           id="how-to-cta">
-          <span class="relative z-10">{t('home.how_to.cta')}</span>
-          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ███ HOW IT WORKS ███ -->
-  <HowItWorks title={t('home.how_it_works.title')} steps={howItWorksSteps} />
+  <HowItWorks
+    badge={t('home.how_to.badge')}
+    ctaHref={getLocalizedPath('/editor/', locale)}
+    ctaLabel={t('home.how_to.cta')}
+    title={t('home.how_it_works.title')}
+    steps={howItWorksSteps}
+  />
 
   <!-- ███ EXAMPLES SECTION ███ -->
   <section class="py-20 bg-bg-dark border-t border-white/5 relative" id="examples">

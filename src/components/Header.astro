@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname;
           <div class="flex flex-col leading-none">
             <span class="font-black text-lg sm:text-xl tracking-tight text-white group-hover:text-brand-primary transition-colors uppercase">
               {t('brand.name').split(' ').map((word: string, i: number) => (
-                <span class={i === 1 ? 'text-slate-500' : i === 2 ? 'ml-1 text-slate-600 hidden xs:inline' : ''}>{word}</span>
+                <span class={i === 1 ? 'text-slate-500' : i === 2 ? 'ml-1 text-slate-600' : ''}>{word}</span>
               ))}
             </span>
             <span class="text-[8px] sm:text-[9px] font-bold text-brand-secondary tracking-[0.15em] sm:tracking-[0.2em] uppercase opacity-70 truncate">{t('brand.tagline')}</span>
