@@ -444,7 +444,105 @@
     "home.faq.title": "अक्सर पूछे जाने वाले प्रश्नों",
     "home.cta.title": "अब सर्किट आरेख बनाना शुरू करें",
     "home.cta.desc": "कोई साइनअप नहीं। कोई डाउनलोड नहीं। बस खोलें और डिजाइन करना शुरू करें।",
-    "home.cta.button": "सर्किट आरेख संपादक खोलें — यह मुफ़्त है"
+    "home.cta.button": "सर्किट आरेख संपादक खोलें — यह मुफ़्त है",
+    "home.benefits.badge": "क्यों चुनें हमें",
+    "home.benefits.title": "जो चाहिए सब — बिना झंझट",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "उपयोग के लिए मुफ़्त",
+        "desc": "कोई छिपे शुल्क नहीं, कोई प्रीमियम प्लान नहीं। हर फीचर हमेशा के लिए मुफ़्त है।"
+      },
+      {
+        "icon": "cloud",
+        "label": "डाउनलोड की जरूरत नहीं",
+        "desc": "100% ब्राउज़र में चलता है। कोई सॉफ़्टवेयर इंस्टॉल या अपडेट करने की जरूरत नहीं।"
+      },
+      {
+        "icon": "devices",
+        "label": "सभी डिवाइस पर काम करता है",
+        "desc": "डेस्कटॉप, टैबलेट या फोन पर कहीं भी आसानी से सर्किट डायग्राम बनाएं।"
+      },
+      {
+        "icon": "easy",
+        "label": "शुरुआती के लिए आसान",
+        "desc": "सरल ड्रैग-एंड-ड्रॉप इंटरफ़ेस जिससे कोई भी मिनटों में प्रोफेशनल स्कीमैटिक बना सकता है।"
+      }
+    ],
+    "home.power_features.badge": "शक्तिशाली टूल्स",
+    "home.power_features.title": "शक्तिशाली सर्किट डायग्राम टूल",
+    "home.power_features.subtitle": "प्रोफेशनल फीचर्स जो सर्किट डिज़ाइन को आसान बनाते हैं।",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "ड्रैग और ड्रॉप कंपोनेंट्स",
+        "desc": "रेज़िस्टर, कैपेसिटर, ट्रांजिस्टर और 40+ कंपोनेंट्स को कैनवास पर खींचें।"
+      },
+      {
+        "icon": "schematic",
+        "title": "सटीक स्कीमैटिक ड्रॉइंग",
+        "desc": "IEC और ANSI मानक प्रतीक आपके डायग्राम को तकनीकी रूप से सही और स्पष्ट बनाते हैं।"
+      },
+      {
+        "icon": "realtime",
+        "title": "रियल-टाइम एडिटिंग",
+        "desc": "कनेक्ट, मूव और री-अरेंज करते समय बदलाव तुरंत लाइव दिखते हैं।"
+      },
+      {
+        "icon": "export",
+        "title": "एक्सपोर्ट और सेव",
+        "desc": "SVG, PNG या JSON में डाउनलोड करें। टीम के साथ शेयर करें या दस्तावेज़ में जोड़ें।"
+      }
+    ],
+    "home.examples.badge": "प्रेरणा",
+    "home.examples.title": "सर्किट डायग्राम उदाहरण",
+    "home.examples.subtitle": "हमारे टूल से बनने वाले सामान्य सर्किट प्रकार देखें।",
+    "home.examples.items": [
+      {
+        "title": "सीरीज़ सर्किट डायग्राम",
+        "desc": "कंपोनेंट्स एक ही पथ में क्रम से जुड़े होते हैं और करंट हर कंपोनेंट से क्रमवार गुजरता है।",
+        "icon": "series"
+      },
+      {
+        "title": "पैरेलल सर्किट डायग्राम",
+        "desc": "कंपोनेंट्स सामान्य बिंदुओं पर जुड़े होते हैं जिससे करंट के कई पथ बनते हैं।",
+        "icon": "parallel"
+      },
+      {
+        "title": "डीसी जनरेटर सर्किट",
+        "desc": "आर्मेचर वाइंडिंग, फील्ड कॉइल और कम्यूटेटर की संरचना जो यांत्रिक ऊर्जा को विद्युत में बदलती है।",
+        "icon": "generator"
+      },
+      {
+        "title": "एलईडी सर्किट डायग्राम",
+        "desc": "करंट-लिमिटिंग रेसिस्टर के साथ बेसिक एलईडी सर्किट, जो शुरुआती सीखने वालों में सबसे सामान्य है।",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "इनको बनाकर देखें →",
+    "home.more_tools.badge": "और एक्सप्लोर करें",
+    "home.more_tools.title": "और डायग्राम टूल्स",
+    "home.more_tools.subtitle": "विशेष सर्किट और लॉजिक टूल्स के साथ अपना वर्कफ़्लो बढ़ाएँ।",
+    "home.more_tools.items": [
+      {
+        "title": "स्कीमैटिक डायग्राम क्रिएटर",
+        "desc": "प्रोफेशनल प्रतीकों और स्मार्ट रूटिंग के साथ विस्तृत इलेक्ट्रॉनिक स्कीमैटिक बनाएं।",
+        "href": "/editor/"
+      },
+      {
+        "title": "लॉजिक गेट डायग्राम टूल",
+        "desc": "स्पष्ट गेट-लेवल लॉजिक डायग्राम बनाएं और सिग्नल फ्लो को दृश्य रूप से जांचें।",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Arduino प्रोजेक्ट्स के लिए बोर्ड पिन, मॉड्यूल और वायरिंग पाथ को डॉक्युमेंट करें।",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "अपना सर्किट डायग्राम बनाना शुरू करें",
+    "home.final_cta.desc": "न साइन-अप। न डाउनलोड। बस बनाना शुरू करें।",
+    "home.final_cta.button": "सर्किट डायग्राम मेकर लॉन्च करें"
   },
   "es": {
     "home.hero.badge": "Editor de esquemas gratuito basado en navegador",
@@ -609,7 +707,105 @@
     "home.faq.title": "Preguntas frecuentes",
     "home.cta.title": "Empieza a crear diagramas de circuitos ahora",
     "home.cta.desc": "Sin registro. Sin descargas. Solo abre y empieza a diseñar.",
-    "home.cta.button": "Abrir editor de diagramas — Es gratis"
+    "home.cta.button": "Abrir editor de diagramas — Es gratis",
+    "home.benefits.badge": "Por qué elegirnos",
+    "home.benefits.title": "Todo lo que necesitas — sin complicaciones",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Gratis para usar",
+        "desc": "Sin costes ocultos ni planes premium. Todas las funciones están disponibles gratis para siempre."
+      },
+      {
+        "icon": "cloud",
+        "label": "Sin descargas",
+        "desc": "Funciona 100% en tu navegador. No necesitas instalar ni actualizar software."
+      },
+      {
+        "icon": "devices",
+        "label": "Funciona en todos los dispositivos",
+        "desc": "Diseña diagramas desde escritorio, tablet o móvil con una interfaz adaptable."
+      },
+      {
+        "icon": "easy",
+        "label": "Interfaz para principiantes",
+        "desc": "Editor intuitivo de arrastrar y soltar para crear esquemas profesionales en minutos."
+      }
+    ],
+    "home.power_features.badge": "Herramientas potentes",
+    "home.power_features.title": "Potente herramienta de diagramas de circuitos",
+    "home.power_features.subtitle": "Funciones de nivel profesional que facilitan el diseño de circuitos.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Arrastrar y soltar componentes",
+        "desc": "Arrastra resistencias, condensadores, transistores y más de 40 componentes al lienzo."
+      },
+      {
+        "icon": "schematic",
+        "title": "Dibujo esquemático preciso",
+        "desc": "Los símbolos IEC y ANSI garantizan diagramas técnicamente correctos y claros."
+      },
+      {
+        "icon": "realtime",
+        "title": "Edición en tiempo real",
+        "desc": "Ve los cambios al instante mientras conectas, mueves y reorganizas componentes."
+      },
+      {
+        "icon": "export",
+        "title": "Exportar y guardar",
+        "desc": "Descarga en SVG, PNG o JSON. Comparte con tu equipo o incrusta en documentos técnicos."
+      }
+    ],
+    "home.examples.badge": "Inspiración",
+    "home.examples.title": "Ejemplos de diagramas de circuitos",
+    "home.examples.subtitle": "Explora tipos de circuitos comunes que puedes crear con nuestra herramienta.",
+    "home.examples.items": [
+      {
+        "title": "Diagrama de circuito en serie",
+        "desc": "Componentes conectados uno tras otro en una sola ruta. La corriente pasa secuencialmente por cada componente.",
+        "icon": "series"
+      },
+      {
+        "title": "Diagrama de circuito en paralelo",
+        "desc": "Componentes conectados entre puntos comunes, creando múltiples rutas para la corriente.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Circuito de generador de CC",
+        "desc": "Disposición de bobinado de armadura, bobina de campo y conmutador para convertir energía mecánica en eléctrica.",
+        "icon": "generator"
+      },
+      {
+        "title": "Diagrama de circuito LED",
+        "desc": "Circuito LED básico con resistencia limitadora de corriente, ideal para principiantes en electrónica.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Prueba a construir estos →",
+    "home.more_tools.badge": "Explora más",
+    "home.more_tools.title": "Más herramientas de diagramas",
+    "home.more_tools.subtitle": "Amplía tu flujo de trabajo con herramientas especializadas de circuitos y lógica.",
+    "home.more_tools.items": [
+      {
+        "title": "Creador de diagramas esquemáticos",
+        "desc": "Crea esquemas electrónicos detallados con símbolos profesionales y enrutamiento inteligente.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Herramienta de diagramas de compuertas lógicas",
+        "desc": "Construye diagramas lógicos claros a nivel de compuertas y valida visualmente el flujo de señales.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Documenta conexiones de pines, módulos y rutas de cableado para proyectos con Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Empieza a crear tu diagrama de circuito",
+    "home.final_cta.desc": "Sin registro. Sin descarga. Solo empieza a diseñar.",
+    "home.final_cta.button": "Abrir Circuit Diagram Maker"
   },
   "ru": {
     "home.hero.badge": "Бесплатный браузерный редактор схем",
@@ -774,7 +970,105 @@
     "home.faq.title": "Часто задаваемые вопросы",
     "home.cta.title": "Начните создавать схемы прямо сейчас",
     "home.cta.desc": "Без регистрации. Без скачивания. Просто откройте и проектируйте.",
-    "home.cta.button": "Открыть редактор схем — это бесплатно"
+    "home.cta.button": "Открыть редактор схем — это бесплатно",
+    "home.benefits.badge": "Почему выбирают нас",
+    "home.benefits.title": "Все, что нужно — без лишних сложностей",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Бесплатно",
+        "desc": "Без скрытых платежей и премиум-тарифов. Все функции доступны бесплатно навсегда."
+      },
+      {
+        "icon": "cloud",
+        "label": "Без установки",
+        "desc": "Работает на 100% в браузере. Ничего не нужно устанавливать и обновлять."
+      },
+      {
+        "icon": "devices",
+        "label": "На всех устройствах",
+        "desc": "Создавайте схемы на компьютере, планшете или телефоне с адаптивным интерфейсом."
+      },
+      {
+        "icon": "easy",
+        "label": "Просто для новичков",
+        "desc": "Интуитивный drag-and-drop редактор, с которым можно собрать профессиональную схему за минуты."
+      }
+    ],
+    "home.power_features.badge": "Мощные инструменты",
+    "home.power_features.title": "Мощный инструмент для схем",
+    "home.power_features.subtitle": "Профессиональные функции, которые упрощают проектирование схем.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Перетаскивание компонентов",
+        "desc": "Добавляйте резисторы, конденсаторы, транзисторы и еще 40+ компонентов на полотно."
+      },
+      {
+        "icon": "schematic",
+        "title": "Точное построение схем",
+        "desc": "Стандарты IEC и ANSI делают схемы технически корректными и понятными."
+      },
+      {
+        "icon": "realtime",
+        "title": "Редактирование в реальном времени",
+        "desc": "Мгновенно видьте изменения при соединении, перемещении и перестановке компонентов."
+      },
+      {
+        "icon": "export",
+        "title": "Экспорт и сохранение",
+        "desc": "Скачивайте в SVG, PNG или JSON. Делитесь с командой или вставляйте в документы."
+      }
+    ],
+    "home.examples.badge": "Примеры",
+    "home.examples.title": "Примеры схем",
+    "home.examples.subtitle": "Посмотрите распространенные типы схем, которые можно создать в нашем инструменте.",
+    "home.examples.items": [
+      {
+        "title": "Последовательная схема",
+        "desc": "Компоненты соединены последовательно в одной цепи. Ток проходит через каждый элемент по очереди.",
+        "icon": "series"
+      },
+      {
+        "title": "Параллельная схема",
+        "desc": "Компоненты подключены к общим узлам, создавая несколько путей для тока.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Схема генератора постоянного тока",
+        "desc": "Структура якорной обмотки, катушки возбуждения и коллектора для преобразования механической энергии в электрическую.",
+        "icon": "generator"
+      },
+      {
+        "title": "Схема со светодиодом",
+        "desc": "Базовая схема LED с токоограничивающим резистором — самый популярный старт в электронике.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Попробовать собрать эти схемы →",
+    "home.more_tools.badge": "Изучайте больше",
+    "home.more_tools.title": "Больше инструментов для схем",
+    "home.more_tools.subtitle": "Расширьте рабочий процесс специализированными инструментами для схем и логики.",
+    "home.more_tools.items": [
+      {
+        "title": "Конструктор принципиальных схем",
+        "desc": "Создавайте детальные электронные схемы с профессиональными символами и умной трассировкой.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Инструмент логических элементов",
+        "desc": "Стройте понятные схемы логических вентилей и проверяйте прохождение сигналов визуально.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Документируйте пины платы, модули и трассы проводов для проектов Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Начните создавать свою схему",
+    "home.final_cta.desc": "Без регистрации. Без загрузок. Просто начните проектировать.",
+    "home.final_cta.button": "Открыть Circuit Diagram Maker"
   },
   "fr": {
     "home.hero.badge": "Éditeur de schémas gratuit sur navigateur",
@@ -939,7 +1233,105 @@
     "home.faq.title": "Questions fréquentes",
     "home.cta.title": "Commencez à créer des schémas de circuits",
     "home.cta.desc": "Sans inscription. Sans téléchargement. Ouvrez et concevez.",
-    "home.cta.button": "Ouvrir l'éditeur de schémas — C'est gratuit"
+    "home.cta.button": "Ouvrir l'éditeur de schémas — C'est gratuit",
+    "home.benefits.badge": "Pourquoi nous choisir",
+    "home.benefits.title": "Tout ce qu’il vous faut — sans tracas",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Gratuit à utiliser",
+        "desc": "Aucun frais caché, aucun plan premium. Toutes les fonctionnalités sont gratuites pour toujours."
+      },
+      {
+        "icon": "cloud",
+        "label": "Aucun téléchargement",
+        "desc": "Fonctionne à 100% dans le navigateur. Pas d’installation ni de mise à jour logicielle."
+      },
+      {
+        "icon": "devices",
+        "label": "Sur tous les appareils",
+        "desc": "Créez des schémas sur ordinateur, tablette ou téléphone avec une interface responsive."
+      },
+      {
+        "icon": "easy",
+        "label": "Interface débutant",
+        "desc": "Éditeur intuitif en glisser-déposer pour créer des schémas professionnels en quelques minutes."
+      }
+    ],
+    "home.power_features.badge": "Outils puissants",
+    "home.power_features.title": "Outil de schéma électrique puissant",
+    "home.power_features.subtitle": "Des fonctionnalités professionnelles qui simplifient la conception de circuits.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Composants en glisser-déposer",
+        "desc": "Glissez simplement des résistances, condensateurs, transistors et plus de 40 composants."
+      },
+      {
+        "icon": "schematic",
+        "title": "Schémas précis",
+        "desc": "Les symboles normalisés IEC et ANSI garantissent des schémas techniques fiables et lisibles."
+      },
+      {
+        "icon": "realtime",
+        "title": "Édition en temps réel",
+        "desc": "Voyez les modifications instantanément pendant que vous connectez et déplacez les composants."
+      },
+      {
+        "icon": "export",
+        "title": "Exporter et enregistrer",
+        "desc": "Exportez en SVG, PNG ou JSON. Partagez avec votre équipe ou intégrez dans vos documents."
+      }
+    ],
+    "home.examples.badge": "Inspiration",
+    "home.examples.title": "Exemples de schémas électriques",
+    "home.examples.subtitle": "Explorez des types de circuits courants que vous pouvez créer avec notre outil.",
+    "home.examples.items": [
+      {
+        "title": "Schéma de circuit en série",
+        "desc": "Les composants sont connectés bout à bout sur un seul trajet. Le courant traverse chaque composant successivement.",
+        "icon": "series"
+      },
+      {
+        "title": "Schéma de circuit en parallèle",
+        "desc": "Les composants sont reliés entre des points communs, créant plusieurs chemins de courant.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Circuit de générateur DC",
+        "desc": "Disposition de l’induit, de la bobine de champ et du collecteur pour convertir l’énergie mécanique en énergie électrique.",
+        "icon": "generator"
+      },
+      {
+        "title": "Schéma de circuit LED",
+        "desc": "Circuit LED de base avec résistance de limitation de courant, idéal pour débuter en électronique.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Essayez de les construire →",
+    "home.more_tools.badge": "Explorer plus",
+    "home.more_tools.title": "Plus d’outils de schéma",
+    "home.more_tools.subtitle": "Étendez votre flux de travail avec nos outils spécialisés en circuits et logique.",
+    "home.more_tools.items": [
+      {
+        "title": "Créateur de schémas électroniques",
+        "desc": "Créez des schémas détaillés avec des symboles professionnels et un routage intelligent.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Outil de diagrammes logiques",
+        "desc": "Construisez des diagrammes de portes logiques clairs et validez visuellement le flux de signal.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Documentez les connexions de broches, modules et chemins de câblage pour les projets Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Commencez à créer votre schéma",
+    "home.final_cta.desc": "Sans inscription. Sans téléchargement. Commencez immédiatement.",
+    "home.final_cta.button": "Lancer Circuit Diagram Maker"
   },
   "de": {
     "home.hero.badge": "Kostenloser browserbasierter Schaltplan-Editor",
@@ -1104,7 +1496,105 @@
     "home.faq.title": "Häufig gestellte Fragen",
     "home.cta.title": "Jetzt Schaltpläne erstellen",
     "home.cta.desc": "Keine Anmeldung. Kein Download. Einfach öffnen und loslegen.",
-    "home.cta.button": "Schaltplan-Editor öffnen — Kostenlos"
+    "home.cta.button": "Schaltplan-Editor öffnen — Kostenlos",
+    "home.benefits.badge": "Warum wir",
+    "home.benefits.title": "Alles, was Sie brauchen — ganz ohne Aufwand",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Kostenlos nutzbar",
+        "desc": "Keine versteckten Kosten, keine Premium-Stufen. Alle Funktionen sind dauerhaft kostenlos."
+      },
+      {
+        "icon": "cloud",
+        "label": "Kein Download nötig",
+        "desc": "Läuft vollständig im Browser. Keine Installation und keine Updates erforderlich."
+      },
+      {
+        "icon": "devices",
+        "label": "Auf allen Geräten",
+        "desc": "Erstellen Sie Schaltpläne auf Desktop, Tablet oder Smartphone mit responsiver Oberfläche."
+      },
+      {
+        "icon": "easy",
+        "label": "Einsteigerfreundlich",
+        "desc": "Intuitiver Drag-and-Drop-Editor, mit dem jeder in Minuten professionelle Pläne erstellen kann."
+      }
+    ],
+    "home.power_features.badge": "Leistungsstarke Tools",
+    "home.power_features.title": "Leistungsstarkes Schaltplan-Tool",
+    "home.power_features.subtitle": "Professionelle Funktionen, die das Schaltungsdesign mühelos machen.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Komponenten per Drag-and-Drop",
+        "desc": "Ziehen Sie Widerstände, Kondensatoren, Transistoren und 40+ weitere Komponenten auf die Zeichenfläche."
+      },
+      {
+        "icon": "schematic",
+        "title": "Präzise Schaltplanzeichnung",
+        "desc": "IEC- und ANSI-Standardsymbole sorgen für technisch korrekte und gut lesbare Schaltpläne."
+      },
+      {
+        "icon": "realtime",
+        "title": "Bearbeitung in Echtzeit",
+        "desc": "Änderungen werden sofort sichtbar, während Sie Komponenten verbinden, verschieben und anordnen."
+      },
+      {
+        "icon": "export",
+        "title": "Exportieren und speichern",
+        "desc": "Download als SVG, PNG oder JSON. Mit dem Team teilen oder in technische Dokumente einbetten."
+      }
+    ],
+    "home.examples.badge": "Inspiration",
+    "home.examples.title": "Schaltplan-Beispiele",
+    "home.examples.subtitle": "Entdecken Sie typische Schaltungsarten, die Sie mit unserem Tool erstellen können.",
+    "home.examples.items": [
+      {
+        "title": "Reihenschaltung",
+        "desc": "Komponenten sind hintereinander in einem einzigen Pfad verbunden. Der Strom fließt nacheinander durch jedes Bauteil.",
+        "icon": "series"
+      },
+      {
+        "title": "Parallelschaltung",
+        "desc": "Komponenten sind an gemeinsamen Knoten verbunden und erzeugen mehrere Strompfade.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Gleichstromgenerator-Schaltung",
+        "desc": "Anordnung von Ankerwicklung, Feldspule und Kommutator zur Umwandlung mechanischer in elektrische Energie.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED-Schaltung",
+        "desc": "Einfache LED-Schaltung mit Vorwiderstand — der häufigste Einstieg in die Elektronik.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Diese Beispiele ausprobieren →",
+    "home.more_tools.badge": "Mehr entdecken",
+    "home.more_tools.title": "Weitere Diagramm-Tools",
+    "home.more_tools.subtitle": "Erweitern Sie Ihren Workflow mit spezialisierten Tools für Schalt- und Logikdiagramme.",
+    "home.more_tools.items": [
+      {
+        "title": "Schaltplan-Ersteller",
+        "desc": "Erstellen Sie detaillierte elektronische Schaltpläne mit professionellen Symbolen und intelligenter Leitungsführung.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Logikgatter-Diagramm-Tool",
+        "desc": "Erstellen Sie klare Logikdiagramme auf Gatterebene und prüfen Sie den Signalfluss visuell.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Dokumentieren Sie Pin-Verbindungen, Module und Leitungswege für Arduino-Projekte.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Starten Sie jetzt mit Ihrem Schaltplan",
+    "home.final_cta.desc": "Keine Anmeldung. Kein Download. Einfach loslegen.",
+    "home.final_cta.button": "Circuit Diagram Maker starten"
   },
   "it": {
     "home.hero.badge": "Editor di schemi gratuito basato su browser",
@@ -1269,7 +1759,105 @@
     "home.faq.title": "Domande frequenti",
     "home.cta.title": "Inizia a creare diagrammi ora",
     "home.cta.desc": "Senza registrazione. Senza download. Apri e progetta.",
-    "home.cta.button": "Apri editor di diagrammi — È gratis"
+    "home.cta.button": "Apri editor di diagrammi — È gratis",
+    "home.benefits.badge": "Perché sceglierci",
+    "home.benefits.title": "Tutto ciò che ti serve — senza complicazioni",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Uso gratuito",
+        "desc": "Nessun costo nascosto e nessun piano premium. Tutte le funzionalità sono gratuite per sempre."
+      },
+      {
+        "icon": "cloud",
+        "label": "Nessun download",
+        "desc": "Funziona al 100% nel browser. Nessuna installazione o aggiornamento da gestire."
+      },
+      {
+        "icon": "devices",
+        "label": "Su tutti i dispositivi",
+        "desc": "Crea diagrammi da desktop, tablet o telefono con un’interfaccia responsive."
+      },
+      {
+        "icon": "easy",
+        "label": "Interfaccia per principianti",
+        "desc": "Editor intuitivo drag-and-drop per creare schemi professionali in pochi minuti."
+      }
+    ],
+    "home.power_features.badge": "Strumenti potenti",
+    "home.power_features.title": "Potente strumento per diagrammi di circuito",
+    "home.power_features.subtitle": "Funzionalità di livello professionale che rendono semplice il design dei circuiti.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Componenti drag-and-drop",
+        "desc": "Trascina resistenze, condensatori, transistor e oltre 40 componenti sul canvas."
+      },
+      {
+        "icon": "schematic",
+        "title": "Disegno schematico accurato",
+        "desc": "I simboli standard IEC e ANSI garantiscono schemi tecnicamente corretti e leggibili."
+      },
+      {
+        "icon": "realtime",
+        "title": "Modifica in tempo reale",
+        "desc": "Vedi subito le modifiche mentre colleghi, sposti e riordini i componenti."
+      },
+      {
+        "icon": "export",
+        "title": "Esporta e salva",
+        "desc": "Scarica in SVG, PNG o JSON. Condividi con il team o inserisci nei documenti tecnici."
+      }
+    ],
+    "home.examples.badge": "Ispirazione",
+    "home.examples.title": "Esempi di diagrammi di circuito",
+    "home.examples.subtitle": "Scopri i tipi di circuiti più comuni che puoi creare con il nostro strumento.",
+    "home.examples.items": [
+      {
+        "title": "Diagramma di circuito in serie",
+        "desc": "Componenti collegati in sequenza su un unico percorso. La corrente attraversa ogni componente uno dopo l’altro.",
+        "icon": "series"
+      },
+      {
+        "title": "Diagramma di circuito in parallelo",
+        "desc": "Componenti collegati su nodi comuni, creando più percorsi per la corrente.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Circuito generatore in CC",
+        "desc": "Configurazione di avvolgimento d’armatura, bobina di campo e collettore per convertire energia meccanica in elettrica.",
+        "icon": "generator"
+      },
+      {
+        "title": "Diagramma circuito LED",
+        "desc": "Circuito LED base con resistenza limitatrice di corrente, ideale per iniziare con l’elettronica.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Prova a costruirli →",
+    "home.more_tools.badge": "Esplora di più",
+    "home.more_tools.title": "Altri strumenti di diagrammi",
+    "home.more_tools.subtitle": "Estendi il tuo flusso di lavoro con strumenti specializzati per circuiti e logica.",
+    "home.more_tools.items": [
+      {
+        "title": "Creatore di schemi elettrici",
+        "desc": "Crea schemi elettronici dettagliati con simboli professionali e instradamento intelligente.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Strumento diagrammi porte logiche",
+        "desc": "Crea diagrammi logici chiari a livello di porte e verifica visivamente il flusso del segnale.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Documenta connessioni dei pin, moduli e percorsi di cablaggio per progetti Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Inizia a creare il tuo diagramma di circuito",
+    "home.final_cta.desc": "Nessuna registrazione. Nessun download. Inizia subito.",
+    "home.final_cta.button": "Avvia Circuit Diagram Maker"
   },
   "pt": {
     "home.hero.badge": "Editor de esquemas gratuito baseado no navegador",
@@ -1434,7 +2022,105 @@
     "home.faq.title": "Perguntas frequentes",
     "home.cta.title": "Comece a criar diagramas agora",
     "home.cta.desc": "Sem registo. Sem downloads. Basta abrir e desenhar.",
-    "home.cta.button": "Abrir editor de diagramas — É grátis"
+    "home.cta.button": "Abrir editor de diagramas — É grátis",
+    "home.benefits.badge": "Por que escolher-nos",
+    "home.benefits.title": "Tudo o que precisa — sem complicações",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Gratuito para usar",
+        "desc": "Sem taxas ocultas e sem planos premium. Todos os recursos são gratuitos para sempre."
+      },
+      {
+        "icon": "cloud",
+        "label": "Sem download",
+        "desc": "Funciona 100% no navegador. Sem software para instalar ou atualizar."
+      },
+      {
+        "icon": "devices",
+        "label": "Funciona em todos os dispositivos",
+        "desc": "Crie diagramas no desktop, tablet ou telemóvel com interface responsiva."
+      },
+      {
+        "icon": "easy",
+        "label": "Interface amigável para iniciantes",
+        "desc": "Editor intuitivo de arrastar e soltar para criar esquemas profissionais em minutos."
+      }
+    ],
+    "home.power_features.badge": "Ferramentas poderosas",
+    "home.power_features.title": "Ferramenta poderosa de diagrama de circuito",
+    "home.power_features.subtitle": "Recursos profissionais que tornam o design de circuitos mais simples.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Componentes com arrastar e soltar",
+        "desc": "Arraste resistores, capacitores, transistores e mais de 40 componentes para o canvas."
+      },
+      {
+        "icon": "schematic",
+        "title": "Desenho esquemático preciso",
+        "desc": "Símbolos padrão IEC e ANSI garantem diagramas técnicos corretos e legíveis."
+      },
+      {
+        "icon": "realtime",
+        "title": "Edição em tempo real",
+        "desc": "Veja as alterações instantaneamente enquanto conecta, move e reorganiza componentes."
+      },
+      {
+        "icon": "export",
+        "title": "Exportar e salvar",
+        "desc": "Baixe em SVG, PNG ou JSON. Compartilhe com sua equipa ou incorpore em documentos técnicos."
+      }
+    ],
+    "home.examples.badge": "Inspiração",
+    "home.examples.title": "Exemplos de diagramas de circuito",
+    "home.examples.subtitle": "Explore tipos comuns de circuito que você pode criar com a nossa ferramenta.",
+    "home.examples.items": [
+      {
+        "title": "Diagrama de circuito em série",
+        "desc": "Componentes conectados ponta a ponta num único caminho. A corrente passa por cada componente em sequência.",
+        "icon": "series"
+      },
+      {
+        "title": "Diagrama de circuito em paralelo",
+        "desc": "Componentes ligados em pontos comuns, criando múltiplos caminhos para a corrente.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Circuito de gerador DC",
+        "desc": "Arranjo de enrolamento de armadura, bobina de campo e comutador para converter energia mecânica em elétrica.",
+        "icon": "generator"
+      },
+      {
+        "title": "Diagrama de circuito LED",
+        "desc": "Circuito básico de LED com resistor limitador de corrente, ideal para iniciantes em eletrônica.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Tente construir estes →",
+    "home.more_tools.badge": "Explore mais",
+    "home.more_tools.title": "Mais ferramentas de diagrama",
+    "home.more_tools.subtitle": "Amplie seu fluxo de trabalho com ferramentas especializadas de circuito e lógica.",
+    "home.more_tools.items": [
+      {
+        "title": "Criador de diagrama esquemático",
+        "desc": "Crie esquemas eletrônicos detalhados com símbolos profissionais e roteamento inteligente.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Ferramenta de diagrama de portas lógicas",
+        "desc": "Construa diagramas lógicos claros e valide visualmente o fluxo de sinais.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Documente conexões de pinos, módulos e caminhos de fiação para projetos Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Comece a criar seu diagrama de circuito",
+    "home.final_cta.desc": "Sem cadastro. Sem download. É só começar.",
+    "home.final_cta.button": "Abrir Circuit Diagram Maker"
   },
   "bn": {
     "home.hero.badge": "বিনামূল্যে ব্রাউজার-ভিত্তিক সার্কিট ডায়াগ্রাম এডিটর",
@@ -1599,7 +2285,105 @@
     "home.faq.title": "সাধারণ জিজ্ঞাসা",
     "home.cta.title": "এখনই সার্কিট ডায়াগ্রাম তৈরি শুরু করুন",
     "home.cta.desc": "কোনো রেজিস্ট্রেশন লাগবে না। জাস্ট ওপেন করে ডিজাইন শুরু করুন।",
-    "home.cta.button": "এডিটর খুলুন — এটি ফ্রি"
+    "home.cta.button": "এডিটর খুলুন — এটি ফ্রি",
+    "home.benefits.badge": "কেন আমাদের বেছে নেবেন",
+    "home.benefits.title": "আপনার যা দরকার সব — কোনো ঝামেলা নেই",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "ব্যবহারে সম্পূর্ণ ফ্রি",
+        "desc": "কোনো লুকানো খরচ বা প্রিমিয়াম প্ল্যান নেই। সব ফিচার সবসময় ফ্রি।"
+      },
+      {
+        "icon": "cloud",
+        "label": "ডাউনলোডের দরকার নেই",
+        "desc": "১০০% ব্রাউজারে চলে। কোনো সফটওয়্যার ইনস্টল বা আপডেট করতে হয় না।"
+      },
+      {
+        "icon": "devices",
+        "label": "সব ডিভাইসে কাজ করে",
+        "desc": "ডেস্কটপ, ট্যাবলেট বা ফোনে রেসপনসিভ ইন্টারফেসে ডায়াগ্রাম বানান।"
+      },
+      {
+        "icon": "easy",
+        "label": "নতুনদের জন্য সহজ",
+        "desc": "সহজ ড্র্যাগ-অ্যান্ড-ড্রপ এডিটর দিয়ে কয়েক মিনিটেই প্রফেশনাল স্কিম্যাটিক তৈরি করুন।"
+      }
+    ],
+    "home.power_features.badge": "শক্তিশালী টুলস",
+    "home.power_features.title": "শক্তিশালী সার্কিট ডায়াগ্রাম টুল",
+    "home.power_features.subtitle": "প্রফেশনাল ফিচার যা সার্কিট ডিজাইনকে আরও সহজ করে।",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "ড্র্যাগ ও ড্রপ কম্পোনেন্ট",
+        "desc": "রেজিস্টর, ক্যাপাসিটর, ট্রানজিস্টরসহ ৪০+ কম্পোনেন্ট ক্যানভাসে টেনে আনুন।"
+      },
+      {
+        "icon": "schematic",
+        "title": "নির্ভুল স্কিম্যাটিক ড্রয়িং",
+        "desc": "IEC ও ANSI মানের প্রতীক আপনার ডায়াগ্রামকে প্রযুক্তিগতভাবে সঠিক ও পাঠযোগ্য রাখে।"
+      },
+      {
+        "icon": "realtime",
+        "title": "রিয়েল-টাইম এডিটিং",
+        "desc": "কানেক্ট, মুভ বা রি-অ্যারেঞ্জ করার সাথে সাথে পরিবর্তন সঙ্গে সঙ্গে দেখুন।"
+      },
+      {
+        "icon": "export",
+        "title": "এক্সপোর্ট ও সেভ",
+        "desc": "SVG, PNG বা JSON হিসেবে ডাউনলোড করুন। টিমের সাথে শেয়ার করুন বা ডকুমেন্টে যোগ করুন।"
+      }
+    ],
+    "home.examples.badge": "প্রেরণা",
+    "home.examples.title": "সার্কিট ডায়াগ্রাম উদাহরণ",
+    "home.examples.subtitle": "আমাদের টুল দিয়ে বানানো যায় এমন সাধারণ সার্কিট টাইপগুলো দেখুন।",
+    "home.examples.items": [
+      {
+        "title": "সিরিজ সার্কিট ডায়াগ্রাম",
+        "desc": "একটি একক পথে কম্পোনেন্টগুলো ধারাবাহিকভাবে যুক্ত থাকে। কারেন্ট প্রতিটি কম্পোনেন্টের মধ্য দিয়ে ক্রমানুসারে প্রবাহিত হয়।",
+        "icon": "series"
+      },
+      {
+        "title": "প্যারালাল সার্কিট ডায়াগ্রাম",
+        "desc": "কম্পোনেন্টগুলো সাধারণ নোডে যুক্ত থাকে, ফলে কারেন্টের একাধিক পথ তৈরি হয়।",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC জেনারেটর সার্কিট",
+        "desc": "আর্মেচার উইন্ডিং, ফিল্ড কয়েল এবং কমিউটেটর বিন্যাস যা যান্ত্রিক শক্তিকে বৈদ্যুতিক শক্তিতে রূপান্তর করে।",
+        "icon": "generator"
+      },
+      {
+        "title": "LED সার্কিট ডায়াগ্রাম",
+        "desc": "কারেন্ট-লিমিটিং রেজিস্টরসহ বেসিক LED সার্কিট, যা ইলেকট্রনিক্স শেখার সবচেয়ে সাধারণ শুরু।",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "এগুলো তৈরি করে দেখুন →",
+    "home.more_tools.badge": "আরও দেখুন",
+    "home.more_tools.title": "আরও ডায়াগ্রাম টুলস",
+    "home.more_tools.subtitle": "বিশেষায়িত সার্কিট ও লজিক টুল দিয়ে আপনার ওয়ার্কফ্লো বাড়ান।",
+    "home.more_tools.items": [
+      {
+        "title": "স্কিম্যাটিক ডায়াগ্রাম ক্রিয়েটর",
+        "desc": "প্রফেশনাল প্রতীক ও স্মার্ট রাউটিং দিয়ে বিস্তারিত ইলেকট্রনিক স্কিম্যাটিক তৈরি করুন।",
+        "href": "/editor/"
+      },
+      {
+        "title": "লজিক গেট ডায়াগ্রাম টুল",
+        "desc": "স্পষ্ট গেট-লেভেল লজিক ডায়াগ্রাম তৈরি করুন এবং ভিজ্যুয়ালি সিগন্যাল ফ্লো যাচাই করুন।",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Arduino প্রকল্পের জন্য বোর্ড পিন সংযোগ, মডিউল ও ওয়্যারিং পথ ডকুমেন্ট করুন।",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "আপনার সার্কিট ডায়াগ্রাম তৈরি শুরু করুন",
+    "home.final_cta.desc": "সাইন-আপ নেই। ডাউনলোড নেই। শুধু শুরু করুন।",
+    "home.final_cta.button": "Circuit Diagram Maker চালু করুন"
   },
   "ja": {
     "home.hero.badge": "無料のブラウザベース回路図エディタ",
@@ -1764,7 +2548,105 @@
     "home.faq.title": "よくある質問",
     "home.cta.title": "今すぐ回路図の作成を開始",
     "home.cta.desc": "登録不要。ダウンロード不要。開くだけで開始。",
-    "home.cta.button": "回路図エディタを開く — 無料"
+    "home.cta.button": "回路図エディタを開く — 無料",
+    "home.benefits.badge": "選ばれる理由",
+    "home.benefits.title": "必要な機能をすべて — 面倒なし",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "無料で使える",
+        "desc": "隠れた料金や有料プランはありません。すべての機能をずっと無料で使えます。"
+      },
+      {
+        "icon": "cloud",
+        "label": "ダウンロード不要",
+        "desc": "100%ブラウザで動作。インストールやアップデートは不要です。"
+      },
+      {
+        "icon": "devices",
+        "label": "すべての端末で利用可能",
+        "desc": "PC・タブレット・スマホで、レスポンシブなUIから回路図を作成できます。"
+      },
+      {
+        "icon": "easy",
+        "label": "初心者にもやさしい",
+        "desc": "直感的なドラッグ＆ドロップ操作で、数分でプロ品質の回路図を作成できます。"
+      }
+    ],
+    "home.power_features.badge": "強力なツール",
+    "home.power_features.title": "高機能な回路図ツール",
+    "home.power_features.subtitle": "回路設計をスムーズにするプロ向け機能を搭載。",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "ドラッグ＆ドロップ配置",
+        "desc": "抵抗、コンデンサ、トランジスタなど40種類以上の部品をキャンバスに配置できます。"
+      },
+      {
+        "icon": "schematic",
+        "title": "正確な回路図作成",
+        "desc": "IEC/ANSI標準シンボルで、技術的に正確で読みやすい回路図を作成できます。"
+      },
+      {
+        "icon": "realtime",
+        "title": "リアルタイム編集",
+        "desc": "接続・移動・再配置の変更がその場で反映されます。"
+      },
+      {
+        "icon": "export",
+        "title": "エクスポートと保存",
+        "desc": "SVG・PNG・JSONで保存可能。チーム共有や技術文書への埋め込みにも対応。"
+      }
+    ],
+    "home.examples.badge": "作成例",
+    "home.examples.title": "回路図の作成例",
+    "home.examples.subtitle": "このツールで作成できる代表的な回路例をご覧ください。",
+    "home.examples.items": [
+      {
+        "title": "直列回路図",
+        "desc": "部品を1本の経路上に順番に接続した回路。電流は各部品を順に流れます。",
+        "icon": "series"
+      },
+      {
+        "title": "並列回路図",
+        "desc": "共通ノード間に部品を接続し、電流の経路が複数に分かれる回路です。",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC発電機回路",
+        "desc": "機械エネルギーを電気エネルギーへ変換するための、電機子巻線・界磁コイル・整流子の構成。",
+        "icon": "generator"
+      },
+      {
+        "title": "LED回路図",
+        "desc": "電流制限抵抗付きの基本LED回路。電子回路学習の定番です。",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "これらを作ってみる →",
+    "home.more_tools.badge": "さらに見る",
+    "home.more_tools.title": "その他の図作成ツール",
+    "home.more_tools.subtitle": "回路・ロジック設計に特化したツールで作業を拡張しましょう。",
+    "home.more_tools.items": [
+      {
+        "title": "回路図作成ツール",
+        "desc": "プロ向けシンボルとスマート配線で、詳細な電子回路図を作成できます。",
+        "href": "/editor/"
+      },
+      {
+        "title": "ロジックゲート図ツール",
+        "desc": "ゲートレベルの論理図を明確に作成し、信号の流れを視覚的に検証できます。",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Arduinoプロジェクト向けに、ピン接続・モジュール・配線経路を文書化できます。",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "回路図作成を今すぐ始めましょう",
+    "home.final_cta.desc": "登録不要。ダウンロード不要。すぐに作成を開始できます。",
+    "home.final_cta.button": "Circuit Diagram Maker を開く"
   },
   "ko": {
     "home.hero.badge": "무료 브라우저 기반 회로도 에디터",
@@ -1929,7 +2811,105 @@
     "home.faq.title": "자주 묻는 질문",
     "home.cta.title": "지금 바로 회로도 작성을 시작하세요",
     "home.cta.desc": "가입 불필요. 다운로드 불필요. 열기만 하면 시작됩니다.",
-    "home.cta.button": "회로도 에디터 열기 — 무료"
+    "home.cta.button": "회로도 에디터 열기 — 무료",
+    "home.benefits.badge": "왜 우리를 선택할까요",
+    "home.benefits.title": "필요한 모든 기능 — 번거로움 없이",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "무료로 사용",
+        "desc": "숨겨진 비용이나 프리미엄 등급이 없습니다. 모든 기능을 항상 무료로 이용할 수 있습니다."
+      },
+      {
+        "icon": "cloud",
+        "label": "다운로드 불필요",
+        "desc": "100% 브라우저에서 실행됩니다. 설치나 업데이트가 필요 없습니다."
+      },
+      {
+        "icon": "devices",
+        "label": "모든 기기에서 작동",
+        "desc": "데스크톱, 태블릿, 휴대폰 어디서나 반응형 인터페이스로 회로도를 설계할 수 있습니다."
+      },
+      {
+        "icon": "easy",
+        "label": "초보자 친화적 인터페이스",
+        "desc": "직관적인 드래그 앤 드롭 편집기로 몇 분 안에 전문적인 회로도를 만들 수 있습니다."
+      }
+    ],
+    "home.power_features.badge": "강력한 도구",
+    "home.power_features.title": "강력한 회로도 도구",
+    "home.power_features.subtitle": "전문가급 기능으로 회로 설계를 더 쉽게 만듭니다.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "드래그 앤 드롭 부품",
+        "desc": "저항, 커패시터, 트랜지스터 등 40개 이상의 부품을 캔버스로 끌어다 놓으세요."
+      },
+      {
+        "icon": "schematic",
+        "title": "정확한 회로도 작성",
+        "desc": "IEC 및 ANSI 표준 심볼로 기술적으로 정확하고 읽기 쉬운 회로도를 보장합니다."
+      },
+      {
+        "icon": "realtime",
+        "title": "실시간 편집",
+        "desc": "부품을 연결, 이동, 재배치할 때 변경 사항을 즉시 확인할 수 있습니다."
+      },
+      {
+        "icon": "export",
+        "title": "내보내기 및 저장",
+        "desc": "SVG, PNG, JSON으로 다운로드하세요. 팀과 공유하거나 기술 문서에 삽입할 수 있습니다."
+      }
+    ],
+    "home.examples.badge": "예시",
+    "home.examples.title": "회로도 예제",
+    "home.examples.subtitle": "우리 도구로 만들 수 있는 대표적인 회로 유형을 살펴보세요.",
+    "home.examples.items": [
+      {
+        "title": "직렬 회로도",
+        "desc": "부품이 하나의 경로로 끝에서 끝까지 연결된 형태입니다. 전류가 각 부품을 순차적으로 흐릅니다.",
+        "icon": "series"
+      },
+      {
+        "title": "병렬 회로도",
+        "desc": "공통 노드에 부품이 연결되어 전류가 흐르는 경로가 여러 개 생깁니다.",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC 발전기 회로",
+        "desc": "기계 에너지를 전기 에너지로 변환하기 위한 전기자 권선, 계자 코일, 정류자 구성입니다.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED 회로도",
+        "desc": "전류 제한 저항이 포함된 기본 LED 회로로, 전자회로 학습의 대표적인 입문 예제입니다.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "이 예제를 만들어 보기 →",
+    "home.more_tools.badge": "더 알아보기",
+    "home.more_tools.title": "추가 다이어그램 도구",
+    "home.more_tools.subtitle": "특화된 회로 및 로직 설계 도구로 워크플로우를 확장하세요.",
+    "home.more_tools.items": [
+      {
+        "title": "회로도 생성기",
+        "desc": "전문 심볼과 스마트 라우팅으로 상세한 전자 회로도를 만드세요.",
+        "href": "/editor/"
+      },
+      {
+        "title": "논리 게이트 다이어그램 도구",
+        "desc": "게이트 수준의 논리 다이어그램을 명확하게 작성하고 신호 흐름을 시각적으로 검증하세요.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Arduino 프로젝트의 보드 핀 연결, 모듈, 배선 경로를 문서화하세요.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "회로도 작성을 시작하세요",
+    "home.final_cta.desc": "가입 없음. 다운로드 없음. 바로 시작하세요.",
+    "home.final_cta.button": "Circuit Diagram Maker 실행"
   },
   "ms": {
     "home.hero.badge": "Editor Gambarajah Litar Percuma Berasaskan Pelayar",
@@ -2094,7 +3074,105 @@
     "home.faq.title": "Soalan Lazim",
     "home.cta.title": "Mula membuat gambarajah litar sekarang",
     "home.cta.desc": "Tiada pendaftaran. Tiada muat turun. Hanya buka dan mula.",
-    "home.cta.button": "Buka Editor Litar — Ia Percuma"
+    "home.cta.button": "Buka Editor Litar — Ia Percuma",
+    "home.benefits.badge": "Kenapa pilih kami",
+    "home.benefits.title": "Semua yang anda perlukan — tanpa kerumitan",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Percuma digunakan",
+        "desc": "Tiada caj tersembunyi dan tiada pelan premium. Semua ciri tersedia secara percuma selamanya."
+      },
+      {
+        "icon": "cloud",
+        "label": "Tidak perlu muat turun",
+        "desc": "Berfungsi 100% dalam pelayar. Tiada perisian untuk dipasang atau dikemas kini."
+      },
+      {
+        "icon": "devices",
+        "label": "Berfungsi pada semua peranti",
+        "desc": "Reka rajah litar pada desktop, tablet atau telefon dengan antaramuka responsif."
+      },
+      {
+        "icon": "easy",
+        "label": "Mesra pemula",
+        "desc": "Editor seret dan lepas yang intuitif untuk menghasilkan skematik profesional dalam beberapa minit."
+      }
+    ],
+    "home.power_features.badge": "Alat berkuasa",
+    "home.power_features.title": "Alat rajah litar berkuasa",
+    "home.power_features.subtitle": "Ciri bertaraf profesional yang memudahkan reka bentuk litar.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Komponen seret & lepas",
+        "desc": "Seret resistor, kapasitor, transistor dan lebih 40 komponen ke kanvas anda."
+      },
+      {
+        "icon": "schematic",
+        "title": "Lukisan skematik tepat",
+        "desc": "Simbol piawai IEC dan ANSI memastikan rajah tepat secara teknikal dan mudah dibaca."
+      },
+      {
+        "icon": "realtime",
+        "title": "Penyuntingan masa nyata",
+        "desc": "Lihat perubahan serta-merta semasa anda menyambung, mengalih dan menyusun semula komponen."
+      },
+      {
+        "icon": "export",
+        "title": "Eksport & simpan rajah",
+        "desc": "Muat turun sebagai SVG, PNG atau JSON. Kongsi dengan pasukan atau masukkan ke dokumen teknikal."
+      }
+    ],
+    "home.examples.badge": "Inspirasi",
+    "home.examples.title": "Contoh rajah litar",
+    "home.examples.subtitle": "Terokai jenis litar biasa yang boleh anda bina dengan alat kami.",
+    "home.examples.items": [
+      {
+        "title": "Rajah litar siri",
+        "desc": "Komponen disambung hujung ke hujung dalam satu laluan. Arus mengalir melalui setiap komponen secara berturutan.",
+        "icon": "series"
+      },
+      {
+        "title": "Rajah litar selari",
+        "desc": "Komponen disambung pada titik bersama, mewujudkan berbilang laluan arus.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Litar penjana DC",
+        "desc": "Susunan lilitan angker, gegelung medan dan komutator untuk menukar tenaga mekanikal kepada tenaga elektrik.",
+        "icon": "generator"
+      },
+      {
+        "title": "Rajah litar LED",
+        "desc": "Litar LED asas dengan perintang had arus — litar paling biasa untuk pemula elektronik.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Cuba bina ini →",
+    "home.more_tools.badge": "Terokai lagi",
+    "home.more_tools.title": "Lebih banyak alat rajah",
+    "home.more_tools.subtitle": "Luaskan aliran kerja anda dengan alat khusus litar dan reka bentuk logik.",
+    "home.more_tools.items": [
+      {
+        "title": "Pencipta rajah skematik",
+        "desc": "Cipta skematik elektronik terperinci dengan simbol profesional dan penghalaan pintar.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Alat rajah gerbang logik",
+        "desc": "Bina rajah logik peringkat gerbang yang jelas dan sahkan aliran isyarat secara visual.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Dokumentasikan sambungan pin papan, modul dan laluan pendawaian untuk projek Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Mula cipta rajah litar anda",
+    "home.final_cta.desc": "Tiada pendaftaran. Tiada muat turun. Terus mula bina.",
+    "home.final_cta.button": "Lancarkan Circuit Diagram Maker"
   },
   "bg": {
     "home.hero.badge": "Безплатен базиран на браузър редактор на схеми",
@@ -2259,7 +3337,105 @@
     "home.faq.title": "Често задавани въпроси за Circuit Diagram Maker",
     "home.cta.title": "Започнете да създавате електрически схеми сега",
     "home.cta.desc": "Няма регистрация. Няма изтегляне. Просто отворете програмата за създаване на схеми и започнете да проектирате.",
-    "home.cta.button": "Отворете редактора на схеми на веригата — Безплатно е"
+    "home.cta.button": "Отворете редактора на схеми на веригата — Безплатно е",
+    "home.benefits.badge": "Защо да изберете нас",
+    "home.benefits.title": "Всичко необходимо — без излишни усложнения",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Безплатно за ползване",
+        "desc": "Без скрити такси и без премиум нива. Всички функции са безплатни завинаги."
+      },
+      {
+        "icon": "cloud",
+        "label": "Без изтегляне",
+        "desc": "Работи 100% в браузъра. Няма софтуер за инсталиране или обновяване."
+      },
+      {
+        "icon": "devices",
+        "label": "Работи на всички устройства",
+        "desc": "Създавайте схеми на компютър, таблет или телефон с адаптивен интерфейс."
+      },
+      {
+        "icon": "easy",
+        "label": "Лесен за начинаещи",
+        "desc": "Интуитивен редактор с drag-and-drop за професионални схеми за минути."
+      }
+    ],
+    "home.power_features.badge": "Мощни инструменти",
+    "home.power_features.title": "Мощен инструмент за електрически схеми",
+    "home.power_features.subtitle": "Професионални функции, които правят проектирането на схеми лесно.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Плъзгане и пускане на компоненти",
+        "desc": "Плъзнете резистори, кондензатори, транзистори и още 40+ компонента върху платното."
+      },
+      {
+        "icon": "schematic",
+        "title": "Точно схематично чертане",
+        "desc": "Символите по IEC и ANSI гарантират техническа точност и добра четимост."
+      },
+      {
+        "icon": "realtime",
+        "title": "Редактиране в реално време",
+        "desc": "Виждате промените веднага, докато свързвате, местите и подреждате компоненти."
+      },
+      {
+        "icon": "export",
+        "title": "Експорт и запазване",
+        "desc": "Изтеглете като SVG, PNG или JSON. Споделете с екипа или вградете в технически документи."
+      }
+    ],
+    "home.examples.badge": "Вдъхновение",
+    "home.examples.title": "Примери за електрически схеми",
+    "home.examples.subtitle": "Разгледайте често срещани видове схеми, които можете да създадете с нашия инструмент.",
+    "home.examples.items": [
+      {
+        "title": "Последователна схема",
+        "desc": "Компонентите са свързани последователно в един път. Токът преминава през всеки компонент един след друг.",
+        "icon": "series"
+      },
+      {
+        "title": "Паралелна схема",
+        "desc": "Компонентите са свързани към общи точки, създавайки няколко пътя за тока.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Схема на DC генератор",
+        "desc": "Конфигурация на котвена намотка, възбуждаща намотка и колектор за преобразуване на механична в електрическа енергия.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED схема",
+        "desc": "Базова LED схема с ограничаващ резистор — най-често срещаната схема за начинаещи.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Опитайте да изградите тези →",
+    "home.more_tools.badge": "Разгледайте още",
+    "home.more_tools.title": "Още инструменти за диаграми",
+    "home.more_tools.subtitle": "Разширете работния си процес със специализирани инструменти за схеми и логика.",
+    "home.more_tools.items": [
+      {
+        "title": "Създател на схематични диаграми",
+        "desc": "Създавайте подробни електронни схеми с професионални символи и интелигентно маршрутизиране.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Инструмент за логически схеми",
+        "desc": "Създавайте ясни диаграми на ниво логически елементи и проверявайте сигналния поток визуално.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Документирайте пинове на платката, модули и окабеляване за Arduino проекти.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Започнете да създавате своята схема",
+    "home.final_cta.desc": "Без регистрация. Без изтегляне. Просто започнете да изграждате.",
+    "home.final_cta.button": "Стартирайте Circuit Diagram Maker"
   },
   "pl": {
     "home.hero.badge": "Darmowy przeglądarkowy edytor schematów",
@@ -2424,7 +3600,105 @@
     "home.faq.title": "Często zadawane pytania",
     "home.cta.title": "Zacznij tworzyć schematy teraz",
     "home.cta.desc": "Bez rejestracji. Bez pobierania. Po prostu otwórz i projektuj.",
-    "home.cta.button": "Otwórz edytor schematów — Za darmo"
+    "home.cta.button": "Otwórz edytor schematów — Za darmo",
+    "home.benefits.badge": "Dlaczego my",
+    "home.benefits.title": "Wszystko, czego potrzebujesz — bez komplikacji",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Darmowe w użyciu",
+        "desc": "Brak ukrytych opłat i pakietów premium. Wszystkie funkcje są bezpłatne na zawsze."
+      },
+      {
+        "icon": "cloud",
+        "label": "Bez pobierania",
+        "desc": "Działa w 100% w przeglądarce. Niczego nie trzeba instalować ani aktualizować."
+      },
+      {
+        "icon": "devices",
+        "label": "Na wszystkich urządzeniach",
+        "desc": "Twórz schematy na komputerze, tablecie i telefonie dzięki responsywnemu interfejsowi."
+      },
+      {
+        "icon": "easy",
+        "label": "Przyjazny dla początkujących",
+        "desc": "Intuicyjny edytor przeciągnij-i-upuść pozwala tworzyć profesjonalne schematy w kilka minut."
+      }
+    ],
+    "home.power_features.badge": "Zaawansowane narzędzia",
+    "home.power_features.title": "Zaawansowane narzędzie do diagramów obwodów",
+    "home.power_features.subtitle": "Funkcje klasy profesjonalnej, które ułatwiają projektowanie obwodów.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Przeciąganie i upuszczanie komponentów",
+        "desc": "Przeciągnij rezystory, kondensatory, tranzystory i ponad 40 innych elementów na płótno."
+      },
+      {
+        "icon": "schematic",
+        "title": "Dokładne rysowanie schematów",
+        "desc": "Symbole standardów IEC i ANSI zapewniają techniczną poprawność i czytelność."
+      },
+      {
+        "icon": "realtime",
+        "title": "Edycja w czasie rzeczywistym",
+        "desc": "Zmiany widzisz od razu podczas łączenia, przesuwania i porządkowania komponentów."
+      },
+      {
+        "icon": "export",
+        "title": "Eksport i zapis",
+        "desc": "Pobieraj jako SVG, PNG lub JSON. Udostępniaj zespołowi lub osadzaj w dokumentacji technicznej."
+      }
+    ],
+    "home.examples.badge": "Inspiracje",
+    "home.examples.title": "Przykłady diagramów obwodów",
+    "home.examples.subtitle": "Poznaj popularne typy obwodów, które możesz tworzyć w naszym narzędziu.",
+    "home.examples.items": [
+      {
+        "title": "Diagram obwodu szeregowego",
+        "desc": "Elementy połączone jeden po drugim w jednej ścieżce. Prąd przepływa kolejno przez każdy element.",
+        "icon": "series"
+      },
+      {
+        "title": "Diagram obwodu równoległego",
+        "desc": "Elementy połączone do wspólnych punktów, tworząc wiele ścieżek przepływu prądu.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Obwód generatora DC",
+        "desc": "Układ uzwojenia twornika, cewki wzbudzenia i komutatora do zamiany energii mechanicznej na elektryczną.",
+        "icon": "generator"
+      },
+      {
+        "title": "Diagram obwodu LED",
+        "desc": "Podstawowy obwód LED z rezystorem ograniczającym prąd — najczęstszy start w elektronice.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Spróbuj zbudować te przykłady →",
+    "home.more_tools.badge": "Odkryj więcej",
+    "home.more_tools.title": "Więcej narzędzi do diagramów",
+    "home.more_tools.subtitle": "Rozszerz swój workflow dzięki wyspecjalizowanym narzędziom do obwodów i logiki.",
+    "home.more_tools.items": [
+      {
+        "title": "Kreator schematów",
+        "desc": "Twórz szczegółowe schematy elektroniczne z profesjonalnymi symbolami i inteligentnym trasowaniem.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Narzędzie diagramów bramek logicznych",
+        "desc": "Buduj czytelne diagramy logiki na poziomie bramek i wizualnie weryfikuj przepływ sygnału.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Dokumentuj połączenia pinów, modułów i trasy okablowania w projektach Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Zacznij tworzyć swój diagram obwodu",
+    "home.final_cta.desc": "Bez rejestracji. Bez pobierania. Po prostu zacznij tworzyć.",
+    "home.final_cta.button": "Uruchom Circuit Diagram Maker"
   },
   "id": {
     "home.hero.badge": "Editor Skema Gratis Berbasis Browser",
@@ -2589,7 +3863,105 @@
     "home.faq.title": "Pertanyaan Umum",
     "home.cta.title": "Mulai membuat diagram sirkuit sekarang",
     "home.cta.desc": "Tanpa registrasi. Cukup buka dan mulai.",
-    "home.cta.button": "Buka Editor Sirkuit — Gratis"
+    "home.cta.button": "Buka Editor Sirkuit — Gratis",
+    "home.benefits.badge": "Mengapa memilih kami",
+    "home.benefits.title": "Semua yang Anda butuhkan — tanpa ribet",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Gratis digunakan",
+        "desc": "Tanpa biaya tersembunyi dan tanpa paket premium. Semua fitur tersedia gratis selamanya."
+      },
+      {
+        "icon": "cloud",
+        "label": "Tanpa perlu unduh",
+        "desc": "Berjalan 100% di browser. Tidak perlu instal atau update software."
+      },
+      {
+        "icon": "devices",
+        "label": "Bekerja di semua perangkat",
+        "desc": "Buat diagram di desktop, tablet, atau ponsel dengan antarmuka responsif."
+      },
+      {
+        "icon": "easy",
+        "label": "Ramah pemula",
+        "desc": "Editor drag-and-drop yang intuitif untuk membuat skema profesional dalam hitungan menit."
+      }
+    ],
+    "home.power_features.badge": "Fitur andalan",
+    "home.power_features.title": "Alat diagram rangkaian yang powerful",
+    "home.power_features.subtitle": "Fitur kelas profesional yang memudahkan desain rangkaian.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Komponen drag & drop",
+        "desc": "Tarik resistor, kapasitor, transistor, dan 40+ komponen lainnya ke kanvas."
+      },
+      {
+        "icon": "schematic",
+        "title": "Gambar skematik akurat",
+        "desc": "Simbol standar IEC dan ANSI memastikan diagram teknis yang benar dan mudah dibaca."
+      },
+      {
+        "icon": "realtime",
+        "title": "Edit real-time",
+        "desc": "Lihat perubahan secara instan saat menghubungkan, memindahkan, dan menyusun ulang komponen."
+      },
+      {
+        "icon": "export",
+        "title": "Ekspor & simpan",
+        "desc": "Unduh sebagai SVG, PNG, atau JSON. Bagikan ke tim atau sematkan ke dokumen teknis."
+      }
+    ],
+    "home.examples.badge": "Inspirasi",
+    "home.examples.title": "Contoh diagram rangkaian",
+    "home.examples.subtitle": "Jelajahi jenis rangkaian umum yang bisa Anda buat dengan alat kami.",
+    "home.examples.items": [
+      {
+        "title": "Diagram rangkaian seri",
+        "desc": "Komponen terhubung ujung ke ujung dalam satu jalur. Arus mengalir melewati tiap komponen secara berurutan.",
+        "icon": "series"
+      },
+      {
+        "title": "Diagram rangkaian paralel",
+        "desc": "Komponen terhubung pada titik yang sama sehingga arus memiliki beberapa jalur.",
+        "icon": "parallel"
+      },
+      {
+        "title": "Rangkaian generator DC",
+        "desc": "Susunan armature winding, field coil, dan komutator untuk mengubah energi mekanik menjadi energi listrik.",
+        "icon": "generator"
+      },
+      {
+        "title": "Diagram rangkaian LED",
+        "desc": "Rangkaian LED dasar dengan resistor pembatas arus — paling umum untuk belajar elektronika.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Coba buat ini →",
+    "home.more_tools.badge": "Jelajahi lebih banyak",
+    "home.more_tools.title": "Alat diagram lainnya",
+    "home.more_tools.subtitle": "Perluas alur kerja Anda dengan alat khusus rangkaian dan desain logika.",
+    "home.more_tools.items": [
+      {
+        "title": "Pembuat diagram skematik",
+        "desc": "Buat skema elektronik detail dengan simbol profesional dan routing cerdas.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Alat diagram gerbang logika",
+        "desc": "Buat diagram logika level-gate yang jelas dan validasi aliran sinyal secara visual.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Dokumentasikan koneksi pin board, modul, dan jalur wiring untuk proyek Arduino.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Mulai membuat diagram rangkaian Anda",
+    "home.final_cta.desc": "Tanpa daftar. Tanpa unduh. Langsung mulai.",
+    "home.final_cta.button": "Buka Circuit Diagram Maker"
   },
   "ar": {
     "home.hero.badge": "محرر مخططات دوائر مجاني عبر المتصفح",
@@ -2754,7 +4126,105 @@
     "home.faq.title": "الأسئلة الشائعة",
     "home.cta.title": "ابدأ في إنشاء مخططات الدوائر الآن",
     "home.cta.desc": "بدون تسجيل. بدون تحميل. فقط افتح وابدأ التصميم.",
-    "home.cta.button": "افتح محرر الدوائر — مجاني"
+    "home.cta.button": "افتح محرر الدوائر — مجاني",
+    "home.benefits.badge": "لماذا تختارنا",
+    "home.benefits.title": "كل ما تحتاجه — بدون تعقيد",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "مجاني للاستخدام",
+        "desc": "بدون رسوم مخفية وبدون خطط مدفوعة. جميع الميزات متاحة مجانًا دائمًا."
+      },
+      {
+        "icon": "cloud",
+        "label": "بدون تنزيل",
+        "desc": "يعمل 100% داخل المتصفح. لا حاجة لتثبيت أو تحديث أي برنامج."
+      },
+      {
+        "icon": "devices",
+        "label": "يعمل على جميع الأجهزة",
+        "desc": "صمم مخططاتك من الكمبيوتر أو الجهاز اللوحي أو الهاتف بواجهة متجاوبة."
+      },
+      {
+        "icon": "easy",
+        "label": "واجهة مناسبة للمبتدئين",
+        "desc": "محرر سحب وإفلات سهل يتيح إنشاء مخططات احترافية خلال دقائق."
+      }
+    ],
+    "home.power_features.badge": "أدوات قوية",
+    "home.power_features.title": "أداة قوية لمخططات الدوائر",
+    "home.power_features.subtitle": "ميزات احترافية تجعل تصميم الدوائر أسهل بكثير.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "سحب وإفلات المكونات",
+        "desc": "اسحب المقاومات والمكثفات والترانزستورات وأكثر من 40 مكونًا إلى مساحة العمل."
+      },
+      {
+        "icon": "schematic",
+        "title": "رسم تخطيطي دقيق",
+        "desc": "تضمن رموز IEC وANSI أن تكون مخططاتك دقيقة تقنيًا وسهلة القراءة."
+      },
+      {
+        "icon": "realtime",
+        "title": "تحرير فوري",
+        "desc": "شاهد التغييرات مباشرة أثناء التوصيل والتحريك وإعادة ترتيب المكونات."
+      },
+      {
+        "icon": "export",
+        "title": "تصدير وحفظ",
+        "desc": "نزّل بصيغة SVG أو PNG أو JSON. شارك مع الفريق أو أدرج في المستندات التقنية."
+      }
+    ],
+    "home.examples.badge": "أفكار",
+    "home.examples.title": "أمثلة على مخططات الدوائر",
+    "home.examples.subtitle": "استكشف الأنواع الشائعة من الدوائر التي يمكنك إنشاؤها باستخدام أداتنا.",
+    "home.examples.items": [
+      {
+        "title": "مخطط دائرة على التوالي",
+        "desc": "مكونات موصولة طرفًا بطرف في مسار واحد. يمر التيار عبر كل مكون بالتتابع.",
+        "icon": "series"
+      },
+      {
+        "title": "مخطط دائرة على التوازي",
+        "desc": "مكونات متصلة عبر نقاط مشتركة، مما ينشئ مسارات متعددة لمرور التيار.",
+        "icon": "parallel"
+      },
+      {
+        "title": "دائرة مولد تيار مستمر",
+        "desc": "ترتيب ملفات العضو الدوار وملف المجال والمبدّل لتحويل الطاقة الميكانيكية إلى كهربائية.",
+        "icon": "generator"
+      },
+      {
+        "title": "مخطط دائرة LED",
+        "desc": "دائرة LED أساسية مع مقاومة تحديد تيار — الأكثر شيوعًا للمبتدئين في الإلكترونيات.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "جرّب بناء هذه النماذج →",
+    "home.more_tools.badge": "استكشف المزيد",
+    "home.more_tools.title": "المزيد من أدوات الرسم",
+    "home.more_tools.subtitle": "وسّع سير عملك باستخدام أدوات متخصصة لتصميم الدوائر والمنطق.",
+    "home.more_tools.items": [
+      {
+        "title": "منشئ المخططات التخطيطية",
+        "desc": "أنشئ مخططات إلكترونية تفصيلية برموز احترافية وتوجيه ذكي للأسلاك.",
+        "href": "/editor/"
+      },
+      {
+        "title": "أداة مخططات البوابات المنطقية",
+        "desc": "ابنِ مخططات منطقية واضحة على مستوى البوابات وتحقق بصريًا من تدفق الإشارة.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "وثّق توصيلات الأرجل والوحدات ومسارات الأسلاك لمشاريع أردوينو.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "ابدأ بإنشاء مخطط دائرتك الآن",
+    "home.final_cta.desc": "بدون تسجيل. بدون تنزيل. فقط ابدأ البناء.",
+    "home.final_cta.button": "تشغيل Circuit Diagram Maker"
   },
   "tr": {
     "home.hero.badge": "Ücretsiz Tarayıcı Tabanlı Şema Düzenleyici",
@@ -2919,7 +4389,105 @@
     "home.faq.title": "Sıkça Sorulan Sorular",
     "home.cta.title": "Şimdi devre şemaları oluşturmaya başlayın",
     "home.cta.desc": "Kayıt yok. İndirme yok. Sadece aç ve tasarla.",
-    "home.cta.button": "Düzenleyiciyi Aç — Ücretsiz"
+    "home.cta.button": "Düzenleyiciyi Aç — Ücretsiz",
+    "home.benefits.badge": "Neden bizi seçmelisiniz",
+    "home.benefits.title": "İhtiyacınız olan her şey — zahmetsizce",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Kullanımı ücretsiz",
+        "desc": "Gizli ücret yok, premium katman yok. Tüm özellikler sonsuza kadar ücretsiz."
+      },
+      {
+        "icon": "cloud",
+        "label": "İndirme gerekmez",
+        "desc": "%100 tarayıcıda çalışır. Kurulum veya güncelleme derdi yok."
+      },
+      {
+        "icon": "devices",
+        "label": "Tüm cihazlarda çalışır",
+        "desc": "Masaüstü, tablet veya telefonda duyarlı arayüzle devre diyagramları tasarlayın."
+      },
+      {
+        "icon": "easy",
+        "label": "Yeni başlayanlara uygun",
+        "desc": "Sezgisel sürükle-bırak editörüyle dakikalar içinde profesyonel şemalar oluşturun."
+      }
+    ],
+    "home.power_features.badge": "Güçlü araçlar",
+    "home.power_features.title": "Güçlü devre diyagramı aracı",
+    "home.power_features.subtitle": "Devre tasarımını kolaylaştıran profesyonel özellikler.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Sürükle-bırak bileşenler",
+        "desc": "Direnç, kapasitör, transistör ve 40+ bileşeni tuvale sürükleyin."
+      },
+      {
+        "icon": "schematic",
+        "title": "Doğru şematik çizim",
+        "desc": "IEC ve ANSI standart semboller teknik olarak doğru ve okunabilir diyagramlar sağlar."
+      },
+      {
+        "icon": "realtime",
+        "title": "Gerçek zamanlı düzenleme",
+        "desc": "Bileşenleri bağlarken, taşırken ve yeniden düzenlerken değişiklikleri anında görün."
+      },
+      {
+        "icon": "export",
+        "title": "Dışa aktar ve kaydet",
+        "desc": "SVG, PNG veya JSON olarak indirin. Ekiple paylaşın veya teknik dokümanlara ekleyin."
+      }
+    ],
+    "home.examples.badge": "İlham",
+    "home.examples.title": "Devre diyagramı örnekleri",
+    "home.examples.subtitle": "Aracımızla oluşturabileceğiniz yaygın devre türlerini keşfedin.",
+    "home.examples.items": [
+      {
+        "title": "Seri devre diyagramı",
+        "desc": "Bileşenler tek bir yol üzerinde uç uca bağlanır. Akım her bileşenden sırasıyla geçer.",
+        "icon": "series"
+      },
+      {
+        "title": "Paralel devre diyagramı",
+        "desc": "Bileşenler ortak noktalara bağlanır ve akım için birden fazla yol oluşur.",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC jeneratör devresi",
+        "desc": "Mekanik enerjiyi elektrik enerjisine dönüştürmek için endüvi sargısı, alan bobini ve komütatör düzeni.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED devre diyagramı",
+        "desc": "Akım sınırlayıcı dirençli temel LED devresi — elektronik öğrenenler için en yaygın başlangıç örneği.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Bunları oluşturmaya çalışın →",
+    "home.more_tools.badge": "Daha fazlasını keşfedin",
+    "home.more_tools.title": "Daha fazla diyagram aracı",
+    "home.more_tools.subtitle": "Özel devre ve mantık tasarım araçlarıyla iş akışınızı genişletin.",
+    "home.more_tools.items": [
+      {
+        "title": "Şematik diyagram oluşturucu",
+        "desc": "Profesyonel semboller ve akıllı yönlendirme ile detaylı elektronik şemalar oluşturun.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Mantık kapısı diyagram aracı",
+        "desc": "Net kapı-seviyesi mantık diyagramları oluşturun ve sinyal akışını görsel olarak doğrulayın.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Arduino projeleri için kart pin bağlantılarını, modülleri ve kablolama yollarını belgelendirin.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Devre diyagramınızı oluşturmaya başlayın",
+    "home.final_cta.desc": "Kayıt yok. İndirme yok. Hemen oluşturmaya başlayın.",
+    "home.final_cta.button": "Circuit Diagram Maker’ı aç"
   },
   "sv": {
     "home.hero.badge": "Gratis webbläsarbaserad schematisk redigerare",
@@ -3084,6 +4652,104 @@
     "home.faq.title": "Vanliga frågor om Circuit Diagram Maker",
     "home.cta.title": "Börja skapa kretsdiagram nu",
     "home.cta.desc": "Ingen registrering. Ingen nedladdning. Öppna bara kretsschematillverkaren och börja designa.",
-    "home.cta.button": "Open Circuit Diagram Editor — Det är gratis"
+    "home.cta.button": "Open Circuit Diagram Editor — Det är gratis",
+    "home.benefits.badge": "Varför välja oss",
+    "home.benefits.title": "Allt du behöver — utan krångel",
+    "home.benefits.items": [
+      {
+        "icon": "free",
+        "label": "Gratis att använda",
+        "desc": "Inga dolda avgifter och inga premiumplaner. Alla funktioner är gratis för alltid."
+      },
+      {
+        "icon": "cloud",
+        "label": "Ingen nedladdning behövs",
+        "desc": "Fungerar 100% i webbläsaren. Ingen installation eller uppdatering krävs."
+      },
+      {
+        "icon": "devices",
+        "label": "Fungerar på alla enheter",
+        "desc": "Skapa kretsdiagram på dator, surfplatta eller mobil med responsivt gränssnitt."
+      },
+      {
+        "icon": "easy",
+        "label": "Nybörjarvänligt gränssnitt",
+        "desc": "Intuitiv dra-och-släpp-editor som gör det enkelt att skapa professionella scheman på några minuter."
+      }
+    ],
+    "home.power_features.badge": "Kraftfulla verktyg",
+    "home.power_features.title": "Kraftfullt verktyg för kretsdiagram",
+    "home.power_features.subtitle": "Professionella funktioner som gör kretskonstruktion enklare.",
+    "home.power_features.items": [
+      {
+        "icon": "drag",
+        "title": "Dra och släpp komponenter",
+        "desc": "Dra in motstånd, kondensatorer, transistorer och 40+ andra komponenter på arbetsytan."
+      },
+      {
+        "icon": "schematic",
+        "title": "Noggrann schematisk ritning",
+        "desc": "IEC- och ANSI-standarder säkerställer tekniskt korrekta och lättlästa diagram."
+      },
+      {
+        "icon": "realtime",
+        "title": "Redigering i realtid",
+        "desc": "Se ändringar direkt medan du kopplar, flyttar och arrangerar komponenter."
+      },
+      {
+        "icon": "export",
+        "title": "Exportera och spara",
+        "desc": "Ladda ner som SVG, PNG eller JSON. Dela med teamet eller bädda in i tekniska dokument."
+      }
+    ],
+    "home.examples.badge": "Inspiration",
+    "home.examples.title": "Exempel på kretsdiagram",
+    "home.examples.subtitle": "Utforska vanliga kretstyper som du kan skapa med vårt verktyg.",
+    "home.examples.items": [
+      {
+        "title": "Seriekopplat kretsdiagram",
+        "desc": "Komponenter kopplas efter varandra i en enda väg. Strömmen passerar varje komponent i tur och ordning.",
+        "icon": "series"
+      },
+      {
+        "title": "Parallellkopplat kretsdiagram",
+        "desc": "Komponenter ansluts över gemensamma punkter och skapar flera strömvägar.",
+        "icon": "parallel"
+      },
+      {
+        "title": "DC-generator-krets",
+        "desc": "Konfiguration av ankarlindning, fältspole och kommutator för att omvandla mekanisk energi till elektrisk energi.",
+        "icon": "generator"
+      },
+      {
+        "title": "LED-kretsdiagram",
+        "desc": "Grundläggande LED-krets med strömbegränsningsmotstånd — det vanligaste nybörjarexemplet i elektronik.",
+        "icon": "led"
+      }
+    ],
+    "home.examples.cta": "Prova att bygga dessa →",
+    "home.more_tools.badge": "Utforska mer",
+    "home.more_tools.title": "Fler diagramverktyg",
+    "home.more_tools.subtitle": "Utöka ditt arbetsflöde med specialiserade verktyg för krets- och logikdesign.",
+    "home.more_tools.items": [
+      {
+        "title": "Skematiskt diagramverktyg",
+        "desc": "Skapa detaljerade elektroniska scheman med professionella symboler och smart routning.",
+        "href": "/editor/"
+      },
+      {
+        "title": "Verktyg för logikgrindsdiagram",
+        "desc": "Bygg tydliga logikdiagram på grindnivå och verifiera signalflödet visuellt.",
+        "href": "/logic-gate-diagram-tool/"
+      },
+      {
+        "title": "Arduino Circuit Maker",
+        "desc": "Dokumentera pin-anslutningar, moduler och kabeldragning för Arduino-projekt.",
+        "href": "/arduino-circuit-maker/"
+      }
+    ],
+    "home.final_cta.title": "Börja skapa ditt kretsdiagram",
+    "home.final_cta.desc": "Ingen registrering. Ingen nedladdning. Bara börja bygga.",
+    "home.final_cta.button": "Starta Circuit Diagram Maker"
   }
 }
