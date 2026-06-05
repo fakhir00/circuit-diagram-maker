@@ -61,27 +61,21 @@ const breadcrumbSchema = breadcrumbItems.length > 1 ? {
   }))
 } : null;
 
-// SoftwareApplication schema for homepage
+// WebApplication schema for homepage
 const isHome = pathname === '/' || pathname === `/${locale}/`;
 const softwareSchema = isHome ? {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "WebApplication",
   "name": "Circuit Diagram Maker",
+  "description": config.site.description,
   "applicationCategory": "DesignApplication",
-  "operatingSystem": "Web Browser",
+  "operatingSystem": "Any (Browser)",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
   },
-  "description": config.site.description,
-  "url": config.site.url,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "1240",
-    "bestRating": "5"
-  }
+  "url": config.site.url
 } : null;
 ---
 
