@@ -49,6 +49,26 @@
       "question": "How does the smart wire routing work in Circuit Diagram Maker?",
       "answer": "Our Manhattan routing engine automatically keeps all wires perfectly horizontal or vertical (orthogonal), snapped to a 20px grid. This produces clean, professional-looking schematics that follow industry conventions for readability and consistency.",
       "display": true
+    },
+    {
+      "question": "Can I edit schematics online without downloading software?",
+      "answer": "Yes. Our circuit diagram maker runs entirely in your browser. No downloads, no installations, no sign-ups required.",
+      "display": true
+    },
+    {
+      "question": "Is there an online schematic editor for IEEE-format diagrams?",
+      "answer": "Absolutely. You can export your circuit diagrams as publication-quality SVG and PNG files that meet IEEE formatting standards.",
+      "display": true
+    },
+    {
+      "question": "Which online schematic editor supports IEC and ANSI symbols?",
+      "answer": "Our tool supports both IEC and ANSI standard symbols with 40+ electronic components including resistors, capacitors, transistors, and more.",
+      "display": true
+    },
+    {
+      "question": "Do online schematic editors export to SVG?",
+      "answer": "Yes. Our editor exports to SVG (vector format), PNG (high-DPI raster), and JSON (for saving and sharing projects).",
+      "display": true
     }
   ],
   "hi": [

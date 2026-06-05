@@ -159,24 +159,6 @@
       }
     ],
     "home.faq.title": "Frequently Asked Questions",
-    "home.faq.items": [
-      {
-        "question": "Can I edit schematics online without downloading software?",
-        "answer": "Yes. Our circuit diagram maker runs entirely in your browser. No downloads, no installations, no sign-ups required."
-      },
-      {
-        "question": "Is there an online schematic editor for IEEE-format diagrams?",
-        "answer": "Absolutely. You can export your circuit diagrams as publication-quality SVG and PNG files that meet IEEE formatting standards."
-      },
-      {
-        "question": "Which online schematic editor supports IEC and ANSI symbols?",
-        "answer": "Our tool supports both IEC and ANSI standard symbols with 40+ electronic components including resistors, capacitors, transistors, and more."
-      },
-      {
-        "question": "Do online schematic editors export to SVG?",
-        "answer": "Yes. Our editor exports to SVG (vector format), PNG (high-DPI raster), and JSON (for saving and sharing projects)."
-      }
-    ],
     "home.benefits.badge": "Why Choose Us",
     "home.benefits.title": "Everything You Need — Zero Hassle",
     "home.benefits.items": [
