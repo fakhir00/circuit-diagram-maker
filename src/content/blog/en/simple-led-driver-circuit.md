@@ -9,7 +9,7 @@ category: "DIY Circuits"
 tags: ["led-driver", "circuit-tutorial", "resistor-calculation", "diy-electronics", "beginners"]
 ---
 
-**Building a simple LED driver circuit takes 3 components, 5 minutes, and zero prior experience.** This guide walks you through every step — from selecting parts to testing your finished circuit — so you can light up your first LED without burning it out.
+**Building a simple LED driver circuit takes 3 components, 5 minutes, and zero prior experience.** This guide walks you through every step — from selecting parts to testing your finished circuit — so you can light up your first LED without burning it out. If you are new to electronics, start with our [circuit diagrams for beginners](/blog/circuit-diagram-for-beginners/) guide to learn the basics before building this project.
 
 ```mermaid
 flowchart LR
@@ -63,7 +63,7 @@ Every LED has two critical specifications printed on its datasheet:
 
 ## The Resistor Calculation (One Formula)
 
-The resistor value follows Ohm's Law:
+The resistor value follows <a href="https://en.wikipedia.org/wiki/Ohm%27s_law" rel="nofollow noopener" target="_blank">Ohm's Law</a>:
 
 $$R = \frac{V_{supply} - V_{LED}}{I_{LED}}$$
 
@@ -209,8 +209,10 @@ Once you master the basic LED driver circuit, you can build:
 - **LED art installations** — Matrix displays and POV devices
 - **Emergency indicators** — Battery-backed warning lights
 
+For more circuit design tips, check our guide on [circuit diagram best practices](/blog/circuit-diagram-maker-best-practices/).
+
 ## What's Next
 
-Practice building the circuit with different LED colors and resistor values. Each color has a different forward voltage, so the resistor calculation changes. Once you are comfortable with single-LED circuits, explore transistor drivers for switching LEDs on and off with a microcontroller.
+Practice building the circuit with different LED colors and resistor values. Each color has a different forward voltage, so the resistor calculation changes. Once you are comfortable with single-LED circuits, explore transistor drivers for switching LEDs on and off with a microcontroller like an <a href="https://www.arduino.cc/en/Guide" rel="nofollow noopener" target="_blank">Arduino</a>.
 
-Open the [Circuit Diagram Maker editor](/editor/) to sketch your circuit before building it on a breadboard.
+Learn [how to read a circuit diagram](/blog/how-to-read-a-circuit-diagram-step-by-step-guide/) to understand more complex schematics. When you are ready to design your own circuits, use our [online circuit diagram maker](/blog/how-to-make-circuit-diagram-online/) to create professional schematics.
