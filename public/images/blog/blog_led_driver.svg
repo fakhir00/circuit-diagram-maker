@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59,130,246,0.05)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Circuit lines -->
+  <g stroke="rgba(59,130,246,0.3)" stroke-width="2" fill="none">
+    <!-- Horizontal lines -->
+    <line x1="100" y1="280" x2="280" y2="280"/>
+    <line x1="420" y1="280" x2="520" y2="280"/>
+    <line x1="660" y1="280" x2="760" y2="280"/>
+    <line x1="900" y1="280" x2="1000" y2="280"/>
+    <!-- Bottom line -->
+    <line x1="100" y1="400" x2="1000" y2="400"/>
+    <!-- Vertical connections -->
+    <line x1="100" y1="280" x2="100" y2="400"/>
+    <line x1="1000" y1="280" x2="1000" y2="400"/>
+  </g>
+  
+  <!-- Battery/Power Supply -->
+  <g transform="translate(100, 240)" filter="url(#shadow)">
+    <rect x="0" y="0" width="80" height="80" rx="8" fill="#22c55e" opacity="0.9"/>
+    <text x="40" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">9V</text>
+    <text x="40" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">DC</text>
+    <!-- Battery terminals -->
+    <rect x="30" y="-8" width="20" height="8" fill="#22c55e"/>
+  </g>
+  
+  <!-- Resistor -->
+  <g transform="translate(320, 260)" filter="url(#shadow)">
+    <rect x="0" y="0" width="100" height="40" rx="6" fill="#3b82f6"/>
+    <!-- Resistor bands -->
+    <rect x="15" y="5" width="8" height="30" fill="#ef4444" rx="1"/>
+    <rect x="30" y="5" width="8" height="30" fill="#22c55e" rx="1"/>
+    <rect x="45" y="5" width="8" height="30" fill="#eab308" rx="1"/>
+    <rect x="75" y="5" width="8" height="30" fill="#a855f7" rx="1"/>
+    <text x="50" y="65" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">330Ω</text>
+  </g>
+  
+  <!-- LED -->
+  <g transform="translate(560, 240)" filter="url(#shadow)">
+    <!-- LED body -->
+    <ellipse cx="50" cy="50" rx="45" ry="45" fill="#ef4444" opacity="0.9"/>
+    <ellipse cx="50" cy="50" rx="30" ry="30" fill="#fca5a5" opacity="0.6"/>
+    <!-- LED legs -->
+    <rect x="35" y="95" width="6" height="30" fill="#94a3b8"/>
+    <rect x="59" y="95" width="6" height="40" fill="#94a3b8"/>
+    <!-- Light rays -->
+    <g filter="url(#glow)" opacity="0.7">
+      <line x1="50" y1="10" x2="50" y2="-15" stroke="#fca5a5" stroke-width="3"/>
+      <line x1="85" y1="25" x2="105" y2="10" stroke="#fca5a5" stroke-width="3"/>
+      <line x1="95" y1="50" x2="120" y2="50" stroke="#fca5a5" stroke-width="3"/>
+      <line x1="85" y1="75" x2="105" y2="90" stroke="#fca5a5" stroke-width="3"/>
+      <line x1="15" y1="25" x2="-5" y2="10" stroke="#fca5a5" stroke-width="3"/>
+    </g>
+    <text x="50" y="155" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">LED</text>
+  </g>
+  
+  <!-- Ground symbol -->
+  <g transform="translate(960, 380)">
+    <line x1="40" y1="0" x2="40" y2="20" stroke="#64748b" stroke-width="3"/>
+    <line x1="20" y1="20" x2="60" y2="20" stroke="#64748b" stroke-width="3"/>
+    <line x1="28" y1="28" x2="52" y2="28" stroke="#64748b" stroke-width="2"/>
+    <line x1="35" y1="36" x2="45" y2="36" stroke="#64748b" stroke-width="1.5"/>
+    <text x="40" y="60" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12">GND</text>
+  </g>
+  
+  <!-- Connection dots -->
+  <circle cx="280" cy="280" r="5" fill="#3b82f6"/>
+  <circle cx="520" cy="280" r="5" fill="#3b82f6"/>
+  <circle cx="760" cy="280" r="5" fill="#3b82f6"/>
+  <circle cx="900" cy="280" r="5" fill="#3b82f6"/>
+  
+  <!-- Title -->
+  <text x="600" y="520" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="bold" filter="url(#shadow)">Simple LED Driver Circuit</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="565" text-anchor="middle" fill="url(#accentGrad)" font-family="Arial, sans-serif" font-size="20" font-weight="600">Step-by-Step Guide for Beginners</text>
+  
+  <!-- Badge -->
+  <g transform="translate(520, 585)">
+    <rect x="0" y="0" width="160" height="30" rx="15" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+    <text x="80" y="20" text-anchor="middle" fill="#60a5fa" font-family="Arial, sans-serif" font-size="11" font-weight="bold">DIY ELECTRONICS</text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="150" fill="rgba(59,130,246,0.03)"/>
+  <circle cx="1100" cy="500" r="200" fill="rgba(6,182,212,0.03)"/>
+</svg>

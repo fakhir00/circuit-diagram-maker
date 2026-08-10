@@ -2,7 +2,7 @@
 title: "Simple LED Driver Circuit: Build Your First Circuit in 10 Minutes"
 description: "Learn how to build a simple LED driver circuit with step-by-step instructions. Master resistor calculation, current limiting, and LED specifications for safe DIY electronics projects."
 date: 2026-08-10
-image: "/images/blog/blog_led_driver.png"
+image: "/images/blog/blog_led_driver.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"
 category: "DIY Circuits"
