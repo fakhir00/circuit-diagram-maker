@@ -88,25 +88,39 @@ Poor labeling causes three problems:
 
 **Bad labeling example:**
 
+```mermaid
+flowchart LR
+    A[VCC] --> B[R]
+    B --> C[LED]
+    C --> D[GND]
+    
+    style B fill:#ef4444,stroke:#dc2626,color:#fff
+    style C fill:#ef4444,stroke:#dc2626,color:#fff
 ```
-R
-C
-D
-```
+
+Problems with this diagram:
+
+- `R` has no value — which resistor? 100Ω or 100kΩ?
+- `LED` has no color or voltage rating — red (2V) or blue (3.2V)?
+- No reference designators — impossible to create a bill of materials
 
 **Good labeling example:**
 
-```
-R1 = 10kΩ (1/4W, 5%)
-C1 = 100nF (50V, ceramic)
-D1 = 1N4148 (silicon diode)
+```mermaid
+flowchart LR
+    A[VCC +5V] --> B[R1 330Ω]
+    B --> C[D1 LED Red 2V]
+    C --> D[GND]
+    
+    style B fill:#22c55e,stroke:#16a34a,color:#fff
+    style C fill:#22c55e,stroke:#16a34a,color:#fff
 ```
 
 Good labels include:
 
-- **Reference designator** (R1, C1, D1)
-- **Component value** (10kΩ, 100nF)
-- **Package or rating** (1/4W, 50V)
+- **Reference designator** (R1, D1) — unique identifier for each part
+- **Component value** (330Ω) — exact specification
+- **Type or rating** (LED Red 2V) — clarifies function
 
 > **Rule:** Every component needs a unique reference designator and its critical value.
 
