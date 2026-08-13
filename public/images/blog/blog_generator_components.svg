@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <defs>
+    <linearGradient id="h1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Grid -->
+  <g stroke="rgba(59,130,246,0.06)" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Stat pills -->
+  <rect x="60" y="42" width="280" height="32" rx="16" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
+  <text x="200" y="64" text-anchor="middle" fill="#fcd34d" font-family="Arial,sans-serif" font-size="12" font-weight="bold">120/240 V SPLIT PHASE</text>
+
+  <rect x="860" y="42" width="280" height="32" rx="16" fill="rgba(248,113,113,0.1)" stroke="rgba(248,113,113,0.35)" stroke-width="1"/>
+  <text x="1000" y="64" text-anchor="middle" fill="#fca5a5" font-family="Arial,sans-serif" font-size="12" font-weight="bold">TRANSFER FIRST, SURVIVE SECOND</text>
+
+  <!-- Card data -->
+  <!-- Card 1: ATS -->
+  <rect x="60" y="120" width="212" height="300" rx="16" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect x="60" y="120" width="212" height="44" rx="16" fill="#38bdf8"/>
+  <rect x="60" y="138" width="212" height="26" fill="#38bdf8"/>
+  <text x="166" y="152" text-anchor="middle" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="bold">TRANSFER SWITCH</text>
+  <text x="166" y="208" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Automatic Transfer Switch</text>
+  <line x1="80" y1="222" x2="252" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="166" y="250" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Detects utility loss, starts</text>
+  <text x="166" y="268" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">the generator, and moves the</text>
+  <text x="166" y="286" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">load to the generator feed.</text>
+  <rect x="106" y="372" width="120" height="24" rx="12" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.5)" stroke-width="1"/>
+  <text x="166" y="389" text-anchor="middle" fill="#7dd3fc" font-family="Arial,sans-serif" font-size="10" font-weight="bold">AUTO START / TRANSFER</text>
+
+  <!-- Card 2: Main breaker -->
+  <rect x="288" y="120" width="212" height="300" rx="16" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect x="288" y="120" width="212" height="44" rx="16" fill="#f59e0b"/>
+  <rect x="288" y="138" width="212" height="26" fill="#f59e0b"/>
+  <text x="394" y="152" text-anchor="middle" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="bold">BREAKER</text>
+  <text x="394" y="208" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Main Circuit Breaker</text>
+  <line x1="308" y1="222" x2="480" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="394" y="250" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Shuts the panel down for</text>
+  <text x="394" y="268" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">service and protects branch</text>
+  <text x="394" y="286" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">circuits from overload.</text>
+  <rect x="334" y="372" width="120" height="24" rx="12" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.5)" stroke-width="1"/>
+  <text x="394" y="389" text-anchor="middle" fill="#fcd34d" font-family="Arial,sans-serif" font-size="10" font-weight="bold">OVERLOAD PROTECTION</text>
+
+  <!-- Card 3: Interlock -->
+  <rect x="516" y="120" width="212" height="300" rx="16" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect x="516" y="120" width="212" height="44" rx="16" fill="#22d3ee"/>
+  <rect x="516" y="138" width="212" height="26" fill="#22d3ee"/>
+  <text x="622" y="152" text-anchor="middle" fill="#0f172a" font-family="Arial,sans-serif" font-size="15" font-weight="bold">INTERLOCK</text>
+  <text x="622" y="208" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Interlock Kit</text>
+  <line x1="536" y1="222" x2="708" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="622" y="250" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Mechanical cover that stops</text>
+  <text x="622" y="268" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">utility and generator from</text>
+  <text x="622" y="286" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">feeding the panel at once.</text>
+  <rect x="562" y="372" width="120" height="24" rx="12" fill="rgba(34,211,238,0.15)" stroke="rgba(34,211,238,0.5)" stroke-width="1"/>
+  <text x="622" y="389" text-anchor="middle" fill="#67e8f9" font-family="Arial,sans-serif" font-size="10" font-weight="bold">MANUAL TRANSFER</text>
+
+  <!-- Card 4: Inlet box -->
+  <rect x="744" y="120" width="212" height="300" rx="16" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect x="744" y="120" width="212" height="44" rx="16" fill="#22c55e"/>
+  <rect x="744" y="138" width="212" height="26" fill="#22c55e"/>
+  <text x="850" y="152" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="15" font-weight="bold">INLET BOX</text>
+  <text x="850" y="208" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Inlet Box and Cord</text>
+  <line x1="764" y1="222" x2="936" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="850" y="250" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Weatherproof receptacle where</text>
+  <text x="850" y="268" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">the generator cable lands on</text>
+  <text x="850" y="286" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">the outside wall.</text>
+  <rect x="790" y="372" width="120" height="24" rx="12" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.5)" stroke-width="1"/>
+  <text x="850" y="389" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="10" font-weight="bold">GENERATOR CONNECTION</text>
+
+  <!-- Card 5: Ground -->
+  <rect x="972" y="120" width="212" height="300" rx="16" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect x="972" y="120" width="212" height="44" rx="16" fill="#a855f7"/>
+  <rect x="972" y="138" width="212" height="26" fill="#a855f7"/>
+  <text x="1078" y="152" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="15" font-weight="bold">GND / NEUTRAL</text>
+  <text x="1078" y="208" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Ground and Neutral Bond</text>
+  <line x1="992" y1="222" x2="1164" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="1078" y="250" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">Earth rod and bond keep the</text>
+  <text x="1078" y="268" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">system stable and protect</text>
+  <text x="1078" y="286" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">people from fault currents.</text>
+  <rect x="1018" y="372" width="120" height="24" rx="12" fill="rgba(168,85,247,0.2)" stroke="rgba(168,85,247,0.5)" stroke-width="1"/>
+  <text x="1078" y="389" text-anchor="middle" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="10" font-weight="bold">EARTH BONDING</text>
+
+  <!-- Note -->
+  <text x="600" y="452" text-anchor="middle" fill="#fbbf24" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Confirm the neutral-ground bond against the generator manual and the local electrical code before the first start.</text>
+
+  <!-- Title -->
+  <text x="600" y="505" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="44" font-weight="bold">Core Components of Generator Wiring</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="548" text-anchor="middle" fill="url(#h1)" font-family="Arial,sans-serif" font-size="22" font-weight="600">What Each Part Does in the Power Path</text>
+
+  <!-- Badge -->
+  <rect x="500" y="572" width="200" height="30" rx="15" fill="rgba(168,85,247,0.15)" stroke="rgba(168,85,247,0.45)" stroke-width="1"/>
+  <text x="600" y="592" text-anchor="middle" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="12" font-weight="bold">REFERENCE</text>
+</svg>

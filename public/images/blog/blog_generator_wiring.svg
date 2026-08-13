@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Grid -->
+  <g stroke="rgba(59,130,246,0.06)" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Stat pills -->
+  <rect x="70" y="42" width="250" height="32" rx="16" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
+  <text x="195" y="64" text-anchor="middle" fill="#fcd34d" font-family="Arial,sans-serif" font-size="13" font-weight="bold">120/240 V - 60 HZ</text>
+
+  <rect x="880" y="42" width="250" height="32" rx="16" fill="rgba(248,113,113,0.1)" stroke="rgba(248,113,113,0.35)" stroke-width="1"/>
+  <text x="1005" y="64" text-anchor="middle" fill="#fca5a5" font-family="Arial,sans-serif" font-size="13" font-weight="bold">NEVER BACKFEED</text>
+
+  <!-- Utility feed -->
+  <line x1="535" y1="80" x2="535" y2="150" stroke="#f87171" stroke-width="3" stroke-dasharray="7,5"/>
+  <polygon points="528,98 542,98 535,110" fill="#f87171"/>
+  <text x="535" y="95" text-anchor="middle" fill="#f87171" font-family="Arial,sans-serif" font-size="12" font-weight="bold">UTILITY FEED</text>
+
+  <!-- Generator -->
+  <rect x="70" y="170" width="170" height="130" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+  <text x="155" y="215" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="20" font-weight="bold">GENERATOR</text>
+  <text x="155" y="242" text-anchor="middle" fill="#fbbf24" font-family="Arial,sans-serif" font-size="12">120/240 V AC</text>
+  <text x="155" y="264" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">SPLIT PHASE OUTPUT</text>
+
+  <circle cx="240" cy="190" r="5" fill="#fbbf24"/>
+  <circle cx="240" cy="225" r="5" fill="#f59e0b"/>
+  <circle cx="240" cy="260" r="5" fill="#e2e8f0"/>
+  <circle cx="240" cy="295" r="5" fill="#22c55e"/>
+  <text x="155" y="290" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="10">L1 L2 N G</text>
+
+  <!-- ATS -->
+  <rect x="430" y="150" width="210" height="170" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+  <text x="535" y="205" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="16" font-weight="bold">TRANSFER</text>
+  <text x="535" y="226" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="16" font-weight="bold">SWITCH</text>
+  <text x="535" y="256" text-anchor="middle" fill="#38bdf8" font-family="Arial,sans-serif" font-size="26" font-weight="bold">ATS</text>
+  <text x="535" y="282" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">AUTO START + RELAYS</text>
+
+  <circle cx="430" cy="190" r="5" fill="#fbbf24"/>
+  <circle cx="430" cy="225" r="5" fill="#f59e0b"/>
+  <circle cx="430" cy="260" r="5" fill="#e2e8f0"/>
+  <circle cx="430" cy="295" r="5" fill="#22c55e"/>
+  <circle cx="640" cy="190" r="5" fill="#fbbf24"/>
+  <circle cx="640" cy="225" r="5" fill="#f59e0b"/>
+  <circle cx="640" cy="260" r="5" fill="#e2e8f0"/>
+  <circle cx="640" cy="295" r="5" fill="#22c55e"/>
+
+  <!-- Main panel -->
+  <rect x="790" y="150" width="190" height="170" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="3"/>
+  <text x="885" y="210" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="18" font-weight="bold">MAIN PANEL</text>
+  <text x="885" y="240" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="12">200 A BUS</text>
+  <text x="885" y="262" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="11">BREAKERS</text>
+
+  <circle cx="790" cy="190" r="5" fill="#fbbf24"/>
+  <circle cx="790" cy="225" r="5" fill="#f59e0b"/>
+  <circle cx="790" cy="260" r="5" fill="#e2e8f0"/>
+  <circle cx="790" cy="295" r="5" fill="#22c55e"/>
+
+  <!-- Wires generator to ATS -->
+  <g stroke-width="4">
+    <line x1="240" y1="190" x2="430" y2="190" stroke="#fbbf24"/>
+    <line x1="240" y1="225" x2="430" y2="225" stroke="#f59e0b"/>
+    <line x1="240" y1="260" x2="430" y2="260" stroke="#e2e8f0"/>
+    <line x1="240" y1="295" x2="430" y2="295" stroke="#22c55e"/>
+  </g>
+  <!-- Wires ATS to panel -->
+  <g stroke-width="4">
+    <line x1="640" y1="190" x2="790" y2="190" stroke="#fbbf24"/>
+    <line x1="640" y1="225" x2="790" y2="225" stroke="#f59e0b"/>
+    <line x1="640" y1="260" x2="790" y2="260" stroke="#e2e8f0"/>
+    <line x1="640" y1="295" x2="790" y2="295" stroke="#22c55e"/>
+  </g>
+
+  <!-- Load bus -->
+  <line x1="980" y1="230" x2="1170" y2="230" stroke="#22c55e" stroke-width="4"/>
+  <circle cx="1032" cy="230" r="6" fill="#22c55e"/>
+  <circle cx="1092" cy="230" r="6" fill="#22c55e"/>
+  <circle cx="1152" cy="230" r="6" fill="#22c55e"/>
+
+  <rect x="1010" y="150" width="45" height="45" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <rect x="1070" y="150" width="45" height="45" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <rect x="1130" y="150" width="45" height="45" rx="6" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <line x1="1032" y1="195" x2="1032" y2="230" stroke="#22c55e" stroke-width="3"/>
+  <line x1="1092" y1="195" x2="1092" y2="230" stroke="#22c55e" stroke-width="3"/>
+  <line x1="1152" y1="195" x2="1152" y2="230" stroke="#22c55e" stroke-width="3"/>
+
+  <text x="1032" y="262" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="11" font-weight="bold">LIGHTS</text>
+  <text x="1092" y="262" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="11" font-weight="bold">OUTLETS</text>
+  <text x="1152" y="262" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="11" font-weight="bold">APPLIANCE</text>
+
+  <!-- Ground rod -->
+  <line x1="535" y1="320" x2="535" y2="360" stroke="#22c55e" stroke-width="5"/>
+  <line x1="495" y1="360" x2="575" y2="360" stroke="#22c55e" stroke-width="4"/>
+  <line x1="505" y1="376" x2="565" y2="376" stroke="#22c55e" stroke-width="4"/>
+  <line x1="517" y1="392" x2="553" y2="392" stroke="#22c55e" stroke-width="4"/>
+  <text x="535" y="416" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="12" font-weight="bold">EARTH GROUND</text>
+
+  <!-- Title -->
+  <text x="600" y="465" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="46" font-weight="bold">Generator Wiring Diagrams</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="508" text-anchor="middle" fill="url(#g1)" font-family="Arial,sans-serif" font-size="22" font-weight="600">Generator to Transfer Switch to Main Panel</text>
+
+  <!-- Badge -->
+  <rect x="470" y="534" width="260" height="30" rx="15" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+  <text x="600" y="554" text-anchor="middle" fill="#60a5fa" font-family="Arial,sans-serif" font-size="12" font-weight="bold">POWER DISTRIBUTION GUIDE</text>
+</svg>
