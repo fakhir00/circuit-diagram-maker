@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+
 interface Heading {
   depth: number;
   slug: string;
@@ -44,6 +46,39 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
   month: 'long',
   day: 'numeric'
 });
+const homeCTAs = [
+  { before: 'Try the ', anchor: 'best circuit diagram maker', after: ' and sketch circuits free in your browser.' },
+  { before: '', anchor: 'Check our circuit diagram maker', after: ' to draw and share circuit schematics online.' },
+  { before: 'Use the ', anchor: 'free circuit diagram maker', after: ' for instant, browser-based schematic drawing.' },
+  { before: 'Work online with the ', anchor: 'online circuit diagram maker', after: ' and export diagrams without installing software.' },
+  { before: 'Sketch fast with this ', anchor: 'browser-based circuit diagram maker', after: ' \u2014 no install, no account needed.' },
+  { before: 'Create accurate layouts with the ', anchor: 'top circuit diagram maker', after: ' for hobbyists and engineers.' },
+  { before: 'Start with the ', anchor: 'easy-to-use circuit diagram maker', after: ' and finish a clean schematic in minutes.' },
+  { before: 'Rely on the ', anchor: 'reliable circuit diagram maker', after: ' when you need exact, exportable diagrams.' },
+  { before: 'Need shareable output? Use the ', anchor: 'professional circuit diagram maker', after: ' for clean, printable schematics.' },
+  { before: 'Speed up the process with the ', anchor: 'fast circuit diagram maker', after: ' and never redraw a wire by hand.' },
+  { before: 'Jump straight in with the ', anchor: 'no-install circuit diagram maker', after: ' that runs entirely in your browser.' },
+  { before: 'Cover the whole workflow with one ', anchor: 'all-in-one circuit diagram maker', after: ' for drawing and editing.' },
+  { before: 'Create diagrams anytime with a ', anchor: 'free online circuit diagram maker', after: ' that saves your work as you go.' },
+  { before: 'Keep it simple with a ', anchor: 'lightweight circuit diagram maker', after: ' that loads fast on any device.' },
+  { before: 'Adapt every layout with the ', anchor: 'versatile circuit diagram maker', after: ' used by makers and educators.' },
+  { before: 'Use a ', anchor: 'trusted circuit diagram maker', after: ' with tools built for practical electronics work.' },
+];
+function hashString(value: string) {
+  let hash = 0;
+  for (let i = 0; i < value.length; i++) {
+    hash = (hash * 31 + value.charCodeAt(i)) >>> 0;
+  }
+  return hash;
+}
+const orderedArticles = (await getCollection('blog'))
+  .filter((entry) => !entry.id.startsWith('{') && entry.id.startsWith('en/') && entry.data.draft !== true)
+  .sort((a, b) => {
+    const dateDiff = a.data.date.valueOf() - b.data.date.valueOf();
+    return dateDiff !== 0 ? dateDiff : (a.data.title < b.data.title ? -1 : 1);
+  });
+const articleIndex = orderedArticles.findIndex((entry) => entry.data.title === post.data.title);
+const homeCta = articleIndex >= 0 ? homeCTAs[articleIndex % homeCTAs.length] : homeCTAs[hashString(post.data.title) % homeCTAs.length];
 ---
 
 <article class="max-w-3xl mx-auto px-4 py-12 md:py-20 lg:py-24">
@@ -126,6 +161,13 @@ const publishedDate = post.data.date.toLocaleDateString(normalizedLocale, {
 
   <div class="blog-article" data-blog-article itemprop="articleBody">
     <Content />
+  </div>
+
+  <div class="home-cta relative mt-10 p-6 md:p-8 rounded-2xl bg-bg-panel border border-brand-primary/20 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12)_0%,transparent_60%)] pointer-events-none"></div>
+    <p class="relative z-10 text-[15px] md:text-base leading-relaxed text-slate-300 mb-0">
+      {homeCta.before}<a href={homePath} class="font-bold text-brand-accent underline decoration-brand-accent/40 underline-offset-4 hover:text-white transition-colors">{homeCta.anchor}</a>{homeCta.after}
+    </p>
   </div>
 
   <div class="social-share mt-12 flex items-center gap-4">
