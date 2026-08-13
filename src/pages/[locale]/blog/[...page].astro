@@ -1,12 +1,12 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getLocaleFromUrl, useTranslations, locales, defaultLocale } from '../../../theme/i18n';
 import config from '../../../data/config.json';
+import { getPublishedPosts } from '../../../utils/blog';
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getPublishedPosts();
   const enPosts = allPosts.filter(p => p.id.startsWith('en/'));
   
   const enPostsBySlug = new Map(
@@ -141,6 +141,9 @@ const pageTitle = page.currentPage > 1 ? `${baseTitle} - ${t('blog.part')} ${pag
                   <time datetime={post.data.date.toISOString()}>
                     {post.data.date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
                   </time>
+                  {post.data.draft && import.meta.env.DEV && (
+                    <span class="px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-400 font-black uppercase tracking-widest">Draft</span>
+                  )}
                   <span class="text-slate-600 font-bold opacity-60">•</span>
                   <span>5 {t('blog.min_read')}</span>
                 </div>

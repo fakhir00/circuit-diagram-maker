@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { locales, defaultLocale, getLocalizedPath } from '../theme/i18n';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../utils/blog';
 
-const posts = await getCollection('blog');
+const posts = await getPublishedPosts();
 
 const staticPages = [
   { path: '/', label: 'Home' },

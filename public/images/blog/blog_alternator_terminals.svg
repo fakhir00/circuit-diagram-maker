@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Grid -->
+  <g stroke="rgba(59,130,246,0.06)" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Stat pill -->
+  <rect x="440" y="42" width="320" height="32" rx="16" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.35)" stroke-width="1"/>
+  <text x="600" y="64" text-anchor="middle" fill="#fcd34d" font-family="Arial,sans-serif" font-size="13" font-weight="bold">TERMINAL FUNCTIONS + WIRE COLORS</text>
+
+  <!-- Card 1 : B+ -->
+  <rect x="30" y="100" width="210" height="400" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="30" y="100" width="210" height="70" rx="14" fill="rgba(251,191,36,0.12)"/>
+  <rect x="30" y="138" width="210" height="32" fill="rgba(251,191,36,0.12)"/>
+  <text x="135" y="122" text-anchor="middle" fill="#fbbf24" font-family="Arial,sans-serif" font-size="15" font-weight="bold">B+</text>
+  <text x="135" y="158" text-anchor="middle" fill="#fcd34d" font-family="Arial,sans-serif" font-size="13" font-weight="bold">MAIN OUTPUT</text>
+  <text x="135" y="220" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="bold">B+</text>
+  <circle cx="135" cy="265" r="12" fill="none" stroke="#fbbf24" stroke-width="3"/>
+  <line x1="123" y1="250" x2="147" y2="250" stroke="#fbbf24" stroke-width="3"/>
+  <line x1="147" y1="250" x2="147" y2="265" stroke="#fbbf24" stroke-width="3"/>
+  <text x="135" y="320" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">Heavy-gauge wire to</text>
+  <text x="135" y="338" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">battery positive via the</text>
+  <text x="135" y="356" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">fusible link. Live at all</text>
+  <text x="135" y="374" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">times, ignition off.</text>
+  <text x="135" y="420" text-anchor="middle" fill="#fbbf24" font-family="Arial,sans-serif" font-size="11" font-weight="bold">COLOR: RED</text>
+
+  <!-- Card 2 : L -->
+  <rect x="260" y="100" width="210" height="400" rx="14" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+  <rect x="260" y="100" width="210" height="70" rx="14" fill="rgba(129,140,248,0.12)"/>
+  <rect x="260" y="138" width="210" height="32" fill="rgba(129,140,248,0.12)"/>
+  <text x="365" y="122" text-anchor="middle" fill="#a5b4fc" font-family="Arial,sans-serif" font-size="15" font-weight="bold">L</text>
+  <text x="365" y="158" text-anchor="middle" fill="#c7d2fe" font-family="Arial,sans-serif" font-size="13" font-weight="bold">LAMP</text>
+  <text x="365" y="220" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="bold">L</text>
+  <circle cx="365" cy="265" r="10" fill="none" stroke="#a5b4fc" stroke-width="3"/>
+  <path d="M365 255a10 10 0 100 20 10 10 0 000-20" fill="none" stroke="#a5b4fc" stroke-width="2"/>
+  <text x="365" y="320" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">Drives the charge</text>
+  <text x="365" y="338" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">warning lamp and</text>
+  <text x="365" y="356" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">excites the field at</text>
+  <text x="365" y="374" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">start-up.</text>
+  <text x="365" y="420" text-anchor="middle" fill="#a5b4fc" font-family="Arial,sans-serif" font-size="11" font-weight="bold">COLOR: BLUE</text>
+
+  <!-- Card 3 : S -->
+  <rect x="490" y="100" width="210" height="400" rx="14" fill="#1e293b" stroke="#67e8f9" stroke-width="2"/>
+  <rect x="490" y="100" width="210" height="70" rx="14" fill="rgba(103,232,249,0.12)"/>
+  <rect x="490" y="138" width="210" height="32" fill="rgba(103,232,249,0.12)"/>
+  <text x="595" y="122" text-anchor="middle" fill="#67e8f9" font-family="Arial,sans-serif" font-size="15" font-weight="bold">S</text>
+  <text x="595" y="158" text-anchor="middle" fill="#a5f3fc" font-family="Arial,sans-serif" font-size="13" font-weight="bold">SENSE</text>
+  <text x="595" y="220" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="bold">S</text>
+  <circle cx="595" cy="265" r="10" fill="none" stroke="#67e8f9" stroke-width="3"/>
+  <path d="M595 260v10m0 0l6 4m-6-4l-6 4" stroke="#67e8f9" stroke-width="2" fill="none"/>
+  <text x="595" y="320" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">Carries battery voltage</text>
+  <text x="595" y="338" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">back to the regulator</text>
+  <text x="595" y="356" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">to hold 13.8-14.5 V</text>
+  <text x="595" y="374" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">output.</text>
+  <text x="595" y="420" text-anchor="middle" fill="#67e8f9" font-family="Arial,sans-serif" font-size="11" font-weight="bold">COLOR: WHITE</text>
+
+  <!-- Card 4 : F -->
+  <rect x="720" y="100" width="210" height="400" rx="14" fill="#1e293b" stroke="#f472b6" stroke-width="2"/>
+  <rect x="720" y="100" width="210" height="70" rx="14" fill="rgba(244,114,182,0.12)"/>
+  <rect x="720" y="138" width="210" height="32" fill="rgba(244,114,182,0.12)"/>
+  <text x="825" y="122" text-anchor="middle" fill="#f9a8d4" font-family="Arial,sans-serif" font-size="15" font-weight="bold">F</text>
+  <text x="825" y="158" text-anchor="middle" fill="#fbcfe8" font-family="Arial,sans-serif" font-size="13" font-weight="bold">FIELD / IGNITION</text>
+  <text x="825" y="220" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="bold">F</text>
+  <circle cx="825" cy="265" r="10" fill="none" stroke="#f9a8d4" stroke-width="3"/>
+  <path d="M825 255v20m-8-10h16" stroke="#f9a8d4" stroke-width="2" fill="none"/>
+  <text x="825" y="320" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">Enables charging when</text>
+  <text x="825" y="338" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">the ignition key turns</text>
+  <text x="825" y="356" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">to ON. Feeds the</text>
+  <text x="825" y="374" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">rotor field coil.</text>
+  <text x="825" y="420" text-anchor="middle" fill="#f9a8d4" font-family="Arial,sans-serif" font-size="11" font-weight="bold">COLOR: VIOLET</text>
+
+  <!-- Card 5 : GND -->
+  <rect x="950" y="100" width="210" height="400" rx="14" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <rect x="950" y="100" width="210" height="70" rx="14" fill="rgba(34,197,94,0.12)"/>
+  <rect x="950" y="138" width="210" height="32" fill="rgba(34,197,94,0.12)"/>
+  <text x="1055" y="122" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="15" font-weight="bold">GND</text>
+  <text x="1055" y="158" text-anchor="middle" fill="#bbf7d0" font-family="Arial,sans-serif" font-size="13" font-weight="bold">GROUND RETURN</text>
+  <text x="1055" y="220" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="bold">GND</text>
+  <line x1="1055" y1="255" x2="1055" y2="275" stroke="#86efac" stroke-width="3"/>
+  <line x1="1042" y1="275" x2="1068" y2="275" stroke="#86efac" stroke-width="3"/>
+  <line x1="1046" y1="283" x2="1064" y2="283" stroke="#86efac" stroke-width="3"/>
+  <line x1="1050" y1="291" x2="1060" y2="291" stroke="#86efac" stroke-width="3"/>
+  <text x="1055" y="320" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">Battery negative return</text>
+  <text x="1055" y="338" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">through the chassis</text>
+  <text x="1055" y="356" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">and engine ground</text>
+  <text x="1055" y="374" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">strap.</text>
+  <text x="1055" y="420" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="11" font-weight="bold">COLOR: BLACK</text>
+
+  <!-- Title -->
+  <text x="600" y="535" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="40" font-weight="bold">Alternator Terminals and Wiring Functions</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="575" text-anchor="middle" fill="url(#g1)" font-family="Arial,sans-serif" font-size="20" font-weight="600">B+  L  S  F  GND</text>
+</svg>
