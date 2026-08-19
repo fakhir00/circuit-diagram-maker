@@ -1,5 +1,5 @@
 ---
-title: "555 Timer Circuit"
+title: "555 Timer Circuit: 5 Easy Projects with Pinout & Formulas"
 description: "A complete guide to the 555 timer circuit. Learn astable, monostable, and bistable modes, calculate timing components, and build five practical circuits, including an LED flasher and PWM dimmer."
 date: 2026-08-19
 image: "/images/blog/blog_555_timer.svg"

@@ -1,5 +1,5 @@
 ---
-title: "Sedona Alternator Wiring Diagram"
+title: "Kia Sedona Alternator Wiring Diagram: Wire Colors & Charging Fixes"
 description: "Read the 2005 Kia Sedona alternator wiring diagram with terminal functions, wire color coding, common charging failures, and a step-by-step troubleshooting guide for DIY repairs."
 date: 2026-08-13
 image: "/images/blog/blog_sedona_alternator.svg"
