@@ -2,6 +2,7 @@
 title: "555 Timer Circuit"
 description: "A complete guide to the 555 timer circuit. Learn astable, monostable, and bistable modes, calculate timing components, and build five practical circuits, including an LED flasher and PWM dimmer."
 date: 2026-08-19
+image: "/images/blog/blog_555_timer.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"
 category: "DIY Circuits"
@@ -24,6 +25,14 @@ flowchart LR
     B --> E[Continuous square wave]
     C --> F[One output pulse]
     D --> G[Latched high or low]
+    
+    style A fill:#1e293b,stroke:#3b82f6,color:#fff
+    style B fill:#1e293b,stroke:#f59e0b,color:#fff
+    style C fill:#1e293b,stroke:#f59e0b,color:#fff
+    style D fill:#1e293b,stroke:#f59e0b,color:#fff
+    style E fill:#1e293b,stroke:#22c55e,color:#fff
+    style F fill:#1e293b,stroke:#22c55e,color:#fff
+    style G fill:#1e293b,stroke:#22c55e,color:#fff
 ```
 
 ## Introduction to the 555 Timer IC
@@ -56,6 +65,13 @@ flowchart LR
         P4["Pin 4 RESET"] --> O
         P7["Pin 7 DIS"] --> C["Timing Capacitor"]
     end
+    style IC fill:#0f172a,stroke:#3b82f6,color:#fff
+    style P2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style P6 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style P4 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style P7 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style O fill:#1e293b,stroke:#22c55e,color:#fff
+    style C fill:#1e293b,stroke:#22c55e,color:#fff
 ```
 
 ### Internal Block Diagram
@@ -78,6 +94,15 @@ flowchart TD
     LC -->|Set| FF
     FF --> OUT[Output Stage Pin 3]
     FF --> DIS[Discharge Transistor Pin 7]
+    
+    style VD fill:#1e293b,stroke:#3b82f6,color:#fff
+    style UC fill:#1e293b,stroke:#f59e0b,color:#fff
+    style LC fill:#1e293b,stroke:#f59e0b,color:#fff
+    style TH fill:#1e293b,stroke:#94a3b8,color:#fff
+    style TR fill:#1e293b,stroke:#94a3b8,color:#fff
+    style FF fill:#1e293b,stroke:#8b5cf6,color:#fff
+    style OUT fill:#1e293b,stroke:#22c55e,color:#fff
+    style DIS fill:#1e293b,stroke:#22c55e,color:#fff
 ```
 
 ## How to Calculate Timing Components
@@ -171,6 +196,16 @@ flowchart LR
     IC --> R3[Bel R3 330 Ohm]
     R3 --> LED[LED]
     LED --> GND2[Ground]
+    
+    style VCC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style R2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style C1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style IC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R3 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style LED fill:#1e293b,stroke:#ef4444,color:#fff
+    style GND1 fill:#1e293b,stroke:#94a3b8,color:#fff
+    style GND2 fill:#1e293b,stroke:#94a3b8,color:#fff
 ```
 
 ### How the Circuit Works
@@ -214,6 +249,18 @@ flowchart LR
     IC[555 Timer IC] --> R3[Bel R3 330 Ohm]
     R3 --> LED[LED]
     LED --> GND2[Ground]
+    
+    style VCC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style C1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style GND1 fill:#1e293b,stroke:#94a3b8,color:#fff
+    style R2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style TR fill:#1e293b,stroke:#94a3b8,color:#fff
+    style SW fill:#1e293b,stroke:#f59e0b,color:#fff
+    style IC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R3 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style LED fill:#1e293b,stroke:#ef4444,color:#fff
+    style GND2 fill:#1e293b,stroke:#94a3b8,color:#fff
 ```
 
 ### Trigger and Output Behavior
@@ -263,6 +310,18 @@ flowchart LR
     IC[555 Timer IC] --> R3[Bel R3 330 Ohm]
     R3 --> LED[LED]
     LED --> GND[Ground]
+    
+    style VCC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style TR fill:#1e293b,stroke:#94a3b8,color:#fff
+    style S1 fill:#1e293b,stroke:#22c55e,color:#fff
+    style R2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style RST fill:#1e293b,stroke:#94a3b8,color:#fff
+    style S2 fill:#1e293b,stroke:#ef4444,color:#fff
+    style IC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R3 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style LED fill:#1e293b,stroke:#ef4444,color:#fff
+    style GND fill:#1e293b,stroke:#94a3b8,color:#fff
 ```
 
 ### Set/Reset Functionality
@@ -304,6 +363,14 @@ flowchart LR
     D1 --> C1[Bel C1 1uF]
     D2 --> C1
     C1 --> GND[Ground]
+    
+    style VCC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style R2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style D1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style D2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style C1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style GND fill:#1e293b,stroke:#94a3b8,color:#fff
 ```
 
 ### How to Vary the Duty Cycle with a Potentiometer
@@ -352,6 +419,18 @@ flowchart LR
     IC[555 Timer IC] --> R3[Bel R3 330 Ohm]
     R3 --> LED[LED]
     LED --> GND2[Ground]
+    
+    style VCC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style TR fill:#1e293b,stroke:#94a3b8,color:#fff
+    style P fill:#1e293b,stroke:#f59e0b,color:#fff
+    style R2 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style C1 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style GND1 fill:#1e293b,stroke:#94a3b8,color:#fff
+    style IC fill:#1e293b,stroke:#3b82f6,color:#fff
+    style R3 fill:#1e293b,stroke:#f59e0b,color:#fff
+    style LED fill:#1e293b,stroke:#ef4444,color:#fff
+    style GND2 fill:#1e293b,stroke:#94a3b8,color:#fff
 ```
 
 ### How the Touch Plate Triggers the Timer
@@ -406,6 +485,77 @@ Not every 555 timer IC is identical. Four families dominate: NE555, LM555, TLC55
 Choose a bipolar NE555 or LM555 for general projects with LED loads, moderate speed, and 5V supplies. Bipolar versions handle the 200mA output drive that CMOS parts cannot match. Choose a TLC555 or LMC555 when the project runs from a 3V coin cell, operates at high frequency, or must minimize battery drain; a CMOS part uses roughly 1/40 of the supply current. The low supply floor of the CMOS parts, down to 1.5V, suits modern 3.3V systems.
 
 Package options affect how you build. The 8-pin DIP fits a breadboard and is easiest to hand-solder. The SOIC-8 surface-mount package suits assembled printed circuit boards. Tiny SOT-23 CMOS variants fit in space-constrained designs. For breadboard prototypes, buy the DIP package.
+
+## Frequently Asked Questions
+
+**What is the difference between astable, monostable, and bistable mode?**
+
+Astable mode runs a free oscillator, producing a continuous square wave with a set frequency and duty cycle. Monostable mode produces one output pulse per trigger, with a set pulse width from the timing resistor and timing capacitor. Bistable mode latches the output high or low from two inputs and holds the state until the next input changes it.
+
+**What is the maximum supply voltage for the 555 timer circuit?**
+
+The bipolar NE555 and LM555 run from 4.5V to 16V. The CMOS TLC555 and LMC555 run from 2V (or 1.5V for the LMC555) to 15V. Stay inside the rated range for your variant, and add a 0.1 µF decoupling capacitor across the supply pins.
+
+**How do I get a 50% duty cycle in astable mode?**
+
+The standard astable formula always gives a duty cycle above 50% because it outputs high. To reach an exact 50% duty cycle, add one diode in the charge path and one in the discharge path so each path uses its own resistor; the charge time then equals the discharge time when the two resistors match. The same diode pair is the base of the PWM generator in example 4.
+
+**Why does my 555 timer circuit not oscillate?**
+
+Check 4 connections first: pin 4 (RESET) must connect to VCC so the chip stays enabled, pin 2 and pin 6 must tie together through the timing network, the timing capacitor must connect to ground with correct electrolytic polarity, and pin 8 and pin 1 must reach the supply and common ground.
+
+**Can the 555 timer output drive a relay or motor directly?**
+
+The output drives up to 200mA, which lights LEDs and small loads directly. A relay coil or motor draws more current in most cases, so add an NPN transistor stage driven from pin 3 through a series resistor, with a flyback diode across inductive loads.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between astable, monostable, and bistable mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Astable mode runs a free oscillator, producing a continuous square wave with a set frequency and duty cycle. Monostable mode produces one output pulse per trigger, with a set pulse width from the timing resistor and timing capacitor. Bistable mode latches the output high or low from two inputs and holds the state until the next input changes it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum supply voltage for the 555 timer circuit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The bipolar NE555 and LM555 run from 4.5V to 16V. The CMOS TLC555 and LMC555 run from 2V or 1.5V for the LMC555 to 15V. Stay inside the rated range for your variant, and add a 0.1 µF decoupling capacitor across the supply pins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get a 50% duty cycle in astable mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard astable formula always gives a duty cycle above 50% because it outputs high. To reach an exact 50% duty cycle, add one diode in the charge path and one in the discharge path so each path uses its own resistor; the charge time then equals the discharge time when the two resistors match."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my 555 timer circuit not oscillate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check four connections first: the RESET pin must connect to VCC so the chip stays enabled, the TRIG and THR pins must tie together through the timing network, the timing capacitor must connect to ground with correct electrolytic polarity, and the supply and ground pins must reach the power rails."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the 555 timer output drive a relay or motor directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The output drives up to 200mA, which lights LEDs and small loads directly. A relay coil or motor draws more current in most cases, so add an NPN transistor stage driven from pin 3 through a series resistor, with a flyback diode across inductive loads."
+      }
+    }
+  ]
+}
+</script>
 
 ## Conclusion and Next Steps
 
