@@ -65,6 +65,33 @@ const toolMeta = {
   }
 };
 
+const heroContent = {
+  'boolean-expression-simplifier': {
+    eyebrow: translateText('keyword.hero.boolean.eyebrow', 'Boolean Algebra Workspace'),
+    title: translateText('keyword.hero.boolean.title', 'Boolean Expression Simplifier: Reduce Any Logic Expression Instantly'),
+    description: translateText(
+      'keyword.hero.boolean.description',
+      'Simplify boolean algebra expressions in seconds. Enter SOP or standard notation, apply De Morgan\u2019s laws, find prime implicants with Quine\u2013McCluskey reduction, and generate the truth table plus gate network automatically.'
+    ),
+    primaryCtaLabel: translateText('keyword.hero.boolean.cta.primary', 'Simplify an Expression'),
+    primaryCtaHref: '#inline-tool',
+    secondaryCtaLabel: translateText('keyword.hero.boolean.cta.secondary', 'See How It Works'),
+    secondaryCtaHref: '#how-it-works'
+  },
+  'truth-table-to-logic-circuit': {
+    eyebrow: translateText('keyword.hero.truth.eyebrow', 'Digital Logic Converter'),
+    title: translateText('keyword.hero.truth.title', 'Truth Table to Logic Circuit: From Output Bits to Gate Design'),
+    description: translateText(
+      'keyword.hero.truth.description',
+      'Convert truth-table output patterns into a simplified boolean expression and a practical gate-level circuit plan. Validate variable and bit lengths, extract minterms, and reduce the result to a minimal implementation.'
+    ),
+    primaryCtaLabel: translateText('keyword.hero.truth.cta.primary', 'Generate a Circuit'),
+    primaryCtaHref: '#inline-tool',
+    secondaryCtaLabel: translateText('keyword.hero.truth.cta.secondary', 'See How It Works'),
+    secondaryCtaHref: '#workflow-overview'
+  }
+};
+
 const truthContent = {
   overview:
     'This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.',
@@ -771,12 +798,33 @@ const pageDescription = toolMeta[toolKey].description;
 ---
 
 <BaseLayout title={resolvedHeading} description={pageDescription}>
+  <section class="relative overflow-hidden bg-bg-dark pt-20 pb-14 sm:pt-24 sm:pb-16">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_28%)]"></div>
+    <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="mx-auto max-w-full break-words text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-accent sm:text-sm sm:tracking-[0.35em]">{heroContent[toolKey].eyebrow}</p>
+      <h1 class="mx-auto mt-5 max-w-4xl break-words text-2xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl text-balance">
+        {heroContent[toolKey].title}
+      </h1>
+      <p class="mx-auto mt-5 max-w-3xl break-words text-base leading-7 text-slate-400 sm:mt-6 sm:text-xl sm:leading-8">
+        {heroContent[toolKey].description}
+      </p>
+      <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center">
+        <a href={heroContent[toolKey].primaryCtaHref} class="w-full rounded-xl bg-brand-primary px-6 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.18)] sm:w-auto sm:px-8">
+          {heroContent[toolKey].primaryCtaLabel}
+        </a>
+        <a href={heroContent[toolKey].secondaryCtaHref} class="w-full rounded-xl border border-white/10 px-6 py-3.5 text-center text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/5 sm:w-auto sm:px-8">
+          {heroContent[toolKey].secondaryCtaLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+
   <article aria-labelledby="tool-page-title">
-    <InlineKeywordTool toolKey={toolKey} heading={resolvedHeading} locale={locale} />
+    <InlineKeywordTool toolKey={toolKey} locale={locale} />
 
     {toolKey === 'boolean-expression-simplifier' ? (
       <>
-        <section class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
+        <section id="how-it-works" class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
               <header>
@@ -866,7 +914,7 @@ const pageDescription = toolMeta[toolKey].description;
       </>
     ) : (
       <>
-        <section class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
+        <section id="workflow-overview" class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
           <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <header class="max-w-4xl">
               <h2 id="workflow-overview-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{translateText('keyword.truth.workflow_overview', 'Workflow Overview')}</h2>

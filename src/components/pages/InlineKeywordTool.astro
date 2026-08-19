@@ -3,11 +3,10 @@ import { useTranslations } from '../../theme/i18n';
 
 interface Props {
   toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
-  heading: string;
   locale: string;
 }
 
-const { toolKey, heading, locale } = Astro.props;
+const { toolKey, locale } = Astro.props;
 const t = useTranslations(locale);
 
 const inlineCopyFallback = {
@@ -69,13 +68,9 @@ const inlineCopy =
     : inlineCopyFallback;
 ---
 
-<section id="inline-tool" data-inline-tool-root data-tool-key={toolKey} data-inline-copy={JSON.stringify(inlineCopy)} class="relative overflow-hidden bg-bg-dark pt-16 pb-10 sm:pt-20 sm:pb-14">
+<section id="inline-tool" data-inline-tool-root data-tool-key={toolKey} data-inline-copy={JSON.stringify(inlineCopy)} class="relative overflow-hidden bg-bg-dark pb-10 sm:pb-14">
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.14),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_35%)] pointer-events-none"></div>
   <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-8 max-w-3xl">
-      <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">{heading}</h1>
-      <p class="mt-4 text-slate-400 text-base sm:text-lg">{inlineCopy.heroTagline}</p>
-    </div>
 
     {toolKey === 'truth-table-to-logic-circuit' && (
       <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6 lg:p-8 flex flex-col xl:flex-row gap-8">
