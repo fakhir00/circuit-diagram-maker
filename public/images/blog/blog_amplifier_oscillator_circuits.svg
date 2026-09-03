@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <g stroke="rgba(59,130,246,0.07)" stroke-width="1">
+    <line x1="0" y1="130" x2="1200" y2="130"/>
+    <line x1="0" y1="260" x2="1200" y2="260"/>
+    <line x1="0" y1="390" x2="1200" y2="390"/>
+    <line x1="0" y1="520" x2="1200" y2="520"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <text x="60" y="76" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="bold">Amplifier &amp; Oscillator Circuits</text>
+  <text x="60" y="110" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="bold">op-amp triangles &#183; feedback loops &#183; 555 timers &#183; RC networks</text>
+
+  <!-- Input terminal -->
+  <circle cx="120" cy="280" r="8" fill="none" stroke="#22d3ee" stroke-width="4"/>
+  <text x="100" y="286" text-anchor="end" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">IN</text>
+  <line x1="128" y1="280" x2="150" y2="280" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Rin -->
+  <polyline points="150,280 162,260 186,300 210,260 234,300 258,260 270,280" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="210" y="246" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">Rin</text>
+  <line x1="270" y1="280" x2="300" y2="280" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="280" cy="280" r="6" fill="#3b82f6"/>
+
+  <!-- Feedback Rf above the triangle -->
+  <line x1="280" y1="210" x2="280" y2="280" stroke="#3b82f6" stroke-width="4"/>
+  <polyline points="280,210 292,190 316,230 340,190 364,230 388,190 400,210" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="340" y="176" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">Rf</text>
+  <line x1="400" y1="210" x2="450" y2="210" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="450" y1="210" x2="450" y2="320" stroke="#3b82f6" stroke-width="4"/>
+
+  <!-- Op-amp -->
+  <polygon points="300,250 300,390 420,320" fill="#1e293b" stroke="#22d3ee" stroke-width="4" stroke-linejoin="round"/>
+  <text x="342" y="328" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold">U1</text>
+  <text x="316" y="290" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="bold">&#8722;</text>
+  <text x="316" y="372" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="bold">+</text>
+
+  <!-- Non-inverting input to ground -->
+  <line x1="300" y1="360" x2="260" y2="360" stroke="#22d3ee" stroke-width="4"/>
+  <line x1="260" y1="360" x2="260" y2="430" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="236" y1="430" x2="284" y2="430" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="244" y1="441" x2="276" y2="441" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="252" y1="452" x2="268" y2="452" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Output -->
+  <line x1="420" y1="320" x2="540" y2="320" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="450" cy="320" r="6" fill="#3b82f6"/>
+  <circle cx="548" cy="320" r="8" fill="none" stroke="#22c55e" stroke-width="4"/>
+  <text x="548" y="294" text-anchor="middle" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">OUT</text>
+
+  <text x="350" y="556" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="bold">FEEDBACK SETS THE GAIN</text>
+
+  <!-- VCC rail -->
+  <line x1="620" y1="180" x2="1080" y2="180" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+  <text x="620" y="166" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">VCC</text>
+
+  <!-- R1 vertical -->
+  <line x1="620" y1="180" x2="620" y2="210" stroke="#3b82f6" stroke-width="4"/>
+  <polyline points="620,210 604,221 636,238 604,255 636,272 620,290" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="620" y1="290" x2="620" y2="310" stroke="#3b82f6" stroke-width="4"/>
+  <text x="652" y="232" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R1</text>
+
+  <!-- Timing node -->
+  <line x1="620" y1="310" x2="700" y2="310" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="620" cy="310" r="6" fill="#3b82f6"/>
+  <circle cx="670" cy="310" r="6" fill="#3b82f6"/>
+  <line x1="670" y1="270" x2="670" y2="310" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="670" y1="270" x2="700" y2="270" stroke="#3b82f6" stroke-width="4"/>
+
+  <!-- C1 -->
+  <line x1="620" y1="310" x2="620" y2="380" stroke="#22d3ee" stroke-width="4"/>
+  <line x1="596" y1="380" x2="644" y2="380" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <line x1="596" y1="397" x2="644" y2="397" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <line x1="620" y1="397" x2="620" y2="470" stroke="#94a3b8" stroke-width="4"/>
+  <text x="656" y="376" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">C1</text>
+
+  <!-- 555 block -->
+  <rect x="700" y="230" width="200" height="180" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="4"/>
+  <text x="800" y="306" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="bold">555</text>
+  <text x="800" y="336" text-anchor="middle" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold">TIMER</text>
+  <text x="710" y="266" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold">2 TRIG</text>
+  <text x="710" y="306" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold">6 THR</text>
+  <text x="710" y="376" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold">7 DIS</text>
+  <text x="890" y="296" text-anchor="end" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold">OUT 3</text>
+  <line x1="700" y1="380" x2="660" y2="380" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="660" y1="380" x2="660" y2="340" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="660" y1="340" x2="620" y2="340" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="620" cy="340" r="6" fill="#3b82f6"/>
+  <line x1="800" y1="230" x2="800" y2="180" stroke="#f59e0b" stroke-width="4"/>
+  <circle cx="800" cy="180" r="6" fill="#f59e0b"/>
+  <line x1="800" y1="410" x2="800" y2="470" stroke="#94a3b8" stroke-width="4"/>
+
+  <!-- Output waveform -->
+  <line x1="900" y1="290" x2="965" y2="290" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M965,290 L965,264 L995,264 L995,312 L1025,312 L1025,264 L1055,264 L1055,290" fill="none" stroke="#22c55e" stroke-width="4" stroke-linejoin="round"/>
+  <text x="1010" y="246" text-anchor="middle" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">OUT</text>
+
+  <!-- GND rail -->
+  <line x1="580" y1="470" x2="1080" y2="470" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="620" cy="470" r="6" fill="#94a3b8"/>
+  <circle cx="800" cy="470" r="6" fill="#94a3b8"/>
+  <line x1="900" y1="470" x2="900" y2="492" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="876" y1="492" x2="924" y2="492" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="884" y1="503" x2="916" y2="503" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="892" y1="514" x2="908" y2="514" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="830" y="556" text-anchor="middle" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="bold">RC NETWORK SETS THE FREQUENCY</text>
+  <text x="1140" y="604" text-anchor="end" fill="#64748b" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">Inverting input on top &#183; feedback drawn above the triangle</text>
+</svg>

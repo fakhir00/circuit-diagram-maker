@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <g stroke="rgba(59,130,246,0.07)" stroke-width="1">
+    <line x1="0" y1="130" x2="1200" y2="130"/>
+    <line x1="0" y1="260" x2="1200" y2="260"/>
+    <line x1="0" y1="390" x2="1200" y2="390"/>
+    <line x1="0" y1="520" x2="1200" y2="520"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <text x="60" y="76" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="bold">Sensor &amp; Protection Circuit Diagrams</text>
+  <text x="60" y="110" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="bold">pull-ups &#183; voltage dividers &#183; MOSFET switching &#183; debounce</text>
+
+  <!-- Rails -->
+  <line x1="120" y1="190" x2="1080" y2="190" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+  <text x="120" y="176" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">VCC</text>
+  <line x1="120" y1="500" x2="1080" y2="500" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Block 1: LDR divider -->
+  <line x1="180" y1="190" x2="180" y2="225" stroke="#fbbf24" stroke-width="4"/>
+  <polyline points="180,225 162,235 198,252 162,269 198,286 180,295" fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="126" y1="238" x2="150" y2="250" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="150,250 141,246 143,255" fill="#fbbf24"/>
+  <line x1="126" y1="266" x2="150" y2="278" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="150,278 141,274 143,283" fill="#fbbf24"/>
+  <text x="212" y="244" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">LDR</text>
+  <line x1="180" y1="295" x2="180" y2="345" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="180" cy="320" r="6" fill="#3b82f6"/>
+  <polyline points="180,345 162,355 198,372 162,389 198,406 180,415" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="212" y="378" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R2 10k</text>
+  <line x1="180" y1="415" x2="180" y2="500" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="180" cy="500" r="6" fill="#94a3b8"/>
+  <line x1="180" y1="320" x2="292" y2="320" stroke="#22c55e" stroke-width="4"/>
+  <polygon points="304,320 290,313 290,327" fill="#22c55e"/>
+  <text x="200" y="308" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">ADC IN</text>
+  <text x="200" y="556" text-anchor="middle" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">VOLTAGE DIVIDER</text>
+
+  <!-- Block 2: pull-up + switch + RC + Schmitt -->
+  <line x1="480" y1="190" x2="480" y2="225" stroke="#3b82f6" stroke-width="4"/>
+  <polyline points="480,225 462,235 498,252 462,269 498,286 480,295" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="512" y="244" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R1 10k</text>
+  <line x1="480" y1="295" x2="480" y2="358" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="480" cy="320" r="6" fill="#3b82f6"/>
+  <circle cx="480" cy="362" r="5" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+  <circle cx="480" cy="413" r="5" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+  <line x1="480" y1="413" x2="506" y2="368" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+  <text x="516" y="404" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">SW1</text>
+  <line x1="480" y1="418" x2="480" y2="500" stroke="#cbd5e1" stroke-width="4"/>
+  <circle cx="480" cy="500" r="6" fill="#94a3b8"/>
+
+  <polyline points="500,320 510,304 530,336 550,304 570,336 590,304 600,320" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="550" y="292" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R3</text>
+  <line x1="600" y1="320" x2="700" y2="320" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="640" cy="320" r="6" fill="#3b82f6"/>
+  <line x1="640" y1="320" x2="640" y2="390" stroke="#22d3ee" stroke-width="4"/>
+  <line x1="616" y1="390" x2="664" y2="390" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <line x1="616" y1="407" x2="664" y2="407" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+  <line x1="640" y1="407" x2="640" y2="500" stroke="#22d3ee" stroke-width="4"/>
+  <circle cx="640" cy="500" r="6" fill="#94a3b8"/>
+  <text x="672" y="388" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">C1</text>
+
+  <polygon points="700,290 700,350 752,320" fill="#1e293b" stroke="#22d3ee" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M711,330 h9 v-16 h9" fill="none" stroke="#22d3ee" stroke-width="3"/>
+  <line x1="752" y1="320" x2="784" y2="320" stroke="#22c55e" stroke-width="4"/>
+  <polygon points="796,320 782,313 782,327" fill="#22c55e"/>
+  <text x="740" y="278" text-anchor="middle" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">SCHMITT</text>
+  <text x="580" y="556" text-anchor="middle" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">DEBOUNCED INPUT</text>
+
+  <!-- Block 3: relay coil + flyback + MOSFET -->
+  <line x1="950" y1="190" x2="950" y2="202" stroke="#22c55e" stroke-width="4"/>
+  <path d="M950,202 A14,14 0 0 1 950,230 A14,14 0 0 1 950,258" fill="none" stroke="#22c55e" stroke-width="4"/>
+  <line x1="950" y1="258" x2="950" y2="290" stroke="#22c55e" stroke-width="4"/>
+  <text x="912" y="234" text-anchor="end" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">K1 COIL</text>
+  <circle cx="1020" cy="190" r="6" fill="#f59e0b"/>
+  <line x1="950" y1="190" x2="1020" y2="190" stroke="#f59e0b" stroke-width="4"/>
+  <line x1="1020" y1="190" x2="1020" y2="238" stroke="#22c55e" stroke-width="4"/>
+  <line x1="1006" y1="238" x2="1034" y2="238" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="1006,266 1034,266 1020,240" fill="none" stroke="#22c55e" stroke-width="4" stroke-linejoin="round"/>
+  <line x1="1020" y1="266" x2="1020" y2="290" stroke="#22c55e" stroke-width="4"/>
+  <line x1="950" y1="290" x2="1020" y2="290" stroke="#22c55e" stroke-width="4"/>
+  <circle cx="950" cy="290" r="6" fill="#22c55e"/>
+  <text x="1044" y="262" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">D1</text>
+
+  <line x1="950" y1="290" x2="950" y2="345" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="930" y1="345" x2="950" y2="345" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="930" y1="338" x2="930" y2="392" stroke="#3b82f6" stroke-width="5"/>
+  <line x1="916" y1="338" x2="916" y2="392" stroke="#3b82f6" stroke-width="5"/>
+  <line x1="930" y1="385" x2="950" y2="385" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="950" y1="385" x2="950" y2="500" stroke="#3b82f6" stroke-width="4"/>
+  <circle cx="950" cy="500" r="6" fill="#94a3b8"/>
+  <line x1="934" y1="365" x2="948" y2="365" stroke="#3b82f6" stroke-width="4"/>
+  <polygon points="948,365 938,360 938,370" fill="#3b82f6"/>
+  <line x1="950" y1="345" x2="950" y2="385" stroke="#3b82f6" stroke-width="4"/>
+  <line x1="880" y1="365" x2="916" y2="365" stroke="#3b82f6" stroke-width="4"/>
+  <text x="972" y="410" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">Q1</text>
+  <polyline points="800,365 810,350 830,380 850,350 870,380 880,365" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="840" y="404" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">Rg</text>
+  <line x1="768" y1="365" x2="800" y2="365" stroke="#a78bfa" stroke-width="4"/>
+  <text x="762" y="371" text-anchor="end" fill="#c4b5fd" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">GPIO</text>
+  <text x="960" y="556" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">SWITCHING + FLYBACK</text>
+
+  <!-- Ground symbol -->
+  <line x1="820" y1="500" x2="820" y2="522" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="796" y1="522" x2="844" y2="522" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="804" y1="533" x2="836" y2="533" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="812" y1="544" x2="828" y2="544" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="1140" y="604" text-anchor="end" fill="#64748b" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">Pull-ups drawn upward &#183; pull-downs drawn downward</text>
+</svg>

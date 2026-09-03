@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- Grid -->
+  <g stroke="rgba(59,130,246,0.07)" stroke-width="1">
+    <line x1="0" y1="130" x2="1200" y2="130"/>
+    <line x1="0" y1="260" x2="1200" y2="260"/>
+    <line x1="0" y1="390" x2="1200" y2="390"/>
+    <line x1="0" y1="520" x2="1200" y2="520"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Title block -->
+  <text x="60" y="76" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="bold">Circuit Diagram Design</text>
+  <text x="60" y="110" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="bold">IEEE / ANSI symbols &#183; schematic drawing basics &#183; layout rules</text>
+
+  <!-- VCC rail -->
+  <line x1="140" y1="190" x2="1060" y2="190" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+  <text x="140" y="176" fill="#fbbf24" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">VCC +5V</text>
+
+  <!-- GND rail -->
+  <line x1="140" y1="510" x2="1060" y2="510" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Ground symbol -->
+  <line x1="250" y1="510" x2="250" y2="535" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="220" y1="535" x2="280" y2="535" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="230" y1="547" x2="270" y2="547" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="240" y1="559" x2="260" y2="559" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <text x="250" y="586" text-anchor="middle" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">GND</text>
+
+  <!-- Input terminal -->
+  <circle cx="140" cy="350" r="8" fill="none" stroke="#22d3ee" stroke-width="4"/>
+  <text x="118" y="356" text-anchor="end" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">IN</text>
+  <line x1="148" y1="350" x2="200" y2="350" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- R1 zigzag -->
+  <polyline points="200,350 212,330 236,370 260,330 284,370 308,330 320,350" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="260" y="314" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R1</text>
+  <line x1="320" y1="350" x2="460" y2="350" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- C1 to ground -->
+  <circle cx="370" cy="350" r="6" fill="#3b82f6"/>
+  <line x1="370" y1="350" x2="370" y2="440" stroke="#22d3ee" stroke-width="4"/>
+  <line x1="345" y1="440" x2="395" y2="440" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+  <line x1="345" y1="456" x2="395" y2="456" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+  <line x1="370" y1="456" x2="370" y2="510" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="370" cy="510" r="6" fill="#94a3b8"/>
+  <text x="408" y="454" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">C1</text>
+
+  <!-- U1 IC block -->
+  <rect x="460" y="280" width="200" height="140" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="4"/>
+  <text x="560" y="342" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="bold">U1</text>
+  <text x="560" y="372" text-anchor="middle" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">AMPLIFIER</text>
+  <line x1="560" y1="280" x2="560" y2="190" stroke="#f59e0b" stroke-width="4"/>
+  <circle cx="560" cy="190" r="6" fill="#f59e0b"/>
+  <line x1="560" y1="420" x2="560" y2="510" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="560" cy="510" r="6" fill="#94a3b8"/>
+
+  <!-- Output path -->
+  <line x1="660" y1="350" x2="760" y2="350" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <text x="710" y="326" text-anchor="middle" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="bold">OUT</text>
+
+  <!-- D1 LED -->
+  <polygon points="760,330 760,370 800,350" fill="none" stroke="#22c55e" stroke-width="4" stroke-linejoin="round"/>
+  <line x1="800" y1="330" x2="800" y2="370" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+  <line x1="806" y1="332" x2="828" y2="310" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="828,310 820,312 826,318" fill="#22c55e"/>
+  <line x1="818" y1="344" x2="840" y2="322" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="840,322 832,324 838,330" fill="#22c55e"/>
+  <text x="780" y="400" text-anchor="middle" fill="#4ade80" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">D1</text>
+  <line x1="800" y1="350" x2="860" y2="350" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- R2 zigzag -->
+  <polyline points="860,350 872,330 896,370 920,330 944,370 968,330 980,350" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="920" y="314" text-anchor="middle" fill="#60a5fa" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">R2</text>
+  <line x1="980" y1="350" x2="1040" y2="350" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <line x1="1040" y1="350" x2="1040" y2="510" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="1040" cy="510" r="6" fill="#94a3b8"/>
+
+  <!-- Flow caption -->
+  <text x="1140" y="604" text-anchor="end" fill="#64748b" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="bold">Signal flows left &#8594; right &#183; power on top &#183; ground at the bottom</text>
+</svg>
