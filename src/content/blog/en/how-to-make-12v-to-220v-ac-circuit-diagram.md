@@ -1,7 +1,7 @@
 ---
 title: "How to Make a 12V to 220V AC Circuit Diagram (Step-by-Step)"
 description: "A comprehensive teardown of the classic 12V DC to 220V AC Power Inverter schematic. Learn how to generate high-voltage mains power from a battery."
-date: 2026-04-11
+date: 2026-04-11T12:00:00Z
 image: "/images/blog/blog_inverter_1776059290894.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

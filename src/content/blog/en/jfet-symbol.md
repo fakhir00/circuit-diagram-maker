@@ -1,7 +1,7 @@
 ---
 title: "The JFET Symbol Explained: Master High-Impedance Design"
 description: "Decode the JFET (Junction Field Effect Transistor) schematic symbol. Explore N-channel vs P-channel differences, pinouts, and classic circuit logic."
-date: 2026-04-09
+date: 2026-04-09T12:00:00Z
 image: "/images/blog/blog_jfet_1776059178688.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

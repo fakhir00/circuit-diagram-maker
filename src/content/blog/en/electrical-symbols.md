@@ -1,7 +1,7 @@
 ---
 title: "Electrical Symbols: The Only Reference You Need (With Chart & Diagrams)"
 description: "Master every standard electrical symbol used in circuit schematics. This chart covers passive, active, and source symbols with IEEE vs. IEC differences and a downloadable reference diagram."
-date: 2026-08-29
+date: 2026-08-29T12:00:00Z
 image: "/images/blog/blog_electrical_symbols.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"

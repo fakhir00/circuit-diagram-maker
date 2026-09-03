@@ -1,7 +1,7 @@
 ---
 title: "How to Read a Circuit Diagram: A Step-by-Step Guide"
 description: "Stop feeling overwhelmed by complex schematics. Follow this structured methodology to reverse-engineer and understand any circuit diagram on the internet."
-date: 2026-04-12
+date: 2026-04-12T12:00:00Z
 image: "/images/blog/blog_reading_1776059309484.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

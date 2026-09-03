@@ -1,7 +1,7 @@
 ---
 title: "How to Make a Circuit Diagram Online (Free & Easy)"
 description: "Discover the fastest way to design, draw, and export high-quality circuit schematics directly within your web browser."
-date: 2026-04-07
+date: 2026-04-07T12:00:00Z
 image: "/images/blog/blog_online_1776059149365.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

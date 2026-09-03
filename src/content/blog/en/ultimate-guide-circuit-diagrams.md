@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Circuit Diagrams"
 description: "From drawing theoretical concepts to full PCB production blocks—an in-depth masterclass on everything related to circuit schematics."
-date: 2026-04-06
+date: 2026-04-06T12:00:00Z
 image: "/images/blog/blog_ultimate_1776059130701.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

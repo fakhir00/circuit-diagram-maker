@@ -1,8 +1,8 @@
 ---
 title: "7 Best Practices for Circuit Schematic Design"
 description: "Learn the 7 best practices for circuit schematic design that professionals use. Avoid common layout mistakes and draw clean, readable schematics today."
-date: 2026-04-03
-updatedDate: 2026-04-21
+date: 2026-04-03T12:00:00Z
+updatedDate: 2026-04-21T12:00:00Z
 image: "/images/blog/blog_best_practices_1776059029939.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

@@ -1,7 +1,7 @@
 ---
 title: "The SPST Symbol Explained: Foundation of Switching Logic"
 description: "Master the SPST (Single Pole, Single Throw) switch symbol in circuit diagrams. Understand poles, throws, and mechanical switching basics."
-date: 2026-04-10
+date: 2026-04-10T12:00:00Z
 image: "/images/blog/blog_spst_1776059273187.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

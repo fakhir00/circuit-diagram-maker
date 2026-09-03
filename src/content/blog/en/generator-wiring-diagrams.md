@@ -1,7 +1,7 @@
 ---
 title: "Generator Wiring Diagrams: Transfer Switch Installation & Safety Guide"
 description: "Master generator wiring diagrams: core components like transfer switches and breakers, step-by-step installation instructions, troubleshooting, safety precautions, and FAQs."
-date: 2026-08-13
+date: 2026-08-13T12:00:00Z
 image: "/images/blog/blog_generator_wiring.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"

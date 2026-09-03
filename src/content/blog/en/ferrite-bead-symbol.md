@@ -1,7 +1,7 @@
 ---
 title: "The Ferrite Bead Symbol Explained: Noise Suppression Tactics"
 description: "Everything you need to know about reading, placing, and understanding the ferrite bead symbol in modern circuit diagrams."
-date: 2026-04-08
+date: 2026-04-08T12:00:00Z
 image: "/images/blog/blog_ferrite_1776059164262.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

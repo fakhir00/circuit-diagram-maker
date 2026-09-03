@@ -1,7 +1,7 @@
 ---
 title: "Circuit Diagrams for Beginners — Everything You Need to Know"
 description: "New to circuit diagrams? This beginner-friendly guide explains electronic symbols, reading schematics, and creating your first circuit diagram with free tools."
-date: 2026-04-02
+date: 2026-04-02T12:00:00Z
 image: "/images/blog/blog_beginners_1776059012426.png"
 author: "Circuit Diagram Maker Team"
 lang: "en"

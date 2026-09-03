@@ -1,7 +1,7 @@
 ---
 title: "10 Common Circuit Diagram Mistakes and How to Fix Them"
 description: "Avoid these 10 common circuit diagram mistakes that break your designs. Learn proper labeling components, troubleshooting techniques, and design principles."
-date: 2026-08-10
+date: 2026-08-10T12:00:00Z
 image: "/images/blog/blog_common_mistakes.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"

@@ -312,7 +312,7 @@ The order matters. Engineers who place components first and think about power la
 
 Step 5 deserves emphasis: wire the *signal path* first, in order, before wiring anything else. If you can trace input to output in one clean left-to-right sweep, the drawing is already 80% readable. Everything else — bias networks, decoupling, protection — attaches to that spine.
 
-**[Start drawing your own schematic now.](/editor/)** The editor snaps to a 100-mil grid, ships the IEEE/ANSI symbol library described above, and places junction dots automatically, so you can practice these conventions without fighting the tool. Browse the full [component symbol library](/components/) to see what is available before you start.
+**[Start drawing your own schematic now.](/)** The editor snaps to a 100-mil grid, ships the IEEE/ANSI symbol library described above, and places junction dots automatically, so you can practice these conventions without fighting the tool. Browse the full [component symbol library](/components/) to see what is available before you start.
 
 ## Six Domains, Six Sets of Drawing Conventions
 
@@ -341,6 +341,63 @@ Test infrastructure is the most under-drawn part of most schematics. The [measur
 ### 6. Microcontrollers and Embedded Systems
 
 The most demanding diagrams. The [microcontroller schematic layout guide](/blog/microcontroller-circuit-diagrams/) covers splitting large MCU pinouts across multiple symbol parts, using bus notation to collapse parallel groups, crystal oscillator layout with load capacitors, per-pin decoupling, and wiring external peripherals — H-bridge motor drivers, sensor arrays, relays, and displays. Worked examples include line-follower robots, Raspberry Pi projects, and battery management systems.
+
+## Choosing the Right Circuit Diagram Software
+
+The tool you draw with shapes the drawing as much as the conventions do. A good schematic editor enforces grid snapping, auto-places junction dots, and provides the full IEEE/ANSI and IEC symbol libraries so you never have to draw a resistor from scratch. A bad one lets you place components off-grid, forget junctions, and export images that blur when printed.
+
+What to evaluate before committing to a tool:
+
+| Feature | Why it matters | What to look for |
+| :--- | :--- | :--- |
+| **Grid snapping** | Off-grid pins produce invisible open circuits | Mandatory 100-mil (2.54 mm) snap, no way to disable it |
+| **Symbol library** | Drawing symbols from scratch wastes time and introduces errors | IEEE/ANSI and IEC sets included, plus user-editable custom symbols |
+| **Junction management** | Missing dots are the most common schematic defect | Auto-place on T-junctions, auto-remove on delete, visual verification |
+| **ERC (electrical rule check)** | Catches structural errors before review | Pin conflicts, unconnected pins, power rail mismatches |
+| **Export formats** | Schematic must leave the editor eventually | SVG, PNG, PDF at minimum; netlist export for PCB handoff |
+| **Collaboration** | Reviews happen in teams | Shared links, comment threads, version history |
+| **Cost** | Budget constraints are real | Free tier with full features, or one-time purchase with no subscription |
+
+Browser-based tools have a significant advantage for schematic work: zero installation, instant sharing via URL, and consistent rendering across operating systems. The tradeoff was historically feature depth, but modern web editors now match desktop tools for the symbol libraries, grid enforcement, and export quality that schematic drawing actually requires.
+
+**[Try Circuit Diagram Maker free.](/)** No install, no account required. The editor provides the full IEEE/ANSI symbol library, snaps to a 100-mil grid, auto-places junction dots, and exports SVG, PNG, and PDF — everything this guide recommends, enforced by the tool itself.
+
+## Export Formats: Getting Your Schematic Out
+
+A schematic that lives only inside one editor is a schematic that cannot be reviewed, printed, embedded in documentation, or handed off for PCB layout. Every drawing session should end with an export, and the format you choose depends on the audience.
+
+| Format | Best for | Strengths | Limitations |
+| :--- | :--- | :--- | :--- |
+| **SVG** | Web embedding, documentation, scaling to any size | Vector — infinite resolution, small file size, editable in Illustrator/Inkscape | Not all PCB tools import SVG directly |
+| **PNG** | Presentations, Slack/Teams messages, quick sharing | Raster with transparent background, universal display | Resolution-dependent; blurry if exported at low DPI |
+| **PDF** | Printing, email attachments, formal review packages | Page-sized, preserves layers, searchable text | Large file size on complex sheets |
+| **Netlist (JSON/CSV)** | PCB layout handoff | Machine-readable connectivity, importable by KiCad/Eagle/Altium | Not human-readable; requires PCB tool to view |
+| **LTSpice raw** | Simulation | Directly simulable, preserves component parameters | Proprietary format, not universal |
+
+The practical workflow: export SVG for anything that will appear in documentation or on a website, PNG for instant sharing where resolution is sufficient, and PDF for formal review packages. Always export at 2× or 3× resolution if using PNG for print — a schematic that is sharp on screen but blurry on paper has failed its primary purpose.
+
+Before exporting, run the ERC one final time. An exported schematic with unresolved warnings is a permanent record of known defects.
+
+## Schematic Diagrams vs. Wiring Diagrams: Knowing the Difference
+
+This distinction trips up beginners more than any other concept in electronics documentation, and confusing them on a real project can be costly.
+
+A **schematic diagram** (circuit diagram) shows how components are connected *electrically*. It answers the question: "What is the circuit?" Wires are abstract lines that may bear no resemblance to physical routing. Components are placed wherever the drawing reads best. A resistor might appear right next to an IC even if the real part is centimeters away on the board. The schematic is the source of truth for design, debugging, and review.
+
+A **wiring diagram** shows how components are connected *physically*. It answers the question: "How do I actually wire this?" Wire colors, connector pinouts, harness routing, and physical component positions are the information that matters. A wiring diagram is what a field technician uses to install, troubleshoot, or repair a system.
+
+| Characteristic | Schematic diagram | Wiring diagram |
+| :--- | :--- | :--- |
+| **Primary audience** | Designers, reviewers, debuggers | Installers, technicians, field engineers |
+| **Wire representation** | Abstract lines, length irrelevant | Actual routing, length and color matter |
+| **Component placement** | Optimized for readability | Reflects physical location |
+| **Shows** | Electrical connectivity, component values, net names | Wire colors, connector pinouts, harness paths |
+| **Used for** | Design, simulation, PCB layout | Installation, maintenance, repair |
+| **Standard symbols** | IEEE/ANSI/IEC schematic symbols | Pictorial representations, wire color codes |
+
+The critical rule: never use a schematic where a wiring diagram is needed, and never use a wiring diagram where a schematic is needed. A schematic given to a field technician is useless — they cannot determine wire colors or routing from it. A wiring diagram given to a PCB layout engineer is equally useless — they cannot extract net connectivity from it.
+
+Most projects need both. Draw the schematic first (it is the design), then derive the wiring diagram from it for installation and service documentation.
 
 ## Frequently Asked Questions
 
@@ -376,4 +433,4 @@ The fastest way to build that habit is to draw. Take a circuit you already under
 
 For hands-on practice, our [step-by-step guide to reading circuit diagrams](/blog/how-to-read-a-circuit-diagram-step-by-step-guide/) works the same conventions in reverse, which is the fastest way to internalize them.
 
-**[Start drawing your own schematic now.](/editor/)** No install, no account — a grid-snapped canvas, the full IEEE/ANSI symbol library, automatic junction dots, and image or netlist export when your drawing is ready to become a board.
+**[Start drawing your own schematic now.](/)** No install, no account — a grid-snapped canvas, the full IEEE/ANSI symbol library, automatic junction dots, and image or netlist export when your drawing is ready to become a board.

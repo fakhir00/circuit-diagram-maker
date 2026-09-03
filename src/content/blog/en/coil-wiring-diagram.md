@@ -1,7 +1,7 @@
 ---
 title: "Coil Wiring Diagram: Series vs Parallel, Impedance & Relay Coils"
 description: "Learn coil wiring with this step-by-step guide: dual voice coil series and parallel wiring, impedance and power handling, Arduino relay coils, troubleshooting, and safety precautions."
-date: 2026-08-13
+date: 2026-08-13T12:00:00Z
 image: "/images/blog/blog_coil_wiring.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"

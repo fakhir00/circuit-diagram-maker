@@ -1,7 +1,7 @@
 ---
 title: "Alternator Wiring Diagram"
 description: "Learn how to read an alternator wiring diagram: terminal functions, color codes, common charging issues, a step-by-step repair guide, and safety precautions for DIY mechanics."
-date: 2026-08-13
+date: 2026-08-13T12:00:00Z
 image: "/images/blog/blog_alternator_wiring.svg"
 author: "Circuit Diagram Maker Team"
 lang: "en"
