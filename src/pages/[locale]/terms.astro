@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { locales, defaultLocale, useTranslations, getLocalizedPath } from '../../theme/i18n';
 
+import config from '../../data/config.json';
+
 export async function getStaticPaths() {
   const otherLocales = locales.filter(l => l !== defaultLocale);
   return otherLocales.map((locale) => ({ params: { locale } }));
@@ -9,6 +11,7 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const t = useTranslations(locale);
+const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
 const lastUpdated = "2026-04-01";
 ---
 
@@ -75,7 +78,7 @@ const lastUpdated = "2026-04-01";
 
         <div>
           <h2 class="text-2xl font-semibold text-white">{t('legal.terms.s8.title')}</h2>
-          <p>{t('legal.terms.s8.p1')} <a href="mailto:legal@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent">legal@circuit-diagram.org</a> or {t('legal.terms.s8.p2')} <a href={getLocalizedPath('/contact-us/', locale as any)} class="text-brand-primary hover:text-brand-accent">{t('contact.hero.badge')}</a>.</p>
+          <p>{t('legal.terms.s8.p1')} <a href={`mailto:${contactEmail}`} class="text-brand-primary hover:text-brand-accent">{contactEmail}</a> or {t('legal.terms.s8.p2')} <a href={getLocalizedPath('/contact-us/', locale as any)} class="text-brand-primary hover:text-brand-accent">{t('contact.hero.badge')}</a>.</p>
         </div>
 
       </div>

@@ -3,7 +3,7 @@
 Circuit Diagram Maker is a specialized, high-performance web application designed for creating, simulating, and sharing professional electronic circuit diagrams.
 
 - URL: https://www.circuitdiagrammaker.com
-- Contact: support@circuit-diagram.org
+- Contact: support@circuitdiagrammaker.com
 - Sitemap: https://www.circuitdiagrammaker.com/sitemap-index.xml
 
 ## AI Usage Policy

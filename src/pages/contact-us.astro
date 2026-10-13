@@ -4,8 +4,11 @@ import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i1
 import ContactForm from '../components/ContactForm.astro';
 import RelatedToolsSection from '../components/RelatedToolsSection.astro';
 
+import config from '../data/config.json';
+
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
 
 const supportFaqs = t('contact.support_faqs');
 ---
@@ -27,14 +30,14 @@ const supportFaqs = t('contact.support_faqs');
       <div class="grid gap-12 lg:grid-cols-[1fr_380px]">
         <div>
           <h2 class="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h2>
-          <ContactForm email="support@circuit-diagram.org" />
+          <ContactForm email={contactEmail} />
         </div>
 
         <div class="space-y-6">
           <div class="rounded-xl border border-white/10 bg-bg-dark/50 p-5">
             <h3 class="text-lg font-semibold text-white mb-3">{t('contact.sidebar.email.title')}</h3>
             <p class="text-sm text-slate-400 mb-2">{t('contact.sidebar.email.desc')}</p>
-            <a href="mailto:support@circuit-diagram.org" class="text-brand-primary hover:text-brand-accent text-sm font-medium">support@circuit-diagram.org</a>
+            <a href={`mailto:${contactEmail}`} class="text-brand-primary hover:text-brand-accent text-sm font-medium">{contactEmail}</a>
           </div>
           <div class="rounded-xl border border-white/10 bg-bg-dark/50 p-5">
             <h3 class="text-lg font-semibold text-white mb-3">{t('contact.sidebar.time.title')}</h3>

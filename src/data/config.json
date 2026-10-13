@@ -3,8 +3,10 @@
     "name": "Circuit Diagram Maker",
     "url": "https://www.circuitdiagrammaker.com",
     "description": "Circuit Diagram Maker is a free, browser-based tool for creating professional circuit diagrams, electronic schematics, and wiring diagrams. Drag-and-drop 40+ components, auto-route wires, and export to SVG or PNG — no downloads required.",
-    "defaultLocale": "en"
+    "defaultLocale": "en",
+    "contactEmail": "support@circuitdiagrammaker.com"
   },
+  "contactEmail": "support@circuitdiagrammaker.com",
   "social": {
     "twitter": "https://twitter.com/circuitdiagram",
     "facebook": "https://www.facebook.com/circuitdiagrammaker/",
