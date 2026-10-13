@@ -94,7 +94,56 @@
     "about.meta.title": "Acerca de nosotros — Circuit Diagram Maker",
     "about.meta.description": "Conozca al equipo detrás de Circuit Diagram Maker y nuestra misión.",
     "about.stats.languages.label": "Idiomas",
-    "about.stats.countries.label": "Países"
+    "about.stats.countries.label": "Países",
+    "about.story.p3": "Nuestro creador de diagramas de circuitos permite diseñar desde simples circuitos con LED hasta amplificadores multietapa, fuentes conmutadas (buck converter) e interfaces para microcontroladores. Es la herramienta que deseábamos tener cuando éramos estudiantes, y ahora es completamente gratuita para cualquier estudiante, profesor, aficionado o ingeniero en todo el mundo.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Nace la idea",
+        "desc": "Frustrados por los pesados programas CAD de escritorio, nuestros ingenieros fundadores comenzaron a crear un prototipo de diseñador de circuitos basado en la web."
+      },
+      {
+        "year": "2024",
+        "title": "Primera versión beta pública",
+        "desc": "Circuit Diagram Maker se lanzó con 20 símbolos, enrutamiento básico de cables y exportación en PNG. Miles de estudiantes lo adoptaron en cuestión de semanas."
+      },
+      {
+        "year": "2026",
+        "title": "Exportación SVG y más de 40 símbolos",
+        "desc": "Añadimos enrutamiento ortogonal (Manhattan), exportación vectorial en SVG, atajos de teclado y ampliamos la biblioteca a más de 40 símbolos electrónicos."
+      },
+      {
+        "year": "2026",
+        "title": "Alcance global",
+        "desc": "Circuit Diagram Maker atiende a usuarios en más de 180 países, con soporte en 18 idiomas y una comunidad en constante crecimiento."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Velocidad sobre complejidad",
+        "desc": "Un diseñador de diagramas debe abrirse en segundos, no en minutos. Priorizamos la velocidad de carga y la agilidad del flujo de trabajo ante todo."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precisión por defecto",
+        "desc": "Cada cable se ajusta a una cuadrícula de 20 px. Todas las conexiones son ortogonales. Diseñe esquemas limpios y legibles desde el primer momento."
+      },
+      {
+        "icon": "🌍",
+        "title": "Accesible para todos",
+        "desc": "Gratuito para siempre, sin registros ni barreras de pago. Creemos que las herramientas profesionales deben estar al alcance de cualquier estudiante y entusiasta de la electrónica."
+      },
+      {
+        "icon": "🔓",
+        "title": "Sus datos en su dispositivo",
+        "desc": "Todos los esquemas se guardan localmente en su navegador. Nunca subimos, analizamos ni comercializamos sus diseños."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "ru": {
     "about.hero.badge": "О нас",
@@ -250,7 +299,61 @@
     "about.timeline.title": "Perjalanan Kami",
     "about.principles.title": "Prinsip Desain Kami",
     "about.stats.languages.label": "Bahasa",
-    "about.stats.countries.label": "Negara"
+    "about.stats.countries.label": "Negara",
+    "about.story.title": "Mengapa Kami Membangun Alat Pembuat Diagram Sirkuit Ini",
+    "about.story.p1": "Setiap teknisi dan pelajar elektronika pasti memahami kendala ini: Anda hanya butuh membuat skema sirkuit sederhana untuk laporan praktikum, ulasan desain, atau proposal proyek. Pilihan Anda? Menjalankan aplikasi desktop berukuran 2 GB yang butuh lima menit untuk terbuka, menggambar manual di atas kertas, atau berkutat dengan aplikasi gambar biasa yang tidak memahami simbol elektronika standar.",
+    "about.story.p2": "lahir dari kendala tersebut. Kami bertekad membangun alat pembuat diagram sirkuit tercepat, paling praktis, dan paling mudah diakses di web — yang terbuka secara instan, menyediakan simbol komponen nyata, menghubungkan kabel secara cerdas, dan mengekspor skema berkualitas publikasi tanpa biaya apa pun.",
+    "about.story.p3": "Editor sirkuit kami menangani segalanya, mulai dari sirkuit LED sederhana hingga desain penguat audio bertingkat, skema konverter buck, dan antarmuka mikrokontroler. Ini adalah alat yang kami impikan saat kami masih mahasiswa, dan kini tersedia gratis bagi setiap pelajar, pendidik, penghobi, dan teknisi di seluruh dunia.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Ide Dimulai",
+        "desc": "Merasa terbatas oleh software CAD desktop yang lambat, tim kami mulai mengembangkan prototipe pembuat skema sirkuit berbasis peramban web."
+      },
+      {
+        "year": "2024",
+        "title": "Beta Publik Pertama",
+        "desc": "Circuit Diagram Maker diluncurkan dengan 20 simbol elektronik, routing kabel dasar, dan ekspor PNG. Ribuan pelajar menggunakannya dalam hitungan minggu."
+      },
+      {
+        "year": "2026",
+        "title": "Ekspor Vektor SVG & 40+ Simbol",
+        "desc": "Kami menambahkan routing ortogonal Manhattan, ekspor vektor SVG tajam, pintasan keyboard, serta memperluas pustaka komponen hingga lebih dari 40 simbol."
+      },
+      {
+        "year": "2026",
+        "title": "Jangkauan Global",
+        "desc": "Circuit Diagram Maker kini melayani pengguna di lebih dari 180 negara dengan dukungan 18 bahasa dan komunitas yang terus berkembang."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Kecepatan di Atas Kerumitan",
+        "desc": "Alat pembuat skema harus terbuka dalam hitungan detik. Kami memprioritaskan kecepatan akses dan kemudahan alur kerja di atas segalanya."
+      },
+      {
+        "icon": "🎯",
+        "title": "Presisi Secara Otomatis",
+        "desc": "Setiap kabel terkunci rapi pada kisi grid 20px. Semua koneksi dibuat siku secara ortogonal agar skema selalu bersih dan mudah dibaca."
+      },
+      {
+        "icon": "🌍",
+        "title": "Dapat Diakses Semua Orang",
+        "desc": "Gratis selamanya, tanpa perlu daftar akun atau langganan berbayar. Kami meyakini alat teknik profesional harus dapat diakses oleh setiap pelajar di seluruh dunia."
+      },
+      {
+        "icon": "🔓",
+        "title": "Data Anda Tetap di Perangkat Anda",
+        "desc": "Semua skema sirkuit disimpan secara lokal di peramban web Anda. Kami tidak pernah mengunggah atau memonetisasi hasil karya Anda."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Siap Membuat Diagram Sirkuit Pertama Anda?",
+    "about.cta.desc": "Buka editor skema sirkuit dan mulailah merancang sekarang — gratis sepenuhnya tanpa perlu registrasi."
   },
   "ar": {
     "about.hero.badge": "حول المشروع",
@@ -272,7 +375,61 @@
     "about.timeline.title": "Нашето пътуване",
     "about.principles.title": "Нашите принципи на дизайн",
     "about.stats.languages.label": "Езици",
-    "about.stats.countries.label": "Държави"
+    "about.stats.countries.label": "Държави",
+    "about.story.title": "Защо създадохме този инструмент за електрически схеми",
+    "about.story.p1": "Всеки електроинженер и студент познава това разочарование: трябва бързо да начертаете електрическа схема за лабораторен доклад, преглед на проект или дипломна работа. Какви са вариантите ви? Да стартирате тежък 2GB десктоп софтуер, който зарежда пет минути, да рисувате на ръка върху лист хартия или да се борите с обикновена програма за рисуване, която дори не разпознава резистор от правоъгълник.",
+    "about.story.p2": "се роди именно от тази необходимост. Решихме да изградим най-бързия, най-лесния и най-достъпния онлайн редактор на електрически схеми — инструмент, който се зарежда мигновено, предлага реални електронни символи, свързва проводниците интелигентно и експортира кристално ясни схеми напълно безплатно.",
+    "about.story.p3": "Нашият редактор се справя с всичко: от прости схеми със светодиоди до сложни многостъпални усилватели, импулсни захранвания и схеми с микроконтролери. Това е инструментът, който искахме да имаме като студенти, а днес той е напълно свободен за всеки учащ, преподавател, любител и инженер по света.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Раждане на идеята",
+        "desc": "Недоволни от тромавия CAD софтуер, инженерите ни започнаха разработката на бърз уеб инструмент за чертане на схеми."
+      },
+      {
+        "year": "2024",
+        "title": "Първа публична бета версия",
+        "desc": "Circuit Diagram Maker стартира с 20 електронни символа, базово окабеляване и PNG експорт. Хиляди студенти го припознаха за седмици."
+      },
+      {
+        "year": "2026",
+        "title": "SVG експорт и над 40 символа",
+        "desc": "Добавихме ортогонално автоматично окабеляване (Манхатън рутиране), векторен SVG експорт, клавишни комбинации и обогатихме библиотеката с компоненти."
+      },
+      {
+        "year": "2026",
+        "title": "Глобален обхват",
+        "desc": "Circuit Diagram Maker обслужва потребители в над 180 държави с локализация на 18 езика и активно нарастваща общност."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Бързина вместо излишна сложност",
+        "desc": "Софтуерът за електрически схеми трябва да зарежда за секунди. Поставяме бързината на работа и удобството на първо място."
+      },
+      {
+        "icon": "🎯",
+        "title": "Прецизност по подразбиране",
+        "desc": "Всеки проводник прилепва към мрежа от 20px. Всички връзки са под прав ъгъл. Програмата осигурява чисти и прегледни схеми по дизайн."
+      },
+      {
+        "icon": "🌍",
+        "title": "Достъпен за всеки",
+        "desc": "Безплатен завинаги, без регистрация и без скрити абонаменти. Вярваме, че професионалните инженерни инструменти трябва да са достъпни за всички."
+      },
+      {
+        "icon": "🔓",
+        "title": "Вашите данни остават при вас",
+        "desc": "Всички схеми се пазят локално във вашия браузър. Ние никога не качваме и не споделяме вашите проекти на външни сървърни ресурси."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Готови ли сте да създадете първата си схема?",
+    "about.cta.desc": "Отворете редактора на схеми и започнете да чертаете — напълно безплатно, без регистрация."
   },
   "tr": {
     "about.hero.badge": "Hakkımızda",
@@ -283,7 +440,61 @@
     "about.timeline.title": "Yolculuğumuz",
     "about.principles.title": "Tasarım İlkelerimiz",
     "about.stats.languages.label": "Diller",
-    "about.stats.countries.label": "Ülkeler"
+    "about.stats.countries.label": "Ülkeler",
+    "about.story.title": "Bu Devre Şeması Çizim Aracını Neden Geliştirdik?",
+    "about.story.p1": "Her elektronik mühendisi ve öğrencisi bu zorluğu iyi bilir: Bir laboratuvar raporu, teknik sunum veya proje incelemesi için hızlıca bir devre şeması çizmeniz gerekir. Seçenekleriniz nelerdir? Açılması dakikalar süren 2 GB'lık hantal masaüstü yazılımlarını başlatmak, kağıt üzerine okunaksız çizimler karalamak veya direnç ile sıradan bir dikdörtgen arasındaki farkı bilmeyen genel çizim araçlarıyla uğraşmak.",
+    "about.story.p2": "işte bu ihtiyaçtan doğdu. Amacımız web üzerindeki en hızlı, en sade ve en erişilebilir devre şeması çizim aracını oluşturmaktı: anında açılan, gerçek elektronik semboller içeren, bağlantıları akıllıca yönlendiren ve hiçbir ücret talep etmeden yayın kalitesinde şemalar sunan bir platform.",
+    "about.story.p3": "Çevrimiçi devre editörümüz basit LED devrelerinden çok katlı amplifikatör tasarımlarına, buck dönüştürücü şemalarına ve mikrodenetleyici bağlantılarına kadar her türlü projeyi kolayca çizer. Öğrencilik yıllarımızda var olmasını dilediğimiz bu aracı, artık dünyadaki tüm öğrencilere, öğretmenlere, hobicilere ve mühendislere tamamen ücretsiz sunuyoruz.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Fikrin Doğuşu",
+        "desc": "Hantal masaüstü CAD programlarından bunalan kurucu mühendislerimiz, tarayıcı tabanlı modern bir devre şeması aracı geliştirmeye başladı."
+      },
+      {
+        "year": "2024",
+        "title": "İlk Halka Açık Beta",
+        "desc": "Circuit Diagram Maker 20 elektronik sembol, temel kablo yönlendirme ve PNG dışa aktarma özellikleriyle yayına girdi. Binlerce öğrenci ilk haftalarda kullanmaya başladı."
+      },
+      {
+        "year": "2026",
+        "title": "SVG Vektör Dışa Aktarma ve 40+ Sembol",
+        "desc": "Ortogonal (Manhattan) kablolama, yüksek çözünürlüklü SVG vektör çıktısı, klavye kısayolları ekledik ve sembol kütüphanesini 40'ın üzerine çıkardık."
+      },
+      {
+        "year": "2026",
+        "title": "Küresel Erişim",
+        "desc": "Circuit Diagram Maker günümüzde 180'den fazla ülkede, 18 dilde kullanıcılara hizmet veren geniş bir topluluğa ulaştı."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Karmaşıklık Yerine Hız",
+        "desc": "Bir devre çizim aracı dakikalarca değil, saniyeler içinde açılmalıdır. Başlangıç hızını ve akıcı iş akışını her şeyin üzerinde tutuyoruz."
+      },
+      {
+        "icon": "🎯",
+        "title": "Kusursuz Hassasiyet",
+        "desc": "Her kablo 20px ızgaraya oturur. Tüm bağlantılar dik açılı ve düzenlidir. Düzenleyicimiz her zaman temiz ve anlaşılır şemalar oluşturmanızı sağlar."
+      },
+      {
+        "icon": "🌍",
+        "title": "Herkes İçin Erişilebilir",
+        "desc": "Sonsuza kadar ücretsiz; kayıt olma şartı veya gizli ücretler yok. Profesyonel devre tasarım araçlarının dünyadaki tüm öğrencilerin erişiminde olması gerektiğine inanıyoruz."
+      },
+      {
+        "icon": "🔓",
+        "title": "Verileriniz Kendi Cihazınızda",
+        "desc": "Tüm devre şemaları doğrudan tarayıcınızın yerel hafızasında saklanır. Tasarımlarınızı asla sunuculara yüklemiyor veya toplamıyoruz."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "İlk Devre Şemanızı Çizmeye Hazır mısınız?",
+    "about.cta.desc": "Devre şeması düzenleyicisini hemen açın ve tasarlamaya başlayın — tamamen ücretsiz, hesap açmak gerekmez."
   },
   "sv": {
     "about.hero.badge": "Om oss",

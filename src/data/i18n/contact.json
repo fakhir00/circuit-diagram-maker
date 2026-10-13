@@ -54,7 +54,25 @@
     "contact.sidebar.features.title": "💡 Sugerencias",
     "contact.faq.title": "Preguntas comunes",
     "contact.meta.title": "Contáctenos — Soporte",
-    "contact.meta.description": "Obtenga ayuda con Circuit Diagram Maker y contacte a nuestro soporte."
+    "contact.meta.description": "Obtenga ayuda con Circuit Diagram Maker y contacte a nuestro soporte.",
+    "contact.sidebar.email.desc": "Para problemas técnicos y sugerencias de funciones:",
+    "contact.sidebar.time.desc": "Normalmente respondemos en un plazo de",
+    "contact.sidebar.time.context": "en días laborables (lunes a viernes). Para problemas urgentes con el editor de circuitos, incluya 'URGENTE' en el asunto de su mensaje.",
+    "contact.sidebar.features.desc": "¡Nos encanta recibir comentarios de los usuarios! Si tiene una idea para un nuevo componente, formato de exportación o función del editor, escríbanos: las mejores novedades de la herramienta nacieron gracias a la comunidad.",
+    "contact.support_faqs": [
+      {
+        "q": "¿Mi esquema no se guardó: cómo puedo recuperarlo?",
+        "a": "Circuit Diagram Maker utiliza el almacenamiento local de su navegador. Si borró los datos de navegación, el diagrama podría haberse eliminado. Le recomendamos exportar sus proyectos importantes como archivos JSON como copia de seguridad periódica."
+      },
+      {
+        "q": "¿Puedo importar esquemas desde otras herramientas a Circuit Diagram Maker?",
+        "a": "Actualmente, la herramienta permite importar sus propios archivos JSON, lo que facilita compartir proyectos entre equipos y dispositivos. Estamos evaluando la compatibilidad con formatos de archivo adicionales en nuestras próximas actualizaciones."
+      },
+      {
+        "q": "El editor funciona lento en mi dispositivo, ¿qué puedo hacer?",
+        "a": "Para un rendimiento óptimo, recomendamos usar un navegador moderno (Chrome, Firefox o Edge) con aceleración por hardware activada y cerrar pestañas en segundo plano. La herramienta funciona mejor en dispositivos con 4 GB o más de memoria RAM."
+      }
+    ]
   },
   "ru": {
     "contact.hero.badge": "Поддержка",
@@ -156,7 +174,32 @@
     "contact.hero.badge": "Dukungan",
     "contact.hero.title": "Hubungi Dukungan Pembuat Diagram Sirkuit",
     "contact.meta.title": "Hubungi Kami",
-    "contact.meta.description": "Dapatkan bantuan dari tim dukungan kami."
+    "contact.meta.description": "Dapatkan bantuan dari tim dukungan kami.",
+    "contact.hero.subtitle": "Punya pertanyaan seputar Circuit Diagram Maker? Menemukan kendala pada editor? Ingin mengajukan simbol komponen baru? Tim kami siap membantu dan biasanya merespons dalam 24 jam di hari kerja. Sebelum menghubungi kami, Anda juga dapat membaca pertanyaan umum di bawah ini.",
+    "contact.form.title": "Kirimkan Pesan kepada Kami",
+    "contact.sidebar.email.title": "📧 Dukungan Email",
+    "contact.sidebar.email.desc": "Untuk kendala teknis dan saran fitur baru:",
+    "contact.sidebar.time.title": "⏱️ Waktu Respons",
+    "contact.sidebar.time.desc": "Kami biasanya membalas dalam",
+    "contact.sidebar.time.strong": "24 jam",
+    "contact.sidebar.time.context": "pada hari kerja (Senin–Jumat). Untuk kendala mendesak pada editor sirkuit, sertakan kata 'URGENT' pada subjek pesan Anda.",
+    "contact.sidebar.features.title": "💡 Usulan Fitur Baru",
+    "contact.sidebar.features.desc": "Kami sangat menghargai masukan Anda! Jika Anda memiliki ide untuk simbol komponen baru, opsi ekspor, atau peningkatan editor, beri tahu kami — fitur terbaik kami hadir dari komunitas pengguna.",
+    "contact.faq.title": "Pertanyaan Dukungan yang Sering Diajukan",
+    "contact.support_faqs": [
+      {
+        "q": "Diagram sirkuit saya tidak tersimpan — bagaimana cara memulihkannya?",
+        "a": "Circuit Diagram Maker menggunakan penyimpanan lokal peramban (Local Storage). Jika Anda membersihkan data cache atau riwayat peramban, data sirkuit mungkin terhapus. Kami sangat menyarankan mengekspor proyek penting sebagai file JSON untuk salinan cadangan."
+      },
+      {
+        "q": "Bisakah saya mengimpor diagram dari aplikasi lain ke Circuit Diagram Maker?",
+        "a": "Saat ini Circuit Diagram Maker mendukung impor format file JSON resminya sendiri. Anda dapat membagikan file JSON antar perangkat dan rekan tim. Dukungan format lain sedang dalam rencana pengembangan kami."
+      },
+      {
+        "q": "Editor terasa lambat di perangkat saya — apa solusinya?",
+        "a": "Untuk performa terbaik, gunakan peramban modern (Chrome, Firefox, Edge) dengan akselerasi perangkat keras yang aktif. Tutup tab lain yang tidak terpakai untuk menghemat memori RAM."
+      }
+    ]
   },
   "ar": {
     "contact.hero.badge": "الدعم",
@@ -168,13 +211,63 @@
     "contact.hero.badge": "Поддръжка",
     "contact.hero.title": "Контакт с поддръжката",
     "contact.meta.title": "Контакти — Поддръжка",
-    "contact.meta.description": "Свържете се с екипа по поддръжка."
+    "contact.meta.description": "Свържете се с екипа по поддръжка.",
+    "contact.hero.subtitle": "Имате въпрос относно Circuit Diagram Maker? Открихте грешка в редактора? Искате да предложите нов компонент или символ? Екипът ни обикновено отговаря в рамките на 24 часа в работни дни. Преди да се свържете с нас, прегледайте и честите въпроси по-долу.",
+    "contact.form.title": "Изпратете ни съобщение",
+    "contact.sidebar.email.title": "📧 Имейл поддръжка",
+    "contact.sidebar.email.desc": "За технически въпроси и предложения за нови функции:",
+    "contact.sidebar.time.title": "⏱️ Време за отговор",
+    "contact.sidebar.time.desc": "Обикновено отговаряме в рамките на",
+    "contact.sidebar.time.strong": "24 часа",
+    "contact.sidebar.time.context": "в работни дни (понеделник–петък). За спешни въпроси относно редактора включете 'URGENT' в темата на съобщението.",
+    "contact.sidebar.features.title": "💡 Предложения за нови функции",
+    "contact.sidebar.features.desc": "Винаги се радваме на обратна връзка! Ако имате идея за нов компонент, формат за експорт или подобрение в редактора, споделете я с нас — най-добрите ни функции бяха предложени именно от нашата общност.",
+    "contact.faq.title": "Често задавани въпроси за поддръжка",
+    "contact.support_faqs": [
+      {
+        "q": "Схемата ми не се запази — как мога да я възстановя?",
+        "a": "Circuit Diagram Maker използва локалното хранилище на браузъра (Local Storage). Ако сте изчистили данните на браузъра си, схемата може да е изтрита. Силно препоръчваме да експортирате важните си проекти като JSON файл за сигурен архив."
+      },
+      {
+        "q": "Мога ли да импортирам схеми от други програми в Circuit Diagram Maker?",
+        "a": "В момента Circuit Diagram Maker поддържа импортиране на собствения си структуриран JSON формат. Можете лесно да прехвърляте JSON файлове между компютри и колеги. Поддръжката на допълнителни формати е част от нашия план за развитие."
+      },
+      {
+        "q": "Редакторът работи бавно на моето устройство — какво да направя?",
+        "a": "За максимална производителност използвайте съвременен браузър (Chrome, Firefox, Edge) с активирано хардуерно ускорение и затворете неизползваните раздели в браузъра."
+      }
+    ]
   },
   "tr": {
     "contact.hero.badge": "Destek",
     "contact.hero.title": "Devre Şeması Oluşturucu Desteği ile İletişime Geçin",
     "contact.meta.title": "Bize Ulaşın",
-    "contact.meta.description": "Yardım veya destek için bize ulaşın."
+    "contact.meta.description": "Yardım veya destek için bize ulaşın.",
+    "contact.hero.subtitle": "Circuit Diagram Maker hakkında bir sorunuz mu var? Editörde bir hata mı fark ettiniz? Yeni bir bileşen sembolü mü talep etmek istiyorsunuz? Ekibimiz iş günlerinde genellikle 24 saat içinde dönüş yapmaktadır. Bize yazmadan önce aşağıdaki sık sorulan destek sorularına göz atabilirsiniz.",
+    "contact.form.title": "Bize Mesaj Gönderin",
+    "contact.sidebar.email.title": "📧 E-posta Desteği",
+    "contact.sidebar.email.desc": "Teknik sorular ve yeni özellik önerileri için:",
+    "contact.sidebar.time.title": "⏱️ Yanıt Süresi",
+    "contact.sidebar.time.desc": "Genellikle şu süre içinde yanıt veriyoruz:",
+    "contact.sidebar.time.strong": "24 saat",
+    "contact.sidebar.time.context": "iş günlerinde (Pazartesi–Cuma). Devre şeması düzenleyicisiyle ilgili acil durumlar için e-posta konunuza 'URGENT' yazabilirsiniz.",
+    "contact.sidebar.features.title": "💡 Özellik ve Bileşen Talepleri",
+    "contact.sidebar.features.desc": "Kullanıcılarımızın fikirlerini dinlemeyi çok seviyoruz! Yeni bir sembol, dışa aktarma formatı veya arayüz özelliği fikriniz varsa bizimle paylaşın — en popüler özelliklerimizi topluluğumuz önerdi.",
+    "contact.faq.title": "Sıkça Sorulan Destek Soruları",
+    "contact.support_faqs": [
+      {
+        "q": "Devre şemam kaydedilmedi — nasıl geri getirebilirim?",
+        "a": "Circuit Diagram Maker tarayıcınızın yerel depolama alanını kullanır. Tarayıcı önbelleğinizi veya geçmişinizi temizlediyseniz şema silinmiş olabilir. Önemli devre projelerinizi yedeklemek için JSON formatında dışa aktarmanızı önemle tavsiye ederiz."
+      },
+      {
+        "q": "Başka programlardan Circuit Diagram Maker'a şema aktarabilir miyim?",
+        "a": "Şu anda Circuit Diagram Maker kendi JSON dosya formatını içe aktarmayı desteklemektedir. Bu dosyaları farklı cihazlar arasında veya iş arkadaşlarınızla kolayca paylaşabilirsiniz. Diğer dosya formatları için destek yol haritamızda yer almaktadır."
+      },
+      {
+        "q": "Düzenleyici cihazımda yavaş çalışıyor — ne yapabilirim?",
+        "a": "En iyi performans için donanım ivmesi açık modern bir tarayıcı (Chrome, Firefox veya Edge) kullanın ve arka planda açık olan gereksiz sekmeleri kapatın."
+      }
+    ]
   },
   "sv": {
     "contact.hero.badge": "Support",

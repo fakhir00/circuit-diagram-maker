@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getLocalizedPath } from '../../theme/i18n';
+import { useTranslations, getLocalizedPath, locales, defaultLocale } from '../../theme/i18n';
 import { resolveSeoMetadata } from '../../utils/seo';
 import config from '../../data/config.json';
 
@@ -58,9 +58,24 @@ const seo = resolveSeoMetadata({
     title: pageHeading,
     description: pageDescription
 });
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
+const siteUrl = (Astro.site ? Astro.site.toString() : config.site.url).replace(/\/$/, '');
+const normalizedPathname = Astro.url.pathname.endsWith('/') || Astro.url.pathname.includes('.')
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(normalizedPathname, siteUrl);
 const ogLocale = locale === 'en' ? 'en_US' : locale;
 const ogImageURL = new URL('/og-image.png', canonicalURL);
+
+const hreflangLinks = [
+  {
+    lang: 'x-default',
+    url: new URL(getLocalizedPath(normalizedPathname, defaultLocale), siteUrl).href
+  },
+  ...locales.map(l => ({
+    lang: l,
+    url: new URL(getLocalizedPath(normalizedPathname, l), siteUrl).href
+  }))
+];
 ---
 <!DOCTYPE html>
 <html lang={locale}>
@@ -70,6 +85,9 @@ const ogImageURL = new URL('/og-image.png', canonicalURL);
     <title>{seo.title}</title>
     <meta name="description" content={seo.description}>
     <link rel="canonical" href={canonicalURL}>
+    {hreflangLinks.map(link => (
+      <link rel="alternate" hreflang={link.lang} href={link.url} />
+    ))}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">

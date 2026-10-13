@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, defaultLocale, getLocalizedPath, useTranslations } from '../../theme/i18n';
+import { getPublishedPosts } from '../../utils/blog';
+
+export async function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const activeLocale = locale || defaultLocale;
+const t = useTranslations(activeLocale);
+const posts = await getPublishedPosts();
+
+const staticPages = [
+  { path: getLocalizedPath('/', activeLocale), label: t('nav.home') || 'Home' },
+  { path: getLocalizedPath('/editor/', activeLocale), label: t('nav.editor') || 'Editor' },
+  { path: getLocalizedPath('/truth-table-to-logic-circuit/', activeLocale), label: t('nav.truth_table_to_logic_circuit') || 'Truth Table To Logic Circuit' },
+  { path: getLocalizedPath('/boolean-expression-simplifier/', activeLocale), label: t('nav.boolean_expression_simplifier') || 'Boolean Expression Simplifier' },
+  { path: getLocalizedPath('/about-us/', activeLocale), label: t('nav.about') || 'About Us' },
+  { path: getLocalizedPath('/contact-us/', activeLocale), label: t('nav.contact') || 'Contact Us' },
+  { path: getLocalizedPath('/terms/', activeLocale), label: t('legal.terms.hero.title') || 'Terms of Service' },
+  { path: getLocalizedPath('/privacy/', activeLocale), label: t('legal.privacy.hero.title') || 'Privacy Policy' },
+  { path: getLocalizedPath('/blog/', activeLocale), label: t('nav.blog') || 'Blog' },
+];
+---
+
+<BaseLayout title={activeLocale === 'es' ? 'Mapa del Sitio' : activeLocale === 'id' ? 'Peta Situs' : activeLocale === 'tr' ? 'Site Haritası' : activeLocale === 'bg' ? 'Карта на сайта' : 'Sitemap'}>
+  <div class="max-w-4xl mx-auto px-4 py-24 sm:px-6 lg:px-8 text-white">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-12">{activeLocale === 'es' ? 'Mapa del Sitio' : activeLocale === 'id' ? 'Peta Situs' : activeLocale === 'tr' ? 'Site Haritası' : activeLocale === 'bg' ? 'Карта на сайта' : 'Sitemap'}</h1>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Static Pages Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">
+          {activeLocale === 'es' ? 'Páginas Principales' : activeLocale === 'id' ? 'Halaman Utama' : activeLocale === 'tr' ? 'Ana Sayfalar' : activeLocale === 'bg' ? 'Основни страници' : 'Main Pages'}
+        </h2>
+        <ul class="space-y-3">
+          {staticPages.map(page => (
+            <li>
+              <a href={page.path} class="text-slate-300 hover:text-brand-accent transition-colors flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                {page.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Locales Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">
+          {activeLocale === 'es' ? 'Idiomas Disponibles' : activeLocale === 'id' ? 'Versi Bahasa' : activeLocale === 'tr' ? 'Dil Seçenekleri' : activeLocale === 'bg' ? 'Езикови версии' : 'Localized Versions'}
+        </h2>
+        <div class="grid grid-cols-2 gap-3">
+          {locales.map(l => (
+            <a href={getLocalizedPath('/sitemap/', l)} class={`text-slate-400 hover:text-white transition-colors uppercase text-sm font-medium p-2 rounded bg-bg-surface border border-white/5 text-center ${l === activeLocale ? 'border-brand-primary text-brand-primary' : ''}`}>
+              {l}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Blog Posts Section -->
+      <section class="md:col-span-2">
+        <h2 class="text-2xl font-bold mb-6 text-brand-primary border-b border-white/10 pb-2">
+          {activeLocale === 'es' ? 'Artículos Recientes' : activeLocale === 'id' ? 'Artikel Terbaru' : activeLocale === 'tr' ? 'Son Makaleler' : activeLocale === 'bg' ? 'Последни статии' : 'Latest Articles'}
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {posts.map(post => (
+            <a href={getLocalizedPath(`/blog/${post.id.split('/').slice(1).join('/').replace(/\.(md|mdx)$/, '')}/`, activeLocale)} class="block p-4 rounded-xl bg-bg-surface border border-white/5 hover:border-brand-primary/30 transition-all group">
+              <h3 class="font-medium group-hover:text-brand-primary transition-colors">{post.data.title}</h3>
+              <p class="text-xs text-slate-500 mt-1">{post.data.date.toLocaleDateString()}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

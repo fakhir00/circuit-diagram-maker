@@ -107,17 +107,34 @@ const currentPath = Astro.url.pathname;
       <!-- Language Switcher & Mobile Menu Toggle -->
       <div class="flex items-center gap-2 sm:gap-4">
         
-        <div class="relative group">
-          <button class="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white uppercase transition-colors">
-            {locale}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div class="relative group" id="lang-dropdown-wrapper">
+          <button 
+            type="button"
+            id="lang-menu-btn"
+            class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-white uppercase transition-colors rounded-lg border border-white/10 hover:border-white/20 bg-bg-surface/50"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Select language"
+          >
+            <span>{locale.toUpperCase()}</span>
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="absolute right-0 mt-2 w-40 bg-bg-surface border border-white/10 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all grid grid-cols-2 p-2 gap-1 z-50">
-            {locales.map((l) => (
-              <a href={getLocalizedPath(currentPath, l)} class={`px-2 py-1 text-xs rounded hover:bg-slate-800 ${locale === l ? 'text-brand-primary' : 'text-slate-300'}`}>
-                {l.toUpperCase()}
-              </a>
-            ))}
+          <div 
+            id="lang-menu-dropdown"
+            class="absolute right-0 mt-2 w-56 max-h-80 overflow-y-auto bg-bg-surface border border-white/15 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-1.5 z-50 divide-y divide-white/5 scrollbar-thin scrollbar-thumb-white/10"
+          >
+            <div class="px-2 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Select Language</div>
+            <div class="grid grid-cols-1 gap-0.5 pt-1">
+              {locales.map((l) => (
+                <a 
+                  href={getLocalizedPath(currentPath, l)} 
+                  class={`px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors flex items-center justify-between ${locale === l ? 'bg-brand-primary/20 text-brand-primary font-bold' : 'text-slate-300 hover:bg-white/10 hover:text-white'}`}
+                >
+                  <span class="truncate">{l.toUpperCase()} – {l === 'en' ? 'English' : l === 'es' ? 'Español' : l === 'id' ? 'Bahasa Indonesia' : l === 'tr' ? 'Türkçe' : l === 'bg' ? 'Български' : l === 'de' ? 'Deutsch' : l === 'fr' ? 'Français' : l === 'it' ? 'Italiano' : l === 'pt' ? 'Português' : l === 'ru' ? 'Русский' : l === 'hi' ? 'हिन्दी' : l === 'ja' ? '日本語' : l === 'ko' ? '한국어' : l === 'zh' ? '中文' : l === 'ar' ? 'العربية' : l === 'bn' ? 'বাংলা' : l === 'ms' ? 'Melayu' : l === 'pl' ? 'Polski' : l === 'sv' ? 'Svenska' : l.toUpperCase()}</span>
+                  {locale === l && <span class="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0 ml-1.5"></span>}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -131,7 +148,7 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-bg-surface border-t border-white/5" aria-hidden="true">
-    <div class="px-2 pt-2 pb-3 space-y-1">
+    <div class="px-2 pt-2 pb-3 space-y-1 max-h-[85vh] overflow-y-auto">
       {config.nav.map((item: any) => {
          const hasChildren = item.children && item.children.length > 0;
          
@@ -160,6 +177,21 @@ const currentPath = Astro.url.pathname;
            </a>
          );
       })}
+
+      <!-- Mobile Language Switcher -->
+      <div class="pt-4 pb-2 border-t border-white/10 px-3">
+        <div class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">Switch Language</div>
+        <div class="grid grid-cols-3 gap-1.5">
+          {locales.map((l) => (
+            <a 
+              href={getLocalizedPath(currentPath, l)} 
+              class={`px-2 py-1.5 text-xs rounded-lg text-center transition-colors font-medium ${locale === l ? 'bg-brand-primary text-white font-bold' : 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white'}`}
+            >
+              {l.toUpperCase()}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -192,6 +224,32 @@ const currentPath = Astro.url.pathname;
         icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
         document.body.style.overflow = '';
       });
+    });
+  }
+
+  const langBtn = document.getElementById('lang-menu-btn');
+  const langDropdown = document.getElementById('lang-menu-dropdown');
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isVisible = langDropdown.classList.contains('opacity-100');
+      if (isVisible) {
+        langDropdown.classList.remove('opacity-100', 'visible');
+        langDropdown.classList.add('opacity-0', 'invisible');
+        langBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        langDropdown.classList.remove('opacity-0', 'invisible');
+        langDropdown.classList.add('opacity-100', 'visible');
+        langBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langDropdown.contains(e.target as Node) && !langBtn.contains(e.target as Node)) {
+        langDropdown.classList.remove('opacity-100', 'visible');
+        langDropdown.classList.add('opacity-0', 'invisible');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 </script>

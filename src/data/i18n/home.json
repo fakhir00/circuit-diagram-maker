@@ -546,7 +546,7 @@
   },
   "es": {
     "home.hero.badge": "Editor de esquemas gratuito basado en navegador",
-    "home.hero.title": "Creador de diagramas de circuitos",
+    "home.hero.title": "El Mejor Creador de Diagramas de Circuitos Online Gratis",
     "home.hero.subtitle": "La forma más rápida e intuitiva de crear esquemas electrónicos profesionales en línea. Arrastre componentes, trace cables de forma inteligente y exporte diagramas de calidad — sin descargas.",
     "home.hero.cta": "Comenzar a diseñar — Es gratis",
     "home.hero.secondary": "Ver documentación",
@@ -805,7 +805,26 @@
     ],
     "home.final_cta.title": "Empieza a crear tu diagrama de circuito",
     "home.final_cta.desc": "Sin registro. Sin descarga. Solo empieza a diseñar.",
-    "home.final_cta.button": "Abrir Circuit Diagram Maker"
+    "home.final_cta.button": "Abrir Circuit Diagram Maker",
+    "home.hero.meta_desc": "El creador de diagramas de circuitos online más intuitivo y gratuito. Arrastra componentes, conecta cables fácilmente y exporta esquemas electrónicos profesionales al instante.",
+    "home.how_to.title": "Cómo crear un diagrama de circuito",
+    "home.how_to.steps": [
+      {
+        "number": "01",
+        "title": "Seleccione los componentes",
+        "desc": "Explore nuestra biblioteca con más de 40 símbolos electrónicos y arrástrelos sobre el lienzo infinito."
+      },
+      {
+        "number": "02",
+        "title": "Conecte el circuito",
+        "desc": "Utilice el enrutamiento inteligente para unir los terminales. El motor mantiene cada cable perfectamente alineado en ángulo recto."
+      },
+      {
+        "number": "03",
+        "title": "Personalice y exporte",
+        "desc": "Añada etiquetas, ajuste la posición de los componentes y descargue su esquema en formato SVG, PNG o JSON con un solo clic."
+      }
+    ]
   },
   "ru": {
     "home.hero.badge": "Бесплатный браузерный редактор схем",
@@ -3176,7 +3195,7 @@
   },
   "bg": {
     "home.hero.badge": "Безплатен базиран на браузър редактор на схеми",
-    "home.hero.title": "Безплатна програма за създаване на електрически схеми",
+    "home.hero.title": "Безплатна онлайн програма за електрически схеми",
     "home.hero.subtitle": "Създавайте, редактирайте и експортирайте професионални електрически схеми за секунди. Нашият базиран на браузъра инструмент за създаване на схеми ви позволява да плъзгате и пускате над 40 стандартни символа, да насочвате автоматично кабели и да експортирате в SVG или PNG – напълно безплатно, не се изисква регистрация.",
     "home.hero.cta": "Отворете редактора на електрически схеми",
     "home.hero.secondary": "Прочетете документацията",
@@ -3198,7 +3217,7 @@
         "desc": "Стандартни за индустрията IEC и ANSI символи за резистори, кондензатори, интегрални схеми, транзистори, операционни усилватели, съединители и др."
       },
       {
-        "title": "Манхатън Wire Routing",
+        "title": "Интелигентно ортогонално окабеляване",
         "desc": "Нашият интелигентен механизъм за маршрутизиране поддържа всеки проводник идеално хоризонтален или вертикален. Връзките се прилепват към решетка от 20 пиксела."
       },
       {
@@ -3435,7 +3454,26 @@
     ],
     "home.final_cta.title": "Започнете да създавате своята схема",
     "home.final_cta.desc": "Без регистрация. Без изтегляне. Просто започнете да изграждате.",
-    "home.final_cta.button": "Стартирайте Circuit Diagram Maker"
+    "home.final_cta.button": "Стартирайте Circuit Diagram Maker",
+    "home.hero.meta_desc": "Най-лесният и безплатен онлайн инструмент за електрически схеми. Поставяйте компоненти, свързвайте проводници интелигентно и експортирайте професионални схеми веднага.",
+    "home.how_to.title": "Как се създава електрическа схема",
+    "home.how_to.steps": [
+      {
+        "number": "01",
+        "title": "Изберете компоненти",
+        "desc": "Разгледайте библиотеката с над 40 електронни символа и ги плъзнете върху работното платно."
+      },
+      {
+        "number": "02",
+        "title": "Свържете схемата",
+        "desc": "Използвайте интелигентното автоматично окабеляване за свързване на изводите. Всички проводници остават под прав ъгъл."
+      },
+      {
+        "number": "03",
+        "title": "Персонализирайте и експортирайте",
+        "desc": "Добавете обозначения и стойности, след което изтеглете схемата като SVG, PNG или JSON с един клик."
+      }
+    ]
   },
   "pl": {
     "home.hero.badge": "Darmowy przeglądarkowy edytor schematów",
@@ -3702,7 +3740,7 @@
   },
   "id": {
     "home.hero.badge": "Editor Skema Gratis Berbasis Browser",
-    "home.hero.title": "Pembuat Diagram Sirkuit",
+    "home.hero.title": "Pembuat Diagram Sirkuit Online Gratis Terbaik",
     "home.hero.subtitle": "Cara tercepat dan paling intuitif untuk membuat skema elektronik profesional secara online. Ekspor diagram berkualitas — tanpa unduhan.",
     "home.hero.cta": "Mulai Mendesain — Gratis",
     "home.hero.secondary": "Lihat Dokumentasi",
@@ -3961,7 +3999,26 @@
     ],
     "home.final_cta.title": "Mulai membuat diagram rangkaian Anda",
     "home.final_cta.desc": "Tanpa daftar. Tanpa unduh. Langsung mulai.",
-    "home.final_cta.button": "Buka Circuit Diagram Maker"
+    "home.final_cta.button": "Buka Circuit Diagram Maker",
+    "home.hero.meta_desc": "Pembuat diagram sirkuit online gratis dan paling intuitif. Tarik komponen elektronik, sambungkan kabel secara cerdas, dan ekspor skema profesional secara instan tanpa unduhan.",
+    "home.how_to.title": "Cara Membuat Diagram Sirkuit",
+    "home.how_to.steps": [
+      {
+        "number": "01",
+        "title": "Pilih Komponen",
+        "desc": "Jelajahi pustaka kami yang berisi 40+ simbol elektronika standar dan seret langsung ke kanvas kerja."
+      },
+      {
+        "number": "02",
+        "title": "Hubungkan Sirkuit",
+        "desc": "Gunakan perutean kabel otomatis yang cerdas untuk menghubungkan pin. Kabel akan tertata rapi secara horizontal dan vertikal."
+      },
+      {
+        "number": "03",
+        "title": "Sesuaikan dan Ekspor",
+        "desc": "Tambahkan label nilai komponen, atur tata letak, lalu unduh dalam format SVG, PNG, atau JSON dengan sekali klik."
+      }
+    ]
   },
   "ar": {
     "home.hero.badge": "محرر مخططات دوائر مجاني عبر المتصفح",
@@ -4228,7 +4285,7 @@
   },
   "tr": {
     "home.hero.badge": "Ücretsiz Tarayıcı Tabanlı Şema Düzenleyici",
-    "home.hero.title": "Devre Şeması Oluşturucu",
+    "home.hero.title": "En İyi Ücretsiz Çevrimiçi Devre Şeması Oluşturucu",
     "home.hero.subtitle": "Profesyonel elektronik şemaları çevrimiçi oluşturmanın en hızlı yolu. Bileşenleri sürükleyin, kabloları akıllıca yönlendirin — kurulum gerektirmez.",
     "home.hero.cta": "Tasarım Yapmaya Başla — Ücretsiz",
     "home.hero.secondary": "Belgeleri Görüntüle",
@@ -4487,7 +4544,26 @@
     ],
     "home.final_cta.title": "Devre diyagramınızı oluşturmaya başlayın",
     "home.final_cta.desc": "Kayıt yok. İndirme yok. Hemen oluşturmaya başlayın.",
-    "home.final_cta.button": "Circuit Diagram Maker’ı aç"
+    "home.final_cta.button": "Circuit Diagram Maker’ı aç",
+    "home.hero.meta_desc": "Çevrimiçi en sezgisel ve ücretsiz devre şeması oluşturucu. Bileşenleri sürükleyin, kabloları akıllıca bağlayın ve anında profesyonel şemalar dışa aktarın.",
+    "home.how_to.title": "Devre Şeması Nasıl Çizilir?",
+    "home.how_to.steps": [
+      {
+        "number": "01",
+        "title": "Bileşenleri Seçin",
+        "desc": "40'tan fazla standart elektronik sembol içeren kütüphanemizden istediğiniz parçaları çalışma alanına sürükleyin."
+      },
+      {
+        "number": "02",
+        "title": "Devreyi Bağlayın",
+        "desc": "Uçları birleştirmek için akıllı kablolama aracını kullanın. Sistem tüm hatları düzgün ve dik açılı olarak otomatik hizalar."
+      },
+      {
+        "number": "03",
+        "title": "Özelleştirin ve Dışa Aktarın",
+        "desc": "Bileşen değerlerini ve etiketleri ekleyin, ardından tek tıklamayla SVG, PNG veya JSON olarak indirin."
+      }
+    ]
   },
   "sv": {
     "home.hero.badge": "Gratis webbläsarbaserad schematisk redigerare",

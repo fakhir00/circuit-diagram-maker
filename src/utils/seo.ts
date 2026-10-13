@@ -271,10 +271,7 @@ function finalizeTitle(title: string | undefined, fallback: string, pathname: st
     }
   }
 
-  if (localeCode) {
-    appendUniqueTitlePart(suffixParts, localeCode);
-  }
-
+  // No artificial localeCode suffix (| ES, | ID) appended to titles
   let suffix = suffixParts.length > 0 ? ` | ${suffixParts.join(' | ')}` : '';
   let availableBaseLength = Math.max(10, maxTitleLength - getEscapedHtmlLength(suffix));
   let composedTitle = `${trimTitleToLength(baseTitle, availableBaseLength)}${suffix}`;
@@ -297,41 +294,23 @@ function finalizeTitle(title: string | undefined, fallback: string, pathname: st
   return trimTitleToLength(composedTitle, maxTitleLength);
 }
 
-function appendLocaleSuffix(description: string, pathname: string): string {
-  const locale = getLocaleFromPathname(pathname);
-
-  if (!locale || locale === defaultLocale || !LOCALE_LABELS[locale]) {
-    return description;
-  }
-
-  const suffix = ` ${LOCALE_LABELS[locale]} version.`;
-  const combined = `${description}${suffix}`;
-
-  if (combined.length <= 150) {
-    return combined;
-  }
-
-  return `${trimToLength(description, 150 - suffix.length)}${suffix}`;
-}
-
 function finalizeDescription(description: string | undefined, fallback: string, pathname: string): string {
-  const normalizedDescription = collapseWhitespace(description);
-  const normalizedFallback = collapseWhitespace(fallback);
+  // Strip any accidental html tags (such as <strong>)
+  const cleanDescription = (description || '').replace(/<[^>]*>/g, '');
+  const cleanFallback = (fallback || '').replace(/<[^>]*>/g, '');
+  const normalizedDescription = collapseWhitespace(cleanDescription);
+  const normalizedFallback = collapseWhitespace(cleanFallback);
 
-  if (!normalizedDescription) {
-    return appendLocaleSuffix(normalizedFallback, pathname);
+  const candidate = normalizedDescription || normalizedFallback;
+  if (!candidate) {
+    return '';
   }
 
-  if (normalizedDescription.length < 70) {
-    return appendLocaleSuffix(normalizedFallback, pathname);
+  if (candidate.length > 160) {
+    return trimToLength(candidate, 155);
   }
 
-  if (normalizedDescription.length > 150) {
-    const trimmed = trimToLength(normalizedDescription, 150);
-    return appendLocaleSuffix(trimmed.length >= 70 ? trimmed : normalizedFallback, pathname);
-  }
-
-  return appendLocaleSuffix(normalizedDescription, pathname);
+  return candidate;
 }
 
 export function resolveSeoMetadata({ pathname, title, description }: ResolveSeoMetadataInput): SeoMetadata {

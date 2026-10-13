@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLocaleFromUrl } from '../theme/i18n';
+import { locales, defaultLocale, getLocaleFromUrl, getLocalizedPath } from '../theme/i18n';
 import { resolveSeoMetadata } from '../utils/seo';
 import '../styles/global.css';
 import config from '../data/config.json';
@@ -20,7 +20,22 @@ const dir = ['ar', 'ur'].includes(locale) ? 'rtl' : 'ltr';
 const seo = resolveSeoMetadata({ pathname, title, description });
 const finalTitle = seo.title;
 const finalDescription = seo.description;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || config.site.url);
+
+const siteUrl = (Astro.site ? Astro.site.toString() : config.site.url).replace(/\/$/, '');
+const normalizedPathname = pathname.endsWith('/') || pathname.includes('.') ? pathname : `${pathname}/`;
+const canonicalURL = new URL(normalizedPathname, siteUrl);
+
+const is404 = normalizedPathname === '/404' || normalizedPathname.includes('/404/');
+const hreflangLinks = (!is404 && !noindex) ? [
+  {
+    lang: 'x-default',
+    url: new URL(getLocalizedPath(normalizedPathname, defaultLocale), siteUrl).href
+  },
+  ...locales.map(l => ({
+    lang: l,
+    url: new URL(getLocalizedPath(normalizedPathname, l), siteUrl).href
+  }))
+] : [];
 
 // Build dynamic breadcrumbs
 const segments = pathname.split('/').filter(Boolean);
@@ -89,6 +104,9 @@ const softwareSchema = isHome ? {
   <meta name="keywords" content="circuit diagram maker, circuit diagram, schematic editor, wiring diagram, electronic schematic, circuit design tool, free circuit diagram, online schematic maker, circuit simulator, PCB schematic" />
   
   <link rel="canonical" href={canonicalURL} />
+  {hreflangLinks.map(link => (
+    <link rel="alternate" hreflang={link.lang} href={link.url} />
+  ))}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
   <link rel="icon" type="image/png" sizes="32x32" href="/brand-favicon-32.png?v=2" />
   <link rel="shortcut icon" href="/brand-favicon-32.png?v=2" />
