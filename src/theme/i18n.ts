@@ -80,7 +80,7 @@ export function getLocalizedPath(path: string, locale: string): string {
   const segments = basePath.split('/').filter(Boolean);
   const withoutLocaleSegments = segments.filter((segment, index) => !(index === 0 && locales.includes(segment)));
 
-  if (withoutLocaleSegments.length === 0) {
+  if (withoutLocaleSegments.length === 0 || withoutLocaleSegments[0] === '404') {
     return locale === defaultLocale ? '/' : `/${locale}/`;
   }
 
