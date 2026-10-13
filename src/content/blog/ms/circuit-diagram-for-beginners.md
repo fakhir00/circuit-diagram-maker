@@ -121,6 +121,6 @@ graph LR
 
 Setelah anda selesa melukis skema asas, terokai sumber ini untuk meningkatkan tahap:
 
-* **[Simbol Gambarajah Litar Dijelaskan](/blog/circuit-diagram-symbols-explained/)** — menyelami setiap kategori simbol
-* **[Cara Membuat Rajah Litar Dalam Talian](/blog/how-to-make-circuit-diagram-online/)** — teknik lanjutan dan petua aliran kerja
-* **[Perpustakaan Komponen](/komponen/)** — semak imbas semua 40+ simbol yang tersedia dalam Pembuat Rajah Litar
+* **[Simbol Gambarajah Litar Dijelaskan](/ms/blog/circuit-diagram-symbols-explained/)** — menyelami setiap kategori simbol
+* **[Cara Membuat Rajah Litar Dalam Talian](/ms/blog/how-to-make-circuit-diagram-online/)** — teknik lanjutan dan petua aliran kerja
+* **[Perpustakaan Komponen](/ms/components/)** — semak imbas semua 40+ simbol yang tersedia dalam Pembuat Rajah Litar

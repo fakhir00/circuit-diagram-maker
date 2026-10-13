@@ -121,6 +121,6 @@ graph LR
 
 기본 회로도를 그리는 데 익숙해지면 다음 리소스를 탐색하여 레벨을 높이세요.
 
-* **[회로도 기호 설명](/blog/circuit-diagram-symbols-explained/)** — 모든 기호 카테고리에 대한 심층 분석
-* **[온라인으로 회로도를 만드는 방법](/blog/how-to-make-circuit-diagram-online/)** — 고급 기술 및 작업 흐름 팁
-* **[구성 요소 라이브러리](/comComponents/)** — Circuit Diagram Maker에서 사용할 수 있는 40개 이상의 기호를 모두 찾아보세요.
+* **[회로도 기호 설명](/ko/blog/circuit-diagram-symbols-explained/)** — 모든 기호 카테고리에 대한 심층 분석
+* **[온라인으로 회로도를 만드는 방법](/ko/blog/how-to-make-circuit-diagram-online/)** — 고급 기술 및 작업 흐름 팁
+* **[구성 요소 라이브러리](/ko/components/)** — Circuit Diagram Maker에서 사용할 수 있는 40개 이상의 기호를 모두 찾아보세요.

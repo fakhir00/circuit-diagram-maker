@@ -195,7 +195,7 @@ Diagram pengkabelan coil menghubungkan coil, sumber daya, penggerak, pelindung f
 Lanjutkan belajar dengan panduan ini:
 
 - [Cara membaca diagram sirkuit langkah demi langkah](/blog/how-to-read-a-circuit-diagram-step-by-step-guide/)
-- [Simbol diagram sirkuit dijelaskan](/blog/circuit-diagram-symbols-explanned/)
+- [Simbol diagram sirkuit dijelaskan](/blog/circuit-diagram-symbols-explained/)
 - [Praktik terbaik pembuat diagram sirkuit](/blog/circuit-diagram-maker-best-practices/)
 
 Gambarkan dan simpan tata letak pengkabelan coil Anda sendiri sebelum menyolder. Buka editor browser gratis dan bereksperimen: [mulai di editor sirkuit](/editor/).

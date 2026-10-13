@@ -121,6 +121,6 @@ graph LR
 
 Kiedy już nauczysz się rysować podstawowe schematy, zapoznaj się z tymi zasobami, aby przejść na wyższy poziom:
 
-* **[Wyjaśnienie symboli na schemacie obwodów](/blog/objaśnienie-diagram-symbols-objaśnienie/)** — szczegółowe zapoznanie się z każdą kategorią symboli
-* **[Jak zrobić schemat obwodu online](/blog/how-to-make-circuit-diagram-online/)** — zaawansowane techniki i wskazówki dotyczące przepływu pracy
-* **[Biblioteka komponentów](/components/)** — przeglądaj wszystkie ponad 40 symboli dostępnych w Kreatorze schematów obwodów
+* **[Wyjaśnienie symboli na schemacie obwodów](/pl/blog/circuit-diagram-symbols-explained/)** — szczegółowe zapoznanie się z każdą kategorią symboli
+* **[Jak zrobić schemat obwodu online](/pl/blog/how-to-make-circuit-diagram-online/)** — zaawansowane techniki i wskazówki dotyczące przepływu pracy
+* **[Biblioteka komponentów](/pl/components/)** — przeglądaj wszystkie ponad 40 symboli dostępnych w Kreatorze schematów obwodów

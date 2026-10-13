@@ -58,6 +58,9 @@ const lastUpdated = "2026-04-01";
         <div>
           <h2 class="text-2xl font-semibold text-white">{t('legal.privacy.s4.title')}</h2>
           <p>{t('legal.privacy.s4.p1')}</p>
+          {t('legal.privacy.s4.p2') && t('legal.privacy.s4.p2') !== 'legal.privacy.s4.p2' && (
+            <p class="mt-3">{t('legal.privacy.s4.p2')}</p>
+          )}
         </div>
 
         <div>
@@ -66,6 +69,9 @@ const lastUpdated = "2026-04-01";
           <ul class="list-disc list-inside space-y-2 mt-3">
             <li><strong class="text-white">{t('legal.privacy.s5.l1.title')}</strong> {t('legal.privacy.s5.l1.desc')}</li>
             <li><strong class="text-white">{t('legal.privacy.s5.l2.title')}</strong> {t('legal.privacy.s5.l2.desc')}</li>
+            {t('legal.privacy.s5.l3.title') && t('legal.privacy.s5.l3.title') !== 'legal.privacy.s5.l3.title' && (
+              <li><strong class="text-white">{t('legal.privacy.s5.l3.title')}</strong> {t('legal.privacy.s5.l3.desc')}</li>
+            )}
           </ul>
           <p class="mt-3">{t('legal.privacy.s5.p2')}</p>
         </div>

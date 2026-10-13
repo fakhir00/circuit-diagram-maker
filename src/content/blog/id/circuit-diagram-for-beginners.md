@@ -121,6 +121,6 @@ graph LR
 
 Setelah Anda merasa nyaman menggambar skema dasar, jelajahi sumber daya berikut untuk naik level:
 
-* **[Penjelasan Simbol Diagram Sirkuit](/blog/sirkuit-diagram-symbols-explained/)** — mendalami setiap kategori simbol
-* **[Cara Membuat Diagram Sirkuit Online](/blog/cara-membuat-diagram-rangkaian-online/)** — teknik tingkat lanjut dan tip alur kerja
-* **[Perpustakaan Komponen](/components/)** — menelusuri 40+ simbol yang tersedia di Pembuat Diagram Sirkuit
+* **[Penjelasan Simbol Diagram Sirkuit](/id/blog/circuit-diagram-symbols-explained/)** — mendalami setiap kategori simbol
+* **[Cara Membuat Diagram Sirkuit Online](/id/blog/how-to-make-circuit-diagram-online/)** — teknik tingkat lanjut dan tip alur kerja
+* **[Perpustakaan Komponen](/id/components/)** — menelusuri 40+ simbol yang tersedia di Pembuat Diagram Sirkuit

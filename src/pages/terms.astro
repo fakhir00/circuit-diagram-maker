@@ -4,7 +4,7 @@ import { getLocaleFromUrl, useTranslations, getLocalizedPath } from '../theme/i1
 
 import config from '../data/config.json';
 
-const { locale } = Astro.props;
+const { locale = 'en' } = Astro.props;
 const t = useTranslations(locale);
 const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
 const lastUpdated = "2026-04-01";

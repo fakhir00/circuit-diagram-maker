@@ -6,7 +6,7 @@ import RelatedToolsSection from '../components/RelatedToolsSection.astro';
 
 import config from '../data/config.json';
 
-const { locale } = Astro.props;
+const { locale = 'en' } = Astro.props;
 const t = useTranslations(locale);
 const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
 

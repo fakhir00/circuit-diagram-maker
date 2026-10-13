@@ -121,6 +121,6 @@ graph LR
 
 Sobald Sie mit dem Zeichnen grundlegender Schaltpläne vertraut sind, erkunden Sie diese Ressourcen, um ein höheres Level zu erreichen:
 
-* **[Erklärung der Schaltplansymbole](/blog/schaltplan-symbole-erklärt/)** – tiefer Einblick in jede Symbolkategorie
-* **[So erstellen Sie online einen Schaltplan](/blog/how-to-make-Circuit-Diagram-Online/)** – fortgeschrittene Techniken und Workflow-Tipps
-* **[Komponentenbibliothek](/components/)** – durchsuchen Sie alle über 40 Symbole, die im Circuit Diagram Maker verfügbar sind
+* **[Erklärung der Schaltplansymbole](/de/blog/circuit-diagram-symbols-explained/)** – tiefer Einblick in jede Symbolkategorie
+* **[So erstellen Sie online einen Schaltplan](/de/blog/how-to-make-circuit-diagram-online/)** – fortgeschrittene Techniken und Workflow-Tipps
+* **[Komponentenbibliothek](/de/components/)** – durchsuchen Sie alle über 40 Symbole, die im Circuit Diagram Maker verfügbar sind
