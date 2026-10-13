@@ -1,43 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath, useTranslations } from '../../theme/i18n';
+import { useTranslations } from '../../theme/i18n';
 import InlineKeywordTool from './InlineKeywordTool.astro';
 import FAQ from '../../components/FAQ.astro';
 import RelatedToolsSection from '../../components/RelatedToolsSection.astro';
+import { toolLandingData } from '../../data/toolLandingContent';
 
 interface Props {
   locale: string;
   heading: string;
   toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
-}
-
-interface DiagramStep {
-  label: string;
-  detail: string;
-}
-
-interface HeadingBlock {
-  id: string;
-  title: string;
-  illustrationSummary: string;
-  purpose: string;
-  diagramTitle: string;
-  diagramSteps: DiagramStep[];
-  tableCaption: string;
-  tableHeaders: [string, string, string];
-  tableRows: [string, string, string][];
-  imageSrc?: string;
-}
-
-interface SchematicSection {
-  main: HeadingBlock;
-  subs?: HeadingBlock[];
-}
-
-interface ToolFaqItem {
-  question: string;
-  answer: string;
-  display: boolean;
 }
 
 const { locale, heading, toolKey } = Astro.props;
@@ -46,11 +18,6 @@ const t = useTranslations(locale);
 const translateText = (key: string, fallback: string) => {
   const value = t(key);
   return typeof value === 'string' && value !== key ? value : fallback;
-};
-
-const translateObject = <T,>(key: string, fallback: T): T => {
-  const value = t(key);
-  return value && typeof value === 'object' ? (value as T) : fallback;
 };
 
 // Tool-specific metadata (SEO)
@@ -76,7 +43,7 @@ const heroContent = {
     primaryCtaLabel: translateText('keyword.hero.boolean.cta.primary', 'Simplify an Expression'),
     primaryCtaHref: '#inline-tool',
     secondaryCtaLabel: translateText('keyword.hero.boolean.cta.secondary', 'See How It Works'),
-    secondaryCtaHref: '#how-it-works'
+    secondaryCtaHref: '#guide'
   },
   'truth-table-to-logic-circuit': {
     eyebrow: translateText('keyword.hero.truth.eyebrow', 'Digital Logic Converter'),
@@ -88,716 +55,20 @@ const heroContent = {
     primaryCtaLabel: translateText('keyword.hero.truth.cta.primary', 'Generate a Circuit'),
     primaryCtaHref: '#inline-tool',
     secondaryCtaLabel: translateText('keyword.hero.truth.cta.secondary', 'See How It Works'),
-    secondaryCtaHref: '#workflow-overview'
+    secondaryCtaHref: '#guide'
   }
 };
 
-const truthContent = {
-  overview:
-    'This workflow converts output-bit behavior into a simplified Boolean expression and a practical gate-stage plan for quick implementation.',
-  sections: [
-    {
-      id: 'boolean-reduction',
-      title: 'Boolean Reduction Pipeline',
-      description:
-        'The tool validates variable and bit lengths, extracts minterms, and reduces the expression so the final equation is easier to implement.',
-      diagramTitle: 'Interactive Simplification Diagram',
-      diagramSteps: [
-        {
-          label: 'Validate',
-          detail: 'Variable count determines required truth-table rows before any reduction starts.'
-        },
-        {
-          label: 'Extract',
-          detail: 'Rows with output 1 are converted into minterm indexes.'
-        },
-        {
-          label: 'Reduce',
-          detail: 'Compatible terms are merged to produce a shorter Boolean expression.'
-        }
-      ],
-      tableCaption: 'Core checks used for expression minimization',
-      tableHeaders: ['Input Rule', 'Why It Matters', 'Output'] as [string, string, string],
-      tableRows: [
-        ['1-4 variables', 'Defines manageable truth-table width', 'Expected bit count'],
-        ['Bit-length match', 'Prevents invalid row interpretation', 'Reliable minterm set'],
-        ['Prime reduction', 'Removes redundant terms', 'Simplified expression']
-      ] as [string, string, string][]
-    },
-    {
-      id: 'gate-planning',
-      title: 'Gate-Level Planning and Verification',
-      description:
-        'After simplification, the tool estimates gate stages and provides a compact implementation path for NOT, AND, and OR composition.',
-      diagramTitle: 'Interactive Gate Planning Diagram',
-      diagramSteps: [
-        {
-          label: 'Invert',
-          detail: 'Only required complemented literals are sent through NOT stages.'
-        },
-        {
-          label: 'Combine',
-          detail: 'Product terms are created with AND gates based on reduced expression terms.'
-        },
-        {
-          label: 'Merge',
-          detail: 'Final OR stage collects term outputs into the target function.'
-        }
-      ],
-      tableCaption: 'Gate-stage mapping from reduced expression',
-      tableHeaders: ['Gate Stage', 'Purpose', 'Design Benefit'] as [string, string, string],
-      tableRows: [
-        ['NOT stage', 'Generate complemented literals', 'Reduces wiring ambiguity'],
-        ['AND stage', 'Build each product term', 'Keeps logic modular'],
-        ['OR stage', 'Merge term outputs', 'Directly matches F output']
-      ] as [string, string, string][]
-    }
-  ],
-  faqItems: [
-    {
-      question: 'How many variables are supported on this page?',
-      answer: 'The inline tool accepts between 1 and 4 variables.',
-      display: true
-    },
-    {
-      question: 'Why must output bits match exactly 2^n rows?',
-      answer: 'Each row represents one input combination. Missing or extra bits break row alignment.',
-      display: true
-    },
-    {
-      question: 'Is this useful for class assignments and prototyping?',
-      answer: 'Yes. It is useful for quick derivation, checking simplification, and preparing gate-level drafts.',
-      display: true
-    }
-  ] as ToolFaqItem[]
-};
-
-const schematicSections: SchematicSection[] = [
-  {
-    main: {
-      id: 'what-is-a-schematic-circuit-diagram',
-      title: '1. What is a Schematic Circuit Diagram?',
-      illustrationSummary:
-        'A schematic circuit diagram is a standardized visual representation of an electronic circuit that uses symbols to describe the electrical connections between components. Unlike a physical breadboard layout where parts have real positions and sizes, a schematic focuses on logical relationships — which pins connect where, how current flows, and what each component does in the circuit. Standard symbols like zigzag lines for resistors, triangles for diodes, and labeled rectangles for integrated circuits make schematics universally readable across engineering teams, classrooms, and datasheets. Understanding this symbolic language is the first step toward translating any design into a working breadboard prototype.',
-      purpose:
-        'Before placing a single wire on a breadboard, you need to be able to read the schematic and identify every node, net name, and power rail. A node is any point where two or more component leads connect. Net names like VCC and GND label recurring power references. Tracing the current path from power source through each component to ground ensures you understand the circuit intent — which is exactly what you will replicate on the breadboard.',
-      imageSrc: '/images/tools/schematic-vs-breadboard.png',
-      diagramTitle: 'Schematic vs Physical Wiring Explorer',
-      diagramSteps: [
-        {
-          label: 'Symbols',
-          detail: 'Schematic symbols represent function and electrical relationship, not literal board position.'
-        },
-        {
-          label: 'Nodes',
-          detail: 'Node labels and net links show what must connect electrically, regardless of layout shape.'
-        },
-        {
-          label: 'Placement',
-          detail: 'Breadboards require physical row and rail placement decisions to realize the same net intent.'
-        }
-      ],
-      tableCaption: 'Schematic foundation reference',
-      tableHeaders: ['Concept', 'Schematic View', 'Breadboard View'],
-      tableRows: [
-        ['Resistor', 'Value + symbol in circuit path', 'Physical lead across two rows'],
-        ['Power', 'VCC/GND symbols and net names', 'Positive/negative rail placement'],
-        ['Connection', 'Logical net continuity', 'Row jumper and wire continuity']
-      ]
-    }
-  },
-  {
-    main: {
-      id: 'how-to-use-the-schematic-to-breadboard-converter',
-      title: '2. How to Use the Schematic to Breadboard Converter',
-      illustrationSummary:
-        'Converting a schematic into a breadboard layout follows a four-stage pipeline: input, mapping, layout generation, and export. In the input stage, you provide a valid schematic by uploading a netlist file or drawing symbols directly in the editor. The mapping stage resolves each schematic symbol to a physical component — a resistor symbol becomes two leads across specific breadboard rows. During layout generation, the converter assigns row positions, routes jumper wires, and flags conflicts. Finally, the export stage lets you download the breadboard plan as PNG, SVG, or JSON for documentation, classroom handouts, or collaborative iteration.',
-      purpose:
-        'Having a structured workflow prevents the most common conversion errors. When you skip straight from schematic to hardware, it is easy to misread pin assignments, forget jumper wires, or reverse polarity-sensitive parts. Each stage acts as a checkpoint: the input stage catches format errors, the mapping stage catches symbol mismatches, the layout stage catches physical conflicts, and the export stage ensures your work is shareable and repeatable.',
-      imageSrc: '/images/tools/conversion-workflow.png',
-      diagramTitle: 'Master Conversion Workflow Simulator',
-      diagramSteps: [
-        {
-          label: 'Input',
-          detail: 'Upload or draw the source schematic so net relationships can be parsed.'
-        },
-        {
-          label: 'Map',
-          detail: 'Map each symbol and pin to a real breadboard-compatible part footprint.'
-        },
-        {
-          label: 'Layout',
-          detail: 'Generate row and rail assignments, then create physical jumper instructions.'
-        },
-        {
-          label: 'Share',
-          detail: 'Export the result as image/data output for collaboration or documentation.'
-        }
-      ],
-      tableCaption: 'Master conversion stages',
-      tableHeaders: ['Stage', 'What Happens', 'Expected Output'],
-      tableRows: [
-        ['Input', 'Schematic is parsed and validated', 'Clean net/source model'],
-        ['Mapping', 'Components and pins are resolved', 'Component mapping report'],
-        ['Layout', 'Rows/rails/wires are assigned', 'Breadboard layout instructions'],
-        ['Share', 'Layout is exported', 'PNG/SVG/JSON deliverable']
-      ]
-    },
-    subs: [
-      {
-        id: 'step-1-upload-or-draw-your-schematic',
-        title: 'Step 1: Upload or Draw Your Schematic',
-        illustrationSummary:
-          'Start by providing your circuit in one of two ways. You can paste a connection list in NODE_A -> NODE_B format, where each line represents one electrical connection between two pins. Alternatively, draw the circuit directly in the editor canvas using the component library. The parser validates every line immediately — it checks for recognized node names, rejects duplicate or contradictory connections, and flags orphan pins that are not connected to any net. Fixing errors at this stage is far cheaper than debugging a mis-wired breadboard later.',
-        purpose:
-          'Tip: keep net names consistent. If an IC supply pin is labeled VCC in the schematic, use that exact label everywhere — not V+, not 5V, not Vdd. Consistent naming prevents the converter from treating the same electrical node as separate nets, which would result in missing connections on the breadboard.',
-        diagramTitle: 'Input Validation Sandbox',
-        diagramSteps: [
-          {
-            label: 'Upload',
-            detail: 'Load an existing schematic file or paste a connection list.'
-          },
-          {
-            label: 'Draw',
-            detail: 'Create symbols and wire them directly in the editor canvas.'
-          },
-          {
-            label: 'Validate',
-            detail: 'Fix format issues before moving to component mapping.'
-          }
-        ],
-        tableCaption: 'Step 1 checklist',
-        tableHeaders: ['Input Type', 'Requirement', 'Pass Condition'],
-        tableRows: [
-          ['Netlist', 'NODE_A -> NODE_B format', 'All lines parse successfully'],
-          ['Symbol drawing', 'Pins connected to valid nets', 'No orphan symbol pins'],
-          ['Naming', 'Consistent labels', 'No duplicate ambiguous node names']
-        ]
-      },
-      {
-        id: 'step-2-review-component-mapping',
-        title: 'Step 2: Review Component Mapping',
-        illustrationSummary:
-          'Every schematic symbol needs to be matched to a real physical component before breadboard placement can begin. This step resolves abstractions: the resistor symbol becomes a specific value with two axial leads, the LED symbol becomes a 5mm part with a longer anode leg and a shorter cathode leg, and an 8-pin IC symbol needs its pin-1 dot oriented correctly. Review each mapping carefully — the most common errors here are swapped transistor pins and reversed LED polarity. A wrong mapping at this stage produces a layout that looks correct but fails electrically.',
-        purpose:
-          'Pay special attention to components with more than two pins. Transistors, voltage regulators, and ICs all have pin assignments that vary by package type. A 2N2222 transistor in a TO-92 package has a different pin order than the same transistor in an SOT-23 package. Always cross-reference the datasheet before confirming your mapping.',
-        diagramTitle: 'Symbol-to-Footprint Mapper',
-        diagramSteps: [
-          {
-            label: 'Match',
-            detail: 'Match each schematic symbol to its intended physical component.'
-          },
-          {
-            label: 'Pin check',
-            detail: 'Confirm pin numbering and orientation align with datasheet expectations.'
-          },
-          {
-            label: 'Resolve',
-            detail: 'Fix mapping warnings before building the breadboard layout.'
-          }
-        ],
-        tableCaption: 'Step 2 mapping checks',
-        tableHeaders: ['Mapping Item', 'Review Action', 'Result'],
-        tableRows: [
-          ['LED', 'Check anode/cathode assignment', 'Correct polarity mapping'],
-          ['Transistor', 'Confirm base/collector/emitter order', 'Valid switching behavior'],
-          ['IC', 'Validate pin-1 orientation', 'Correct row placement plan']
-        ]
-      },
-      {
-        id: 'step-3-generate-breadboard-layout',
-        title: 'Step 3: Generate Breadboard Layout',
-        illustrationSummary:
-          'With validated input and confirmed mappings, the converter generates a physical breadboard layout. The algorithm places anchor components first — typically the largest part like an IC chip straddling the center channel — then assigns surrounding row positions for resistors, LEDs, and capacitors. Jumper wires are routed to connect nodes that the breadboard internal row connections cannot reach. Power rails along the top and bottom edges are assigned to VCC and GND nets. The output includes a visual placement map, a numbered wiring sequence, and validation notes highlighting any unresolved conflicts.',
-        purpose:
-          'The generated layout is a starting point, not a finished product. Review it for wire crossing density, accessibility of test points, and logical grouping of related components. Rearranging two components to reduce jumper wire length can make your breadboard significantly easier to debug.',
-        diagramTitle: 'Layout Generator Playback',
-        diagramSteps: [
-          {
-            label: 'Anchor',
-            detail: 'Place major components and power rails as fixed references.'
-          },
-          {
-            label: 'Route',
-            detail: 'Route each net with clear row-to-row jumper instructions.'
-          },
-          {
-            label: 'Inspect',
-            detail: 'Check for conflicts, overlaps, or ambiguous jumpers.'
-          }
-        ],
-        tableCaption: 'Step 3 generation outputs',
-        tableHeaders: ['Output Layer', 'What It Contains', 'Build Use'],
-        tableRows: [
-          ['Placement map', 'Component row positions', 'Physical part insertion'],
-          ['Jumper list', 'Wire endpoints by row/rail', 'Manual wiring order'],
-          ['Validation notes', 'Warnings and edge cases', 'Final pre-build sanity check']
-        ]
-      },
-      {
-        id: 'step-4-download-or-share-the-result',
-        title: 'Step 4: Download or Share the Result',
-        illustrationSummary:
-          'After reviewing and optionally adjusting the layout, export it in the format that fits your workflow. PNG images work well for slides, lab reports, and quick sharing in chat. SVG files are scalable and printable, making them ideal for reference documents and classroom handouts. JSON export preserves the full project structure — component positions, net lists, and mapping metadata — so you can reload, edit, and re-export later without starting over.',
-        purpose:
-          'For team projects and classroom settings, the JSON format is particularly valuable because it enables iterative collaboration. One person can set up the initial schematic, another can verify the mapping, and a third can refine the physical layout — all working from the same exportable project file.',
-        diagramTitle: 'Export and Share Panel',
-        diagramSteps: [
-          {
-            label: 'Preview',
-            detail: 'Inspect final layout details before export.'
-          },
-          {
-            label: 'Export',
-            detail: 'Select PNG/SVG for visual output or JSON for editable project transfer.'
-          },
-          {
-            label: 'Share',
-            detail: 'Send files to teammates or include in documentation workflows.'
-          }
-        ],
-        tableCaption: 'Step 4 format selection',
-        tableHeaders: ['Format', 'Best Use', 'Includes'],
-        tableRows: [
-          ['PNG', 'Slides, quick sharing', 'Flat visual layout'],
-          ['SVG', 'Scalable docs and print', 'Vector geometry and labels'],
-          ['JSON', 'Project iteration and reload', 'Structured nets and metadata']
-        ]
-      }
-    ]
-  },
-  {
-    main: {
-      id: 'schematic-to-breadboard-examples',
-      title: '3. Schematic to Breadboard Examples',
-      illustrationSummary:
-        'The best way to learn schematic-to-breadboard conversion is by studying worked examples at increasing complexity levels. Below you will find three circuits that cover the core skills: a single LED circuit that teaches polarity and resistor placement, a series resistor chain that introduces intermediate node management, and a transistor switching circuit that requires careful pin mapping. Each example shows the original schematic, the component mapping decisions, and the final breadboard layout with numbered wiring steps.',
-      purpose:
-        'These examples are designed to be hands-on. After reading each one, try replicating it using the inline tool above. Enter the connection list, generate the breadboard plan, and compare your result to the example. This active practice builds the pattern recognition skills that make future conversions faster and more reliable.',
-      imageSrc: '/images/tools/circuit-examples.png',
-      diagramTitle: 'Example Selector Workspace',
-      diagramSteps: [
-        {
-          label: 'LED',
-          detail: 'A minimal single-output pattern for first-time conversions.'
-        },
-        {
-          label: 'Series',
-          detail: 'A chained component pattern with intermediate nodes.'
-        },
-        {
-          label: 'Transistor',
-          detail: 'An active-device switch pattern with orientation-sensitive pins.'
-        }
-      ],
-      tableCaption: 'Example comparison matrix',
-      tableHeaders: ['Example', 'Focus Skill', 'Complexity'],
-      tableRows: [
-        ['Single LED', 'Polarity and resistor placement', 'Beginner'],
-        ['Series resistors', 'Node continuity and value tracing', 'Intermediate'],
-        ['Transistor switch', 'Pin mapping and control paths', 'Intermediate+']
-      ]
-    },
-    subs: [
-      {
-        id: 'example-1-single-led-circuit',
-        title: 'Example 1: Single LED Circuit',
-        illustrationSummary:
-          'This beginner-level circuit connects a current-limiting resistor in series with an LED between VCC and GND. The schematic shows three nodes: VCC connects to R1 pin 1, R1 pin 2 connects to the LED anode, and the LED cathode connects to GND. On the breadboard, the resistor spans two rows with one end connected to the positive power rail via a jumper. The LED straddles two rows with its longer anode leg in the same row as the second lead of the resistor. A final jumper connects the LED cathode row to the ground rail.',
-        purpose:
-          'Key learning point: the LED is polarity-sensitive. If you reverse the anode and cathode, no current will flow and the LED will not light up. Always identify the flat edge or shorter leg of a physical LED as the cathode before insertion. The resistor, being non-polarized, can be inserted in either direction.',
-        diagramTitle: 'Single LED Conversion Demo',
-        diagramSteps: [
-          {
-            label: 'Source',
-            detail: 'Start from LED + resistor schematic with labeled polarity.'
-          },
-          {
-            label: 'Place',
-            detail: 'Place LED and resistor across correct breadboard rows.'
-          },
-          {
-            label: 'Test',
-            detail: 'Verify that current path flows correctly from supply to ground.'
-          }
-        ],
-        tableCaption: 'LED example quick checks',
-        tableHeaders: ['Check', 'Why', 'Expected'],
-        tableRows: [
-          ['LED orientation', 'LED is polarity sensitive', 'Anode to source path'],
-          ['Resistor in series', 'Limits current safely', 'No direct LED short'],
-          ['Rail mapping', 'Ensures valid power path', 'Stable LED operation']
-        ]
-      },
-      {
-        id: 'example-2-series-resistors',
-        title: 'Example 2: Series Resistors',
-        illustrationSummary:
-          'This intermediate circuit places two resistors in series to form a voltage divider. The schematic shows VCC to R1 to midpoint node to R2 to GND, creating an intermediate voltage at the junction between R1 and R2. On the breadboard, the critical conversion detail is preserving the midpoint node: the second lead of R1 and the first lead of R2 must occupy the same breadboard row so they are electrically connected through the internal bus. If they land on different rows without a jumper wire, the series connection breaks and the voltage divider produces no output.',
-        purpose:
-          'Key learning point: breadboard rows connect all five holes in a row into a single electrical node. When converting series components, always verify that the shared junction node lands in the same row. This principle scales to any chain of components — filters, attenuators, and multi-stage amplifiers all rely on accurate intermediate node preservation.',
-        diagramTitle: 'Series Resistor Path Explorer',
-        diagramSteps: [
-          {
-            label: 'Chain',
-            detail: 'Define the resistor chain order in the schematic source.'
-          },
-          {
-            label: 'Node',
-            detail: 'Preserve the midpoint node when mapping to breadboard rows.'
-          },
-          {
-            label: 'Verify',
-            detail: 'Confirm continuity from source through both resistors to sink.'
-          }
-        ],
-        tableCaption: 'Series resistor conversion checks',
-        tableHeaders: ['Element', 'Conversion Action', 'Verification'],
-        tableRows: [
-          ['R1/R2 order', 'Keep component order intact', 'Expected node sequence'],
-          ['Midpoint node', 'Assign dedicated row', 'No unintended branching'],
-          ['Terminal rails', 'Connect to proper rails', 'Stable end-to-end path']
-        ]
-      },
-      {
-        id: 'example-3-transistor-as-a-switch',
-        title: 'Example 3: Transistor as a Switch',
-        illustrationSummary:
-          'This intermediate-to-advanced circuit uses an NPN transistor (such as a 2N2222) as an electronically controlled switch. The schematic shows a control signal driving the base through a current-limiting resistor, with the collector connected to an LED load and the emitter connected to GND. The breadboard conversion requires careful attention to the physical pin order of the transistor, which varies by package. For a TO-92 package viewed from the flat side, the pins are typically Emitter-Base-Collector from left to right. Placing the transistor with incorrect pin orientation results in a switch that does not respond to the control signal.',
-        purpose:
-          'Key learning point: active components like transistors, MOSFETs, and voltage regulators have pin assignments that are not interchangeable. Unlike resistors, which work in either direction, getting the base, collector, and emitter wrong will cause complete functional failure. Always consult the component datasheet before placing an active device on the breadboard.',
-        diagramTitle: 'Transistor Switch Mapping Demo',
-        diagramSteps: [
-          {
-            label: 'Pin map',
-            detail: 'Identify B/C/E pins and align them with the chosen transistor package.'
-          },
-          {
-            label: 'Control',
-            detail: 'Route base control through the correct resistor path.'
-          },
-          {
-            label: 'Load path',
-            detail: 'Confirm collector-emitter load connection behaves as intended.'
-          }
-        ],
-        tableCaption: 'Transistor switch validation',
-        tableHeaders: ['Risk Area', 'Correct Mapping', 'Failure If Wrong'],
-        tableRows: [
-          ['Pin order', 'B-C-E aligned with part package', 'Switch logic fails'],
-          ['Base resistor', 'Resistor on control line', 'Overdrive or unstable switching'],
-          ['Load routing', 'Collector/emitter path verified', 'No output activation']
-        ]
-      }
-    ]
-  },
-  {
-    main: {
-      id: 'common-mistakes-when-converting-schematics-to-breadboard',
-      title: '4. Common Mistakes When Converting Schematics to Breadboard',
-      illustrationSummary:
-        'Even experienced builders encounter conversion errors, especially when working with unfamiliar components or complex schematics. The three most common mistakes are misreading power and ground rail assignments, reversing the orientation of polarity-sensitive components, and leaving connections floating — where a net that should be continuous has a physical gap on the breadboard. Each mistake has distinct symptoms: shorts and overheating suggest power rail confusion, non-functional but undamaged components suggest reversed orientation, and intermittent or absent output suggests floating connections.',
-      purpose:
-        'Developing a pre-power checklist eliminates most of these errors. Before applying power to your breadboard for the first time, verify three things: (1) the positive and ground rails are correctly assigned and bridged if your board has split rails, (2) all polarity-sensitive components are oriented correctly, and (3) every required net has physical continuity using a multimeter continuity mode.',
-      imageSrc: '/images/tools/common-mistakes.png',
-      diagramTitle: 'Find-and-Fix Error Challenge',
-      diagramSteps: [
-        {
-          label: 'Detect',
-          detail: 'Spot rail, orientation, or continuity mistakes in a faulty layout.'
-        },
-        {
-          label: 'Correct',
-          detail: 'Adjust rows, orientation, and jumpers to match net intent.'
-        },
-        {
-          label: 'Validate',
-          detail: 'Run final checks and review why each fix mattered.'
-        }
-      ],
-      tableCaption: 'High-impact conversion mistakes',
-      tableHeaders: ['Mistake Type', 'Symptoms', 'Prevention'],
-      tableRows: [
-        ['Power/GND confusion', 'Circuit appears dead or shorts rails', 'Explicit rail labeling and checks'],
-        ['Reversed orientation', 'Part fails or overheats', 'Pin/polarity validation'],
-        ['Floating nets', 'Intermittent or no output', 'Continuity verification before power-up']
-      ]
-    },
-    subs: [
-      {
-        id: 'mistake-1-misreading-power-and-ground',
-        title: 'Mistake 1: Misreading Power and Ground',
-        illustrationSummary:
-          'Power rail confusion is the most dangerous conversion mistake because it can cause immediate component damage. On a breadboard, the long horizontal buses along the top and bottom edges serve as power distribution rails — typically red for VCC and blue for GND. The mistake happens when you accidentally swap them, when your breadboard has split rails (a gap in the middle that breaks continuity), or when you connect a supply pin to the wrong rail. Symptoms include circuits that appear completely dead, components that get hot immediately, or damage from reversed electrolytic capacitors.',
-        purpose:
-          'Watch out for split-rail breadboards. Many full-size breadboards have a physical gap in the power rail at the midpoint, meaning the top half and bottom half of each rail are not connected by default. You must add a jumper wire to bridge this gap, or components on the far side of the board will have no power or ground connection.',
-        diagramTitle: 'Power and Ground Rail Checker',
-        diagramSteps: [
-          {
-            label: 'Label',
-            detail: 'Label both positive and ground rails explicitly before wiring.'
-          },
-          {
-            label: 'Connect',
-            detail: 'Attach each power net to the correct rail and verify polarity.'
-          },
-          {
-            label: 'Test',
-            detail: 'Run continuity and short checks between rails and load paths.'
-          }
-        ],
-        tableCaption: 'Power/GND error prevention',
-        tableHeaders: ['Check', 'Why It Matters', 'Pass Condition'],
-        tableRows: [
-          ['Rail polarity', 'Prevents reverse power', 'VCC/GND correctly assigned'],
-          ['Rail continuity', 'Ensures stable distribution', 'Consistent rail voltage'],
-          ['Short guard', 'Prevents component damage', 'No direct VCC-GND short']
-        ]
-      },
-      {
-        id: 'mistake-2-reversed-component-orientation',
-        title: 'Mistake 2: Reversed Component Orientation',
-        illustrationSummary:
-          'LEDs, diodes, electrolytic capacitors, transistors, and ICs all have specific orientation requirements. Reversing an LED simply prevents it from lighting — annoying but harmless. Reversing an electrolytic capacitor, however, can cause it to leak, bulge, or even rupture. Reversing a transistor swaps the control logic entirely. For ICs, pin-1 is marked with a dot or notch on the physical package; placing the chip backwards swaps every single pin pair simultaneously, which typically destroys the component or connected circuits.',
-        purpose:
-          'A practical technique: before inserting any polarity-sensitive component, hold it next to the breadboard and point at each lead while saying the pin name out loud — anode then cathode for an LED, base then collector then emitter for a transistor. This verbal check takes two seconds and catches orientation errors before they become hardware failures.',
-        diagramTitle: 'Orientation Flip Trainer',
-        diagramSteps: [
-          {
-            label: 'Identify',
-            detail: 'Identify polarity or pin-1 marker before insertion.'
-          },
-          {
-            label: 'Orient',
-            detail: 'Rotate/flip component so symbol intent matches physical direction.'
-          },
-          {
-            label: 'Confirm',
-            detail: 'Confirm orientation against datasheet and mapping panel.'
-          }
-        ],
-        tableCaption: 'Orientation-critical components',
-        tableHeaders: ['Component', 'Orientation Rule', 'Risk if Reversed'],
-        tableRows: [
-          ['LED/diode', 'Anode/cathode must align', 'No conduction or damage'],
-          ['Electrolytic cap', 'Positive/negative polarity respected', 'Leakage or failure'],
-          ['Transistor', 'Correct B/C/E orientation', 'Switch stage fails']
-        ]
-      },
-      {
-        id: 'mistake-3-floating-connections',
-        title: 'Mistake 3: Floating Connections',
-        illustrationSummary:
-          'A floating connection occurs when a net that should be continuous has a physical gap on the breadboard. This happens when a jumper wire is forgotten, when a component lead does not fully seat into a breadboard hole, or when two components that should share a node are placed in different rows without a connecting wire. Floating inputs on logic ICs are particularly problematic because they pick up electrical noise and cause erratic behavior — the circuit may appear to work intermittently or produce random outputs.',
-        purpose:
-          'Prevention tip: work through your connection list one line at a time and physically verify each connection immediately after placing it. Do not wire the entire board and then test — by that point, a single missing jumper in a 30-wire circuit becomes extremely difficult to locate. Sequential verification catches floating connections the moment they occur.',
-        diagramTitle: 'Floating Net Heatmap',
-        diagramSteps: [
-          {
-            label: 'Scan',
-            detail: 'Scan all required nets and mark unresolved nodes.'
-          },
-          {
-            label: 'Patch',
-            detail: 'Insert missing jumper links to restore connectivity.'
-          },
-          {
-            label: 'Finalize',
-            detail: 'Re-run continuity checks until all nets report connected.'
-          }
-        ],
-        tableCaption: 'Floating-connection troubleshooting',
-        tableHeaders: ['Issue', 'Detection Signal', 'Fix'],
-        tableRows: [
-          ['Unconnected node', 'Heatmap highlights open net', 'Add missing jumper'],
-          ['Partial rail feed', 'Only subset of nodes energized', 'Bridge rail segments'],
-          ['Intermittent output', 'Random behavior under motion', 'Secure and re-seat leads']
-        ]
-      }
-    ]
-  }
-];
-
-const schematicNavLinks = schematicSections.flatMap((section) => {
-  const mainLink = [{ id: section.main.id, title: section.main.title, level: 'h2' }];
-  const subLinks = (section.subs || []).map((sub) => ({ id: sub.id, title: sub.title, level: 'h3' }));
-  return [...mainLink, ...subLinks];
-});
-
-const schematicInternalLinks = [
-  {
-    title: 'How to Read a Circuit Diagram (Step by Step)',
-    href: getLocalizedPath('/blog/how-to-read-a-circuit-diagram-step-by-step-guide/', locale),
-    description: 'Build confidence reading symbols, nets, and flow before conversion.'
-  },
-  {
-    title: 'How to Make a Circuit Diagram Online',
-    href: getLocalizedPath('/blog/how-to-make-circuit-diagram-online/', locale),
-    description: 'Create cleaner source schematics that convert more reliably.'
-  },
-  {
-    title: 'Circuit Components Library',
-    href: getLocalizedPath('/components/', locale),
-    description: 'Verify symbol meanings and part behavior while mapping components.'
-  },
-  {
-    title: 'Circuit Editor Documentation',
-    href: getLocalizedPath('/docs/', locale),
-    description: 'Use shortcuts and editor workflows to prepare valid inputs quickly.'
-  },
-  {
-    title: 'Open Circuit Diagram Editor',
-    href: getLocalizedPath('/editor/', locale),
-    description: 'Draw and refine source schematics before running conversion.'
-  }
-];
-
-const schematicFaqItems: ToolFaqItem[] = [
-  {
-    question: 'Can I convert a hand-drawn or rough schematic?',
-    answer: 'Yes, but best results come from clean symbol and net labeling before conversion.',
-    display: true
-  },
-  {
-    question: 'Does this replace manual hardware verification?',
-    answer: 'No. Use the generated plan as guidance, then verify continuity and polarity on real hardware.',
-    display: true
-  },
-  {
-    question: 'What parts most often fail during mapping?',
-    answer: 'Polarity-sensitive parts and transistor pin-order assumptions cause most mapping issues.',
-    display: true
-  },
-  {
-    question: 'Can I share the conversion output with teammates?',
-    answer: 'Yes. Export visual formats for reviews and JSON for editable project transfer.',
-    display: true
-  }
-];
-
-const booleanFaqItems: ToolFaqItem[] = [
-  {
-    question: 'What notation does the Boolean Expression Simplifier accept?',
-    answer: "The tool accepts multiple notations simultaneously. You can use '+' for OR, '·' or '*' or just adjacency for AND, and apostrophe (A') or '!' for NOT. Parentheses for grouping are fully supported.",
-    display: true
-  },
-  {
-    question: 'What simplification algorithm is used?',
-    answer: 'The tool uses the Quine-McCluskey algorithm, which is the provably optimal method for finding prime implicants and selecting essential ones. It guarantees the minimum SOP form.',
-    display: true
-  },
-  {
-    question: 'How many variables are supported?',
-    answer: 'Up to 5 variables (A through E) are supported, producing up to 32-row truth tables. For most practical digital logic problems this is sufficient.',
-    display: true
-  },
-  {
-    question: 'What is the output format of the simplified expression?',
-    answer: "The result is shown in standard Sum-of-Products (SOP) form using the apostrophe notation (e.g. A'B + AB'). The truth table and a gate network diagram are also generated automatically.",
-    display: true
-  },
-  {
-    question: 'Can I use this for Karnaugh map problems?',
-    answer: 'Yes. The Quine-McCluskey algorithm is equivalent to solving a K-map but works for more than 4 variables where K-maps are impractical.',
-    display: true
-  },
-  {
-    question: 'Does the tool handle expressions that are always true or always false?',
-    answer: 'Yes. Tautologies (always 1) and contradictions (always 0) are detected automatically and displayed as constant outputs.',
-    display: true
-  }
-];
-
-const localizedTruthContent = translateObject('keyword.truth.content', truthContent);
-const normalizedTruthContent = {
-  ...localizedTruthContent,
-  sections: (localizedTruthContent.sections || truthContent.sections).map((section: any, index: number) => ({
-    ...section,
-    id: truthContent.sections[index]?.id || section.id
-  }))
-};
-const localizedBooleanFaqItems = translateObject<ToolFaqItem[]>('keyword.boolean.faq', booleanFaqItems);
-const booleanContent = translateObject('keyword.boolean.content', {
-  howItWorks: {
-    title: 'How Boolean Expression Simplification Works',
-    intro:
-      'Boolean algebra simplification reduces complex logical expressions into their minimal equivalent form using a set of algebraic laws. Every digital circuit, from basic gates to complex processors, operates on boolean logic — and simplification directly reduces gate count, power consumption and propagation delay in real hardware.',
-    cards: [
-      {
-        title: 'Sum of Products (SOP)',
-        description:
-          'The standard form where AND terms are ORed together. Every boolean function can be expressed in SOP and it maps directly to a two-level AND-OR gate network.'
-      },
-      {
-        title: 'Prime Implicants',
-        description:
-          'A prime implicant is a product term that cannot be combined with another term to produce a simpler term. The Quine-McCluskey method finds all prime implicants systematically.'
-      },
-      {
-        title: 'Essential Prime Implicants',
-        description:
-          'An essential prime implicant covers at least one minterm that no other prime implicant covers. The minimum cover must include all essential prime implicants.'
-      }
-    ]
-  },
-  identities: {
-    title: "De Morgan's Laws and Boolean Identities",
-    intro:
-      'These fundamental identities allow you to transform and simplify boolean expressions. The simplifier applies these automatically.',
-    headers: {
-      name: 'Identity Name',
-      expression: 'Expression',
-      description: 'Description'
-    },
-    rows: {
-      deMorgan1: { name: 'De Morgan 1', description: 'NAND equals OR of complements' },
-      deMorgan2: { name: 'De Morgan 2', description: 'NOR equals AND of complements' },
-      absorption: { name: 'Absorption', description: 'Removes redundant product terms' },
-      consensus: { name: 'Consensus', description: 'Eliminates redundant consensus terms' },
-      complement: { name: 'Complement', description: 'A variable OR its complement is always 1' },
-      idempotent: { name: 'Idempotent', description: 'Repeated terms collapse to a single term' }
-    }
-  },
-  quine: {
-    title: 'Quine-McCluskey Algorithm Step by Step',
-    intro:
-      'The Quine-McCluskey method is a tabular technique that systematically finds the minimum SOP form of a boolean function. Unlike K-maps it works for any number of variables and is computer-friendly.',
-    steps: [
-      {
-        title: 'List all minterms.',
-        description:
-          'Convert each row where the output is 1 to its binary representation and group by number of 1-bits.'
-      },
-      {
-        title: 'Merge adjacent groups.',
-        description:
-          "Combine pairs that differ in exactly one bit position, replacing that bit with a dash (don't-care). Repeat until no more merges are possible."
-      },
-      {
-        title: 'Identify prime implicants.',
-        description:
-          'Any term that could not be merged further is a prime implicant. Collect all of them into a prime implicant chart.'
-      },
-      {
-        title: 'Select essential prime implicants.',
-        description:
-          'Find every minterm covered by exactly one prime implicant — that implicant is essential. Include all essentials in the final expression.'
-      },
-      {
-        title: 'Cover remaining minterms.',
-        description:
-          'For any minterms not yet covered by essentials, choose additional prime implicants greedily to minimize the total term count.'
-      }
-    ]
-  }
-});
+const dataKey = toolKey === 'boolean-expression-simplifier' ? 'boolean' : 'truth_table';
+const richData = toolLandingData[dataKey];
 
 const resolvedHeading = toolMeta[toolKey].title;
-const activeFaqItems = toolKey === 'boolean-expression-simplifier' ? localizedBooleanFaqItems : normalizedTruthContent.faqItems;
 const pageDescription = toolMeta[toolKey].description;
+const faqItems = richData ? richData.faqs.map((f) => ({ question: f.question, answer: f.answer, display: true })) : [];
 ---
 
 <BaseLayout title={resolvedHeading} description={pageDescription}>
+  <!-- Hero Section -->
   <section class="relative overflow-hidden bg-bg-dark pt-20 pb-14 sm:pt-24 sm:pb-16">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.08),transparent_28%)]"></div>
     <div class="relative mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
@@ -819,254 +90,211 @@ const pageDescription = toolMeta[toolKey].description;
     </div>
   </section>
 
-  <article aria-labelledby="tool-page-title">
+  <!-- Interactive Online Tool Canvas -->
+  <article aria-labelledby="tool-page-title" id="inline-tool">
     <InlineKeywordTool toolKey={toolKey} locale={locale} />
+  </article>
 
-    {toolKey === 'boolean-expression-simplifier' ? (
-      <>
-        <section id="how-it-works" class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
-          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
-              <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.howItWorks.title}</h2>
-                <p class="mt-4 text-slate-300 leading-7">{booleanContent.howItWorks.intro}</p>
-              </header>
-              <div class="mt-6 grid gap-6 lg:grid-cols-3">
-                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[0].title}</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[0].description}</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[1].title}</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[1].description}</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-bg-dark/80 p-5">
-                  <h3 class="font-semibold text-white">{booleanContent.howItWorks.cards[2].title}</h3>
-                  <p class="mt-2 text-sm text-slate-400 leading-6">{booleanContent.howItWorks.cards[2].description}</p>
-                </div>
+  <!-- In-Depth Technical Architecture & Mathematical Foundation -->
+  {richData && (
+    <section id="guide" class="border-t border-white/5 bg-bg-panel py-16 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent">Technical Architecture</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">{richData.inDepthGuide.title}</h2>
+          <p class="mt-4 text-base leading-7 text-slate-400 sm:text-lg">{richData.inDepthGuide.subtitle}</p>
+        </div>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-3">
+          <div class="lg:col-span-2 space-y-6 text-slate-300 leading-relaxed text-base">
+            {richData.inDepthGuide.paragraphs.map((p) => (
+              <p class="rounded-xl border border-white/5 bg-bg-surface/40 p-5 sm:p-6">{p}</p>
+            ))}
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Engineering Capabilities</h3>
+            {richData.inDepthGuide.keyHighlights.map((highlight) => (
+              <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 transition-all hover:border-brand-primary/30">
+                <h4 class="font-bold text-white text-sm">{highlight.label}</h4>
+                <p class="mt-2 text-xs text-slate-400 leading-relaxed">{highlight.detail}</p>
               </div>
-            </article>
+            ))}
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
+  )}
 
-        <section class="border-t border-white/5 bg-bg-panel py-14 sm:py-16">
-          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
-              <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.identities.title}</h2>
-                <p class="mt-4 text-slate-300 leading-7">{booleanContent.identities.intro}</p>
-              </header>
-              <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
-                <table class="w-full text-left text-sm">
-                  <thead class="bg-white/[0.04] text-slate-300">
-                    <tr>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.name}</th>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.expression}</th>
-                      <th class="px-4 py-3 text-xs font-semibold uppercase tracking-widest">{booleanContent.identities.headers.description}</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-white/10 text-slate-300">
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.deMorgan1.name}</td><td class="px-4 py-3 font-mono text-violet-400">(AB)&apos; = A&apos; + B&apos;</td><td class="px-4 py-3">{booleanContent.identities.rows.deMorgan1.description}</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.deMorgan2.name}</td><td class="px-4 py-3 font-mono text-violet-400">(A+B)&apos; = A&apos;B&apos;</td><td class="px-4 py-3">{booleanContent.identities.rows.deMorgan2.description}</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.absorption.name}</td><td class="px-4 py-3 font-mono text-sky-400">A + AB = A</td><td class="px-4 py-3">{booleanContent.identities.rows.absorption.description}</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.consensus.name}</td><td class="px-4 py-3 font-mono text-sky-400">AB + A&apos;C + BC = AB + A&apos;C</td><td class="px-4 py-3">{booleanContent.identities.rows.consensus.description}</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.complement.name}</td><td class="px-4 py-3 font-mono text-emerald-400">A + A&apos; = 1 &nbsp; | &nbsp; AA&apos; = 0</td><td class="px-4 py-3">{booleanContent.identities.rows.complement.description}</td></tr>
-                    <tr><td class="px-4 py-3 font-semibold text-white">{booleanContent.identities.rows.idempotent.name}</td><td class="px-4 py-3 font-mono text-emerald-400">A + A = A &nbsp; | &nbsp; AA = A</td><td class="px-4 py-3">{booleanContent.identities.rows.idempotent.description}</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </article>
-          </div>
-        </section>
+  <!-- De Morgan & Boolean Identities Reference Table (for Boolean Simplifier) -->
+  {toolKey === 'boolean-expression-simplifier' && (
+    <section class="border-t border-white/5 bg-bg-dark py-14 sm:py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent">Algebraic Foundations</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">Fundamental Boolean Identities & Axioms</h2>
+          <p class="mt-4 text-base leading-7 text-slate-400">Core algebraic laws automatically applied during canonical expansion and term minimization.</p>
+        </div>
 
-        <section class="border-t border-white/5 bg-bg-dark py-14 sm:py-16">
-          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <article class="rounded-2xl border border-white/10 bg-bg-surface/50 p-5 sm:p-6">
-              <header>
-                <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{booleanContent.quine.title}</h2>
-                <p class="mt-4 text-slate-300 leading-7">{booleanContent.quine.intro}</p>
-              </header>
-              <ol class="mt-6 flex flex-col gap-4">
-                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
-                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">1</span>
-                  <div><strong class="text-white">{booleanContent.quine.steps[0].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[0].description}</span></div>
-                </li>
-                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
-                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">2</span>
-                  <div><strong class="text-white">{booleanContent.quine.steps[1].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[1].description}</span></div>
-                </li>
-                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
-                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">3</span>
-                  <div><strong class="text-white">{booleanContent.quine.steps[2].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[2].description}</span></div>
-                </li>
-                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
-                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">4</span>
-                  <div><strong class="text-white">{booleanContent.quine.steps[3].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[3].description}</span></div>
-                </li>
-                <li class="flex gap-4 rounded-xl border border-white/10 bg-bg-dark/80 p-4">
-                  <span class="shrink-0 flex items-center justify-center rounded-full bg-brand-primary w-8 h-8 text-sm font-bold text-white">5</span>
-                  <div><strong class="text-white">{booleanContent.quine.steps[4].title}</strong> <span class="text-slate-400">{booleanContent.quine.steps[4].description}</span></div>
-                </li>
-              </ol>
-            </article>
-          </div>
-        </section>
-      </>
-    ) : (
-      <>
-        <section id="workflow-overview" class="border-t border-white/5 bg-bg-panel py-12 sm:py-14" aria-labelledby="workflow-overview-title">
-          <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <header class="max-w-4xl">
-              <h2 id="workflow-overview-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{translateText('keyword.truth.workflow_overview', 'Workflow Overview')}</h2>
-              <p class="mt-3 text-slate-400">{normalizedTruthContent.overview}</p>
-            </header>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-bg-surface/60">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-white/5 text-slate-300">
+              <tr>
+                <th class="px-5 py-3.5 font-semibold uppercase tracking-wider">Identity Name</th>
+                <th class="px-5 py-3.5 font-semibold uppercase tracking-wider">Algebraic Formulation</th>
+                <th class="px-5 py-3.5 font-semibold uppercase tracking-wider">Engineering Impact</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-slate-300">
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">De Morgan 1</td><td class="px-5 py-3.5 font-mono text-violet-400">(A &middot; B)&apos; = A&apos; + B&apos;</td><td class="px-5 py-3.5 text-slate-400">NAND is equivalent to an OR with complemented inputs; enables all-NAND synthesis.</td></tr>
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">De Morgan 2</td><td class="px-5 py-3.5 font-mono text-violet-400">(A + B)&apos; = A&apos; &middot; B&apos;</td><td class="px-5 py-3.5 text-slate-400">NOR is equivalent to an AND with complemented inputs; enables all-NOR synthesis.</td></tr>
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">Absorption Law</td><td class="px-5 py-3.5 font-mono text-sky-400">A + A &middot; B = A</td><td class="px-5 py-3.5 text-slate-400">Eliminates redundant dependent product terms to shrink gate counts.</td></tr>
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">Consensus Theorem</td><td class="px-5 py-3.5 font-mono text-sky-400">A&middot;B + A&apos;&middot;C + B&middot;C = A&middot;B + A&apos;&middot;C</td><td class="px-5 py-3.5 text-slate-400">Identifies and removes redundant consensus terms, or adds them to eliminate static-1 hazards.</td></tr>
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">Complementarity</td><td class="px-5 py-3.5 font-mono text-emerald-400">A + A&apos; = 1 &nbsp;|&nbsp; A &middot; A&apos; = 0</td><td class="px-5 py-3.5 text-slate-400">Collapses opposing literals to fixed voltage rails (VCC / GND).</td></tr>
+              <tr class="hover:bg-white/[0.02]"><td class="px-5 py-3.5 font-semibold text-white">Idempotence</td><td class="px-5 py-3.5 font-mono text-emerald-400">A + A = A &nbsp;|&nbsp; A &middot; A = A</td><td class="px-5 py-3.5 text-slate-400">Permits duplicating shared minterms across multiple sub-cubes without changing logic.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  )}
 
-            <nav class="mt-6 rounded-2xl border border-white/10 bg-bg-dark/40 p-4" aria-label={translateText('keyword.truth.on_page_nav', 'On-page workflow sections')}>
-              <ol class="grid gap-2 sm:grid-cols-2">
-                {normalizedTruthContent.sections.map((section, index) => (
-                  <li>
-                    <a href={`#${section.id}`} class="block rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-brand-primary/35 hover:text-white">
-                      {index + 1}. {section.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          </div>
-        </section>
+  <!-- Step-by-Step Engineering Workflow -->
+  {richData && (
+    <section class="border-t border-white/5 bg-bg-panel py-16 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent">Workflow Guide</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">{richData.howToGuide.title}</h2>
+          <p class="mt-4 text-base leading-7 text-slate-400 sm:text-lg">{richData.howToGuide.subtitle}</p>
+        </div>
 
-        {normalizedTruthContent.sections.map((section, sectionIndex) => (
-          <section id={section.id} class="border-t border-white/5 bg-bg-dark py-14 sm:py-16" aria-labelledby={`${section.id}-title`}>
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <header class="max-w-4xl">
-                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent">{translateText('keyword.truth.stage', 'Stage')} {sectionIndex + 1}</p>
-                <h2 id={`${section.id}-title`} class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">{section.title}</h2>
-                <p class="mt-3 text-slate-400">{section.description}</p>
-              </header>
-
-              <div class="mt-8 grid gap-6 lg:grid-cols-2">
-                <figure class="rounded-2xl border border-white/10 bg-bg-surface/70 p-5 sm:p-6" data-illustration-block>
-                  <figcaption class="text-base font-semibold text-white">{section.diagramTitle}</figcaption>
-                  <svg viewBox="0 0 420 130" class="mt-4 w-full" role="img" aria-label={section.diagramTitle}>
-                    {section.diagramSteps.slice(0, -1).map((_, index) => {
-                      const stepCount = Math.max(1, section.diagramSteps.length - 1);
-                      const x1 = 60 + (280 / stepCount) * index;
-                      const x2 = 60 + (280 / stepCount) * (index + 1);
-                      return <line x1={x1} y1="62" x2={x2} y2="62" stroke="rgba(148,163,184,0.35)" stroke-width="4" stroke-linecap="round" />;
-                    })}
-
-                    {section.diagramSteps.map((step, index) => {
-                      const stepCount = Math.max(1, section.diagramSteps.length - 1);
-                      const cx = 60 + (280 / stepCount) * index;
-                      return (
-                        <g>
-                          <circle data-ill-node data-active={index === 0 ? 'true' : 'false'} cx={cx} cy="62" r="20" fill="rgba(30,41,59,0.95)" stroke="rgba(148,163,184,0.4)" stroke-width="2.5"></circle>
-                          <text x={cx} y="67" text-anchor="middle" fill="#e2e8f0" font-size="11" font-family="Inter, sans-serif">{index + 1}</text>
-                          <text x={cx} y="102" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter, sans-serif">{step.label}</text>
-                        </g>
-                      );
-                    })}
-                  </svg>
-
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    {section.diagramSteps.map((step, index) => (
-                      <button
-                        type="button"
-                        data-ill-button
-                        data-active={index === 0 ? 'true' : 'false'}
-                        data-ill-detail={step.detail}
-                        class="rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-brand-primary/40 hover:text-white"
-                        aria-pressed={index === 0 ? 'true' : 'false'}
-                      >
-                        {step.label}
-                      </button>
-                    ))}
+        <div class="mt-12 space-y-6">
+          {richData.howToGuide.steps.map((item) => (
+            <div class="rounded-2xl border border-white/10 bg-bg-surface/60 p-6 transition-all hover:border-brand-primary/30 sm:p-8">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-primary/10 border border-brand-primary/25 font-mono text-lg font-black text-brand-accent">
+                  {item.stepNum}
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-lg font-bold text-white sm:text-xl">{item.title}</h3>
+                  <p class="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">{item.instructions}</p>
+                  <div class="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-3 text-xs leading-relaxed text-amber-300/90">
+                    <strong class="font-bold uppercase tracking-wider text-amber-200">Engineering Pro-Tip: </strong>
+                    {item.proTip}
                   </div>
-
-                  <p data-ill-detail class="mt-4 rounded-xl border border-white/10 bg-bg-dark/80 px-4 py-3 text-sm leading-6 text-slate-300">
-                    {section.diagramSteps[0].detail}
-                  </p>
-                </figure>
-
-                <div class="overflow-hidden rounded-2xl border border-white/10 bg-bg-surface/70">
-                  <table class="w-full text-left text-sm">
-                    <caption class="border-b border-white/10 bg-white/[0.04] px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-                      {section.tableCaption}
-                    </caption>
-                    <thead class="bg-white/[0.03] text-slate-300">
-                      <tr>
-                        {section.tableHeaders.map((header) => (
-                          <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em]">{header}</th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-white/10 text-slate-300">
-                      {section.tableRows.map((row) => (
-                        <tr>
-                          <td class="px-4 py-3 font-semibold text-white">{row[0]}</td>
-                          <td class="px-4 py-3">{row[1]}</td>
-                          <td class="px-4 py-3">{row[2]}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
                 </div>
               </div>
             </div>
-          </section>
-        ))}
-      </>
-    )}
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
-    <RelatedToolsSection locale={locale} excludeKeys={[toolKey]} />
-  </article>
+  <!-- Concrete Worked Example -->
+  {richData && (
+    <section class="border-t border-white/5 bg-bg-dark py-16 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent">Practical Application</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">{richData.workedExample.title}</h2>
+          <p class="mt-4 text-base leading-7 text-slate-400 sm:text-lg">{richData.workedExample.subtitle}</p>
+        </div>
 
-  <FAQ title={translateText('keyword.faq.title', 'Frequently Asked Questions')} items={activeFaqItems} />
+        <div class="mt-10 rounded-2xl border border-white/10 bg-bg-surface/60 p-6 sm:p-8">
+          <div class="mb-6 border-b border-white/10 pb-6">
+            <span class="inline-block rounded-md bg-brand-primary/10 border border-brand-primary/20 px-3 py-1 text-xs font-mono font-bold text-brand-accent">Circuit Blueprint</span>
+            <h3 class="mt-2 text-xl font-bold text-white sm:text-2xl">{richData.workedExample.circuitName}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">{richData.workedExample.problemStatement}</p>
+          </div>
 
-  <script is:inline>
-    (() => {
-      const blocks = Array.from(document.querySelectorAll('[data-illustration-block]'));
-      if (!blocks.length) return;
+          <!-- Minterm / Specification Table -->
+          <div class="my-8">
+            <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">Minterm Coverage & Hardware Mapping</h4>
+            <div class="overflow-x-auto rounded-xl border border-white/10 bg-bg-panel">
+              <table class="w-full text-left text-xs sm:text-sm">
+                <thead class="bg-white/5 text-slate-300">
+                  <tr>
+                    <th class="px-4 py-3 font-semibold uppercase tracking-wider">Ref / Term</th>
+                    <th class="px-4 py-3 font-semibold uppercase tracking-wider">Logic Stage</th>
+                    <th class="px-4 py-3 font-semibold uppercase tracking-wider">Binary / Algebraic Spec</th>
+                    <th class="px-4 py-3 font-semibold uppercase tracking-wider">Functional Role</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10 text-slate-300">
+                  {richData.workedExample.bom.map((item) => (
+                    <tr class="hover:bg-white/[0.02]">
+                      <td class="px-4 py-3 font-mono font-bold text-brand-accent">{item.ref}</td>
+                      <td class="px-4 py-3 font-semibold text-white">{item.name}</td>
+                      <td class="px-4 py-3 font-mono text-slate-400">{item.spec}</td>
+                      <td class="px-4 py-3 text-slate-300">{item.role}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-      blocks.forEach((block) => {
-        const buttons = Array.from(block.querySelectorAll('[data-ill-button]'));
-        const nodes = Array.from(block.querySelectorAll('[data-ill-node]'));
-        const detail = block.querySelector('[data-ill-detail]');
-        if (!buttons.length || !nodes.length || !detail) return;
+          <!-- Wiring / Derivation Stages -->
+          <div class="my-8 space-y-4">
+            <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">Step-by-Step Synthesis & Derivation Procedure</h4>
+            {richData.workedExample.wiringSteps.map((ws) => (
+              <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4 sm:p-5">
+                <p class="text-xs font-mono font-bold text-brand-accent uppercase">{ws.step}</p>
+                <h5 class="mt-1 text-sm font-bold text-white sm:text-base">{ws.title}</h5>
+                <p class="mt-2 text-xs leading-relaxed text-slate-400 sm:text-sm">{ws.details}</p>
+              </div>
+            ))}
+          </div>
 
-        const activate = (index) => {
-          buttons.forEach((button, buttonIndex) => {
-            const isActive = buttonIndex === index;
-            button.dataset.active = String(isActive);
-            button.setAttribute('aria-pressed', String(isActive));
-          });
+          <!-- Verification Notes -->
+          <div class="mt-8 rounded-xl border border-emerald-400/20 bg-emerald-400/5 p-5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p class="font-bold text-emerald-400 uppercase tracking-wider mb-2">Electrical & Algebraic Verification:</p>
+            {richData.workedExample.validationNotes}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
-          nodes.forEach((node, nodeIndex) => {
-            node.dataset.active = String(nodeIndex <= index);
-          });
+  <!-- When to Use vs Alternatives Comparison -->
+  {richData && (
+    <section class="border-t border-white/5 bg-bg-panel py-16 sm:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent">Tool Comparison</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">{richData.comparisons.title}</h2>
+          <p class="mt-4 text-base leading-7 text-slate-400 sm:text-lg">{richData.comparisons.subtitle}</p>
+        </div>
 
-          detail.textContent = buttons[index]?.dataset.illDetail || '';
-        };
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {richData.comparisons.competitors.map((comp) => (
+            <div class="rounded-2xl border border-white/10 bg-bg-surface/70 p-6 flex flex-col justify-between">
+              <div>
+                <span class="inline-block rounded-md bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] font-mono uppercase text-slate-400">{comp.type}</span>
+                <h3 class="mt-3 text-lg font-bold text-white">{comp.name}</h3>
+                <div class="mt-4 space-y-3 text-xs leading-relaxed">
+                  <p class="text-slate-300"><strong class="text-emerald-400">Strengths: </strong>{comp.strengths}</p>
+                  <p class="text-slate-400"><strong class="text-rose-400">Drawbacks: </strong>{comp.drawbacks}</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/10 text-xs text-brand-accent font-medium leading-relaxed">
+                <strong>When to Choose: </strong>{comp.whenToUse}
+              </div>
+            </div>
+          ))}
+        </div>
 
-        buttons.forEach((button, index) => {
-          button.addEventListener('click', () => activate(index));
-        });
+        <div class="mt-8 rounded-xl border border-white/5 bg-white/[0.02] p-6 text-sm text-slate-300 leading-relaxed">
+          {richData.comparisons.summary}
+        </div>
+      </div>
+    </section>
+  )}
 
-        activate(0);
-      });
-    })();
-  </script>
+  <RelatedToolsSection locale={locale} excludeKeys={[toolKey]} />
 
-  <style>
-    [data-ill-button][data-active='true'] {
-      border-color: rgba(59, 130, 246, 0.55);
-      background: rgba(59, 130, 246, 0.18);
-      color: #fff;
-    }
-
-    [data-ill-node][data-active='true'] {
-      stroke: rgba(59, 130, 246, 0.9);
-      fill: rgba(30, 64, 175, 0.35);
-    }
-  </style>
+  <!-- FAQ Section -->
+  <FAQ title={translateText('keyword.faq.title', 'Frequently Asked Questions')} items={faqItems} />
 </BaseLayout>
