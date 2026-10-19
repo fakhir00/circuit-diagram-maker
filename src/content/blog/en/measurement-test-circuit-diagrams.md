@@ -9,7 +9,7 @@ category: "Test & Measurement"
 tags: ["oscilloscope-circuits", "test-points", "shunt-resistor", "continuity-tester", "sample-and-hold", "lm3914", "voltage-follower"]
 ---
 
-**Test infrastructure is the most under-drawn part of most schematics.** Designers spend a week on the signal path and then debug the board with a probe tip balanced against a resistor lead, because nowhere in the drawing did anyone say "we will need to measure this." Test points cost almost nothing at design time and are impossible to add after fabrication.
+**Test infrastructure is the most under-drawn part of most schematics.** Documenting test fixtures and probe access points in our [circuit diagram maker](/) ensures your test points and shunt resistors are clearly marked for production calibration. Designers spend a week on the signal path and then debug the board with a probe tip balanced against a resistor lead, because nowhere in the drawing did anyone say "we will need to measure this." Test points cost almost nothing at design time and are impossible to add after fabrication.
 
 This guide covers how to draw the measurement side of a circuit: test points, shunts, instrument loading, and the small analog circuits that make measurement possible. It builds on the universal conventions in our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/).
 

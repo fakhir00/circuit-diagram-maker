@@ -9,7 +9,7 @@ category: "Reference"
 tags: ["electrical-symbols", "schematic-symbols", "circuit-diagram", "reference", "ieee", "iec", "electronics"]
 ---
 
-**Electrical symbols are standardized graphic marks used to represent individual components in a circuit diagram.** Each electrical symbol maps to one component type, so engineers, technicians, and hobbyists worldwide can read and build the same circuit from the same drawing. Without these symbols, every circuit schematic would require a photograph or a labeled drawing of each part, which would make schematics unreadable at scale.
+**Electrical symbols are standardized graphic marks used to represent individual components in a circuit diagram.** Each electrical symbol maps to one component type, so engineers, technicians, and hobbyists worldwide can read and build the same circuit from the same drawing. Every standard symbol detailed below can be placed directly onto the canvas in our [online circuit diagram tool](/). Without these symbols, every circuit schematic would require a photograph or a labeled drawing of each part, which would make schematics unreadable at scale.
 
 There are roughly 30 core electrical symbols that cover 90% of everyday circuit design. The remaining symbols appear in specialized domains such as power distribution, industrial controls, or RF engineering. This guide groups every symbol by category, shows you the exact visual shape for each one, and explains where to use it.
 

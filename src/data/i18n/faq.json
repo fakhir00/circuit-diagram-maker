@@ -69,6 +69,16 @@
       "question": "Do online schematic editors export to SVG?",
       "answer": "Yes. Our editor exports to SVG (vector format), PNG (high-DPI raster), and JSON (for saving and sharing projects).",
       "display": true
+    },
+    {
+      "question": "Is there a free circuit diagram maker online?",
+      "answer": "Yes. Circuit Diagram Maker is a completely free, browser-based tool that lets you design professional electronic schematics online. There are no subscriptions, no download requirements, and no feature limits — every capability, including SVG and PNG export, is available at zero cost.",
+      "display": true
+    },
+    {
+      "question": "What is the difference between a circuit diagram maker and a schematic maker?",
+      "answer": "In practice, the terms are interchangeable. A circuit diagram maker, a circuit diagram creator, and a schematic maker all refer to software that lets you visually lay out electronic components and wire connections. The only meaningful distinction is between a schematic editor (which produces the logical diagram) and a PCB layout tool (which handles the physical board design). Our tool is a schematic-level editor that covers all three terms.",
+      "display": true
     }
   ],
   "hi": [

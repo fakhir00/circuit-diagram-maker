@@ -11,7 +11,7 @@ tags: ["circuits", "power", "inverter", "ac-dc"]
 
 Building a power inverter—converting a 12V car battery into 220V alternating current capable of running household appliances—is a rite of passage for electronics engineers. 
 
-Before lifting a soldering iron, you must achieve a flawless understanding of the underlying schematic. High-voltage circuitry is unforgiving, and a badly drawn diagram guarantees burnt MOSFETs or severe electric shock. This guide breaks down the architecture of a fundamental square-wave inverter.
+Before lifting a soldering iron, you must achieve a flawless understanding of the underlying schematic. High-voltage circuitry is unforgiving, and a badly drawn diagram guarantees burnt MOSFETs or severe electric shock. Before wiring high-power stages, you can [create electrical circuit diagram online](/) models to double-check driver polarities and transformer taps. This guide breaks down the architecture of a fundamental square-wave inverter.
 
 > **Safety Warning:** 220V AC power is lethal. This article is an exploration of schematic logic and theoretical design, not a manufacturing blue-print. Never build high-voltage circuits without advanced electrical training.
 

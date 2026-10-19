@@ -11,7 +11,7 @@ tags: ["symbols", "ferrite-bead", "noise", "components"]
 
 High-speed digital electronics create a lot of electromagnetic noise. Without mitigation, this high-frequency interference bleeds into sensitive analog lines or radiates outward, causing your device to spectacularly fail FCC emissions testing. 
 
-The primary weapon against this interference is the **ferrite bead**. Understanding its schematic symbol and placement dictates whether your circuit operates cleanly or drowns in its own noise.
+The primary weapon against this interference is the **ferrite bead**. When planning high-speed supply rails, you can [draw circuit diagrams online](/) to verify that filtering beads are placed immediately adjacent to noise-generating IC pins. Understanding its schematic symbol and placement dictates whether your circuit operates cleanly or drowns in its own noise.
 
 ## 1. Visualizing the Ferrite Bead Symbol
 

@@ -9,7 +9,7 @@ category: "Comparisons"
 tags: ["comparison", "tools", "review", "software"]
 ---
 
-Choosing the right tool to draw your electronics schematics can often dictate how fast you can iterate on a new hardware project. While advanced PCB designers require heavyweight desktop environments, hobbyists, students, and makers often need something entirely different: accessibility and speed.
+Choosing the right tool to draw your electronics schematics can often dictate how fast you can iterate on a new hardware project. Whether evaluating heavyweight CAD packages or an agile browser workflow, finding the right [circuit diagram maker](/) helps you design and export schematics faster. While advanced PCB designers require heavyweight desktop environments, hobbyists, students, and makers often need something entirely different: accessibility and speed.
 
 Below, we analyze how our tool stacks up against the main industry alternatives.
 

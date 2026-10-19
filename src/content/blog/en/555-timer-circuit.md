@@ -13,7 +13,7 @@ tags: ["555-timer", "astable-multivibrator", "monostable", "bistable", "pwm", "l
 
 A 555 timer circuit offers 4 main benefits: it costs a few cents per IC, it runs on a wide 4.5V to 16V supply range, it drives loads up to 200mA directly, and it needs only a couple of timing components. Those timing components are a timing resistor, a timing capacitor, and a supply bypass capacitor.
 
-555 timer circuits appear in dozens of electronics projects. Common uses include an LED flasher, a one-shot timer for debouncing buttons, a PWM generator for LED dimming and motor speed control, and a simple touch switch. In this guide you will build all five of those circuits on a breadboard.
+555 timer circuits appear in dozens of electronics projects. Common uses include an LED flasher, a one-shot timer for debouncing buttons, a PWM generator for LED dimming and motor speed control, and a simple touch switch. In this guide you will build all five of those circuits on a breadboard. You can draft and test your schematic layout using our free [circuit diagram maker](/) before wiring components on your workbench.
 
 The main parts of a 555 timer circuit are the 555 timer IC itself, two comparators, an SR flip-flop, and a voltage divider made of three 5kΩ resistors. External parts include the timing resistor and timing capacitor that set the timing, plus protective and logic resistors. You can draw the full schematic for every circuit here in seconds with the [online circuit diagram maker](https://www.circuitdiagrammaker.com/), then build it on a real breadboard.
 

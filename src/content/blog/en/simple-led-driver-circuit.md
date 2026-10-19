@@ -9,7 +9,7 @@ category: "DIY Circuits"
 tags: ["led-driver", "circuit-tutorial", "resistor-calculation", "diy-electronics", "beginners"]
 ---
 
-**Building a simple LED driver circuit takes 3 components, 5 minutes, and zero prior experience.** This guide walks you through every step — from selecting parts to testing your finished circuit — so you can light up your first LED without burning it out. If you are new to electronics, start with our [circuit diagrams for beginners](/blog/circuit-diagram-for-beginners/) guide to learn the basics before building this project.
+**Building a simple LED driver circuit takes 3 components, 5 minutes, and zero prior experience.** Before picking up a soldering iron, you can [draw circuit diagrams online](/) to calculate current-limiting resistors and verify supply polarity. This guide walks you through every step — from selecting parts to testing your finished circuit — so you can light up your first LED without burning it out. If you are new to electronics, start with our [circuit diagrams for beginners](/blog/circuit-diagram-for-beginners/) guide to learn the basics before building this project.
 
 ```mermaid
 flowchart LR

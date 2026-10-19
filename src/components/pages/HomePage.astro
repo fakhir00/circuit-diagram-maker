@@ -340,6 +340,21 @@ const currentDateFormatted = new Date().toLocaleDateString('en-US', {month: 'sho
   <!-- ███ COMPARISON TABLE ███ -->
   <FeatureMatrix title={t('home.data.title')} headers={matrixHeaders} rows={matrixRows} />
 
+  <!-- ███ TERMINOLOGY COMPARISON ███ -->
+  <section class="py-20 bg-bg-panel border-t border-white/5" id="terminology">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-accent mb-4">Naming Conventions</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t('home.terminology.title')}</h2>
+        <div class="mt-8 space-y-5 text-slate-400 leading-relaxed">
+          <p>{t('home.terminology.p1')}</p>
+          <p>{t('home.terminology.p2')}</p>
+          <p>{t('home.terminology.p3')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ███ WHO USES CIRCUIT DIAGRAM MAKER ███ -->
   <section class="py-20 bg-bg-dark border-t border-white/5 relative group/who">
     <a href={getLocalizedPath('/editor/', locale)} class="absolute inset-0 z-10 block cursor-default" aria-label={t('nav.editor')}></a>

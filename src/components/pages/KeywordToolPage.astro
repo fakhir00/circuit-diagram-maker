@@ -10,9 +10,11 @@ interface Props {
   locale: string;
   heading: string;
   toolKey: 'boolean-expression-simplifier' | 'truth-table-to-logic-circuit';
+  homeLinkAnchor?: string;
+  homeLinkHref?: string;
 }
 
-const { locale, heading, toolKey } = Astro.props;
+const { locale, heading, toolKey, homeLinkAnchor, homeLinkHref } = Astro.props;
 const t = useTranslations(locale);
 
 const translateText = (key: string, fallback: string) => {
@@ -65,6 +67,9 @@ const richData = toolLandingData[dataKey];
 const resolvedHeading = toolMeta[toolKey].title;
 const pageDescription = toolMeta[toolKey].description;
 const faqItems = richData ? richData.faqs.map((f) => ({ question: f.question, answer: f.answer, display: true })) : [];
+
+const targetHomeHref = homeLinkHref || (locale === 'en' ? '/' : `/${locale}/`);
+const targetHomeAnchor = homeLinkAnchor || (locale !== 'en' ? t('nav.brand.default') : undefined);
 ---
 
 <BaseLayout title={resolvedHeading} description={pageDescription}>
@@ -77,7 +82,7 @@ const faqItems = richData ? richData.faqs.map((f) => ({ question: f.question, an
         {heroContent[toolKey].title}
       </h1>
       <p class="mx-auto mt-5 max-w-3xl break-words text-base leading-7 text-slate-400 sm:mt-6 sm:text-xl sm:leading-8">
-        {heroContent[toolKey].description}
+        {heroContent[toolKey].description}{targetHomeAnchor && <Fragment> Use our free <a href={targetHomeHref} class="text-brand-primary hover:text-blue-400 underline underline-offset-4 decoration-1 transition-colors">{targetHomeAnchor}</a> to draw and export full schematics.</Fragment>}
       </p>
       <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center">
         <a href={heroContent[toolKey].primaryCtaHref} class="w-full rounded-xl bg-brand-primary px-6 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.18)] sm:w-auto sm:px-8">

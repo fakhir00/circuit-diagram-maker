@@ -9,7 +9,7 @@ category: "Power Electronics"
 tags: ["power-supply-circuit-design", "smps-circuit-design", "buck-converter", "voltage-regulator-circuit", "transformerless-power-supply", "inverter-circuit"]
 ---
 
-**A power supply schematic is the only kind of circuit diagram that must communicate physical facts, not just electrical ones.** Everywhere else you are free to place a symbol wherever the drawing reads best. In a power supply, the position of a component tells the reader which side of an isolation barrier it lives on, and the weight of a line tells them how much current it carries. Get that wrong and the drawing is not merely ugly — it is dangerous, because the next person builds what you drew.
+**A power supply schematic is the only kind of circuit diagram that must communicate physical facts, not just electrical ones.** Before connecting transformers and rectifiers, you can [create electrical circuit diagram online](/) drafts to verify filter capacitor polarity and ground isolation. Everywhere else you are free to place a symbol wherever the drawing reads best. In a power supply, the position of a component tells the reader which side of an isolation barrier it lives on, and the weight of a line tells them how much current it carries. Get that wrong and the drawing is not merely ugly — it is dangerous, because the next person builds what you drew.
 
 This guide covers the drawing conventions specific to power electronics: the barrier, the transformer, the rectifier, the filter, the regulator, and the line-weight vocabulary that ties them together. It builds on the universal rules in our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/).
 

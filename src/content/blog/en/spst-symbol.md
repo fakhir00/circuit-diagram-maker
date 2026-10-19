@@ -9,7 +9,7 @@ category: "Component Spotlight"
 tags: ["symbols", "spst", "switches", "basics"]
 ---
 
-At the heart of every interface humans use to control electricity lies the mechanical switch. The simplest, most ubiquitous incarnation of this component is the **SPST**, or Single Pole Single Throw switch.
+At the heart of every interface humans use to control electricity lies the mechanical switch. Our browser-based [circuit diagram maker](/) lets you insert SPST, SPDT, and push-button symbols directly into your schematics with snap-to-grid accuracy. The simplest, most ubiquitous incarnation of this component is the **SPST**, or Single Pole Single Throw switch.
 
 Whether you are designing a high-voltage power mains breaker or simply mapping out a push-button on an Arduino breadboard, the SPST symbol is your logical starting point.
 

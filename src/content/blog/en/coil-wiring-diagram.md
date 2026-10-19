@@ -11,7 +11,7 @@ tags: ["coil-wiring", "dual-voice-coil", "arduino", "impedance", "wiring-diagram
 
 ## Introduction to Coil Wiring
 
-**<b>A coil wiring diagram is the schematic that shows how coils connect to power, ground, and the parts they drive, covering relay coils, solenoid coils, inductors, and dual voice coil speakers.</b> A coil is a length of wire wound into loops that stores energy in a magnetic field. The diagram maps each coil terminal to the driver circuit and the protection components around it.
+**<b>A coil wiring diagram is the schematic that shows how coils connect to power, ground, and the parts they drive, covering relay coils, solenoid coils, inductors, and dual voice coil speakers.</b> A coil is a length of wire wound into loops that stores energy in a magnetic field. Before assembling high-inductance circuits, you can [create electrical circuit diagram online](/) models to double-check terminal polarity and flyback diode placement. The diagram maps each coil terminal to the driver circuit and the protection components around it.
 
 Coil wiring matters in Arduino projects because relays, solenoid valves, and power inductors all rely on coils. In Arduino projects, the diagram shows how a digital output drives a coil through a transistor and a flyback diode instead of connecting the coil straight to the board.
 

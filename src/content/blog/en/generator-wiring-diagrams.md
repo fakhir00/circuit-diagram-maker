@@ -11,7 +11,7 @@ tags: ["generator-wiring", "transfer-switch", "installation-guide", "troubleshoo
 
 ## Introduction to Generator Wiring Diagrams
 
-**<b>A generator wiring diagram is the electrical schematic that shows how a generator connects to a transfer switch, a breaker panel, and the loads that the generator serves.</b> The drawing maps every conductor, terminal, switch, and breaker in the power path from the generator output to the circuits it feeds.
+**<b>A generator wiring diagram is the electrical schematic that shows how a generator connects to a transfer switch, a breaker panel, and the loads that the generator serves.</b> The drawing maps every conductor, terminal, switch, and breaker in the power path from the generator output to the circuits it feeds. Use our [electrical circuit diagram maker](/) to map out generator windings, interlocks, and transfer switches with clear standard symbols.
 
 Generator wiring diagrams guide 3 jobs: generator installation, scheduled maintenance, and fault diagnosis. An accurate diagram shows the correct landing point for each wire so the person wiring the unit never guesses.
 

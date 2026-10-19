@@ -1,7 +1,7 @@
 {
   "en": {
     "home.hero.badge": "Free Browser-Based Schematic Editor",
-    "home.hero.title": "The #1 Best Circuit Diagram Maker Online",
+    "home.hero.title": "Free Online Circuit Diagram Maker",
     "home.hero.meta_desc": "The most intuitive circuit diagram maker online. Drag components, route wires intelligently, and export professional schematics instantly. Try it free now.",
     "home.hero.subtitle": "The fastest, most intuitive <strong>circuit diagram maker</strong> online. Drag components, route wires intelligently, and export publication-quality diagrams — no downloads required.",
     "home.hero.cta": "Start Designing — It's Free",
@@ -12,8 +12,12 @@
     "home.what_is.badge": "What Is It?",
     "home.what_is.title": "What Is a Circuit Diagram Maker?",
     "home.what_is.p1": "Free Circuit Diagram Maker Online lets you design electronic schematics directly in the browser—no download, no registration, and zero cost.",
-    "home.what_is.p2": "A specialized tool that lets you visually represent electronic circuits using standardized symbols. Instead of sketching circuits by hand or wrestling with complex CAD software, a circuit diagram maker provides an intuitive drag-and-drop interface where you select components and connect them with wires to create professional schematics.",
+    "home.what_is.p2": "A specialized tool — sometimes called a circuit diagram creator or an electrical circuit diagram maker — that lets you visually represent electronic circuits using standardized symbols. Instead of sketching circuits by hand or wrestling with complex CAD software, a circuit diagram maker provides an intuitive drag-and-drop interface where you select components and connect them with wires to create professional schematics.",
     "home.what_is.p3": "Our free circuit diagram maker runs entirely in your browser, requires no installation, and produces publication‑quality SVG and PNG exports. Whether you're designing a simple LED circuit or a multi‑stage amplifier, the process is the same: drag, connect, export. Every circuit diagram you create is saved automatically to your browser's local storage. You can also export projects as JSON files for version control, team sharing, or loading on a different machine. This online schematic editor gives you a fast, professional workspace for students, engineers, hobbyists, and educators.",
+    "home.terminology.title": "Circuit Diagram Maker vs. Creator vs. Electrical Schematic Tool",
+    "home.terminology.p1": "Whether you call it a circuit diagram maker, a circuit diagram creator, or an electrical circuit diagram maker, engineers, technicians, and students need a fast way to turn circuit logic into clean visual schematics. While 'schematic maker' typically refers to logical diagrams, 'circuit diagram' emphasizes functional interconnection.",
+    "home.terminology.p2": "When you create electrical circuit diagram online layouts with our free tool, you bypass bulky CAD suites and complex license servers. Drag and drop standardized ANSI and IEC components, route orthogonal interconnects, and produce production-grade schematics directly in your web browser.",
+    "home.terminology.p3": "From power regulation stages and microcontrollers to analog amplifiers, this online circuit diagram tool ensures your schematics follow standard electrical conventions and export into crisp SVG and PNG formats for reports, documentation, or presentations.",
     "home.features.badge": "Features",
     "home.features.title": "Why Use Our Circuit Diagram Maker?",
     "home.features.subtitle": "Every feature designed to help you create better circuit diagrams, faster.",
@@ -60,6 +64,10 @@
       }
     ],
     "home.data.title": "Tool Comparison",
+    "home.terminology.title": "Circuit Diagram Maker vs Creator vs Schematic Tool",
+    "home.terminology.p1": "People search for circuit design software using many different terms — circuit diagram maker, circuit diagram creator, schematic editor, and electrical circuit diagram maker are the most common. Despite the different names, they all describe the same core workflow: selecting electronic symbols, placing them on a canvas, connecting pins with wires, and exporting the finished schematic.",
+    "home.terminology.p2": "A circuit diagram maker (or circuit diagram creator) focuses on producing the logical representation of a circuit — the schematic. It is not the same as a PCB layout tool, which handles the physical placement of copper traces on a board. A schematic tool is also distinct from a generic drawing application; schematic editors enforce electrical rules such as grid snapping, pin alignment, and net connectivity that general-purpose illustration apps lack.",
+    "home.terminology.p3": "Our tool covers all three terms because it combines an industry-standard symbol library, smart Manhattan wire routing, and publication-quality SVG/PNG export in a single free browser application. Whether you call it a circuit diagram maker, an electrical circuit diagram maker, or a schematic creator, the editor you see above is the same — and it's completely free.",
     "home.data.headers": [
       "Feature",
       "Circuit Diagram Maker",

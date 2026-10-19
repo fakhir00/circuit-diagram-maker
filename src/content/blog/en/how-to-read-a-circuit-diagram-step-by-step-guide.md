@@ -9,7 +9,7 @@ category: "Beginner Guide"
 tags: ["tutorial", "education", "reading-schematics"]
 ---
 
-Opening a complex schematic for the first time feels like staring at an alien language. Dozens of intersecting lines, cryptic abbreviations, and jagged symbols merge into a wall of visual noise.
+Opening a complex schematic for the first time feels like staring at an alien language. Practicing layout and component placement in a free [circuit diagram creator](/) will quickly build your intuition for tracing current loops and signal buses. Dozens of intersecting lines, cryptic abbreviations, and jagged symbols merge into a wall of visual noise.
 
 However, experienced engineers do not read schematics by staring at the whole page. They isolate, trace, and conquer. Here is the step-by-step methodology to decipher any circuit diagram.
 

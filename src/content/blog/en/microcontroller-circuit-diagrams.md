@@ -9,7 +9,7 @@ category: "Embedded Systems"
 tags: ["microcontroller-schematic-layout", "motor-driver-circuit", "h-bridge", "raspberry-pi", "line-follower-robot", "battery-management-system", "crystal-oscillator"]
 ---
 
-**A microcontroller schematic is the hardest kind of circuit diagram to draw well, because the component at its centre has more pins than the rest of the board combined.** A 100-pin MCU drawn as one rectangle produces a sheet where every wire crosses four others and nobody can find anything. The techniques in this guide exist to prevent exactly that.
+**A microcontroller schematic is the hardest kind of circuit diagram to draw well, because the component at its centre has more pins than the rest of the board combined.** Using a specialized [electrical circuit diagram maker](/) allows you to separate power decoupling, crystal oscillators, and GPIO buses into readable functional blocks. A 100-pin MCU drawn as one rectangle produces a sheet where every wire crosses four others and nobody can find anything. The techniques in this guide exist to prevent exactly that.
 
 This is the most demanding of the six domain guides under our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/), and the one where the universal conventions pay off most.
 

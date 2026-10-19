@@ -9,7 +9,7 @@ category: "Analog Design"
 tags: ["audio-amplifier-circuit-diagram", "lm386", "tda2030", "555-timer", "op-amp", "oscillator-circuit", "sine-wave-generator"]
 ---
 
-**An analog schematic is judged on one thing: can the reader see the feedback path?** Gain, bandwidth, stability and oscillation frequency are all set by feedback, and feedback is a *loop* — the one structure that a left-to-right drawing convention cannot represent naturally. Learning to draw loops so they are obvious rather than confusing is most of what separates a clean analog schematic from a mess.
+**An analog schematic is judged on one thing: can the reader see the feedback path?** When you [draw circuit diagrams online](/), keeping signal paths orthogonal and feedback loops prominent makes analog circuit analysis much easier. Gain, bandwidth, stability and oscillation frequency are all set by feedback, and feedback is a *loop* — the one structure that a left-to-right drawing convention cannot represent naturally. Learning to draw loops so they are obvious rather than confusing is most of what separates a clean analog schematic from a mess.
 
 This guide covers the drawing conventions for op-amps, comparators, 555 timers, and the RC networks that set their behaviour, then applies them to real audio amplifier and oscillator circuits. It sits under our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/), which covers the universal layout rules.
 

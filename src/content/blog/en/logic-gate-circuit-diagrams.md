@@ -9,7 +9,7 @@ category: "Digital Logic"
 tags: ["logic-gate-circuit-diagrams", "flip-flop-circuit", "binary-counter-circuit", "ic-4017", "digital-logic", "schematic-symbols"]
 ---
 
-**Logic gate circuit diagrams describe behaviour, not component values.** That single difference changes how you draw them. An analog schematic lives or dies on whether the reader can find the 4k7 resistor; a digital schematic lives or dies on whether the reader can trace signal propagation through a chain of gates without losing their place. There are almost no values to annotate — so every ounce of clarity has to come from symbol choice and layout.
+**Logic gate circuit diagrams describe behaviour, not component values.** Whether you are interconnecting combinational gates or building memory latches, you can [draw circuit diagrams online](/) with clean orthogonal wire routing and instant symbol snapping. That single difference changes how you draw them. An analog schematic lives or dies on whether the reader can find the 4k7 resistor; a digital schematic lives or dies on whether the reader can trace signal propagation through a chain of gates without losing their place. There are almost no values to annotate — so every ounce of clarity has to come from symbol choice and layout.
 
 This guide covers both symbol dialects, then works upward through the hierarchy: gates built from bare transistors, gates composed into flip-flops, flip-flops chained into counters, and finally a real counter IC. It is one of six domain guides that sit under our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/), which covers the universal layout conventions these rules build on.
 

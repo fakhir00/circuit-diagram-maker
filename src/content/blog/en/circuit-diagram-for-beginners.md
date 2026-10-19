@@ -9,7 +9,7 @@ category: "Beginner Guide"
 tags: ["beginners", "tutorial", "education", "electronics-basics"]
 ---
 
-If you have never opened a schematic editor before, this is the only guide you need. We will walk through the fundamentals — what a circuit diagram is, how to decode the symbols, and how to draw your very first schematic inside **Circuit Diagram Maker** — all without installing a single piece of software.
+If you have never opened a schematic editor before, this is the only guide you need. We will walk through the fundamentals — what a circuit diagram is, how to decode the symbols, and how to draw your very first schematic inside our free [circuit diagram creator](/) — all without installing a single piece of software.
 
 ## What Exactly Is a Circuit Diagram?
 

@@ -9,7 +9,7 @@ category: "Troubleshooting"
 tags: ["circuit-diagram", "common-mistakes", "troubleshooting", "design-principles", "electronics"]
 ---
 
-<b>The 10 most common circuit diagram mistakes are poor labeling, missing ground connections, ignoring component polarity, crossing wires without junction dots, overcomplicating designs, omitting component values, using wrong symbols, missing power rails, no reference designators, and unclear signal flow.</b> These errors cause circuit functionality failures, manufacturing defects, and hours of troubleshooting.
+<b>The 10 most common circuit diagram mistakes are poor labeling, missing ground connections, ignoring component polarity, crossing wires without junction dots, overcomplicating designs, omitting component values, using wrong symbols, missing power rails, no reference designators, and unclear signal flow.</b> Drafting your circuits in an intelligent [circuit diagram creator](/) with orthogonal wire routing helps eliminate these pitfalls before breadboarding. These errors cause circuit functionality failures, manufacturing defects, and hours of troubleshooting.
 
 ```mermaid
 flowchart TD

@@ -9,7 +9,7 @@ category: "Tutorials"
 tags: ["tutorial", "software", "online-tools"]
 ---
 
-The days of downloading heavy, 2-gigabyte desktop software just to sketch a simple amplifier circuit are over. Browser-based CAD (Computer-Aided Design) is here, and it is phenomenally fast.
+The days of downloading heavy, 2-gigabyte desktop software just to sketch a simple amplifier circuit are over. Using a modern browser-based [circuit diagram maker](/) gives you instant access to standard ANSI/IEC symbols without downloads or license fees. Browser-based CAD (Computer-Aided Design) is here, and it is phenomenally fast.
 
 Here is exactly how you can utilize modern web tools to generate production-quality schematics in under 5 minutes.
 

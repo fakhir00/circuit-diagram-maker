@@ -9,7 +9,7 @@ category: "Component Spotlight"
 tags: ["symbols", "jfet", "transistors", "analog"]
 ---
 
-Before the massive proliferation of MOSFETs, the **JFET** (Junction Field-Effect Transistor) was the king of high input impedance amplification. While not used as frequently in modern digital logic, they remain indispensable artifacts in high-fidelity audio preamplifiers, sensitive instrumentation, and RF circuitry.
+Before the massive proliferation of MOSFETs, the **JFET** (Junction Field-Effect Transistor) was the king of high input impedance amplification. You can draft and test JFET biasing topologies using our [online circuit diagram tool](/). While not used as frequently in modern digital logic, they remain indispensable artifacts in high-fidelity audio preamplifiers, sensitive instrumentation, and RF circuitry.
 
 Understanding the JFET schematic symbol is essential for anyone delving into discrete analog circuit design.
 

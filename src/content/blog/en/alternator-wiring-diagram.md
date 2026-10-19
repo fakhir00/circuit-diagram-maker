@@ -12,7 +12,7 @@ draft: true
 
 ## Introduction to Alternator Wiring Diagrams
 
-**<b>An alternator wiring diagram is the schematic that shows how the alternator, battery, voltage regulator, and wiring harness connect inside a vehicle's charging circuit.</b> The drawing maps every terminal, wire, connector, and ground point from the alternator output to the battery and the rest of the electrical system.
+**<b>An alternator wiring diagram is the schematic that shows how the alternator, battery, voltage regulator, and wiring harness connect inside a vehicle's charging circuit.</b> The drawing maps every terminal, wire, connector, and ground point from the alternator output to the battery and the rest of the electrical system. If you are troubleshooting or rewiring charging circuits, our [electrical circuit diagram maker](/) helps you map connections with standardized automotive symbols.
 
 The alternator converts the engine's mechanical power, delivered by the serpentine belt, into electrical power. A healthy alternator keeps the battery charged and supplies current for the ignition system, lights, and accessories whenever the engine runs. Most passenger alternators deliver 13.8–14.5 volts (V) at 60–180 amps (A), depending on the vehicle.
 

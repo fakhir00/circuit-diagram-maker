@@ -9,7 +9,7 @@ category: "Sensors & Protection"
 tags: ["sensor-interface-circuit-design", "mosfet-switching-circuit", "reverse-polarity-protection", "overvoltage-protection", "ldr-circuit", "switch-debounce"]
 ---
 
-**Sensor interface circuit design is where schematic position stops being cosmetic and starts being documentation.** A 10 kΩ resistor drawn above a node is a pull-up. The identical resistor drawn below the same node is a pull-down. Same part, same value, opposite function — and the only thing telling the reader which one you meant is where you put it on the page.
+**Sensor interface circuit design is where schematic position stops being cosmetic and starts being documentation.** Designing protection clamping and analog filtering inside our [online circuit diagram tool](/) helps keep transient spikes away from sensitive microcontrollers. A 10 kΩ resistor drawn above a node is a pull-up. The identical resistor drawn below the same node is a pull-down. Same part, same value, opposite function — and the only thing telling the reader which one you meant is where you put it on the page.
 
 That makes the interface layer between the physical world and your microcontroller the best place to learn schematic discipline. This guide covers pull-ups and dividers, sensor front ends, switching stages, debouncing, and protection circuits. It builds on the layout conventions in our [complete guide to circuit diagrams](/blog/complete-guide-to-circuit-diagrams/).
 
