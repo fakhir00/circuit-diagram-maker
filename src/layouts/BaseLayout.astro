@@ -165,7 +165,7 @@ const softwareSchema = isHome ? {
           "width": 128,
           "height": 128
         },
-        "sameAs": Object.values(config.social || {})
+        "sameAs": Object.values(config.social || {}).filter((u): u is string => typeof u === 'string' && u.startsWith('http') && u !== '#' && !u.includes('example.com'))
       },
       {
         "@type": "WebSite",

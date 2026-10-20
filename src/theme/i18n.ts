@@ -76,12 +76,25 @@ export function useTranslations(locale: string) {
 }
 
 export function getLocalizedPath(path: string, locale: string): string {
-  const basePath = path.startsWith('/') ? path : `/${path}`;
+  const hashIndex = path.indexOf('#');
+  const queryIndex = path.indexOf('?');
+  let suffix = '';
+  let cleanPath = path;
+
+  if (hashIndex !== -1 || queryIndex !== -1) {
+    const splitIndex = (hashIndex !== -1 && queryIndex !== -1)
+      ? Math.min(hashIndex, queryIndex)
+      : (hashIndex !== -1 ? hashIndex : queryIndex);
+    suffix = cleanPath.slice(splitIndex);
+    cleanPath = cleanPath.slice(0, splitIndex);
+  }
+
+  const basePath = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
   const segments = basePath.split('/').filter(Boolean);
   const withoutLocaleSegments = segments.filter((segment, index) => !(index === 0 && locales.includes(segment)));
 
   if (withoutLocaleSegments.length === 0 || withoutLocaleSegments[0] === '404') {
-    return locale === defaultLocale ? '/' : `/${locale}/`;
+    return (locale === defaultLocale ? '/' : `/${locale}/`) + suffix;
   }
 
   const isSpecial = withoutLocaleSegments[0] === '404' || withoutLocaleSegments[withoutLocaleSegments.length - 1].includes('.');
@@ -89,8 +102,8 @@ export function getLocalizedPath(path: string, locale: string): string {
   const normalizedPath = isSpecial ? `/${joined}` : `/${joined}/`;
 
   if (locale === defaultLocale) {
-    return normalizedPath;
+    return `${normalizedPath}${suffix}`;
   }
 
-  return `/${locale}${normalizedPath}`;
+  return `/${locale}${normalizedPath}${suffix}`;
 }

@@ -58,12 +58,14 @@ const currentPath = rawPath === '/404' || rawPath === '/404.html' || rawPath.end
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "itemListElement": config.nav.map((item: any, index: number) => ({
-          "@type": "SiteNavigationElement",
-          "position": index + 1,
-          "name": t(item.labelKey),
-          "url": new URL(getLocalizedPath(item.path, locale), config.site.url)
-        }))
+        "itemListElement": config.nav
+          .filter((item: any) => item.path && item.path !== '#')
+          .map((item: any, index: number) => ({
+            "@type": "SiteNavigationElement",
+            "position": index + 1,
+            "name": t(item.labelKey),
+            "url": new URL(getLocalizedPath(item.path, locale), config.site.url)
+          }))
       })} />
 
       <!-- Desktop Nav -->

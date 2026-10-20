@@ -10,148 +10,388 @@ const { locale, config } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
 
-type ProductLink = {
-  labelKey: string;
-  path: string;
+const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
+
+// Valid social links helper (strictly exclude dummy links, '#' placeholders, or invalid URLs)
+const isValidSocialUrl = (url: unknown): url is string => {
+  if (typeof url !== 'string') return false;
+  const trimmed = url.trim();
+  return trimmed.startsWith('http') && trimmed !== '#' && !trimmed.includes('example.com');
 };
 
-const navItems = Array.isArray(config?.nav) ? config.nav : [];
-const moreToolsGroup = navItems.find(
-  (item: any) => item?.labelKey === 'nav.more_tools' && Array.isArray(item?.children)
-) ?? navItems.find((item: any) => Array.isArray(item?.children));
+const socialLinks = Object.entries(config?.social || {})
+  .filter(([, url]) => isValidSocialUrl(url))
+  .map(([platform, url]) => ({ platform, url: url as string }));
 
-const toolLinks: ProductLink[] = Array.isArray(moreToolsGroup?.children)
-  ? moreToolsGroup.children.filter(
-      (item: any): item is ProductLink =>
-        typeof item?.labelKey === 'string' && typeof item?.path === 'string'
-    )
-  : [];
-
-const productLinks: ProductLink[] = [
-  { labelKey: 'nav.editor', path: '/editor/' },
-  ...toolLinks
+// Structured Core Tools Links
+const coreTools = [
+  { label: t('nav.editor') || 'Circuit Diagram Editor', path: '/editor/' },
+  { label: t('nav.logic_gates') || 'Logic Gate Diagram Tool', path: '/logic-gate-diagram-tool/' },
+  { label: t('nav.arduino') || 'Arduino Circuit Maker', path: '/arduino-circuit-maker/' },
+  { label: t('nav.pcb') || 'PCB Schematic Tool', path: '/pcb-schematic-tool/' },
+  { label: t('nav.boolean_expression_simplifier') || 'Boolean Expression Simplifier', path: '/boolean-expression-simplifier/' },
+  { label: t('nav.truth_table_to_logic_circuit') || 'Truth Table To Logic Circuit', path: '/truth-table-to-logic-circuit/' }
 ];
 
-const contactEmail = config?.site?.contactEmail || config?.contactEmail || 'support@circuitdiagrammaker.com';
+// Structured Resources & Guides Links
+const resourceLinks = [
+  { label: t('nav.components') || 'Component Library & Symbols', path: '/components/' },
+  { label: t('nav.docs') || 'Documentation & Quickstarts', path: '/docs/' },
+  { label: t('footer.blogTutorials') || 'Engineering Blog & Tutorials', path: '/blog/' },
+  { label: t('footer.guideBeginners') || 'Beginner\'s Guide to Schematics', path: '/blog/circuit-diagram-for-beginners/' },
+  { label: t('footer.guideLogicGates') || 'Logic Gate Circuit Diagrams', path: '/blog/logic-gate-circuit-diagrams/' },
+  { label: t('nav.sitemap') || 'Interactive Visual Sitemap', path: '/sitemap/' }
+];
+
+// Structured Trust, Legal & Compliance Links (Google AdSense & E-E-A-T Mandatory)
+const complianceLinks = [
+  { label: t('nav.about') || 'About Us (Mission & Team)', path: '/about-us/' },
+  { label: t('footer.contactSupport') || 'Contact Us & Support', path: '/contact-us/' },
+  { label: t('footer.privacy') || 'Privacy Policy', path: '/privacy/' },
+  { label: t('footer.advertising') || 'Advertising Disclosures', path: '/privacy/#advertising' },
+  { label: t('footer.cookies') || 'Cookie Policy & Local Storage', path: '/privacy/#cookies' },
+  { label: t('footer.terms') || 'Terms of Service', path: '/terms/' },
+  { label: t('footer.htmlSitemap') || 'HTML Sitemap', path: '/sitemap/' },
+  { label: t('footer.xmlSitemap') || 'XML Sitemap', path: '/sitemap-index.xml', isExternal: true }
+];
+
+// Quick Micro-links for sub-footer bottom bar
+const subFooterLinks = [
+  { label: t('footer.privacy') || 'Privacy Policy', path: '/privacy/' },
+  { label: t('footer.terms') || 'Terms', path: '/terms/' },
+  { label: t('footer.cookies') || 'Cookies', path: '/privacy/#cookies' },
+  { label: t('footer.advertising') || 'Advertising', path: '/privacy/#advertising' },
+  { label: t('nav.sitemap') || 'Sitemap', path: '/sitemap/' },
+  { label: t('footer.contact') || 'Contact', path: '/contact-us/' }
+];
 ---
 
-<footer class="bg-bg-panel border-t border-white/5 mt-auto">
-  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-    
-    <!-- Main Footer Grid -->
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+<footer class="bg-bg-panel border-t border-white/10 mt-auto relative overflow-hidden text-slate-300">
+  <!-- Subtle decorative ambient glows for visual depth -->
+  <div class="pointer-events-none absolute -top-32 left-1/4 h-64 w-64 rounded-full bg-brand-primary/10 blur-3xl opacity-50" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute top-1/2 right-1/4 h-72 w-72 rounded-full bg-brand-secondary/10 blur-3xl opacity-40" aria-hidden="true"></div>
 
-      <!-- Brand & Tagline -->
-      <div class="lg:col-span-1">
-        <a href={getLocalizedPath('/', locale)} class="flex items-center gap-3 mb-6 group">
+  <div class="max-w-7xl mx-auto pt-14 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Top Trust & Privacy Guarantee Banner (Glassmorphic Bar) -->
+    <div class="mb-14 rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-md shadow-2xl relative overflow-hidden group">
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-brand-secondary/5 to-transparent pointer-events-none" aria-hidden="true"></div>
+      
+      <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Trust Pillar 1: In-Browser Privacy -->
+        <div class="flex items-start gap-3.5">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-accent">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">
+              {t('footer.trustBadge1Title') || '100% In-Browser Privacy'}
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-snug">
+              {t('footer.trustBadge1Desc') || 'Zero cloud storage — schematics run & stay on your device.'}
+            </p>
+          </div>
+        </div>
+
+        <!-- Trust Pillar 2: No Registration Required -->
+        <div class="flex items-start gap-3.5">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">
+              {t('footer.trustBadge2Title') || 'No Registration Required'}
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-snug">
+              {t('footer.trustBadge2Desc') || 'Instant access without accounts, fees, or paywalls.'}
+            </p>
+          </div>
+        </div>
+
+        <!-- Trust Pillar 3: Free For Classrooms & STEM -->
+        <div class="flex items-start gap-3.5">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">
+              {t('footer.trustBadge3Title') || 'Free For Classrooms & STEM'}
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-snug">
+              {t('footer.trustBadge3Desc') || 'Open access for students, educators, and makers.'}
+            </p>
+          </div>
+        </div>
+
+        <!-- Trust Pillar 4: Google AdSense & Quality Compliant -->
+        <div class="flex items-start gap-3.5">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-white">
+              {t('footer.trustBadge4Title') || 'Google AdSense Compliant'}
+            </h4>
+            <p class="text-xs text-slate-400 mt-1 leading-snug">
+              {t('footer.trustBadge4Desc') || 'Transparent advertising disclosures & user controls.'}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer Grid (Structured 4-Column Layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12">
+
+      <!-- Column 1: Brand & Trust -->
+      <div class="flex flex-col">
+        <!-- Logo + Site Title -->
+        <a href={getLocalizedPath('/', locale)} class="flex items-center gap-3 mb-5 group" aria-label="Circuit Diagram Maker Home">
           <div class="relative flex items-center justify-center">
-            <svg class="w-7 h-7 transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110" viewBox="0 0 40 40" fill="none">
+            <svg class="w-8 h-8 transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110" viewBox="0 0 40 40" fill="none">
               <defs>
-                <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="logoGradFooterNew" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:var(--color-brand-primary);stop-opacity:1" />
                   <stop offset="100%" style="stop-color:var(--color-brand-secondary);stop-opacity:1" />
                 </linearGradient>
               </defs>
               <path d="M20,2 L36,11 L36,29 L20,38 L4,29 L4,11 Z" 
-                    fill="none" stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linejoin="round"
+                    fill="none" stroke="url(#logoGradFooterNew)" stroke-width="2.5" stroke-linejoin="round"
                     class="opacity-40 group-hover:opacity-100 transition-opacity" />
-              <circle cx="20" cy="20" r="5" fill="url(#logoGradFooter)" />
+              <circle cx="20" cy="20" r="5" fill="url(#logoGradFooterNew)" />
               <path d="M10,14 L20,20 L30,14 M20,20 L20,32" 
-                    stroke="url(#logoGradFooter)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    stroke="url(#logoGradFooterNew)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <div class="flex flex-col leading-none">
-            <span class="font-black text-sm tracking-tight text-white group-hover:text-brand-primary transition-colors uppercase">
+            <span class="font-black text-base tracking-tight text-white group-hover:text-brand-primary transition-colors uppercase">
               {t('brand.name').split(' ').map((word: string, i: number) => (
-                <span class={i === 1 ? 'text-slate-500' : i === 2 ? 'ml-0.5 text-slate-600' : ''}>{word}</span>
+                <span class={i === 1 ? 'text-slate-500' : i === 2 ? 'ml-1 text-slate-600' : ''}>{word}</span>
               ))}
+            </span>
+            <span class="text-[9px] font-bold text-brand-secondary tracking-[0.2em] uppercase opacity-75 mt-0.5">
+              {t('brand.tagline')}
             </span>
           </div>
         </a>
-        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+
+        <!-- Mission / Value Proposition Statement -->
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
           {t('footer.tagline')}
         </p>
 
-        <div class="mb-6 flex flex-col gap-2.5">
-          <a href={`mailto:${contactEmail}`} class="text-sm text-slate-400 hover:text-brand-primary transition-colors flex items-center gap-3 group/link">
-            <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover/link:border-brand-primary/30 group-hover/link:bg-brand-primary/5 transition-all">
-              <svg class="w-4 h-4 text-slate-500 group-hover/link:text-brand-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Live Operational Status Pill -->
+        <div class="mb-5 inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-400 shadow-sm w-fit">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>{t('footer.allOnline') || 'All Tools Online & Free'}</span>
+        </div>
+
+        <!-- Verified Contact Email -->
+        <div class="mb-6">
+          <a
+            href={`mailto:${contactEmail}`}
+            class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2.5 group/email"
+          >
+            <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 group-hover/email:border-brand-primary/40 group-hover/email:bg-brand-primary/10 transition-all">
+              <svg class="w-4 h-4 text-slate-400 group-hover/email:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
-            <span class="group-hover/link:translate-x-0.5 transition-transform">{contactEmail}</span>
+            <span class="group-hover/email:translate-x-0.5 transition-transform">{contactEmail}</span>
           </a>
         </div>
 
-        <p class="text-slate-600 text-xs">
-          &copy; {year} {config.site.name}. All rights reserved.
-        </p>
+        <!-- Social Icons (ONLY rendered if valid URLs exist, zero dummy '#' links) -->
+        {socialLinks.length > 0 && (
+          <div class="flex items-center gap-3">
+            {socialLinks.map(({ platform, url }) => (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-primary/15 hover:text-brand-accent hover:border-brand-primary/30 transition-all border border-white/5"
+                aria-label={`Follow on ${platform}`}
+              >
+                {platform === 'facebook' && (
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+                  </svg>
+                )}
+                {platform === 'linkedin' && (
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                )}
+                {platform === 'twitter' && (
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                )}
+                {platform === 'github' && (
+                  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                  </svg>
+                )}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
-      <!-- Product Links -->
+      <!-- Column 2: Core Tools / Products -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.product')}</h3>
-        <ul class="space-y-2.5">
-          {productLinks.map((link) => (
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xs font-bold uppercase tracking-[0.25em] text-white">
+            {t('footer.product') || 'Core Design Tools'}
+          </h3>
+          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-brand-primary/10 text-brand-accent rounded border border-brand-primary/20">Free</span>
+        </div>
+        <ul class="space-y-3">
+          {coreTools.map((tool) => (
             <li>
-              <a href={getLocalizedPath(link.path, locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">
-                {t(link.labelKey)}
+              <a
+                href={getLocalizedPath(tool.path, locale)}
+                class="text-sm text-slate-400 hover:text-white transition-all duration-200 flex items-center gap-2 group/item"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover/item:bg-brand-accent group-hover/item:scale-125 transition-all"></span>
+                <span class="group-hover/item:translate-x-1 transition-transform">{tool.label}</span>
               </a>
             </li>
           ))}
         </ul>
       </div>
 
-      <!-- Popular Articles -->
+      <!-- Column 3: Resources / Content / Guides -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.guides')}</h3>
-        <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/components/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.components')}</a></li>
-          <li><a href={getLocalizedPath('/docs/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.docs')}</a></li>
-          <li><a href={getLocalizedPath('/blog/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.blogTutorials')}</a></li>
-          <li><a href={getLocalizedPath('/sitemap/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.sitemap')}</a></li>
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xs font-bold uppercase tracking-[0.25em] text-white">
+            {t('footer.guides') || 'Resources & Guides'}
+          </h3>
+          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-brand-secondary/10 text-brand-secondary rounded border border-brand-secondary/20">Guides</span>
+        </div>
+        <ul class="space-y-3">
+          {resourceLinks.map((guide) => (
+            <li>
+              <a
+                href={getLocalizedPath(guide.path, locale)}
+                class="text-sm text-slate-400 hover:text-white transition-all duration-200 flex items-center gap-2 group/item"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover/item:bg-brand-secondary group-hover/item:scale-125 transition-all"></span>
+                <span class="group-hover/item:translate-x-1 transition-transform">{guide.label}</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- Legal & Social -->
+      <!-- Column 4: Trust, Legal & Compliance (AdSense Mandatory) -->
       <div>
-        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">{t('footer.company')}</h3>
-        <ul class="space-y-2.5">
-          <li><a href={getLocalizedPath('/about-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('nav.about')}</a></li>
-          <li><a href={getLocalizedPath('/contact-us/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.contactSupport')}</a></li>
-          <li><a href={getLocalizedPath('/terms/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.terms')}</a></li>
-          <li><a href={getLocalizedPath('/privacy/', locale)} class="text-sm text-slate-400 hover:text-brand-primary transition-colors">{t('footer.privacy')}</a></li>
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xs font-bold uppercase tracking-[0.25em] text-white">
+            {t('footer.company') || 'Trust & Compliance'}
+          </h3>
+          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Verified</span>
+        </div>
+        <ul class="space-y-3">
+          {complianceLinks.map((item) => (
+            <li>
+              <a
+                href={item.isExternal ? item.path : getLocalizedPath(item.path, locale)}
+                class="text-sm text-slate-400 hover:text-white transition-all duration-200 flex items-center gap-2 group/item"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all"></span>
+                <span class="group-hover/item:translate-x-1 transition-transform">{item.label}</span>
+              </a>
+            </li>
+          ))}
         </ul>
+      </div>
 
-        <!-- Social Icons -->
-        <div class="flex gap-3 mt-5">
-          {config.social.twitter && (
-            <a href={config.social.twitter} target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-primary/10 hover:text-brand-primary transition-all border border-white/5" aria-label="Twitter">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
-            </a>
-          )}
-          {config.social.facebook && (
-            <a href={config.social.facebook} target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-primary/10 hover:text-brand-primary transition-all border border-white/5" aria-label="Facebook">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
-            </a>
-          )}
-          {config.social.linkedin && (
-            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-primary/10 hover:text-brand-primary transition-all border border-white/5" aria-label="LinkedIn">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-          )}
+    </div>
+
+    <!-- Methodological & Regulatory Disclaimer Box -->
+    <div class="mt-4 p-5 rounded-2xl bg-white/[0.015] border border-white/5 text-xs text-slate-400/90 leading-relaxed shadow-inner">
+      <div class="flex items-start gap-3">
+        <svg class="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <div>
+          <span class="font-semibold text-slate-300 block mb-1">
+            {t('footer.disclaimerTitle') || 'Methodological & Regulatory Disclaimer'}
+          </span>
+          <p>
+            {t('footer.disclaimerText') || 'Circuit Diagram Maker is an independent educational engineering platform providing browser-based schematic design tools, digital logic gate simulators, and Boolean algebraic reduction engines. All logic computations and circuit rendering execute deterministically on client devices in accordance with standard IEEE/ANSI electrical symbology. This tool is provided for educational, prototyping, and conceptual documentation purposes; users must verify physical circuit parameters, component datasheets, and voltage tolerances before assembling physical hardware. Circuit Diagram Maker complies with Google AdSense Publisher Policies, GDPR, and CCPA standards.'}
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Footer Meta -->
-    <div class="mt-10 pt-6 border-t border-white/5 flex flex-wrap items-center justify-end gap-4">
-      <div class="text-[10px] text-slate-600 uppercase font-bold tracking-widest leading-none flex items-center gap-2">
-        {t('footer.status')}: <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span> <span class="text-emerald-500/80">{t('footer.operational')}</span>
+    <!-- Sub-Footer (Bottom Bar) -->
+    <div class="mt-10 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+      
+      <!-- Dynamic Copyright -->
+      <div class="text-center md:text-left">
+        &copy; {year} <span class="text-slate-400 font-semibold">{config?.site?.name || 'Circuit Diagram Maker'}</span>. All rights reserved.
       </div>
+
+      <!-- Quick Micro-links -->
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-400">
+        {subFooterLinks.map((link, idx) => (
+          <>
+            <a
+              href={getLocalizedPath(link.path, locale)}
+              class="hover:text-brand-accent transition-colors"
+            >
+              {link.label}
+            </a>
+            {idx < subFooterLinks.length - 1 && (
+              <span class="text-slate-700" aria-hidden="true">&bull;</span>
+            )}
+          </>
+        ))}
+      </div>
+
+      <!-- Functional Smooth-Scrolling Back to Top Button -->
+      <button
+        type="button"
+        id="footer-back-to-top"
+        class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group cursor-pointer focus:outline-none focus:ring-1 focus:ring-brand-accent rounded px-2 py-1"
+        aria-label="Back to top of page"
+      >
+        <span class="font-medium text-xs">{t('footer.backToTop') || 'Back to top'}</span>
+        <div class="w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-brand-primary/50 group-hover:bg-brand-primary/20 transition-all">
+          <svg class="w-3.5 h-3.5 transform group-hover:-translate-y-0.5 transition-transform text-slate-300 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+        </div>
+      </button>
+
     </div>
+
   </div>
 </footer>
+
+<script is:inline>
+  (() => {
+    const btn = document.getElementById('footer-back-to-top');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+    });
+  })();
+</script>
