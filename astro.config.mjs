@@ -45,7 +45,16 @@ export default defineConfig({
         locales: sitemapLocales
       },
       filter: (page) => {
-        return !page.includes('/404') && !page.includes('/schematic-to-breadboard');
+        if (page.includes('/404') || page.includes('/schematic-to-breadboard')) {
+          return false;
+        }
+        if (/\/(editor|arduino-editor|logic-editor|pcb-editor)\/?$/.test(page)) {
+          return false;
+        }
+        if (/\/blog\/\d+\/?$/.test(page)) {
+          return false;
+        }
+        return true;
       },
       serialize(item) {
         if (item.links && item.links.length > 0) {

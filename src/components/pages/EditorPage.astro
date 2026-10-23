@@ -110,8 +110,9 @@ const hreflangLinks = [
     <meta name="twitter:title" content={seo.title}>
     <meta name="twitter:description" content={seo.description}>
     <meta name="twitter:image" content={ogImageURL}>
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
+    {locale !== 'en' && (
+      <meta name="robots" content="noindex, follow" />
+    )}
     <script set:html={`window.__I18N__ = ${JSON.stringify(clientI18n)}; window.__EDITOR_MODE__ = "${editorMode}"; window.__EDITOR_CONFIG__ = ${JSON.stringify(editorConfig)};`}></script>
 </head>
 <body>
