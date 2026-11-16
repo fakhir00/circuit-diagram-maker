@@ -12,7 +12,6 @@ const locales = [
   'bn', 'ja', 'ko', 'ms', 'pl', 'id', 'ar', 'bg', 'tr', 'sv', 'ur'
 ];
 const defaultLocale = 'en';
-const sitemapLocales = Object.fromEntries(locales.map(l => [l, l]));
 
 function formatXml(xml) {
   // Normalize line endings, then collapse ALL whitespace between tags (handles
@@ -99,10 +98,6 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale,
-        locales: sitemapLocales
-      },
       filter: (page) => {
         if (page.includes('/404') || page.includes('/schematic-to-breadboard')) {
           return false;
@@ -115,19 +110,6 @@ export default defineConfig({
         }
         return true;
       },
-      serialize(item) {
-        if (item.links && item.links.length > 0) {
-          const hasXDefault = item.links.some(l => l.lang === 'x-default');
-          if (!hasXDefault) {
-            const enLink = item.links.find(l => l.lang === 'en') || { url: item.url, lang: 'en' };
-            item.links.unshift({
-              url: enLink.url,
-              lang: 'x-default'
-            });
-          }
-        }
-        return item;
-      }
     }),
     sitemapCopyPlugin(),
     mdx()
