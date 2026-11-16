@@ -15,31 +15,50 @@ const defaultLocale = 'en';
 const sitemapLocales = Object.fromEntries(locales.map(l => [l, l]));
 
 function formatXml(xml) {
-  let formatted = '';
-  let indent = 0;
-  // Normalize line endings and strip existing whitespace between tags
-  const str = xml.replace(/\r?\n/g, '').replace(/>\s+</g, '><');
-  // Split on tag boundaries while keeping the delimiters
-  const tokens = str.split(/(<[^>]+>)/);
-  for (const token of tokens) {
-    if (!token.trim()) continue;
-    if (token.startsWith('</')) {
-      // Closing tag — dedent before writing
-      indent = Math.max(0, indent - 1);
-      formatted += '  '.repeat(indent) + token + '\n';
-    } else if (token.startsWith('<?') || token.endsWith('/>')) {
-      // Processing instruction or self-closing tag — no indent change
-      formatted += '  '.repeat(indent) + token + '\n';
-    } else if (token.startsWith('<')) {
-      // Opening tag — write then indent children
-      formatted += '  '.repeat(indent) + token + '\n';
-      indent++;
+  // Normalize line endings, then collapse ALL whitespace between tags (handles
+  // both fresh minified output and already-formatted XML)
+  let str = xml.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  str = str.replace(/>[\ \t\n\r]+</g, '><');
+
+  let out = '';
+  let depth = 0;
+  const pad = (n) => '  '.repeat(n);
+  const re = /(<[^>]+>)/g;
+  let last = 0;
+  let m;
+
+  while ((m = re.exec(str)) !== null) {
+    const text = str.slice(last, m.index).trim();
+    if (text) out += pad(depth) + text + '\n';
+
+    const tag = m[1];
+    if (tag.startsWith('</')) {
+      depth--;
+      out += pad(depth) + tag + '\n';
+    } else if (tag.startsWith('<?') || tag.endsWith('/>')) {
+      out += pad(depth) + tag + '\n';
     } else {
-      // Text content — inline with current indent
-      formatted += '  '.repeat(indent) + token + '\n';
+      // Look ahead: if next content is plain text followed by a closing tag,
+      // render the whole thing inline (e.g. <loc>https://...</loc>)
+      const afterTag = str.slice(m.index + tag.length);
+      const inlineMatch = afterTag.match(/^([^<]+)<\/([^>]+)>/);
+      if (inlineMatch) {
+        const inlineText = inlineMatch[1].trim();
+        const closeTag = '</' + inlineMatch[2] + '>';
+        out += pad(depth) + tag + inlineText + closeTag + '\n';
+        re.lastIndex = m.index + tag.length + inlineMatch[0].length;
+        last = re.lastIndex;
+        continue;
+      }
+      out += pad(depth) + tag + '\n';
+      depth++;
     }
+    last = re.lastIndex;
   }
-  return formatted.trim();
+
+  const remaining = str.slice(last).trim();
+  if (remaining) out += remaining + '\n';
+  return out.trim();
 }
 
 function sitemapCopyPlugin() {
