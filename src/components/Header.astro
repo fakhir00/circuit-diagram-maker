@@ -133,7 +133,7 @@ const currentPath = rawPath === '/404' || rawPath === '/404.html' || rawPath.end
                   href={getLocalizedPath(currentPath, l)} 
                   class={`px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors flex items-center justify-between ${locale === l ? 'bg-brand-primary/20 text-brand-primary font-bold' : 'text-slate-300 hover:bg-white/10 hover:text-white'}`}
                 >
-                  <span class="truncate">{l.toUpperCase()} – {l === 'en' ? 'English' : l === 'es' ? 'Español' : l === 'id' ? 'Bahasa Indonesia' : l === 'tr' ? 'Türkçe' : l === 'bg' ? 'Български' : l === 'de' ? 'Deutsch' : l === 'fr' ? 'Français' : l === 'it' ? 'Italiano' : l === 'pt' ? 'Português' : l === 'ru' ? 'Русский' : l === 'hi' ? 'हिन्दी' : l === 'ja' ? '日本語' : l === 'ko' ? '한국어' : l === 'zh' ? '中文' : l === 'ar' ? 'العربية' : l === 'bn' ? 'বাংলা' : l === 'ms' ? 'Melayu' : l === 'pl' ? 'Polski' : l === 'sv' ? 'Svenska' : l.toUpperCase()}</span>
+                  <span class="truncate">{l.toUpperCase()} – {l === 'en' ? 'English' : l === 'es' ? 'Español' : l === 'id' ? 'Bahasa Indonesia' : l === 'tr' ? 'Türkçe' : l === 'bg' ? 'Български' : l === 'de' ? 'Deutsch' : l === 'fr' ? 'Français' : l === 'it' ? 'Italiano' : l === 'pt' ? 'Português' : l === 'ru' ? 'Русский' : l === 'hi' ? 'हिन्दी' : l === 'ja' ? '日本語' : l === 'ko' ? '한국어' : l === 'zh' ? '中文' : l === 'ar' ? 'العربية' : l === 'bn' ? 'বাংলা' : l === 'ms' ? 'Melayu' : l === 'pl' ? 'Polski' : l === 'sv' ? 'Svenska' : l === 'ur' ? 'اردو' : l.toUpperCase()}</span>
                   {locale === l && <span class="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0 ml-1.5"></span>}
                 </a>
               ))}

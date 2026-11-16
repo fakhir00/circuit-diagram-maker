@@ -113,7 +113,8 @@ const LOCALE_LABELS: Record<string, string> = {
   ar: 'Arabic',
   bg: 'Bulgarian',
   tr: 'Turkish',
-  sv: 'Swedish'
+  sv: 'Swedish',
+  ur: 'Urdu'
 };
 
 const TITLE_SUFFIX_LABELS: Record<string, string> = {
