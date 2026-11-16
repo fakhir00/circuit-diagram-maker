@@ -78,7 +78,56 @@
     "about.meta.title": "हमारे बारे में - सर्किट आरेख निर्माता",
     "about.meta.description": "सर्किट आरेख निर्माता के पीछे की टीम और हमारे मिशन के बारे में जानें।",
     "about.stats.languages.label": "भाषाएँ",
-    "about.stats.countries.label": "देश"
+    "about.stats.countries.label": "देश",
+    "about.story.p3": "हमारा सर्किट आरेख निर्माता सरल एलईडी सर्किट से लेकर मल्टी-स्टेज एम्पलीफायर डिज़ाइन, बक कनवर्टर स्कीमैटिक्स और माइक्रोकंट्रोलर इंटरफेस तक सब कुछ संभालता है। यह वह उपकरण है जिसकी हमने छात्र होने पर कामना की थी, और अब यह ग्रह पर प्रत्येक छात्र, शिक्षक, शौकिया और इंजीनियर के लिए निःशुल्क है।",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "विचार का जन्म",
+        "desc": "भारी डेस्कटॉप सीएडी टूल्स से निराश होकर, हमारे संस्थापक इंजीनियरों ने एक ब्राउज़र-आधारित सर्किट आरेख निर्माता का प्रोटोटाइप बनाना शुरू किया।"
+      },
+      {
+        "year": "2024",
+        "title": "पहला सार्वजनिक बीटा",
+        "desc": "सर्किट आरेख निर्माता 20 प्रतीकों, बुनियादी वायर रूटिंग और पीएनजी निर्यात के साथ लॉन्च हुआ। हजारों छात्रों ने इसे हफ्तों के भीतर अपनाया।"
+      },
+      {
+        "year": "2026",
+        "title": "एसवीजी निर्यात और 40+ प्रतीक",
+        "desc": "हमने मैनहट्टन रूटिंग, एसवीजी वेक्टर निर्यात, कीबोर्ड शॉर्टकट जोड़े और घटक लाइब्रेरी को 40+ प्रतीकों तक विस्तारित किया।"
+      },
+      {
+        "year": "2026",
+        "title": "वैश्विक पहुंच",
+        "desc": "सर्किट आरेख निर्माता अब 18 भाषाओं में स्थानीयकरण और एक समृद्ध समुदाय के साथ 180+ देशों में उपयोगकर्ताओं की सेवा करता है।"
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "जटिलता पर गति",
+        "desc": "एक सर्किट आरेख निर्माता को मिनटों में नहीं, सेकंडों में लोड होना चाहिए। हम सभी चीज़ों से ऊपर स्टार्टअप गति और वर्कफ़्लो दक्षता को प्राथमिकता देते हैं।"
+      },
+      {
+        "icon": "🎯",
+        "title": "डिफ़ॉल्ट रूप से परिशुद्धता",
+        "desc": "प्रत्येक तार 20px ग्रिड पर स्नैप होता है। प्रत्येक कनेक्शन ऑर्थोगोनल है। हमारा उपकरण डिज़ाइन द्वारा साफ स्कीमैटिक्स लागू करता है।"
+      },
+      {
+        "icon": "🌍",
+        "title": "सभी के लिए सुलभ",
+        "desc": "हमेशा के लिए मुफ़्त, कोई साइनअप नहीं, कोई पेवॉल नहीं। हमारा मानना ​​है कि पेशेवर सर्किट आरेख उपकरण दुनिया भर के हर छात्र और शौकिया के लिए उपलब्ध होने चाहिए।"
+      },
+      {
+        "icon": "🔓",
+        "title": "आपका डेटा, आपकी मशीन",
+        "desc": "सभी सर्किट आरेख आपके ब्राउज़र में स्थानीय रूप से संग्रहीत होते हैं। हम आपके डिज़ाइनों को कभी भी अपलोड, विश्लेषण या मुद्रीकृत नहीं करते हैं।"
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "es": {
     "about.hero.badge": "Sobre nosotros",
@@ -159,7 +208,56 @@
     "about.meta.title": "О нас — Circuit Diagram Maker",
     "about.meta.description": "Узнайте о команде Circuit Diagram Maker и нашей миссии.",
     "about.stats.languages.label": "Языки",
-    "about.stats.countries.label": "Страны"
+    "about.stats.countries.label": "Страны",
+    "about.story.p3": "Наш редактор принципиальных схем справляется со всем: от простых схем со светодиодами до многокаскадных усилителей, импульсных стабилизаторов и интерфейсов микроконтроллеров. Это именно тот инструмент, о котором мы мечтали в студенческие годы, и теперь он доступен каждому бесплатно.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Рождение идеи",
+        "desc": "Устав от громоздких программ САПР, инженеры-основатели начали разработку быстрого веб-редактора схем."
+      },
+      {
+        "year": "2024",
+        "title": "Первая публичная бета",
+        "desc": "Circuit Diagram Maker стартовал с 20 символами, базовой трассировкой проводов и экспортом в PNG."
+      },
+      {
+        "year": "2026",
+        "title": "SVG экспорт и 40+ символов",
+        "desc": "Мы добавили ортогональную трассировку проводов, векторный экспорт SVG, горячие клавиши и расширили библиотеку компонентов."
+      },
+      {
+        "year": "2026",
+        "title": "Мировое признание",
+        "desc": "Сервис обслуживает пользователей в более чем 180 странах с локализацией на 18 языках."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Скорость превыше сложности",
+        "desc": "Редактор схем должен запускаться за секунды, а не минуты. Мы отдаем приоритет скорости и удобству."
+      },
+      {
+        "icon": "🎯",
+        "title": "Точность по умолчанию",
+        "desc": "Каждый провод привязывается к сетке 20px. Все соединения прямоугольные. Инструмент создает аккуратные схемы."
+      },
+      {
+        "icon": "🌍",
+        "title": "Доступно каждому",
+        "desc": "Бесплатно навсегда, без регистрации и подписок. Профессиональные схемы должны быть доступны всем."
+      },
+      {
+        "icon": "🔓",
+        "title": "Ваши данные на вашем ПК",
+        "desc": "Все схемы сохраняются локально в вашем браузере. Мы никогда не загружаем и не передаем ваши проекты."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "fr": {
     "about.hero.badge": "À propos",
@@ -175,7 +273,56 @@
     "about.meta.title": "À propos de nous — Circuit Diagram Maker",
     "about.meta.description": "Découvrez l'équipe derrière Circuit Diagram Maker et notre mission.",
     "about.stats.languages.label": "Langues",
-    "about.stats.countries.label": "Pays"
+    "about.stats.countries.label": "Pays",
+    "about.story.p3": "Notre éditeur de schémas prend en charge aussi bien les circuits simples à LED que les amplificateurs à plusieurs étages, les convertisseurs abaisseurs (buck) et les interfaces microcontrôleurs. C'est l'outil que nous aurions aimé avoir durant nos études, désormais gratuit pour tous.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Origine de l'idée",
+        "desc": "Frustrés par les logiciels de CAO lourds, nos ingénieurs ont commencé à prototyper un outil de schémas directement dans le navigateur."
+      },
+      {
+        "year": "2024",
+        "title": "Première bêta publique",
+        "desc": "Lancement avec 20 symboles fondamentaux, routage des connexions et export PNG."
+      },
+      {
+        "year": "2026",
+        "title": "Export SVG et 40+ symboles",
+        "desc": "Ajout du routage orthogonal Manhattan, export vectoriel SVG, raccourcis clavier et enrichissement de la bibliothèque."
+      },
+      {
+        "year": "2026",
+        "title": "Portée mondiale",
+        "desc": "Circuit Diagram Maker accompagne des utilisateurs dans plus de 180 pays avec 18 langues prises en charge."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Vitesse et simplicité",
+        "desc": "Un éditeur de circuits doit se charger en quelques secondes. Nous privilégions la rapidité d'exécution avant tout."
+      },
+      {
+        "icon": "🎯",
+        "title": "Précision native",
+        "desc": "Chaque fil s'aligne sur une grille de 20 px. Les connexions sont orthogonales pour un rendu clair et lisible."
+      },
+      {
+        "icon": "🌍",
+        "title": "Accessible à tous",
+        "desc": "Gratuit pour toujours, sans inscription ni abonnement. La conception électronique doit être à la portée de chacun."
+      },
+      {
+        "icon": "🔓",
+        "title": "Confidentialité totale",
+        "desc": "Tous vos schémas sont enregistrés localement dans votre navigateur. Aucune donnée n'est envoyée sur nos serveurs."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "de": {
     "about.hero.badge": "Über uns",
@@ -191,7 +338,56 @@
     "about.meta.title": "Über uns — Circuit Diagram Maker",
     "about.meta.description": "Erfahren Sie mehr über das Team hinter Circuit Diagram Maker.",
     "about.stats.languages.label": "Sprachen",
-    "about.stats.countries.label": "Länder"
+    "about.stats.countries.label": "Länder",
+    "about.story.p3": "Unser Schaltplan-Editor eignet sich für einfache LED-Schaltungen ebenso wie für mehrstufige Verstärker, Abwärtswandler und Mikrocontroller-Schnittstellen. Genau das Werkzeug, das wir uns als Studenten gewünscht hätten – jetzt kostenlos für jeden.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Die Idee entsteht",
+        "desc": "Frustriert von schwerfälliger Desktop-CAD-Software entwickelten unsere Ingenieure einen browserbasierten Schaltplan-Editor."
+      },
+      {
+        "year": "2024",
+        "title": "Erste öffentliche Beta",
+        "desc": "Start mit 20 Symbolen, grundlegendem Leitungsrouting und PNG-Export."
+      },
+      {
+        "year": "2026",
+        "title": "SVG-Export & 40+ Symbole",
+        "desc": "Einführung von Manhattan-Routing, SVG-Vektorexport, Tastaturkürzeln und über 40 Schaltsymbolen."
+      },
+      {
+        "year": "2026",
+        "title": "Weltweite Nutzung",
+        "desc": "Circuit Diagram Maker unterstützt Nutzer in über 180 Ländern mit 18 Sprachen."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Schnelligkeit vor Komplexität",
+        "desc": "Ein Schaltplan-Tool muss in Sekunden einsatzbereit sein. Wir fokussieren uns auf maximale Arbeitsgeschwindigkeit."
+      },
+      {
+        "icon": "🎯",
+        "title": "Präzision als Standard",
+        "desc": "Jede Leitung rastet am 20px-Raster ein. Alle Verbindungen sind rechtwinklig für saubere Schaltpläne."
+      },
+      {
+        "icon": "🌍",
+        "title": "Für jeden zugänglich",
+        "desc": "Dauerhaft kostenlos, ohne Registrierung und ohne Paywall für Schüler, Studenten und Ingenieure."
+      },
+      {
+        "icon": "🔓",
+        "title": "Ihre Daten bleiben bei Ihnen",
+        "desc": "Alle Schaltpläne werden lokal im Browser gespeichert. Es erfolgt kein Upload auf externe Server."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "it": {
     "about.hero.badge": "Chi siamo",
@@ -207,7 +403,56 @@
     "about.meta.title": "Chi siamo — Circuit Diagram Maker",
     "about.meta.description": "Scopri il team e la missione dietro Circuit Diagram Maker.",
     "about.stats.languages.label": "Lingue",
-    "about.stats.countries.label": "Paesi"
+    "about.stats.countries.label": "Paesi",
+    "about.story.p3": "Il nostro creatore di schemi elettrici gestisce dai circuiti LED di base agli amplificatori multistadio, regolatori buck e interfacce per microcontrollori. È lo strumento che avremmo voluto avere da studenti, ora gratuito per tutti.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Nasce l'idea",
+        "desc": "Stanchi dei pesanti software CAD desktop, i nostri ingegneri hanno iniziato a prototipare un editor per schemi nel browser."
+      },
+      {
+        "year": "2024",
+        "title": "Prima beta pubblica",
+        "desc": "Lancio con 20 simboli, instradamento base dei fili ed esportazione PNG."
+      },
+      {
+        "year": "2026",
+        "title": "Esportazione SVG e oltre 40 simboli",
+        "desc": "Aggiunti instradamento Manhattan, esportazione vettoriale SVG, scorciatoie da tastiera e libreria estesa."
+      },
+      {
+        "year": "2026",
+        "title": "Portata globale",
+        "desc": "Circuit Diagram Maker è utilizzato in oltre 180 paesi con supporto in 18 lingue."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Velocità prima della complessità",
+        "desc": "Un editor di schemi deve aprirsi in pochi secondi. Diamo priorità a rapidità ed efficienza operativa."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precisione predefinita",
+        "desc": "Ogni connessione si aggancia alla griglia a 20px in modo ortogonale, garantendo schemi puliti e leggibili."
+      },
+      {
+        "icon": "🌍",
+        "title": "Accessibile a tutti",
+        "desc": "Gratuito per sempre, senza registrazione né abbonamenti. Strumenti professionali a disposizione di chiunque."
+      },
+      {
+        "icon": "🔓",
+        "title": "I tuoi dati sul tuo dispositivo",
+        "desc": "Tutti gli schemi sono salvati localmente nel browser. Nessun dato viene caricato o analizzato su server esterni."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "pt": {
     "about.hero.badge": "Sobre nós",
@@ -223,7 +468,56 @@
     "about.meta.title": "Sobre nós — Circuit Diagram Maker",
     "about.meta.description": "Conheça a equipa por trás do Circuit Diagram Maker.",
     "about.stats.languages.label": "Idiomas",
-    "about.stats.countries.label": "Países"
+    "about.stats.countries.label": "Países",
+    "about.story.p3": "Nosso criador de diagramas de circuitos atende desde simples circuitos com LED até amplificadores de múltiplos estágios, fontes chaveadas buck e conexões com microcontroladores. É a ferramenta que gostaríamos de ter tido na faculdade, agora gratuita para todos.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "A ideia nasce",
+        "desc": "Frustrados com softwares CAD pesados, nossos engenheiros começaram a criar um protótipo de editor de circuitos para navegador."
+      },
+      {
+        "year": "2024",
+        "title": "Primeiro beta público",
+        "desc": "Lançamento com 20 símbolos, roteamento básico de fios e exportação em PNG."
+      },
+      {
+        "year": "2026",
+        "title": "Exportação SVG e mais de 40 símbolos",
+        "desc": "Implementação de roteamento ortogonal Manhattan, exportação vetorial SVG, atalhos de teclado e novos componentes."
+      },
+      {
+        "year": "2026",
+        "title": "Alcance global",
+        "desc": "Circuit Diagram Maker atende usuários em mais de 180 países com tradução em 18 idiomas."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Velocidade antes da complexidade",
+        "desc": "Uma ferramenta de circuitos deve abrir em segundos. Priorizamos o tempo de carregamento e a facilidade de uso."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precisão por padrão",
+        "desc": "Cada fio se ajusta a uma grade de 20px com conexões em ângulo reto para esquemas limpos e bem estruturados."
+      },
+      {
+        "icon": "🌍",
+        "title": "Acessível para todos",
+        "desc": "Totalmente gratuito, sem necessidade de cadastro ou pagamento. Ferramentas profissionais ao alcance de estudantes e entusiastas."
+      },
+      {
+        "icon": "🔓",
+        "title": "Seus dados no seu dispositivo",
+        "desc": "Todos os diagramas são gravados localmente no seu navegador. Nunca enviamos seus projetos para servidores externos."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "ja": {
     "about.hero.badge": "私たちについて",
@@ -239,7 +533,56 @@
     "about.meta.title": "私たちについて — 回路図メーカー",
     "about.meta.description": "回路図メーカーの開発チームとミッションについて。",
     "about.stats.languages.label": "言語",
-    "about.stats.countries.label": "国"
+    "about.stats.countries.label": "国",
+    "about.story.p3": "当サイトの回路図エディタは、シンプルなLED回路から多段アンプ、降圧コンバータ、マイコンインターフェースまで幅広く対応しています。学生時代に欲しかったツールを、世界中のエンジニアや学習者のために完全無料で提供しています。",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "アイデアの誕生",
+        "desc": "重いデスクトップCADへの不満から、ブラウザで即座に動く回路図ツールのプロトタイプ開発を開始しました。"
+      },
+      {
+        "year": "2024",
+        "title": "公開ベータ版リリース",
+        "desc": "20種類の基本電子記号、自動配線、PNG書き出し機能を備えてローンチしました。"
+      },
+      {
+        "year": "2026",
+        "title": "SVG出力と40+の記号",
+        "desc": "マンハッタン配線ルーティング、高解像度SVG書き出し、ショートカットキーを追加し、ライブラリを拡張しました。"
+      },
+      {
+        "year": "2026",
+        "title": "世界中へ展開",
+        "desc": "18言語の多言語対応と180以上の国と地域のユーザーに愛用されています。"
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "高速性とシンプルさ",
+        "desc": "回路図ツールは数分ではなく数秒で開くべきです。起動の速さと操作性を最優先に設計しています。"
+      },
+      {
+        "icon": "🎯",
+        "title": "正確なグリッド配置",
+        "desc": "配線は20pxグリッドに自動吸着し、直角配線により常に美しく読みやすい回路図を作成できます。"
+      },
+      {
+        "icon": "🌍",
+        "title": "誰でも自由に利用可能",
+        "desc": "永久無料、登録不要。学習者やホビー工作を楽しむすべての人のために提供しています。"
+      },
+      {
+        "icon": "🔓",
+        "title": "データはお使いの端末に保存",
+        "desc": "すべての回路図はブラウザ内部（ローカル）に保存され、外部サーバへアップロードされることはありません。"
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "ko": {
     "about.hero.badge": "회사 소개",
@@ -255,7 +598,56 @@
     "about.meta.title": "회사 소개 — 회로도 제작소",
     "about.meta.description": "회로도 제작소를 만든 팀원들과 우리의 목표를 알아보세요.",
     "about.stats.languages.label": "언어",
-    "about.stats.countries.label": "국가"
+    "about.stats.countries.label": "국가",
+    "about.story.p3": "저희 회로도 제작기는 기본 LED 회로부터 다단 증폭기, 벅 컨버터 및 마이크로컨트롤러 인터페이스까지 모두 지원합니다. 학창 시절 우리가 필요로 했던 도구를 이제 전 세계의 학생, 교육자 및 엔지니어에게 무료로 제공합니다.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "아이디어의 시작",
+        "desc": "무거운 데스크톱 CAD 소프트웨어 대신 빠르고 가벼운 브라우저 기반 회로도 도구를 개발하기 시작했습니다."
+      },
+      {
+        "year": "2024",
+        "title": "첫 공개 베타",
+        "desc": "20개의 기본 기호, 직교 배선, PNG 내보내기 기능을 탑재하여 출시되었습니다."
+      },
+      {
+        "year": "2026",
+        "title": "SVG 내보내기 및 40+ 부품 기호",
+        "desc": "맨해튼 와이어 라우팅, SVG 벡터 내보내기, 단축키 지원 및 부품 라이브러리를 확장했습니다."
+      },
+      {
+        "year": "2026",
+        "title": "글로벌 서비스",
+        "desc": "18개 언어 지원과 함께 180개국 이상의 사용자들에게 사랑받는 도구로 성장했습니다."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "복잡함보다 빠른 속도",
+        "desc": "회로도 도구는 몇 초 만에 즉시 열려야 합니다. 번거로운 로딩 없이 빠른 작업 속도를 보장합니다."
+      },
+      {
+        "icon": "🎯",
+        "title": "정밀한 자동 정렬",
+        "desc": "모든 와이어는 20px 그리드에 스냅되며 직교 연결을 통해 깔끔한 회로도를 만듭니다."
+      },
+      {
+        "icon": "🌍",
+        "title": "누구에게나 무료",
+        "desc": "가입이나 결제 없이 영구 무료로 제공됩니다. 전자공학을 배우는 모든 이를 응원합니다."
+      },
+      {
+        "icon": "🔓",
+        "title": "안전한 로컬 저장",
+        "desc": "모든 회로도는 사용자의 브라우저 로컬 저장소에 보관되며 서버로 전송되지 않습니다."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   },
   "bn": {
     "about.hero.badge": "আমাদের সম্পর্কে",
@@ -266,7 +658,61 @@
     "about.timeline.title": "আমাদের যাত্রা",
     "about.principles.title": "আমাদের নকশা নীতিমালা",
     "about.stats.languages.label": "ভাষা",
-    "about.stats.countries.label": "দেশ"
+    "about.stats.countries.label": "দেশ",
+    "about.story.title": "কেন আমরা এই সার্কিট ডায়াগ্রাম মেকার তৈরি করেছি",
+    "about.story.p1": "প্রত্যেক ইলেকট্রনিক্স প্রকৌশলী এবং শিক্ষার্থী এই অভিজ্ঞতার মুখোমুখি হয়েছেন: ল্যাব রিপোর্ট বা প্রজেক্ট পর্যালোচনার জন্য দ্রুত একটি সার্কিট ডায়াগ্রাম আঁকা প্রয়োজন। কিন্তু ভারী ডেস্কটপ সফটওয়্যার চালু করতে প্রচুর সময় লাগে অথবা হাতে আঁকা ছবি স্পষ্ট হয় না।",
+    "about.story.p2": "সেই অভিজ্ঞতা থেকেই এই টুলের জন্ম। আমরা ওয়েবে দ্রুততম, সহজতম এবং সবচেয়ে কার্যকর সার্কিট ডায়াগ্রাম টুল তৈরি করতে চেয়েছি যা বিনামূল্যে প্রকাশনা মানের ডায়াগ্রাম রপ্তানি করে।",
+    "about.story.p3": "আমাদের সার্কিট ডায়াগ্রাম মেকার সাধারণ এলইডি সার্কিট থেকে শুরু করে মাল্টি-স্টেজ অ্যামপ্লিফায়ার, বাক কনভার্টার এবং মাইক্রোকন্ট্রোলার ইন্টারফেস সবকিছুই সহজে আঁকতে পারে।",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "ধারণার সূচনা",
+        "desc": "ভারী CAD সফটওয়্যারের ঝামেলা এড়াতে আমাদের ইঞ্জিনিয়াররা ব্রাউজারভিত্তিক সার্কিট টুলের প্রোটোটাইপ তৈরি শুরু করেন।"
+      },
+      {
+        "year": "2024",
+        "title": "প্রথম পাবলিক বেটা",
+        "desc": "২০টি ইলেকট্রনিক প্রতীক, সহজ ওয়্যার রাউটিং এবং পিএনজি এক্সপোর্ট সহ যাত্রা শুরু।"
+      },
+      {
+        "year": "2026",
+        "title": "এসভিজি এক্সপোর্ট এবং ৪০+ প্রতীক",
+        "desc": "অর্থোগোনাল ম্যানহাটন ওয়্যারিং, ভেক্টর এসভিজি এক্সপোর্ট, কিবোর্ড শর্টকাট এবং উন্নত কম্পোনেন্ট লাইব্রেরি সংযোজন।"
+      },
+      {
+        "year": "2026",
+        "title": "বিশ্বজুড়ে বিস্তার",
+        "desc": "১৮টি ভাষায় অনূদিত হয়ে ১৮০টির বেশি দেশে শিক্ষার্থীদের কাছে নির্ভরযোগ্য সমাধান।"
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "জটিলতার চেয়ে দ্রুততা",
+        "desc": "একটি সার্কিট ড্রয়িং টুল কয়েক সেকেন্ডের মধ্যে লোড হওয়া উচিত। আমরা দ্রুত কার্যক্ষমতাকে সর্বোচ্চ অগ্রাধিকার দিই।"
+      },
+      {
+        "icon": "🎯",
+        "title": "ডিফল্ট নির্ভুলতা",
+        "desc": "প্রতিটি সংযোগ ২০ পিক্সেল গ্রিডে স্নাপ হয় এবং সমকোণে সংযুক্ত হয়ে পরিচ্ছন্ন ডায়াগ্রাম তৈরি করে।"
+      },
+      {
+        "icon": "🌍",
+        "title": "সবার জন্য উন্মুক্ত",
+        "desc": "কোনো সাইনআপ বা ফি ছাড়াই চিরতরে বিনামূল্যে ব্যবহারের সুযোগ।"
+      },
+      {
+        "icon": "🔓",
+        "title": "আপনার তথ্য আপনার ডিভাইসে",
+        "desc": "সব সার্কিট ডায়াগ্রাম আপনার ব্রাউজারে সুরক্ষিতভাবে সংরক্ষিত থাকে, কোনো বহিরাগত সার্ভারে আপলোড করা হয় না।"
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "আপনার প্রথম সার্কিট ডায়াগ্রাম তৈরি করতে প্রস্তুত?",
+    "about.cta.desc": "সার্কিট ডায়াগ্রাম মেকার খুলুন এবং এখনই সম্পূর্ণ বিনামূল্যে ডিজাইন শুরু করুন।"
   },
   "ms": {
     "about.hero.badge": "Tentang Kami",
@@ -277,7 +723,61 @@
     "about.timeline.title": "Perjalanan Kami",
     "about.principles.title": "Prinsip Reka Bentuk Kami",
     "about.stats.languages.label": "Bahasa",
-    "about.stats.countries.label": "Negara"
+    "about.stats.countries.label": "Negara",
+    "about.story.title": "Mengapa Kami Membina Pembuat Rajah Litar Ini",
+    "about.story.p1": "Setiap jurutera dan pelajar elektronik memahami cabaran ini: anda perlu melakar rajah litar dengan cepat untuk laporan makmal atau semakan reka bentuk. Pilihan yang ada selalunya perisian desktop 2GB yang lambat atau lakaran tangan yang sukar dibaca.",
+    "about.story.p2": "dicipta daripada keperluan itu. Matlamat kami adalah membina alat rajah litar berasaskan web yang terpantas, paling mudah dan boleh diakses secara percuma.",
+    "about.story.p3": "Editor litar kami menyokong daripada litar LED mudah sehingga reka bentuk penguat pelbagai peringkat, skematik penukar buck dan antara muka mikropengawal.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Permulaan Idea",
+        "desc": "Jurutera kami mula membina prototaip alat rajah litar berasaskan pelayar web."
+      },
+      {
+        "year": "2024",
+        "title": "Beta Awam Pertama",
+        "desc": "Dilancarkan dengan 20 simbol elektronik, penghalaan wayar asas dan eksport PNG."
+      },
+      {
+        "year": "2026",
+        "title": "Eksport SVG & 40+ Simbol",
+        "desc": "Penambahan penghalaan ortogon Manhattan, eksport vektor SVG, pintasan papan kekunci dan pustaka komponen diperluas."
+      },
+      {
+        "year": "2026",
+        "title": "Capaian Global",
+        "desc": "Kini menyokong pengguna di lebih 180 negara dengan sokongan 18 bahasa."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Kepantasan Mengatasi Kerumitan",
+        "desc": "Alat rajah litar harus dibuka dalam beberapa saat. Kami mengutamakan kelajuan dan kemudahan kerja."
+      },
+      {
+        "icon": "🎯",
+        "title": "Ketepatan Piawai",
+        "desc": "Setiap wayar melekat pada grid 20px dengan sambungan bersudut tepat untuk skematik yang kemas."
+      },
+      {
+        "icon": "🌍",
+        "title": "Boleh Diakses Semua",
+        "desc": "Percuma selamanya tanpa pendaftaran atau bayaran tersembunyi."
+      },
+      {
+        "icon": "🔓",
+        "title": "Data Anda Kekal Selamat",
+        "desc": "Semua reka bentuk disimpan secara setempat dalam pelayar anda dan tidak dimuat naik ke mana-mana pelayan luaran."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Bersedia untuk Melakar Rajah Litar Pertama Anda?",
+    "about.cta.desc": "Buka pembuat rajah litar dan mula mereka bentuk — percuma sepenuhnya tanpa perlu mendaftar akaun."
   },
   "pl": {
     "about.hero.badge": "O nas",
@@ -288,7 +788,61 @@
     "about.timeline.title": "Nasza podróż",
     "about.principles.title": "Nasze zasady projektowania",
     "about.stats.languages.label": "Języki",
-    "about.stats.countries.label": "Kraje"
+    "about.stats.countries.label": "Kraje",
+    "about.story.title": "Dlaczego stworzyliśmy ten program do schematów",
+    "about.story.p1": "Każdy elektronik i student zna tę frustrację: potrzebujesz szybko narysować schemat do sprawozdania laboratoryjnego lub projektu. Twoje opcje to ociężałe programy CAD lub nieczytelny szkic na kartce.",
+    "about.story.p2": "powstał z tej potrzeby. Postanowiliśmy stworzyć najszybsze, najprostsze i bezpłatne narzędzie online do rysowania schematów elektronicznych.",
+    "about.story.p3": "Nasz edytor radzi sobie zarówno z prostymi obwodami LED, jak i wielostopniowymi wzmacniaczami, przetwornicami impulsowymi czy połączeniami mikrokontrolerów.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Narodziny pomysłu",
+        "desc": "Rozpoczęcie prac nad lekkim edytorem schematów działającym bezpośrednio w przeglądarce."
+      },
+      {
+        "year": "2024",
+        "title": "Pierwsza publiczna beta",
+        "desc": "Premiera z 20 podstawowymi symbolami, prowadzeniem połączeń i eksportem PNG."
+      },
+      {
+        "year": "2026",
+        "title": "Eksport SVG i ponad 40 symboli",
+        "desc": "Wprowadzenie ortogonalnego prowadzenia przewodów, eksportu wektorowego SVG i skrótów klawiszowych."
+      },
+      {
+        "year": "2026",
+        "title": "Zasięg globalny",
+        "desc": "Ponad 180 obsługiwanych krajów i lokalizacja w 18 językach."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Szybkość i prostota",
+        "desc": "Edytor schematów powinien uruchamiać się w ułamku sekundy bez zbędnych komplikacji."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precyzja w standardzie",
+        "desc": "Każdy przewód przyciąga się do siatki 20px, tworząc czytelne i estetyczne połączenia prostopadłe."
+      },
+      {
+        "icon": "🌍",
+        "title": "Dostępność dla każdego",
+        "desc": "Całkowicie bezpłatne narzędzie bez rejestracji i ukrytych opłat."
+      },
+      {
+        "icon": "🔓",
+        "title": "Twoje dane na Twoim urządzeniu",
+        "desc": "Wszystkie schematy są zapisywane lokalnie w przeglądarce i nie są wysyłane na zewnętrzne serwery."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Gotowy, by stworzyć swój pierwszy schemat?",
+    "about.cta.desc": "Otwórz edytor i zacznij projektować — całkowicie za darmo i bez konieczności logowania."
   },
   "id": {
     "about.hero.badge": "Tentang Kami",
@@ -364,7 +918,61 @@
     "about.timeline.title": "رحلتنا",
     "about.principles.title": "مبادئ التصميم لدينا",
     "about.stats.languages.label": "اللغات",
-    "about.stats.countries.label": "الدول"
+    "about.stats.countries.label": "الدول",
+    "about.story.title": "لماذا قمنا ببناء أداة رسم الدوائر الإلكترونية هذه",
+    "about.story.p1": "يعرف كل مهندس إلكترونيات وطالب هذه المعاناة: تحتاج إلى رسم مخطط دائرة سريع لتقرير مختبر أو مراجعة تصميم. خياراتك؟ تشغيل برنامج مكتبي ثقيل أو رسم مخطط غير واضح باليد.",
+    "about.story.p2": "وُلدت هذه الأداة من تلك الحاجة. أردنا بناء أسرع وأبسط وأسهل أداة لرسم الدوائر الإلكترونية عبر المتصفح بشكل مجاني بالكامل.",
+    "about.story.p3": "يتعامل محرر الدوائر لدينا مع كل شيء بدءاً من دوائر LED البسيطة وحتى مكبرات الإشارة متعددة المراحل ودوائر منظمات الجهد وواجهات المتحكمات الدقيقة.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "ولادة الفكرة",
+        "desc": "بدأ مهندسونا في تطوير نموذج أولي لأداة رسم دوائر سريعة تعمل مباشرة في المتصفح."
+      },
+      {
+        "year": "2024",
+        "title": "الإصدار التجريبي الأول",
+        "desc": "إطلاق الأداة مع 20 رمزاً إلكترونياً وتوصيل تلقائي وتصدير صور PNG."
+      },
+      {
+        "year": "2026",
+        "title": "تصدير SVG وأكثر من 40 رمزاً",
+        "desc": "إضافة التوصيل المتعامد الذكي، وتصدير المتجهات SVG، واختصارات لوحة المفاتيح."
+      },
+      {
+        "year": "2026",
+        "title": "انتشار عالمي",
+        "desc": "تخدم الأداة الآن مستخدمين في أكثر من 180 دولة مع دعم 18 لغة عالمية."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "السرعة قبل التعقيد",
+        "desc": "يجب أن تفتح أداة رسم الدوائر في ثوانٍ معدودة. نضع سرعة الاستجابة وسلاسة العمل في مقدمة أولوياتنا."
+      },
+      {
+        "icon": "🎯",
+        "title": "دقة هندسية تلقائية",
+        "desc": "تلتصق الأسلاك بشبكة قياس 20 بكسل وتتصل بزوايا قائمة للحصول على مخططات نظيفة واحترافية."
+      },
+      {
+        "icon": "🌍",
+        "title": "متاح للجميع",
+        "desc": "مجاني دائماً بدون تسجيل أو رسوم خفية لكل الطلاب والمعلمين والمهندسين."
+      },
+      {
+        "icon": "🔓",
+        "title": "بياناتك في جهازك",
+        "desc": "تُحفظ جميع المخططات محلياً في متصفحك ولا يتم رفع تصميماتك إلى أي خوادم خارجية."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "هل أنت مستعد لرسم دائرتك الإلكترونية الأولى؟",
+    "about.cta.desc": "افتح محرر الدوائر وابدأ في التصميم فوراً — مجاناً بالكامل دون الحاجة إلى إنشاء حساب."
   },
   "bg": {
     "about.hero.badge": "За нас",
@@ -505,7 +1113,61 @@
     "about.timeline.title": "Vår resa",
     "about.principles.title": "Våra designprinciper",
     "about.stats.languages.label": "Språk",
-    "about.stats.countries.label": "Länder"
+    "about.stats.countries.label": "Länder",
+    "about.story.title": "Varför vi skapade detta kretsschemaverktyg",
+    "about.story.p1": "Varje elektronikingenjör och student känner igen frustrationen: du behöver snabbt rita ett kretsschema för en labbrapport eller ett projekt. Alternativen är tunga CAD-program eller oläsliga handskisser.",
+    "about.story.p2": "föddes ur detta behov. Vi ville skapa det snabbaste, enklaste och mest tillgängliga verktyget för kretsscheman på webben helt kostnadsfritt.",
+    "about.story.p3": "Vårt kretsschemaverktyg hanterar allt från enkla LED-kretsar till flerstegsförstärkare, spänningsomvandlare och mikrokontrolleranslutningar.",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "Idén föds",
+        "desc": "Våra ingenjörer började bygga en prototyp av ett webbaserat kretsschemaverktyg för att slippa tunga skrivbordsprogram."
+      },
+      {
+        "year": "2024",
+        "title": "Första publika betan",
+        "desc": "Lansering med 20 elektroniska symboler, grundläggande ledningsdragning och PNG-export."
+      },
+      {
+        "year": "2026",
+        "title": "SVG-export och 40+ symboler",
+        "desc": "Tillskott av rätvinklig ledningsdragning, SVG-vektorexport, kortkommandon och utökat komponentbibliotek."
+      },
+      {
+        "year": "2026",
+        "title": "Global räckvidd",
+        "desc": "Används nu i över 180 länder med lokalisering på 18 språk."
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "Snabbhet framför krångel",
+        "desc": "Ett schemaverktyg ska starta på några sekunder. Vi prioriterar snabbhet och smidigt arbetsflöde framför allt."
+      },
+      {
+        "icon": "🎯",
+        "title": "Precision som standard",
+        "desc": "Alla ledningar fäster automatiskt vid ett 20px-rutnät med rätvinkliga anslutningar för snygga scheman."
+      },
+      {
+        "icon": "🌍",
+        "title": "Tillgängligt för alla",
+        "desc": "Gratis för alltid, utan registrering eller betalväggar."
+      },
+      {
+        "icon": "🔓",
+        "title": "Dina data på din enhet",
+        "desc": "Alla kretsscheman sparas lokalt i din webbläsare. Vi laddar aldrig upp eller analyserar dina konstruktioner."
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0",
+    "about.cta.title": "Redo att rita ditt första kretsschema?",
+    "about.cta.desc": "Öppna verktyget och börja rita — helt gratis och utan konto."
   },
   "ur": {
     "about.hero.badge": "ہمارے بارے میں",
@@ -521,6 +1183,55 @@
     "about.meta.title": "ہمارے بارے میں - سرکٹ ڈایاگرام میکر",
     "about.meta.description": "سرکٹ ڈایاگرام بنانے والی ٹیم اور ہمارے مشن کے بارے میں جانیں۔",
     "about.stats.languages.label": "زبانیں",
-    "about.stats.countries.label": "ملک"
+    "about.stats.countries.label": "ملک",
+    "about.story.p3": "ہمارا سرکٹ ڈایاگرام میکر سادہ ایل ای ڈی سرکٹس سے لے کر ملٹی اسٹیج ایمپلیفائر ڈیزائنز، بک کنورٹر اسکیمیٹکس اور مائیکرو کنٹرولر انٹرفیسز تک سب کچھ سپورٹ کرتا ہے۔ یہ وہ ٹول ہے جس کی ہم نے بطور طالب علم خواہش کی تھی، اور اب یہ دنیا بھر کے ہر طالب علم، استاد اور انجینئر کے لیے مکمل طور پر مفت ہے۔",
+    "about.timeline": [
+      {
+        "year": "2023",
+        "title": "خیال کا آغاز",
+        "desc": "بھاری ڈیسک ٹاپ سافٹ ویئر سے تنگ آ کر، ہمارے انجینئرز نے براؤزر میں کام کرنے والے سرکٹ ٹول کا پروٹوٹائپ بنایا۔"
+      },
+      {
+        "year": "2024",
+        "title": "پہلا پبلک بیٹا",
+        "desc": "20 الیکٹرانک علامات، بنیادی وائرنگ اور پی این جی ایکسپورٹ کے ساتھ آغاز ہوا۔"
+      },
+      {
+        "year": "2026",
+        "title": "ایس وی جی ایکسپورٹ اور 40+ علامات",
+        "desc": "ہم نے آرتھوگونل وائر روٹنگ، ویکٹر ایس وی جی ایکسپورٹ، کی بورڈ شارٹ کٹس اور نئے اجزاء شامل کیے۔"
+      },
+      {
+        "year": "2026",
+        "title": "عالمی رسائی",
+        "desc": "سرکٹ ڈایاگرام میکر اب 180 سے زائد ممالک میں 18 زبانوں کے ساتھ طلباء کی خدمت کر رہا ہے۔"
+      }
+    ],
+    "about.values": [
+      {
+        "icon": "🚀",
+        "title": "پیچیدگی پر رفتار کو ترجیح",
+        "desc": "سرکٹ ٹول منٹوں میں نہیں بلکہ سیکنڈوں میں کھلنا چاہیے۔ ہم تیز رفتاری اور کام کی روانی کو اولین ترجیح دیتے ہیں۔"
+      },
+      {
+        "icon": "🎯",
+        "title": "خودکار درستگی",
+        "desc": "ہر تار 20 پکسل گرڈ پر اسنیپ ہوتی ہے اور واضح اسکیمیٹکس کے لیے 90 درجے پر جڑتی ہے۔"
+      },
+      {
+        "icon": "🌍",
+        "title": "ہر ایک کے لیے دستیاب",
+        "desc": "ہمیشہ کے لیے مفت، بغیر کسی رجسٹریشن یا فیس کے سب کے لیے دستیاب۔"
+      },
+      {
+        "icon": "🔓",
+        "title": "آپ کا ڈیٹا آپ کی ڈیوائس پر",
+        "desc": "تمام سرکٹ ڈایاگرامز آپ کے براؤزر میں محفوظ ہوتے ہیں اور کبھی کسی بیرونی سرور پر اپ لوڈ نہیں کیے جاتے۔"
+      }
+    ],
+    "about.stats.symbols.value": "40+",
+    "about.stats.languages.value": "18",
+    "about.stats.countries.value": "180+",
+    "about.stats.cost.value": "0"
   }
 }

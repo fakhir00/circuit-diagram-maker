@@ -13,6 +13,9 @@ const locales = [
 ];
 const defaultLocale = 'en';
 
+/**
+ * @param {string} xml
+ */
 function formatXml(xml) {
   // Normalize line endings, then collapse ALL whitespace between tags (handles
   // both fresh minified output and already-formatted XML)
@@ -21,6 +24,7 @@ function formatXml(xml) {
 
   let out = '';
   let depth = 0;
+  /** @param {number} n */
   const pad = (n) => '  '.repeat(n);
   const re = /(<[^>]+>)/g;
   let last = 0;
@@ -60,6 +64,7 @@ function formatXml(xml) {
   return out.trim();
 }
 
+/** @returns {import('astro').AstroIntegration} */
 function sitemapCopyPlugin() {
   return {
     name: 'sitemap-copy-plugin',
