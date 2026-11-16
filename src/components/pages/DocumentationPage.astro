@@ -180,7 +180,85 @@ const resourceCards = readCardArray('docs.resources.cards');
     </div>
   </section>
 
-  <!-- Related Links -->
+  <!-- Tool Scope & Technical Limitations -->
+  <section class="py-20 bg-bg-dark border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white">Tool Scope & Technical Limitations</h2>
+        <p class="mt-3 text-slate-400">Understanding what Circuit Diagram Maker is designed for and where external CAD suites apply.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <h3 class="font-bold text-emerald-400 mb-3 text-base flex items-center gap-2">
+            <span>✓</span> Designed For (Core Strengths)
+          </h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">•</span> Fast conceptual schematic drafting in your web browser.</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">•</span> High-resolution vector SVG and PNG export for academic papers and blogs.</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">•</span> Zero software installation or cloud account paywall.</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">•</span> Clean IEEE and IEC electrical symbol standards.</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">•</span> Local storage persistence and shareable JSON circuit files.</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
+          <h3 class="font-bold text-amber-400 mb-3 text-base flex items-center gap-2">
+            <span>⚠</span> Out of Scope (Use Specialized CAD)
+          </h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold">•</span> <strong>No SPICE simulation:</strong> Does not calculate live voltages, currents, or waveform transients.</li>
+            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold">•</span> <strong>No PCB trace routing:</strong> Does not generate multi-layer copper Gerber files (use KiCad/Altium).</li>
+            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold">•</span> <strong>No autorouted breadboard graphics:</strong> Visualizes schematics, not physical breadboard holes.</li>
+            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold">•</span> <strong>Max practical schematic size:</strong> Optimized for circuits under 200 components.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions -->
+  <section class="py-20 bg-bg-panel border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white text-center mb-10">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="group bg-bg-surface border border-white/10 rounded-xl overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+          <summary class="flex justify-between items-center p-5 cursor-pointer list-none text-white font-medium hover:bg-white/5 transition-colors">
+            <span>Can I export circuit diagrams with a transparent background?</span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="p-5 pt-0 text-slate-400 leading-relaxed border-t border-white/5 bg-bg-panel/30 text-sm">
+            Yes. SVG exports maintain transparent vector backgrounds by default, allowing you to embed schematics seamlessly into light, dark, or print backgrounds without unwanted white bounding boxes.
+          </div>
+        </details>
+        <details class="group bg-bg-surface border border-white/10 rounded-xl overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+          <summary class="flex justify-between items-center p-5 cursor-pointer list-none text-white font-medium hover:bg-white/5 transition-colors">
+            <span>Are my circuits saved in the cloud or on my device?</span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="p-5 pt-0 text-slate-400 leading-relaxed border-t border-white/5 bg-bg-panel/30 text-sm">
+            100% on your device. The editor utilizes browser LocalStorage for automatic periodic autosaves every 30 seconds. No circuit data is ever sent to external cloud servers. To share or back up a project, export the schematic as a `.circuit` JSON file.
+          </div>
+        </details>
+        <details class="group bg-bg-surface border border-white/10 rounded-xl overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+          <summary class="flex justify-between items-center p-5 cursor-pointer list-none text-white font-medium hover:bg-white/5 transition-colors">
+            <span>How do I create a wire junction (T-connection)?</span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="p-5 pt-0 text-slate-400 leading-relaxed border-t border-white/5 bg-bg-panel/30 text-sm">
+            Switch to the Wire tool (W) and click on any existing wire segment. The engine will place a junction dot connecting the new branch into the existing electrical net.
+          </div>
+        </details>
+        <details class="group bg-bg-surface border border-white/10 rounded-xl overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+          <summary class="flex justify-between items-center p-5 cursor-pointer list-none text-white font-medium hover:bg-white/5 transition-colors">
+            <span>Can I rotate and mirror components before placing them?</span>
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="p-5 pt-0 text-slate-400 leading-relaxed border-t border-white/5 bg-bg-panel/30 text-sm">
+            Yes. While a component is selected or hovering in placement mode, press <code>R</code> to rotate 90° clockwise, <code>H</code> to flip horizontally, or <code>F</code> to flip vertically.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
   <section class="py-12 bg-bg-dark border-t border-white/5">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-xl font-bold text-white mb-6">{readText('docs.resources.title')}</h2>
