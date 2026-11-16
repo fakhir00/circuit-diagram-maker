@@ -80,6 +80,37 @@ flowchart TD
 
 When you use a dedicated electronics tool, the editor understands that a wire cannot simply "terminate" randomly without a junction, and it inherently maps standard properties (like Ohms to resistors).
 
+## Comprehensive Feature Comparison Matrix
+
+| Workflow Criteria | Circuit Diagram Maker | KiCad (v8) | Fritzing | draw.io | EasyEDA |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Platform** | 100% Web Browser | Windows / macOS / Linux | Desktop App | Web / Desktop | Web / Desktop |
+| **Initial Setup Time** | **< 5 seconds** | 15–30 minutes | 5–10 minutes | < 1 minute | 2–5 minutes |
+| **Target Audience** | Students, Educators, Content Creators | PCB & Hardware Engineers | Beginners, Makers, Arduino | General Flowchart Users | PCB Designers, JLCPCB Users |
+| **Component Snapping** | Native electrical grid & terminal snap | Strict footprint pin grid | Breadboard pin snap | Generic boundary snap | Pin-to-pin snap |
+| **Wire Orthogonal Routing** | Automatic Manhattan routing | Manual 90° / 45° buses | Manual curves | Basic bezier / orthogonal | Manual schematic nets |
+| **Export Formats** | High-Res SVG, Clean PNG, JSON | Gerber, Drill, PDF, DXF, SVG | PNG, PDF, Gerber | PNG, SVG, PDF | Gerber, PDF, BOM |
+| **Design Rule Check (DRC)**| Terminal connectivity alerts | Full netlist & footprint DRC | Basic overlap check | None | Full PCB design DRC |
+| **Offline Operation** | Cached PWA / Local Storage | 100% Offline Native | 100% Offline Native | Offline Desktop version | Requires cloud account |
+| **Cost** | **100% Free** | Free / Open Source (CERN) | €20–€40 (Donationware) | Free | Free tier (Cloud-tied) |
+
+## Workflow Breakdown: When to Use Which Tool
+
+### Choose Circuit Diagram Maker When:
+- **Writing technical documentation, blog tutorials, or lab reports**: You need clean, standardized IEEE/IEC schematic figures with transparent backgrounds that scale cleanly in print and responsive web layouts.
+- **Teaching electronics fundamentals**: Students can begin laying out circuits on day one without software installations, driver issues, or complex footprint assignments.
+- **Drafting conceptual schematics for team reviews**: Quickly share ideas or post diagrams on GitHub, Stack Exchange, or Discord without sending proprietary CAD project files.
+
+### Choose KiCad or Altium Designer When:
+- **Manufacturing physical circuit boards**: You need to assign physical SMD/through-hole footprints, route multi-layer copper traces, calculate impedance-matched differential pairs, and export Gerber RS-274X files for PCB fabrication.
+- **Simulating circuit performance**: You require SPICE engine simulations (transient analysis, AC sweeps, Monte Carlo tolerance modeling).
+
+### Choose Fritzing When:
+- **Creating breadboard assembly guides**: You are teaching complete beginners or younger students who need to physically see which row and column on an actual solderless breadboard each wire plugs into.
+
+### Choose draw.io or Lucidchart When:
+- **Creating high-level systems architecture diagrams**: You are mapping block diagrams, network topologies, or mixed software-hardware workflows where electrical terminal semantics are not needed.
+
 ## Which Tool is Right for You?
 
-The best tool is the one that gets out of your way. For rapid ideation, educational assignments, and web publications, [Circuit Diagram Maker](/editor/) offers an unbeatable combination of speed and modern aesthetic. 
+The best tool is the one that gets out of your way. For rapid ideation, educational assignments, documentation, and publication-ready vector exports, [Circuit Diagram Maker](/editor/) delivers the fastest path from idea to clean schematic. When ready for physical board fabrication, take your finalized schematic logic directly into KiCad or EasyEDA. 

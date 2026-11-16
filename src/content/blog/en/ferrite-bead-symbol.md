@@ -76,4 +76,34 @@ In the configuration above (part of a Pi-Filter), the ferrite bead blocks high-f
 
 When routing long USB data cables or HDMI traces, `FB` symbols are often placed in series near the connector. This ensures that the long, physically exposed wire does not act as an antenna and radiate CPU noise across the room.
 
-To add a ferrite bead to your next schematic, open the **[Circuit Diagram Editor](/editor/)**, search for "Ferrite," and specify your impedance rating!
+## 4. Critical Engineering Pitfalls & Selection Guidelines
+
+When selecting and reading ferrite beads in real-world schematics, watch for two subtle traps that cause mystery hardware failures:
+
+### The DC Bias Current Trap (Impedance Derating)
+A ferrite bead specified as `600 Ω @ 100 MHz` only delivers that 600 Ω impedance at **zero DC current**. As operating DC current increases toward the rated maximum, internal magnetic domains saturate, causing effective impedance to collapse by 50% to 80%:
+
+| DC Load Current | Effective Impedance (% of Rated) | Design Impact |
+| :--- | :--- | :--- |
+| **0% Rated Current** | 100% (Full rated 600 Ω) | Maximum noise attenuation |
+| **30% Rated Current** | ~75%–85% | Nominal filtering intact |
+| **60% Rated Current** | ~40%–50% | Significant high-frequency leakage |
+| **90%+ Rated Current** | < 25% | Bead acts virtually as a wire, zero EMI filtering |
+
+*Design Rule:* Always select a ferrite bead whose rated DC current ($I_{DC}$) is at least **2x to 3x** your circuit's peak load current.
+
+### The LC Anti-Resonance Trap
+Placing a ferrite bead in series with a ceramic decoupling capacitor creates an effective LC resonant tank. At the resonant frequency ($f_{res} = \frac{1}{2\pi\sqrt{L \cdot C}}$), the circuit may actually **amplify voltage ripple** instead of suppressing it, causing microcontroller reset glitches.
+
+*Remedy:* Add a small damping resistance (either select a bead with high intrinsic DC resistance $R_{DC} \approx 0.1\text{–}0.5\,\Omega$, or parallel the ceramic cap with a lossy electrolytic/tantalum capacitor).
+
+## Real-World Component Selection Guide
+
+| Application Area | Typical Part Spec | Target Frequency Band | Recommended Package |
+| :--- | :--- | :--- | :--- |
+| **USB 2.0 / 3.0 VBUS** | `120 Ω @ 100 MHz, 2A` | 100 MHz – 500 MHz | 0805 / 1206 SMD |
+| **MCU Analog AVCC Rail**| `600 Ω @ 100 MHz, 200mA`| 50 MHz – 1 GHz | 0603 SMD |
+| **Switching Regulator Output**| `60 Ω @ 100 MHz, 4A, Low RDC`| 10 MHz – 100 MHz | 1206 / 1210 SMD |
+| **Audio Line Filtering** | `1000 Ω @ 100 MHz, 100mA`| 100 MHz – 2 GHz | 0402 / 0603 SMD |
+
+To add a ferrite bead to your next schematic, open the **[Circuit Diagram Editor](/editor/)**, search for "Ferrite," and specify your impedance rating and DC current limits!

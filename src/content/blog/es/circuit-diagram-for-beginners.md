@@ -25,14 +25,14 @@ Estos son los símbolos fundamentales que verá en casi todos los diagramas de c
 |--------|-----------|-------------|
 | Línea en zigzag | Resistencia | Limita el flujo de corriente |
 | Dos líneas paralelas | Condensador | Almacena carga eléctrica |
-| Serie de bucles | Inductores | Almacena energía en un campo magnético |
+| Serie de bucles | Inductor / Bobina | Almacena energía en un campo magnético |
 | Triángulo + barra | Diodo | Permite corriente en una sola dirección |
 | Triángulo + barra + flechas | LED | Emite luz cuando fluye corriente |
 | Líneas paralelas largas/cortas | Batería | Proporciona voltaje (fuente de energía) |
-| Tres líneas apiladas | Terreno | Punto de tensión de referencia (0V) |
-| Forma de triángulo | Amplificador operacional | Amplifica señales |
-| Rectángulo con alfileres | Circuito Integrado | Realiza funciones complejas |
-| Líneas rectas | Alambres | Llevar electricidad entre componentes |
+| Tres líneas apiladas | Tierra / Masa (GND) | Punto de tensión de referencia (0V) |
+| Forma de triángulo | Amplificador operacional | Amplifica señales de voltaje |
+| Rectángulo con terminales | Circuito Integrado (IC) | Realiza funciones complejas |
+| Líneas rectas | Cables / Conexiones | Conducen la corriente entre componentes |
 
 ## Cómo leer un diagrama de circuito (para principiantes absolutos)
 
@@ -42,11 +42,11 @@ Leer un diagrama de circuito es como leer una oración: una vez que conoces el a
 
 Busque un símbolo de batería o etiquetas de voltaje (VCC, 5 V, 3,3 V). Aquí es donde la electricidad entra al circuito.
 
-### 2. Encuentra terreno
+### 2. Localiza la tierra (GND)
 
-Busque el símbolo del suelo (tres líneas horizontales que se hacen más pequeñas). Aquí es donde regresa la electricidad: cada circuito necesita tanto una fuente de energía como una conexión a tierra.
+Busque el símbolo de tierra o masa (tres líneas horizontales decrecientes). Aquí es donde regresa la electricidad: cada circuito cerrado necesita tanto una fuente de energía como una ruta de retorno a tierra.
 
-### 3. Traza el camino actual
+### 3. Traza la trayectoria de la corriente
 
 Siga los cables desde la fuente de alimentación, a través de los componentes y de regreso a tierra. La corriente fluye de positivo a negativo (flujo de corriente convencional).
 
