@@ -2,10 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations } from '../theme/i18n';
 import aboutKeys from '../data/i18n/about.json';
+import config from '../data/config.json';
 
 const { locale } = Astro.props;
 const activeLocale = locale || 'en';
 const t = useTranslations(activeLocale);
+const sponsoredEmail = config?.site?.sponsoredEmail || config?.sponsoredEmail || 'malikwardan91@gmail.com';
 
 const localeAbout = (aboutKeys as Record<string, any>)[activeLocale] || {};
 const timeline = localeAbout['about.timeline'] || [];
@@ -104,6 +106,32 @@ const values = localeAbout['about.values'] || [];
         <div class="text-center p-6 rounded-2xl border border-white/10 bg-bg-panel/40">
           <div class="text-3xl font-black text-white">{t('about.stats.cost.value')}</div>
           <div class="text-xs uppercase tracking-[0.25em] text-slate-500 mt-2">{t('home.stats.free')}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnerships & Sponsored Posts -->
+  <section class="py-16 bg-bg-panel border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-white/10 bg-bg-dark/60 p-8 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="max-w-xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-accent mb-2">Partnerships</p>
+          <h2 class="text-2xl font-bold text-white mb-2">Sponsored Posts & Collaborations</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Interested in sponsored posts, partner content, or advertising on Circuit Diagram Maker? Reach out to our Sponsored Post Manager directly.
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <a
+            href={`mailto:${sponsoredEmail}?subject=${encodeURIComponent('Sponsored Post Inquiry - Circuit Diagram Maker')}`}
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-brand-primary text-white text-sm font-semibold transition-all border border-white/10 hover:border-brand-primary"
+          >
+            <svg class="w-4 h-4 text-brand-accent group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>{sponsoredEmail}</span>
+          </a>
         </div>
       </div>
     </div>
